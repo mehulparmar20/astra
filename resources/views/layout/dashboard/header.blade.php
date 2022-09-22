@@ -17,11 +17,11 @@
 <link rel="shortcut icon" type="image/x-icon" href="#" />
 
 <!-- BOOTSTRAP CSS -->
-<link id="style" href="css/bootstrap.min.css" rel="stylesheet" />
+<link id="style" href="../css/bootstrap.min.css" rel="stylesheet" />
 
 <!-- STYLE CSS -->
-<link href="css/style.css" rel="stylesheet" />
-<link href="css/skin-modes.css" rel="stylesheet" /> 
+<link href="../css/style.css" rel="stylesheet" />
+<link href="../css/skin-modes.css" rel="stylesheet" /> 
 
 
 <!--- FONT-ICONS CSS -->
@@ -31,8 +31,8 @@
 
 <!-- INTERNAL Switcher css -->
 <!-- <link href="https://laravel8.spruko.com/noa/assets/switcher/demo.css" rel="stylesheet"> -->
-<link href="css/switcher.css" rel="stylesheet">
-<link href="css/demo.css" rel="stylesheet">
+<link href="../css/switcher.css" rel="stylesheet">
+<link href="../css/demo.css" rel="stylesheet">
 
 <style type="text/css">
    .header-brand-img {

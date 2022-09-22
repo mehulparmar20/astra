@@ -4,10 +4,10 @@
                 <div class="app-sidebar">
                     <div class="side-header">
                         <a class="header-brand1" href="https://laravel8.spruko.com/noa/index">
-                            <img src="images/logo.png" class="header-brand-img desktop-logo" alt="logo">
-                            <img src="images/logo.png" class="header-brand-img toggle-logo" alt="logo">
-                            <img src="images/logo.png" class="header-brand-img light-logo" alt="logo">
-                            <img src="images/logo.png" class="header-brand-img light-logo1" alt="logo">
+                            <img src="../images/logo.png" class="header-brand-img desktop-logo" alt="logo">
+                            <img src="../images/logo.png" class="header-brand-img toggle-logo" alt="logo">
+                            <img src="../images/logo.png" class="header-brand-img light-logo" alt="logo">
+                            <img src="../images/logo.png" class="header-brand-img light-logo1" alt="logo">
                         </a><!-- LOGO -->
                     </div>
                     <div class="main-sidemenu">
