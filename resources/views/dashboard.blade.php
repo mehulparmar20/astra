@@ -22,7 +22,7 @@
                             <!-- PAGE-HEADER -->
                             <div class="page-header">
                                 <div>
-                                    <h1 class="page-title">Dashboard123</h1>
+                                    <h1 class="page-title">Dashboard</h1>
                                 </div>
                                 <div class="ms-auto pageheader-btn">
                                     <ol class="breadcrumb">
