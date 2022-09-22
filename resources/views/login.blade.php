@@ -41,7 +41,7 @@
 										<p class="mb-0"><a href="https://laravel8.spruko.com/noa/forgot-password" class="text-primary ms-1">Forgot Password?</a></p>
 									</div>
 									<div class="container-login100-form-btn">
-										<a href="/astra/public/admin" class="login100-form-btn btn-primary">
+										<a href="/admin/dashboard" class="login100-form-btn btn-primary">
 											Login
 										</a>
 									</div>
