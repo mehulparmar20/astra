@@ -25,7 +25,7 @@
 								<form action="{{ route('login.post') }}" method="post"class="login100-form validate-form">
 									@csrf
 									<span class="login100-form-title">
-										Login1
+										Login
 									</span>
 									<div class="wrap-input100 validate-input" data-bs-validate = "Valid email is required: ex@abc.xyz">
 										<input class="input100" type="text" name="userEmail" placeholder="Email">
