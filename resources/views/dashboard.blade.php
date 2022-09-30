@@ -64,7 +64,7 @@
                                             <div class="row">
                                                 <div class="col">
                                                     <h3 class="mb-2 fw-semibold">12,563</h3>
-                                                    <p class="text-muted fs-13 mb-0">Total Orders</p>
+                                                    <p class="text-muted fs-13 mb-0">Total Orders1</p>
                                                     <p class="text-muted mb-0 mt-2 fs-12">
                                                         <span class="icn-box text-danger fw-semibold fs-13 me-1">
                                                             <i class='fa fa-long-arrow-down'></i>
