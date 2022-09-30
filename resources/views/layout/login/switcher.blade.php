@@ -103,7 +103,7 @@
         <!-- End Switcher -->
         <!-- Switcher-->
 
-        @include('loader')
+       @include('layout.loader')
 
             <!-- Switcher Icon-->
             <span class="demo-icon">
