@@ -41,7 +41,7 @@
                                             <div class="row">
                                                 <div class="col">
                                                     <h3 class="mb-2 fw-semibold">1,12,324</h3>
-                                                    <p class="text-muted fs-13 mb-0">Daily Visitors111</p>
+                                                    <p class="text-muted fs-13 mb-0">Daily Visitors</p>
                                                     <p class="text-muted mb-0 mt-2 fs-12">
                                                         <span class="icn-box text-success fw-semibold fs-13 me-1">
                                                             <i class='fa fa-long-arrow-up'></i>
