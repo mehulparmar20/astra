@@ -58,6 +58,10 @@
 	<!-- CUSTOM JS -->
 	<script src="../assets/js/custom.js"></script>
 
+	<!-- dashboard js -->
+    <script src="../assets/js/js/form.js"></script>
+    
+
 </body>
 
 </html>

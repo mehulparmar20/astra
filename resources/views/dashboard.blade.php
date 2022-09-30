@@ -34,23 +34,37 @@
 							<div class="col-lg-6 col-sm-12 col-md-6 col-xl-3">
 								<div class="card overflow-hidden">
 									<div class="card-body">
-										<div class="row">
+                                        <div class="info-stats2" data-name="dash_company_revenu">
+                                           
+                                            <div class="bs-spinner loader1" id='copmrev' style="display: none;">
+                                                <div class="spinner-border text-primary dashboard-loader" role="status"></div>
+                                            </div>
+                                            <div class="sale-num" id="dashcomrev">
+
+                                            </div>
+                                            <div class="col col-auto top-icn dash">
+												<div class="counter-icon bg-primary dash ms-auto box-shadow-primary">
+													<svg xmlns="http://www.w3.org/2000/svg" class="fill-white" enable-background="new 0 0 24 24" viewBox="0 0 24 24"><path d="M12,8c-2.2091675,0-4,1.7908325-4,4s1.7908325,4,4,4c2.208252-0.0021973,3.9978027-1.791748,4-4C16,9.7908325,14.2091675,8,12,8z M12,15c-1.6568604,0-3-1.3431396-3-3s1.3431396-3,3-3c1.6561279,0.0018311,2.9981689,1.3438721,3,3C15,13.6568604,13.6568604,15,12,15z M21.960022,11.8046875C19.9189453,6.9902344,16.1025391,4,12,4s-7.9189453,2.9902344-9.960022,7.8046875c-0.0537109,0.1246948-0.0537109,0.2659302,0,0.390625C4.0810547,17.0097656,7.8974609,20,12,20s7.9190063-2.9902344,9.960022-7.8046875C22.0137329,12.0706177,22.0137329,11.9293823,21.960022,11.8046875z M12,19c-3.6396484,0-7.0556641-2.6767578-8.9550781-7C4.9443359,7.6767578,8.3603516,5,12,5s7.0556641,2.6767578,8.9550781,7C19.0556641,16.3232422,15.6396484,19,12,19z"/></svg>
+												</div>
+											</div>
+                                        </div>
+										<!-- <div class="row">
 											<div class="col">
 												<h3 class="mb-2 fw-semibold">1,12,324</h3>
 												<p class="text-muted fs-13 mb-0">Company Revenue</p>
-												<!-- <p class="text-muted mb-0 mt-2 fs-12">
+												<p class="text-muted mb-0 mt-2 fs-12">
 													<span class="icn-box text-success fw-semibold fs-13 me-1">
 														<i class='fa fa-long-arrow-up'></i>
 														42%</span>
 													since last month
-												</p> -->
+												</p>
 											</div>
 											<div class="col col-auto top-icn dash">
 												<div class="counter-icon bg-primary dash ms-auto box-shadow-primary">
 													<svg xmlns="http://www.w3.org/2000/svg" class="fill-white" enable-background="new 0 0 24 24" viewBox="0 0 24 24"><path d="M12,8c-2.2091675,0-4,1.7908325-4,4s1.7908325,4,4,4c2.208252-0.0021973,3.9978027-1.791748,4-4C16,9.7908325,14.2091675,8,12,8z M12,15c-1.6568604,0-3-1.3431396-3-3s1.3431396-3,3-3c1.6561279,0.0018311,2.9981689,1.3438721,3,3C15,13.6568604,13.6568604,15,12,15z M21.960022,11.8046875C19.9189453,6.9902344,16.1025391,4,12,4s-7.9189453,2.9902344-9.960022,7.8046875c-0.0537109,0.1246948-0.0537109,0.2659302,0,0.390625C4.0810547,17.0097656,7.8974609,20,12,20s7.9190063-2.9902344,9.960022-7.8046875C22.0137329,12.0706177,22.0137329,11.9293823,21.960022,11.8046875z M12,19c-3.6396484,0-7.0556641-2.6767578-8.9550781-7C4.9443359,7.6767578,8.3603516,5,12,5s7.0556641,2.6767578,8.9550781,7C19.0556641,16.3232422,15.6396484,19,12,19z"/></svg>
 												</div>
 											</div>
-										</div>
+										</div> -->
 									</div>
 								</div>
 							</div>
@@ -125,155 +139,145 @@
 							</div>
 						</div>
 						<!-- ROW-1 END-->
+                        
+						<!-- ROW-1.1 -->
+						<div class="row">
+							<div class="col-sm-12 col-md-12 col-xl-4 col-lg-6">
+                            
+								<div class="row">
+                                    <div class="col-xl-4"  style="display:flex">
+                                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                                            Launch demo modal
+                                        </button>
+                                        <div style='display: flex; flex-direction: column;'>
+                                            <div style='display: flex; flex-direction: row; margin-left:5px; margin-bottom:2px;'><input
+                                                    type="radio" name="mcdot" id="" checked="" value="mc">
+                                                <b style="position: relative;top: -1px;font-size:10px;font-weight:700;">&nbsp;MC</b>
+                                            </div>
+                                            <div style='display: flex; flex-direction: row;margin-left:5px;margin-top:2px;'><input type="radio"
+                                                    name="mcdot" id="" value="dot">
+                                                <b style="position: relative;top: -1px;font-size:10px;font-weight:700;">&nbsp;DOT</b>
+                                            </div>
+                                        </div>
+                                    </div>
 
-						<!-- ROW-2 -->
+                                    <div class="col-xl-3"  style="display:flex">
+                                        <div class="search">
+                                            <input type="text" placeholder="search" list="mclist" id="mc"
+                                                onkeyup="doSearch(this.value,'mclist')" onchange="getMcData(this)" autocomplete="off">
+                                            <datalist id="mclist">
+                                            </datalist>
+                                            <div class="symbol">
+                                                <svg class="cloud">
+                                                    <use xlink:href="#cloud" />
+                                                </svg>
+                                                <svg class="lens">
+                                                    <use xlink:href="#lens" />
+                                                </svg>
+                                            </div>
+                                        </div>
+                                
+                                    
+                                        <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+
+                                            <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 122.88 74.34" id="cloud">
+                                                <path class="st0"
+                                                    d="M94.42,18.73l-17.98-0.1V6.53c0-1.8-0.73-3.43-1.92-4.61C73.34,0.73,71.71,0,69.91,0H20.07 c-1.8,0-3.43,0.73-4.61,1.92c-1.18,1.18-1.92,2.81-1.92,4.61c0,0.98,0.79,1.77,1.77,1.77c0.98,0,1.77-0.79,1.77-1.77 c0-0.82,0.34-1.57,0.88-2.11c0.54-0.54,1.29-0.88,2.11-0.88h49.84c0.82,0,1.57,0.34,2.11,0.88c0.54,0.54,0.88,1.29,0.88,2.11v55.41 h-9.98c-0.98,0-1.77,0.79-1.77,1.77c0,0.98,0.79,1.77,1.77,1.77h11.75c0.98,0,1.77-0.79,1.77-1.77v-2.01h10.68 c0.81-18.42,27.26-20.96,29.95,0h5.81l-1.79-19.22l-19.07-7.3L94.42,18.73L94.42,18.73z M2.65,37.54c-1.47,0-2.65-0.8-2.65-1.78 c0-0.98,1.19-1.78,2.65-1.78h23.89c1.47,0,2.65,0.8,2.65,1.78c0,0.98-1.19,1.78-2.65,1.78H2.65L2.65,37.54z M8.12,27.96 c-1.1,0-1.99-0.79-1.99-1.77c0-0.98,0.89-1.77,1.99-1.77h18.43c1.1,0,1.99,0.79,1.99,1.77c0,0.98-0.89,1.77-1.99,1.77H8.12 L8.12,27.96z M10.65,18.38c-1.1,0-1.99-0.79-1.99-1.77c0-0.98,0.89-1.77,1.99-1.77h15.89c1.1,0,1.99,0.79,1.99,1.77 c0,0.98-0.89,1.77-1.99,1.77H10.65L10.65,18.38z M26.46,61.93c0.98,0,1.77,0.79,1.77,1.77c0,0.98-0.79,1.77-1.77,1.77h-6.39 c-1.79,0-3.42-0.78-4.61-2.01c-1.18-1.23-1.92-2.91-1.92-4.69v-13c0-0.98,0.79-1.77,1.77-1.77c0.98,0,1.77,0.79,1.77,1.77v13 c0,0.85,0.35,1.66,0.92,2.25c0.54,0.56,1.27,0.92,2.06,0.92H26.46L26.46,61.93z M44.46,50.37c-6.62,0-11.99,5.37-11.99,11.99 c0,6.62,5.37,11.99,11.99,11.99c6.62,0,11.99-5.37,11.99-11.99C56.44,55.74,51.08,50.37,44.46,50.37L44.46,50.37z M44.46,57.75 c-2.54,0-4.61,2.06-4.61,4.61c0,2.54,2.06,4.61,4.61,4.61c2.54,0,4.61-2.06,4.61-4.61C49.06,59.81,47,57.75,44.46,57.75 L44.46,57.75z M102.06,50.37c-6.62,0-11.99,5.37-11.99,11.99c0,6.62,5.37,11.99,11.99,11.99s11.99-5.37,11.99-11.99 C114.05,55.74,108.68,50.37,102.06,50.37L102.06,50.37z M102.06,57.75c-2.54,0-4.61,2.06-4.61,4.61c0,2.54,2.06,4.61,4.61,4.61 s4.61-2.06,4.61-4.61C106.67,59.81,104.61,57.75,102.06,57.75L102.06,57.75z M89.79,23.81l-8.93-0.1V35.2h14.97L89.79,23.81 L89.79,23.81z" />
+                                            </symbol>
+                                            <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" id="lens">
+                                                <path d="M15.656,13.692l-3.257-3.229c2.087-3.079,1.261-7.252-1.845-9.321c-3.106-2.068-7.315-1.25-9.402,1.83
+                                                            s-1.261,7.252,1.845,9.32c1.123,0.748,2.446,1.146,3.799,1.142c1.273-0.016,2.515-0.39,3.583-1.076l3.257,3.229
+                                                            c0.531,0.541,1.404,0.553,1.95,0.025c0.009-0.008,0.018-0.017,0.026-0.025C16.112,15.059,16.131,14.242,15.656,13.692z M2.845,6.631
+                                                            c0.023-2.188,1.832-3.942,4.039-3.918c2.206,0.024,3.976,1.816,3.951,4.004c-0.023,2.171-1.805,3.918-3.995,3.918
+                                                            C4.622,10.623,2.833,8.831,2.845,6.631L2.845,6.631z" />
+                                            </symbol>
+                                        </svg>
+                                    </div>
+                                    <div class="col-xl-5"  style="display:flex">
+                                        <i class="mdi mdi-play-circle float-right tour-icon" id="dashboard_tour" title="Take a Tour"
+                                            style="margin-top: -8px;font-size:35px"></i>
+                                            <select name="dashtype" style="width: 100%;" class="form-control" id="dashfilter_by" onchange="dateWiseDashData(this.value)">
+                                                <option value="">---select---</option>
+                                                <option value="ship_date" selected="true">Ship Date</option>
+                                                <option value="deliver_date">Delivery Date</option>
+                                                <option value="invoice_date">Invoice Date</option>
+                                                <option value="creation_date">Creation Date</option>
+                                            </select>
+                                    </div>
+                                    
+								</div>
+							</div>
+
+                            
+
+							<div class="col-sm-12 col-md-12 col-lg-6 col-xl-8 float-right">
+								 <!-- App actions start -->
+                                 <div class="app-actions" data-name="dash_actions_tabs">
+
+                                    <button type="button" class="btn dash_button <!--active--> " onclick="_empty();dashchart(this.value);"
+                                        value="customer_analytics">Customer</button>
+                                    <?php if(!isset($_SESSION['dashboard']) || $privileges->profitLoss == 1) {?>
+                                    <button type="button" class="btn dash_button" onclick="_empty();dashchart(this.value);"
+                                        value="profit_loss">Profit/Loss</button>
+                                    <?php } if(!isset($_SESSION['dashboard']) || $privileges->dispatcher == 1) {?>
+                                    <button type="button" class="btn dash_button" onclick="_empty();dashchart(this.value);"
+                                        value="dispatcher_analytics">Dispatcher</button>
+                                    <?php } if(!isset($_SESSION['dashboard']) || $privileges->driver == 1) {?>
+                                    <button type="button" class="btn dash_button" onclick="_empty();dashchart(this.value);"
+                                        value="driver_analytics">Driver</button>
+                                    <?php } if(!isset($_SESSION['dashboard']) || $privileges->company == 1) {?>
+                                    <button type="button" class="btn dash_button" onclick="_empty();companydashdata(); dashchart(this.value);"
+                                        value="company_analytics">Company</button>
+                                    <?php } if(!isset($_SESSION['dashboard']) || $privileges->truck == 1) {?>
+                                    <button type="button" class="btn dash_button" onclick="_empty();dashchart(this.value);"
+                                        value="truck_analytics">Truck</button>
+                                    <?php } if(!isset($_SESSION['dashboard']) || $privileges->carrier == 1) {?>
+                                    <button type="button" class="btn dash_button" onclick="_empty();dashchart(this.value);"
+                                        value="carrier_analytics">Carrier</button>
+                                    <?php } if(!isset($_SESSION['dashboard']) || $privileges->equipment == 1) {?>
+                                    <button type="button" class="btn dash_button" onclick="_empty();dashchart(this.value);"
+                                        value="equipment_analytics">Equipment</button>
+                                    <?php } if(!isset($_SESSION['dashboard']) || $privileges->sales_representative == 1) {?>
+                                    <button type="button" class="btn dash_button" onclick="_empty();getsalesrapdata(); dashchart(this.value);"
+                                        value="salesrep_analytics">Sales Representative</button>
+                                    <?php } ?>
+                                    </div>
+                                    <!-- App actions end -->
+							</div>
+						</div>
+						<!-- ROW-1.1 END -->
+<br>
+                        <!-- ROW-2 -->
 						<div class="row">
 							<div class="col-sm-12 col-md-12 col-xl-4 col-lg-6">
 								<div class="row">
-									<div class="col-lg-12 col-xl-12 col-md-6 col-sm-12">
-										<div class="card">
-											<div class="card-body pb-2">
-												<div class="title-head mb-3">
-													<h3 class="mb-5 card-title">Revenue By channel</h3>
-													<div class="storage-percent">
-														<div class="progress fileprogress h-auto ps-0 shadow1">
-															<span class="progress-bar progress-bar-xs wd-15p received" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></span>
-															<span class="progress-bar progress-bar-xs wd-15p download" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></span>
-															<span class="progress-bar progress-bar-xs wd-15p shared" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></span>
-															<span class="progress-bar progress-bar-xs wd-15p my-images" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></span>
-														</div>
-														<div class="remaining-storage">
-															<div class="text-muted fs-13 mb-1 mt-3">Total Revenue Earned</div>
-															<div class="fw-semibold fs-14 mb-1 mt-3">$345,3467.72</div>
-														</div>
-													</div>
-												</div>
-												<div class="content-main mt-5">
-													<ul class="task-list1 row mx-auto">
-														<li class="col-xl-6">
-															<span class="mb-0 fs-13 me-1"><i class="task-icon1 bg-primary me-3"></i>Direct</span>
-															<span class="text-success fw-semibold fs-12">
-																<span class="mx-1"><i class="fa fa-caret-up"></i></span>
-																<span class="">(42.34%)</span>
-															</span>
-														</li>
-														<li class="col-xl-6">
-															<span class="mb-0 fs-13 me-1"><i class="task-icon1 bg-secondary"></i>Referral</span>
-															<span class="text-danger fw-semibold fs-12">
-																<span class="mx-1"><i class="fa fa-caret-down"></i></span>
-																<span class="">(13%)</span>
-															</span>
-														</li>
-														<li class="col-xl-6">
-															<span class="mb-0 fs-13 me-1"><i class="task-icon1 bg-custom-yellow"></i>Social</span>
-															<span class="text-success fw-semibold fs-12">
-																<span class="mx-1"><i class="fa fa-caret-up"></i></span>
-																<span class="">(62%)</span>
-															</span>
-														</li>
-														<li class="col-xl-6 mb-xl-0">
-															<span class="mb-0 fs-13 me-1"><i class="task-icon1 bg-teritary"></i>Organic Search</span>
-															<span class="text-success fw-semibold fs-12">
-																<span class="mx-1"><i class="fa fa-caret-up"></i></span>
-																<span class="">(22.46%)</span>
-															</span>
-														</li>
-													</ul>
-												</div>
-											</div>
-										</div>
-									</div>
 									<div class="col-xl-12 col-lg-12 col-md-6 col-sm-12">
 										<div class="card overflow-hidden">
 											<div class="card-header border-bottom">
-												<h4 class="card-title fw-semibold">Latest Transactions</h4>
-												<a href="#" class="ms-auto">View All</a>
+
+                                                <div class="card-body custom-card" style="padding:0rem">
+                                                    <div class="wrapper__header">
+                                                        <div class=""><img src="assets/images/cup.png" height="45" width="45"></div>
+                                                        <div class="b_caption">
+                                                            <span id="ranking_table" style="float:left"></span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="wrapper__content" id="dashtable" >
+
+
+                                                    </div>
+                                                    <div class="b_footer">
+                                                        <p></p>
+                                                    </div>
+                                                </div>
 											</div>
-											<div class="card-body p-0 customers mt-1">
-												<div class="list-group py-1">
-													<a href="javascript:void(0);" class="border-0">
-														<div class="list-group-item border-0">
-															<div class="media mt-0 align-items-center">
-																<div class="transaction-icon"><i class="fe fe-chevrons-right"></i>
-																</div>
-																<div class="media-body">
-																	<div class="d-flex align-items-center">
-																		<div class="mt-0">
-																			<h5 class="mb-1 fs-13 fw-normal text-dark">To Bel Bcron Bank<span class="fs-13 fw-semibold ms-1">Savings Section</span></h5>
-																			<p class="mb-0 fs-12 text-muted">Transfer 4.53pm</p>
-																		</div>
-																		<span class="ms-auto fs-13">
-																			<span class="float-end text-dark">-$2,543</span>
-																		</span>
-																	</div>
-																</div>
-															</div>
-														</div>
-													</a>
-													<a href="javascript:void(0);" class="border-0">
-														<div class="list-group-item border-0">
-															<div class="media mt-0 align-items-center">
-																<div class="transaction-icon">
-																	<i class="fe fe-briefcase"></i>
-																</div>
-																<div class="media-body">
-																	<div class="d-flex align-items-center">
-																		<div class="mt-0">
-																			<h5 class="mb-1 fs-13 fw-normal text-dark">Payment For <span class="fs-13 fw-semibold ms-1">Day Job</span></h5>
-																			<p class="mb-0 fs-12 text-muted">Received 2.45pm</p>
-																		</div>
-																		<span class="ms-auto fs-13">
-																			<span class="float-end text-dark">+$32,543</span>
-																		</span>
-																	</div>
-																</div>
-															</div>
-														</div>
-													</a>
-													<a href="javascript:void(0);" class="border-0">
-														<div class="list-group-item border-0">
-															<div class="media mt-0 align-items-center">
-																<div class="transaction-icon"><i class="fe fe-dollar-sign"></i>
-																</div>
-																<div class="media-body">
-																	<div class="d-flex align-items-center">
-																		<div class="mt-0">
-																			<h5 class="mb-1 fs-13 fw-normal text-dark">Bought items from<span class="fs-13 fw-semibold ms-1">Ecommerce site</span></h5>
-																			<p class="mb-0 fs-12 text-muted">Payment 8.00am</p>
-																		</div>
-																		<span class="ms-auto fs-13">
-																			<span class="float-end text-dark">-$256</span>
-																		</span>
-																	</div>
-																</div>
-															</div>
-														</div>
-													</a>
-													<a href="javascript:void(0);" class="border-0">
-														<div class="list-group-item border-0">
-															<div class="media mt-0 align-items-center">
-																<div class="transaction-icon"><i class="fe fe-file-text"></i>
-																</div>
-																<div class="media-body">
-																	<div class="d-flex align-items-center">
-																		<div class="mt-0">
-																			<h5 class="mb-1 fs-13 fw-normal text-dark">Paid Monthly Expenses<span class="fs-13 fw-semibold ms-1">Bills & Loans</span></h5>
-																			<p class="mb-0 fs-12 text-muted">Payment 6.43am</p>
-																		</div>
-																		<span class="ms-auto fs-13">
-																			<span class="float-end text-dark">-$1,298</span>
-																		</span>
-																	</div>
-																</div>
-															</div>
-														</div>
-													</a>
-												</div>
-											</div>
+											
 										</div>
 									</div>
 								</div>
 							</div>
+
+                            
 
 							<div class="col-sm-12 col-md-12 col-lg-6 col-xl-8">
 								<div class="card">
@@ -306,211 +310,65 @@
 
 						<!-- ROW-3 -->
 						<div class="row">
-							<div class="col-xl-4 col-md-12">
+							<div class="col-xl-12 col-md-12">
 								<div class="card">
-									<div class="card-header border-bottom">
-										<h4 class="card-title fw-semibold">Daily Activity</h4>
-									</div>
-									<div class="card-body pb-0">
-										<ul class="task-list">
-											<li>
-												<i class="task-icon bg-primary"></i>
-												<p class="fw-semibold mb-1 fs-13">New Products Introduced<span class="text-muted fs-12 ms-2 ms-auto float-end">1:43 pm</span></p>
-												<p class="text-muted fs-12">Lorem ipsum dolor sit.<a href="#"
-														class="fw-semibold ms-1">Product Light Launched</a></p>
-											</li>
-											<li>
-												<i class="task-icon bg-secondary"></i>
-												<p class="fw-semibold mb-1 fs-13">Hermoine Replied<span class="text-muted fs-12 ms-2 float-end">6:12 am</span></p>
-												<p class="text-muted fs-12">Hermoine replied to your post on<a href="#"
-														class="fw-semibold ms-1"> Detailed Blog</a></p>
-											</li>
-											<li>
-												<i class="task-icon bg-info"></i>
-												<p class="fw-semibold mb-1 fs-13">New Request<span class="text-muted fs-12 ms-2 float-end">11:22 am</span></p>
-												<p class="text-muted fs-12">Corner sent you a request<a href="#"
-														class="fw-semibold ms-1"> Facebook</a></p>
-											</li>
-											<li>
-												<i class="task-icon bg-warning"></i>
-												<p class="fw-semibold mb-1 fs-13">Task Due<span class="text-muted fs-12 ms-2 float-end">4:32 pm</span></p>
-												<p class="text-muted mb-0 fs-12">Task has to be completed <a href="#"
-														class="fw-semibold ms-1"> New Project</a></p>
-											</li>
-											<li class="mb-2">
-												<i class="task-icon bg-primary"></i>
-												<p class="fw-semibold mb-1 fs-13">Maggice Liked<span class="text-muted fs-12 ms-2 float-end">5 mins ago</span></p>
-												<p class="text-muted mb-0 fs-12">Maggice bruce liked your article <a href="#"
-														class="fw-semibold ms-1"> Article on Projects</a></p>
-											</li>
-										</ul>
-									</div>
+                                <div class="card-body">
+                        <h5 class="custome-line"><span class="baricone"><i class="mdi mdi-coin"></i></span><span
+                                class="bartitle"></span>&nbsp;<span class="linetitledata"></span><span
+                                class="float-right" id="linec_name"></span></h5>
+                        <!-- Row start -->
+                        <div class="row gutters align-items-center">
+                            <div class="col-xl-2 col-lg-3 col-md-12 col-sm-12 col-12">
+                                <div class="monthly-avg">
+                                    <h5>Current Month</h5>
+                                    <div class="avg-block">
+                                        <h3 class="avg-total text-success" id="current_loadd"></h3>
+                                        <h6 class="avg-label">Load</h6>
+                                    </div>
+                                    <div class="avg-block">
+
+                                        <div class="tooltip1">
+                                            <span class="revenue">
+                                                <h3 class="avg-total text-info" id="current_amountd"></h3>
+                                            </span>
+                                            <h4 class="toolrevenue" id="current_amountdtool"></h4>
+                                        </div>
+                                        <h6 class="avg-label avg-label-2"></h6>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-8 col-lg-6 col-md-12 col-sm-12 col-12">
+                            <figure class="highcharts-figure">
+                                <div id="line-chart"></div>
+                            </figure>
+                            </div>
+                            <div class="col-xl-2 col-lg-3 col-md-12 col-sm-12 col-12">
+                                <div class="monthly-avg">
+                                    <h5>Previous Month</h5>
+                                    <div class="avg-block">
+                                        <h3 class="avg-total text-success" id="previous_loadd"></h3>
+                                        <h6 class="avg-label">Load</h6>
+                                    </div>
+                                    <div class="avg-block">
+
+                                        <div class="tooltip1">
+                                            <span class="revenue">
+                                                <h3 class="avg-total text-info" id="previous_amountd"></h3>
+                                            </span>
+                                            <h4 class="toolrevenue" id="previous_amountdtool"></h4>
+                                        </div>
+                                        <h6 class="avg-label avg-label-2"></h6>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Row end -->
+                    </div>
 								</div>
 							</div>
-							<div class="col-xl-4 col-md-12">
-								<div class="card overflow-hidden">
-									<div class="card-header border-bottom">
-										<div>
-											<h3 class="card-title">Timeline</h3>
-										</div>
-									</div>
-									<div class="card-body">
-										<div class="tl-container">
-											<div class="tl-blog primary">
-												<div class="tl-img rounded-circle bg-primary-transparent">
-													<i class="fe fe-user-plus text-primary text-17"></i>
-												</div>
-												<div class="tl-details d-flex">
-													<p>
-														<span class="tl-title-main"> Mr White </span>  Started following you
-														<span class="d-flex text-muted fs-12">10 Jan 2022</span>
-													</p>
-													<p class="ms-auto text-13">
-														<span class="badge bg-primary text-white">1m</span>
-													</p>
-												</div>
-											</div>
-											<div class="tl-blog secondary">
-												<div class="tl-img rounded-circle bg-secondary-transparent">
-													<i class="fe fe-message-circle text-secondary text-17"></i>
-												</div>
-												<div class="tl-details d-flex">
-													<p>
-														<span class="tl-title-main"> Caroline </span>  1 Commented applied
-														<span class="d-flex text-muted fs-12">09 Jan 2022</span>
-													</p>
-													<p class="ms-auto text-13">
-														<span class="badge bg-secondary text-white">2m</span>
-													</p>
-												</div>
-											</div>
-											<div class="tl-blog teritary">
-												<div class="tl-img rounded-circle bg-info-transparent">
-													<i class="fe fe-clipboard text-info text-17"></i>
-												</div>
-												<div class="tl-details d-flex">
-													<p>
-														<span class="tl-title-main"> Juliette </span>  posted a new article
-														<span class="d-flex text-muted fs-12">07 Jan 2022</span>
-													</p>
-													<p class="ms-auto text-13">
-														<span class="badge bg-info text-white">3m</span>
-													</p>
-												</div>
-											</div>
-											<div class="tl-blog custom-yellow">
-												<div class="tl-img rounded-circle bg-warning-transparent">
-													<i class="fe fe-thumbs-up text-warning text-17"></i>
-												</div>
-												<div class="tl-details d-flex">
-													<p>
-														<span class="tl-title-main"> Akimov </span>  liked your site
-														<span class="d-flex text-muted fs-12">07 Dec 2022</span>
-													</p>
-													<p class="ms-auto text-13">
-														<span class="badge bg-warning text-white">4m</span>
-													</p>
-												</div>
-											</div>
-											<div class="tl-blog primary">
-												<div class="tl-img rounded-circle bg-primary-transparent">
-													<i class="fe fe-book text-primary text-17"></i>
-												</div>
-												<div class="tl-details d-flex">
-													<p class="mb-0">
-														<span class="tl-title-main"> Emilie </span>sent you a feedback
-														<span class="d-flex text-muted fs-12">06 Jan 2022</span>
-													</p>
-													<p class="ms-auto text-13 mb-0">
-														<span class="badge bg-orange text-white">5m</span>
-													</p>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="col-xl-4 col-md-12">
-								<div class="card overflow-hidden">
-									<div class="card-header title-submenu border-bottom">
-										<h3 class="card-title">To-Do List</h3>
-									</div>
-									<div class="card-body">
-										<div class="todo-container">
-											<div class="todo-blog primary">
-												<label class="todo-img">
-													<input type="checkbox" class="todo-checkbox" name="todo-checkbox" checked="checked">
-													<span class="checkmark"></span>
-												</label>
-												<div class="todo-details d-flex">
-													<p class="mb-0">Design a UI Dashboard for client
-														<span class="d-flex text-muted fs-12">3 days remaining</span>
-													</p>
-													<div class="ms-auto text-13 fw-semibold">
-														<a href="javascript:void(0)" class="btn btn-sm btn-outline-light">Edit</a>
-													</div>
-												</div>
-											</div>
-											<div class="todo-blog secondary">
-												<label class="todo-img">
-													<input type="checkbox" class="todo-checkbox" name="todo-checkbox" checked="checked">
-													<span class="checkmark"></span>
-												</label>
-												<div class="todo-details d-flex">
-													<p class="mb-0">Design a UI Dashboard for client
-														<span class="d-flex text-muted fs-12">3 days remaining</span>
-													</p>
-													<div class="ms-auto text-13 fw-semibold">
-														<a href="javascript:void(0)" class="btn btn-sm btn-outline-light">Edit</a>
-													</div>
-												</div>
-											</div>
-											<div class="todo-blog teritary">
-												<label class="todo-img">
-													<input type="checkbox" class="todo-checkbox" name="todo-checkbox">
-													<span class="checkmark"></span>
-												</label>
-												<div class="todo-details d-flex">
-													<p class="mb-0">Design a UI Dashboard for client
-														<span class="d-flex text-muted fs-12">3 days remaining</span>
-													</p>
-													<div class="ms-auto text-13 fw-semibold">
-														<a href="javascript:void(0)" class="btn btn-sm btn-outline-light">Edit</a>
-													</div>
-												</div>
-											</div>
-											<div class="todo-blog custom-yellow">
-												<label class="todo-img">
-													<input type="checkbox" class="todo-checkbox" name="todo-checkbox" checked="checked">
-													<span class="checkmark"></span>
-												</label>
-												<div class="todo-details d-flex">
-													<p class="mb-0">Design a UI Dashboard for client
-														<span class="d-flex text-muted fs-12">3 days remaining</span>
-													</p>
-													<div class="ms-auto text-13 fw-semibold">
-														<a href="javascript:void(0)" class="btn btn-sm btn-outline-light">Edit</a>
-													</div>
-												</div>
-											</div>
-											<div class="todo-blog primary">
-												<label class="todo-img">
-													<input type="checkbox" class="todo-checkbox" name="todo-checkbox">
-													<span class="checkmark"></span>
-												</label>
-												<div class="todo-details d-flex">
-													<p class="mb-0">Design a UI Dashboard for client
-														<span class="d-flex text-muted fs-12">3 days remaining</span>
-													</p>
-													<div class="ms-auto text-13 fw-semibold">
-														<a href="javascript:void(0)" class="btn btn-sm btn-outline-light">Edit</a>
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
+							
+							
 						</div>
 						<!-- ROW-3 END -->
 

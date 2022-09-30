@@ -31,6 +31,7 @@
     <link href="../assets/switcher/css/switcher.css" rel="stylesheet">
     <link href="../assets/switcher/demo.css" rel="stylesheet">
 
+    
 
 <style type="text/css">
    .header-brand-img {
@@ -40,15 +41,7 @@
     width: auto;
    /* padding-bottom: 5px;*/
 }
-.loader-img {
-    bottom: 0;
-    left: 0;
-    margin: 0 auto;
-    position: absolute;
-    right: 0;
-    text-align: center;
-    top-margin: 5%;
-}
+
 
 </style>
 </head>
