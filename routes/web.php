@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\DashboardController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -28,14 +30,16 @@ Route::get('/', function () {
 // Route::post('post-login', [AuthController::class, 'postLogin'])->name('login.post'); 
 // Route::get('logout', [AuthController::class, 'logout'])->name('logout');
 
-Route::get('/index', function () {
-    return view('index');
-});
+// Route::get('/index', function () {
+//     return view('index');
+// });
 
 
-Route::get('/admin', function () {
-    return view('dashboard');
-});
+// Route::get('/admin', function () {
+//     return view('dashboard');
+// });
+
+route::get('/admin',[DashboardController::class,'index'])->name('admin');
 Route::get('/admin1', function () {
     return view('dashboard1');
 });

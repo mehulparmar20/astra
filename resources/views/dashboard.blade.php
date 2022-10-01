@@ -40,7 +40,7 @@
                                                 <div class="spinner-border text-primary dashboard-loader" role="status"></div>
                                             </div>
                                             <div class="sale-num" id="dashcomrev">
-
+dddd
                                             </div>
                                             <div class="col col-auto top-icn dash">
 												<div class="counter-icon bg-primary dash ms-auto box-shadow-primary">
