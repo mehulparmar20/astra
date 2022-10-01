@@ -1,5 +1,5 @@
 @include('layout.login.header')
-@include('layout.login.switcher')
+
         
         
 
@@ -41,7 +41,7 @@
 										<p class="mb-0"><a href="forgot-password" class="text-primary ms-1">Forgot Password?</a></p>
 									</div>
 									<div class="container-login100-form-btn">
-										<a href="/admin" class="login100-form-btn btn-primary">
+										<a href="{{URL::to('/')}}/admin" class="login100-form-btn btn-primary">
 											Login
 										</a>
 									</div>
