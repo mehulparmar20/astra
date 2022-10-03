@@ -78,7 +78,7 @@ class AuthController extends Controller
                 $message->to($request->email);
                 $message->subject('Reset Password');
             });
-            print_r($password);die;
+            // print_r($password);die;
             return redirect('login')->with('message', 'We have e-mailed you your new password');
         }     
         return back()->with('message', 'This email does not exist. Please try with a registered email');
