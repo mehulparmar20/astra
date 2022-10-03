@@ -11,8 +11,8 @@
         <!-- STICKY JS -->
         <script src="https://laravel8.spruko.com/noa/assets/js/sticky.js"></script>
 
-        
-        
+
+
         <!-- COLOR THEME JS -->
         <script src="https://laravel8.spruko.com/noa/assets/js/themeColors.js"></script>
 
@@ -22,6 +22,16 @@
         <!-- SWITCHER JS -->
         <script src="https://laravel8.spruko.com/noa/assets/switcher/js/switcher.js"></script>
 
-    </body>
+        <script type="text/javascript">
+(function() {
+    window.onpageshow = function(event) {
+        if (event.persisted) {
+            window.location.reload();
+        }
+    };
+})();
+        </script>
 
-</html>
+        </body>
+
+        </html>
