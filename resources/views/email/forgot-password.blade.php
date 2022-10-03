@@ -2,4 +2,4 @@
    
 Your new password is:
 <br>
-<button>{{$password}}</button>
+<strong>{{$password}}</strong>
