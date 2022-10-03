@@ -28,8 +28,8 @@
     <link href="{{URL::to('/')}}/assets/css/icons.css" rel="stylesheet" />
 
     <!-- INTERNAL Switcher css -->
-    <link href="../assets/switcher/css/switcher.css" rel="stylesheet">
-    <link href="../assets/switcher/demo.css" rel="stylesheet">
+    <link href="{{URL::to('/')}}/assets/switcher/css/switcher.css" rel="stylesheet">
+    <link href="{{URL::to('/')}}/assets/switcher/demo.css" rel="stylesheet">
 
     
 

@@ -18,23 +18,23 @@
 
         <!-- BOOTSTRAP CSS--> 
         <!-- <link id="style" href="https://laravel8.spruko.com/noa/assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" /> -->
-        <link rel="stylesheet" href="css/login/bootstrap.min.css" type="text/css">
+        <link rel="stylesheet" href="{{URL::to('/')}}/css/login/bootstrap.min.css" type="text/css">
 
         <!-- STYLE CSS -->
-        <link href="https://laravel8.spruko.com/noa/assets/css/style.css" rel="stylesheet" />
-        <link href="https://laravel8.spruko.com/noa/assets/css/skin-modes.css" rel="stylesheet" />
+        <link href="{{URL::to('/')}}/assets/css/style.css" rel="stylesheet" />
+        <link href="{{URL::to('/')}}/assets/css/skin-modes.css" rel="stylesheet" />
         <!-- <link rel="stylesheet" href="css/login/style.css" type="text/css">
         <link rel="stylesheet" href="css/login/skin-modes.css" type="text/css"> -->
 
         
         
         <!--- FONT-ICONS CSS -->
-        <link href="https://laravel8.spruko.com/noa/assets/plugins/icons/icons.css" rel="stylesheet" />
+        <link href="{{URL::to('/')}}/assets/plugins/icons/icons.css" rel="stylesheet" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
         <!-- INTERNAL Switcher css -->
-        <link href="https://laravel8.spruko.com/noa/assets/switcher/css/switcher.css" rel="stylesheet"> 
-         <link href="https://laravel8.spruko.com/noa/assets/switcher/demo.css" rel="stylesheet">
+        <link href="{{URL::to('/')}}/assets/switcher/css/switcher.css" rel="stylesheet"> 
+         <link href="{{URL::to('/')}}/assets/switcher/demo.css" rel="stylesheet">
         <!-- <link rel="stylesheet" href="css/switcher.css" type="text/css"> -->
        
       

@@ -1,9 +1,4 @@
 @include('layout.login.header')
-@include('layout.login.switcher')
-        
-        
-
-            
 
                 
 			<!-- PAGE -->
@@ -12,7 +7,7 @@
 				    <!-- CONTAINER OPEN -->
 					<div class="col col-login mx-auto text-center">
 						<a href="#" class="text-center">
-							<img src="../assets/images/brand/logo-3.png" class="header-brand-img" alt="">
+							<img src="{{URL::to('/')}}/assets/images/brand/logo-3.png" class="header-brand-img" alt="">
 						</a>
 
 					</div>
