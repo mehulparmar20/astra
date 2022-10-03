@@ -51,3 +51,7 @@ Route::get('/login', function () {
 Route::get('/forgot-password', function () {
     return view('forgot-password');
 });
+
+Route::get('/driver', function () {
+    return view('driver');
+});

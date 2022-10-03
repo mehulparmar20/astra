@@ -15,6 +15,8 @@
 	<!-- BACK-TO-TOP -->
 	<a href="#top" id="back-to-top"><i class="fa fa-long-arrow-up"></i></a>
 
+	
+	
 	<!-- JQUERY JS -->
 	<script src="{{URL::to('/')}}/assets/js/jquery.min.js"></script>
 
@@ -59,7 +61,7 @@
 	<script src="{{URL::to('/')}}/assets/js/custom.js"></script>
 
 	<!-- dashboard js -->
-    <script src="{{URL::to('/')}}/assets/js/js/form.js"></script>
+    <!-- <script src="{{URL::to('/')}}/assets/js/js/form.js"></script> -->
     
 
 </body>
