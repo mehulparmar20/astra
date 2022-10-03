@@ -112,13 +112,13 @@
 																			<span class="">Background Image</span>
 																			<div class="mt-1 d-flex">
 																				<a class="bg-img1 me-2" href="javascript:void(0);" onclick="bgImage(this)"><img
-																						class="br-5" src="../assets/images/media/bg-img1.jpg" alt="Bg-Image" id="bgimage1"></a>
+																						class="br-5" src="{{URL::to('/')}}/assets/images/media/bg-img1.jpg" alt="Bg-Image" id="bgimage1"></a>
 																				<a class="bg-img2 me-2" href="javascript:void(0);" onclick="bgImage(this)"><img
-																						class="br-5" src="../assets/images/media/bg-img2.jpg" alt="Bg-Image" id="bgimage2"></a>
+																						class="br-5" src="{{URL::to('/')}}/assets/images/media/bg-img2.jpg" alt="Bg-Image" id="bgimage2"></a>
 																				<a class="bg-img3 me-2" href="javascript:void(0);" onclick="bgImage(this)"><img
-																						class="br-5" src="../assets/images/media/bg-img3.jpg" alt="Bg-Image" id="bgimage3"></a>
+																						class="br-5" src="{{URL::to('/')}}/assets/images/media/bg-img3.jpg" alt="Bg-Image" id="bgimage3"></a>
 																				<a class="bg-img4 me-2" href="javascript:void(0);" onclick="bgImage(this)"><img
-																						class="br-5" src="../assets/images/media/bg-img4.jpg" alt="Bg-Image" id="bgimage4"></a>
+																						class="br-5" src="{{URL::to('/')}}/assets/images/media/bg-img4.jpg" alt="Bg-Image" id="bgimage4"></a>
 																			</div>
 																		</div>
 																	</div>
@@ -325,77 +325,77 @@
 							<ul class="row row-sm p-3">
 								<li class="col-lg-4 mb-2">
 									<a class="btn btn-country btn-lg btn-block active">
-										<span class="country-selector"><img alt="unitedstates" src="../assets/images/flags/us_flag.jpg" class="me-2 language"></span>United States
+										<span class="country-selector"><img alt="unitedstates" src="{{URL::to('/')}}./assets/images/flags/us_flag.jpg" class="me-2 language"></span>United States
 									</a>
 								</li>
 								<li class="col-lg-4 mb-2">
 									<a class="btn btn-country btn-lg btn-block">
-										<span class="country-selector"><img alt="italy" src="../assets/images/flags/italy_flag.jpg" class="me-2 language"></span>Italy
+										<span class="country-selector"><img alt="italy" src="{{URL::to('/')}}/assets/images/flags/italy_flag.jpg" class="me-2 language"></span>Italy
 									</a>
 								</li>
 								<li class="col-lg-4 mb-2">
 									<a class="btn btn-country btn-lg btn-block">
-										<span class="country-selector"><img alt="spain" src="../assets/images/flags/spain_flag.jpg" class="me-2 language"></span>Spain
+										<span class="country-selector"><img alt="spain" src="{{URL::to('/')}}/assets/images/flags/spain_flag.jpg" class="me-2 language"></span>Spain
 									</a>
 								</li>
 								<li class="col-lg-4 mb-2">
 									<a class="btn btn-country btn-lg btn-block">
-										<span class="country-selector"><img alt="india" src="../assets/images/flags/india_flag.jpg" class="me-2 language"></span>India
+										<span class="country-selector"><img alt="india" src="{{URL::to('/')}}/assets/images/flags/india_flag.jpg" class="me-2 language"></span>India
 								</a>
 								</li>
 								<li class="col-lg-4 mb-2">
 									<a class="btn btn-country btn-lg btn-block">
-										<span class="country-selector"><img alt="french" src="../assets/images/flags/french_flag.jpg" class="me-2 language"></span>French
+										<span class="country-selector"><img alt="french" src="{{URL::to('/')}}/assets/images/flags/french_flag.jpg" class="me-2 language"></span>French
 									</a>
 								</li>
 								<li class="col-lg-4 mb-2">
 									<a class="btn btn-country btn-lg btn-block">
-										<span class="country-selector"><img alt="russia" src="../assets/images/flags/russia_flag.jpg" class="me-2 language"></span>Russia
+										<span class="country-selector"><img alt="russia" src="{{URL::to('/')}}/assets/images/flags/russia_flag.jpg" class="me-2 language"></span>Russia
 									</a>
 								</li>
 								<li class="col-lg-4 mb-2">
 									<a class="btn btn-country btn-lg btn-block">
-										<span class="country-selector"><img alt="germany" src="../assets/images/flags/germany_flag.jpg" class="me-2 language"></span>Germany
+										<span class="country-selector"><img alt="germany" src="{{URL::to('/')}}/assets/images/flags/germany_flag.jpg" class="me-2 language"></span>Germany
 									</a>
 								</li>
 								<li class="col-lg-4 mb-2">
 									<a class="btn btn-country btn-lg btn-block">
-										<span class="country-selector"><img alt="argentina" src="../assets/images/flags/argentina_flag.jpg" class="me-2 language"></span>Argentina
+										<span class="country-selector"><img alt="argentina" src="{{URL::to('/')}}/assets/images/flags/argentina_flag.jpg" class="me-2 language"></span>Argentina
 									</a>
 								</li>
 								<li class="col-lg-4 mb-2">
 									<a class="btn btn-country btn-lg btn-block">
-										<span class="country-selector"><img alt="uae" src="../assets/images/flags/uae_flag.jpg" class="me-2 language"></span>UAE
+										<span class="country-selector"><img alt="uae" src="{{URL::to('/')}}/assets/images/flags/uae_flag.jpg" class="me-2 language"></span>UAE
 									</a>
 								</li>
 								<li class="col-lg-4 mb-2">
 									<a class="btn btn-country btn-lg btn-block">
-										<span class="country-selector"><img alt="austria" src="../assets/images/flags/austria_flag.jpg" class="me-2 language"></span>Austria
+										<span class="country-selector"><img alt="austria" src="{{URL::to('/')}}/assets/images/flags/austria_flag.jpg" class="me-2 language"></span>Austria
 									</a>
 								</li>
 								<li class="col-lg-4 mb-2">
 									<a class="btn btn-country btn-lg btn-block">
-										<span class="country-selector"><img alt="mexico" src="../assets/images/flags/mexico_flag.jpg" class="me-2 language"></span>Mexico
+										<span class="country-selector"><img alt="mexico" src="{{URL::to('/')}}/assets/images/flags/mexico_flag.jpg" class="me-2 language"></span>Mexico
 									</a>
 								</li>
 								<li class="col-lg-4 mb-2">
 									<a class="btn btn-country btn-lg btn-block">
-										<span class="country-selector"><img alt="china" src="../assets/images/flags/china_flag.jpg" class="me-2 language"></span>China
+										<span class="country-selector"><img alt="china" src="{{URL::to('/')}}/assets/images/flags/china_flag.jpg" class="me-2 language"></span>China
 								</a>
 								</li>
 								<li class="col-lg-4 mb-2">
 									<a class="btn btn-country btn-lg btn-block">
-										<span class="country-selector"><img alt="poland" src="../assets/images/flags/poland_flag.jpg" class="me-2 language"></span>Poland
+										<span class="country-selector"><img alt="poland" src="{{URL::to('/')}}/assets/images/flags/poland_flag.jpg" class="me-2 language"></span>Poland
 									</a>
 								</li>
 								<li class="col-lg-4 mb-2">
 									<a class="btn btn-country btn-lg btn-block">
-										<span class="country-selector"><img alt="canada" src="../assets/images/flags/canada_flag.jpg" class="me-2 language"></span>Canada
+										<span class="country-selector"><img alt="canada" src="{{URL::to('/')}}/assets/images/flags/canada_flag.jpg" class="me-2 language"></span>Canada
 									</a>
 								</li>
 								<li class="col-lg-4 mb-2">
 									<a class="btn btn-country btn-lg btn-block">
-										<span class="country-selector"><img alt="malaysia" src="../assets/images/flags/malaysia_flag.jpg" class="me-2 language"></span>Malaysia
+										<span class="country-selector"><img alt="malaysia" src="{{URL::to('/')}}/assets/images/flags/malaysia_flag.jpg" class="me-2 language"></span>Malaysia
 									</a>
 								</li>
 							</ul>
@@ -422,30 +422,30 @@
 		<a href="#top" id="back-to-top"><i class="fa fa-long-arrow-up"></i></a>
 
 		<!-- JQUERY JS -->
-		<script src="../assets/js/jquery.min.js"></script>
+		<script src="{{URL::to('/')}}/assets/js/jquery.min.js"></script>
 
 		<!-- BOOTSTRAP JS -->
-		<script src="../assets/plugins/bootstrap/js/popper.min.js"></script>
-		<script src="../assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+		<script src="{{URL::to('/')}}/assets/plugins/bootstrap/js/popper.min.js"></script>
+		<script src="{{URL::to('/')}}/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
 
 		<!-- SIDE-MENU JS -->
-		<script src="../assets/plugins/sidemenu/sidemenu.js"></script>
+		<script src="{{URL::to('/')}}/assets/plugins/sidemenu/sidemenu.js"></script>
 
 		<!-- Perfect SCROLLBAR JS-->
-		<script src="../assets/plugins/p-scroll/perfect-scrollbar.js"></script>
-		<script src="../assets/plugins/p-scroll/pscroll.js"></script>
+		<script src="{{URL::to('/')}}/assets/plugins/p-scroll/perfect-scrollbar.js"></script>
+		<script src="{{URL::to('/')}}/assets/plugins/p-scroll/pscroll.js"></script>
 
 		<!-- STICKY JS -->
-		<script src="../assets/js/sticky.js"></script>
+		<script src="{{URL::to('/')}}/assets/js/sticky.js"></script>
 
 		<!-- COLOR THEME JS -->
-		<script src="../assets/js/themeColors.js"></script>
+		<script src="{{URL::to('/')}}/assets/js/themeColors.js"></script>
 
 		<!-- CUSTOM JS -->
-		<script src="../assets/js/custom1.js"></script>
+		<script src="{{URL::to('/')}}/assets/js/custom1.js"></script>
 
 		<!-- SWITCHER JS -->
-		<script src="../assets/switcher/js/switcher.js"></script>
+		<script src="{{URL::to('/')}}/assets/switcher/js/switcher.js"></script>
 
 	</body>
 </html>
