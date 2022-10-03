@@ -21,7 +21,7 @@
 							<div class="card-body">
 								<form class="login100-form validate-form">
 									<span class="login100-form-title">
-										Login1
+										Login
 									</span>
 									<div class="wrap-input100 validate-input" data-bs-validate = "Valid email is required: ex@abc.xyz">
 										<input class="input100" type="text" name="email" placeholder="Email">
