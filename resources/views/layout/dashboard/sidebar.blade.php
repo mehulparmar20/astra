@@ -109,7 +109,7 @@
                                     <li><a href="https://laravel8.spruko.com/noa/form-validation" class="slide-item">Factoring company</a></li>
                                 </ul>
                             </li>
-                            <li>
+                            <!-- <li>
                                 <h3>Components</h3>
                             </li>
                           
@@ -447,7 +447,7 @@
                                     <li><a href="https://laravel8.spruko.com/noa/opacity" class="slide-item">Opacity</a></li>
                                     <li><a href="https://laravel8.spruko.com/noa/emptypage" class="slide-item">Empty Page</a></li>
                                 </ul>
-                            </li>
+                            </li> -->
                         </ul>
                         <div class="slide-right" id="slide-right"><svg xmlns="http://www.w3.org/2000/svg" fill="#7b8191"
                                 width="24" height="24" viewBox="0 0 24 24">

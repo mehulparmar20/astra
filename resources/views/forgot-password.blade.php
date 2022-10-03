@@ -4,6 +4,7 @@
 
 <!-- PAGE -->
 <div class="page">
+
     <div>
         <!-- CONTAINER OPEN -->
         <div class="col mx-auto text-center">
@@ -21,7 +22,10 @@
                                 <span class="login100-form-title">
                                     Forgot Password
                                 </span>
-                                <p class="text-muted">Enter the email address registered on your account</p>
+                                @if(Session::has('message'))
+                                <p class="alert {{ Session::get('alert-class', 'alert-info') }}">
+                                    {{ Session::get('message') }}</p>
+                                @endif
                             </div>
                             <div class="pt-3" id="forgot">
                                 <div class="form-group">
@@ -33,7 +37,7 @@
                                     <button class="btn btn-primary d-grid" type="submit">Submit</button>
                                 </div>
                                 <div class="text-center mt-4">
-                                    <p class="text-dark mb-0">Forgot It?<a class="text-primary ms-1" href="/login">Send
+                                    <p class="text-dark mb-0">Forgot It?<a class="text-primary ms-1" href="{{URL::to('/login')}}">Send
                                             me
                                             Back</a></p>
                                 </div>
@@ -83,8 +87,7 @@
 
 
 <script type="text/javascript">
-if(!!window.performance && window.performance.navigation.type === 2)
-{
+if (!!window.performance && window.performance.navigation.type === 2) {
     console.log('Reloading');
     window.location.reload();
 }

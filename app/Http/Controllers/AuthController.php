@@ -34,7 +34,7 @@ class AuthController extends Controller
             return redirect('admin/dashboard')->withSuccess('You have Successfully loggedin');
         }
   
-        return redirect("login")->with('message','Oppes! You have entered invalid credentials');
+        return redirect("login")->with('message','Opps! You have entered invalid credentials');
     }
 
     public function dashboard()
@@ -78,7 +78,7 @@ class AuthController extends Controller
                 $message->to($request->email);
                 $message->subject('Reset Password');
             });
-            // print_r($password);die;
+            print_r($password);die;
             return redirect('login')->with('message', 'We have e-mailed you your new password');
         }     
         return back()->with('message', 'This email does not exist. Please try with a registered email');
