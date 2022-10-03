@@ -23,13 +23,13 @@
         <script src="https://laravel8.spruko.com/noa/assets/switcher/js/switcher.js"></script>
 
         <script type="text/javascript">
-(function() {
-    window.onpageshow = function(event) {
-        if (event.persisted) {
-            window.location.reload();
-        }
-    };
-})();
+            (function() {
+                window.onpageshow = function(event) {
+                    if (event.persisted) {
+                        window.location.reload();
+                    }
+                };
+            })();
         </script>
 
         </body>

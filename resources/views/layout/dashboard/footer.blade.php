@@ -61,14 +61,14 @@
 <!-- dashboard js -->
 <script src="../assets/js/js/form.js"></script>
 
-<script type="text/javascript">
-(function() {
-    window.onpageshow = function(event) {
-        if (event.persisted) {
-            window.location.reload();
-        }
-    };
-})();
+<script>
+    (function() {
+        window.onpageshow = function(event) {
+            if (event.persisted) {
+                window.location.reload();
+            }
+        };
+    })();
 </script>
 
 </body>
