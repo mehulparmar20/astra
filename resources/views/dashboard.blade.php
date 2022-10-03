@@ -257,7 +257,7 @@
 
                                                 <div class="card-body custom-card" style="padding:0rem">
                                                     <div class="wrapper__header">
-                                                        <div class=""><img src="assets/images/cup.png" height="45" width="45"></div>
+                                                        <div class=""><img src="{{URL::to('/')}}/assets/images/cup.png" height="45" width="45"></div>
                                                         <div class="b_caption">
                                                             <span id="ranking_table" style="float:left"></span>
                                                         </div>
