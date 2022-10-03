@@ -6,41 +6,18 @@ use Illuminate\Http\Request;
 use Auth;
 use Session;
 use App\Models\User;
+use App\Models\PasswordReset;
+use Mail; 
 use Hash;
+use Illuminate\Support\Str;
+use Carbon\Carbon;
 
 class AuthController extends Controller
 {
     public function login()
     {
-        if(Auth::check()){
-            return redirect('admin/dashboard');
-        }
         return view('login');
-    }  
-
-
-
-    // public function login(Request $request)
-    // {
-    //   $this->validate($request, [
-    //             'username' => 'required|max:255',
-    //             'password' => 'required|max:255'
-    //   ]);
-    
-    //   $authUser = User::where('usrName', $request->username)->first();
-    
-    //   if (isset($authUser)) {
-    //             $password = md5('aFGQ475SDsdfsaf2342' . $request->password . $authUser->usrPasswordSalt);
-    
-    //    if (Auth::attempt([$this->username() => $request->username, 'password' => $password])) {
-    //              return 'logged in successfully : '.$this->username() . ' - ' . $password;
-    //             }
-    //    else {
-    //          return 'oops something happend : '.$this->username() . ' - ' . $password;
-    //          }
-    //   }
-
-
+    }
 
 
     public function postLogin(Request $request)
@@ -75,4 +52,36 @@ class AuthController extends Controller
   
         return Redirect('login');
     }
+
+    public function showForgetPasswordForm()
+    {
+        return view('forgot-password');
+    }
+
+    public function submitForgetPasswordForm(Request $request)
+    {
+        // $request->validate([
+        //     'email' => 'required|email|exists:user',
+        // ]);
+
+        $email = $request->email;
+        $user = User::where('userEmail',$email)->first();
+
+        if($user){
+            $token = Str::random(64);
+            $password = Str::random(8);
+            $shaPassword = sha1($password);
+            $updatePassword = User::where('userEmail',$email)->update(['userPass' => $shaPassword]);
+            // print_r($password);die;
+            $a = \Mail::send('email.forgot-password', ['password'=>$password], function($message) use($request){
+                $message->from('noreply@veravalonline.com');
+                $message->to($request->email);
+                $message->subject('Reset Password');
+            });
+            // print_r($password);die;
+            return redirect('login')->with('message', 'We have e-mailed you your new password');
+        }     
+        return back()->with('message', 'This email does not exist. Please try with a registered email');
+    }
+
 }

@@ -14,36 +14,19 @@ use App\Http\Controllers\AuthController;
 |
 */
 
-Route::get('/', function () {
-    return view('login');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 
 
 
-// Auth::routes();
+Auth::routes();
 
-// Route::get('admin/dashboard', [AuthController::class, 'dashboard']);
-// Route::get('login', [AuthController::class, 'login'])->name('login');
-// Route::post('post-login', [AuthController::class, 'postLogin'])->name('login.post'); 
-// Route::get('logout', [AuthController::class, 'logout'])->name('logout');
+Route::get('admin/dashboard', [AuthController::class, 'dashboard']);
 
-Route::get('/index', function () {
-    return view('index');
-});
-
-
-Route::get('/admin', function () {
-    return view('dashboard');
-});
-Route::get('/admin1', function () {
-    return view('dashboard1');
-});
-
-Route::get('/login', function () {
-    return view('login');
-});
-
-Route::get('/forgot-password', function () {
-    return view('forgot-password');
-});
+Route::get('login', [AuthController::class, 'login'])->name('login')->middleware('guest');
+Route::post('post-login', [AuthController::class, 'postLogin'])->name('login.post'); 
+Route::get('logout', [AuthController::class, 'logout'])->name('logout');
+Route::get('forgot-password', [AuthController::class, 'showForgetPasswordForm'])->name('forgot.password')->middleware('guest');
+Route::post('post-forgot-password', [AuthController::class, 'submitForgetPasswordForm'])->name('forgot.password.post'); 
