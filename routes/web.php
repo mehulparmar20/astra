@@ -18,7 +18,9 @@ use App\Http\Controllers\AuthController;
 //     return view('welcome');
 // });
 
-
+Route::get('/table', function () {
+        return view('table');
+    });
 
 
 Auth::routes();

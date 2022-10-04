@@ -14,7 +14,7 @@
     stickyElement.after('<div class="jumps-prevent"></div>');
 
     function jumpsPrevent() {
-        stickyHeight = 74;
+        stickyHeight = 0;
         stickyElement.css({ "margin-bottom": "-" + stickyHeight + "px" });
         stickyElement.next().css({ "padding-top": +stickyHeight + "px" });
     };
