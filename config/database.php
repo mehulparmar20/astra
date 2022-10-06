@@ -54,7 +54,7 @@ return [
 
         'mongodb' => [
             'driver' => 'mongodb',
-            'dsn' => env('DB_URI', 'mongodb://astraportal:astraportal@203.88.144.78:27017/admin?authMechanism=SCRAM-SHA-1'),
+            'dsn' => env('DB_URI', 'mongodb://10.188.4.129:27017/WindsonDispatch?readPreference=primary&directConnection=true&ssl=false'),
             'database' => 'WindsonDispatch',
         ],
 

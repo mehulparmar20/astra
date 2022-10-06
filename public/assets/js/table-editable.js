@@ -69,5 +69,4 @@ $(function (e) {
 		minimumResultsForSearch: Infinity
 	});
 
-
 });
