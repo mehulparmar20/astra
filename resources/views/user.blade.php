@@ -13,7 +13,7 @@
             
                 <!-- Modal Header -->
                 <div class="modal-header">
-                <h4 class="modal-title">Modal Heading</h4>
+                <h4 class="modal-title">User</h4>
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
                 </div>
                 
@@ -40,7 +40,7 @@
                                         <div class="row row-sm">
                                             <div class="col-lg-12">
                                                 <div class="card">
-                                                <a href="#addUserModal" class="btn btn-primary slide-item" data-toggle="modal" data-target="#addUserModal">Driver & Owner Operator</a>
+                                                <a href="#addUserModal" class="btn btn-primary slide-item" data-toggle="modal" data-target="#addUserModal">Add</a>
                                                     <!-- <div class="card-header border-bottom">
                                                         <h3 class="card-title">Editable File Export Datatable</h3>
                                                     </div> -->

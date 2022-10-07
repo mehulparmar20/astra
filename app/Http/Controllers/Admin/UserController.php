@@ -55,7 +55,7 @@ class UserController extends Controller
                     'counter' => 0,
                     // 'companyID' => (int)$_SESSION['companyId'],
                     'userEmail' => $request->input('userEmail'),
-                    'companyName' => 1,
+                    // 'companyName' => 1,
                     'userName' => $request->input('userName'),
                     'userPass' => $password,
                     'userFirstName' => $request->input('userFirstName'),
