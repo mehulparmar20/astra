@@ -34,7 +34,7 @@ class AuthController extends Controller
             return redirect('admin/dashboard')->withSuccess('You have Successfully loggedin');
         }
   
-        return redirect("login")->with('message','Oppes! You have entered invalid credentials');
+        return redirect("login")->with('message','Opps! You have entered invalid credentials');
     }
 
     public function dashboard()
