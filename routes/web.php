@@ -2,7 +2,11 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+
 use App\Http\Controllers\DriverController;
+
+use App\Http\Controllers\Admin\UserController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -27,6 +31,7 @@ Route::get('/table', function () {
 Auth::routes();
 
 Route::get('admin/dashboard', [AuthController::class, 'dashboard']);
+Route::get('admin/user', [UserController::class, 'getAllUser']);
 
 Route::get('login', [AuthController::class, 'login'])->name('login')->middleware('guest');
 Route::post('post-login', [AuthController::class, 'postLogin'])->name('login.post'); 
