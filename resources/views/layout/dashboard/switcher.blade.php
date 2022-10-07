@@ -12,17 +12,17 @@
 																<h6>Navigation Style</h6>
 																<div class="skin-body">
 																	<div class="switch_section ps-2">
-																		<div class="switch-toggle d-flex">
+																		<!-- <div class="switch-toggle d-flex ">
 																			<span class="me-auto">Vertical Menu</span>
 																			<p class="onoffswitch2"><input type="radio" name="onoffswitch15"
-																					id="myonoffswitch34" class="onoffswitch2-checkbox" checked>
+																					id="myonoffswitch34" class="onoffswitch2-checkbox" >
 																				<label for="myonoffswitch34" class="onoffswitch2-label"></label>
 																			</p>
-																		</div>
+																		</div> -->
 																		<div class="switch-toggle d-flex mt-2">
 																			<span class="me-auto">Horizontal Click Menu</span>
 																			<p class="onoffswitch2"><input type="radio" name="onoffswitch15"
-																					id="myonoffswitch35" class="onoffswitch2-checkbox">
+																					id="myonoffswitch35" class="onoffswitch2-checkbox" checked >
 																				<label for="myonoffswitch35" class="onoffswitch2-label"></label>
 																			</p>
 																		</div>
@@ -243,8 +243,10 @@
 																	<div class="switch_section ps-2">
 																		<div class="switch-toggle d-flex">
 																			<span class="me-auto">Default Menu</span>
-																			<p class="onoffswitch2"><input type="radio" name="onoffswitch6"
-																					id="myonoffswitch13" class="onoffswitch2-checkbox default-menu" checked>
+																			<!-- <p class="onoffswitch2"><input type="radio" name="onoffswitch6"
+																					id="myonoffswitch13" class="onoffswitch2-checkbox default-menu" checked> -->
+																					<p class="onoffswitch2"><input type="radio" name="onoffswitch6"
+																					id="myonoffswitch13" class="onoffswitch2-checkbox " >
 																				<label for="myonoffswitch13" class="onoffswitch2-label"></label>
 																			</p>
 																		</div>

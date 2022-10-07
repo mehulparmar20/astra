@@ -18,12 +18,19 @@
 
     </script> -->
 
+
+    </script> -->
+
     </script>
+
 
  <!-- end modal -->
 
  <!--APP-SIDEBAR-->
  <div class="sticky">
+
+                <div class="app-sidebar__overlay" data-bs-toggle="sidebar" style="display: inline;" ></div>
+
 
                 <div class="app-sidebar__overlay" data-bs-toggle="sidebar" style="display: inline;" ></div>
 
@@ -73,10 +80,15 @@
                                     <li><a href="https://laravel8.spruko.com/noa/form-layouts" class="slide-item">Shipper & Consignee</a></li>
                                     <li><a href="https://laravel8.spruko.com/noa/form-validation" class="slide-item">External Carrier</a></li>
 
+                                    <li><a href="#driverModal" class="slide-item" data-toggle="modal" data-target="#driverModal">Driver & Owner Operator</a></li> 
+                                    <!-- <li><a href="#" id="driver" class="slide-item" >Driver & Owner Operator</a></li> -->
+
+
                                     <li><a href="#driverModal" class="slide-item" data-toggle="modal" data-target="#driverModal">Driver & Owner Operator</a></li>
                                     <li><a href="#userModal" class="slide-item" data-toggle="modal" data-target="#userModal">User</a></li>
 
                                     <li><a href="#myModal" class="slide-item" data-toggle="modal" data-target="#myModal">Driver & Owner Operator</a></li>
+
                                     <li><a href="https://laravel8.spruko.com/noa/wysiwyag" class="slide-item">User</a></li>
 
                                     <li><a href="https://laravel8.spruko.com/noa/wysiwyag" class="slide-item">Truck</a></li>
@@ -152,10 +164,17 @@
                     </div>
                 </div>
             </div>
+
+
+<!--/APP-SIDEBAR-->
+ @include('admin.driver');          
+<!--  driver -->
+
             <!--/APP-SIDEBAR-->
 
 
             @include('driver') 
             @include('user') 
             @include('add_user') 
+
 

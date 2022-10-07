@@ -2,7 +2,11 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+
+use App\Http\Controllers\DriverController;
+
 use App\Http\Controllers\Admin\UserController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -19,7 +23,9 @@ use App\Http\Controllers\Admin\UserController;
 //     return view('welcome');
 // });
 
-
+Route::get('/table', function () {
+        return view('table');
+    });
 
 
 Auth::routes();
@@ -32,3 +38,10 @@ Route::post('post-login', [AuthController::class, 'postLogin'])->name('login.pos
 Route::get('logout', [AuthController::class, 'logout'])->name('logout');
 Route::get('forgot-password', [AuthController::class, 'showForgetPasswordForm'])->name('forgot.password')->middleware('guest');
 Route::post('post-forgot-password', [AuthController::class, 'submitForgetPasswordForm'])->name('forgot.password.post'); 
+
+
+// Driver
+Route::post('driverIndex', [DriverController::class, 'index'])->name('driverIndex');
+Route::post('driverModalIndex', [DriverController::class, 'driverModalIndex'])->name('driverModalIndex');
+Route::post('driverIndex', [DriverController::class, 'temp'])->name('driverIndex');
+Route::get('/admin/driver', [DriverController::class, 'index']);

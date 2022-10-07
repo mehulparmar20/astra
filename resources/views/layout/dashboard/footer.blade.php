@@ -16,7 +16,11 @@
 <a href="#top" id="back-to-top"><i class="fa fa-long-arrow-up"></i></a>
 
 <!-- JQUERY JS -->
+
+    <script src="{{URL::to('/')}}/assets/js/jquery.min.js"></script>
+
 <script src="{{URL::to('/')}}/assets/js/jquery.min.js"></script>
+
 
 <!-- BOOTSTRAP JS -->
 <script src="{{URL::to('/')}}/assets/plugins/bootstrap/js/popper.min.js"></script>
@@ -62,7 +66,11 @@
 <script src="{{URL::to('/')}}/assets/js/js/form.js"></script>
 
 <!--  BACK-TO-TOP -->
+
+		<a href="#top" id="back-to-top"><i class="fa fa-long-arrow-up"></i></a>
+
 <a href="#top" id="back-to-top"><i class="fa fa-long-arrow-up"></i></a>
+
 
 <!-- JQUERY JS -->
 <script src="{{URL::to('/')}}/assets/js/jquery.min.js"></script>
@@ -94,6 +102,7 @@
 <!-- TABLE EDITS JS-->
 <script src="{{URL::to('/')}}/assets/plugins/jQuery-table-edits/table-edits.min.js"></script>
 <script src="{{URL::to('/')}}/assets/plugins/jQuery-table-edits/table-edits.js"></script>
+
 
 <script type="text/javascript">
 var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
@@ -161,6 +170,7 @@ function createRows(response) {
 }
 </script>
 
+
 <!-- INTERNAL DATATABLES JS -->
 <script src="{{URL::to('/')}}/assets/js/table-editable.js"></script>
 
@@ -176,6 +186,7 @@ function createRows(response) {
 
 <!-- CUSTOM JS -->
 <script src="{{URL::to('/')}}/assets/js/custom.js"></script>
+
 
 <script>
 (function() {
@@ -198,6 +209,117 @@ $('#select-all').click(function(event) {
     }
 });
 </script>
+
+</script>
+<script>
+    $(document).ready(function(){
+
+        var response = '';
+            $.ajax({
+                type: "GET",
+                url: "/admin/driver",
+                async: false,
+                success: function(text) {
+                    createRows(text);
+                    response = text;
+                }
+            });
+
+    });
+    function createRows(response) {
+        var len = 0;
+        $('#driverTable').empty(); // Empty <tbody>
+        if (response != null) {
+        console.log(response.length);
+        len = response.length;
+        }
+
+        if (len > 0) {
+            for (var i = 0; i < len; i++) {
+                var id = response[i].id;
+                var email = response[i].userEmail;
+                var username = response[i].userName;
+                var firstname = response[i].userFirstName;
+                var lastname = response[i].userLastName;
+                var address = response[i].userAddress;
+                var location = response[i].userLocation;
+                var zip = response[i].userZip;
+                var telephone = response[i].userTelephone;
+                var ext = response[i].userExt;
+                var tollfree = response[i].TollFree;
+                var fax = response[i].userFax;
+
+                var tr_str = "<tr data-id=" + (i + 1) + ">" +
+                "<td data-field='id'>" + (i + 1) + "</td>" +
+                "<td data-field='email'>" + email + "</td>" +
+                "<td data-field='username'>" + username + "</td>" +
+                "<td data-field='fistname'>" + firstname + "</td>" +
+                "<td data-field='lastname'>" + lastname + "</td>" +
+                "<td data-field='address'>" + address + "</td>" +
+                "<td data-field='location'>" + location + "</td>" +
+                "<td data-field='zip'>" + zip + "</td>" +
+                "<td data-field='telephone'>" + telephone + "</td>" +
+                "<td data-field='ext'>" + ext + "</td>" +
+                "<td data-field='tollfree'>" + tollfree + "</td>" +
+                "<td data-field='fax'>" + fax + "</td>" +
+                "<td style='width: 100px'><a class='btn btn-primary fs-14 text-white edit-icn' title='Edit'><i class='fe fe-edit'></i></a></td></tr>";
+
+                $("#table1").append(tr_str);
+            }
+            else {
+                var tr_str = "<tr data-id=" + i + ">" +
+                "<td align='center' colspan='4'>No record found.</td>" +
+                "</tr>";
+
+                $("#table1").append(tr_str);
+            }
+        }
+
+
+        
+            // var driver="driver";
+            // alert('driver');
+            // $.ajax({
+            //     url:"{{route('driverModalIndex')}}",
+            //     type:'post',
+            //     dataType: 'json',
+            //     data : { _token: '{{ csrf_token() }}',driver : 'driver'},
+            //     success: function(data){ // What to do if we succeed
+                    
+            //      }
+            // });
+            // return false;
+
+    //     $("#driver").click(function(){
+    //         var driver="driver";
+    //         // alert('driver');
+    //         $.ajax({
+    //             url:"{{route('driverIndex')}}",
+    //             type:'post',
+    //             dataType: 'json',
+    //             data : { _token: '{{ csrf_token() }}',driver : 'driver'},
+    //             success: function(data){ // What to do if we succeed
+    //                 // $("#tempData").html(data);
+    //                 $('#driverModal').modal('show');
+                        
+    //             }
+    //         });
+    //         // return false;
+    //     });
+
+    //     $("#modalClose").click(function(){
+    //             $('#driverModal').modal('hide');
+    //     });
+    //     $("#modalClose1").click(function(){
+    //             $('#driverModal').modal('hide');
+    //     });
+    // });
+
+
+</script>
+
+<!--  driver -->
+
 
 </body>
 

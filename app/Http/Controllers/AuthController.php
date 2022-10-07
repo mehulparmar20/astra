@@ -38,11 +38,17 @@ class AuthController extends Controller
     }
 
     public function dashboard()
-    {
+    {        
         if(Auth::check()){
-            return view('dashboard');
+
+            //  --  
+
+            $driverData=\App\Models\Driver::all();
+
+            return view('dashboard',['driverData' => $driverData]);
         }
-  
+        
+        
         return redirect("login")->withSuccess('Opps! You do not have access');
     }
 
