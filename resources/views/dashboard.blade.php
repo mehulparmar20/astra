@@ -8,7 +8,7 @@
 @include('layout.dashboard.navigation')
 
 @include('layout.dashboard.sidebar')
-			
+		
 
 			<!--app-content open-->
 			<div class="app-content main-content mt-0">
@@ -257,7 +257,7 @@
 
                                                 <div class="card-body custom-card" style="padding:0rem">
                                                     <div class="wrapper__header">
-                                                        <div class=""><img src="assets/images/cup.png" height="45" width="45"></div>
+                                                        <div class=""><img src="{{URL::to('/')}}/assets/images/cup.png" height="45" width="45"></div>
                                                         <div class="b_caption">
                                                             <span id="ranking_table" style="float:left"></span>
                                                         </div>
@@ -522,7 +522,7 @@
 													<tr>
 														<td>
 															<div class="d-flex align-items-center">
-																<span class="data-image avatar avatar-md rounded-circle" style="background-image: url(../assets/images/users/4.jpg)"></span>
+																<span class="data-image avatar avatar-md rounded-circle" style="background-image: url({{URL::to('/')}}/assets/images/users/4.jpg)"></span>
 																<div class="user-details ms-2">
 																	<h6 class="mb-0">Olena Tyrell</h6>
 																	<span class="text-muted fs-12">member@spruko.com</span>
@@ -983,77 +983,77 @@
                         <ul class="row row-sm p-3">
                             <li class="col-lg-4 mb-2">
                                 <a class="btn btn-country btn-lg btn-block active">
-                                    <span class="country-selector"><img alt="unitedstates" src="../assets/images/flags/us_flag.jpg" class="me-2 language"></span>United States
+                                    <span class="country-selector"><img alt="unitedstates" src="{{URL::to('/')}}/assets/images/flags/us_flag.jpg" class="me-2 language"></span>United States
                                 </a>
 							</li>
 							<li class="col-lg-4 mb-2">
                                 <a class="btn btn-country btn-lg btn-block">
-                                    <span class="country-selector"><img alt="italy" src="../assets/images/flags/italy_flag.jpg" class="me-2 language"></span>Italy
+                                    <span class="country-selector"><img alt="italy" src="{{URL::to('/')}}/assets/images/flags/italy_flag.jpg" class="me-2 language"></span>Italy
                                 </a>
 							</li>
 							<li class="col-lg-4 mb-2">
                                 <a class="btn btn-country btn-lg btn-block">
-									<span class="country-selector"><img alt="spain" src="../assets/images/flags/spain_flag.jpg" class="me-2 language"></span>Spain
+									<span class="country-selector"><img alt="spain" src="{{URL::to('/')}}/assets/images/flags/spain_flag.jpg" class="me-2 language"></span>Spain
 								</a>
 							</li>
 							<li class="col-lg-4 mb-2">
                                 <a class="btn btn-country btn-lg btn-block">
-								    <span class="country-selector"><img alt="india" src="../assets/images/flags/india_flag.jpg" class="me-2 language"></span>India
+								    <span class="country-selector"><img alt="india" src="{{URL::to('/')}}/assets/images/flags/india_flag.jpg" class="me-2 language"></span>India
                                </a>
 							</li>
 							<li class="col-lg-4 mb-2">
                                 <a class="btn btn-country btn-lg btn-block">
-								    <span class="country-selector"><img alt="french" src="../assets/images/flags/french_flag.jpg" class="me-2 language"></span>French
+								    <span class="country-selector"><img alt="french" src="{{URL::to('/')}}/assets/images/flags/french_flag.jpg" class="me-2 language"></span>French
                                 </a>
 							</li>
 							<li class="col-lg-4 mb-2">
                                 <a class="btn btn-country btn-lg btn-block">
-									<span class="country-selector"><img alt="russia" src="../assets/images/flags/russia_flag.jpg" class="me-2 language"></span>Russia
+									<span class="country-selector"><img alt="russia" src="{{URL::to('/')}}/assets/images/flags/russia_flag.jpg" class="me-2 language"></span>Russia
 								</a>
 							</li>
 							<li class="col-lg-4 mb-2">
                                 <a class="btn btn-country btn-lg btn-block">
-								    <span class="country-selector"><img alt="germany" src="../assets/images/flags/germany_flag.jpg" class="me-2 language"></span>Germany
+								    <span class="country-selector"><img alt="germany" src="{{URL::to('/')}}/assets/images/flags/germany_flag.jpg" class="me-2 language"></span>Germany
                                	</a>
 							</li>
 							<li class="col-lg-4 mb-2">
                                 <a class="btn btn-country btn-lg btn-block">
-									<span class="country-selector"><img alt="argentina" src="../assets/images/flags/argentina_flag.jpg" class="me-2 language"></span>Argentina
+									<span class="country-selector"><img alt="argentina" src="{{URL::to('/')}}/assets/images/flags/argentina_flag.jpg" class="me-2 language"></span>Argentina
 								</a>
 							</li>
 							<li class="col-lg-4 mb-2">
                                 <a class="btn btn-country btn-lg btn-block">
-								    <span class="country-selector"><img alt="uae" src="../assets/images/flags/uae_flag.jpg" class="me-2 language"></span>UAE
+								    <span class="country-selector"><img alt="uae" src="{{URL::to('/')}}/assets/images/flags/uae_flag.jpg" class="me-2 language"></span>UAE
                                	</a>
 							</li>
 							<li class="col-lg-4 mb-2">
                                 <a class="btn btn-country btn-lg btn-block">
-									<span class="country-selector"><img alt="austria" src="../assets/images/flags/austria_flag.jpg" class="me-2 language"></span>Austria
+									<span class="country-selector"><img alt="austria" src="{{URL::to('/')}}/assets/images/flags/austria_flag.jpg" class="me-2 language"></span>Austria
 								</a>
 							</li>
 							<li class="col-lg-4 mb-2">
                                 <a class="btn btn-country btn-lg btn-block">
-									<span class="country-selector"><img alt="mexico" src="../assets/images/flags/mexico_flag.jpg" class="me-2 language"></span>Mexico
+									<span class="country-selector"><img alt="mexico" src="{{URL::to('/')}}/assets/images/flags/mexico_flag.jpg" class="me-2 language"></span>Mexico
 								</a>
 							</li>
 							<li class="col-lg-4 mb-2">
                                 <a class="btn btn-country btn-lg btn-block">
-								    <span class="country-selector"><img alt="china" src="../assets/images/flags/china_flag.jpg" class="me-2 language"></span>China
+								    <span class="country-selector"><img alt="china" src="{{URL::to('/')}}/assets/images/flags/china_flag.jpg" class="me-2 language"></span>China
                                </a>
 							</li>
 							<li class="col-lg-4 mb-2">
                                 <a class="btn btn-country btn-lg btn-block">
-									<span class="country-selector"><img alt="poland" src="../assets/images/flags/poland_flag.jpg" class="me-2 language"></span>Poland
+									<span class="country-selector"><img alt="poland" src="{{URL::to('/')}}/assets/images/flags/poland_flag.jpg" class="me-2 language"></span>Poland
                                 </a>
 							</li>
 							<li class="col-lg-4 mb-2">
                                 <a class="btn btn-country btn-lg btn-block">
-									<span class="country-selector"><img alt="canada" src="../assets/images/flags/canada_flag.jpg" class="me-2 language"></span>Canada
+									<span class="country-selector"><img alt="canada" src="{{URL::to('/')}}/assets/images/flags/canada_flag.jpg" class="me-2 language"></span>Canada
 								</a>
 							</li>
 							<li class="col-lg-4 mb-2">
                                 <a class="btn btn-country btn-lg btn-block">
-									<span class="country-selector"><img alt="malaysia" src="../assets/images/flags/malaysia_flag.jpg" class="me-2 language"></span>Malaysia
+									<span class="country-selector"><img alt="malaysia" src="{{URL::to('/')}}/assets/images/flags/malaysia_flag.jpg" class="me-2 language"></span>Malaysia
                                 </a>
 							</li>
 						</ul>

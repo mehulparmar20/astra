@@ -36,4 +36,7 @@ Route::post('post-forgot-password', [AuthController::class, 'submitForgetPasswor
 
 
 // Driver
-Route::get('driverindex', [DriverController::class, 'index'])->name('driverindex');
+Route::post('driverIndex', [DriverController::class, 'index'])->name('driverIndex');
+Route::post('driverModalIndex', [DriverController::class, 'driverModalIndex'])->name('driverModalIndex');
+Route::post('driverIndex', [DriverController::class, 'temp'])->name('driverIndex');
+Route::get('/admin/driver', [DriverController::class, 'index']);

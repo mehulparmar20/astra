@@ -14,14 +14,20 @@ use Carbon\Carbon;
 
 class DriverController extends Controller
 {
-    public function index()
-    {
-        $driverData=Driver::all();
-        // dd($driverData);
-        return redirect('driverModal');
+    // public function index(Request $request)
+    // {
+    //     $driverData=Driver::all();        
+    //     return response()->json($driverData);
         
-    }
+    // }
 
+    // public function driverModalIndex(Request $request)
+    // {
+    //     $driverData=Driver::all();
+     
+    //     return view('dashboard',['data' => $driverData]);
+        
+    // }
 
-   
+    
 }
