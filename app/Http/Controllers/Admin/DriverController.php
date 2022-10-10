@@ -20,5 +20,18 @@ class DriverController extends Controller
         return response()->json($driver);  
     }
 
+    public function addDriverData(Request $request){
+        // dd($request->all);
+      
+        // $companyID="23";
+        $driver = new Driver();
+        
+        $driver->companyID = $request->companyID;
+       
+        $driver->save();
+
+        $arr = array('status' => 'success', 'message' => 'driver added successfully.'); 
+                    return json_encode($arr);
+    }
     
 }

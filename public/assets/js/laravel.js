@@ -102,7 +102,7 @@ $(document).ready(function() {
       var tollfree = $('#inputTollFree').val();
       var fax = $('#inputFax').val();
       console.log(fax);
-      if(name!="" && email!="" && phone!="" && city!=""){
+    //   if(name!="" && email!="" && phone!="" && city!=""){
     //   $("#butsave").attr("disabled", "disabled"); 
           $.ajax({
               url: "/admin/add-user",
@@ -138,10 +138,10 @@ $(document).ready(function() {
                   
               }
           });
-      }
-      else{
-          alert("All fields are required");
-      }
+    //   }
+    //   else{
+    //       alert("All fields are required");
+    //   }
   });
 });
 
@@ -229,6 +229,7 @@ $(document).ready(function() {
         }
         // <!-- ------------------------------------------------------------------------- add driver  ------------------------------------------------------------------------- -->
         $('.driverDataSubmit').click(function(){
+            var companyID = 25;
             var name = $('#name').val();
             var usernamee = $('#usernamee').val();
             var address = $('#address').val();
@@ -260,59 +261,111 @@ $(document).ready(function() {
             var driverBalance = $('#driverBalance').val();
             var internalNotes = $('#internalNotes').val();
             
-            if(name == ''){
-                alert("Please Enter Name");
-                $('#name').focus();
-                return false;
-            }
-            if(address == ''){
-                alert("Please Enter Address");
-                $('#address').focus();
-                return false;
-            }
-            if(telephone == ''){
-                alert("Please Enter Telephone No");
-                $('#telephone').focus();
-                return false;
-            }
+            // if(name == ''){
+            //     alert("Please Enter Name");
+            //     $('#name').focus();
+            //     return false;
+            // }
+            // if(address == ''){
+            //     alert("Please Enter Address");
+            //     $('#address').focus();
+            //     return false;
+            // }
+            // if(telephone == ''){
+            //     alert("Please Enter Telephone No");
+            //     $('#telephone').focus();
+            //     return false;
+            // }
            
-            if(location == ''){
-                alert("Please Enter Location");
-                $('#location').focus();
-                return false;
-            }
-            if(zip == ''){
-                alert("Please Enter zip");
-                $('#zip').focus();
-                return false;
-            }
-            if(licenseNo == ''){
-                alert("Please Enter License No");
-                $('#licenseNo').focus();
-                return false;
-            }
-            if(licenseIssueState == ''){
-                alert("Please Enter License Issue State");
-                $('#licenseIssueState').focus();
-                return false;
-            }
-            if(licenseExpDate == ''){
-                alert("Please Enter License Exp Date");
-                $('#licenseExpDate').focus();
-                return false;
-            }
-            if(rate == ''){
-                alert("Please Enter Rate");
-                $('#rate').focus();
-                return false;
-            }
-            if(currency  == ''){
-                alert("Please Enter Currency");
-                $('#currency').focus();
-                return false;
-            }
+            // if(location == ''){
+            //     alert("Please Enter Location");
+            //     $('#location').focus();
+            //     return false;
+            // }
+            // if(zip == ''){
+            //     alert("Please Enter zip");
+            //     $('#zip').focus();
+            //     return false;
+            // }
+            // if(licenseNo == ''){
+            //     alert("Please Enter License No");
+            //     $('#licenseNo').focus();
+            //     return false;
+            // }
+            // if(licenseIssueState == ''){
+            //     alert("Please Enter License Issue State");
+            //     $('#licenseIssueState').focus();
+            //     return false;
+            // }
+            // if(licenseExpDate == ''){
+            //     alert("Please Enter License Exp Date");
+            //     $('#licenseExpDate').focus();
+            //     return false;
+            // }
+            // if(rate == ''){
+            //     alert("Please Enter Rate");
+            //     $('#rate').focus();
+            //     return false;
+            // }
+            // if(currency  == ''){
+            //     alert("Please Enter Currency");
+            //     $('#currency').focus();
+            //     return false;
+            // }
            
-            
+            $.ajax({
+                url: "/admin/addDriver",
+                type: "POST",
+                datatype:"JSON",
+                data: {
+                    _token: $("#csrf").val(),
+                  //   type: 1,
+                  companyID: companyID,
+                  name: name,
+                  usernamee: usernamee,
+                  address: address,
+                  telephone: telephone,
+                  altTelephone: altTelephone,
+                  email: email,
+                  password: password,
+                  location: location,
+                  zip: zip,
+                  status: status,
+                  socialSecurityNo: socialSecurityNo,
+                  dateOfBirth: dateOfBirth,
+                  dateOfHire: dateOfHire,
+                  licenseNo: licenseNo,
+                  licenseIssueState: licenseIssueState,
+                  licenseExpDate: licenseExpDate,
+                  lastMedical: lastMedical,
+                  nextMedical: nextMedical,
+                  lastDrugTest: lastDrugTest,
+                  nextDrugTest: nextDrugTest,
+                  passportExpiry: passportExpiry,
+                  fastCardExpiry: fastCardExpiry,
+                  hazmatExpiry: hazmatExpiry,
+                  rate: rate,
+                  currency: currency,
+                  recurrencePlus: recurrencePlus,
+                  recurrenceMin: recurrenceMin,
+                  terminationDate: terminationDate,
+                  driverBalance: driverBalance,
+                  internalNotes: internalNotes,
+                },
+                cache: false,
+                success: function(dataResult){
+                    // console.log(dataResult);
+                    // var dataResult = JSON.parse(dataResult);
+                    // if(dataResult.statusCode==200){
+                    //     alert("done");
+                    // //   window.location = "/admin/driver";				
+                    // }
+                    // else if(dataResult.statusCode==201){
+                    //    alert("Error occured !");
+                    // }
+                    
+                }
+            });
             
         });
     }
