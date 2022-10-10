@@ -33,7 +33,7 @@ class UserController extends Controller
             'userLocation' => 'required',
             'userZip' => 'required',
             'userExt' => 'required',
-            'userTelephone' => 'required|min:11|max:11|numeric',
+            // 'userTelephone' => 'required|min:11|max:11|numeric',
         ]);
     
         //Data::insert($request->all());
@@ -49,9 +49,9 @@ class UserController extends Controller
 
         try{
 			$password = sha1($request->userPass);
-			$company_name = explode(")",$users->getCompanyName()); 
+			// $company_name = explode(")",$users->getCompanyName()); 
             // if($makedecision['status']) {
-                print_r($request->userPass);die;
+                // print_r($request->userPass);die;
                 if(User::create([
                     'counter' => 0,
                     // 'companyID' => (int)$_SESSION['companyId'],
@@ -152,7 +152,7 @@ class UserController extends Controller
                     //     'laneAnalysis' => $request->input('laneAnalysis')
                     // ),
                     'user_type' => "user",
-                    'insertedTime' => Carbon::now(),
+                    // 'insertedTime' => Carbon::now(),
                     // 'insertedUserId' => $_SESSION['userName'],
                     'deleteStatus' => 0,
                     'mode' => 'day',
