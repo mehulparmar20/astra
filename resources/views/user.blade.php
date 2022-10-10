@@ -1,10 +1,20 @@
 <!-- driver modal -->
+
+
+
+
 <div class="container">
         <!-- <h2>Large Modal</h2> -->
         <!-- Button to Open the Modal -->
         <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
             Open modal
         </button> -->
+
+
+       
+  
+  
+
 
         <!-- The Modal -->
         <div class="modal fade" id="userModal">
@@ -40,13 +50,15 @@
                                         <div class="row row-sm">
                                             <div class="col-lg-12">
                                                 <div class="card">
-                                                <a href="#addUserModal" class="btn btn-primary slide-item" data-toggle="modal" data-target="#addUserModal">Add</a>
-                                                    <!-- <div class="card-header border-bottom">
+                                                <button href="#addUserModal" data-toggle="modal" data-target="#addUserModal" class="add1button" style="vertical-align:middle"><span>Add </span></button>
+                                                
+                                                     <!-- <div class="card-header border-bottom">
                                                         <h3 class="card-title">Editable File Export Datatable</h3>
                                                     </div> -->
                                                     <div class="card-body">
                                                         <div class="table-responsive export-table">
-                                                            <table id="editable-file-datatable" class="table editable-table table-nowrap table-bordered table-edit wp-100">
+                                                            
+                                                            <table id="editable-file-datatable" style="margin-bottom : -571rem" class="table editable-table table-nowrap table-bordered table-edit wp-100">
                                                                 <thead>
                                                                     <tr>
                                                                         <th>ID</th>
