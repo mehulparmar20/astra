@@ -11839,7 +11839,7 @@ textarea.form-control.parsley-success {
 }
 
 .modal-body label {
-    font-weight: 400;
+    font-weight: 600;
 }
 
 /*------ Modal -------*/
@@ -11916,7 +11916,8 @@ textarea.form-control.parsley-success {
 .modal-content {
     position: relative;
     display: -ms-flexbox;
-    display: flex;
+    /* display: flex; */
+    display: inline-table;
     -ms-flex-direction: column;
     flex-direction: column;
     width: 100%;
@@ -112146,6 +112147,11 @@ textarea.form-control {
     border-radius: 10px;
     text-align: center;
 }
+
+  .required:after {
+    content:" *";
+    color: red;
+  }
 
 
 /*# sourceMappingURL=style.css.map */
