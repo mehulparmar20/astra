@@ -5,8 +5,8 @@
                         <a aria-label="Hide Sidebar" class="app-sidebar__toggle" data-bs-toggle="sidebar" href="#"></a>
                         <!-- sidebar-toggle-->
                         <a class="logo-horizontal " href="index.html">
-                            <img src="{{URL::to('/')}}/assets/images/brand/logo.png" class="header-brand-img desktop-logo" alt="logo">
-                            <img src="{{URL::to('/')}}/assets/images/brand/logo-3.png" class="header-brand-img light-logo1"
+                            <img src="{{URL::to('/')}}/assets/images/brand/Astra_logo.png" class="header-brand-img desktop-logo" alt="logo">
+                            <img src="{{URL::to('/')}}/assets/images/brand/Astra_logo.png" class="header-brand-img light-logo1"
                                 alt="logo">
                         </a>
                         <!-- LOGO -->
@@ -56,11 +56,11 @@
                                         <!-- COUNTRY -->
                                         <div class="dropdown d-md-flex main-header-notification flag-dropdown">
                                             <a class="nav-link icon text-center country-nav-link" data-bs-target="#country-selector" data-bs-toggle="modal">
-												<img class="header-icons language" alt="" src="{{URL::to('/')}}/assets/images/flags/us_flag.jpg">
+												<img class="header-icons language" alt="" src="../assets/images/flags/us_flag.jpg">
 											</a>
                                         </div>
                                         <!-- SEARCH -->
-                                        <div class="dropdown  d-flex">
+                                        <div class="dropdown d-flex">
                                             <a class="nav-link icon theme-layout nav-link-bg layout-setting">
                                                 <span class="dark-layout">
 													<svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" viewBox="0 0 24 24"><path d="M22.0482178,13.2746582c-0.1265259-0.2453003-0.4279175-0.3416138-0.6732178-0.2150879C20.1774902,13.6793823,18.8483887,14.0019531,17.5,14c-0.8480835-0.0005493-1.6913452-0.1279297-2.50177-0.3779297c-4.4887085-1.3847046-7.0050049-6.1460571-5.6203003-10.6347656c0.0320435-0.1033325,0.0296021-0.2142944-0.0068359-0.3161621C9.2781372,2.411377,8.9921875,2.2761841,8.7324219,2.3691406C4.6903076,3.800293,1.9915771,7.626709,2,11.9146729C2.0109863,17.4956055,6.5440674,22.0109863,12.125,22c4.9342651,0.0131226,9.1534424-3.5461426,9.9716797-8.4121094C22.1149292,13.4810181,22.0979614,13.3710327,22.0482178,13.2746582z M16.0877075,20.0958252c-4.5321045,2.1853027-9.9776611,0.2828979-12.1630249-4.2492065S3.6417236,5.8689575,8.1738281,3.6835938C8.0586548,4.2776489,8.0004272,4.8814087,8,5.4865723C7.9962769,10.7369385,12.2495728,14.9962769,17.5,15c1.1619263,0.0023193,2.3140869-0.2119751,3.3974609-0.6318359C20.1879272,16.8778076,18.4368896,18.9630127,16.0877075,20.0958252z"/></svg>
@@ -174,7 +174,7 @@
                                                 </div>
                                                 <div class="header-dropdown-list cart-menu ps4 overflow-hidden">
                                                     <a class="dropdown-item d-flex p-4" href="cart.html">
-                                                        <span class="avatar avatar-lg br-5 me-3 align-self-center cover-image" data-bs-image-src="{{URL::to('/')}}/assets/images/ecommerce/1.jpg"></span>
+                                                        <span class="avatar avatar-lg br-5 me-3 align-self-center cover-image" data-bs-image-src="../assets/images/ecommerce/1.jpg"></span>
                                                         <div class="wp-60 cart-desc mt-1">
                                                             <p class="fs-13 mb-0 lh-1 mb-1 text-dark fw-500">TrueBasket Metal Single Pot</p>
                                                             <p class="fs-12 fw-300 lh-1 mb-0">Status: <span class="text-green">In Stock</span></p>
@@ -187,7 +187,7 @@
                                                         </div>
                                                     </a>
 													<a class="dropdown-item d-flex p-4" href="cart.html">
-                                                        <span class="avatar avatar-lg br-5 me-3 align-self-center cover-image" data-bs-image-src="{{URL::to('/')}}/assets/images/ecommerce/2.jpg"></span>
+                                                        <span class="avatar avatar-lg br-5 me-3 align-self-center cover-image" data-bs-image-src="../assets/images/ecommerce/2.jpg"></span>
                                                         <div class="wp-60 cart-desc mt-1">
                                                             <p class="fs-13 mb-0 lh-1 mb-1 text-dark fw-500">Authentic chair with Canopy</p>
                                                             <p class="fs-12 fw-300 lh-1 mb-0">Status: <span class="text-green">In Stock</span></p>
@@ -200,7 +200,7 @@
                                                         </div>
                                                     </a>
 													<a class="dropdown-item d-flex p-4" href="cart.html">
-                                                        <span class="avatar avatar-lg br-5 me-3 align-self-center cover-image" data-bs-image-src="{{URL::to('/')}}/assets/images/ecommerce/3.jpg"></span>
+                                                        <span class="avatar avatar-lg br-5 me-3 align-self-center cover-image" data-bs-image-src="../assets/images/ecommerce/3.jpg"></span>
                                                         <div class="wp-60 cart-desc mt-1">
                                                             <p class="fs-13 mb-0 lh-1 mb-1 text-dark fw-500">Casual Sneakers Canvas</p>
                                                             <p class="fs-12 fw-300 lh-1 mb-0">Status: <span class="text-green">In Stock</span></p>
@@ -213,7 +213,7 @@
                                                         </div>
                                                     </a>
 													<a class="dropdown-item d-flex p-4" href="cart.html">
-                                                        <span class="avatar avatar-lg br-5 me-3 align-self-center cover-image" data-bs-image-src="{{URL::to('/')}}/assets/images/ecommerce/4.jpg"></span>
+                                                        <span class="avatar avatar-lg br-5 me-3 align-self-center cover-image" data-bs-image-src="../assets/images/ecommerce/4.jpg"></span>
                                                         <div class="wp-60 cart-desc mt-1">
                                                             <p class="fs-13 mb-0 lh-1 mb-1 text-dark fw-500">Branded Head Phones</p>
                                                             <p class="fs-12 fw-300 lh-1 mb-0">Status: <span class="text-danger">No Stock</span></p>
@@ -226,7 +226,7 @@
                                                         </div>
                                                     </a>
 													<a class="dropdown-item d-flex p-4" href="cart.html">
-                                                        <span class="avatar avatar-lg br-5 me-3 align-self-center cover-image" data-bs-image-src="{{URL::to('/')}}/assets/images/ecommerce/5.jpg"></span>
+                                                        <span class="avatar avatar-lg br-5 me-3 align-self-center cover-image" data-bs-image-src="../assets/images/ecommerce/5.jpg"></span>
                                                         <div class="wp-60 cart-desc mt-1">
                                                             <p class="fs-13 mb-0 lh-1 mb-1 text-dark fw-500">camera lens (16mm f/1.4)</p>
                                                             <p class="fs-12 fw-300 lh-1 mb-0">Status: <span class="text-green">In Stock</span></p>
@@ -262,7 +262,7 @@
 												</div>
 												<div class="message-menu ps2 overflow-hidden">
 													<a class="dropdown-item d-flex" href="chat.html">
-														<span class="avatar avatar-md brround me-3 align-self-center cover-image" data-bs-image-src="{{URL::to('/')}}/assets/images/users/1.jpg" style="background: url(&quot;{{URL::to('/')}}/assets/images/users/1.jpg&quot;) center center;"></span>
+														<span class="avatar avatar-md brround me-3 align-self-center cover-image" data-bs-image-src="../assets/images/users/1.jpg" style="background: url(&quot;../assets/images/users/1.jpg&quot;) center center;"></span>
 														<div class="wd-90p">
 															<div class="d-flex">
 																<h5 class="mb-1">Hawaii Hilton</h5>
@@ -272,7 +272,7 @@
 														</div>
 													</a>
 													<a class="dropdown-item d-flex" href="chat.html">
-														<span class="avatar avatar-md brround me-3 align-self-center cover-image" data-bs-image-src="{{URL::to('/')}}/assets/images/users/15.jpg" style="background: url(&quot;{{URL::to('/')}}/assets/images/users/15.jpg&quot;) center center;">
+														<span class="avatar avatar-md brround me-3 align-self-center cover-image" data-bs-image-src="../assets/images/users/15.jpg" style="background: url(&quot;../assets/images/users/15.jpg&quot;) center center;">
 														</span>
 														<div class="wd-90p">
 															<div class="d-flex">
@@ -283,7 +283,7 @@
 														</div>
 													</a>
 													<a class="dropdown-item d-flex" href="chat.html">
-														<span class="avatar avatar-md brround me-3 align-self-center cover-image" data-bs-image-src="{{URL::to('/')}}/assets/images/users/12.jpg" style="background: url(&quot;{{URL::to('/')}}/assets/images/users/12.jpg&quot;) center center;">
+														<span class="avatar avatar-md brround me-3 align-self-center cover-image" data-bs-image-src="../assets/images/users/12.jpg" style="background: url(&quot;../assets/images/users/12.jpg&quot;) center center;">
 														</span>
 														<div class="wd-90p">
 															<div class="d-flex">
@@ -294,7 +294,7 @@
 														</div>
 													</a>
 													<a class="dropdown-item d-flex" href="chat.html">
-														<span class="avatar avatar-md brround me-3 align-self-center cover-image" data-bs-image-src="{{URL::to('/')}}/assets/images/users/4.jpg" style="background: url(&quot;{{URL::to('/')}}/assets/images/users/4.jpg&quot;) center center;">
+														<span class="avatar avatar-md brround me-3 align-self-center cover-image" data-bs-image-src="../assets/images/users/4.jpg" style="background: url(&quot;../assets/images/users/4.jpg&quot;) center center;">
 														</span>
 														<div class="wd-90p">
 															<div class="d-flex">
@@ -382,7 +382,7 @@
 										<div class="dropdown d-md-flex profile-1">
 											<a href="#" data-bs-toggle="dropdown" class="nav-link pe-2 leading-none d-flex animate">
 												<span>
-													<img src="{{URL::to('/')}}/assets/images/faces/6.jpg" alt="profile-user"
+													<img src="../assets/images/faces/6.jpg" alt="profile-user"
 														class="avatar  profile-user brround cover-image">
 												</span>
 												<div class="text-center p-1 d-flex d-lg-none-max">
