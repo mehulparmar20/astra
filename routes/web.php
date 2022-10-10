@@ -32,6 +32,7 @@ Auth::routes();
 
 Route::get('admin/dashboard', [AuthController::class, 'dashboard']);
 Route::get('admin/user', [UserController::class, 'getAllUser']);
+Route::post('admin/add-user', [UserController::class, 'addUsers']);
 
 Route::get('login', [AuthController::class, 'login'])->name('login')->middleware('guest');
 Route::post('post-login', [AuthController::class, 'postLogin'])->name('login.post'); 

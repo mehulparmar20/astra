@@ -45,87 +45,84 @@
                                                     </div> -->
                                     <div class="card-body">
                                         <div class="table-responsive export-table">
-                                            <form>
+                                            <form method="post">
                                                 @csrf
+                                            <input type="hidden" name="_token" id="csrf" value="{{Session::token()}}">
                                                 <div class="form-row">
                                                     <div class="form-group col-md-6">
                                                         <label for="inputFirstName4">First Name</label>
-                                                        <input type="text" class="form-control" id="inputFirstName4"
+                                                        <input type="text" class="form-control" name="inputFirstName4" id="inputFirstName4"
                                                             placeholder="First Name">
                                                     </div>
                                                     <div class="form-group col-md-6">
                                                         <label for="inputLastName4">Last Name</label>
-                                                        <input type="email" class="form-control" id="inputLastName4"
+                                                        <input type="email" class="form-control" name="inputLastName4" id="inputLastName4"
                                                             placeholder="Last Name">
                                                     </div>
                                                     <div class="form-group col-md-6">
                                                         <label for="inputUsername4">Username</label>
-                                                        <input type="text" class="form-control" id="inputUsername4"
+                                                        <input type="text" class="form-control" name="inputUsername4" id="inputUsername4"
                                                             placeholder="Username">
                                                     </div>
                                                     <div class="form-group col-md-6">
                                                         <label for="inputEmail4">Email</label>
-                                                        <input type="email" class="form-control" id="inputEmail4"
+                                                        <input type="email" class="form-control" name="inputEmail4" id="inputEmail4"
                                                             placeholder="Email">
                                                     </div>
                                                     <div class="form-group col-md-6">
                                                         <label for="inputPassword4">Password</label>
-                                                        <input type="password" class="form-control" id="inputPassword4"
+                                                        <input type="password" class="form-control" name="inputPassword4" id="inputPassword4"
                                                             placeholder="Password">
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="inputAddress">Address</label>
-                                                    <input type="text" class="form-control" id="inputAddress"
+                                                    <input type="text" class="form-control" name="inputAddress" id="inputAddress"
                                                         placeholder="1234 Main St">
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="inputLocation">Location</label>
-                                                    <input type="text" class="form-control" id="inputLocation"
+                                                    <input type="text" class="form-control" name="inputLocation" id="inputLocation"
                                                         placeholder="Apartment, studio, or floor">
                                                 </div>
                                                 <div class="form-row">
                                                     <div class="form-group col-md-6">
                                                         <label for="inputCity">City</label>
-                                                        <input type="text" class="form-control" id="inputCity">
+                                                        <input type="text" class="form-control" name="inputCity" id="inputCity">
                                                     </div>
                                                     <div class="form-group col-md-2">
                                                         <label for="inputZip">Zip</label>
-                                                        <input type="text" class="form-control" id="inputZip">
+                                                        <input type="text" class="form-control" name="inputZip" id="inputZip">
                                                     </div>
                                                     <div class="form-group col-md-4">
                                                         <label for="inputCompanyName">Company Name</label>
-                                                        <select id="inputCompanyName" class="form-control">
+                                                        <select id="inputCompanyName" name="inputCompanyName" class="form-control">
                                                             <option selected>Choose...</option>
-                                                            <option>...</option>
+                                                            <option value="1">1</option>
                                                         </select>
                                                     </div>
                                                     <div class="form-group col-md-4">
                                                         <label for="inputOffice">Office</label>
-                                                        <select id="inputOffice" class="form-control">
+                                                        <select id="inputOffice" name="inputOffice" class="form-control">
                                                             <option selected>Choose...</option>
-                                                            <option value="">...</option>
+                                                            <option value="1">1</option>
                                                         </select>
                                                     </div>
                                                     <div class="form-group col-md-2">
-                                                        <label for="inputZip">Zip</label>
-                                                        <input type="text" class="form-control" id="inputZip">
-                                                    </div>
-                                                    <div class="form-group col-md-2">
                                                         <label for="inputTelephone">Telephone</label>
-                                                        <input type="tel" class="form-control" id="inputTelephone">
+                                                        <input type="tel" class="form-control" name="inputTelephone" id="inputTelephone">
                                                     </div>
                                                     <div class="form-group col-md-2">
                                                         <label for="inputExt">Ext</label>
-                                                        <input type="text" class="form-control" id="inputExt">
+                                                        <input type="text" class="form-control" name="inputExt" id="inputExt">
                                                     </div>
                                                     <div class="form-group col-md-2">
                                                         <label for="inputTollFree">Toll Free</label>
-                                                        <input type="tel" class="form-control" id="inputTollFree">
+                                                        <input type="tel" class="form-control" name="inputTollFree" id="inputTollFree">
                                                     </div>
                                                     <div class="form-group col-md-2">
                                                         <label for="inputFax">Fax</label>
-                                                        <input type="text" class="form-control" id="inputFax">
+                                                        <input type="text" class="form-control" name="inputFax" id="inputFax">
                                                     </div>
                                                 </div>
                                                 <div class="form-row form-group col-md-12">
@@ -167,7 +164,7 @@
                                                     </div>
                                                 </div>
                                                 <br>
-                                                <a type="submit" class="btn btn-primary">Submit</a>
+                                                <a type="submit" class="btn btn-primary" id="usersave">Submit</a>
                                                 <br>
                                             </form>
                                             <br>
