@@ -1,10 +1,12 @@
 var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
 
+var base_path = $("#url").val();
+
 $(document).ready(function() {
     var response = '';
     $.ajax({
         type: "GET",
-        url: "/admin/user",
+        url: base_path+"/admin/user",
         async: false,
         success: function(text) {
             createRows(text);
@@ -105,7 +107,7 @@ $(document).ready(function() {
       if(name!="" && email!="" && phone!="" && city!=""){
     //   $("#butsave").attr("disabled", "disabled"); 
           $.ajax({
-              url: "/admin/add-user",
+              url: base_path+"/admin/add-user",
               type: "POST",
               data: {
                   _token: $("#csrf").val(),
@@ -130,7 +132,7 @@ $(document).ready(function() {
                   console.log(dataResult);
                   var dataResult = JSON.parse(dataResult);
                   if(dataResult.statusCode==200){
-                    window.location = "/admin/user";				
+                    window.location = base_path+"/admin/user";				
                   }
                   else if(dataResult.statusCode==201){
                      alert("Error occured !");

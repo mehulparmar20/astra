@@ -104,6 +104,7 @@
 <script src="{{URL::to('/')}}/assets/plugins/jQuery-table-edits/table-edits.js"></script>
 
 
+<input type="hidden" value="{{url('/')}}" id="url" name="url">
 
 <script src="{{URL::to('/')}}/assets/js/laravel.js"></script>
 
