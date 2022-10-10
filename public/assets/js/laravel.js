@@ -155,7 +155,7 @@ $(document).ready(function() {
         var driverResponse = '';
         $.ajax({
             type: "GET",
-            url: "/admin/driver",
+            url: base_path+"/admin/driver",
             async: false,
             success: function(text) {
                 createDriverRows(text);
@@ -316,7 +316,7 @@ $(document).ready(function() {
             // }
            
             $.ajax({
-                url: "/admin/addDriver",
+                url: base_path+"/admin/addDriver",
                 type: "POST",
                 datatype:"JSON",
                 data: {
