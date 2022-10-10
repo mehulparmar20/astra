@@ -2,11 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
-
-use App\Http\Controllers\DriverController;
-
+use App\Http\Controllers\Admin\DriverController;
 use App\Http\Controllers\Admin\UserController;
-
 
 /*
 |--------------------------------------------------------------------------
@@ -42,7 +39,4 @@ Route::post('post-forgot-password', [AuthController::class, 'submitForgetPasswor
 
 
 // Driver
-Route::post('driverIndex', [DriverController::class, 'index'])->name('driverIndex');
-Route::post('driverModalIndex', [DriverController::class, 'driverModalIndex'])->name('driverModalIndex');
-Route::post('driverIndex', [DriverController::class, 'temp'])->name('driverIndex');
-Route::get('/admin/driver', [DriverController::class, 'index']);
+Route::get('admin/driver', [DriverController::class, 'getDriverData']);
