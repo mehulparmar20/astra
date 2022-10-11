@@ -26,6 +26,7 @@ class Driver extends Model implements
     //     'userEmail', 'userPass',
     // ];
 
+    protected $guarded = [];
     /**
      * The attributes that should be hidden for arrays.
      *

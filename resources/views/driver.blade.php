@@ -22,7 +22,7 @@
                                                     <div class="card-body">
                                                     
                                                         <div class="table-responsive export-table">
-                                                        <a href="#addDriverModal" class="btn btn-primary slide-item" data-toggle="modal" data-target="#addDriverrModal" >Add</a>
+                                                        <a href="#addDriverModal" class="btn btn-primary slide-item" data-toggle="modal" data-target="#addDriverModal" >Add</a>
                                                         <table id="editable-file-datatable" class="table editable-table table-nowrap table-bordered table-edit wp-100">
                                                             <!-- <table id="" class="table editable-table table-nowrap table-bordered table-edit wp-100"> -->
                                                                 <thead>
@@ -71,7 +71,7 @@
 
 <div class="container">
     <!-- The Modal -->
-    <div class="modal fade" id="addDriverrModal">
+    <div class="modal fade" id="addDriverModal">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
 
@@ -101,7 +101,7 @@
                                                     </div>
                                                     <div class="form-group col-md-6">
                                                         <label for="username">Username</label>
-                                                        <input type="text" class="form-control" id="Username"placeholder="usernamee">
+                                                        <input type="text" class="form-control" id="username"placeholder="username">
                                                     </div>
                                                 </div>
 

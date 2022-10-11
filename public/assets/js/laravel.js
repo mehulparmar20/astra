@@ -233,7 +233,7 @@ $(document).ready(function() {
         $('.driverDataSubmit').click(function(){
             var companyID = 25;
             var name = $('#name').val();
-            var usernamee = $('#usernamee').val();
+            var username = $('#username').val();
             var address = $('#address').val();
             var telephone = $('#telephone').val();
             var altTelephone = $('#altTelephone').val();
@@ -324,7 +324,7 @@ $(document).ready(function() {
                   //   type: 1,
                   companyID: companyID,
                   name: name,
-                  usernamee: usernamee,
+                  username: username,
                   address: address,
                   telephone: telephone,
                   altTelephone: altTelephone,
@@ -356,11 +356,17 @@ $(document).ready(function() {
                 },
                 cache: false,
                 success: function(dataResult){
-                    // console.log(dataResult);
+                    console.log(dataResult);
+                    if(dataResult){
+                        alert("Driver added successfully.");
+                        // $('#driverModal').modal('show');
+                    }else{
+                        alert("Driver not added successfully.");
+                    }
                     // var dataResult = JSON.parse(dataResult);
                     // if(dataResult.statusCode==200){
                     //     alert("done");
-                    // //   window.location = "/admin/driver";				
+                    //   window.location = "/admin/driver";				
                     // }
                     // else if(dataResult.statusCode==201){
                     //    alert("Error occured !");
