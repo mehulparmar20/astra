@@ -22,12 +22,15 @@ class DriverController extends Controller
 
     public function addDriverData(Request $request)
     {
-		$companyID=$request->companyID;
-        $getCompany = Driver::where('companyID',$companyID)->first();
-        $driverArray=$getCompany->driver;
+		 $companyID=$request->companyID;
+        
+        $getCompany = Driver::where('companyID',25)->first();
+        $driverArray=$getCompany->driver;              
+        
+        
        
         $password = sha1($request->password);
-        $driverData=array(
+        $driverData[]=array(
                '_id' => 0,
                         'counter' => 0,
                         'ownerID' => 0,
@@ -100,17 +103,50 @@ class DriverController extends Controller
                         // 'LastUpdateId' => $request->  ,
                         // 'ownerOperatorStatus' => $request->  ,
                         );
-    //    dd($driver);
+    //    dd($driver);         
 
             if($getCompany){
-                // echo "a";
-                array_push($driverArray, $driverData);
+                 //echo "a";
+                 //die;
+
+              //   $driverArray[]=$driverData;
+                //  echo json_encode($driverArray);
+                //  die;
+
+                // $driverArray=[
+                //     ['id' => 123],
+                //     ['id' => 456]
+                // ];
+
+                //array_push($driverData, $driverArray);
+                 
+
+                Driver::where(['companyID' =>25 ])->update([
+                            
+                    // 'companyID' => (int)$_SESSION['companyId'],
+                    //'_id' => 1,
+                    'companyID' => 25,
+                    'counter' => 100,
+                    //'driver' =>array_push($driverData, $driverArray) ,
+                    'driver' =>array_merge($driverData,$driverArray) ,
+                    // 'user_type' => "user",
+        
+                    // 'deleteStatus' => 0,
+                    // 'mode' => 'day',
+                    // 'otp' => '',
+                    // 'emailVerificationStatus' => 1,
+                    
+                ]);
+                //die;
+
+
+                //array_push($driverArray, $driverData);
                 $arr = array('status' => 'success', 'message' => 'driver added successfully.'); 
                 return json_encode($arr);
             }else{
                 // echo "o";
                 try{
-                    // $password = sha1($request->password);
+                   
                         if(Driver::create([
                             
                             // 'companyID' => (int)$_SESSION['companyId'],

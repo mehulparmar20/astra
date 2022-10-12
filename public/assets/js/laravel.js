@@ -153,6 +153,8 @@ $(document).ready(function() {
 {/* <script type="text/javascript"> */}
     $(document).ready(function() {
         var driverResponse = '';
+
+    // <!-- -------------------------------------------------------------------------Get driver ajax ------------------------------------------------------------------------- -->    
         $.ajax({
             type: "GET",
             url: base_path+"/admin/driver",
@@ -162,75 +164,88 @@ $(document).ready(function() {
                 driverResponse = text;
             }
         });
-        // console.log(driverResponse);
-    });
 
+        function createDriverRows(driverResponse) {
 
-    function createDriverRows(driverResponse) {
-
-        console.log(driverResponse);
-        var len1 = 0;
-        $('#driverTable').empty(); // Empty <tbody>
-        if (driverResponse != null) {
-            len1 = driverResponse.length;
-        }
-
-        if (len1 > 0) {
-           var no=1;
-        
-            for (var i = 0; i < len1; i++) {
-                 
-                if(driverResponse[i].counter > 0){
-                    counterLen=driverResponse[i].counter;
-                       
-                     
-                    for (var j = 0; j < counterLen; j++) {
-                       
-                        // var counter = driverResponse[i].counter;
-                        // var no = driverResponse[i]._id;
-                        var name = driverResponse[i].driver[j].driverName;
-                        var email = driverResponse[i].driver[j].driverEmail;
-                        var location = driverResponse[i].driver[j].driverAddress;
-                        var social_security_no = driverResponse[i].driver[j].driverSocial;
-                        var date_of_birth = driverResponse[i].driver[j].dateOfbirth;
-                        var date_of_hire = driverResponse[i].driver[j].dateOfhire;
-                        var license_no = driverResponse[i].driver[j].driverLicenseNo;
-                        var lis = driverResponse[i].driver[j].driverLicenseIssue;
-                        var license_exp_date = driverResponse[i].driver[j].driverLicenseExp;
-                        var driver_balance = driverResponse[i].driver[j].driverBalance;
-
-                        var tr_str1 = "<tr data-id=" + (i + 1) + ">" +
-                        // "<td data-field='counter'>" + counter + "</td>" +
-                            "<td data-field='no'>" + no + "</td>" +
-                            "<td data-field='name'>" + name + "</td>" +
-                            "<td data-field='email'>" + email + "</td>" +
-                            "<td data-field='location'>" + location + "</td>" +
-                            "<td data-field='social_security_no'>" + social_security_no + "</td>" +
-                            "<td data-field='date_of_birth'>" + date_of_birth + "</td>" +
-                            "<td data-field='date_of_hire'>" + date_of_hire + "</td>" +
-                            "<td data-field='license_no'>" + license_no + "</td>" +
-                            "<td data-field='lis'>" + lis + "</td>" +
-                            "<td data-field='license_exp_date'>" + license_exp_date + "</td>" +
-                            "<td data-field='driver_balance'>" + driver_balance + "</td>" +
-
-                            "<td style='width: 100px'><a class='btn btn-primary fs-14 text-white edit-icn' title='Edit'><i class='fe fe-edit'></i></a></td></tr>";
-
-                        $("#driverTable").append(tr_str1);
-                        no++;
-                    } 
-                }
-               
-                
+            console.log(driverResponse);
+            var len1 = 0;
+            
+            $('#driverTable').empty(); // Empty <tbody>
+            if (driverResponse != null) {
+                len1 = driverResponse.length;
             }
-        } else {
-            var tr_str1 = "<tr data-id=" + i + ">" +
-                "<td align='center' colspan='4'>No record found.</td>" +
-                "</tr>";
-
-            $("#driverTable").append(tr_str1);
+    
+            if (len1 > 0) {
+               var no=1;
+            
+                for (var i = 0; i < len1; i++) {                                 
+                    if(driverResponse[i].counter > 0){
+                        counterLen=driverResponse[i].counter;
+                           
+                         
+                        for (var j = 0; j < counterLen; j++) {
+                           
+                            // var counter = driverResponse[i].counter;
+                            // var no = driverResponse[i]._id;
+                            var name = driverResponse[i].driver[j].driverName;
+                            var email = driverResponse[i].driver[j].driverEmail;
+                            var location = driverResponse[i].driver[j].driverAddress;
+                            var social_security_no = driverResponse[i].driver[j].driverSocial;
+                            var date_of_birth = driverResponse[i].driver[j].dateOfbirth;
+                            var date_of_hire = driverResponse[i].driver[j].dateOfhire;
+                            var license_no = driverResponse[i].driver[j].driverLicenseNo;
+                            var lis = driverResponse[i].driver[j].driverLicenseIssue;
+                            var license_exp_date = driverResponse[i].driver[j].driverLicenseExp;
+                            var driver_balance = driverResponse[i].driver[j].driverBalance;
+    
+                            var tr_str1 = "<tr data-id=" + (i + 1) + ">" +
+                            // "<td data-field='counter'>" + counter + "</td>" +
+                                "<td data-field='no'>" + no + "</td>" +
+                                "<td data-field='name' id='up_name'>" + name + "</td>" +
+                                "<td data-field='email'>" + email + "</td>" +
+                                "<td data-field='location'>" + location + "</td>" +
+                                "<td data-field='social_security_no'>" + social_security_no + "</td>" +
+                                "<td data-field='date_of_birth'>" + date_of_birth + "</td>" +
+                                "<td data-field='date_of_hire'>" + date_of_hire + "</td>" +
+                                "<td data-field='license_no'>" + license_no + "</td>" +
+                                "<td data-field='lis'>" + lis + "</td>" +
+                                "<td data-field='license_exp_date'>" + license_exp_date + "</td>" +
+                                "<td data-field='driver_balance'>" + driver_balance + "</td>" +
+    
+                                "<td style='width: 100px'><a class='btn btn-primary fs-14 text-white edit-icn' title='Edit' id='edit'><i class='fe fe-edit' ></i></a></td></tr>";
+    
+                            $("#driverTable").append(tr_str1);
+                            no++;
+                        } 
+                    }
+                   
+                    
+                }
+            } else {
+                var tr_str1 = "<tr data-id=" + i + ">" +
+                    "<td align='center' colspan='4'>No record found.</td>" +
+                    "</tr>";
+    
+                $("#driverTable").append(tr_str1);
+            }
+            
+            
+          
         }
-        // <!-- ------------------------------------------------------------------------- add driver  ------------------------------------------------------------------------- -->
-        $('.driverDataSubmit').click(function(){
+        $('#edit').click(function(){
+            alert('edit');
+            $("#edit").attr("id", "save");
+        });
+
+        $('#save').click(function(){
+            alert('save');
+            $("#edit").attr("id", "edit");
+        });
+        
+        
+
+          // <!-- ------------------------------------------------------------------------- add driver  ------------------------------------------------------------------------- -->
+          $('.driverDataSubmit').click(function(){            
             var companyID = 25;
             var name = $('#name').val();
             var username = $('#username').val();
@@ -376,6 +391,14 @@ $(document).ready(function() {
             });
             
         });
-    }
+
+
+
+
+
+    });
+
+
+  
 // </script>
 // <!-- ------------------------------------------------------------------------- end of driver ------------------------------------------------------------------------- -->
