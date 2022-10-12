@@ -278,57 +278,57 @@ $(document).ready(function() {
             var driverBalance = $('#driverBalance').val();
             var internalNotes = $('#internalNotes').val();
             
-            // if(name == ''){
-            //     alert("Please Enter Name");
-            //     $('#name').focus();
-            //     return false;
-            // }
-            // if(address == ''){
-            //     alert("Please Enter Address");
-            //     $('#address').focus();
-            //     return false;
-            // }
-            // if(telephone == ''){
-            //     alert("Please Enter Telephone No");
-            //     $('#telephone').focus();
-            //     return false;
-            // }
+            if(name == ''){
+                alert("Please Enter Name");
+                $('#name').focus();
+                return false;
+            }
+            if(address == ''){
+                alert("Please Enter Address");
+                $('#address').focus();
+                return false;
+            }
+            if(telephone == ''){
+                alert("Please Enter Telephone No");
+                $('#telephone').focus();
+                return false;
+            }
            
-            // if(location == ''){
-            //     alert("Please Enter Location");
-            //     $('#location').focus();
-            //     return false;
-            // }
-            // if(zip == ''){
-            //     alert("Please Enter zip");
-            //     $('#zip').focus();
-            //     return false;
-            // }
-            // if(licenseNo == ''){
-            //     alert("Please Enter License No");
-            //     $('#licenseNo').focus();
-            //     return false;
-            // }
-            // if(licenseIssueState == ''){
-            //     alert("Please Enter License Issue State");
-            //     $('#licenseIssueState').focus();
-            //     return false;
-            // }
-            // if(licenseExpDate == ''){
-            //     alert("Please Enter License Exp Date");
-            //     $('#licenseExpDate').focus();
-            //     return false;
-            // }
-            // if(rate == ''){
-            //     alert("Please Enter Rate");
-            //     $('#rate').focus();
-            //     return false;
-            // }
-            // if(currency  == ''){
-            //     alert("Please Enter Currency");
-            //     $('#currency').focus();
-            //     return false;
-            // }
+            if(location == ''){
+                alert("Please Enter Location");
+                $('#location').focus();
+                return false;
+            }
+            if(zip == ''){
+                alert("Please Enter zip");
+                $('#zip').focus();
+                return false;
+            }
+            if(licenseNo == ''){
+                alert("Please Enter License No");
+                $('#licenseNo').focus();
+                return false;
+            }
+            if(licenseIssueState == ''){
+                alert("Please Enter License Issue State");
+                $('#licenseIssueState').focus();
+                return false;
+            }
+            if(licenseExpDate == ''){
+                alert("Please Enter License Exp Date");
+                $('#licenseExpDate').focus();
+                return false;
+            }
+            if(rate == ''){
+                alert("Please Enter Rate");
+                $('#rate').focus();
+                return false;
+            }
+            if(currency  == ''){
+                alert("Please Enter Currency");
+                $('#currency').focus();
+                return false;
+            }
            
             $.ajax({
                 url: base_path+"/admin/addDriver",
