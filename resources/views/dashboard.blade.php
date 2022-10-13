@@ -34,24 +34,10 @@
 							<div class="col-lg-6 col-sm-12 col-md-6 col-xl-3">
 								<div class="card overflow-hidden">
 									<div class="card-body">
-                                        <div class="info-stats2" data-name="dash_company_revenu">
-                                           
-                                            <div class="bs-spinner loader1" id='copmrev' style="display: none;">
-                                                <div class="spinner-border text-primary dashboard-loader" role="status"></div>
-                                            </div>
-                                            <div class="sale-num" id="dashcomrev">
-
-                                            </div>
-                                            <div class="col col-auto top-icn dash">
-												<div class="counter-icon bg-primary dash ms-auto box-shadow-primary">
-													<svg xmlns="http://www.w3.org/2000/svg" class="fill-white" enable-background="new 0 0 24 24" viewBox="0 0 24 24"><path d="M12,8c-2.2091675,0-4,1.7908325-4,4s1.7908325,4,4,4c2.208252-0.0021973,3.9978027-1.791748,4-4C16,9.7908325,14.2091675,8,12,8z M12,15c-1.6568604,0-3-1.3431396-3-3s1.3431396-3,3-3c1.6561279,0.0018311,2.9981689,1.3438721,3,3C15,13.6568604,13.6568604,15,12,15z M21.960022,11.8046875C19.9189453,6.9902344,16.1025391,4,12,4s-7.9189453,2.9902344-9.960022,7.8046875c-0.0537109,0.1246948-0.0537109,0.2659302,0,0.390625C4.0810547,17.0097656,7.8974609,20,12,20s7.9190063-2.9902344,9.960022-7.8046875C22.0137329,12.0706177,22.0137329,11.9293823,21.960022,11.8046875z M12,19c-3.6396484,0-7.0556641-2.6767578-8.9550781-7C4.9443359,7.6767578,8.3603516,5,12,5s7.0556641,2.6767578,8.9550781,7C19.0556641,16.3232422,15.6396484,19,12,19z"/></svg>
-												</div>
-											</div>
-                                        </div>
-										<!-- <div class="row">
+										<div class="row">
 											<div class="col">
 												<h3 class="mb-2 fw-semibold">1,12,324</h3>
-												<p class="text-muted fs-13 mb-0">Company Revenue</p>
+												<p class="text-muted fs-13 mb-0">Daily Visitors</p>
 												<p class="text-muted mb-0 mt-2 fs-12">
 													<span class="icn-box text-success fw-semibold fs-13 me-1">
 														<i class='fa fa-long-arrow-up'></i>
@@ -64,7 +50,7 @@
 													<svg xmlns="http://www.w3.org/2000/svg" class="fill-white" enable-background="new 0 0 24 24" viewBox="0 0 24 24"><path d="M12,8c-2.2091675,0-4,1.7908325-4,4s1.7908325,4,4,4c2.208252-0.0021973,3.9978027-1.791748,4-4C16,9.7908325,14.2091675,8,12,8z M12,15c-1.6568604,0-3-1.3431396-3-3s1.3431396-3,3-3c1.6561279,0.0018311,2.9981689,1.3438721,3,3C15,13.6568604,13.6568604,15,12,15z M21.960022,11.8046875C19.9189453,6.9902344,16.1025391,4,12,4s-7.9189453,2.9902344-9.960022,7.8046875c-0.0537109,0.1246948-0.0537109,0.2659302,0,0.390625C4.0810547,17.0097656,7.8974609,20,12,20s7.9190063-2.9902344,9.960022-7.8046875C22.0137329,12.0706177,22.0137329,11.9293823,21.960022,11.8046875z M12,19c-3.6396484,0-7.0556641-2.6767578-8.9550781-7C4.9443359,7.6767578,8.3603516,5,12,5s7.0556641,2.6767578,8.9550781,7C19.0556641,16.3232422,15.6396484,19,12,19z"/></svg>
 												</div>
 											</div>
-										</div> -->
+										</div>
 									</div>
 								</div>
 							</div>
@@ -74,13 +60,13 @@
 										<div class="row">
 											<div class="col">
 												<h3 class="mb-2 fw-semibold">12,563</h3>
-												<p class="text-muted fs-13 mb-0">Company Expenses</p>
-												<!-- <p class="text-muted mb-0 mt-2 fs-12">
+												<p class="text-muted fs-13 mb-0">Total Orders</p>
+												<p class="text-muted mb-0 mt-2 fs-12">
 													<span class="icn-box text-danger fw-semibold fs-13 me-1">
 														<i class='fa fa-long-arrow-down'></i>
 														12%</span>
 													since last month
-												</p> -->
+												</p>
 											</div>
 											<div class="col col-auto top-icn dash">
 												<div class="counter-icon bg-secondary dash ms-auto box-shadow-secondary">
@@ -97,13 +83,13 @@
 										<div class="row">
 											<div class="col">
 												<h3 class="mb-2 fw-semibold">$5,178</h3>
-												<p class="text-muted fs-13 mb-0">Today's Payable</p>
-												<!-- <p class="text-muted mb-0 mt-2 fs-12">
+												<p class="text-muted fs-13 mb-0">Conversion Rate</p>
+												<p class="text-muted mb-0 mt-2 fs-12">
 													<span class="icn-box text-success fw-semibold fs-13 me-1">
 														<i class='fa fa-long-arrow-up'></i>
 														27%</span>
 													since last month
-												</p> -->
+												</p>
 											</div>
 											<div class="col col-auto top-icn dash">
 												<div class="counter-icon bg-info dash ms-auto box-shadow-info">
@@ -120,13 +106,13 @@
 										<div class="row">
 											<div class="col">
 												<h3 class="mb-2 fw-semibold">$43,987</h3>
-												<p class="text-muted fs-13 mb-0"> Today's Receivable</p>
-												<!-- <p class="text-muted mb-0 mt-2 fs-12">
+												<p class="text-muted fs-13 mb-0">Avg Orders</p>
+												<p class="text-muted mb-0 mt-2 fs-12">
 													<span class="icn-box text-success fw-semibold fs-13 me-1">
 														<i class='fa fa-long-arrow-up'></i>
 														9%</span>
 													since last month
-												</p> -->
+												</p>
 											</div>
 											<div class="col col-auto top-icn dash">
 												<div class="counter-icon bg-warning dash ms-auto box-shadow-warning">
@@ -139,6 +125,8 @@
 							</div>
 						</div>
 						<!-- ROW-1 END-->
+
+						
                         
 						<!-- ROW-1.1 -->
 						<div class="row">
@@ -246,7 +234,185 @@
 							</div>
 						</div>
 						<!-- ROW-1.1 END -->
-<br>
+
+						<!-- ROW-2 -->
+						<div class="row">
+							<div class="col-sm-12 col-md-12 col-xl-4 col-lg-6">
+								<div class="row">
+									<div class="col-lg-12 col-xl-12 col-md-6 col-sm-12">
+										<div class="card">
+											<div class="card-body pb-2">
+												<div class="title-head mb-3">
+													<h3 class="mb-5 card-title">Revenue By channel</h3>
+													<div class="storage-percent">
+														<div class="progress fileprogress h-auto ps-0 shadow1">
+															<span class="progress-bar progress-bar-xs wd-15p received" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></span>
+															<span class="progress-bar progress-bar-xs wd-15p download" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></span>
+															<span class="progress-bar progress-bar-xs wd-15p shared" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></span>
+															<span class="progress-bar progress-bar-xs wd-15p my-images" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></span>
+														</div>
+														<div class="remaining-storage">
+															<div class="text-muted fs-13 mb-1 mt-3">Total Revenue Earned</div>
+															<div class="fw-semibold fs-14 mb-1 mt-3">$345,3467.72</div>
+														</div>
+													</div>
+												</div>
+												<div class="content-main mt-5">
+													<ul class="task-list1 row mx-auto">
+														<li class="col-xl-6">
+															<span class="mb-0 fs-13 me-1"><i class="task-icon1 bg-primary me-3"></i>Direct</span>
+															<span class="text-success fw-semibold fs-12">
+																<span class="mx-1"><i class="fa fa-caret-up"></i></span>
+																<span class="">(42.34%)</span>
+															</span>
+														</li>
+														<li class="col-xl-6">
+															<span class="mb-0 fs-13 me-1"><i class="task-icon1 bg-secondary"></i>Referral</span>
+															<span class="text-danger fw-semibold fs-12">
+																<span class="mx-1"><i class="fa fa-caret-down"></i></span>
+																<span class="">(13%)</span>
+															</span>
+														</li>
+														<li class="col-xl-6">
+															<span class="mb-0 fs-13 me-1"><i class="task-icon1 bg-custom-yellow"></i>Social</span>
+															<span class="text-success fw-semibold fs-12">
+																<span class="mx-1"><i class="fa fa-caret-up"></i></span>
+																<span class="">(62%)</span>
+															</span>
+														</li>
+														<li class="col-xl-6 mb-xl-0">
+															<span class="mb-0 fs-13 me-1"><i class="task-icon1 bg-teritary"></i>Organic Search</span>
+															<span class="text-success fw-semibold fs-12">
+																<span class="mx-1"><i class="fa fa-caret-up"></i></span>
+																<span class="">(22.46%)</span>
+															</span>
+														</li>
+													</ul>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="col-xl-12 col-lg-12 col-md-6 col-sm-12">
+										<div class="card overflow-hidden">
+											<div class="card-header border-bottom">
+												<h4 class="card-title fw-semibold">Latest Transactions</h4>
+												<a href="#" class="ms-auto">View All</a>
+											</div>
+											<div class="card-body p-0 customers mt-1">
+												<div class="list-group py-1">
+													<a href="javascript:void(0);" class="border-0">
+														<div class="list-group-item border-0">
+															<div class="media mt-0 align-items-center">
+																<div class="transaction-icon"><i class="fe fe-chevrons-right"></i>
+																</div>
+																<div class="media-body">
+																	<div class="d-flex align-items-center">
+																		<div class="mt-0">
+																			<h5 class="mb-1 fs-13 fw-normal text-dark">To Bel Bcron Bank<span class="fs-13 fw-semibold ms-1">Savings Section</span></h5>
+																			<p class="mb-0 fs-12 text-muted">Transfer 4.53pm</p>
+																		</div>
+																		<span class="ms-auto fs-13">
+																			<span class="float-end text-dark">-$2,543</span>
+																		</span>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</a>
+													<a href="javascript:void(0);" class="border-0">
+														<div class="list-group-item border-0">
+															<div class="media mt-0 align-items-center">
+																<div class="transaction-icon">
+																	<i class="fe fe-briefcase"></i>
+																</div>
+																<div class="media-body">
+																	<div class="d-flex align-items-center">
+																		<div class="mt-0">
+																			<h5 class="mb-1 fs-13 fw-normal text-dark">Payment For <span class="fs-13 fw-semibold ms-1">Day Job</span></h5>
+																			<p class="mb-0 fs-12 text-muted">Received 2.45pm</p>
+																		</div>
+																		<span class="ms-auto fs-13">
+																			<span class="float-end text-dark">+$32,543</span>
+																		</span>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</a>
+													<a href="javascript:void(0);" class="border-0">
+														<div class="list-group-item border-0">
+															<div class="media mt-0 align-items-center">
+																<div class="transaction-icon"><i class="fe fe-dollar-sign"></i>
+																</div>
+																<div class="media-body">
+																	<div class="d-flex align-items-center">
+																		<div class="mt-0">
+																			<h5 class="mb-1 fs-13 fw-normal text-dark">Bought items from<span class="fs-13 fw-semibold ms-1">Ecommerce site</span></h5>
+																			<p class="mb-0 fs-12 text-muted">Payment 8.00am</p>
+																		</div>
+																		<span class="ms-auto fs-13">
+																			<span class="float-end text-dark">-$256</span>
+																		</span>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</a>
+													<a href="javascript:void(0);" class="border-0">
+														<div class="list-group-item border-0">
+															<div class="media mt-0 align-items-center">
+																<div class="transaction-icon"><i class="fe fe-file-text"></i>
+																</div>
+																<div class="media-body">
+																	<div class="d-flex align-items-center">
+																		<div class="mt-0">
+																			<h5 class="mb-1 fs-13 fw-normal text-dark">Paid Monthly Expenses<span class="fs-13 fw-semibold ms-1">Bills & Loans</span></h5>
+																			<p class="mb-0 fs-12 text-muted">Payment 6.43am</p>
+																		</div>
+																		<span class="ms-auto fs-13">
+																			<span class="float-end text-dark">-$1,298</span>
+																		</span>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</a>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<div class="col-sm-12 col-md-12 col-lg-6 col-xl-8">
+								<div class="card">
+									<div class="card-header border-bottom">
+										<h3 class="card-title">Sales</h3>
+										<div class="ms-auto">
+											<div class="btn-group p-0 ms-auto">
+												<button class="btn btn-primary-light btn-sm disabled" type="button">2021</button>
+												<button class="btn btn-primary-light btn-sm" type="button">2022</button>
+												<button class="btn btn-primary-light btn-sm disabled" type="button">2023</button>
+											 </div>
+										</div>
+									</div>
+									<div class="card-body">
+										<div class="sales-stats d-flex">
+											<div>
+												<div class="text-muted fs-13">Total Sales
+													<span class="p-2 br-5 text-success"><i class="fe fe-arrow-up-right"></i></span>
+												</div>
+												<h3 class="fw-semibold">$582,857.97</h3>
+												<div><span class="text-success fs-13 me-1">32%</span>Increase Since last Year</div>
+											</div>
+										</div>
+										<div id="chartD"></div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- ROW-2 END -->
+						
                         <!-- ROW-2 -->
 						<div class="row">
 							<div class="col-sm-12 col-md-12 col-xl-4 col-lg-6">

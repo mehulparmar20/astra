@@ -486,7 +486,7 @@ let bodyhorizontal = $('body').hasClass('horizontal');
 // ----- Horizontal Style ------- //
 
 // ----- Horizontal Hover Style ------- //
-// $('body').addClass('horizontal-hover');
+ $('body').addClass('horizontal-hover');
 
 let bodyhorizontal1 = $('body').hasClass('horizontal-hover');
     if (bodyhorizontal1) {

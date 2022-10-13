@@ -12,7 +12,7 @@
     <meta name="keywords" content="admin,admin dashboard,admin panel,admin template,bootstrap,clean,dashboard,flat,jquery,modern,responsive,premium admin templates,responsive admin,ui,ui kit.">
 
     <!-- FAVICON -->
-    <link rel="shortcut icon" type="image/x-icon" href="{{URL::to('/')}}/assets/images/brand/favicon.ico"/>
+    <link rel="shortcut icon" type="image/x-icon" href="{{URL::to('/')}}/assets/images/brand/astra_favicon.ico"/>
 
     <!-- TITLE -->
     <title>Astra</title>
@@ -29,7 +29,7 @@
 
     <!-- INTERNAL Switcher css -->
     <link href="{{URL::to('/')}}/assets/switcher/css/switcher.css" rel="stylesheet">
-    <link href="{{URL::to('/')}}/assets/switcher/demo.css" rel="stylesheet">
+    <link href="{{URL::to('/')}}/assets/switcher/demo.css" rel="stylesheet"> 
 
     <!-- modal -->
     <meta charset="utf-8">
