@@ -4,24 +4,24 @@
 $(function (e) {
 
 	var data = {};
-	$(".table-edit tr").editable({
-		keyboard: true,
-		button: true,
-		buttonSelector: ".edit-icn",
-		dropdowns: {
-			gender: ["Male", "Female"]
-		},
-		maintainWidth: true,
-		edit: function (values) {
-			$(".edit-icn i", this).removeClass("fe-pen").addClass("fe-save").attr("title", "Save");
-		},
-		save: function (values) {
-			$(".edit-icn i", this).removeClass("fe-save").addClass("fe-pen").attr("title", "Edit"), this in data && (data[this].destroy(), delete data[this])
-		},
-		cancel: function (values) {
-			$(".edit-icn i", this).removeClass("fe-save").addClass("fe-pen").attr("title", "Edit"), this in data && (data[this].destroy(), delete data[this])
-		}
-	})
+	// $(".table-edit tr").editable({
+	// 	keyboard: true,
+	// 	button: true,
+	// 	buttonSelector: ".edit-icn",
+	// 	dropdowns: {
+	// 		gender: ["Male", "Female"]
+	// 	},
+	// 	maintainWidth: true,
+	// 	edit: function (values) {
+	// 		$(".edit-icn i", this).removeClass("fe-pen").addClass("fe-save").attr("title", "Save");
+	// 	},
+	// 	save: function (values) {
+	// 		$(".edit-icn i", this).removeClass("fe-save").addClass("fe-pen").attr("title", "Edit"), this in data && (data[this].destroy(), delete data[this])
+	// 	},
+	// 	cancel: function (values) {
+	// 		$(".edit-icn i", this).removeClass("fe-save").addClass("fe-pen").attr("title", "Edit"), this in data && (data[this].destroy(), delete data[this])
+	// 	}
+	// })
 
 	// Editable Responsive Table
 	$('#editable-responsive-table').DataTable({
@@ -68,6 +68,5 @@ $(function (e) {
 	$('.select2').select2({
 		minimumResultsForSearch: Infinity
 	});
-
 
 });

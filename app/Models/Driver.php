@@ -8,7 +8,7 @@ use Illuminate\Auth\Authenticatable;
 use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract; 
 use Jenssegers\Mongodb\Eloquent\Model;
 
-class User extends Model implements 
+class Driver extends Model implements 
     AuthenticatableContract
 {
     use Notifiable, Authenticatable;
@@ -20,14 +20,13 @@ class User extends Model implements
      */
 
     protected $connection = 'mongodb';
-    protected $collection = 'user';
+    protected $collection = 'driver';
 
     // protected $fillable = [
     //     'userEmail', 'userPass',
     // ];
 
     protected $guarded = [];
-
     /**
      * The attributes that should be hidden for arrays.
      *
@@ -36,8 +35,8 @@ class User extends Model implements
     // protected $hidden = [
     //     'userPass',
     // ];
-    public function getAuthPassword()
-    {
-        return $this->userPassword;
-    }
+    // public function getAuthPassword()
+    // {
+    //     return $this->userPassword;
+    // }
 }
