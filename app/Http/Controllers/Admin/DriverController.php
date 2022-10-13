@@ -30,7 +30,7 @@ class DriverController extends Controller
         
        
         $password = sha1($request->password);
-        $driverData[]=array(
+        $driverData[]=array(    
                '_id' => 0,
                         'counter' => 0,
                         'ownerID' => 0,
@@ -121,12 +121,12 @@ class DriverController extends Controller
                 //array_push($driverData, $driverArray);
                  
 
-                Driver::where(['companyID' =>25 ])->update([
+                Driver::where(['companyID' =>1 ])->update([
                             
                     // 'companyID' => (int)$_SESSION['companyId'],
                     //'_id' => 1,
-                    'companyID' => 25,
-                    'counter' => 100,
+                    // 'companyID' => 25,
+                    // 'counter' => 100,
                     //'driver' =>array_push($driverData, $driverArray) ,
                     'driver' =>array_merge($driverData,$driverArray) ,
                     // 'user_type' => "user",

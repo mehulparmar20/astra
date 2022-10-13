@@ -150,7 +150,8 @@ $(document).ready(function() {
 // <!-- ------------------------------------------------------------------------- driver ------------------------------------------------------------------------- -->
 
 
-{/* <script type="text/javascript"> */}
+
+
     $(document).ready(function() {
         var driverResponse = '';
 
@@ -173,6 +174,7 @@ $(document).ready(function() {
             $('#driverTable').empty(); // Empty <tbody>
             if (driverResponse != null) {
                 len1 = driverResponse.length;
+                
             }
     
             if (len1 > 0) {
@@ -181,7 +183,7 @@ $(document).ready(function() {
                 for (var i = 0; i < len1; i++) {                                 
                     if(driverResponse[i].counter > 0){
                         counterLen=driverResponse[i].counter;
-                           
+                        alert(counterLen);  
                          
                         for (var j = 0; j < counterLen; j++) {
                            
@@ -232,15 +234,9 @@ $(document).ready(function() {
             
           
         }
-        $('#edit').click(function(){
-            alert('edit');
-            $("#edit").attr("id", "save");
-        });
+     
 
-        $('#save').click(function(){
-            alert('save');
-            $("#edit").attr("id", "edit");
-        });
+       
         
         
 
@@ -396,9 +392,9 @@ $(document).ready(function() {
 
 
 
-    });
+});
 
 
   
-// </script>
+
 // <!-- ------------------------------------------------------------------------- end of driver ------------------------------------------------------------------------- -->
