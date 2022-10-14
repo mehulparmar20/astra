@@ -42,3 +42,4 @@ Route::post('post-forgot-password', [AuthController::class, 'submitForgetPasswor
 // Driver
 Route::get('admin/driver', [DriverController::class, 'getDriverData']);
 Route::post('admin/addDriver', [DriverController::class, 'addDriverData']);
+Route::post('admin/editDriver', [DriverController::class, 'editDriverData']);

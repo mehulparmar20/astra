@@ -234,8 +234,7 @@ $(document).ready(function() {
 
 
 
-
-    $(document).ready(function() {
+$(document).ready(function() {
         var driverResponse = '';
 
     // <!-- -------------------------------------------------------------------------Get driver ajax ------------------------------------------------------------------------- -->    
@@ -263,15 +262,18 @@ $(document).ready(function() {
             if (len1 > 0) {
                var no=1;
             
-                for (var i = 0; i < len1; i++) {                                 
+                // for (var i = 0; i < len1; i++) { 
+                    for (var i = 0; i < 2; i++) {                                  
                     if(driverResponse[i].counter > 0){
                         counterLen=driverResponse[i].counter;
                         // alert(counterLen);  
                          
-                        for (var j = 0; j < counterLen; j++) {
-                           
+                        // for (var j = 0; j < counterLen; j++) {
+                            for (var j = 0; j < 5; j++) {
                             // var counter = driverResponse[i].counter;
                             // var no = driverResponse[i]._id;
+                            var id =driverResponse[i]._id;
+                            var driverId=driverResponse[i].driver[j]._id;
                             var name = driverResponse[i].driver[j].driverName;
                             var email = driverResponse[i].driver[j].driverEmail;
                             var location = driverResponse[i].driver[j].driverAddress;
@@ -284,7 +286,7 @@ $(document).ready(function() {
                             var driver_balance = driverResponse[i].driver[j].driverBalance;
     
                             var tr_str1 = "<tr data-id=" + (i + 1) + ">" +
-                            // "<td data-field='counter'>" + counter + "</td>" +
+                            //  "<td id='id1'>" + id+ "&"+driverId + "</td>" +
                                 "<td data-field='no'>" + no + "</td>" +
                                 "<td data-field='name' id='up_name'>" + name + "</td>" +
                                 "<td data-field='email'>" + email + "</td>" +
@@ -297,7 +299,8 @@ $(document).ready(function() {
                                 "<td data-field='license_exp_date'>" + license_exp_date + "</td>" +
                                 "<td data-field='driver_balance'>" + driver_balance + "</td>" +
     
-                                "<td style='width: 100px'><a class='btn btn-primary fs-14 text-white edit-icn' title='Edit' id='edit'><i class='fe fe-edit' ></i></a></td></tr>";
+                                // "<td style='width: 100px'><a class='btn btn-primary fs-14 text-white edit-icn' title='Edit' id='edit'><i class='fe fe-edit' ></i></a></td></tr>"
+                                "<td style='width: 100px'><i class='btn btn-primary fe fe-edit edit'><a>edit</a></i><a class='delete mt-2 btn btn-danger fs-14 text-white delete-icn' data-id="+ email +" title='Delete'><i class='fe fe-delete'></i></a></td></tr>";
     
                             $("#driverTable").append(tr_str1);
                             no++;
@@ -313,49 +316,58 @@ $(document).ready(function() {
     
                 $("#driverTable").append(tr_str1);
             }
-            
-            
-          
         }
-     
+    // <!-- -------------------------------------------------------------------------end of Get driver ajax ------------------------------------------------------------------------- -->    
+    // <!-- -------------------------------------------------------------------------delete driver ajax ------------------------------------------------------------------------- -->    
+    $(".delete").on("click", function(){
+            var email = $(this).attr("data-id");
+            // console.log(email);
+            $.ajax({ 
+              url: base_path+"/admin/delete-user",
+              data: {userEmail: email},
+              type: 'post',
+              success: function(result){
+                console.log('success');
+                // $('#userModal').hide().show();
+                location.reload();
+              }
+            });
+        });
+    // <!-- -------------------------------------------------------------------------end of delete driver ajax ------------------------------------------------------------------------- -->    
 
-       
-        
-        
-
-          // <!-- ------------------------------------------------------------------------- add driver  ------------------------------------------------------------------------- -->
+    // <!-- ------------------------------------------------------------------------- add driver  ------------------------------------------------------------------------- -->
           $('.driverDataSubmit').click(function(){            
-            var companyID = 25;
-            var name = $('#name').val();
-            var username = $('#username').val();
-            var address = $('#address').val();
-            var telephone = $('#telephone').val();
-            var altTelephone = $('#altTelephone').val();
-            var email = $('#email').val();
-            var password = $('#password').val();
-            var location = $('#location').val();
-            var zip = $('#zip').val();
-            var status = $('#status').val();
-            var socialSecurityNo = $('#socialSecurityNo').val();
-            var dateOfBirth = $('#dateOfBirth').val();
-            var dateOfHire = $('#dateOfHire').val();
-            var licenseNo = $('#licenseNo').val();
-            var licenseIssueState = $('#licenseIssueState').val();
-            var licenseExpDate = $('#licenseExpDate').val();
-            var lastMedical = $('#lastMedical').val();
-            var nextMedical = $('#nextMedical').val();
-            var lastDrugTest = $('#lastDrugTest').val();
-            var nextDrugTest = $('#nextDrugTest').val();
-            var passportExpiry = $('#passportExpiry').val();
-            var fastCardExpiry = $('#fastCardExpiry').val();
-            var hazmatExpiry = $('#hazmatExpiry').val();
-            var rate = $('#rate').val();
-            var currency = $('#currency').val();
-            var recurrencePlus = $('#recurrencePlus').val();
-            var recurrenceMin = $('#recurrenceMin').val();
-            var terminationDate = $('#terminationDate').val();
-            var driverBalance = $('#driverBalance').val();
-            var internalNotes = $('#internalNotes').val();
+                var companyID = 25;
+                var name = $('#name').val();
+                var username = $('#username').val();
+                var address = $('#address').val();
+                var telephone = $('#telephone').val();
+                var altTelephone = $('#altTelephone').val();
+                var email = $('#email').val();
+                var password = $('#password').val();
+                var location = $('#location').val();
+                var zip = $('#zip').val();
+                var status = $('#status').val();
+                var socialSecurityNo = $('#socialSecurityNo').val();
+                var dateOfBirth = $('#dateOfBirth').val();
+                var dateOfHire = $('#dateOfHire').val();
+                var licenseNo = $('#licenseNo').val();
+                var licenseIssueState = $('#licenseIssueState').val();
+                var licenseExpDate = $('#licenseExpDate').val();
+                var lastMedical = $('#lastMedical').val();
+                var nextMedical = $('#nextMedical').val();
+                var lastDrugTest = $('#lastDrugTest').val();
+                var nextDrugTest = $('#nextDrugTest').val();
+                var passportExpiry = $('#passportExpiry').val();
+                var fastCardExpiry = $('#fastCardExpiry').val();
+                var hazmatExpiry = $('#hazmatExpiry').val();
+                var rate = $('#rate').val();
+                var currency = $('#currency').val();
+                var recurrencePlus = $('#recurrencePlus').val();
+                var recurrenceMin = $('#recurrenceMin').val();
+                var terminationDate = $('#terminationDate').val();
+                var driverBalance = $('#driverBalance').val();
+                var internalNotes = $('#internalNotes').val();
             
             if(name == ''){
                 alert("Please Enter Name");
@@ -470,8 +482,36 @@ $(document).ready(function() {
             });
             
         });
+    // <!-- ------------------------------------------------------------------------- end of add driver  ------------------------------------------------------------------------- -->
+    
+    // <!-- -------------------------------------------------------------------------  edit driver  ------------------------------------------------------------------------- -->
+    $('.edit').click(function(){
+        //     // var id1 = $('#id1').text();
+        //     alert();
+        //     // console.log(id1)
+            var id = 30;
+            var driverId=2
+            //alert(companyID);
+            $.ajax({
+                url: base_path+"/admin/editDriver",
+                type: "POST",
+                datatype:"JSON",
+                data: {
+                    _token: $("#csrf").val(),
+                    id: id,
+                    driverId: driverId,
+                },
+                cache: false,
+                success: function(dataResult){
+                    console.log(dataResult);
+                    
+                }
+            });
 
-
+        //     //$('#editDriverModal').modal('show'); 
+        });
+    
+    // <!-- ------------------------------------------------------------------------- end of edit driver  ------------------------------------------------------------------------- -->
 
 
 
