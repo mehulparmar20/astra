@@ -175,7 +175,14 @@ class DriverController extends Controller
 
     }
 
-          // update Privilege
+    //edit driver
+    public function editDriverData(Request $request)
+    {
+       //dd($request->id());
+        $editDriver = Driver::where('_id','2')->get()->toArray();
+        dd($editDriver);
+       // return response()->json($driver);  
+    }    
 }
 
     
