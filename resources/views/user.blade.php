@@ -61,7 +61,7 @@
                                                     <div class="card-body">
                                                         <div class="table-responsive export-table">
                                                             
-                                                            <table id="editable-file-datatable" style="margin-bottom : -571rem" class="table editable-table table-nowrap table-bordered table-edit wp-100">
+                                                            <table id="editable-file-datatable1" style="margin-bottom : -571rem" class="table editable-table table-nowrap table-bordered table-edit wp-100">
                                                                 <thead>
                                                                     <tr>
                                                                         <th>ID</th>

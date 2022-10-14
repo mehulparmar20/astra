@@ -123,6 +123,8 @@
 
 <input type="hidden" value="{{url('/')}}" id="url" name="url">
 
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
+
 <script src="{{URL::to('/')}}/assets/js/laravel.js"></script>
 
 

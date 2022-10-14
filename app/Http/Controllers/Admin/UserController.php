@@ -52,7 +52,7 @@ class UserController extends Controller
 			// $company_name = explode(")",$users->getCompanyName()); 
             // if($makedecision['status']) {
                 // print_r($request->userPass);die;
-                if(User::create([
+                if (User::create([
                     'counter' => 0,
                     // 'companyID' => (int)$_SESSION['companyId'],
                     'userEmail' => $request->input('userEmail'),
@@ -158,7 +158,7 @@ class UserController extends Controller
                     'mode' => 'day',
                     'otp' => '',
                     'emailVerificationStatus' => 1,
-                ])) {
+                    ])
                     // $decrese_user = $totalusers - 1;
                     // if ($db->companyAdmin->updateOne(['_id' => (int)$_SESSION['companyId']], ['$set' => ['remainingUser' => $decrese_user]])) {
                     //     if ($helper->decrementSubscriptionCounter($db, 'user', '603ce8da39d65c0d19526984', $makedecision['flagfield'])) {
@@ -182,9 +182,20 @@ class UserController extends Controller
                     //             }
                     //     }
                     // }
-                    $arr = array('status' => 'success', 'message' => 'User added successfully.','statusCode' => 200); 
-                    return json_encode($arr);
-                } 
+                ){
+                        $success = true;
+                        $message = "User added successfully";
+                    } else {
+                        $success = false;
+                        $message = "User not added. Please try again";
+                    }
+            
+                    //  Return response
+                    return response()->json([
+                        'success' => $success,
+                        'message' => $message,
+                    ]);
+                
                 // else {
                 //     $arr = array('status' => 'error', 'message' => 'Something went wrong. please try again later.'); 
                 //     echo json_encode($arr);
@@ -393,10 +404,19 @@ class UserController extends Controller
     public function deleteUser(Request $request)
     {
         $delete = User::where('userEmail', $request->userEmail)->delete();
-        if($delete){
-            $arr = array('status' => 'success', 'message' => 'User deleted successfully.'); 
-            return json_encode($arr);
+        if ($delete == 1) {
+            $success = true;
+            $message = "User deleted successfully";
+        } else {
+            $success = false;
+            $message = "User not found";
         }
+
+        //  Return response
+        return response()->json([
+            'success' => $success,
+            'message' => $message,
+        ]);
     }
 
 }
