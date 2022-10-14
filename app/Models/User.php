@@ -7,11 +7,12 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract; 
 use Jenssegers\Mongodb\Eloquent\Model;
+use Jenssegers\Mongodb\Eloquent\SoftDeletes;
 
 class User extends Model implements 
     AuthenticatableContract
 {
-    use Notifiable, Authenticatable;
+    use Notifiable, Authenticatable, SoftDeletes;
 
     /**
      * The attributes that are mass assignable.
@@ -21,6 +22,7 @@ class User extends Model implements
 
     protected $connection = 'mongodb';
     protected $collection = 'user';
+    protected $dates = ['deleted_at'];
 
     // protected $fillable = [
     //     'userEmail', 'userPass',

@@ -182,7 +182,7 @@ class UserController extends Controller
                     //             }
                     //     }
                     // }
-                    $arr = array('status' => 'success', 'message' => 'User added successfully.'); 
+                    $arr = array('status' => 'success', 'message' => 'User added successfully.','statusCode' => 200); 
                     return json_encode($arr);
                 } 
                 // else {
@@ -200,28 +200,42 @@ class UserController extends Controller
     }
 
     // update Privilege
-    public function userEditDetails($users, $db)
+    public function userEditDetails(Request $request)
     {
-        $data = $db->user->updateOne(["_id" => (int)$users->getId(),],
-                [ '$set' =>[
-                    'userEmail' => $this->getUserEmail(),
-                    'companyName' => $this->getCompanyName(),
-                    'userName' => $this->getUserName(),
-                    'userFirstName' => $this->getUserFirstName(),
-                    'userLastName' => $this->getUserLastName(),
-                    'userAddress' => $this->getUserAddress(),
-                    'userLocation' => $this->getUserLocation(),
-                    'userZip' => $this->getUserZip(),
-                    'TollFree' => $this->getTollFree(),
-                    'userTelephone' => $this->getUserTelephone(),
-                    'userExt' => $this->getUserExt(),
-                    'userFax' => $this->getUserFax(),
-                    'updateTime' => time(),
-                    'updatedby' => $this->getEditedBy(),
-                    ]
-                ]);
+        request()->validate([
+            'userName' => 'required',
+            'userEmail' => 'required|unique:user,userEmail'.$request->email,
+            'userFirstName' => 'required',
+            'userLastName' => 'required',
+            'userAddress' => 'required',
+            'userLocation' => 'required',
+            'userZip' => 'required',
+            'userExt' => 'required',
+            // 'userTelephone' => 'required|min:11|max:11|numeric',
+        ]);
+
+        try{
+            $data = User::where('userEmail', $request->email)->first();
+            $data->userEmail = $request->userEmail;
+            $data->companyName = $request->companyName;
+            $data->userName = $request->userName;
+            $data->userFirstName = $request->userFirstName;
+            $data->userLastName = $request->userLastName;
+            $data->userAddress = $request->userAddress;
+            $data->userLocation = $request->userLocation;
+            $data->userZip = $request->userZip;
+            $data->userTelephone = $request->userTelephone;
+            $data->userExt = $request->userExt;
+            $data->TollFree = $request->TollFree;
+            $data->userFax = $request->userFax;
+            $data->save();
         if($data){
-            echo 'success';
+            $arr = array('status' => 'success', 'message' => 'User edited successfully.','statusCode' => 200); 
+            return json_encode($arr);
+        }
+        }
+        catch(\Exception $error){
+            return $error->getMessage();
         }
     }
 
@@ -376,5 +390,13 @@ class UserController extends Controller
         return response()->json($user);  
     }
 
+    public function deleteUser(Request $request)
+    {
+        $delete = User::where('userEmail', $request->userEmail)->delete();
+        if($delete){
+            $arr = array('status' => 'success', 'message' => 'User deleted successfully.'); 
+            return json_encode($arr);
+        }
+    }
 
 }

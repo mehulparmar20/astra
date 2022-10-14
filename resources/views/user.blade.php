@@ -50,7 +50,10 @@
                                         <div class="row row-sm">
                                             <div class="col-lg-12">
                                                 <div class="card">
-                                                <button href="#addUserModal" data-toggle="modal" data-target="#addUserModal" class="add1button" style="vertical-align:middle"><span>Add </span></button>
+                                                <div class="d-flex justify-content-center">
+                                                    <button href="#addUserModal" data-toggle="modal" data-target="#addUserModal" class="add1button" style="vertical-align:middle"><span>Add </span></button>
+                                                    <button href="#addUserModal" data-toggle="modal" data-target="#addUserModal" class="add1button" style="vertical-align:middle"><span>Restore </span></button>
+                                                </div>
                                                 
                                                      <!-- <div class="card-header border-bottom">
                                                         <h3 class="card-title">Editable File Export Datatable</h3>
