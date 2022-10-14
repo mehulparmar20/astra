@@ -217,7 +217,7 @@ $(document).ready(function() {
                                 "<td data-field='driver_balance'>" + driver_balance + "</td>" +
     
                                 // "<td style='width: 100px'><a class='btn btn-primary fs-14 text-white edit-icn' title='Edit' id='edit'><i class='fe fe-edit' ></i></a></td></tr>"
-                                "<td style='width: 100px'><i class='btn btn-primary fe fe-edit edit'><a>edit</a></i></td></tr>";
+                                "<td style='width: 100px'><i class='btn btn-primary fe fe-edit edit'><a>edit</a></i><a class='delete mt-2 btn btn-danger fs-14 text-white delete-icn' data-id="+ email +" title='Delete'><i class='fe fe-delete'></i></a></td></tr>";
     
                             $("#driverTable").append(tr_str1);
                             no++;
@@ -234,9 +234,23 @@ $(document).ready(function() {
                 $("#driverTable").append(tr_str1);
             }
         }
-     
-        
     // <!-- -------------------------------------------------------------------------end of Get driver ajax ------------------------------------------------------------------------- -->    
+    // <!-- -------------------------------------------------------------------------delete driver ajax ------------------------------------------------------------------------- -->    
+    $(".delete").on("click", function(){
+            var email = $(this).attr("data-id");
+            // console.log(email);
+            $.ajax({ 
+              url: base_path+"/admin/delete-user",
+              data: {userEmail: email},
+              type: 'post',
+              success: function(result){
+                console.log('success');
+                // $('#userModal').hide().show();
+                location.reload();
+              }
+            });
+        });
+    // <!-- -------------------------------------------------------------------------end of delete driver ajax ------------------------------------------------------------------------- -->    
 
     // <!-- ------------------------------------------------------------------------- add driver  ------------------------------------------------------------------------- -->
           $('.driverDataSubmit').click(function(){            
