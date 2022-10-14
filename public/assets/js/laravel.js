@@ -144,15 +144,22 @@ $(document).ready(function() {
                 userFax: fax,
               },
               cache: false,
-              success: function(response){
-                //   console.log(response.statusCode);
-                  var responsenew = JSON.parse(response);
-                  if(responsenew.statusCode==200){
-                    $("#addUserModal").hide();				
-                  }
-                  else if(responsenew.statusCode==201){
-                    alert("Error occured !");
-                  } 
+              success: function(resp){
+                  console.log(resp.statusCode);
+                //   var responsenew = JSON.parse(response);
+                  if (resp.success === true) {
+                    swal.fire("Done!", resp.message, "success");
+                    rowToDelete.remove();
+                } else {
+                    console.log(resp);
+                    swal.fire("Error!", resp.message, "error");
+                }
+                //   if(responsenew.statusCode==200){
+                //     $("#addUserModal").hide();				
+                //   }
+                //   else if(responsenew.statusCode==201){
+                //     alert("Error occured !");
+                //   } 
               }
           });
     //   }
@@ -259,7 +266,7 @@ $(document).ready(function() {
                 for (var i = 0; i < len1; i++) {                                 
                     if(driverResponse[i].counter > 0){
                         counterLen=driverResponse[i].counter;
-                        alert(counterLen);  
+                        // alert(counterLen);  
                          
                         for (var j = 0; j < counterLen; j++) {
                            
