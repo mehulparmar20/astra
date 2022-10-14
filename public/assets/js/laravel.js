@@ -20,7 +20,7 @@ function createRows(response) {
     var len = 0;
     $('#table1').empty(); // Empty <tbody>
     if (response != null) {
-        console.log(response.length);
+        // console.log(response.length);
         len = response.length;
     }
 
@@ -40,7 +40,7 @@ function createRows(response) {
             var fax = response[i].userFax;
             var tr_str = "<tr data-id=" + (i + 1) + ">" +
                 "<td data-field='id'>" + (i + 1) + "</td>" +
-                "<td data-field='email'>" + email + "</td>" +
+                "<td data-field='email' id="+email+">" + email + "</td>" +
                 "<td data-field='username'>" + username + "</td>" +
                 "<td data-field='fistname'>" + firstname + "</td>" +
                 "<td data-field='lastname'>" + lastname + "</td>" +
@@ -51,18 +51,34 @@ function createRows(response) {
                 "<td data-field='ext'>" + ext + "</td>" +
                 "<td data-field='tollfree'>" + tollfree + "</td>" +
                 "<td data-field='fax'>" + fax + "</td>" +
-                "<td style='width: 100px'><a class='btn btn-primary fs-14 text-white edit-icn' title='Edit'><i class='fe fe-edit'></i></a></td></tr>";
-
+                "<td style='width: 100px'><a class='btn btn-primary fs-14 text-white edit-icn edit1' title='Edit'><i class='fe fe-edit'></i></a><a class='delete mt-2 btn btn-danger fs-14 text-white delete-icn' data-id="+ email +" title='Delete'><i class='fe fe-delete'></i></a></td></tr>";
             $("#table1").append(tr_str);
         }
     } else {
         var tr_str = "<tr data-id=" + i + ">" +
-            "<td align='center' colspan='4'>No record found.</td>" +
+            "<td align='center' colspan='14'>No record found.</td>" +
             "</tr>";
 
         $("#table1").append(tr_str);
     }
 }
+
+
+
+// function editUser(){
+//     console.log('Hello')
+// $(document).ready(function(){
+//     $('.editbtn').on('click',function(){
+//         $('#userEditModal').modal('show');
+//         $tr = ($this).closest('tr');
+//         var data = $tr.children('td').map(function(){
+//             return $this.text();
+//         }).get();
+
+//         console.log(data);
+//     })
+// })
+// }
 
 (function() {
     window.onpageshow = function(event) {
@@ -103,7 +119,7 @@ $(document).ready(function() {
       var ext = $('#inputExt').val();
       var tollfree = $('#inputTollFree').val();
       var fax = $('#inputFax').val();
-      console.log(fax);
+    //   console.log(fax);
     //   if(name!="" && email!="" && phone!="" && city!=""){
     //   $("#butsave").attr("disabled", "disabled"); 
           $.ajax({
@@ -128,16 +144,15 @@ $(document).ready(function() {
                 userFax: fax,
               },
               cache: false,
-              success: function(dataResult){
-                  console.log(dataResult);
-                  var dataResult = JSON.parse(dataResult);
-                  if(dataResult.statusCode==200){
-                    window.location = base_path+"/admin/user";				
+              success: function(response){
+                //   console.log(response.statusCode);
+                  var responsenew = JSON.parse(response);
+                  if(responsenew.statusCode==200){
+                    $("#addUserModal").hide();				
                   }
-                  else if(dataResult.statusCode==201){
-                     alert("Error occured !");
-                  }
-                  
+                  else if(responsenew.statusCode==201){
+                    alert("Error occured !");
+                  } 
               }
           });
     //   }
@@ -146,6 +161,67 @@ $(document).ready(function() {
     //   }
   });
 });
+
+// $(document).ready(function() {
+   
+//     $('#useredit').on('click', function() {
+//       var firstname = $('#inputFirstName4').val();
+//       var lastname = $('#inputLastName4').val();
+//       var username = $('#inputUsername4').val();
+//       var email = $('#inputEmail4').val();
+//       var password = $('#inputPassword4').val();
+//       var address = $('#inputAddress').val();
+//       var location = $('#inputLocation').val();
+//       var city = $('#inputCity').val();
+//       var zip = $('#inputZip').val();
+//       var companyname = $('#inputCompanyName').val();
+//       var office = $('#inputOffice').val();
+//       var telephone = $('#inputTelephone').val();
+//       var ext = $('#inputExt').val();
+//       var tollfree = $('#inputTollFree').val();
+//       var fax = $('#inputFax').val();
+//     //   console.log(fax);
+//     //   if(name!="" && email!="" && phone!="" && city!=""){
+//     //   $("#butsave").attr("disabled", "disabled"); 
+//           $.ajax({
+//               url: base_path+"/admin/add-user",
+//               type: "POST",
+//               data: {
+//                   _token: $("#csrf").val(),
+//                 //   type: 1,
+//                   userName: username,
+//                   userPass: password,
+//                   userFirstName: firstname,
+//                   userLastName: lastname,
+//                   userEmail: email,
+//                   userAddress: address,
+//                   userLocation: location,
+//                   userZip: zip,
+//                   userTelephone: telephone,
+//                   companyName: companyname,
+//                   office: office,
+//                 userExt: ext,
+//                 TollFree: tollfree,
+//                 userFax: fax,
+//               },
+//               cache: false,
+//               success: function(dataResult){
+//                   console.log(dataResult.statusCode);
+//                   var dataResult = JSON.parse(dataResult);
+//                   if(dataResult.statusCode==200){
+//                     window.location = base_path+"/admin/user";				
+//                   }
+//                   else if(dataResult.statusCode==201){
+//                     alert("Error occured !");
+//                   } 
+//               }
+//           });
+//     //   }
+//     //   else{
+//     //       alert("All fields are required");
+//     //   }
+//   });
+// });
 
 // <!-- ------------------------------------------------------------------------- driver ------------------------------------------------------------------------- -->
 
