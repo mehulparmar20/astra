@@ -86,10 +86,6 @@
                                                         placeholder="Apartment, studio, or floor">
                                                 </div>
                                                 <div class="form-row">
-                                                    <div class="form-group col-md-6">
-                                                        <label for="inputCity">City</label>
-                                                        <input type="text" class="form-control" name="inputCity" id="inputCity">
-                                                    </div>
                                                     <div class="form-group col-md-2">
                                                         <label for="inputZip">Zip</label>
                                                         <input type="text" class="form-control" name="inputZip" id="inputZip">

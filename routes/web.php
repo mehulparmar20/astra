@@ -30,13 +30,14 @@ Auth::routes();
 Route::get('admin/dashboard', [AuthController::class, 'dashboard']);
 Route::get('admin/user', [UserController::class, 'getAllUser']);
 Route::post('admin/add-user', [UserController::class, 'addUsers']);
+Route::post('admin/edit-user', [UserController::class, 'userEditDetails']);
+Route::post('admin/delete-user', [UserController::class, 'deleteUser'])->name('user.delete');
 
 Route::get('login', [AuthController::class, 'login'])->name('login')->middleware('guest');
 Route::post('post-login', [AuthController::class, 'postLogin'])->name('login.post'); 
 Route::get('logout', [AuthController::class, 'logout'])->name('logout');
 Route::get('forgot-password', [AuthController::class, 'showForgetPasswordForm'])->name('forgot.password')->middleware('guest');
 Route::post('post-forgot-password', [AuthController::class, 'submitForgetPasswordForm'])->name('forgot.password.post'); 
-
 
 // Driver
 Route::get('admin/driver', [DriverController::class, 'getDriverData']);
