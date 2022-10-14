@@ -67,7 +67,7 @@
                                     <li><a href="https://laravel8.spruko.com/noa/form-validation" class="slide-item">External Carrier</a></li>
 
                                     <li><a href="#driverModal" class="slide-item" data-toggle="modal" data-target="#driverModal">Driver & Owner Operator</a></li>
-                                    <li><a href="#userModal" class="slide-item" data-toggle="modal" data-target="#userModal">User</a></li>
+                                    <li><a href="#userModal" class="slide-item" data-toggle="modal" data-target="#scrollingmodal">User</a></li>
 
                                     <!-- <li><a href="#myModal" class="slide-item" data-toggle="modal" data-target="#myModal">Driver & Owner Operator</a></li> -->
                                     <!-- <li><a href="https://laravel8.spruko.com/noa/wysiwyag" class="slide-item">User</a></li> -->

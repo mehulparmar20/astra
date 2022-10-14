@@ -2,14 +2,13 @@
 
 
 
-
 <div class="container">
         <!-- <h2>Large Modal</h2> -->
         <!-- Button to Open the Modal -->
         <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
             Open modal
         </button> -->
-
+        
 
        
   
@@ -50,10 +49,7 @@
                                         <div class="row row-sm">
                                             <div class="col-lg-12">
                                                 <div class="card">
-                                                <div class="d-flex justify-content-center">
-                                                    <button href="#addUserModal" data-toggle="modal" data-target="#addUserModal" class="add1button" style="vertical-align:middle"><span>Add </span></button>
-                                                    <button href="#addUserModal" data-toggle="modal" data-target="#addUserModal" class="add1button" style="vertical-align:middle"><span>Restore </span></button>
-                                                </div>
+                                                <button href="#addUserModal" data-toggle="modal" data-target="#addUserModal" class="add1button" style="vertical-align:middle"><span>Add </span></button>
                                                 
                                                      <!-- <div class="card-header border-bottom">
                                                         <h3 class="card-title">Editable File Export Datatable</h3>
@@ -61,7 +57,7 @@
                                                     <div class="card-body">
                                                         <div class="table-responsive export-table">
                                                             
-                                                            <table id="editable-file-datatable1" style="margin-bottom : -571rem" class="table editable-table table-nowrap table-bordered table-edit wp-100">
+                                                            <table id="editable-file-datatable" style="margin-bottom : -571rem" class="table editable-table table-nowrap table-bordered table-edit wp-100">
                                                                 <thead>
                                                                     <tr>
                                                                         <th>ID</th>
@@ -81,36 +77,29 @@
                                                                 </thead>
                                                                 <tbody id="table1">
                                                                     
-                                                                </tbody>
-                                                            </table>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- End Row -->
-
-                                    
-                                <!-- </div>
-
-                            </div>
-                        </div> -->
-                        <!-- CONTAINER CLOSED -->
-                    
+                                        </tbody>
+                                    </table>
+					</div>
+					<div class="modal-footer">
+						<button  class="btnclose" data-bs-dismiss="modal">Close</button>
+					</div>
+				</div>
+			</div>
+		</div>
+  
+  
 
 
-
-
-                        </div>
-                
-                <!-- Modal footer -->
-                <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                </div>
-                
-            </div>
-            </div>
-        </div>
+        <!-- The Modal -->
+        
         
     </div>
+
+    <script src="{{URL::to('/')}}/assets/js/app.min.js"></script>
+        
+
+    <script>
+        $('#myModal').on('shown.bs.modal', function () {
+  $('#myInput').trigger('focus')
+})
+    </script>
