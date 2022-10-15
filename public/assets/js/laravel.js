@@ -149,10 +149,11 @@ $(document).ready(function() {
                 //   var responsenew = JSON.parse(response);
                   if (resp.success === true) {
                     swal.fire("Done!", resp.message, "success");
-                    rowToDelete.remove();
+                    // rowToDelete.remove();
+                    $('#editable-file-datatable1').DataTable().ajax.reload();
                 } else {
-                    console.log(resp);
-                    swal.fire("Error!", resp.message, "error");
+                    console.log(resp.errors[0].message);
+                    swal.fire("Error!", resp.error, "error");
                 }
                 //   if(responsenew.statusCode==200){
                 //     $("#addUserModal").hide();				
@@ -160,7 +161,15 @@ $(document).ready(function() {
                 //   else if(responsenew.statusCode==201){
                 //     alert("Error occured !");
                 //   } 
-              }
+              },
+              error: function(data){
+                // var err = JSON.parse(data.responseJSON);
+                // var responsenew = JSON.parse(data);
+                $.each( data.responseJSON.errors, function( key, value ) {
+                    swal.fire("Error!", value[0], "error"); //showing only the first error.
+                });
+                // swal.fire("Error!", "All fields are required. The email ", "error");
+                },
           });
     //   }
     //   else{
@@ -319,20 +328,20 @@ $(document).ready(function() {
         }
     // <!-- -------------------------------------------------------------------------end of Get driver ajax ------------------------------------------------------------------------- -->    
     // <!-- -------------------------------------------------------------------------delete driver ajax ------------------------------------------------------------------------- -->    
-    $(".delete").on("click", function(){
-            var email = $(this).attr("data-id");
-            // console.log(email);
-            $.ajax({ 
-              url: base_path+"/admin/delete-user",
-              data: {userEmail: email},
-              type: 'post',
-              success: function(result){
-                console.log('success');
-                // $('#userModal').hide().show();
-                location.reload();
-              }
-            });
-        });
+    // $(".delete").on("click", function(){
+    //         var email = $(this).attr("data-id");
+    //         // console.log(email);
+    //         $.ajax({ 
+    //           url: base_path+"/admin/delete-user",
+    //           data: {userEmail: email},
+    //           type: 'post',
+    //           success: function(result){
+    //             console.log('success');
+    //             // $('#userModal').hide().show();
+    //             location.reload();
+    //           }
+    //         });
+    //     });
     // <!-- -------------------------------------------------------------------------end of delete driver ajax ------------------------------------------------------------------------- -->    
 
     // <!-- ------------------------------------------------------------------------- add driver  ------------------------------------------------------------------------- -->
