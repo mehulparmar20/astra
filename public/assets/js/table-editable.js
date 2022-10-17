@@ -4,82 +4,8 @@
 $(function (e) {
 
 	var data = {};
-	// $(".table-edit tr").editable({
-	// 	keyboard: true,
-	// 	button: true,
-	// 	buttonSelector: ".edit-icn",
-	// 	dropdowns: {
-	// 		gender: ["Male", "Female"]
-	// 	},
-	// 	maintainWidth: true,
-	// 	edit: function (values) {
-	// 		$(".edit-icn i", this).removeClass("fe-pen").addClass("fe-save").attr("title", "Save");
-	// 	},
-	// 	save: function (values) {
-	// 		$(".edit-icn i", this).removeClass("fe-save").addClass("fe-pen").attr("title", "Edit"), this in data && (data[this].destroy(), delete data[this])
-	// 	},
-	// 	cancel: function (values) {
-	// 		$(".edit-icn i", this).removeClass("fe-save").addClass("fe-pen").attr("title", "Edit"), this in data && (data[this].destroy(), delete data[this])
-	// 	}
-	// })
-	// function deleteConfirmation(id) {
-    //     swal.fire({
-    //         title: "Delete?",
-    //         icon: 'question',
-    //         text: "Please ensure and then confirm!",
-    //         type: "warning",
-    //         showCancelButton: !0,
-    //         confirmButtonText: "Yes, delete it!",
-    //         cancelButtonText: "No, cancel!",
-    //         reverseButtons: !0
-    //     }).then(function (e) {
 
-    //         if (e.value === true) {
-    //             let token = $('meta[name="csrf-token"]').attr('content');
-    //             let _url = `/users/delete/${id}`;
-
-    //             $.ajax({
-    //                 type: 'POST',
-    //                 url: _url,
-    //                 data: {_token: token},
-    //                 success: function (resp) {
-    //                     if (resp.success) {
-    //                         swal.fire("Done!", resp.message, "success");
-    //                         location.reload();
-    //                     } else {
-    //                         swal.fire("Error!", 'Sumething went wrong.', "error");
-    //                     }
-    //                 },
-    //                 error: function (resp) {
-    //                     swal.fire("Error!", 'Sumething went wrong.', "error");
-    //                 }
-    //             });
-
-    //         } else {
-    //             e.dismiss;
-    //         }
-
-    //     }, function (dismiss) {
-    //         return false;
-    //     })
-    // }
-
-	// $(".delete").on("click", function(){
-	// 	var email = $(this).attr("data-id");
-	// 	// console.log(email);
-	// 	$.ajax({ 
-	// 	  url: base_path+"/admin/delete-user",
-	// 	  data: {userEmail: email},
-	// 	  type: 'post',
-	// 	  success: function(result){
-	// 		console.log('success');
-	// 		// $('#userModal').hide().show();
-	// 		location.reload();
-	// 	  }
-	// 	});
-	// });
-
-	$(".delete").on("click", function(){
+	$(".delete1").on("click", function(){
 		var rowToDelete = $(this).closest('tr');
 		var email = $(this).attr("data-id");
 		swal.fire({
@@ -180,12 +106,18 @@ $(function (e) {
 							  var responsenew = JSON.parse(response);
 							//   console.log(responsenew.statusCode);
 							if(responsenew.statusCode===200){
+								swal.fire("Done!", responsenew.message, "success");
 								$("#userEditModal").hide();				
 							}
-							else if(responsenew.statusCode==201){
-								alert("Error occured !");
-							} 
-			              }
+			              },
+						  error: function(data){
+							// var err = JSON.parse(data.responseJSON);
+							// var responsenew = JSON.parse(data);
+							$.each( data.responseJSON.errors, function( key, value ) {
+								swal.fire("Error!", value[0], "error"); //showing only the first error.
+							});
+							// swal.fire("Error!", "All fields are required. The email ", "error");
+							},
 			          });
 			    //   }
 			    //   else{

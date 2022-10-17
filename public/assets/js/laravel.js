@@ -51,7 +51,7 @@ function createRows(response) {
                 "<td data-field='ext'>" + ext + "</td>" +
                 "<td data-field='tollfree'>" + tollfree + "</td>" +
                 "<td data-field='fax'>" + fax + "</td>" +
-                "<td style='width: 100px'><a class='btn btn-primary fs-14 text-white edit-icn edit1' title='Edit'><i class='fe fe-edit'></i></a><a class='delete mt-2 btn btn-danger fs-14 text-white delete-icn' data-id="+ email +" title='Delete'><i class='fe fe-delete'></i></a></td></tr>";
+                "<td style='width: 100px'><a class='btn btn-primary fs-14 text-white edit-icn edit1' title='Edit'><i class='fe fe-edit'></i></a><a class='delete1 mt-2 btn btn-danger fs-14 text-white delete-icn' data-id="+ email +" title='Delete'><i class='fe fe-delete'></i></a></td></tr>";
             $("#table1").append(tr_str);
         }
     } else {
@@ -150,7 +150,7 @@ $(document).ready(function() {
                   if (resp.success === true) {
                     swal.fire("Done!", resp.message, "success");
                     // rowToDelete.remove();
-                    $('#editable-file-datatable1').DataTable().ajax.reload();
+                    $("#addUserModal").modal('hide');
                 } else {
                     console.log(resp.errors[0].message);
                     swal.fire("Error!", resp.error, "error");
