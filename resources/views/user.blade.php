@@ -17,7 +17,7 @@
 
 
     <!-- The Modal -->
-    <div class="modal fade" data-backdrop="static" id="userModal" tabindex="-1" role="dialog">
+    <div class="modal fade" data-backdrop="static" id="userModal" role="dialog">
         <div class="modal-dialog modal-xl modal-dialog-scrollable" role="document">
             <div class="modal-content">
                 <div class="modal-header">
