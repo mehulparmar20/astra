@@ -176,7 +176,7 @@ class UserController extends Controller
                     //             $template = str_replace("@email@", $email, $template);
                     //             $template = str_replace("@password@", $users->getUserPass(), $template);
                     //             $mail->Body = $template;
-                    //             if($mail->send()){
+                    //             if($mail->send()){     
                                     
                     //             }else{
                     //                 // echo 'Fail'.$mail->ErrorInfo;
@@ -254,6 +254,7 @@ class UserController extends Controller
     // update Privilege
     public function editUser($users, $db)
     {
+        
         $db->user->updateOne(["_id" => (int)$users->getId(),],
             [ '$set' =>[
                 'privilege' => array(
