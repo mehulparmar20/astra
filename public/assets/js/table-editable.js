@@ -4,40 +4,46 @@
 $(function (e) {
 
 	var data = {};
-	// $(".table-edit tr").editable({
-	// 	keyboard: true,
-	// 	button: true,
-	// 	buttonSelector: ".edit-icn",
-	// 	dropdowns: {
-	// 		gender: ["Male", "Female"]
-	// 	},
-	// 	maintainWidth: true,
-	// 	edit: function (values) {
-	// 		$(".edit-icn i", this).removeClass("fe-pen").addClass("fe-save").attr("title", "Save");
-	// 	},
-	// 	save: function (values) {
-	// 		$(".edit-icn i", this).removeClass("fe-save").addClass("fe-pen").attr("title", "Edit"), this in data && (data[this].destroy(), delete data[this])
-	// 	},
-	// 	cancel: function (values) {
-	// 		$(".edit-icn i", this).removeClass("fe-save").addClass("fe-pen").attr("title", "Edit"), this in data && (data[this].destroy(), delete data[this])
-	// 	}
-	// })
-	
-	$(".delete").on("click", function(){
+
+	$(".delete1").on("click", function(){
+		var rowToDelete = $(this).closest('tr');
 		var email = $(this).attr("data-id");
-		// console.log(email);
+		swal.fire({
+            title: "Delete?",
+            text: "Please ensure and then confirm!",
+            type: "warning",
+            showCancelButton: !0,
+            confirmButtonText: "Yes, delete it!",
+            cancelButtonText: "No, cancel!",
+            reverseButtons: !0
+        }).then(function (e) {
+
+        if (e.value === true) {
 		$.ajax({ 
+			type: 'POST',
 		  url: base_path+"/admin/delete-user",
 		  data: {userEmail: email},
-		  type: 'post',
-		  success: function(result){
-			console.log('success');
-			// $('#userModal').hide().show();
-			location.reload();
-		  }
+		  success: function (resp) {
+			if (resp.success === true) {
+				swal.fire("Done!", resp.message, "success");
+				rowToDelete.remove();
+			} else {
+				swal.fire("Error!", resp.message, "error");
+			}
+		},
+		error: function (resp) {
+			swal.fire("Error!", 'Something went wrong.', "error");
+		}
 		});
-	});
+		} else {
+			e.dismiss;
+		}
 
+	}, function (dismiss) {
+		return false;
+	})
+	});
+	
 	$(document).ready(function(){
 		$('.edit1').click(function(){
 				$('#userEditModal').modal('show'); 
@@ -70,9 +76,6 @@ $(function (e) {
 			      var ext = $('#editExt').val();
 			      var tollfree = $('#editTollFree').val();
 			      var fax = $('#editFax').val();
-			    //   console.log(fax);
-			    //   if(name!="" && email!="" && phone!="" && city!=""){
-			    //   $("#butsave").attr("disabled", "disabled"); 
 			          $.ajax({
 			              url: base_path+"/admin/edit-user",
 			              type: "POST",
@@ -97,19 +100,17 @@ $(function (e) {
 			              cache: false,
 			              success: function(response){
 							  var responsenew = JSON.parse(response);
-							//   console.log(responsenew.statusCode);
 							if(responsenew.statusCode===200){
-								$("#userEditModal").hide();				
+								swal.fire("Done!", responsenew.message, "success");
+								$('#userEditModal').modal('toggle');			
 							}
-							else if(responsenew.statusCode==201){
-								alert("Error occured !");
-							} 
-			              }
+			              },
+						  error: function(data){
+							$.each( data.responseJSON.errors, function( key, value ) {
+								swal.fire("Error!", value[0], "error"); 
+							});
+							},
 			          });
-			    //   }
-			    //   else{
-			    //       alert("All fields are required");
-			    //   }
 			  });
 	});
 
