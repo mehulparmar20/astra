@@ -32,6 +32,8 @@ Route::get('admin/user', [UserController::class, 'getAllUser']);
 Route::post('admin/add-user', [UserController::class, 'addUsers']);
 Route::post('admin/edit-user', [UserController::class, 'userEditDetails']);
 Route::post('admin/delete-user', [UserController::class, 'deleteUser'])->name('user.delete');
+Route::get('admin/profile', [UserController::class, 'getUser']);
+Route::post('admin/profile-edit', [UserController::class, 'editUserDetails'])->name('profile.edit');
 
 Route::get('login', [AuthController::class, 'login'])->name('login')->middleware('guest');
 Route::post('post-login', [AuthController::class, 'postLogin'])->name('login.post'); 

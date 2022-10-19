@@ -18,9 +18,8 @@ $(document).ready(function() {
 
 function createRows(response) {
     var len = 0;
-    $('#table1').empty(); // Empty <tbody>
+    $('#table1').empty(); 
     if (response != null) {
-        // console.log(response.length);
         len = response.length;
     }
 
@@ -63,23 +62,6 @@ function createRows(response) {
     }
 }
 
-
-
-// function editUser(){
-//     console.log('Hello')
-// $(document).ready(function(){
-//     $('.editbtn').on('click',function(){
-//         $('#userEditModal').modal('show');
-//         $tr = ($this).closest('tr');
-//         var data = $tr.children('td').map(function(){
-//             return $this.text();
-//         }).get();
-
-//         console.log(data);
-//     })
-// })
-// }
-
 (function() {
     window.onpageshow = function(event) {
         if (event.persisted) {
@@ -90,7 +72,6 @@ function createRows(response) {
 
 $('#select-all').click(function(event) {
     if (this.checked) {
-        // Iterate each checkbox
         $(':checkbox').each(function() {
             this.checked = true;
         });
@@ -119,15 +100,11 @@ $(document).ready(function() {
       var ext = $('#inputExt').val();
       var tollfree = $('#inputTollFree').val();
       var fax = $('#inputFax').val();
-    //   console.log(fax);
-    //   if(name!="" && email!="" && phone!="" && city!=""){
-    //   $("#butsave").attr("disabled", "disabled"); 
           $.ajax({
               url: base_path+"/admin/add-user",
               type: "POST",
               data: {
                   _token: $("#csrf").val(),
-                //   type: 1,
                   userName: username,
                   userPass: password,
                   userFirstName: firstname,
@@ -145,99 +122,24 @@ $(document).ready(function() {
               },
               cache: false,
               success: function(resp){
-                  console.log(resp.statusCode);
-                //   var responsenew = JSON.parse(response);
                   if (resp.success === true) {
                     swal.fire("Done!", resp.message, "success");
-                    // rowToDelete.remove();
-                    $("#addUserModal").modal('hide');
+                    // $('#addUserModal').hide();
+                    $('#addUserModal').modal('toggle');
+                    // $('#addUserModal').dialog('close');
                 } else {
                     console.log(resp.errors[0].message);
                     swal.fire("Error!", resp.error, "error");
                 }
-                //   if(responsenew.statusCode==200){
-                //     $("#addUserModal").hide();				
-                //   }
-                //   else if(responsenew.statusCode==201){
-                //     alert("Error occured !");
-                //   } 
               },
               error: function(data){
-                // var err = JSON.parse(data.responseJSON);
-                // var responsenew = JSON.parse(data);
                 $.each( data.responseJSON.errors, function( key, value ) {
-                    swal.fire("Error!", value[0], "error"); //showing only the first error.
+                    swal.fire("Error!", value[0], "error");
                 });
-                // swal.fire("Error!", "All fields are required. The email ", "error");
                 },
           });
-    //   }
-    //   else{
-    //       alert("All fields are required");
-    //   }
   });
 });
-
-// $(document).ready(function() {
-   
-//     $('#useredit').on('click', function() {
-//       var firstname = $('#inputFirstName4').val();
-//       var lastname = $('#inputLastName4').val();
-//       var username = $('#inputUsername4').val();
-//       var email = $('#inputEmail4').val();
-//       var password = $('#inputPassword4').val();
-//       var address = $('#inputAddress').val();
-//       var location = $('#inputLocation').val();
-//       var city = $('#inputCity').val();
-//       var zip = $('#inputZip').val();
-//       var companyname = $('#inputCompanyName').val();
-//       var office = $('#inputOffice').val();
-//       var telephone = $('#inputTelephone').val();
-//       var ext = $('#inputExt').val();
-//       var tollfree = $('#inputTollFree').val();
-//       var fax = $('#inputFax').val();
-//     //   console.log(fax);
-//     //   if(name!="" && email!="" && phone!="" && city!=""){
-//     //   $("#butsave").attr("disabled", "disabled"); 
-//           $.ajax({
-//               url: base_path+"/admin/add-user",
-//               type: "POST",
-//               data: {
-//                   _token: $("#csrf").val(),
-//                 //   type: 1,
-//                   userName: username,
-//                   userPass: password,
-//                   userFirstName: firstname,
-//                   userLastName: lastname,
-//                   userEmail: email,
-//                   userAddress: address,
-//                   userLocation: location,
-//                   userZip: zip,
-//                   userTelephone: telephone,
-//                   companyName: companyname,
-//                   office: office,
-//                 userExt: ext,
-//                 TollFree: tollfree,
-//                 userFax: fax,
-//               },
-//               cache: false,
-//               success: function(dataResult){
-//                   console.log(dataResult.statusCode);
-//                   var dataResult = JSON.parse(dataResult);
-//                   if(dataResult.statusCode==200){
-//                     window.location = base_path+"/admin/user";				
-//                   }
-//                   else if(dataResult.statusCode==201){
-//                     alert("Error occured !");
-//                   } 
-//               }
-//           });
-//     //   }
-//     //   else{
-//     //       alert("All fields are required");
-//     //   }
-//   });
-// });
 
 // <!-- ------------------------------------------------------------------------- driver ------------------------------------------------------------------------- -->
 

@@ -9,6 +9,7 @@ use Mail;
 use Hash;
 use Illuminate\Support\Str;
 use Carbon\Carbon;
+use Auth;
 
 class UserController extends Controller
 {
@@ -397,8 +398,52 @@ class UserController extends Controller
     // }
 
     public function getAllUser(Request $request){
-        $user = User::all();
+        // $user = User::all();
+        $user = User::where('id', '!=', Auth::user()->id)->get();
         return response()->json($user);  
+    }
+
+    public function getUser(Request $request){
+        $user = Auth::user();
+        return view('profile',compact('user'));  
+    }
+
+    public function editUserDetails(Request $request)
+    {
+        request()->validate([
+            'userName' => 'required',
+            'userEmail' => 'required|unique:user,userEmail'.$request->email,
+            'userFirstName' => 'required',
+            'userLastName' => 'required',
+            'userAddress' => 'required',
+            'userLocation' => 'required',
+            'userZip' => 'required',
+            'userExt' => 'required',
+            // 'userTelephone' => 'required|min:11|max:11|numeric',
+        ]);
+        try{
+            $user = Auth::user();
+            $data = User::where('userEmail', $user->userEmail)->first();
+            $data->userEmail = $request->userEmail;
+            $data->userName = $request->userName;
+            $data->userFirstName = $request->userFirstName;
+            $data->userLastName = $request->userLastName;
+            $data->userAddress = $request->userAddress;
+            $data->userLocation = $request->userLocation;
+            $data->userZip = $request->userZip;
+            $data->userTelephone = $request->userTelephone;
+            $data->userExt = $request->userExt;
+            $data->TollFree = $request->TollFree;
+            $data->userFax = $request->userFax;
+            $data->save();
+        if($data){
+            $arr = array('status' => 'success', 'message' => 'Profile edited successfully.','statusCode' => 200); 
+            return json_encode($arr);
+        }
+        }
+        catch(\Exception $error){
+            return $error->getMessage();
+        }
     }
 
     public function deleteUser(Request $request)

@@ -19,7 +19,6 @@ $(function (e) {
         }).then(function (e) {
 
         if (e.value === true) {
-		// console.log(email);
 		$.ajax({ 
 			type: 'POST',
 		  url: base_path+"/admin/delete-user",
@@ -77,9 +76,6 @@ $(function (e) {
 			      var ext = $('#editExt').val();
 			      var tollfree = $('#editTollFree').val();
 			      var fax = $('#editFax').val();
-			    //   console.log(fax);
-			    //   if(name!="" && email!="" && phone!="" && city!=""){
-			    //   $("#butsave").attr("disabled", "disabled"); 
 			          $.ajax({
 			              url: base_path+"/admin/edit-user",
 			              type: "POST",
@@ -104,25 +100,17 @@ $(function (e) {
 			              cache: false,
 			              success: function(response){
 							  var responsenew = JSON.parse(response);
-							//   console.log(responsenew.statusCode);
 							if(responsenew.statusCode===200){
 								swal.fire("Done!", responsenew.message, "success");
-								$("#userEditModal").hide();				
+								$('#userEditModal').modal('toggle');			
 							}
 			              },
 						  error: function(data){
-							// var err = JSON.parse(data.responseJSON);
-							// var responsenew = JSON.parse(data);
 							$.each( data.responseJSON.errors, function( key, value ) {
-								swal.fire("Error!", value[0], "error"); //showing only the first error.
+								swal.fire("Error!", value[0], "error"); 
 							});
-							// swal.fire("Error!", "All fields are required. The email ", "error");
 							},
 			          });
-			    //   }
-			    //   else{
-			    //       alert("All fields are required");
-			    //   }
 			  });
 	});
 
