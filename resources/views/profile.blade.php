@@ -27,6 +27,16 @@
                             </ol>
                         </div>
                     </div>
+                    @if(session()->has('message'))
+                    <div class="alert alert-success">
+                        {{ session()->get('message') }}
+                    </div>
+                    @endif
+                    @if ($errors->any())
+                    @foreach ($errors->all() as $error)
+                    <div class="alert alert-danger">{{$error}}</div>
+                    @endforeach
+                    @endif
                     <!-- PAGE-HEADER END -->
 
                     <!-- ROW-1 OPEN -->
@@ -42,7 +52,8 @@
                                                         class="m-0 p-1 rounded hrem-6">
                                                 </div>
                                                 <div class="ms-4">
-                                                    <h4>{{$user->userFirstName}} {{$user->userLastName}}</h4>
+                                                    <h4>{{auth()->user()->userFirstName}}
+                                                        {{auth()->user()->userLastName}}</h4>
                                                     <!-- <p class="text-muted mb-2">Member Since: November 2020</p>
 															<a href="#" class="btn btn-primary btn-sm"><i class="fa fa-rss"></i> Follow</a>
 															<a href="mail-inbox.html" class="btn btn-secondary btn-sm"><i class="fa fa-envelope"></i> E-mail</a> -->
@@ -99,37 +110,44 @@
                                                 <table class="table row table-borderless">
                                                     <tbody class="col-lg-12 col-xl-6 p-0">
                                                         <tr>
-                                                            <td><strong>Full Name :</strong> {{$user->userFirstName}}
-                                                                {{$user->userLastName}}</td>
+                                                            <td><strong>Full Name :</strong>
+                                                                {{auth()->user()->userFirstName}}
+                                                                {{auth()->user()->userLastName}}</td>
                                                         </tr>
                                                         <tr>
-                                                            <td><strong>Username :</strong> {{$user->userName}}</td>
+                                                            <td><strong>Username :</strong> {{auth()->user()->userName}}
+                                                            </td>
                                                         </tr>
                                                         <tr>
-                                                            <td><strong>Address :</strong> {{$user->userAddress}}</td>
+                                                            <td><strong>Address :</strong>
+                                                                {{auth()->user()->userAddress}}</td>
                                                         </tr>
                                                         <tr>
-                                                            <td><strong>Location :</strong> {{$user->userLocation}}</td>
+                                                            <td><strong>Location :</strong>
+                                                                {{auth()->user()->userLocation}}</td>
                                                         </tr>
                                                         <tr>
-                                                            <td><strong>Fax :</strong> {{$user->userFax}}</td>
+                                                            <td><strong>Fax :</strong> {{auth()->user()->userFax}}</td>
                                                         </tr>
                                                     </tbody>
                                                     <tbody class="col-lg-12 col-xl-6 p-0 border-top-0">
                                                         <tr>
-                                                            <td><strong>Zip :</strong> {{$user->userZip}}</td>
+                                                            <td><strong>Zip :</strong> {{auth()->user()->userZip}}</td>
                                                         </tr>
                                                         <tr>
-                                                            <td><strong>Email :</strong> {{$user->userEmail}}</td>
+                                                            <td><strong>Email :</strong> {{auth()->user()->userEmail}}
+                                                            </td>
                                                         </tr>
                                                         <tr>
-                                                            <td><strong>Phone :</strong> {{$user->userTelephone}} </td>
+                                                            <td><strong>Phone :</strong>
+                                                                {{auth()->user()->userTelephone}} </td>
                                                         </tr>
                                                         <tr>
-                                                            <td><strong>Ext :</strong> {{$user->userExt}} </td>
+                                                            <td><strong>Ext :</strong> {{auth()->user()->userExt}} </td>
                                                         </tr>
                                                         <tr>
-                                                            <td><strong>Toll Free :</strong> {{$user->TollFree}} </td>
+                                                            <td><strong>Toll Free :</strong>
+                                                                {{auth()->user()->TollFree}} </td>
                                                         </tr>
                                                     </tbody>
                                                 </table>
@@ -140,8 +158,9 @@
                                 <div class="tab-pane" id="editProfile">
                                     <div class="card">
                                         <div class="card-body border-0">
-                                            <form class="form-horizontal" method="POST" action="{{route('profile.edit')}}">
-                                                @csrf
+                                            <form class="form-horizontal" method="POST"
+                                                action="{{route('profile.edit')}}">
+                                                {{csrf_field()}}
                                                 <div class="row mb-4">
                                                     <p class="mb-4 text-17">Personal Info</p>
                                                     <div class="col-md-12 col-lg-12 col-xl-6">
@@ -176,7 +195,8 @@
                                                         </div>
                                                         <div class="col-md-9">
                                                             <input type="text" class="form-control" id="email"
-                                                                placeholder="Email" value="{{$user->userEmail}}">
+                                                                name="userEmail" placeholder="Email"
+                                                                value="{{$user->userEmail}}">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -186,8 +206,9 @@
                                                             <label for="phoneNumber" class="form-label">Phone</label>
                                                         </div>
                                                         <div class="col-md-9">
-                                                            <input type="text" class="form-control" name="userTelephone" id="phoneNumber"
-                                                                placeholder="phone number" value="{{$user->userTelephone}}">
+                                                            <input type="text" class="form-control" name="userTelephone"
+                                                                id="phoneNumber" placeholder="phone number"
+                                                                value="{{$user->userTelephone}}">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -197,8 +218,8 @@
                                                             <label for="fax" class="form-label">Fax</label>
                                                         </div>
                                                         <div class="col-md-9">
-                                                            <input type="text" class="form-control" name="userFax" id="fax"
-                                                                placeholder="Fax" value="{{$user->userFax}}">
+                                                            <input type="text" class="form-control" name="userFax"
+                                                                id="fax" placeholder="Fax" value="{{$user->userFax}}">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -208,7 +229,7 @@
                                                             <label for="address" class="form-label">Address</label>
                                                         </div>
                                                         <div class="col-md-9">
-                                                            <textarea class="form-control" name="userAddress" id="address"
+                                                            <textarea class="form-control" id="address"
                                                                 name="userAddress" rows="2"
                                                                 placeholder="Address">{{$user->userAddress}}</textarea>
                                                         </div>
@@ -220,8 +241,9 @@
                                                             <label for="location" class="form-label">Location</label>
                                                         </div>
                                                         <div class="col-md-9">
-                                                            <input type="text" class="form-control" name="userLocation" id="location"
-                                                                placeholder="Location" value="{{$user->userLocation}}">
+                                                            <input type="text" class="form-control" name="userLocation"
+                                                                id="location" placeholder="Location"
+                                                                value="{{$user->userLocation}}">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -231,8 +253,8 @@
                                                             <label for="zip" class="form-label">Zip</label>
                                                         </div>
                                                         <div class="col-md-9">
-                                                            <input type="text" class="form-control" name="userZip" id="zip"
-                                                                placeholder="Zip" value="{{$user->userZip}}">
+                                                            <input type="text" class="form-control" name="userZip"
+                                                                id="zip" placeholder="Zip" value="{{$user->userZip}}">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -242,8 +264,8 @@
                                                             <label for="ext" class="form-label">Ext</label>
                                                         </div>
                                                         <div class="col-md-9">
-                                                            <input type="text" class="form-control" name="userExt" id="ext"
-                                                                placeholder="Ext" value="{{$user->userExt}}">
+                                                            <input type="text" class="form-control" name="userExt"
+                                                                id="ext" placeholder="Ext" value="{{$user->userExt}}">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -253,8 +275,9 @@
                                                             <label for="tollfree" class="form-label">Toll Free</label>
                                                         </div>
                                                         <div class="col-md-9">
-                                                            <input type="text" class="form-control" name="TollFree" id="zip"
-                                                                placeholder="Toll Free" value="{{$user->TollFree}}">
+                                                            <input type="text" class="form-control" name="TollFree"
+                                                                id="zip" placeholder="Toll Free"
+                                                                value="{{$user->TollFree}}">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -618,7 +641,8 @@
                                                                 class="dropdown-item" href="#"><i
                                                                     class="fe fe-eye me-2"></i> View</a> <a
                                                                 class="dropdown-item" href="#"><i
-                                                                    class="fe fe-trash-2 me-2"></i> Delete</a> </div>
+                                                                    class="fe fe-trash-2 me-2"></i> Delete</a>
+                                                        </div>
                                                     </div>
                                                     <a href="#">
                                                         <img alt="avatar" class="avatar avatar-xl rounded"
@@ -671,7 +695,8 @@
                                                                 class="dropdown-item" href="#"><i
                                                                     class="fe fe-eye me-2"></i> View</a> <a
                                                                 class="dropdown-item" href="#"><i
-                                                                    class="fe fe-trash-2 me-2"></i> Delete</a> </div>
+                                                                    class="fe fe-trash-2 me-2"></i> Delete</a>
+                                                        </div>
                                                     </div>
                                                     <a href="#">
                                                         <img alt="avatar" class="avatar avatar-xl rounded"
@@ -724,7 +749,8 @@
                                                                 class="dropdown-item" href="#"><i
                                                                     class="fe fe-eye me-2"></i> View</a> <a
                                                                 class="dropdown-item" href="#"><i
-                                                                    class="fe fe-trash-2 me-2"></i> Delete</a> </div>
+                                                                    class="fe fe-trash-2 me-2"></i> Delete</a>
+                                                        </div>
                                                     </div>
                                                     <a href="#">
                                                         <img alt="avatar" class="avatar avatar-xl rounded"
@@ -777,7 +803,8 @@
                                                                 class="dropdown-item" href="#"><i
                                                                     class="fe fe-eye me-2"></i> View</a> <a
                                                                 class="dropdown-item" href="#"><i
-                                                                    class="fe fe-trash-2 me-2"></i> Delete</a> </div>
+                                                                    class="fe fe-trash-2 me-2"></i> Delete</a>
+                                                        </div>
                                                     </div>
                                                     <a href="#">
                                                         <img alt="avatar" class="avatar avatar-xl rounded"
@@ -830,7 +857,8 @@
                                                                 class="dropdown-item" href="#"><i
                                                                     class="fe fe-eye me-2"></i> View</a> <a
                                                                 class="dropdown-item" href="#"><i
-                                                                    class="fe fe-trash-2 me-2"></i> Delete</a> </div>
+                                                                    class="fe fe-trash-2 me-2"></i> Delete</a>
+                                                        </div>
                                                     </div>
                                                     <a href="#">
                                                         <img alt="avatar" class="avatar avatar-xl rounded"
@@ -883,7 +911,8 @@
                                                                 class="dropdown-item" href="#"><i
                                                                     class="fe fe-eye me-2"></i> View</a> <a
                                                                 class="dropdown-item" href="#"><i
-                                                                    class="fe fe-trash-2 me-2"></i> Delete</a> </div>
+                                                                    class="fe fe-trash-2 me-2"></i> Delete</a>
+                                                        </div>
                                                     </div>
                                                     <a href="#">
                                                         <img alt="avatar" class="avatar avatar-xl rounded"
@@ -936,7 +965,8 @@
                                                                 class="dropdown-item" href="#"><i
                                                                     class="fe fe-eye me-2"></i> View</a> <a
                                                                 class="dropdown-item" href="#"><i
-                                                                    class="fe fe-trash-2 me-2"></i> Delete</a> </div>
+                                                                    class="fe fe-trash-2 me-2"></i> Delete</a>
+                                                        </div>
                                                     </div>
                                                     <a href="#">
                                                         <img alt="avatar" class="avatar avatar-xl rounded"
@@ -989,7 +1019,8 @@
                                                                 class="dropdown-item" href="#"><i
                                                                     class="fe fe-eye me-2"></i> View</a> <a
                                                                 class="dropdown-item" href="#"><i
-                                                                    class="fe fe-trash-2 me-2"></i> Delete</a> </div>
+                                                                    class="fe fe-trash-2 me-2"></i> Delete</a>
+                                                        </div>
                                                     </div>
                                                     <a href="#">
                                                         <img alt="avatar" class="avatar avatar-xl rounded"

@@ -410,9 +410,10 @@ class UserController extends Controller
 
     public function editUserDetails(Request $request)
     {
+        $user = Auth::user();
         request()->validate([
             'userName' => 'required',
-            'userEmail' => 'required|unique:user,userEmail'.$request->email,
+            'userEmail' => 'required|unique:user,userEmail'.$request->userEmail,
             'userFirstName' => 'required',
             'userLastName' => 'required',
             'userAddress' => 'required',
@@ -421,9 +422,9 @@ class UserController extends Controller
             'userExt' => 'required',
             // 'userTelephone' => 'required|min:11|max:11|numeric',
         ]);
-        try{
-            $user = Auth::user();
+        
             $data = User::where('userEmail', $user->userEmail)->first();
+            // print_r($data);die;
             $data->userEmail = $request->userEmail;
             $data->userName = $request->userName;
             $data->userFirstName = $request->userFirstName;
@@ -435,15 +436,13 @@ class UserController extends Controller
             $data->userExt = $request->userExt;
             $data->TollFree = $request->TollFree;
             $data->userFax = $request->userFax;
-            $data->save();
-        if($data){
-            $arr = array('status' => 'success', 'message' => 'Profile edited successfully.','statusCode' => 200); 
-            return json_encode($arr);
+            
+        if($data->save()){
+          return redirect()->back()->with('message','Profile Edited Successfully!');
+        }else{
+          return redirect()->back()->with('message','Something went wrong!');
         }
-        }
-        catch(\Exception $error){
-            return $error->getMessage();
-        }
+        
     }
 
     public function deleteUser(Request $request)
