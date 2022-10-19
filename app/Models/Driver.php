@@ -2,17 +2,20 @@
 
 namespace App\Models;
 
-
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+//use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract; 
 use Jenssegers\Mongodb\Eloquent\Model;
+use Jenssegers\Mongodb\Eloquent\SoftDeletes;
+
 
 class Driver extends Model implements 
     AuthenticatableContract
 {
     use Notifiable, Authenticatable;
-
+    use HasFactory;
     /**
      * The attributes that are mass assignable.
      *

@@ -23,7 +23,9 @@ use App\Http\Controllers\Admin\UserController;
 Route::get('/table', function () {
         return view('table');
     });
-
+    // Route::get('profile', function () {
+    //     return view('profile');
+    // });
 
 Auth::routes();
 
@@ -43,3 +45,5 @@ Route::post('post-forgot-password', [AuthController::class, 'submitForgetPasswor
 Route::get('admin/driver', [DriverController::class, 'getDriverData']);
 Route::post('admin/addDriver', [DriverController::class, 'addDriverData']);
 Route::post('admin/editDriver', [DriverController::class, 'editDriverData']);
+Route::post('admin/updateDriver', [DriverController::class, 'updateDriverData']);
+Route::post('admin/deleteDriver', [DriverController::class, 'deleteDriver']);

@@ -27,7 +27,7 @@
 <script src="{{URL::to('/')}}/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
 
 <!-- SIDE-MENU JS-->
-<script src="{{URL::to('/')}}/assets/plugins/sidemenu/sidemenu.js"></script>
+<!-- <script src="{{URL::to('/')}}/assets/plugins/sidemenu/sidemenu.js"></script> -->
 
 <!-- APEXCHART JS -->
 <script src="{{URL::to('/')}}/assets/js/apexcharts.js"></script>
@@ -63,7 +63,7 @@
 <script src="{{URL::to('/')}}/assets/js/custom.js"></script>
 
 <!-- dashboard js -->
-<script src="{{URL::to('/')}}/assets/js/js/form.js"></script>
+<!-- <script src="{{URL::to('/')}}/assets/js/js/form.js"></script> -->
 
 <!--  BACK-TO-TOP -->
 
@@ -86,12 +86,12 @@
 <script src="{{URL::to('/')}}/assets/plugins/select2/select2.full.min.js"></script>
 
 <script src="../assets/js/custom.js"></script>
-<script src="../assets/js/themeColors.js"></script>
+<!-- <script src="../assets/js/themeColors.js"></script> -->
 <script src="../assets/js/sticky.js"></script>
 <script src="../assets/plugins/p-scroll/pscroll.js"></script>
 <script src="../assets/plugins/p-scroll/perfect-scrollbar.js"></script>
 <script src="../assets/js/reply.js"></script>
-<script src="../assets/js/index1.js"></script>
+<!-- <script src="../assets/js/index1.js"></script> -->
 
 <!-- DATA TABLE JS-->
 <script src="{{URL::to('/')}}/assets/plugins/datatable/js/jquery.dataTables.min.js"></script>
@@ -110,7 +110,7 @@
 <script src="../assets/js/circle-progress.min.js"></script>
 <script src="../assets/plugins/select2/select2.full.min.js"></script>
 <script src="../assets/js/apexcharts.js"></script>
-<script src="../assets/plugins/sidemenu/sidemenu.js"></script>
+<!-- <script src="../assets/plugins/sidemenu/sidemenu.js"></script> -->
 <script src="../assets/plugins/bootstrap/js/bootstrap.min.js"></script>
 <script src="../assets/js/jquery.min.js"></script>
 <script src="../assets/plugins/bootstrap/js/popper.min.js"></script>
@@ -139,7 +139,7 @@
 <script src="{{URL::to('/')}}/assets/js/sticky.js"></script>
 
 <!-- COLOR THEME JS -->
-<script src="{{URL::to('/')}}/assets/js/themeColors.js"></script>
+<!-- <script src="{{URL::to('/')}}/assets/js/themeColors.js"></script> -->
 
 <!-- CUSTOM JS -->
 <script src="{{URL::to('/')}}/assets/js/custom.js"></script>
