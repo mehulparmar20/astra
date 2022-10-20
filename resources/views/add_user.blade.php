@@ -6,6 +6,7 @@
             Open modal
         </button> -->
 
+        
     <!-- The Modal -->
     <div class="modal fade" id="addUserModal">
         <div class="modal-dialog modal-lg">
