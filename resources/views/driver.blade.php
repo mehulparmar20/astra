@@ -1,256 +1,519 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <title>Bootstrap Example</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
-  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
-</head>
-<body>
+
+<!------------------------------------------------------------------- driver modal ------------------------------------------------------------------->
+<div class="container">
+        <!-- The Modal -->
+        <div class="modal fade" id="driverModal">
+            <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+            
+                <!-- Modal Header -->
+                <div class="modal-header">
+                <h4 class="modal-title">Driver</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                
+                <!-- Modal body -->
+                <div class="modal-body">
+                                    <!-- Row -->
+                                    <div class="row">
+                                        <div class="row row-sm">
+                                            <div class="col-lg-12">
+                                                <div class="card">
+                                                    <div class="card-body">
+                                                    
+                                                        <div class="table-responsive export-table">
+
+                                                        <a href="#addDriverModal" class="btn btn-primary slide-item" data-toggle="modal" data-target="#addDriverModal" >Add</a>
+                                                        <table id="editable-file-datatable" class="table editable-table table-nowrap table-bordered table-edit wp-100">
+
+                                                        <!-- <button href="#addDriverModal" data-toggle="modal" data-target="#addDriverrModal"  class="add1button" style="vertical-align:middle"><span>Add </span></button>
+                                                        
+                                                        <table id="editable-file-datatable" style="margin-bottom : -360rem" class="table editable-table table-nowrap table-bordered table-edit wp-100"> -->
+
+                                                            <!-- <table id="" class="table editable-table table-nowrap table-bordered table-edit wp-100"> -->
+                                                                <thead>
+                                                                    <tr>
+                                                                    <!-- <th>counter</th> -->
+                                                                    <th>NO</th>
+                                                                    <th style="">Name</th>
+                                                                    <th>Email</th>
+                                                                    <th>Location</th>
+                                                                    <th>Social Security No</th>
+                                                                    <th>Date of Birth</th>
+                                                                    <th>Date of Hire</th>
+                                                                    <th>License No</th>
+                                                                    <th>LIS</th>
+                                                                    <th>License Exp.Date</th>
+                                                                    <th>Driver Balance</th>
+                                                                    <th>Action</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody id="driverTable">
+                                                                   
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- End Row -->
+                       </div>
+                
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+            </div>
+        </div>
+        
+    </div>
+
+    <!-------------------------------------------------------------------over driver modal------------------------------------------------------------------->
+
+     <!------------------------------------------------------------------  add driver modal ------------------------------------------------------------------>
 
 <div class="container">
-  <!-- <h2>Modal Example</h2> -->
-  <!-- Button to Open the Modal -->
-  <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
-    Open modal
-  </button> -->
+    <!-- The Modal -->
+    <div class="modal fade" id="addDriverModal">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
 
-  <!-- The Modal -->
-  <div class="modal" id="myModal">
-    <div class="modal-dialog">
-      <div class="modal-content">
-      
-        <!-- Modal Header -->
-        <div class="modal-header">
-          <h4 class="modal-title">Modal Heading1</h4>
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-        </div>
-        
-        <!-- Modal body -->
-        <div class="modal-body">
-         <!-- PAGE-HEADER -->
-							<div class="page-header">
-								<div>
-									<h1 class="page-title">Editable Tables</h1>
-								</div>
-								<div class="ms-auto pageheader-btn">
-									<ol class="breadcrumb">
-										<li class="breadcrumb-item"><a href="javascript:void(0);">Tables</a></li>
-										<li class="breadcrumb-item active" aria-current="page">Editable Tables</li>
-									</ol>
-								</div>
-							</div>
-							<!-- PAGE-HEADER END -->
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title">Add Driver</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
 
-							<!-- Row -->
-							<div class="row">
-								<div class="row row-sm">
-									<div class="col-lg-12">
-										<div class="card">
-											<div class="card-header border-bottom">
-												<h3 class="card-title">Basic Editable Datatable</h3>
-											</div>
-											<div class="card-body">
-												<div class="table-responsive">
-													<table class="table editable-table table-nowrap table-bordered table-edit">
-														<thead>
-															<tr>
-																<th>ID</th>
-																<th>Name</th>
-																<th>Age</th>
-																<th>Gender</th>
-																<th>Edit</th>
-															</tr>
-														</thead>
-														<tbody>
-															<tr data-id="1">
-																<td data-field="id">1</td>
-																<td data-field="name">David McHenry</td>
-																<td data-field="age">24</td>
-																<td data-field="gender">Male</td>
-																<td style="width: 100px">
-																	<a class="btn btn-primary fs-14 text-white edit-icn" title="Edit">
-																		<i class="fe fe-edit"></i>
-																	</a>
-																</td>
-															</tr>
-															<tr data-id="2">
-																<td data-field="id">2</td>
-																<td data-field="name">Frank Kirk</td>
-																<td data-field="age">22</td>
-																<td data-field="gender" >Male</td>
-																<td>
-																	<a class="btn btn-primary fs-14 text-white edit-icn" title="Edit">
-																		<i class="fe fe-edit"></i>
-																	</a>
-																</td>
-															</tr>
-									
-														</tbody>
-													</table>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-							<!-- End Row -->
+                <!-- Modal body -->
+                <div class="modal-body">
 
-							<!-- Row -->
-							<div class="row">
-								<div class="row row-sm">
-									<div class="col-lg-12">
-										<div class="card">
-											<div class="card-header border-bottom">
-												<h3 class="card-title">Responsive Editable Datatable</h3>
-											</div>
-											<div class="card-body">
-												<div class="table-responsive">
-													<table id="editable-responsive-table" class="table editable-table table-nowrap table-bordered table-edit wp-100">
-														<thead>
-															<tr>
-																<th>ID</th>
-																<th>Name</th>
-																<th>Age</th>
-																<th>Gender</th>
-																<th>Edit</th>
-															</tr>
-														</thead>
-														<tbody>
-															<tr data-id="1">
-																<td data-field="id">1</td>
-																<td data-field="name">David McHenry</td>
-																<td data-field="age">24</td>
-																<td data-field="gender">Male</td>
-																<td style="width: 100px">
-																	<a class="btn btn-primary fs-14 text-white edit-icn" title="Edit">
-																		<i class="fe fe-edit"></i>
-																	</a>
-																</td>
-															</tr>
-															<tr data-id="2">
-																<td data-field="id">2</td>
-																<td data-field="name">Frank Kirk</td>
-																<td data-field="age">22</td>
-																<td data-field="gender" >Male</td>
-																<td>
-																	<a class="btn btn-primary fs-14 text-white edit-icn" title="Edit">
-																		<i class="fe fe-edit"></i>
-																	</a>
-																</td>
-															</tr>
-															<tr data-id="3">
-																<td data-field="id">3</td>
-																<td data-field="name">Marie Rose</td>
-																<td data-field="age">21</td>
-																<td data-field="gender" >Female</td>
-																<td>
-																	<a class="btn btn-primary fs-14 text-white edit-icn" title="Edit">
-																		<i class="fe fe-edit"></i>
-																	</a>
-																</td>
-															</tr>
-															<tr data-id="4">
-																<td data-field="id">4</td>
-																<td data-field="name">Tyler Durden</td>
-																<td data-field="age">25</td>
-																<td data-field="gender" >Male</td>
-																<td>
-																	<a class="btn btn-primary fs-14 text-white edit-icn" title="Edit">
-																		<i class="fe fe-edit"></i>
-																	</a>
-																</td>
-															</tr>
-															<tr data-id="5">
-																<td data-field="id">5</td>
-																<td data-field="name">Skyler White</td>
-																<td data-field="age">27</td>
-																<td data-field="gender" >Female</td>
-																<td>
-																	<a class="btn btn-primary fs-14 text-white edit-icn" title="Edit">
-																		<i class="fe fe-edit"></i>
-																	</a>
-																</td>
-															</tr>
-															<tr data-id="6">
-																<td data-field="id">6</td>
-																<td data-field="name">Marie Pam</td>
-																<td data-field="age">27</td>
-																<td data-field="gender" >Female</td>
-																<td>
-																	<a class="btn btn-primary fs-14 text-white edit-icn" title="Edit">
-																		<i class="fe fe-edit"></i>
-																	</a>
-																</td>
-															</tr>
-															<tr data-id="7">
-																<td data-field="id">7</td>
-																<td data-field="name">Chris Morris</td>
-																<td data-field="age">29</td>
-																<td data-field="gender" >Male</td>
-																<td>
-																	<a class="btn btn-primary fs-14 text-white edit-icn" title="Edit">
-																		<i class="fe fe-edit"></i>
-																	</a>
-																</td>
-															</tr>
-															<tr data-id="8">
-																<td data-field="id">8</td>
-																<td data-field="name">Sam Smith</td>
-																<td data-field="age">23</td>
-																<td data-field="gender" >Male</td>
-																<td>
-																	<a class="btn btn-primary fs-14 text-white edit-icn" title="Edit">
-																		<i class="fe fe-edit"></i>
-																	</a>
-																</td>
-															</tr>
-															<tr data-id="9">
-																<td data-field="id">9</td>
-																<td data-field="name">Catelyn Stark</td>
-																<td data-field="age">28</td>
-																<td data-field="gender" >Female</td>
-																<td>
-																	<a class="btn btn-primary fs-14 text-white edit-icn" title="Edit">
-																		<i class="fe fe-edit"></i>
-																	</a>
-																</td>
-															</tr>
-															<tr data-id="10">
-																<td data-field="id">10</td>
-																<td data-field="name">Christopher Ron</td>
-																<td data-field="age">26</td>
-																<td data-field="gender" >Male</td>
-																<td>
-																	<a class="btn btn-primary fs-14 text-white edit-icn" title="Edit">
-																		<i class="fe fe-edit"></i>
-																	</a>
-																</td>
-															</tr>
-														</tbody>
-													</table>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-							<!-- End Row -->
+                    <!-- Row -->
+                    <div class="row">
+                        <div class="row row-sm">
+                            <div class="col-lg-12">
+                                <div class="card">
+   
+                                    <div class="card-body">
+                                        <div class="table-responsive export-table">
+                                            <form>
+                                                @csrf
+                                                <div class="form-row">
+                                                    <div class="form-group col-md-6">
+                                                        <label for="name">Name <span style="color:#ff0000">*</span></label>
+                                                        <input type="text" class="form-control required" id="name" placeholder=" Name" >
+                                                    </div>
+                                                    <div class="form-group col-md-6">
+                                                        <label for="username">Username</label>
+                                                        <input type="text" class="form-control" id="username"placeholder="username">
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-row">
+                                                    <div class="form-group col-md-6">
+                                                        <label for="address">Address <span style="color:#ff0000">*</span></label>
+                                                        <input type="text" class="form-control" id="address" placeholder="address">
+                                                    </div>   
+                                                    <div class="form-group col-md-3">
+                                                        <label for="telephone">Telephone <span style="color:#ff0000">*</span></label>
+                                                        <input type="text" class="form-control" id="telephone"
+                                                            placeholder="Telephone">
+                                                    </div>
+                                                    <div class="form-group col-md-3">
+                                                        <label for="altTelephone">Alt - Tel #</label>
+                                                        <input type="text" class="form-control" id="altTelephone"
+                                                            placeholder="Telephone">
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-row">
+                                                    <div class="form-group col-md-6">
+                                                        <label for="email">Email</label>
+                                                        <input type="email" class="form-control" id="email"
+                                                            placeholder="Email">
+                                                    </div>
+                                                    <div class="form-group col-md-6">
+                                                        <label for="password">Password</label>
+                                                        <input type="password" class="form-control" id="password"
+                                                            placeholder="Password">
+                                                    </div>
+                                                </div>
+                                                <div class="form-row">   
+                                                    <div class="form-group col-md-4">
+                                                        <label for="location">Location <span style="color:#ff0000">*</span> </label>
+                                                        <input type="text" class="form-control" id="location"
+                                                            placeholder="Location">
+                                                    </div>
+                                                    <div class="form-group col-md-4">
+                                                        <label for="zip">Zip <span style="color:#ff0000">*</span></label>
+                                                        <input type="text" class="form-control" id="zip"
+                                                            placeholder="Zip">
+                                                    </div>
+                                                    <div class="form-group col-md-4">
+                                                        <label for="status">Status</label>
+                                                        <input type="text" class="form-control" id="status"
+                                                            placeholder="Status">
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-row">
+                                                    <div class="form-group col-md-4">
+                                                        <label for="socialSecurityNo">Social Security No </label>
+                                                        <input type="text" class="form-control" id="socialSecurityNo"
+                                                            placeholder="Social Security No">
+                                                    </div>
+                                                    <div class="form-group col-md-4">
+                                                        <label for="dateOfBirth">Date of Birth </label>
+                                                        <input type="date" class="form-control" id="dateOfBirth"
+                                                            placeholder="Date of Birth">
+                                                    </div>
+                                                
+                                                    <div class="form-group col-md-4">
+                                                        <label for="dateOfHire">Date of Hire</label>
+                                                        <input type="date" class="form-control" id="dateOfHire"
+                                                            placeholder="Date of Hire">
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-row">   
+                                                    <div class="form-group col-md-4">
+                                                        <label for="licenseNo">License No.<span style="color:#ff0000">*</span></label>
+                                                        <input type="text" class="form-control" id="licenseNo"
+                                                            placeholder="License No">
+                                                    </div>
+                                               
+                                                    <div class="form-group col-md-4">
+                                                        <label for="licenseIssueState">License Issue State <span style="color:#ff0000">*</span> </label>
+                                                        <input type="text" class="form-control" id="licenseIssueState"
+                                                            placeholder="License Issue State">
+                                                    </div>
+                                                    <div class="form-group col-md-4">
+                                                        <label for="licenseExpDate">License Exp. Date <span style="color:#ff0000">*</span></label>
+                                                        <input type="date" class="form-control" id="licenseExpDate"
+                                                            placeholder="License Exp. Date">
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-row">
+                                                    <div class="form-group col-md-3">
+                                                        <label for="lastMedical">Last Medical</label>
+                                                        <input type="date" class="form-control" id="lastMedical"
+                                                            placeholder="Last Medical">
+                                                    </div>
+                                                    <div class="form-group col-md-3">
+                                                        <label for="nextMedical">Next Medical</label>
+                                                        <input type="date" class="form-control" id="nextMedical"
+                                                            placeholder="Next Medical">
+                                                    </div>
+                                                    <div class="form-group col-md-3">
+                                                        <label for="lastDrugTest">Last Drug Test </label>
+                                                        <input type="date" class="form-control" id="lastDrugTest"
+                                                            placeholder="Last Drug Test">
+                                                    </div>
+                                                    <div class="form-group col-md-3">
+                                                        <label for="nextDrugTest">Next Drug Test </label>
+                                                        <input type="date" class="form-control" id="nextDrugTest"
+                                                            placeholder="Next Drug Test">
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-row">
+                                                    <div class="form-group col-md-3">
+                                                        <label for="passportExpiry">Passport Expiry</label>
+                                                        <input type="date" class="form-control" id="passportExpiry"
+                                                            placeholder="Passport Expiry">
+                                                    </div>
+                                                    <div class="form-group col-md-3">
+                                                        <label for="fastCardExpiry">Fast Card Expiry</label>
+                                                        <input type="date" class="form-control" id="fastCardExpiry"
+                                                            placeholder="Fast Card Expiry">
+                                                    </div>
+                                                    <div class="form-group col-md-3">
+                                                        <label for="hazmatExpiry">Hazmat Expiry </label>
+                                                        <input type="date" class="form-control" id="hazmatExpiry"
+                                                            placeholder="Hazmat Expiry">
+                                                    </div>
+                                                    <div class="form-group col-md-3">
+                                                        <label for="rate">Rate <span style="color:#ff0000">*</span> </label>
+                                                        <input type="text" class="form-control" id="rate"
+                                                            placeholder="Rate">
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-row">
+                                                    <div class="form-group col-md-2">
+                                                        <label for="currency">Currency <span style="color:#ff0000">*</span></label>
+                                                        <input type="text" class="form-control" id="currency"
+                                                            placeholder="Currency">
+                                                    </div>
+                                                    <div class="form-group col-md-2">
+                                                        <label for="recurrencePlus">Recurrence+</label>
+                                                        <input type="text" class="form-control" id="recurrencePlus"
+                                                            placeholder="Recurrence">
+                                                    </div>
+                                                    <div class="form-group col-md-2">
+                                                        <label for="recurrenceMin">Recurrence -</label>
+                                                        <input type="text" class="form-control" id="recurrenceMin"
+                                                            placeholder="Recurrence-">
+                                                    </div>
+                                                    <div class="form-group col-md-3">
+                                                        <label for="terminationDate">Termination Date </label>
+                                                        <input type="date" class="form-control" id="terminationDate"
+                                                            placeholder="Termination Date">
+                                                    </div>
+                                                    <div class="form-group col-md-3">
+                                                        <label for="driverBalance ">Driver Balance  </label>
+                                                        <input type="text" class="form-control" id="driverBalance"
+                                                            placeholder="Driver Balance ">
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label for="internalNotes">Internal Notes </label>
+                                                    <input type="text" class="form-control" id="internalNotes"
+                                                        placeholder="Notes">
+                                                </div>
+                                                
+                                            </form>
+                                           
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End Row -->
+                </div>
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <a type="submit" class="btn btn-primary driverDataSubmit">Submit</a>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+
+            </div>
         </div>
-        
-        <!-- Modal footer -->
-        <div class="modal-footer">
-          <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-        </div>
-        
-      </div>
     </div>
-  </div>
-  
-</div>
+</div>    
+<!------------------------------------------------------------------ over add modal ------------------------------------------------------------------>
+<!------------------------------------------------------------------  edit driver modal ------------------------------------------------------------------>
 
-</body>
-</html>
+<div class="container">
+    <!-- The Modal -->
+    <div class="modal fade" id="editDriverModal">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title">Edit Driver</h4>
+                    <button type="button" class="close editModalCloseButton" data-dismiss="modal">&times;</button>
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body">
+
+                    <!-- Row -->
+                    <div class="row">
+                        <div class="row row-sm">
+                            <div class="col-lg-12">
+                                <div class="card">
+   
+                                    <div class="card-body">
+                                        <div class="table-responsive export-table">
+                                            <form>
+                                            @csrf
+                                            <input type="hidden" id="up_comId" name="                                      
+" >
+                                           
+                                                <input type="hidden" name="_token" id="drivercsrf" value="{{Session::token()}}">
+                                                <input type="hidden" id="up_comId" >
+                                                <!-- <input type="hidden" name="email4" id="email4"> -->
+                                                <div class="form-row">
+                                                    <div class="form-group col-md-6">
+                                                        <label for="up_name">Name <span style="color:#ff0000">*</span></label>
+                                                        <input type="text" class="form-control required" id="up_name" placeholder=" Name" >
+                                                    </div>
+                                                    <div class="form-group col-md-6">
+                                                        <label for="up_username">Username</label>
+                                                        <input type="text" class="form-control" id="up_username"placeholder="username">
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-row">
+                                                    <div class="form-group col-md-6">
+                                                        <label for="up_address">Address <span style="color:#ff0000">*</span></label>
+                                                        <input type="text" class="form-control" id="up_address" placeholder="address">
+                                                    </div>   
+                                                    <div class="form-group col-md-3">
+                                                        <label for="up_telephone">Telephone <span style="color:#ff0000">*</span></label>
+                                                        <input type="text" class="form-control" id="up_telephone" placeholder="Telephone">
+                                                    </div>
+                                                    <div class="form-group col-md-3">
+                                                        <label for="up_altTelephone">Alt - Tel #</label>
+                                                        <input type="text" class="form-control" id="up_altTelephone"
+                                                            placeholder="Telephone">
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-row">
+                                                    <div class="form-group col-md-6">
+                                                        <label for="up_email">Email</label>
+                                                        <input type="email" class="form-control" id="up_email"
+                                                            placeholder="Email">
+                                                    </div>
+                                                    <div class="form-group col-md-6">
+                                                        <label for="up_password">Password</label>
+                                                        <input type="password" class="form-control" id="up_password"
+                                                            placeholder="Password">
+                                                    </div>
+                                                </div>
+                                                <div class="form-row">   
+                                                    <div class="form-group col-md-4">
+                                                        <label for="up_location">Location <span style="color:#ff0000">*</span> </label>
+                                                        <input type="text" class="form-control" id="up_location"
+                                                            placeholder="Location">
+                                                    </div>
+                                                    <div class="form-group col-md-4">
+                                                        <label for="up_zip">Zip <span style="color:#ff0000">*</span></label>
+                                                        <input type="text" class="form-control" id="up_zip"
+                                                            placeholder="Zip">
+                                                    </div>
+                                                    <div class="form-group col-md-4">
+                                                        <label for="up_status">Status</label>
+                                                        <input type="text" class="form-control" id="up_status"
+                                                            placeholder="Status">
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-row">
+                                                    <div class="form-group col-md-4">
+                                                        <label for="up_socialSecurityNo">Social Security No </label>
+                                                        <input type="text" class="form-control" id="up_socialSecurityNo"
+                                                            placeholder="Social Security No">
+                                                    </div>
+                                                    <div class="form-group col-md-4">
+                                                        <label for="up_dateOfBirth">Date of Birth </label>
+                                                        <input type="date" class="form-control" id="up_dateOfBirth"
+                                                            placeholder="Date of Birth">
+                                                    </div>
+                                                
+                                                    <div class="form-group col-md-4">
+                                                        <label for="up_dateOfHire">Date of Hire</label>
+                                                        <input type="date" class="form-control" id="up_dateOfHire"
+                                                            placeholder="Date of Hire">
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-row">   
+                                                    <div class="form-group col-md-4">
+                                                        <label for="up_licenseNo">License No.<span style="color:#ff0000">*</span></label>
+                                                        <input type="text" class="form-control" id="up_licenseNo" placeholder="License No">
+                                                    </div>
+                                               
+                                                    <div class="form-group col-md-4">
+                                                        <label for="up_licenseIssueState">License Issue State <span style="color:#ff0000">*</span> </label>
+                                                        <input type="text" class="form-control" id="up_licenseIssueState" placeholder="License Issue State">
+                                                    </div>
+                                                    <div class="form-group col-md-4">
+                                                        <label for="up_licenseExpDate">License Exp. Date <span style="color:#ff0000">*</span></label>
+                                                        <input type="date" class="form-control" id="up_licenseExpDate" placeholder="License Exp. Date">
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-row">
+                                                    <div class="form-group col-md-3">
+                                                        <label for="up_lastMedical">Last Medical</label>
+                                                        <input type="date" class="form-control" id="up_lastMedical"placeholder="Last Medical">
+                                                    </div>
+                                                    <div class="form-group col-md-3">
+                                                        <label for="up_nextMedical">Next Medical</label>
+                                                        <input type="date" class="form-control" id="up_nextMedical" placeholder="Next Medical">
+                                                    </div>
+                                                    <div class="form-group col-md-3">
+                                                        <label for="up_lastDrugTest">Last Drug Test </label>
+                                                        <input type="date" class="form-control" id="up_lastDrugTest" placeholder="Last Drug Test">
+                                                    </div>
+                                                    <div class="form-group col-md-3">
+                                                        <label for="up_nextDrugTest">Next Drug Test </label>
+                                                        <input type="date" class="form-control" id="up_nextDrugTest" placeholder="Next Drug Test">
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-row">
+                                                    <div class="form-group col-md-3">
+                                                        <label for="up_passportExpiry">Passport Expiry</label>
+                                                        <input type="date" class="form-control" id="up_passportExpiry" placeholder="Passport Expiry">
+                                                    </div>
+                                                    <div class="form-group col-md-3">
+                                                        <label for="up_fastCardExpiry">Fast Card Expiry</label>
+                                                        <input type="date" class="form-control" id="up_fastCardExpiry" placeholder="Fast Card Expiry">
+                                                    </div>
+                                                    <div class="form-group col-md-3">
+                                                        <label for="up_hazmatExpiry">Hazmat Expiry </label>
+                                                        <input type="date" class="form-control" id="up_hazmatExpiry" placeholder="Hazmat Expiry">
+                                                    </div>
+                                                    <div class="form-group col-md-3">
+                                                        <label for="up_rate">Rate <span style="color:#ff0000">*</span> </label>
+                                                        <input type="text" class="form-control" id="up_rate" placeholder="Rate">
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-row">
+                                                    <div class="form-group col-md-2">
+                                                        <label for="up_currency">Currency <span style="color:#ff0000">*</span></label>
+                                                        <input type="text" class="form-control" id="up_currency"
+                                                            placeholder="Currency">
+                                                    </div>
+                                                    <div class="form-group col-md-2">
+                                                        <label for="up_recurrencePlus">Recurrence+</label>
+                                                        <input type="text" class="form-control" id="up_recurrencePlus"
+                                                            placeholder="Recurrence">
+                                                    </div>
+                                                    <div class="form-group col-md-2">
+                                                        <label for="up_recurrenceMin">Recurrence -</label>
+                                                        <input type="text" class="form-control" id="up_recurrenceMin"
+                                                            placeholder="Recurrence-">
+                                                    </div>
+                                                    <div class="form-group col-md-3">
+                                                        <label for="up_terminationDate">Termination Date </label>
+                                                        <input type="date" class="form-control" id="up_terminationDate"
+                                                            placeholder="Termination Date">
+                                                    </div>
+                                                    <div class="form-group col-md-3">
+                                                        <label for="up_driverBalance ">Driver Balance  </label>
+                                                        <input type="text" class="form-control" id="up_driverBalance"
+                                                            placeholder="Driver Balance ">
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label for="up_internalNotes">Internal Notes </label>
+                                                    <input type="text" class="form-control" id="up_internalNotes"
+                                                        placeholder="Notes">
+                                                </div>
+                                                
+                                            </form>
+                                           
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End Row -->
+                </div>
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <a type="submit" class="btn btn-primary driverDataUpdate">Update</a>
+                    <button type="button" class="btn btn-secondary editModalCloseButton" data-dismiss="modal">Close</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>    
+      <!------------------------------------------------------------------ over edit driver modal ------------------------------------------------------------------>

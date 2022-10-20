@@ -8,12 +8,16 @@
     border-radius: 5px;
     border: 0px solid #000;
 }
-.swichermainleft {
+/* .swichermainleft {
   width: 100%;
   float: left;
   margin: 0;
   padding: 0;
-}
+} */
+
+.swichermainleft {
+    display:inline-block;
+  }
 .colorcode {
     display: inline-block;
     margin: 4px 8px;

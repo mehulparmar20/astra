@@ -2,8 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
-use App\Http\Controllers\DashboardController;
-
+use App\Http\Controllers\Admin\DriverController;
+use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Admin\CustomerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,42 +17,39 @@ use App\Http\Controllers\DashboardController;
 |
 */
 
-Route::get('/', function () {
-    return view('login');
-});
-
-
-
-
-// Auth::routes();
-
-// Route::get('admin/dashboard', [AuthController::class, 'dashboard']);
-// Route::get('login', [AuthController::class, 'login'])->name('login');
-// Route::post('post-login', [AuthController::class, 'postLogin'])->name('login.post'); 
-// Route::get('logout', [AuthController::class, 'logout'])->name('logout');
-
-// Route::get('/index', function () {
-//     return view('index');
+// Route::get('/', function () {
+//     return view('welcome');
 // });
 
+Route::get('/table', function () {
+        return view('table');
+    });
+    // Route::get('profile', function () {
+    //     return view('profile');
+    // });
 
-// Route::get('/admin', function () {
-//     return view('dashboard');
-// });
+Auth::routes();
 
-route::get('/admin',[DashboardController::class,'index'])->name('admin');
-Route::get('/admin1', function () {
-    return view('dashboard1');
-});
+Route::get('admin/dashboard', [AuthController::class, 'dashboard']);
+Route::get('admin/user', [UserController::class, 'getAllUser']);
+Route::post('admin/add-user', [UserController::class, 'addUsers']);
+Route::post('admin/edit-user', [UserController::class, 'userEditDetails']);
+Route::post('admin/delete-user', [UserController::class, 'deleteUser'])->name('user.delete');
+Route::get('admin/profile', [UserController::class, 'getUser']);
+Route::post('admin/profile-edit', [UserController::class, 'editUserDetails'])->name('profile.edit');
 
-Route::get('/login', function () {
-    return view('login');
-});
+Route::get('login', [AuthController::class, 'login'])->name('login')->middleware('guest');
+Route::post('post-login', [AuthController::class, 'postLogin'])->name('login.post'); 
+Route::get('logout', [AuthController::class, 'logout'])->name('logout');
+Route::get('forgot-password', [AuthController::class, 'showForgetPasswordForm'])->name('forgot.password')->middleware('guest');
+Route::post('post-forgot-password', [AuthController::class, 'submitForgetPasswordForm'])->name('forgot.password.post'); 
 
-Route::get('/forgot-password', function () {
-    return view('forgot-password');
-});
+// Driver
+Route::get('admin/driver', [DriverController::class, 'getDriverData']);
+Route::post('admin/addDriver', [DriverController::class, 'addDriverData']);
+Route::post('admin/editDriver', [DriverController::class, 'editDriverData']);
+Route::post('admin/updateDriver', [DriverController::class, 'updateDriverData']);
+Route::post('admin/deleteDriver', [DriverController::class, 'deleteDriver']);
 
-Route::get('/driver', function () {
-    return view('driver');
-});
+//customer
+Route::get('admin/customer', [CustomerController::class, 'getCustomerData']);

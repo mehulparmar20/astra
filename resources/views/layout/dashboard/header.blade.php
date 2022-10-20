@@ -12,7 +12,7 @@
     <meta name="keywords" content="admin,admin dashboard,admin panel,admin template,bootstrap,clean,dashboard,flat,jquery,modern,responsive,premium admin templates,responsive admin,ui,ui kit.">
 
     <!-- FAVICON -->
-    <link rel="shortcut icon" type="image/x-icon" href="{{URL::to('/')}}/assets/images/brand/favicon.ico"/>
+    <link rel="shortcut icon" type="image/x-icon" href="{{URL::to('/')}}/assets/images/brand/astra_favicon.ico"/>
 
     <!-- TITLE -->
     <title>Astra</title>
@@ -28,15 +28,10 @@
     <link href="{{URL::to('/')}}/assets/css/icons.css" rel="stylesheet" />
 
     <!-- INTERNAL Switcher css -->
-    <link href="../assets/switcher/css/switcher.css" rel="stylesheet">
-    <link href="../assets/switcher/demo.css" rel="stylesheet">
+    <link href="{{URL::to('/')}}/assets/switcher/css/switcher.css" rel="stylesheet">
+    <link href="{{URL::to('/')}}/assets/switcher/demo.css" rel="stylesheet"> 
 
-<!-- modal -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
-  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
-<!-- modal -->    
+    
 
 <style type="text/css">
    .header-brand-img {

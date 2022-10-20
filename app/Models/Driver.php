@@ -2,18 +2,20 @@
 
 namespace App\Models;
 
-
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+//use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract; 
 use Jenssegers\Mongodb\Eloquent\Model;
 use Jenssegers\Mongodb\Eloquent\SoftDeletes;
 
-class User extends Model implements 
+
+class Driver extends Model implements 
     AuthenticatableContract
 {
-    use Notifiable, Authenticatable, SoftDeletes;
-
+    use Notifiable, Authenticatable;
+    use HasFactory;
     /**
      * The attributes that are mass assignable.
      *
@@ -21,15 +23,13 @@ class User extends Model implements
      */
 
     protected $connection = 'mongodb';
-    protected $collection = 'user';
-    protected $dates = ['deleted_at'];
+    protected $collection = 'driver';
 
     // protected $fillable = [
     //     'userEmail', 'userPass',
     // ];
 
     protected $guarded = [];
-
     /**
      * The attributes that should be hidden for arrays.
      *
@@ -38,8 +38,8 @@ class User extends Model implements
     // protected $hidden = [
     //     'userPass',
     // ];
-    public function getAuthPassword()
-    {
-        return $this->userPassword;
-    }
+    // public function getAuthPassword()
+    // {
+    //     return $this->userPassword;
+    // }
 }
