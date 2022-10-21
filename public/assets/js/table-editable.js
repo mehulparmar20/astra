@@ -44,6 +44,10 @@ $(function (e) {
 	})
 	});
 	
+	function recp() {
+		$('#table1').load(base_path+'/admin/user');
+	}
+
 	$(document).ready(function(){
 		$('.edit1').click(function(){
 				$('#userEditModal').modal('show'); 
