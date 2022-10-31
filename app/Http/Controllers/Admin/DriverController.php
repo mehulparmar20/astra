@@ -40,6 +40,7 @@ class DriverController extends Controller
             // 'rate' => 'required',
             // 'currency' => 'required',
         ]);
+        
         $driver=Driver::all();
    
         $companyID=$request->companyID;

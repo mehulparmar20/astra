@@ -20,12 +20,6 @@
                         <div>
                             <h1 class="page-title">Profile</h1>
                         </div>
-                        <div class="ms-auto pageheader-btn">
-                            <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="javascript:void(0);">Pages</a></li>
-                                <li class="breadcrumb-item active" aria-current="page">Profile</li>
-                            </ol>
-                        </div>
                     </div>
                     @if(session()->has('message'))
                     <div class="alert alert-success">
@@ -48,8 +42,8 @@
                                         <div class="col-lg-12 col-md-12 col-xl-6">
                                             <div class="d-flex flex-wrap align-items-center">
                                                 <div class="profile-img-main rounded">
-                                                    <img src="../assets/images/faces/6.jpg" alt="img"
-                                                        class="m-0 p-1 rounded hrem-6">
+                                                    <img src="https://eu.ui-avatars.com/api/?background=random&name={{auth()->user()->userFirstName}}+{{auth()->user()->userLastName}}"
+                                                        alt="img" class="m-0 p-1 rounded hrem-6">
                                                 </div>
                                                 <div class="ms-4">
                                                     <h4>{{auth()->user()->userFirstName}}
@@ -184,6 +178,13 @@
                                                             <input type="text" class="form-control" name="userLastName"
                                                                 id="lastname" placeholder="Last Name"
                                                                 value="{{$user->userLastName}}">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-12 col-lg-12 col-xl-6">
+                                                        <div class="form-group">
+                                                            <label for="password" class="form-label">Password</label>
+                                                            <input type="password" class="form-control" name="userPass"
+                                                                id="password" placeholder="Password">
                                                         </div>
                                                     </div>
                                                 </div>

@@ -52,4 +52,12 @@ Route::post('admin/updateDriver', [DriverController::class, 'updateDriverData'])
 Route::post('admin/deleteDriver', [DriverController::class, 'deleteDriver']);
 
 //customer
+<<<<<<< HEAD
 Route::get('admin/customer', [CustomerController::class, 'getCustomerData']);
+=======
+Route::get('admin/customer', [CustomerController::class, 'getCustomerData']);
+Route::post('admin/addCustomer', [CustomerController::class, 'addCustomerData']);
+Route::get('admin/customerCurrency', [CustomerController::class, 'getCustomerCurrency']);
+Route::get('admin/getCustomerPaymentTerms', [CustomerController::class, 'getCustomerPaymentTerms']);
+Route::get('admin/getCustomerBFactoringCompany', [CustomerController::class, 'getCustomerBFactoringCompany']);
+>>>>>>> 1fef6bcfcb06c512deeeac3023c29b4982aa907e
