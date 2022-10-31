@@ -382,7 +382,7 @@
 										<div class="dropdown d-md-flex profile-1">
 											<a href="#" data-bs-toggle="dropdown" class="nav-link pe-2 leading-none d-flex animate">
 												<span>
-													<img src="{{URL::to('/')}}/assets/images/faces/6.jpg" alt="profile-user"
+													<img src="https://eu.ui-avatars.com/api/?background=random&name={{auth()->user()->userFirstName}}+{{auth()->user()->userLastName}}" alt="profile-user"
 														class="avatar  profile-user brround cover-image">
 												</span>
 												<div class="text-center p-1 d-flex d-lg-none-max">

@@ -430,6 +430,11 @@ class UserController extends Controller
             $data->userName = $request->userName;
             $data->userFirstName = $request->userFirstName;
             $data->userLastName = $request->userLastName;
+            if(isset($request->userPass)){
+                $data->userPass = sha1($request->userPass);
+            }else{
+                $data->userPass = $user->userPass;
+            }
             $data->userAddress = $request->userAddress;
             $data->userLocation = $request->userLocation;
             $data->userZip = $request->userZip;

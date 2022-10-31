@@ -114,7 +114,7 @@
                                                     </div>
                                                 </div>                                                          
                                                 <br>
-                                                <a type="submit" class="btn btn-primary" id="useredit">Submit</a>
+                                                <a type="submit" class="btn btn-primary" data-dismiss="modal" id="useredit">Submit</a>
                                                 <br>
                                             </form>
                                             <br>
@@ -141,7 +141,7 @@
 
                 <!-- Modal footer -->
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-secondary">Close</button>
                 </div>
 
             </div>
