@@ -22,7 +22,7 @@
         <link id="style" href="{{URL::to('/')}}/assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
 
         <!-- STYLE CSS -->
-        <link href="{{URL::to('/')}}/assets/css/style.css" rel="stylesheet"/>
+        <link href="{{URL::to('/')}}/login_css/style.css" rel="stylesheet"/>
         <link href="{{URL::to('/')}}/assets/css/skin-modes.css" rel="stylesheet" />
 
         <!--- FONT-ICONS CSS -->
@@ -33,19 +33,9 @@
         <link rel="stylesheet" type="text/css"  href="{{URL::to('/')}}/assets/switcher/css/switcher.css">
         <link rel="stylesheet" type="text/css"  href="{{URL::to('/')}}/assets/switcher/demo.css">
 
-    </head>
 
-<style type="text/css">
-   .header-brand-img {
-        height: 4rem;
-        line-height: 2rem;
-        vertical-align: middle;
-        width: auto;
-        padding-bottom: 5px;
-    }
-</style>
 
     </head>
 
     
-        <body class="ltr login-img">
+        <body class="ltr login-bg">
