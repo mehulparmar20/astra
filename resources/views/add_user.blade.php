@@ -9,7 +9,7 @@
         
     <!-- The Modal -->
     <div class="modal fade" id="addUserModal">
-        <div class="modal-dialog modal-lg">
+        <div class="modal-dialog modal-xl">
             <div class="modal-content">
 
                 <!-- Modal Header -->
@@ -161,7 +161,7 @@
                                                     </div>
                                                 </div>
                                                 <br>
-                                                <a type="submit" class="btn btn-primary" id="usersave">Submit</a>
+                                                <a type="submit" class="btn btn-primary" data-dismiss="modal" id="usersave">Submit</a>
                                                 <br>
                                             </form>
                                             <br>

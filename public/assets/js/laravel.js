@@ -100,6 +100,21 @@ $(document).ready(function() {
       var ext = $('#inputExt').val();
       var tollfree = $('#inputTollFree').val();
       var fax = $('#inputFax').val();
+      var tr_length = $("#userModal").find("tr").length;
+      var tr_str2 = "<tr data-id=" + tr_length + ">" +
+      "<td data-field='id'>" + tr_length + "</td>" +
+      "<td data-field='email' id="+email+">" + email + "</td>" +
+      "<td data-field='username'>" + username + "</td>" +
+      "<td data-field='fistname'>" + firstname + "</td>" +
+      "<td data-field='lastname'>" + lastname + "</td>" +
+      "<td data-field='address'>" + address + "</td>" +
+      "<td data-field='location'>" + location + "</td>" +
+      "<td data-field='zip'>" + zip + "</td>" +
+      "<td data-field='telephone'>" + telephone + "</td>" +
+      "<td data-field='ext'>" + ext + "</td>" +
+      "<td data-field='tollfree'>" + tollfree + "</td>" +
+      "<td data-field='fax'>" + fax + "</td>" +
+      "<td style='width: 100px'><a class='btn btn-primary fs-14 text-white edit-icn edit1' title='Edit'><i class='fe fe-edit'></i></a><a class='delete1 mt-2 btn btn-danger fs-14 text-white delete-icn' data-id="+ email +" title='Delete'><i class='fe fe-delete'></i></a></td></tr>";
           $.ajax({
               url: base_path+"/admin/add-user",
               type: "POST",
@@ -122,10 +137,12 @@ $(document).ready(function() {
               },
               cache: false,
               success: function(resp){
-                  if (resp.success === true) {
+                if(resp.success === true){
                     swal.fire("Done!", resp.message, "success");
+                    $("#table1").append(tr_str2);
                     // $('#addUserModal').hide();
-                    $('#addUserModal').modal('toggle');
+                    $("#addUserModal form").trigger("reset");
+                    // $('#addUserModal').modal('toggle');
                     // $('#addUserModal').dialog('close');
                 } else {
                     console.log(resp.errors[0].message);
