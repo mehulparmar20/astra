@@ -7,21 +7,13 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Customer;
 use App\Models\Driver;
-<<<<<<< HEAD
-=======
 use App\Models\Currency_add;
 use App\Models\Payment_terms;
 use App\Models\Factoring_company_add;
->>>>>>> 1fef6bcfcb06c512deeeac3023c29b4982aa907e
 use Illuminate\Database\Eloquent\Collection;
 
 class CustomerController extends Controller
 {
-<<<<<<< HEAD
-    public function getCustomerData(Request $request){
-        $customer1 = Customer::all();
-        return response()->json($customer1, 200, [], JSON_PARTIAL_OUTPUT_ON_ERROR);
-=======
     
     
     public function getCustomerData(Request $request){
@@ -180,6 +172,5 @@ class CustomerController extends Controller
 
         // $customer1 = Customer::all();
         // return response()->json($customer1, 200, [], JSON_PARTIAL_OUTPUT_ON_ERROR);
->>>>>>> 1fef6bcfcb06c512deeeac3023c29b4982aa907e
     }
 }

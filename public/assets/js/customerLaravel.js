@@ -1,11 +1,7 @@
 var base_path = $("#url").val();
 // <!-- -------------------------------------------------------------------------Get customer ajax ------------------------------------------------------------------------- -->  
 $(document).ready(function() {
-<<<<<<< HEAD
-    // alert('customer');
-=======
     //alert('customer');
->>>>>>> 1fef6bcfcb06c512deeeac3023c29b4982aa907e
     var customerResponse = '';
     $.ajax({
         type: "GET",
@@ -58,11 +54,7 @@ $(document).ready(function() {
                             "<td data-field='customerEmail'>" + custEmail + "</td>" +
 
                             // "<td style='width: 100px'><a class='btn btn-primary fs-14 text-white edit-icn' title='Edit' id='edit'><i class='fe fe-edit' ></i></a></td></tr>"
-<<<<<<< HEAD
-                            "<td style='width: 100px'><i class='btn btn-primary fe fe-edit customerEdit' data-id=" + custComid+ "&"+custEmail + "></i><a class='deleteDriver mt-2 btn btn-danger fs-14 text-white customerDelete-icn' data-id=" + custComid+ "&"+custEmail + " title='Delete'><i class='fe fe-delete'></i></a></td></tr>";
-=======
                             "<td style='width: 100px'><i class='btn btn-primary fe fe-edit customerEdit' data-id=" + custComid+ "&"+custEmail + "> </i><a class=' btn btn-danger fs-14 text-white customerDelete-icn' data-id=" + custComid+ "&"+custEmail + " title='Delete'><i class='fe fe-delete'></i></a></td></tr>";
->>>>>>> 1fef6bcfcb06c512deeeac3023c29b4982aa907e
 
                         $("#customerTable").append(customerStr);
                         no++;
@@ -78,9 +70,6 @@ $(document).ready(function() {
         }
 
     }
-<<<<<<< HEAD
-});
-=======
     // <!-- -------------------------------------------------------------------------Get customer over ------------------------------------------------------------------------- -->  
     // function customerValidation(customerResponse) {
     //     var customerName= $('#customerName').val();
@@ -417,4 +406,3 @@ function show_add_customer(){
     $("#addCustomerTab").addClass("tab-pane fade in active show")
 }
 
->>>>>>> 1fef6bcfcb06c512deeeac3023c29b4982aa907e

@@ -61,11 +61,6 @@
 <!-- CUSTOM JS -->
 <script src="{{URL::to('/')}}/assets/js/custom.js"></script>
 
-<<<<<<< HEAD
-	<!-- dashboard js -->
-    <script src="{{URL::to('/')}}/assets/js/js/form.js"></script>
-    
-=======
 <!-- dashboard js -->
 <!-- <script src="{{URL::to('/')}}/assets/js/js/form.js"></script> -->
 
@@ -150,7 +145,6 @@
 
 <!-- CUSTOM JS -->
 <script src="{{URL::to('/')}}/assets/js/custom.js"></script>
->>>>>>> 1fef6bcfcb06c512deeeac3023c29b4982aa907e
 
 
 <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" ></script>

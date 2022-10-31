@@ -1,46 +1,19 @@
-<<<<<<< HEAD
-<!------------------------------------------------------------------- customer modal ------------------------------------------------------------------->
-<div class="container">
-    <!-- <h2>Large Modal</h2> -->
-    <!-- Button to Open the Modal -->
-    <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
-            Open modal
-        </button> -->
-
-
-
-
-    <!-- The Modal -->
-=======
   <!-- Latest compiled and minified bootstrap-select CSS --> 
 <!------------------------------------------------------------------- customer modal ------------------------------------------------------------------->
 <div class="container">
 
->>>>>>> 1fef6bcfcb06c512deeeac3023c29b4982aa907e
     <div class="modal fade" data-backdrop="static" id="customerModal" role="dialog">
         <div class="modal-dialog modal-xl modal-dialog-scrollable" role="document">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title">Customer</h5>
                     <button type="button" class="close" data-dismiss="modal">×</button>
-<<<<<<< HEAD
-
-                    <!-- </button> -->
-                </div>
-                <button href="#addCustomerModal" data-toggle="modal" data-target="#Customer"
-                    class="login_btn btn1 add1button" style="vertical-align:middle"><span>Add </span></button>
-                <div class="modal-body" style="overflow-y: auto !important;">
-
-                    <table id="editable-file-datatable" class="table editable-table table-nowrap table-bordered table-edit wp-100">
-                        
-=======
                 </div>
 
                 <button href="#addCustomerModal" data-toggle="modal" data-target="#addCustomerModal" class="login_btn btn1 add1button addCustomerButton" style="vertical-align:middle"><span>Add </span></button>
                 <div class="modal-body" style="overflow-y: auto !important;">
 
                     <table id="editable-file-datatable" class="table editable-table table-nowrap table-bordered table-edit wp-100">
->>>>>>> 1fef6bcfcb06c512deeeac3023c29b4982aa907e
                         <thead>
                             <tr>
                                 <th>No</th>
@@ -64,9 +37,6 @@
             </div>
         </div>
     </div>
-<<<<<<< HEAD
-</div>
-=======
 </div>
 <!------------------------------------------------------------------ over customer modal ------------------------------------------------------------------>
  <!------------------------------------------------------------------  add customer modal ------------------------------------------------------------------>
@@ -324,4 +294,3 @@
 </div>
  
 <!------------------------------------------------------------------ over add customer modal ------------------------------------------------------------------>
->>>>>>> 1fef6bcfcb06c512deeeac3023c29b4982aa907e

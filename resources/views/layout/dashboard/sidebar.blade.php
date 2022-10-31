@@ -119,9 +119,6 @@
                     </div>
                 </div>
             </div>
-<<<<<<< HEAD
-            <!--/APP-SIDEBAR-->
-=======
             <!--/APP-SIDEBAR-->
 
             @include('customer')
@@ -130,4 +127,3 @@
             @include('add_user') 
             @include('edit_user') 
 
->>>>>>> 1fef6bcfcb06c512deeeac3023c29b4982aa907e
