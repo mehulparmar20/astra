@@ -15,6 +15,27 @@
 <!-- BACK-TO-TOP -->
 <a href="#top" id="back-to-top"><i class="fa fa-long-arrow-up"></i></a>
 
+
+
+<!-- Plugins -->
+<script src="{{URL::to('/')}}/static/plugin/bootstrap/js/popper.min.js"></script>
+  <script src="{{URL::to('/')}}/static/plugin/bootstrap/js/bootstrap.min.js"></script>
+  <script src="{{URL::to('/')}}/static/plugin/typeit-master/typeit.min.js"></script>
+  <script src="{{URL::to('/')}}/static/plugin/owl-carousel/js/owl.carousel.min.js"></script>
+  <script src="{{URL::to('/')}}/static/plugin/magnific/jquery.magnific-popup.min.js"></script>
+   <script src="{{URL::to('/')}}/static/plugin/particles/particles.min.js"></script>
+  <script src="{{URL::to('/')}}/static/plugin/particles/particles-app.js"></script>
+  <script src="{{URL::to('/')}}/static/plugin/isotope/isotope.pkgd.min.js"></script>
+
+  <script src="{{URL::to('/')}}/static/js/checkbox.js"></script>
+
+ <!-- jQuery -->
+ <!-- <script src="{{URL::to('/')}}/static/js/jquery-3.2.1.min.js"></script>
+  <script src="{{URL::to('/')}}/static/js/jquery-migrate-3.0.0.min.js"></script>
+
+  <script src="{{URL::to('/')}}/static/js/custom.js"></script> -->
+
+
 <!-- JQUERY JS -->
 
     <script src="{{URL::to('/')}}/assets/js/jquery.min.js"></script>
