@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\Admin\DriverController;
 use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Admin\CustomerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -49,3 +50,10 @@ Route::post('admin/addDriver', [DriverController::class, 'addDriverData']);
 Route::post('admin/editDriver', [DriverController::class, 'editDriverData']);
 Route::post('admin/updateDriver', [DriverController::class, 'updateDriverData']);
 Route::post('admin/deleteDriver', [DriverController::class, 'deleteDriver']);
+
+//customer
+Route::get('admin/customer', [CustomerController::class, 'getCustomerData']);
+Route::post('admin/addCustomer', [CustomerController::class, 'addCustomerData']);
+Route::get('admin/customerCurrency', [CustomerController::class, 'getCustomerCurrency']);
+Route::get('admin/getCustomerPaymentTerms', [CustomerController::class, 'getCustomerPaymentTerms']);
+Route::get('admin/getCustomerBFactoringCompany', [CustomerController::class, 'getCustomerBFactoringCompany']);

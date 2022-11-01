@@ -325,8 +325,7 @@
                                         <div class="table-responsive export-table">
                                             <form>
                                             @csrf
-                                            <input type="hidden" id="up_comId" name="                                      
-" >
+                                            <!-- <input type="hidden" id="up_comId" name="" > -->
                                            
                                                 <input type="hidden" name="_token" id="drivercsrf" value="{{Session::token()}}">
                                                 <input type="hidden" id="up_comId" >
