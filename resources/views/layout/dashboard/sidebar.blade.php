@@ -62,7 +62,7 @@
                                 </a>
                                 <ul class="slide-menu">
                                     <li class="side-menu-label1"><a href="javascript:void(0)">Admin</a></li>
-                                    <li><a href="https://laravel8.spruko.com/noa/form-elements" class="slide-item">Customer</a></li>
+                                    <li><a href="#customerModal" class="slide-item" data-toggle="modal" data-target="#customerModal">Customer</a></li>
                                     <li><a href="https://laravel8.spruko.com/noa/form-layouts" class="slide-item">Shipper & Consignee</a></li>
                                     <li><a href="https://laravel8.spruko.com/noa/form-validation" class="slide-item">External Carrier</a></li>
 
@@ -146,7 +146,7 @@
             </div>
             <!--/APP-SIDEBAR-->
 
-
+            @include('customer')
             @include('driver') 
             @include('user') 
             @include('add_user') 
