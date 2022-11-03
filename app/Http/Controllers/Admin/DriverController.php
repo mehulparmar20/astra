@@ -265,6 +265,7 @@ class DriverController extends Controller
         $v=0;
        for ($i=0; $i<$arrayLength; $i++){
             $id=$result->driver[$i];
+           
                 foreach ($id as $value){
                     if($value==$driverEmail){
                         echo $i;

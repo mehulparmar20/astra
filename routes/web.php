@@ -24,6 +24,10 @@ use App\Http\Controllers\Admin\CustomerController;
 Route::get('/table', function () {
         return view('table');
     });
+
+    Route::get('/admin/driverApplication', function () {
+        return view('driver_application_form');
+    });
     // Route::get('profile', function () {
     //     return view('profile');
     // });
