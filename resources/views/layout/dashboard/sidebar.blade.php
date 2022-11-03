@@ -1,23 +1,3 @@
- <!-- <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-    <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-    <script type="text/javascript">
-        $(function () {
-            $(".app-sidebar li a").click(function () {
-               
-                if ($(this).text() == "Driver & Owner Operator") {
-                    
-                    alert($(this).text());
-                    $('#driverModal').modal('show');
-                }
-            });
-        });
-
-    </script> -->
-
- <!-- end modal -->
-
  <!--APP-SIDEBAR-->
  <div class="sticky">
 
@@ -65,13 +45,8 @@
                                     <li><a href="#customerModal" class="slide-item" data-toggle="modal" data-target="#customerModal">Customer</a></li>
                                     <li><a href="https://laravel8.spruko.com/noa/form-layouts" class="slide-item">Shipper & Consignee</a></li>
                                     <li><a href="https://laravel8.spruko.com/noa/form-validation" class="slide-item">External Carrier</a></li>
-
                                     <li><a href="#driverModal" class="slide-item" data-toggle="modal" data-target="#driverModal">Driver & Owner Operator</a></li>
                                     <li><a href="#userModal" class="slide-item" data-toggle="modal" data-target="#userModal">User</a></li>
-
-                                    <!-- <li><a href="#myModal" class="slide-item" data-toggle="modal" data-target="#myModal">Driver & Owner Operator</a></li> -->
-                                    <!-- <li><a href="https://laravel8.spruko.com/noa/wysiwyag" class="slide-item">User</a></li> -->
-
                                     <li><a href="https://laravel8.spruko.com/noa/wysiwyag" class="slide-item">Truck</a></li>
                                     <li><a href="https://laravel8.spruko.com/noa/form-editable" class="slide-item">Trailer</a></li>
                                     <li><a href="https://laravel8.spruko.com/noa/form-wizard" class="slide-item">Factoring Company</a></li>

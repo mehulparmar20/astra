@@ -1184,4 +1184,4 @@
         </div>
         <!-- /Country-selector modal-->
 
-@include('layout.dashboard.footer')		
+@include('layout.dashboard.footer')	

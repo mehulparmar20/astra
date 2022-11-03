@@ -24,6 +24,10 @@ use App\Http\Controllers\Admin\CustomerController;
 Route::get('/table', function () {
         return view('table');
     });
+
+    Route::get('/admin/driverApplication', function () {
+        return view('driver_application_form');
+    });
     // Route::get('profile', function () {
     //     return view('profile');
     // });
@@ -57,3 +61,6 @@ Route::post('admin/addCustomer', [CustomerController::class, 'addCustomerData'])
 Route::get('admin/customerCurrency', [CustomerController::class, 'getCustomerCurrency']);
 Route::get('admin/getCustomerPaymentTerms', [CustomerController::class, 'getCustomerPaymentTerms']);
 Route::get('admin/getCustomerBFactoringCompany', [CustomerController::class, 'getCustomerBFactoringCompany']);
+Route::post('admin/addCurrency', [CustomerController::class, 'addCustomerCurrency']);
+Route::post('admin/PaymentTerms', [CustomerController::class, 'addCustomerPaymentTerms']);
+Route::post('admin/factoringCompany', [CustomerController::class, 'addCustomerfactoringCompany']);

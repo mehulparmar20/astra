@@ -43,7 +43,9 @@ class DriverController extends Controller
         try{
         $driver=Driver::all();
    
+
         $companyID=(int)$request->companyID;
+
         $getCompany = Driver::where('companyID',$companyID)->first();
    
         $password = sha1($request->password);
@@ -184,10 +186,13 @@ class DriverController extends Controller
     public function editDriverData(Request $request)
     {
         $companyID=(int)$request->com_id;
+
         $driverEmail=$request->email;
         $result = Driver::where('companyID',$companyID )->first();
         $driverArray=$result->driver;
+
         $arrayLength=count($driverArray);
+       // dd($arrayLength);
         $i=0;
         $v=0;
        for ($i=0; $i<$arrayLength; $i++){
@@ -203,6 +208,7 @@ class DriverController extends Controller
        return response()->json($driverEditData);  
     }  
     public function updateDriverData(Request $request){
+
         request()->validate([
             'updateDriverName' => 'required',
             'updateDriverEmail' => 'required|unique:driver,driverEmail'.$request->updateEmailDriver,
@@ -222,7 +228,9 @@ class DriverController extends Controller
         $driverEmailUp=$request->updateDriverEmail;
 
         $resultUp = Driver::where('companyID',$companyIDUp )->first();
+        //dd()
         $driverArrayUp=$resultUp->driver;
+
         $arrayLengthUp=count($driverArrayUp);
         $i=0;
         $v=0;
@@ -404,6 +412,7 @@ class DriverController extends Controller
         $v=0;
        for ($i=0; $i<$arrayLength; $i++){
             $id=$result->driver[$i];
+           
                 foreach ($id as $value){
                     if($value==$driverEmail){
                         echo $i;

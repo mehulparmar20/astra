@@ -28,6 +28,60 @@ class CustomerController extends Controller
         return response()->json($customerCurr, 200, [], JSON_PARTIAL_OUTPUT_ON_ERROR);
     }
 
+    public function addCustomerCurrency(Request $request){
+         //dd($request);
+        $companyIDForCustomer=2;
+
+        //$customerAdd = Customer::all();
+   
+        $companyIDForCurrency=2;
+        $totalCurrencyArray=0;
+        $getCompanyForCurrency = Currency_add::where('companyID',$companyIDForCurrency)->first();
+
+        if($getCompanyForCurrency){
+            $currencyArray=$getCompanyForCurrency->currency;
+            $totalCurrencyArray=count($currencyArray)+ 1;
+        }
+   
+        $currencyData[]=array(    
+                        '_id' => $totalCurrencyArray,
+                        'counter' => 0,
+                        'currencyType' => $request->currencyName,
+                        'deleteStatus' => '',
+                        'deleteUser' => '',
+                        'deleteTime' => '',
+                        );
+
+            if($getCompanyForCurrency){
+                
+                Currency_add::where(['companyID' =>$companyIDForCurrency])->update([
+                    'counter'=> $totalCurrencyArray,
+                    'currency' =>array_merge($currencyData,$currencyArray) ,
+                ]);
+
+                $arrCurrency = array('status' => 'success', 'message' => 'Currency added successfully.'); 
+                return json_encode($arrCurrency);
+            }else{
+                try{
+                        if(Currency_add::create([
+                            // 'companyID' => (int)$_SESSION['companyId'],
+                            '_id' => 1,
+                            'companyID' => $companyIDForCurrency,
+                            'counter' => 1,
+                            'currency' => $currencyData,
+                        ])) {
+                            $arrCurrency = array('status' => 'success', 'message' => 'Currency added successfully.'); 
+                            return json_encode($arrCurrency);
+                        }
+                }
+                catch(\Exception $error){
+                    return $error->getMessage();
+                }
+            }
+
+       
+    }
+
     public function getCustomerPaymentTerms(Request $request){
         $companyIDForCustomer=2;
         $customerPaymentterms = Payment_terms::where('companyID',$companyIDForCustomer)->first();
@@ -35,16 +89,144 @@ class CustomerController extends Controller
         return response()->json($customerPaymentterms, 200, [], JSON_PARTIAL_OUTPUT_ON_ERROR);
     }
 
+    public function addCustomerPaymentTerms(Request $request){
+        //dd($request);
+       $companyIDForPaymentTerms=2;
+
+       //$customerAdd = Customer::all();
+  
+       $companyIDForPaymentTerms=2;
+       $totalPaymentTermsArray=0;
+       $getCompanyForPaymentTerms = Payment_terms::where('companyID',$companyIDForPaymentTerms)->first();
+
+       if($getCompanyForPaymentTerms){
+           $paymentTermsArray=$getCompanyForPaymentTerms->payment;
+           $totalPaymentTermsArray=count($paymentTermsArray)+ 1;
+       }
+  
+       $PaymentTermsData[]=array(    
+                       '_id' => $totalPaymentTermsArray,
+                       'counter' => 0,
+                       'paymentTerm' => $request->PaymentTermsName,
+                       'created_by' => '',
+                       'deleteStatus' => 'No',
+                       'deleteUser' => '',
+                       'deleteTime' => '',
+                       );
+
+           if($getCompanyForPaymentTerms){
+               
+            Payment_terms::where(['companyID' =>$companyIDForPaymentTerms])->update([
+                   'counter'=> $totalPaymentTermsArray,
+                   'payment' =>array_merge($PaymentTermsData,$paymentTermsArray) ,
+               ]);
+
+               $arrrPaymentTerms = array('status' => 'success', 'message' => 'Currency added successfully.'); 
+               return json_encode($arrrPaymentTerms);
+           }else{
+               try{
+                       if(Payment_terms::create([
+                           // 'companyID' => (int)$_SESSION['companyId'],
+                           '_id' => 1,
+                           'companyID' => $companyIDForPaymentTerms,
+                           'counter' => 1,
+                           'payment' => $PaymentTermsData,
+                       ])) {
+                           $arrrPaymentTerms = array('status' => 'success', 'message' => 'Currency added successfully.'); 
+                           return json_encode($arrrPaymentTerms);
+                       }
+               }
+               catch(\Exception $error){
+                   return $error->getMessage();
+               }
+           }
+
+      
+   }
+
     public function getCustomerBFactoringCompany(Request $request){
         $companyIDForCustomer=2;
         $customerBFactoringCompany = Factoring_company_add::where('companyID',$companyIDForCustomer)->first();
        // dd($customerCurr);
         return response()->json($customerBFactoringCompany, 200, [], JSON_PARTIAL_OUTPUT_ON_ERROR);
     }
+    public function addCustomerfactoringCompany(Request $request){
+        //dd($request);
+       //$companyIDForPaymentTerms=2;
+
+       //$customerAdd = Customer::all();
+  
+       $companyIDForCustomerfactoring=2;
+       $totalCustomerfactoringArray=0;
+       $getCompanyForCustomerfactoring = Factoring_company_add::where('companyID',$companyIDForCustomerfactoring)->first();
+
+       if($getCompanyForCustomerfactoring){
+           $CustomerfactoringArray=$getCompanyForCustomerfactoring->factoring;
+           $totalCustomerfactoringArray=count($CustomerfactoringArray)+ 1;
+       }
+  
+       $CustomerfactoringData[]=array(    
+                       '_id' => $totalCustomerfactoringArray,
+                       'counter' => 0,
+                       
+                       'factoringCompanyname' => $request->factoringCompanyName,
+                       'address' => $request->factoringCompanyAddress,
+                       'location' => $request->factoringCompanyLocation,
+                       'zip' => $request->factoringCompanyZip,
+                       'primaryContact' => $request->factoringCompanyPrimaryContact,
+                       'telephone' => $request->factoringCompanyPrimaryContactTelephone,
+                       'extFactoring' => $request->factoringCompanyPrimaryContactExt,
+                       'fax' => $request->factoringCompanyFax,
+
+                       'tollFree' => $request->factoringTollFree,
+                       'email' => $request->factoringCompanyContactEmail,
+
+                       'secondaryContact' => $request->factoringCompanySecondaryContact,
+                       'ext' => $request->factoringCompanySecondaryContactExt,
+                       'currencySetting' => $request->factoringCompanycurrency,
+                       'taxID' => $request->factoringCompanyTaxID,
+                       'internalNote' => $request->factoringCompanyInternalNotes,
+                        'insertedTime' => '',
+                       'insertedUserId' => '',
+
+                       'deleteStatus' => 'No',
+                       'deleteUser' => '',
+                       'deleteTime' => '',
+                       );
+
+           if($getCompanyForCustomerfactoring){
+               
+            Factoring_company_add::where(['companyID' =>$companyIDForCustomerfactoring])->update([
+                   'counter'=> $totalCustomerfactoringArray,
+                   'factoring' =>array_merge($CustomerfactoringData,$CustomerfactoringArray) ,
+               ]);
+
+               $arrrCustomerfactoring = array('status' => 'success', 'message' => ' added successfully.'); 
+               return json_encode($arrrCustomerfactoring);
+           }else{
+               try{
+                       if(Factoring_company_add::create([
+                           // 'companyID' => (int)$_SESSION['companyId'],
+                           '_id' => 1,
+                           'companyID' => $companyIDForCustomerfactoring,
+                           'counter' => 1,
+                           'factoring' => $CustomerfactoringData,
+                       ])) {
+                           $arrrCustomerfactoring = array('status' => 'success', 'message' => 'added successfully.'); 
+                           return json_encode($arrrCustomerfactoring);
+                       }
+               }
+               catch(\Exception $error){
+                   return $error->getMessage();
+               }
+           }
+
+      
+   }
 
     public function addCustomerData(Request $request){
        // echo "hello";
-       dd($request->all());
+       //dd($request->all());
 
         request()->validate([
             //'customerName' => 'required',
@@ -94,7 +276,7 @@ class CustomerController extends Controller
                         'creditLimit' => $request->customerCreditLimit,
                         'salesRep' => $request->customerSalesRepresentative,
                         'factoringCompany' => $request->customerFactoringCompanyname,
-                        // 'factoringParent' => $request->hazmatExpiry,
+                        'factoringParent' => '',
                         'federalID' => $request->customerFederalID,
                         'workerComp' => $request->customerWorkerComp,
                         'websiteURL' => $request->customerWebsiteURL  ,
@@ -103,19 +285,19 @@ class CustomerController extends Controller
 
                         'MC' => $request->customerMc  ,
                         'blacklisted' => $request->customerBlacklisted  ,
-                       // 'numberOninvoice' => $request->customerNumbersonInvoice  ,
+                        'numberOninvoice' => $request->customerNumbersonInvoice  ,
                         'asshipper' => $request->customerDuplicateShipper  ,
                         'asconsignee' => $request->customerDuplicateConsignee,
 
                          'customerRate' => $request->customerCustomerRate  ,
-                        // 'isBroker' => $request->customerIsBroker,
-                        // 'insertedTime' => $request->driverBalance,
-                        // 'insertedUserId' => $request->terminationDate,
-                        // 'deleteStatus' => $request->internalNotes,
-                        // 'deleteUser' => $request->userLocation,
-                        // 'deleteTime' => $request->userTelephone,
-                        // 'averagedays' => $request->  ,
-                        // 'totalloads' => $request->  ,
+                        'isBroker' => $request->customerIsBroker,
+                        'insertedTime' => '' ,
+                        'insertedUserId' => '' ,
+                        'deleteStatus' => '' ,
+                        'deleteUser' => '' ,
+                        'deleteTime' => '' ,
+                        'averagedays' =>'' ,
+                        'totalloads' => '' ,
 
                         );
    // dd($getCompany);         

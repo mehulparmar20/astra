@@ -58,7 +58,7 @@ return [
             'dsn' => env('DB_URI', 'mongodb+srv://astraportal:astraportal@astra.7uwteaq.mongodb.net/?retryWrites=true&w=majority'), //server
             // 'dsn' => env('DB_URI', 'mongodb://172.31.89.128:27017/WindsonDispatch?readPreference=primary&directConnection=true&ssl=false'),  //local vo
             'database' => 'WindsonDispatch',
-
+            
         ],
 
         'sqlite' => [
