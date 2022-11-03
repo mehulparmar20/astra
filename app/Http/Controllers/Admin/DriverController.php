@@ -43,7 +43,7 @@ class DriverController extends Controller
         
         $driver=Driver::all();
    
-        $companyID=$request->companyID;
+        $companyID=int32($request->companyID);
         $getCompany = Driver::where('companyID',$companyID)->first();
    
         $password = sha1($request->password);
@@ -174,13 +174,15 @@ class DriverController extends Controller
     //edit driver
     public function editDriverData(Request $request)
     {
-        $companyID=$request->com_id;
+        $companyID=(int)$request->com_id;
+        //dd($companyID);
         $driverEmail=$request->email;
 
         $result = Driver::where('companyID',$companyID )->first();
         $driverArray=$result->driver;
-    
+    //dd($driverArray);
         $arrayLength=count($driverArray);
+       // dd($arrayLength);
         $i=0;
         $v=0;
        for ($i=0; $i<$arrayLength; $i++){
@@ -199,12 +201,14 @@ class DriverController extends Controller
     }  
     
     public function updateDriverData(Request $request){
-       // dd($request);
-        $companyIDUp=$request->updateComId;
+       //dd($request);
+        $companyIDUp=(int)$request->updateComId;
         $driverEmailUp=$request->updateDriverEmail;
 
         $resultUp = Driver::where('companyID',$companyIDUp )->first();
+        //dd()
         $driverArrayUp=$resultUp->driver;
+//dd($driverArrayUp);
     
         $arrayLengthUp=count($driverArrayUp);
         $i=0;
@@ -218,9 +222,8 @@ class DriverController extends Controller
                      }
                 }
        }
-       
-       $driverUpData=$resultUp->driver[$v];
-
+       $driverUpData['driverName']=$request->updateDriverName;
+       $result=$resultUp;
        $driverData1[]=array(    
         '_id' => 4,
         'counter' => 3,

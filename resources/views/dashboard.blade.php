@@ -1185,4 +1185,3 @@
         <!-- /Country-selector modal-->
 
 @include('layout.dashboard.footer')	
-<!-- @include('driver')	 -->

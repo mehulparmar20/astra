@@ -112212,5 +112212,12 @@ textarea.form-control {
     border-radius: 0.25rem;
  /* transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out; */
 }
+.glyphicon-plus-sign{
+    color:#8fbd56;
+}
+
+.resizeModal{
+    max-height: calc(70vh - 3.5rem);
+}
 
 /*# sourceMappingURL=style.css.map */

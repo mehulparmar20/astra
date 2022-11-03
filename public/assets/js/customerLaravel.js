@@ -133,6 +133,7 @@ $(document).ready(function() {
     // $(".addCustomerButton").click(function(){
     //     $("#addCustomerTab").show();
     // });
+       
         // $('#customerDataSubmit').click(customerValidation);
         $(".customerDataSubmit").click(function(){
 
@@ -261,7 +262,7 @@ $(document).ready(function() {
     // <!-- -------------------------------------------------------------------------get customer currency ------------------------------------------------------------------------- -->  
    // $('.list select').selectpicker();   
     $('.customerCurrencySet').focus(function(){
-           //   alert(); 
+           //alert(); 
             $.ajax({
                 type: "GET",
                 url: base_path+"/admin/customerCurrency",
@@ -277,35 +278,112 @@ $(document).ready(function() {
             });
         });
 
-        function createcustomerCurrencyList(customerCurrencyResponse) {
-           // $('.customerCurrencySet').empty();
-            //console.log(customerCurrencyResponse);
-            var customerCurrencyLength = 0;
-     
-            //$('.customerCurrencySet').empty(); // Empty 
+        function createcustomerCurrencyList(customerCurrencyResponse) {           
+            var customerCurrencyLength = 0;    
+            
             if (customerCurrencyResponse != null) {
                 customerCurrencyLength = customerCurrencyResponse.currency.length;
             }
     
             if (customerCurrencyLength > 0) {
-                var no=1;
+               // var no=1;
                 $(".customerCurrencySet").html('');
+                $(".currencyList").html('');
                 for (var i = 0; i < customerCurrencyLength; i++) {  
                     var currency =customerCurrencyResponse.currency[i].currencyType;
-                    var customerCurrency = "<option id='customerCurrency' value='"+ currency +"'>"+ currency +"</option>"
-                    //"<a class='dropdown-item custCurrency' value='"+ currency +"'>"+ no +" )"+ currency +"</a>";
+                    //var customerCurrency = "<option id='customerCurrency' value='"+ currency +"'>"+ currency +"</option>"
+                    //"<a class='dropdown-item custCurrency' value='"+ currency +"'>"+ no +" )"+ currency +"</a>";                  
 
-                    $(".customerCurrencySet").append(customerCurrency);
-                   // $(".customerCurrencySet").html(customerCurrency);
-                  
-                    no++;
+                   var customerCurrencyList = "<option id='customerCurrency'  value='"+ currency +"'>"                   
+                   $(".customerCurrencySet").append(customerCurrencyList);
+                   //<option value="Edge">
+                    //no++;
     
                 }
             }
             
         }
     // <!-- -------------------------------------------------------------------------over get customer currency ------------------------------------------------------------------------- -->
-     // <!-- -------------------------------------------------------------------------get customer payment terms ------------------------------------------------------------------------- -->  
+    // <!-- ------------------------------------------------------------------------- add customer currency ------------------------------------------------------------------------- -->
+        $("#plusCurrency").click(function(){
+            $("#plusCurrencyModal").modal("show");
+        });
+        $("#plusCurrency2").click(function(){
+           // alert('modal');
+            $("#plusCurrencyModal").modal("show");
+        });
+
+        
+
+        $("#closeCurrencyModal").click(function(){
+            $("#plusCurrencyModal").modal("hide");
+        });
+
+        $(".CurrencyrDataSubmit").click(function(){
+            var currencyName=$('#CurrencyrName').val();
+           //alert(currencyName);
+            $.ajax({
+                url: base_path+"/admin/addCurrency",
+                type: "POST",
+                datatype:"JSON",
+                data: {
+                    _token: $("#_tokenCustomerCurrency").val(),
+                    currencyName: currencyName,
+                },
+                cache: false,
+                success: function(dataCustomerCurrencyResult){
+                    console.log(dataCustomerCurrencyResult);
+                    if(dataCustomerCurrencyResult){
+                        alert("Currency added successfully.");
+                        $("#plusCurrencyModal").modal("hide");
+                    }else{
+                        alert("Currency not added successfully.");
+                    }
+                }
+            });
+        });
+        //});
+
+    // <!-- -------------------------------------------------------------------------over add customer currency ------------------------------------------------------------------------- -->
+    //<!-- ------------------------------------------------------------------------- add customer PaymentTerms ------------------------------------------------------------------------- -->
+        $("#plusPaymentTerms").click(function(){
+            $("#PaymentTermsModal").modal("show");
+        });
+        $("#plusPaymentTerms2").click(function(){
+            $("#PaymentTermsModal").modal("show");
+        });
+
+        $("#closePaymentTermsModal").click(function(){
+            $("#PaymentTermsModal").modal("hide");
+        });
+
+        $(".PaymentTermsDataSubmit").click(function(){
+            var PaymentTermsName=$('#PaymentTermsName').val();
+           //alert(currencyName);
+            $.ajax({
+                url: base_path+"/admin/PaymentTerms",
+                type: "POST",
+                datatype:"JSON",
+                data: {
+                    _token: $("#_tokenCustomerPaymentTerms").val(),
+                    PaymentTermsName: PaymentTermsName,
+                },
+                cache: false,
+                success: function(dataCustomerPaymentTermsNameResult){
+                    console.log(dataCustomerPaymentTermsNameResult);
+                    if(dataCustomerPaymentTermsNameResult){
+                        alert("Payment Terms added successfully.");
+                        $("#PaymentTermsModal").modal("hide");
+                    }else{
+                        alert("Payment Terms not added successfully.");
+                    }
+                }
+            });
+        });
+        //});
+
+    // <!-- -------------------------------------------------------------------------over add customer currency ------------------------------------------------------------------------- -->
+    // <!-- -------------------------------------------------------------------------get customer payment terms ------------------------------------------------------------------------- -->  
   
    $('.customerPaymentTermSet').focus(function(){
     //alert(); 
@@ -390,19 +468,170 @@ $('.customerBFactoringCompanySet').focus(function(){
      
  }
 // <!-- -------------------------------------------------------------------------over get customer  Factoring Company ------------------------------------------------------------------------- -->   
-    // <!-- -------------------------------------------------------------------------add customer over ------------------------------------------------------------------------- -->  
+ //<!-- ------------------------------------------------------------------------- add customer factoringCompany ------------------------------------------------------------------------- -->
+ $("#plusFactoringCompany").click(function(){
+    $("#factoringCompanyModal").modal("show");
+});
 
-    
+$("#closefactoringCompanyModal").click(function(){
+    $("#factoringCompanyModal").modal("hide");
+});
 
+$(".factoringCompanyDataSubmit").click(function(){
+    //alert();
+    var factoringCompanyName=$('#factoringCompanyName').val();
+    var factoringCompanyAddress=$('#factoringCompanyAddress').val();
+    var factoringCompanyLocation=$('#factoringCompanyLocation').val();
+    var factoringCompanyZip=$('#factoringCompanyZip').val();
+
+    var factoringCompanyPrimaryContact=$('#factoringCompanyPrimaryContact').val();
+    var factoringCompanyPrimaryContactTelephone=$('#factoringCompanyPrimaryContactTelephone').val();
+    var factoringCompanyPrimaryContactExt=$('#factoringCompanyPrimaryContactExt').val();
+    var factoringCompanyFax=$('#factoringCompanyFax').val();
+
+    var factoringCompanySecondaryContact=$('#factoringCompanySecondaryContact').val();
+    var factoringCompanySecondaryContactTelephone=$('#factoringCompanySecondaryContactTelephone').val();
+    var factoringCompanySecondaryContactExt=$('#factoringCompanySecondaryContactExt').val();
+    var factoringTollFree=$('#factoringTollFree').val();
+
+    var factoringCompanyContactEmail=$('#factoringCompanyContactEmail').val();
+    var factoringCompanycurrency=$('#currency').val();
+    var factoringCompanyPaymentTerms=$('#PaymentTerms').val();
+    var factoringCompanyTaxID=$('#factoringCompanyTaxID').val();
+
+    var factoringCompanyInternalNotes=$('#factoringCompanyInternalNotes').val();
+
+   //alert(currencyName);
+    $.ajax({
+        url: base_path+"/admin/factoringCompany",
+        type: "POST",
+        datatype:"JSON",
+        data: {
+            _token: $("#_tokenCustomerFactoringCompany").val(),
+            factoringCompanyName: factoringCompanyName,
+            factoringCompanyAddress: factoringCompanyAddress,
+            factoringCompanyLocation: factoringCompanyLocation,
+            factoringCompanyZip: factoringCompanyZip,
+
+            factoringCompanyPrimaryContact: factoringCompanyPrimaryContact,
+            factoringCompanyPrimaryContactTelephone: factoringCompanyPrimaryContactTelephone,
+            factoringCompanyPrimaryContactExt: factoringCompanyPrimaryContactExt,
+            factoringCompanyFax: factoringCompanyFax,
+
+            factoringCompanySecondaryContact: factoringCompanySecondaryContact,
+            factoringCompanySecondaryContactTelephone: factoringCompanySecondaryContactTelephone,
+            factoringCompanySecondaryContactExt: factoringCompanySecondaryContactExt,
+            factoringTollFree: factoringTollFree,
+
+            factoringCompanyContactEmail: factoringCompanyContactEmail,
+            factoringCompanycurrency: factoringCompanycurrency,
+            factoringCompanyPaymentTerms: factoringCompanyPaymentTerms,
+            factoringCompanyTaxID: factoringCompanyTaxID,
+
+            factoringCompanyInternalNotes: factoringCompanyInternalNotes,
+        },
+        cache: false,
+        success: function(dataCustomerfactoringCompanyResult){
+            console.log(dataCustomerfactoringCompanyResult);
+            if(dataCustomerfactoringCompanyResult){
+                alert("Factoring Company added successfully.");
+                $("#factoringCompanyModal").modal("hide");
+            }else{
+                alert("Factoring Company not added successfully.");
+            }
+        }
+    });
+});
+
+// <!-- -------------------------------------------------------------------------over add customer factoringCompany ------------------------------------------------------------------------- -->   
+
+// <!-- -------------------------------------------------------------------------add customer over ------------------------------------------------------------------------- -->  
+//show_add_customer
     $("body").on('click','.addCustomerButton',function(){
         $("body .add_customer_btn").click();
     });
 
-    
+    $('#customerBillingAddressChkbox').click(function(){
+        if($(this).prop("checked") == true){
+            $("#customerBillingAddress").val($("#customerAddress").val());
+            $("#customerBillingLocation").val($("#customerLocation").val());
+            $("#customerBillingZip").val($("#customerZip").val());
+        }
+        else if($(this).prop("checked") == false){
+            $("#customerBillingAddress").val('');
+            $("#customerBillingLocation").val('');
+            $("#customerBillingZip").val('');
+        }
+    });
+    $('#customerBlacklisted').click(function(){
+        if($(this).prop("checked") == true){
+            $("#customerBlacklisted").val('on');
+           
+        }
+        else if($(this).prop("checked") == false){
+            $("#customerBlacklisted").val('off');
+          
+        }
+    });
+    $(".MC").hide();
+    $('#customerIsBroker').click(function(){
+        if($(this).prop("checked") == true){
+            $("#customerIsBroker").val('on');
+            $(".MC").show();
+           
+        }
+        else if($(this).prop("checked") == false){
+            $("#customerIsBroker").val('off');
+            $(".MC").hide();
+          
+        }
+    });
+    $('#customerDuplicateShipper').click(function(){
+        if($(this).prop("checked") == true){
+            $("#customerDuplicateShipper").val('on');
+           
+        }
+        else if($(this).prop("checked") == false){
+            $("#customerDuplicateShipper").val('off');
+          
+        }
+    });
+    $('#customerDuplicateConsignee').click(function(){
+        if($(this).prop("checked") == true){
+            $("#customerDuplicateConsignee").val('on');
+           
+        }
+        else if($(this).prop("checked") == false){
+            $("#customerDuplicateConsignee").val('off');
+          
+        }
+    });
+    $('#customerNumbersonInvoice').click(function(){
+        if($(this).prop("checked") == true){
+            $("#customerNumbersonInvoice").val('on');
+           
+        }
+        else if($(this).prop("checked") == false){
+            $("#customerNumbersonInvoice").val('off');
+          
+        }
+    });
+    $('#customerCustomerRate').click(function(){
+        if($(this).prop("checked") == true){
+            $("#customerCustomerRate").val('on');
+           
+        }
+        else if($(this).prop("checked") == false){
+            $("#customerCustomerRate").val('off');
+          
+        }
+    });
 
 });
 
+//show_add_customer
 function show_add_customer(){    
-    $("#addCustomerTab").addClass("tab-pane fade in active show")
+    $("#addCustomerTab").addClass("tab-pane fade in active show");
+    $("#addAdvanceCustomerTab").removeClass('active show');    
 }
 

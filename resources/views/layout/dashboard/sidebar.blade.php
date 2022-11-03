@@ -45,8 +45,8 @@
                                     <li><a href="#customerModal" class="slide-item" data-toggle="modal" data-target="#customerModal">Customer</a></li>
                                     <li><a href="https://laravel8.spruko.com/noa/form-layouts" class="slide-item">Shipper & Consignee</a></li>
                                     <li><a href="https://laravel8.spruko.com/noa/form-validation" class="slide-item">External Carrier</a></li>
-                                    <li><a href="https://laravel8.spruko.com/noa/form-advanced" class="slide-item">Driver & Owner Operator</a></li>
-                                    <li><a href="https://laravel8.spruko.com/noa/wysiwyag" class="slide-item">User</a></li>
+                                    <li><a href="#driverModal" class="slide-item" data-toggle="modal" data-target="#driverModal">Driver & Owner Operator</a></li>
+                                    <li><a href="#userModal" class="slide-item" data-toggle="modal" data-target="#userModal">User</a></li>
                                     <li><a href="https://laravel8.spruko.com/noa/wysiwyag" class="slide-item">Truck</a></li>
                                     <li><a href="https://laravel8.spruko.com/noa/form-editable" class="slide-item">Trailer</a></li>
                                     <li><a href="https://laravel8.spruko.com/noa/form-wizard" class="slide-item">Factoring Company</a></li>
