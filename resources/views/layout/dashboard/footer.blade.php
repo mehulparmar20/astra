@@ -38,9 +38,21 @@
 
 <!-- JQUERY JS -->
 
-    <script src="{{URL::to('/')}}/assets/js/jquery.min.js"></script>
+    <script src="{{URL::to('/')}}/assets/js/
+    
+    
+    
+    
+    
+    
+    
+    
+    "></script>
 
-<script src="{{URL::to('/')}}/assets/js/jquery.min.js"></script>
+
+<script src="{{URL::to('/')}}/assets/js/
+
+"></script>
 
 
 <!-- BOOTSTRAP JS -->
@@ -133,7 +145,7 @@
 <script src="../assets/js/apexcharts.js"></script>
 <!-- <script src="../assets/plugins/sidemenu/sidemenu.js"></script> -->
 <script src="../assets/plugins/bootstrap/js/bootstrap.min.js"></script>
-<script src="../assets/js/jquery.min.js"></script>
+
 <script src="../assets/plugins/bootstrap/js/popper.min.js"></script>
 <script src="{{URL::to('/')}}/assets/plugins/datatable/responsive.bootstrap5.min.js"></script>
 

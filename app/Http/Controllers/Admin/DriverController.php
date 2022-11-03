@@ -27,23 +27,25 @@ class DriverController extends Controller
     public function addDriverData(Request $request)
     {
         request()->validate([
-            //'name' => 'required',
-            //'email' => 'required|unique:user,userEmail'.$request->email,
-            // 'address' => 'required',
-            // 'telephone' => 'required',
-            // 'address' => 'required',
-            // 'location' => 'required',
-            // 'zip' => 'required',
-            // 'licenseNo' => 'required',
-            // 'licenseIssueState' => 'required',
-            // 'licenseExpDate' => 'required',
-            // 'rate' => 'required',
+            'name' => 'required',
+            'email' => 'required|unique:user,userEmail',
+            'username' => 'required',
+            'telephone' => 'required',
+            'address' => 'required',
+            'location' => 'required',
+            'zip' => 'required',
+            'licenseNo' => 'required',
+            'licenseIssueState' => 'required',
+            'licenseExpDate' => 'required',
+            'rate' => 'required',
             // 'currency' => 'required',
         ]);
-        
+        try{
         $driver=Driver::all();
    
-        $companyID=$request->companyID;
+
+        $companyID=(int)$request->companyID;
+
         $getCompany = Driver::where('companyID',$companyID)->first();
    
         $password = sha1($request->password);
@@ -110,8 +112,8 @@ class DriverController extends Controller
                         //     'internalNoteStore' => $request->  ,
                         //     )
                         
-                        'userLocation' => $request->userLocation,
-                        'userTelephone' => $request->userTelephone,
+                        // 'userLocation' => $request->userLocation,
+                        // 'userTelephone' => $request->userTelephone,
                         // 'insertedTime' => $request->  ,
                         // 'insertedUserId' => $request->  ,
                         // 'deleteStatus' => $request->  ,
@@ -137,11 +139,15 @@ class DriverController extends Controller
                     
                 ]);
 
-                $arr = array('status' => 'success', 'message' => 'driver added successfully.'); 
-                return json_encode($arr);
+                $data = [
+                    'success' => true,
+                    'message'=> 'Driver added successfully'
+                  ] ;
+                  
+                  return response()->json($data);
             }else{
-                // echo "o";
-                try{
+                // echotry{ "o";
+                
                    
                         if(Driver::create([
                             
@@ -157,55 +163,74 @@ class DriverController extends Controller
                             // 'emailVerificationStatus' => 1,
                             
                         ])) {
-                            $arr = array('status' => 'success', 'message' => 'driver added successfully.'); 
-                            return json_encode($arr);
+                            $data = [
+                                'success' => true,
+                                'message'=> 'Driver added successfully'
+                              ] ;
+                              
+                              return response()->json($data);
                         }
                 }
+            } 
                 catch(\Exception $error){
                     return $error->getMessage();
                 }
-            }
+        }
 
         
 
-    }
+ 
 
 
     //edit driver
     public function editDriverData(Request $request)
     {
-        $companyID=$request->com_id;
-        $driverEmail=$request->email;
+        $companyID=(int)$request->com_id;
 
+        $driverEmail=$request->email;
         $result = Driver::where('companyID',$companyID )->first();
         $driverArray=$result->driver;
-    
+
         $arrayLength=count($driverArray);
+       // dd($arrayLength);
         $i=0;
         $v=0;
        for ($i=0; $i<$arrayLength; $i++){
             $id=$result->driver[$i];
                 foreach ($id as $value){
                     if($value==$driverEmail){
-                       // echo $i;
                         $v=$i;
                      }
                 }
        }
        
        $driverEditData=$result->driver[$v];
-       //dd($driverEditData);
        return response()->json($driverEditData);  
     }  
-    
     public function updateDriverData(Request $request){
-       // dd($request);
-        $companyIDUp=$request->updateComId;
+
+        request()->validate([
+            'updateDriverName' => 'required',
+            'updateDriverEmail' => 'required|unique:driver,driverEmail'.$request->updateEmailDriver,
+            'updateDriverUsername' => 'required',
+            'updateDriverTelephone' => 'required',
+            'updateDriverAddress' => 'required',
+            'updateDriverLocation' => 'required',
+            'updateDriverZip' => 'required',
+            'updateDriverLicenseNo' => 'required',
+            'updateDriverLicenseIssue' => 'required',
+            'updateDriverLicenseExp' => 'required',
+            'updateRate' => 'required',
+            'updateCurrency' => 'required',
+            // 'userTelephone' => 'required|min:11|max:11|numeric',
+        ]);
+        $companyIDUp=(int)$request->updateComId;
         $driverEmailUp=$request->updateDriverEmail;
 
         $resultUp = Driver::where('companyID',$companyIDUp )->first();
+        //dd()
         $driverArrayUp=$resultUp->driver;
-    
+
         $arrayLengthUp=count($driverArrayUp);
         $i=0;
         $v=0;
@@ -213,45 +238,170 @@ class DriverController extends Controller
             $id=$resultUp->driver[$i];
                 foreach ($id as $value){
                     if($value==$driverEmailUp){
-                       // echo $i;
                         $v=$i;
                      }
                 }
        }
-       
-       $driverUpData=$resultUp->driver[$v];
 
-       $driverData1[]=array(    
-        '_id' => 4,
-        'counter' => 3,
-        'ownerID' => 0,
-        
-        );
-       if($companyIDUp){
-            Driver::where(['companyID' =>$companyIDUp ])->update([
-                'driver' =>array($resultUp->driver[0],$driverData1) ,  //delete and create array ->object
-                // 'driver' =>array($resultUp->driver[0]['_id'],'1') , //delete all records
-            ]);
-       }
-       
-
-    //    $resultUp->toQuery()->update([
-    //     $resultUp->driver[$v]['_id'] => 'Administrator',
-    //    ]);
-
-
-    //    $post = new Driver();
-    //     // $post->exists = true;
-    //     // $post->id = 3; //already exists in database.
-    //     // $post->title = "Updated title";
-    //     // $post->save();
-    //    dd($post);
+       $driverArrayUp[$v]['driverName']=$request->updateDriverName;
+       $driverArrayUp[$v]['driverUsername']=$request->updateDriverUsername;
+       if(isset($request->updateDriverPassword)){
+            $driverArrayUp[$v]['driverPassword']=sha1($request->updateDriverPassword);
+        }else{
+            $driverArrayUp[$v]['driverPassword']=$resultUp->driver[$v]['driverPassword'];
+        }
+       $driverArrayUp[$v]['driverTelephone']=$request->updateDriverTelephone;
+       $driverArrayUp[$v]['driverAlt']=$request->updateDriverAlt;
+       $driverArrayUp[$v]['driverEmail']=$request->updateDriverEmail;
+       $driverArrayUp[$v]['driverAddress']=$request->updateDriverAddress;
+       $driverArrayUp[$v]['driverLocation']=$request->updateDriverLocation;
+       $driverArrayUp[$v]['driverZip']=$request->updateDriverZip;
+       $driverArrayUp[$v]['driverStatus']=$request->updateDriverStatus;
+       $driverArrayUp[$v]['driverSocial']=$request->updateDriverSocial;
+       $driverArrayUp[$v]['dateOfbirth']=$request->updateDateOfbirth;
+       $driverArrayUp[$v]['dateOfhire']=$request->updateDateOfHire;
+       $driverArrayUp[$v]['driverLicenseNo']=$request->updateDriverLicenseNo;
+       $driverArrayUp[$v]['driverLicenseIssue']=$request->updateDriverLicenseIssue;
+       $driverArrayUp[$v]['driverLicenseExp']=$request->updateDriverLicenseExp;
+       $driverArrayUp[$v]['driverLastMedical']=$request->updateDriverLastMedical;
+       $driverArrayUp[$v]['driverNextMedical']=$request->updateDriverNextMedical;
+       $driverArrayUp[$v]['driverLastDrugTest']=$request->updateDriverLastDrugTest;
+       $driverArrayUp[$v]['driverNextDrugTest']=$request->updateDriverNextDrugTest;
+       $driverArrayUp[$v]['passportExpiry']=$request->updatePassportExpiry;
+       $driverArrayUp[$v]['fastCardExpiry']=$request->updateFastCardExpiry;
+       $driverArrayUp[$v]['hazmatExpiry']=$request->updateHazmatExpiry;
+       $driverArrayUp[$v]['rate']=$request->updateRate;
+       $driverArrayUp[$v]['currency']=$request->updateCurrency;
+       $driverArrayUp[$v]['driverBalance']=$request->updateDriverBalance;
+       $driverArrayUp[$v]['terminationDate']=$request->updateTerminationDate;
+       $driverArrayUp[$v]['internalNote']=$request->updateInternalNotes;
+    //    $driverArrayUp[$v]['driverName']=$request->updateDriverName;
+    //    $driverArrayUp[$v]['driverName']=$request->updateDriverName;
+       $resultUp->driver = $driverArrayUp;
+       if($resultUp->save()){
+            $arr = array('status' => 'success', 'message' => 'User edited successfully.','statusCode' => 200); 
+            return json_encode($arr);
+        }
     }
+
+//     public function deleteDriver(Request $request)
+//     {
+   
+//         $companyID=(int)$request->com_id;
+//         $driverEmail=$request->email;
+//         // dd($driverEmail);
+     
+//         $result = Driver::where('companyID', $companyID )->first();
+//         $driverArray=$result->driver;
+//         $arrayLength=count($driverArray);
+//         $i=0;
+//         $v=0;
+//        for ($i=0; $i<$arrayLength; $i++){
+//             $id=$result->driver[$i];
+//             dd($id);
+//                 foreach ($id as $value){
+//                     dd($value);
+//                     if($value==$driverEmail){
+
+//                         dd($i);
+//                         $v=$i;
+//                     }
+//                 }  
+//        }
+//        dd($driverArray[$v]['driverEmail']);
+
+//     //    $result = collect($result)->map(function ($result) {
+//     //         $result['driver'] = collect($result['driver'])->filter(function ($driver) {
+//     //             return $driver['driverEmail'] != $driverEmail;   
+//     //         })->values()->toArray(); 
+//     //         dd($result);
+//     //         return $result;
+//     //     });
+
+//        //$result->delete(array($result->driver[$v])); //delete whole array
+
+//     //    $this->database->$driverArray->update(
+//     //     array( 'driver' => array( '$exists' => true ) ),
+//     //     array( '$unset' => array( 'driver' => $v ) ),
+//     //     array( 'multiple' => true )
+//     // );
+// // dd($result->driver[$v]);
+//     //    $db->Driver->update(
+//     //     { 'companyID': 1}, 
+//     //     { $pull: { driver: { driverEmail: $driverEmail } } },
+//     //     false, // Upsert
+//     //     true, // Multi
+//     // );
+
+//     // $data=Driver::update("city"=>"Palo Alto",["$pull":{"friends":{"name":"Frank"}}]);
+
+//        //if($result->driver[0]){
+//         //unset($result->driver[$v]);
+//        //}
+//        $delete = $driverArray->delete();
+
+
+
+//         //    try{
+//         //     $dataDriver = Driver::where('companyID', '28')->first();
+//         //     $dataDriver->driver = '5';
+//         //     $dataDriver->save();
+//         //         if($data){
+//         //             dd($dataDriver);
+//         //             $driverDelArr = array('status' => 'success', 'message' => 'Driver delete successfully.','statusCode' => 200); 
+//         //             return json_encode($driverDelArr);
+//         //         }
+//         //     }
+//         //     catch(\Exception $error){
+//         //         return $error->getMessage();
+//         //     }
+
+    
+    
+//       //$db = Driver::where('driver.driverEmail','rp@gmail.com')->first();
+//       //$db = Driver::where('driver.driverEmail','','rp@gmail.com')->first();
+      
+
+//     //   $result =$db->driver->updateOne(['driver.driverEmail =' => 'rp@gmail.com'],
+//     //                         ['$set' => ['driver.$.deleteStatus' => 'YES','driver.$.deleteUser' => "ReenaP",'driver.$.deleteTime' => time()]]
+//     //     );
+//         //dd($id[]);
+
+//       //$array1= db.WindsonDispatch.remove( { driver._id: $driverID, true )
+
+//        //$array1 = Driver::where('companyID',$companyID)->first();
+
+
+
+//        //print_r($array1);
+//        //die();
+      
+//         //$deleteDriverRecord = Driver::where('_id','2')->get()->toArray();
+        
+//         //$data=$delete['driver' => _id];
+//        // $data = db.WindsonDispatch.deleteOne('driver').find({'driver._id' :$_id });
+       
+//         // if($delete){
+//         //     $delete1 = Driver::where('driver._id',$_id)->first();
+//         // }
+//         // $items = collect($delete1->items);
+//         // $reference_mails = $items->map(function($item){
+        
+//         // });
+        
+      
+//         //$delete = User::where('userEmail','=', 'brad@osttbrokerage.com')->first();
+//               //dd($delete1);
+//         // if($delete){
+//         //     $arr = array('status' => 'success', 'message' => 'User deleted successfully.'); 
+//         //     return json_encode($arr);
+//         // }
+//     }  
 
     public function deleteDriver(Request $request)
     {
    
-        $companyID=$request->com_id;
+        $companyID=(int)$request->com_id;
         $driverEmail=$request->email;
         
         $result = Driver::where('companyID',$companyID )->first();
@@ -262,6 +412,7 @@ class DriverController extends Controller
         $v=0;
        for ($i=0; $i<$arrayLength; $i++){
             $id=$result->driver[$i];
+           
                 foreach ($id as $value){
                     if($value==$driverEmail){
                         echo $i;
@@ -285,7 +436,7 @@ class DriverController extends Controller
     //     array( '$unset' => array( 'driver' => $v ) ),
     //     array( 'multiple' => true )
     // );
-dd($result->driver[$v]);
+// dd($result->driver[$v]);
     //    $db->Driver->update(
     //     { 'companyID': 1}, 
     //     { $pull: { driver: { driverEmail: $driverEmail } } },
@@ -298,8 +449,8 @@ dd($result->driver[$v]);
        //if($result->driver[0]){
         //unset($result->driver[$v]);
        //}
-       $delete = $driverArray->delete();
-    dd($data);
+       $result->driver[$v] = $driverArray;
+       dd($driverArray->delete());
 
 
 
