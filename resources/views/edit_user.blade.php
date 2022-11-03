@@ -1,44 +1,27 @@
 <!-- driver modal -->
 <div class="container">
-    <!-- <h2>Large Modal</h2> -->
-    <!-- Button to Open the Modal -->
-    <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
-            Open modal
-        </button> -->
+    
 
-    <!-- The Modal -->
-    <div class="modal fade" id="userEditModal">
-        <div class="modal-dialog modal-lg">
+
+        <div class="modal fade" id="userEditModal">
+        <div class="modal-dialog modal-dialog-scrollable modal-xl">
             <div class="modal-content">
 
                 <!-- Modal Header -->
                 <div class="modal-header">
-                    <h4 class="modal-title">Add User</h4>
+                    <h4 class="modal-title">Edit User</h4>
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                 </div>
 
                 <!-- Modal body -->
-                <div class="modal-body">
-
-
-
-
-
-
-                    <!--app-content open-->
-                    <!-- <div class="app-content main-content mt-0">
-                            <div class="side-app"> -->
-                    <!-- CONTAINER -->
-                    <!-- <div class="main-container container-fluid"> -->
+                <div class="modal-body" style="overflow-y: auto !important;">
 
                     <!-- Row -->
                     <div class="row">
                         <div class="row row-sm">
                             <div class="col-lg-12">
                                 <div class="card">
-                                    <!-- <div class="card-header border-bottom">
-                                                        <h3 class="card-title">Editable File Export Datatable</h3>
-                                                    </div> -->
+                                   
                                     <div class="card-body">
                                         <div class="table-responsive export-table">
                                             <form method="post">
@@ -125,27 +108,16 @@
                         </div>
                     </div>
                     <!-- End Row -->
-
-
-                    <!-- </div>
-
-                            </div>
-                        </div> -->
-                    <!-- CONTAINER CLOSED -->
-
-
-
-
-
                 </div>
 
                 <!-- Modal footer -->
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary">Close</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                 </div>
 
             </div>
         </div>
     </div>
+
 
 </div>

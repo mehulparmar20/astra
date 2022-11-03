@@ -23791,6 +23791,7 @@ img {
     left: 0;
     margin: 0 auto;
     text-align: center;
+    align-items: center;
 }
 
 .login-img {
