@@ -74,6 +74,86 @@ $(document).ready(function(){
         }
     });
   });
+
+  
+  
+  
+  //  check box 4
+
+
+  $(document).ready(function(){
+    $('#select-all_l4').on('click',function(){
+        if(this.checked){
+            $('.checkbox4').each(function(){
+                this.checked = true;
+            });
+        }else{
+             $('.checkbox4').each(function(){
+                this.checked = false;
+            });
+        }
+    });
+    
+    $('.checkbox4').on('click',function(){
+        if($('.checkbox4:checked').length == $('.checkbox4').length){
+            $('#select-all_l4').prop('checked',true);
+        }else{
+            $('#select-all_l4').prop('checked',false);
+        }
+    });
+  });
+
+
+    //  check box 5
+
+
+    $(document).ready(function(){
+        $('#select-all_l5').on('click',function(){
+            if(this.checked){
+                $('.checkbox5').each(function(){
+                    this.checked = true;
+                });
+            }else{
+                 $('.checkbox5').each(function(){
+                    this.checked = false;
+                });
+            }
+        });
+        
+        $('.checkbox5').on('click',function(){
+            if($('.checkbox5:checked').length == $('.checkbox5').length){
+                $('#select-all_l5').prop('checked',true);
+            }else{
+                $('#select-all_l5').prop('checked',false);
+            }
+        });
+      });
+
+
+      //  check box 6
+
+
+    $(document).ready(function(){
+        $('#select-all_l6').on('click',function(){
+            if(this.checked){
+                $('.checkbox6').each(function(){
+                    this.checked = true;
+                });
+            }else{
+                 $('.checkbox6').each(function(){
+                    this.checked = false;
+                });
+            }
+        });
+        
+        $('.checkbox6').on('click',function(){
+            if($('.checkbox6:checked').length == $('.checkbox6').length){
+                $('#select-all_l6').prop('checked',true);
+            }else{
+                $('#select-all_l6').prop('checked',false);
+            }
+        });
+      });
   
 
     
