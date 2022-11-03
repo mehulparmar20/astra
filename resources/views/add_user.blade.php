@@ -93,7 +93,7 @@
                         <div class="form-row form-group col-md-12">
                           <h5>Priviliges</h5>
                           <!-- List 1 -->
-                          <div class="List1">
+                          <div class="Dashboard">
                             <div class="listcontainer">
                               <span>
                                 <h6>Dashboard</h6>
@@ -149,7 +149,7 @@
                           </div>
                           <!-- End of List 1 -->
                           <!-- List 2 -->
-                          <div class="List2">
+                          <div class="Custom">
                             <div class="listcontainer">
                               <span>
                                 <h6>Custom</h6>
@@ -228,10 +228,10 @@
                               </div>
                             </div>
                           </div>
-                          <div class="List3">
+                          <div class="Admin">
                             <div class="listcontainer">
                               <span>
-                                <h6>List 3</h6>
+                                <h6>Admin</h6>
                               </span>
                               <div class="form-group col-md-15">
                                 <!-- select all boxes -->
@@ -243,15 +243,15 @@
                                     </li>
                                     <li>
                                       <input class="checkbox3" type="checkbox" name="checkbox" id="checkboxl3_1" />
-                                      <label for="checkboxl3_1">New Active Load</label>
+                                      <label for="checkboxl3_1">Customer</label>
                                     </li>
                                     <li>
                                       <input class="checkbox3" type="checkbox" name="checkbox" id="checkboxl3_2" />
-                                      <label for="checkboxl3_2">Profit/Loss</label>
+                                      <label for="checkboxl3_2">Shipper</label>
                                     </li>
                                     <li>
                                       <input class="checkbox3" type="checkbox" name="checkbox" id="checkboxl3_3" />
-                                      <label for="checkboxl3_3">Dispatcher</label>
+                                      <label for="checkboxl3_3">Consignee</label>
                                     </li>
                                     <li>
                                       <input class="checkbox3" type="checkbox" name="checkbox" id="checkboxl3_4" />
@@ -259,7 +259,7 @@
                                     </li>
                                     <li>
                                       <input class="checkbox3" type="checkbox" name="checkbox" id="checkboxl3_5" />
-                                      <label for="checkboxl3_5">company</label>
+                                      <label for="checkboxl3_5">User</label>
                                     </li>
                                     <li>
                                       <input class="checkbox3" type="checkbox" name="checkbox" id="checkboxl3_6" />
@@ -267,22 +267,174 @@
                                     </li>
                                     <li>
                                       <input class="checkbox3" type="checkbox" name="checkbox" id="checkboxl3_7" />
-                                      <label for="checkboxl3_7">Carrier</label>
+                                      <label for="checkboxl3_7">Trailer</label>
                                     </li>
                                     <li>
                                       <input class="checkbox3" type="checkbox" name="checkbox" id="checkboxl3_8" />
-                                      <label for="checkboxl3_8">Equipment</label>
+                                      <label for="checkboxl3_8">Custom Broker</label>
                                     </li>
                                     <li>
                                       <input class="checkbox3" type="checkbox" name="checkbox" id="checkboxl3_9" />
-                                      <label for="checkboxl3_9">Sales Representative</label>
+                                      <label for="checkboxl3_9">Factoring Company</label>
+                                    </li>
+                                    <li>
+                                      <input class="checkbox3" type="checkbox" name="checkbox" id="checkboxl3_10" />
+                                      <label for="checkboxl3_10">Bank</label>
+                                    </li>
+                                    <li>
+                                      <input class="checkbox3" type="checkbox" name="checkbox" id="checkboxl3_11" />
+                                      <label for="checkboxl3_11">Credit Card</label>
+                                    </li>
+                                    <li>
+                                      <input class="checkbox3" type="checkbox" name="checkbox" id="checkboxl3_12" />
+                                      <label for="checkboxl3_12">Sub Credit Card</label>
+                                    </li>
+                                    <li>
+                                      <input class="checkbox3" type="checkbox" name="checkbox" id="checkboxl3_13" />
+                                      <label for="checkboxl3_13">Fuel Card</label>
                                     </li>
                                   </ul>
                                 </div>
                               </div>
                             </div>
                           </div>
-                          <!-- End of List 2 -->
+                          <!-- End of List 3 -->
+                          <div class="IFTA">
+                            <div class="listcontainer">
+                              <span>
+                                <h6>IFTA</h6>
+                              </span>
+                              <div class="form-group col-md-15">
+                                <!-- select all boxes -->
+                                <div calss="listcontainer">
+                                  <ul class="ks-cboxtags">
+                                    <li>
+                                      <input class="checkbox4" type="checkbox" id="select-all_l4" value="Select All_l4">
+                                      <label for="select-all_l4">Select All</label>
+                                    </li>
+                                    <li>
+                                      <input class="checkbox4" type="checkbox" name="checkbox" id="checkboxl4_1" />
+                                      <label for="checkboxl4_1">Fuel Receipts</label>
+                                    </li>
+                                    <li>
+                                      <input class="checkbox4" type="checkbox" name="checkbox" id="checkboxl4_2" />
+                                      <label for="checkboxl4_2">Toll</label>
+                                    </li>
+                                    <li>
+                                      <input class="checkbox4" type="checkbox" name="checkbox" id="checkboxl4_3" />
+                                      <label for="checkboxl4_3">Verify Trip</label>
+                                    </li>
+                                  </ul>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                           <!-- End of List 4 -->
+
+                           <div class="Account">
+                            <div class="listcontainer">
+                              <span>
+                                <h6>Account</h6>
+                              </span>
+                              <div class="form-group col-md-15">
+                                <!-- select all boxes -->
+                                <div calss="listcontainer">
+                                  <ul class="ks-cboxtags">
+                                  <li>
+                                      <input class="checkbox5" type="checkbox" id="select-all_l5" value="Select All_l5">
+                                      <label for="select-all_l5">Select All</label>
+                                    </li>
+                                    <li>
+                                      <input class="checkbox5" type="checkbox" name="checkbox" id="checkboxl5_1" />
+                                      <label for="checkboxl5_1">Accounting Manager</label>
+                                    </li>
+                                    <li>
+                                      <input class="checkbox5" type="checkbox" name="checkbox" id="checkboxl5_2" />
+                                      <label for="checkboxl5_2">Payment Registration</label>
+                                    </li>
+                                    <li>
+                                      <input class="checkbox5" type="checkbox" name="checkbox" id="checkboxl5_3" />
+                                      <label for="checkboxl5_3">Advance Payment</label>
+                                    </li>
+                                    <li>
+                                      <input class="checkbox5" type="checkbox" name="checkbox" id="checkboxl5_4" />
+                                      <label for="checkboxl5_4">Manage Receipt</label>
+                                    </li>
+                                  </ul>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                           <!-- End of List 5 -->
+
+                           <div class="Report">
+                            <div class="listcontainer">
+                              <span>
+                                <h6>Report</h6>
+                              </span>
+                              <div class="form-group col-md-15">
+                                <!-- select all boxes -->
+                                <div calss="listcontainer">
+                                  <ul class="ks-cboxtags">
+                                  <li>
+                                      <input class="checkbox6" type="checkbox" id="select-all_l6" value="Select All_l6">
+                                      <label for="select-all_l6">Select All</label>
+                                    </li>
+                                    <li>
+                                      <input class="checkbox6" type="checkbox" name="checkbox" id="checkboxl6_1" />
+                                      <label for="checkboxl6_1">Driver Pay Settlement</label>
+                                    </li>
+                                    <li>
+                                      <input class="checkbox6" type="checkbox" name="checkbox" id="checkboxl6_2" />
+                                      <label for="checkboxl6_2">Bank Statment</label>
+                                    </li>
+                                    <li>
+                                      <input class="checkbox6" type="checkbox" name="checkbox" id="checkboxl6_3" />
+                                      <label for="checkboxl6_3">Credit Card Statement</label>
+                                    </li>
+                                    <li>
+                                      <input class="checkbox6" type="checkbox" name="checkbox" id="checkboxl6_4" />
+                                      <label for="checkboxl6_4">Fuel Card Report</label>
+                                    </li>
+                                    <li>
+                                      <input class="checkbox6" type="checkbox" name="checkbox" id="checkboxl6_5" />
+                                      <label for="checkboxl6_5">Fuel Report</label>
+                                    </li>
+                                    <li>
+                                      <input class="checkbox6" type="checkbox" name="checkbox" id="checkboxl6_6" />
+                                      <label for="checkboxl6_6">Toll Report</label>
+                                    </li>
+                                    <li>
+                                      <input class="checkbox6" type="checkbox" name="checkbox" id="checkboxl6_7" />
+                                      <label for="checkboxl6_7">Aging Report</label>
+                                    </li>
+                                    <li>
+                                      <input class="checkbox6" type="checkbox" name="checkbox" id="checkboxl6_8" />
+                                      <label for="checkboxl6_8">Payable Report</label>
+                                    </li>
+                                    <li>
+                                      <input class="checkbox6" type="checkbox" name="checkbox" id="checkboxl6_9" />
+                                      <label for="checkboxl6_9">Receivable Report</label>
+                                    </li>
+                                    <li>
+                                      <input class="checkbox6" type="checkbox" name="checkbox" id="checkboxl6_10" />
+                                      <label for="checkboxl6_10">1099 Report</label>
+                                    </li>
+                                    <li>
+                                      <input class="checkbox6" type="checkbox" name="checkbox" id="checkboxl6_11" />
+                                      <label for="checkboxl6_11">Email Track</label>
+                                    </li>
+                                    <li>
+                                      <input class="checkbox6" type="checkbox" name="checkbox" id="checkboxl6_12" />
+                                      <label for="checkboxl6_12">Lane Analysis</label>
+                                    </li>
+                                  </ul>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                           <!-- End of List 5 -->
+
                         </div>
                         <br>
                         <a type="submit" class="btn btn-primary" data-dismiss="modal" id="usersave">Submit</a>
