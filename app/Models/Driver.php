@@ -15,7 +15,7 @@ class Driver extends Model implements
     AuthenticatableContract
 {
     use Notifiable, Authenticatable;
-    use HasFactory;
+    use HasFactory, SoftDeletes;
     /**
      * The attributes that are mass assignable.
      *
