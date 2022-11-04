@@ -1,0 +1,25 @@
+.side-menu__label {
+    font-size: 13px;
+    font-weight: bold;
+  }
+
+.sticky span {
+    font-size: 12px !important;
+  }
+  .horizontal .side-menu .side-menu__icon
+  {
+    width:17px !important;
+  }
+  .header div
+  {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+  }
+  .customtable th {
+    font-size: 12px !important;
+    font-weight: bold !important;
+  }
+  #table1 {
+    font-size: 13px;
+    color: black;
+  }

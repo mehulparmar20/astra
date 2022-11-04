@@ -19,6 +19,7 @@
         $(this).toggleClass('active').siblings().removeClass('active');
     });
 
+    
     // FULL SCREEN
     $(document).on("click", ".full-screen-link", function toggleFullScreen() {
         $('.full-screen-link').addClass('fullscreen-button');
@@ -443,7 +444,6 @@ let bodyhorizontal = $('body').hasClass('horizontal');
         $(".app-header").addClass("hor-header");
         $(".hor-header").removeClass("app-header");
         $(".app-sidebar").addClass("horizontal-main")
-        $(".main-sidemenu").addClass("container")
         $('body').removeClass('sidebar-mini');
         $('body').removeClass('sidenav-toggled');
         $('body').removeClass('horizontal-hover');
@@ -499,7 +499,6 @@ let bodyhorizontal1 = $('body').hasClass('horizontal-hover');
         $(".app-header").addClass("hor-header");
         $(".app-header").removeClass("app-header");
         $(".app-sidebar").addClass("horizontal-main")
-        $(".main-sidemenu").addClass("container")
         $('body').removeClass('sidebar-mini');
         $('body').removeClass('sidenav-toggled');
         $('body').removeClass('default-menu');
