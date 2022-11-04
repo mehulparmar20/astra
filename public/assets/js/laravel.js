@@ -82,6 +82,12 @@ $('#select-all').click(function(event) {
     }
 });
 
+// if(document.getElementsByClassName('checkbox1').checked) {
+//     document.getElementsByClassName("checkbox1").value = 1;
+// }else{
+//     document.getElementsByClassName("checkbox1").value = 0;
+// }
+
 $(document).ready(function() {
    
     $('#usersave').on('click', function() {
@@ -100,6 +106,8 @@ $(document).ready(function() {
       var ext = $('#inputExt').val();
       var tollfree = $('#inputTollFree').val();
       var fax = $('#inputFax').val();
+      var checkbox1 = $('#checkbox-1').val();
+      console.log(checkbox1);
       var tr_length = $("#userModal").find("tr").length;
       var tr_str2 = "<tr data-id=" + tr_length + ">" +
       "<td data-field='id'>" + tr_length + "</td>" +
@@ -205,7 +213,9 @@ $(document).ready(function() {
                         var lis = driverResponse[i].driver[j].driverLicenseIssue;
                         var license_exp_date = driverResponse[i].driver[j].driverLicenseExp;
                         var driver_balance = driverResponse[i].driver[j].driverBalance;
+                        var delete_status = driverResponse[i].driver[j].deleteStatus;
 
+                        if(delete_status=="NO"){
                         var tr_str1 = "<tr data-id=" + (i + 1) + ">" +
                         //  "<td id='id1'>" + id+ "&"+driverId + "</td>" +
                             "<td data-field='no'>" + no + "</td>" +
@@ -225,6 +235,7 @@ $(document).ready(function() {
 
                         $("#driverTable").append(tr_str1);
                         no++;
+                        }
                     } 
                 }
             }
@@ -449,26 +460,49 @@ $('.driverDataUpdate').click(function(){
         }            
     });
 }); 
-// <!-- ------------------------------------------------------------------------- end of edit driver  ------------------------------------------------------------------------- -->
-// <!-- -------------------------------------------------------------------------delete driver ajax ------------------------------------------------------------------------- -->    
+// <!--------------------------------------------------------------------------- end of edit driver  --------------------------------------------------------------------------->
+// <!--------------------------------------------------------------------------- delete driver ajax --------------------------------------------------------------------------->    
 $(".deleteDriver").on("click", function(){
    // alert();
+        var rowToDelete = $(this).closest('tr');
         var id = $(this).attr("data-id");
         var result = $(this).attr("data-id").split('&');
         var com_id=result[0];
         var email=result[1];
-      
-        console.log(email);
+        swal.fire({
+            title: "Delete?",
+            text: "Please ensure and then confirm!",
+            type: "warning",
+            showCancelButton: !0,
+            confirmButtonText: "Yes, delete it!",
+            cancelButtonText: "No, cancel!",
+            reverseButtons: !0
+        }).then(function (e) {
+
+        if (e.value === true) {
         $.ajax({ 
           url: base_path+"/admin/deleteDriver",
           data: {com_id: com_id,email: email},
           type: 'post',
-          success: function(result){
-            console.log('success');
-            // $('#userModal').hide().show();
-            location.reload();
-          }
+          success: function(resp){
+            if (resp.success === true) {
+				swal.fire("Done!", resp.message, "success");
+				rowToDelete.remove();
+			} else {
+				swal.fire("Error!", resp.message, "error");
+			}
+		},
+		error: function (resp) {
+			swal.fire("Error!", 'Something went wrong.', "error");
+		}
         });
+    } else {
+        e.dismiss;
+    }
+
+}, function (dismiss) {
+    return false;
+})
     });
 
     // $(".deleteDriver").on("click", function(){

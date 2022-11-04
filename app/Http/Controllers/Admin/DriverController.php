@@ -28,7 +28,7 @@ class DriverController extends Controller
     {
         request()->validate([
             'name' => 'required',
-            'email' => 'required|unique:user,userEmail',
+            'email' => 'required|unique:driver,driverEmail',
             'username' => 'required',
             'telephone' => 'required',
             'address' => 'required',
@@ -38,6 +38,7 @@ class DriverController extends Controller
             'licenseIssueState' => 'required',
             'licenseExpDate' => 'required',
             'rate' => 'required',
+            'companyID' => 'required|unique:driver,companyID'
             // 'currency' => 'required',
         ]);
         try{
@@ -50,7 +51,7 @@ class DriverController extends Controller
    
         $password = sha1($request->password);
         $driverData[]=array(    
-                        '_id' => 4,
+                        // '_id' => 4,
                         'counter' => 3,
                         'ownerID' => 0,
                         
@@ -90,7 +91,7 @@ class DriverController extends Controller
                         'driverBalance' => $request->driverBalance,
                         'terminationDate' => $request->terminationDate,
                         'internalNotes' => $request->internalNotes,
-
+                        'deleteStatus' => "NO",
                         // 'recurrencePlus' => $request->recurrencePlus,
                         // 'recurrenceAdd' => (Array)array(
 
@@ -157,7 +158,7 @@ class DriverController extends Controller
                             'counter' => 0,
                             'driver' => $driverData,
                             // 'user_type' => "user",
-                            // 'deleteStatus' => 0,
+                            'deleteStatus' => 0,
                             // 'mode' => 'day',
                             // 'otp' => '',
                             // 'emailVerificationStatus' => 1,
@@ -415,7 +416,7 @@ class DriverController extends Controller
            
                 foreach ($id as $value){
                     if($value==$driverEmail){
-                        echo $i;
+                        // echo $i;
                         $v=$i;
                      }
                 }
@@ -449,8 +450,22 @@ class DriverController extends Controller
        //if($result->driver[0]){
         //unset($result->driver[$v]);
        //}
-       $result->driver[$v] = $driverArray;
-       dd($driverArray->delete());
+    //    dd($result->delete());
+       $driverArray[$v]['deleteStatus'] = "YES"; 
+       $result->driver = $driverArray;
+       if ($result->save()) {
+        $success = true;
+        $message = "Driver deleted successfully";
+    } else {
+        $success = false;
+        $message = "Driver not found";
+    }
+
+    //  Return response
+    return response()->json([
+        'success' => $success,
+        'message' => $message,
+    ]);
 
 
 
