@@ -216,6 +216,8 @@
 
 		<!-- INTERNAL DATATABLES JS -->
 		<script src="../assets/js/table-editable.js"></script>
+        <script src="../assets/js/userpev.js"></script>
+        <script src="../assets/js/openmodel.js"></script>
 
 		<!-- Perfect SCROLLBAR JS-->
 		<script src="../assets/plugins/p-scroll/perfect-scrollbar.js"></script>

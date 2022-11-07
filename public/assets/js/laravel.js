@@ -50,7 +50,7 @@ function createRows(response) {
                 "<td data-field='ext'>" + ext + "</td>" +
                 "<td data-field='tollfree'>" + tollfree + "</td>" +
                 "<td data-field='fax'>" + fax + "</td>" +
-                "<td style='width: 100px'><a class='btn btn-primary fs-14 text-white edit-icn edit1' title='Edit'><i class='fe fe-edit'></i></a><a class='delete1 mt-2 btn btn-danger fs-14 text-white delete-icn' data-id="+ email +" title='Delete'><i class='fe fe-delete'></i></a></td></tr>";
+                "<td style='width: 100px'><a class='btn btn-primary fs-14 text-white edit-icn edit1' id='editmodel' title='Edit'><i class='fe fe-edit'></i></a><a class='delete1 mt-2 btn btn-danger fs-14 text-white delete-icn' data-id="+ email +" title='Delete'><i class='fe fe-delete'></i></a></td></tr>";
             $("#table1").append(tr_str);
         }
     } else {
@@ -60,6 +60,7 @@ function createRows(response) {
 
         $("#table1").append(tr_str);
     }
+    modelopenfun();
 }
 
 (function() {
@@ -233,7 +234,7 @@ $(document).ready(function() {
       "<td data-field='ext'>" + ext + "</td>" +
       "<td data-field='tollfree'>" + tollfree + "</td>" +
       "<td data-field='fax'>" + fax + "</td>" +
-      "<td style='width: 100px'><a class='btn btn-primary fs-14 text-white edit-icn edit1' title='Edit'><i class='fe fe-edit'></i></a><a class='delete1 mt-2 btn btn-danger fs-14 text-white delete-icn' data-id="+ email +" title='Delete'><i class='fe fe-delete'></i></a></td></tr>";
+      "<td style='width: 100px'><a class='btn btn-primary fs-14 text-white edit-icn edit1' id='editmodel' title='Edit'><i class='fe fe-edit'></i></a><a class='delete1 mt-2 btn btn-danger fs-14 text-white delete-icn' data-id="+ email +" title='Delete'><i class='fe fe-delete'></i></a></td></tr>";
           $.ajax({
               url: base_path+"/admin/add-user",
               type: "POST",
@@ -845,7 +846,6 @@ $(".deleteDriver").on("click", function(){
 
 
 });
-
 
 
 
