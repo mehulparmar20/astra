@@ -21,7 +21,7 @@
         <div class="modal-dialog modal-xl modal-dialog-scrollable" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Modal title</h5>
+                    <h5 class="modal-title">User</h5>
                     <button type="button" class="close" data-dismiss="modal">×</button>
 
                     </button>
@@ -31,7 +31,7 @@
                 <div class="modal-body" style="overflow-y: auto !important;">
 
                     <table id="editable-file-datatable1"
-                        class="table editable-table table-nowrap table-bordered table-edit wp-100">
+                        class="table editable-table table-nowrap table-bordered table-edit wp-100 customtable">
                         <thead>
                             <tr>
                                 <th>ID</th>

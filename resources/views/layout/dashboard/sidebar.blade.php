@@ -1,5 +1,5 @@
  <!--APP-SIDEBAR-->
- <div class="sticky">
+ <!-- <div class="sticky">
 
                 <div class="app-sidebar__overlay" data-bs-toggle="sidebar" style="display: inline;" ></div>
                 <div class="app-sidebar">
@@ -9,7 +9,7 @@
 								<img src="{{URL::to('/')}}/assets/images/brand/Astra_logo.png" class="header-brand-img toggle-logo" alt="logo">
 								<img src="{{URL::to('/')}}/assets/images/brand/Astra_logo.png" class="header-brand-img light-logo" alt="logo">
 								<img src="{{URL::to('/')}}/assets/images/brand/Astra_logo.png" class="header-brand-img light-logo1" alt="logo">
-							</a><!-- LOGO -->
+							</a>
                     </div>
                     <div class="main-sidemenu">
                         <div class="slide-left disabled" id="slide-left"><svg xmlns="http://www.w3.org/2000/svg"
@@ -118,12 +118,8 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
             <!--/APP-SIDEBAR-->
 
-            @include('customer')
-            @include('driver') 
-            @include('user') 
-            @include('add_user') 
-            @include('edit_user') 
+            
 
