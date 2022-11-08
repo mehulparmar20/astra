@@ -10,6 +10,7 @@ use Hash;
 use Illuminate\Support\Str;
 use Carbon\Carbon;
 use Auth;
+use PDF;
 
 class UserController extends Controller
 {
@@ -31,10 +32,8 @@ class UserController extends Controller
             'userFirstName' => 'required',
             'userLastName' => 'required',
             'userAddress' => 'required',
-            'userLocation' => 'required',
-            'userZip' => 'required',
-            'userExt' => 'required',
-            // 'userTelephone' => 'required|min:11|max:11|numeric',
+            'userZip' => 'numeric|nullable',
+            'userExt' => 'numeric|nullable',
         ]);
     
         //Data::insert($request->all());
@@ -55,6 +54,7 @@ class UserController extends Controller
                 // print_r($request->userPass);die;
                 if (User::create([
                     'counter' => 0,
+                    'companyName' => $request->input('companyName'),
                     // 'companyID' => (int)$_SESSION['companyId'],
                     'userEmail' => $request->input('userEmail'),
                     'companyName' => $request->input('companyName'),
@@ -221,15 +221,17 @@ class UserController extends Controller
             'userFirstName' => 'required',
             'userLastName' => 'required',
             'userAddress' => 'required',
-            'userLocation' => 'required',
-            'userZip' => 'required',
-            'userExt' => 'required',
-            // 'userTelephone' => 'required|min:11|max:11|numeric',
+            'userZip' => 'numeric|nullable',
+            'userExt' => 'numeric|nullable',
         ]);
 
         try{
             $data = User::where('userEmail', $request->email)->first();
             $data->userEmail = $request->userEmail;
+            // dd($request->userPassword);
+            if($request->userPassword != null){
+                $data->userPass = sha1($request->userPassword);
+            }
             $data->companyName = $request->companyName;
             $data->userName = $request->userName;
             $data->userFirstName = $request->userFirstName;
@@ -401,7 +403,7 @@ class UserController extends Controller
 
     public function getAllUser(Request $request){
         // $user = User::all();
-        $user = User::where('id', '!=', Auth::user()->id)->get();
+        $user = User::where('id', '!=', Auth::user()->id)->where('deleteStatus',0)->get();
         return response()->json($user);  
     }
 
@@ -419,10 +421,8 @@ class UserController extends Controller
             'userFirstName' => 'required',
             'userLastName' => 'required',
             'userAddress' => 'required',
-            'userLocation' => 'required',
-            'userZip' => 'required',
-            'userExt' => 'required',
-            // 'userTelephone' => 'required|min:11|max:11|numeric',
+            'userZip' => 'numeric|nullable',
+            'userExt' => 'numeric|nullable',
         ]);
         
             $data = User::where('userEmail', $user->userEmail)->first();
@@ -431,7 +431,7 @@ class UserController extends Controller
             $data->userName = $request->userName;
             $data->userFirstName = $request->userFirstName;
             $data->userLastName = $request->userLastName;
-            if(isset($request->userPass)){
+            if($request->userPass != null){
                 $data->userPass = sha1($request->userPass);
             }else{
                 $data->userPass = $user->userPass;
@@ -454,8 +454,8 @@ class UserController extends Controller
 
     public function deleteUser(Request $request)
     {
-        $delete = User::where('userEmail', $request->userEmail)->delete();
-        if ($delete == 1) {
+        $delete = User::where('userEmail', $request->userEmail)->update(['deleteStatus'=>1]);
+        if ($delete) {
             $success = true;
             $message = "User deleted successfully";
         } else {
@@ -469,5 +469,27 @@ class UserController extends Controller
             'message' => $message,
         ]);
     }
+
+    public function downloadPDF()
+    {
+        $users = User::get();
+
+        $pdf = PDF::loadView('pdf.usersdetails', array('users' =>  $users))->setPaper('a4', 'landscape');
+        
+
+        return $pdf->download('Users.pdf');   
+    }
+
+    // public function searchUser(Request $request) {
+    //     $key =$request->value;
+    //     $user = User::where('id', '!=', Auth::user()->id)->where('deleteStatus',0)
+    //     ->where(function($query) use($key) {
+    //         $query->where('userEmail', 'LIKE', "%{$key}%");
+    //         $query->orwhere('userFirstName', 'LIKE', "%{$key}%");
+    //         $query->orwhere('userLastName', 'LIKE', "%{$key}%");
+    //         $query->orwhere('userName', 'LIKE', "%{$key}%");
+    //     })->get();
+    //     return view('users-search', compact('user'));
+    // }
 
 }

@@ -55,7 +55,11 @@
                     </table>
                 </div>
                 <div class="modal-footer">
-                    <button class="btnclose" data-bs-dismiss="modal">Close</button>
+                    <form action="{{route('download-pdf')}}" method="post" target="__blank">
+                        @csrf
+                        <button class="btn btn-primary" style="vertical-align:middle"><span>Export</span></button>
+                    </form>
+                    <!-- <button class="btn btnclose" style="background-color:red;" data-bs-dismiss="modal">Close</button> -->
                 </div>
             </div>
         </div>
