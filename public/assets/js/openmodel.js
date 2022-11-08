@@ -6,6 +6,7 @@ $(document).ready(function(){
               var lastname = $('#editLastName4').val();
               var username = $('#editUsername4').val();
               var email = $('#editEmail4').val();
+              var password = $('#editPassword4').val();
               var userEmail = $('#email4').val();
               var address = $('#editAddress').val();
               var location = $('#editLocation').val();
@@ -41,6 +42,7 @@ $(document).ready(function(){
                         userFirstName: firstname,
                         userLastName: lastname,
                         userEmail: email,
+                        userPassword: password,
                         userAddress: address,
                         userLocation: location,
                         userZip: zip,
