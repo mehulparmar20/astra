@@ -22,35 +22,16 @@
 
     <link href="{{URL::to('/')}}/static/checkbox.css" rel="stylesheet" />
 
-
-
-
-
-
-
 <!---Font Icon-->
 <link href="{{URL::to('/')}}/static/plugin/font-awesome/css/fontawesome-all.min.css" rel="stylesheet">
   <link href="{{URL::to('/')}}/static/plugin/themify-icons/themify-icons.css" rel="stylesheet">
   <link href="{{URL::to('/')}}/static/plugin/et-line/style.css" rel="stylesheet">
   <!-- / -->
 
- 
- 
-
-
-
-
-
-
-
-
-
-
-    
-
     <!-- STYLE CSS -->
     <link href="{{URL::to('/')}}/assets/css/style.css" rel="stylesheet" />
     <link href="{{URL::to('/')}}/assets/css/skin-modes.css" rel="stylesheet" />
+    <link href="{{URL::to('/')}}/assets/css/customcss.css" rel="stylesheet" />
 
     <!--- FONT-ICONS CSS -->
     <link href="{{URL::to('/')}}/assets/css/icons.css" rel="stylesheet" />

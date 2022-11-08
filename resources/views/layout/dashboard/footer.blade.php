@@ -166,6 +166,8 @@
 
 <!-- INTERNAL DATATABLES JS -->
 <script src="{{URL::to('/')}}/assets/js/table-editable.js"></script>
+<script src="{{URL::to('/')}}/assets/js/userprev.js"></script>
+<script src="{{URL::to('/')}}/assets/js/openmodel.js"></script>
 
 <!-- Perfect SCROLLBAR JS-->
 <script src="{{URL::to('/')}}/assets/plugins/p-scroll/perfect-scrollbar.js"></script>

@@ -707,7 +707,6 @@
         $(".app-header").addClass("hor-header");
         $(".hor-header").removeClass("app-header");
         $(".app-sidebar").addClass("horizontal-main")
-        $(".main-sidemenu").addClass("container")
         $('body').removeClass('sidebar-mini');
         $('body').removeClass('sidenav-toggled');
         $('body').removeClass('horizontal-hover');
@@ -786,7 +785,7 @@
         $(".app-header").addClass("hor-header");
         $(".app-header").removeClass("app-header");
         $(".app-sidebar").addClass("horizontal-main")
-        $(".main-sidemenu").addClass("container")
+        
         $('body').removeClass('sidebar-mini');
         $('body').removeClass('sidenav-toggled');
         $('body').removeClass('default-menu');
@@ -906,7 +905,7 @@ $('#myonoffswitch34').on('click', function () {
         $(".app-header").removeClass("hor-header");
         $(".hor-header").addClass("app-header");
         $(".app-sidebar").removeClass("horizontal-main")
-        $(".main-sidemenu").removeClass("container")
+       
         $('#slide-left').removeClass('d-none');
         $('#slide-right').removeClass('d-none');
         $('body').addClass('sidebar-mini');
@@ -943,7 +942,7 @@ $('#myonoffswitch35').on('click', function () {
         $(".app-header").addClass("hor-header");
         $(".hor-header").removeClass("app-header");
         $(".app-sidebar").addClass("horizontal-main")
-        $(".main-sidemenu").addClass("container")
+        
         $('body').removeClass('sidebar-mini');
         $('body').removeClass('sidenav-toggled');
         $('body').removeClass('horizontal-hover');
@@ -999,7 +998,7 @@ $('#myonoffswitch111').on('click', function () {
         $(".app-header").addClass("hor-header");
         $(".app-header").removeClass("app-header");
         $(".app-sidebar").addClass("horizontal-main")
-        $(".main-sidemenu").addClass("container")
+        
         $('body').removeClass('sidebar-mini');
         $('body').removeClass('sidenav-toggled');
         $('body').removeClass('default-menu');
@@ -1121,7 +1120,7 @@ function resetData() {
     $(".app-header").removeClass("hor-header");
     $(".hor-header").addClass("app-header");
     $(".app-sidebar").removeClass("horizontal-main")
-    $(".main-sidemenu").removeClass("container")
+    
     $('#slide-left').removeClass('d-none');
     $('#slide-right').removeClass('d-none');
     $('body').addClass('sidebar-mini');
