@@ -183,3 +183,17 @@ ul.ks-cboxtags li input[type="checkbox"]:focus+label {
     /* font-weight: bold; */
     font-family: sans-serif;
 }
+.add1button {
+    background: #323477;
+  }
+  #editmodel {
+    background-color: green;
+    padding: 5px;
+    border-radius: 3px;
+  }
+  .delete1 {
+    background: red;
+    padding: 5px;
+    margin-left: 4px;
+    border-radius: 3px;
+  }
