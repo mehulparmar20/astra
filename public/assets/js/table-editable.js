@@ -1,4 +1,5 @@
 
+
 "use strict";
 
 $(function (e) {
@@ -154,3 +155,21 @@ $(function (e) {
 	});
 
 });
+
+function changeRate(val) {
+	if (val == 'mile') {
+		$('#dMile').toggle();
+		$('#dPercentage').hide();
+		$('#dHourly').hide();
+	}
+	if (val == 'percentage') {
+		$('#dPercentage').toggle();
+		$('#dMile').hide();
+		$('#dHourly').hide();
+	}
+	if (val == 'hour') {
+		$('#dHourly').toggle();
+		$('#dMile').hide();
+		$('#dPercentage').hide();
+	}
+}

@@ -694,63 +694,6 @@ $(".deleteDriver").on("click", function(){
 })
     });
 
-    // $(".deleteDriver").on("click", function(){
-	// 	var rowToDelete = $(this).closest('tr');
-	// 	var email = $(this).attr("data-id");
-	// 	swal.fire({
-    //         title: "Delete?",
-    //         text: "Please ensure and then confirm!",
-    //         type: "warning",
-    //         showCancelButton: !0,
-    //         confirmButtonText: "Yes, delete it!",
-    //         cancelButtonText: "No, cancel!",
-    //         reverseButtons: !0
-    //     }).then(function (e) {
-
-    //     if (e.value === true) {
-	// 	$.ajax({ 
-	// 		type: 'POST',
-	// 	  url: base_path+"/admin/deleteDriver",
-	// 	  data: {com_id: 4,driverEmail: email},
-	// 	  success: function (resp) {
-	// 		if (resp.success === true) {
-	// 			swal.fire("Done!", resp.message, "success");
-	// 			rowToDelete.remove();
-	// 		} else {
-	// 			swal.fire("Error!", resp.message, "error");
-	// 		}
-	// 	},
-	// 	error: function (resp) {
-	// 		swal.fire("Error!", 'Something went wrong.', "error");
-	// 	}
-	// 	});
-	// 	} else {
-	// 		e.dismiss;
-	// 	}
-
-	// }, function (dismiss) {
-	// 	return false;
-	// })
-	// });
-// <!-- -------------------------------------------------------------------------end of delete driver ajax ------------------------------------------------------------------------- -->    
-// <!-- ------------------------------------------------------------------------- add driver  ------------------------------------------------------------------------- -->
-
-// <!-- -------------------------------------------------------------------------end of Get driver ajax ------------------------------------------------------------------------- -->    
-// <!-- -------------------------------------------------------------------------delete driver ajax ------------------------------------------------------------------------- -->    
-// $(".delete").on("click", function(){
-//         var email = $(this).attr("data-id");
-//         // console.log(email);
-//         $.ajax({ 
-//           url: base_path+"/admin/delete-user",
-//           data: {userEmail: email},
-//           type: 'post',
-//           success: function(result){
-//             console.log('success');
-//             // $('#userModal').hide().show();
-//             location.reload();
-//           }
-//         });
-//     });
 // <!-- -------------------------------------------------------------------------end of delete driver ajax ------------------------------------------------------------------------- -->    
 
 // <!-- ------------------------------------------------------------------------- add driver  ------------------------------------------------------------------------- -->

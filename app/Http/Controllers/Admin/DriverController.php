@@ -28,21 +28,22 @@ class DriverController extends Controller
         request()->validate([
             'name' => 'required',
             'email' => 'required|unique:driver,driverEmail',
-            'username' => 'required',
             'telephone' => 'required',
             'address' => 'required',
+            'password' => 'required',
             'location' => 'required',
             'zip' => 'required',
             'licenseNo' => 'required',
             'licenseIssueState' => 'required',
             'licenseExpDate' => 'required',
             'rate' => 'required',
-            'companyID' => 'required|unique:driver,companyID'
-            // 'currency' => 'required',
+            'companyID' => 'required|unique:driver,companyID',
+            'currency' => 'required',
         ]);
         try{
-            $driver=Driver::all();
-    
+
+        $driver=Driver::all();
+        $companyID=(int)$request->companyID;
 
             $companyID=(int)$request->companyID;
 
