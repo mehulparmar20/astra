@@ -38,62 +38,60 @@ class DriverController extends Controller
             'licenseExpDate' => 'required',
             'rate' => 'required',
             'companyID' => 'required|unique:driver,companyID',
-            'currency' => 'required',
+            // 'currency' => 'required',
         ]);
         try{
 
         $driver=Driver::all();
         $companyID=(int)$request->companyID;
 
-            $companyID=(int)$request->companyID;
-
-            $getCompany = Driver::where('companyID',$companyID)->first();
-    
-            $password = sha1($request->password);
-            $driverData[]=array(    
-                            // '_id' => 4,
-                            'counter' => 3,
-                            'ownerID' => 0,
-                            
-                            'driverName' => $request->name,
-                            'driverUsername' => $request->username,
-                            'driverAddress' => $request->address,
-                            'driverTelephone' => $request->telephone,
-                            'driverAlt' => $request->altTelephone,
-                            'driverEmail' => $request->email,
-                            'driverPassword' => $password,
-                            'driverLocation' => $request->location,
-                            'driverZip' => $request->zip,
-                            'driverStatus' => $request->status,
-                            'driverSocial' => $request->socialSecurityNo,
-                            'dateOfbirth' => $request->dateOfBirth,
-                            'dateOfHire' => $request->dateOfHire,
-                            'driverLicenseNo' => $request->licenseNo,
-                            'driverLicenseIssue' => $request->licenseIssueState,
-                            'driverLicenseExp' => $request->licenseExpDate,
-                            'driverLastMedical' => $request->lastMedical,
-                            'driverNextMedical' => $request->nextMedical,
-                            'driverLastDrugTest' => $request->lastDrugTest,
-                            'driverNextDrugTest' => $request->nextDrugTest,
-                            'passportExpiry' => $request->passportExpiry,
-                            'fastCardExpiry' => $request->fastCardExpiry,
-                            'hazmatExpiry' => $request->hazmatExpiry,
-                            'rate' => $request->rate,
-                            'currency' => $request->currency,
-                            // 'driverLoadedMile' => $request->  ,
-                            // 'driverEmptyMile' => $request->  ,
-                            // 'pickupRate' => $request->  ,
-                            // 'pickupAfter' => $request->  ,
-                            // 'dropRate' => $request->  ,
-                            // 'dropAfter' => $request->  ,
-                            // 'tarp' => $request->  ,
-                            // 'percentage' => $request->  ,
-                            'driverBalance' => $request->driverBalance,
-                            'terminationDate' => $request->terminationDate,
-                            'internalNotes' => $request->internalNotes,
-                            'deleteStatus' => "NO",
-                            // 'recurrencePlus' => $request->recurrencePlus,
-                            // 'recurrenceAdd' => (Array)array(
+        $getCompany = Driver::where('companyID',$companyID)->first();
+   
+        $password = sha1($request->password);
+        $driverData[]=array(    
+                        // '_id' => 4,
+                        'counter' => 3,
+                        'ownerID' => 0,
+                        
+                        'driverName' => $request->name,
+                        'driverUsername' => $request->username,
+                        'driverAddress' => $request->address,
+                        'driverTelephone' => $request->telephone,
+                        'driverAlt' => $request->altTelephone,
+                        'driverEmail' => $request->email,
+                        'driverPassword' => $password,
+                        'driverLocation' => $request->location,
+                        'driverZip' => $request->zip,
+                        'driverStatus' => $request->status,
+                        'driverSocial' => $request->socialSecurityNo,
+                        'dateOfbirth' => $request->dateOfBirth,
+                        'dateOfHire' => $request->dateOfHire,
+                        'driverLicenseNo' => $request->licenseNo,
+                        'driverLicenseIssue' => $request->licenseIssueState,
+                        'driverLicenseExp' => $request->licenseExpDate,
+                        'driverLastMedical' => $request->lastMedical,
+                        'driverNextMedical' => $request->nextMedical,
+                        'driverLastDrugTest' => $request->lastDrugTest,
+                        'driverNextDrugTest' => $request->nextDrugTest,
+                        'passportExpiry' => $request->passportExpiry,
+                        'fastCardExpiry' => $request->fastCardExpiry,
+                        'hazmatExpiry' => $request->hazmatExpiry,
+                        'rate' => $request->rate,
+                        'currency' => $request->currency,
+                        'driverLoadedMile' => (int)$request->driverLoadedMile,
+                        'driverEmptyMile' => (int)$request->driverEmptyMile,
+                        'pickupRate' => (int)$request->pickupRate,
+                        'pickupAfter' => (int)$request->pickupAfter,
+                        'dropRate' => (int)$request->dropRate,
+                        'dropAfter' => (int)$request->dropAfter,
+                        'tarp' => (int)$request->tarp,
+                        'percentage' => (int)$request->percentage,
+                        'driverBalance' => $request->driverBalance,
+                        'terminationDate' => $request->terminationDate,
+                        'internalNotes' => $request->internalNotes,
+                        'deleteStatus' => "NO",
+                        // 'recurrencePlus' => $request->recurrencePlus,
+                        // 'recurrenceAdd' => (Array)array(
 
                             //     )
                             // 'driverDoc' => (Array)array(
@@ -325,8 +323,17 @@ class DriverController extends Controller
        $driverArrayUp[$v]['driverBalance']=$request->updateDriverBalance;
        $driverArrayUp[$v]['terminationDate']=$request->updateTerminationDate;
        $driverArrayUp[$v]['internalNote']=$request->updateInternalNotes;
-        //$driverArrayUp[$v]['driverName']=$request->updateDriverName;
-        //$driverArrayUp[$v]['driverName']=$request->updateDriverName;
+    //    $driverArrayUp[$v]['driverName']=$request->updateDriverName;
+    //    $driverArrayUp[$v]['driverName']=$request->updateDriverName;
+      $driverArrayUp[$v]['driverLoadedMile'] = $request->driverLoadedMile;
+      $driverArrayUp[$v]['driverEmptyMile'] = $request->driverEmptyMile;
+      $driverArrayUp[$v]['pickupRate'] = $request->pickupRate;
+      $driverArrayUp[$v]['pickupAfter'] = $request->pickupAfter;
+      $driverArrayUp[$v]['dropRate'] = $request->dropRate;
+      $driverArrayUp[$v]['dropAfter'] = $request->dropAfter;
+      $driverArrayUp[$v]['tarp'] = $request->tarp;
+      $driverArrayUp[$v]['percentage'] = $request->percentage;
+
        $resultUp->driver = $driverArrayUp;
        if($resultUp->save()){
             $arr = array('status' => 'success', 'message' => 'User edited successfully.','statusCode' => 200); 
