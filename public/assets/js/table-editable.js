@@ -173,3 +173,29 @@ function changeRate(val) {
 		$('#dPercentage').hide();
 	}
 }
+
+function changeRateEdit(val) {
+    if (val == 'mile') {
+        $('#dMileEdit').toggle();
+        $('#dPercentageEdit').hide();
+        $('#dHourlyEdit').hide();
+    }
+    if (val == 'percentage') {
+        $('#dPercentageEdit').toggle();
+        $('#dMileEdit').hide();
+        $('#dHourlyEdit').hide();
+    }
+    if (val == 'hour') {
+        $('#dHourlyEdit').toggle();
+        $('#dMileEdit').hide();
+        $('#dPercentageEdit').hide();
+    }
+}
+
+$(document).on('click', '#driverpaybutton1', function () {
+	$('#driverPayInfoModal').modal('show'); 
+});
+
+$(document).on('click', '#driverpaybutton1', function () {
+	$('#driverPayInfoEditModal').modal('show'); 
+});

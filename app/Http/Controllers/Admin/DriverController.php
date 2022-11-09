@@ -39,7 +39,7 @@ class DriverController extends Controller
             'licenseExpDate' => 'required',
             'rate' => 'required',
             'companyID' => 'required|unique:driver,companyID',
-            'currency' => 'required',
+            // 'currency' => 'required',
         ]);
         try{
         $driver=Driver::all();
@@ -78,14 +78,14 @@ class DriverController extends Controller
                         'hazmatExpiry' => $request->hazmatExpiry,
                         'rate' => $request->rate,
                         'currency' => $request->currency,
-                        // 'driverLoadedMile' => $request->  ,
-                        // 'driverEmptyMile' => $request->  ,
-                        // 'pickupRate' => $request->  ,
-                        // 'pickupAfter' => $request->  ,
-                        // 'dropRate' => $request->  ,
-                        // 'dropAfter' => $request->  ,
-                        // 'tarp' => $request->  ,
-                        // 'percentage' => $request->  ,
+                        'driverLoadedMile' => (int)$request->driverLoadedMile,
+                        'driverEmptyMile' => (int)$request->driverEmptyMile,
+                        'pickupRate' => (int)$request->pickupRate,
+                        'pickupAfter' => (int)$request->pickupAfter,
+                        'dropRate' => (int)$request->dropRate,
+                        'dropAfter' => (int)$request->dropAfter,
+                        'tarp' => (int)$request->tarp,
+                        'percentage' => (int)$request->percentage,
                         'driverBalance' => $request->driverBalance,
                         'terminationDate' => $request->terminationDate,
                         'internalNotes' => $request->internalNotes,
@@ -276,6 +276,14 @@ class DriverController extends Controller
        $driverArrayUp[$v]['internalNote']=$request->updateInternalNotes;
     //    $driverArrayUp[$v]['driverName']=$request->updateDriverName;
     //    $driverArrayUp[$v]['driverName']=$request->updateDriverName;
+      $driverArrayUp[$v]['driverLoadedMile'] = $request->driverLoadedMile;
+      $driverArrayUp[$v]['driverEmptyMile'] = $request->driverEmptyMile;
+      $driverArrayUp[$v]['pickupRate'] = $request->pickupRate;
+      $driverArrayUp[$v]['pickupAfter'] = $request->pickupAfter;
+      $driverArrayUp[$v]['dropRate'] = $request->dropRate;
+      $driverArrayUp[$v]['dropAfter'] = $request->dropAfter;
+      $driverArrayUp[$v]['tarp'] = $request->tarp;
+      $driverArrayUp[$v]['percentage'] = $request->percentage;
        $resultUp->driver = $driverArrayUp;
        if($resultUp->save()){
             $arr = array('status' => 'success', 'message' => 'User edited successfully.','statusCode' => 200); 

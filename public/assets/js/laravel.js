@@ -586,6 +586,14 @@ $('.driverDataUpdate').click(function(){
     var updateTerminationDate=$('#up_terminationDate').val();
     var updateDriverBalance=$('#up_driverBalance').val();
     var updateInternalNotes=$('#up_internalNotes').val();
+    var updateloadedMiles = $('#loadedmilesedit').val();   
+    var updateemptyMiles = $('#emptymilesedit').val();   
+    var updatepickRate = $('#pickrateedit').val();   
+    var updatepickStart = $('#pickstartedit').val();   
+    var updatedropRate = $('#droprateedit').val();   
+    var updatedropStart = $('#dropstartedit').val();   
+    var updatedriverTarp = $('#driverTarpedit').val();   
+    var updatepercentage = $('#dPercentageEdit').val();
 
     $.ajax({
         url:base_path+"/admin/updateDriver" ,
@@ -624,7 +632,15 @@ $('.driverDataUpdate').click(function(){
             //updateRecurrenceMin: updateRecurrenceMin,
             updateTerminationDate: updateTerminationDate,
             updateDriverBalance: updateDriverBalance,
-            updateInternalNotes: updateInternalNotes
+            updateInternalNotes: updateInternalNotes,
+            driverLoadedMile: updateloadedMiles,
+            driverEmptyMile: updateemptyMiles,
+            pickupRate: updatepickRate,
+            pickupAfter: updatepickStart,
+            dropRate: updatedropRate,
+            dropAfter: updatedropStart,
+            tarp: updatedriverTarp,
+            percentage: updatepercentage,
         } ,
         success: function(response){
             var responsenew = JSON.parse(response);
@@ -730,6 +746,14 @@ $(".deleteDriver").on("click", function(){
             var terminationDate = $('#terminationDate').val();
             var driverBalance = $('#driverBalance').val();
             var internalNotes = $('#internalNotes').val();   
+            var loadedMiles = $('#loadedmiles').val();   
+            var emptyMiles = $('#emptymiles').val();   
+            var pickRate = $('#pickrate').val();   
+            var pickStart = $('#pickstart').val();   
+            var dropRate = $('#droprate').val();   
+            var dropStart = $('#dropstart').val();   
+            var driverTarp = $('#driverTarp').val();   
+            var percentage = $('#dPercentage').val();   
             var tr_length1 = $("#driverModal").find("tr").length;
             console.log(tr_length1);
             var tr_str4 = "<tr data-id=" + tr_length1 + ">" +
@@ -786,6 +810,14 @@ $(".deleteDriver").on("click", function(){
               terminationDate: terminationDate,
               driverBalance: driverBalance,
               internalNotes: internalNotes,
+              driverLoadedMile: loadedMiles,
+              driverEmptyMile: emptyMiles,
+              pickupRate: pickRate,
+              pickupAfter: pickStart,
+              dropRate: dropRate,
+              dropAfter: dropStart,
+              tarp: driverTarp,
+              percentage: percentage,
             },
             cache: false,
             success: function(resp){

@@ -22,8 +22,8 @@
 
                                         <div class="table-responsive export-table">
 
-                                            <a href="#addDriverModal" class="btn btn-primary slide-item"
-                                                data-toggle="modal" data-target="#addDriverModal">Add</a>
+                                            <a href="#addDriverModal" class="btn btn-primary" data-toggle="modal"
+                                                data-target="#addDriverModal">Add</a>
                                             <table id="editable-file-datatable"
                                                 class="table editable-table table-nowrap table-bordered table-edit wp-100">
 
@@ -253,7 +253,7 @@
                                                         <label for="up_rate">Rate <span style="color:#ff0000">*</span>
                                                         </label>
                                                         <select class="form-control" onchange="changeRate(this.value)"
-                                                            id="up_rate">
+                                                            id="rate">
                                                             <option value="0" selected disabled>Select</option>
                                                             <option value="mile">Per Mile</option>
                                                             <option value="percentage">Percentage</option>
@@ -264,33 +264,32 @@
                                                 </div>
 
                                                 <div class="form-row">
-                                                    <div class="form-group col-md-2" id="dMile" style="display: none">
+                                                    <div class="form-group col-md-3 ml-6" id="dMile"
+                                                        style="display: none">
                                                         <label>Driver Pay Info</label>
-                                                        <div>
-                                                            <button id="driverpaybutton" data-toggle="modal"
-                                                                data-target="#deliveryPayInfo"
-                                                                class="btn btn-outline-dark waves-effect waves-light">Open
-                                                                Pay
-                                                                Info
-                                                            </button>
-                                                        </div>
+                                                        <a href="#driverPayInfoModal" class="btn btn-primary"
+                                                            data-toggle="modal" data-target="#driverPayInfoModal">Open
+                                                            Pay Info</a>
+
                                                     </div>
                                                     <div class="form-group col-md-2" id="dPercentage"
                                                         style="display: none">
                                                         <label>Percentage( % )</label>
                                                         <input type="text" class="form-control" id="dPercentage"
-                                                            placeholder="Currency">
+                                                            placeholder="Percentage">
                                                     </div>
                                                     <div class="form-group col-md-2" id="dHourly" style="display: none">
                                                         <label>Driver Pay Info</label>
-                                                        <input type="text" class="form-control" id="up_currency"
-                                                            placeholder="Currency">
+                                                        <a href="#driverPayInfoModal" class="btn btn-primary"
+                                                            data-toggle="modal" data-target="#driverPayInfoModal">Open
+                                                            Pay Info</a>
                                                     </div>
                                                     <div class="form-group col-md-2">
                                                         <label for="currency">Currency <span
                                                                 style="color:#ff0000">*</span></label>
                                                         <input type="text" class="form-control" id="currency"
-                                                            placeholder="Currency">
+                                                            placeholder="
+                                                            ">
                                                     </div>
                                                     <div class="form-group col-md-2">
                                                         <label for="recurrencePlus">Recurrence+</label>
@@ -525,33 +524,38 @@
                                                     <div class="form-group col-md-3">
                                                         <label for="up_rate">Rate <span style="color:#ff0000">*</span>
                                                         </label>
-                                                        <select class="form-control" onchange="changeRate(this.value)"
-                                                            id="up_rate">
+                                                        <select class="form-control"
+                                                            onchange="changeRateEdit(this.value)" id="up_rate">
                                                             <option value="0" selected disabled>Select</option>
                                                             <option value="mile">Per Mile</option>
                                                             <option value="percentage">Percentage</option>
                                                             <option value="hour">Hourly</option>
                                                         </select>
                                                     </div>
-                                                    <div class="form-group col-md-2" id="dMile">
-                                                        <label for="up_currency">Driver Pay Info</label>
-                                                        <input type="text" class="form-control" id="dMile"
-                                                            placeholder="Currency">
-                                                    </div>
-                                                    <div class="form-group col-md-2" id="dPercentage">
-                                                        <label for="up_currency">Percentage( % )</label>
-                                                        <input type="text" class="form-control" id="dPercentage"
-                                                            placeholder="Currency">
-                                                    </div>
-                                                    <div class="form-group col-md-2" id="dHourly">
-                                                        <label for="up_currency">Currency <span
-                                                                style="color:#ff0000">*</span></label>
-                                                        <input type="text" class="form-control" id="up_currency"
-                                                            placeholder="Currency">
-                                                    </div>
+
                                                 </div>
 
                                                 <div class="form-row">
+                                                    <div class="form-group col-md-3 ml-6" id="dMileEdit"
+                                                        style="display: none">
+                                                        <label>Driver Pay Info</label>
+                                                        <a href="#driverPayInfoEditModal" class="btn btn-primary"
+                                                            data-toggle="modal" data-target="#driverPayInfoEditModal">Open
+                                                            Pay Info</a>
+
+                                                    </div>
+                                                    <div class="form-group col-md-2" id="dPercentageEdit"
+                                                        style="display: none">
+                                                        <label>Percentage( % )</label>
+                                                        <input type="text" class="form-control" id="dPercentageEdit"
+                                                            placeholder="Percentage">
+                                                    </div>
+                                                    <div class="form-group col-md-2" id="dHourlyEdit" style="display: none">
+                                                        <label>Driver Pay Info</label>
+                                                        <a href="#driverPayInfoEditModal" class="btn btn-primary"
+                                                            data-toggle="modal" data-target="#driverPayInfoEditModal">Open
+                                                            Pay Info</a>
+                                                    </div>
                                                     <div class="form-group col-md-2">
                                                         <label for="up_currency">Currency <span
                                                                 style="color:#ff0000">*</span></label>
