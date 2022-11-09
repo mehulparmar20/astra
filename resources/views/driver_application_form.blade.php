@@ -130,7 +130,7 @@
                   
                     <div class="form-group col-md-4">
                         <label for="LicenseIssueState">License Issue State<span style="color:#ff0000">*</span></label>
-                        <select class="form-control" onchange="license_state_auto_fill()"  id="licence_state">
+                        <select class="form-control"   id="licence_state">
                                             <option value="">License Issue State</option>
                                             <option value="AL">AL</option>
                                             <option value="AK">AK</option>
@@ -191,7 +191,7 @@
                     </div>
                 </div>
                 <input type="button" name="next" class="next action-button action-button_first" value="Next"/>
-                <input type="submit" name="submit" class="submit action-button" value="Submit"/>
+                <input type="button" name="submit" class="submit action-button" value="Submit"/>
             </fieldset>
 
             <fieldset id="step2_wrap" class="formScroll">
@@ -201,41 +201,41 @@
                 <div class="form-row">
                     <div class="form-group col-md-4">
                         <label for="ApplicantName2">Applicant Name </label>
-                        <input type="text" class="form-control" id="ApplicantName2"  >
+                        <input type="text" class="form-control" id="ApplicantName2" disabled >
                     </div>
                     <div class="form-group col-md-4">
                         <label for="Telephone">Telephone <span style="color:#ff0000">*</span></label>
-                        <input type="text" class="form-control" id="Telephone" placeholder=" Enter Telephone " >
+                        <input type="text" class="form-control" id="TelephoneApplicant" placeholder=" Enter Telephone " >
                     </div>
                     <div class="form-group col-md-4">
                         <label for="Email">Email <span style="color:#ff0000">*</span></label>
-                        <input type="Email" class="form-control" id="Email" placeholder=" Enter Email " >
+                        <input type="Email" class="form-control" id="EmailApplicant" placeholder=" Enter Email " >
                     </div>
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-4">
                         <label for="DateOfBirth* :">Date Of Birth</label>
-                        <input type="Date" class="form-control" id="DateOfBirth"  >
+                        <input type="Date" class="form-control" id="DateOfBirthApplicant"  disabled>
                     </div>
                   
                     <div class="form-group col-md-4">
                         <label for="SocialSecurityNo">Social Security No</label>
-                        <input type="text" class="form-control" id="SocialSecurityNo"  >
+                        <input type="text" class="form-control" id="SocialSecurityNoApplicant" disabled >
                     </div>
                     <div class="form-group col-md-4">
                         <label for="Fax">Fax(If Applicable)</label>
-                        <input type="text" class="form-control" id="Fax" placeholder=" Enter Fax " >
+                        <input type="text" class="form-control" id="FaxApplicant" placeholder=" Enter Fax " >
                     </div>
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-3">
                         <label for="LicenseNo">License No.</label>
-                        <input type="text" class="form-control" id="LicenseNo"  >
+                        <input type="text" class="form-control" id="LicenseNoApplicant" disabled >
                     </div>
                   
                     <div class="form-group col-md-3">
                         <label for="LicenseIssueState">License Issue State</label>
-                        <input type="text" class="form-control" id="LicenseIssueState"  >
+                        <input type="text" class="form-control" id="LicenseIssueStateApplicant" disabled >
                     </div>
                     <div class="form-group col-md-3">
                         <label for="LicenseType">License Type<span style="color:#ff0000">*</span></label>
@@ -266,7 +266,7 @@
                     </div>
                     <div class="form-group col-md-2">
                         <label class="toggle">
-                          <input type="checkbox">
+                          <input type="checkbox" id="licence_suspend">
                           <span class="slider"></span>
                           <span class="labels" data-on="Yes" data-off="No"></span>
                         </label>
@@ -280,7 +280,7 @@
                     </div>
                     <div class="form-group col-md-2">
                         <label class="toggle">
-                          <input type="checkbox">
+                          <input type="checkbox" id="licence_denied">
                           <span class="slider"></span>
                           <span class="labels" data-on="Yes" data-off="No"></span>
                         </label>
@@ -290,16 +290,16 @@
                 <div class="form-row">
                     <div class="form-group col-md-4">
                         <label for="Address">Address</label>
-                        <input type="Date" class="form-control" id="Address"  placeholde="Address">
+                        <input type="Date" class="form-control" id="Address_applicant"  placeholde="Address">
                     </div>
                   
                     <div class="form-group col-md-4">
                         <label for="CityStateZip">City,State,Zip</label>
-                        <input type="text" class="form-control" id="CityStateZip" placeholde="City,State,Zip"  >
+                        <input type="text" class="form-control" id="CityStateZip_applicant" placeholde="City,State,Zip"  >
                     </div>
                     <div class="form-group col-md-4">
                         <label for="HowLong?">How Long?<span style="color:#ff0000">*</span></label>
-                        <input type="text" class="form-control" id="HowLong" placeholder=" How Long? " >
+                        <input type="text" class="form-control" id="resident_time" placeholder=" How Long? " >
                     </div>
                 </div>
                 <div class="form-row">
@@ -308,7 +308,7 @@
                     </div>
                     <div class="form-group col-md-2">
                         <label class="toggle">
-                          <input type="checkbox">
+                          <input type="checkbox" id="legal_right">
                           <span class="slider"></span>
                           <span class="labels" data-on="Yes" data-off="No"></span>
                         </label>
@@ -320,7 +320,7 @@
                     </div>
                     <div class="form-group col-md-2">
                         <label class="toggle">
-                          <input type="checkbox">
+                          <input type="checkbox" id="leage_proof">
                           <span class="slider"></span>
                           <span class="labels" data-on="Yes" data-off="No"></span>
                         </label>
@@ -331,23 +331,23 @@
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <label for="Name">Name<span style="color:#ff0000">*</span></label>
-                        <input type="text" class="form-control" id="Name"  placeholde="Name">
+                        <input type="text" class="form-control" id="emergency_contact_name"  placeholde="Name">
                     </div>
                   
                     <div class="form-group col-md-6">
                         <label for="Relation">Relation<span style="color:#ff0000">*</span></label>
-                        <input type="text" class="form-control" id="Relation" placeholde="Relation"  >
+                        <input type="text" class="form-control" id="emergency_contact_relation" placeholde="Relation"  >
                     </div>
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <label for="Address2">Address<span style="color:#ff0000">*</span></label>
-                        <input type="text" class="form-control" id="Address2"  placeholde="Address">
+                        <input type="text" class="form-control" id="emergency_contact_Address"  placeholde="Address">
                     </div>
                   
                     <div class="form-group col-md-6">
                         <label for="ContactNumber">Contact Number<span style="color:#ff0000">*</span></label>
-                        <input type="text" class="form-control" id="ContactNumber" placeholde="Contact Number"  >
+                        <input type="text" class="form-control" id="emergency_contact_Number" placeholde="Contact Number"  >
                     </div>
                 </div>
                 <h2 class="fs-title">Employment Information</h2>
@@ -358,17 +358,17 @@
                   </div>
                   <div class="form-group col-md-2">
                     <label class="toggle">
-                    <input type="checkbox">
+                    <input type="checkbox" id="company_employee">
                     <span class="slider"></span>
                     <span class="labels" data-on="Yes" data-off="No"></span>
                   </div>
                   <div class="form-group col-md-3">
                     <label for="From">From<span style="color:#ff0000">*</span></label>
-                    <input type="date" class="form-control" id="From" >
+                    <input type="date" class="form-control" id="company_employee_from" >
                   </div>
                   <div class="form-group col-md-3">
                       <label for="To">To<span style="color:#ff0000">*</span></label>
-                      <input type="date" class="form-control" id="To" >
+                      <input type="date" class="form-control" id="company_employee_to" >
                   </div>
                 </div>
                 <div class="form-row">
@@ -378,7 +378,7 @@
                     </div>
                     <div class="form-group col-md-6">
                         <label for="From">Reason for leaving?<span style="color:#ff0000">*</span></label>
-                        <input type="text" class="form-control" id="From" placeholder="Reason">
+                        <input type="text" class="form-control" id="company_employee_leave_reason" placeholder="Reason">
                     </div>
                 </div>
 
@@ -388,7 +388,7 @@
                     </div>
                     <div class="form-group col-md-2">
                       <label class="toggle">
-                        <input type="checkbox">
+                        <input type="checkbox" id="employment_status">
                         <span class="slider"></span>
                         <span class="labels" data-on="Yes" data-off="No"></span>
                     </div>
@@ -396,7 +396,7 @@
                     <label for="lastEmploymentDate">If not, date left last employment:?</label>
                     </div>
                     <div class="form-group col-md-3">
-                        <input type="date" class="form-control" id="To" >
+                        <input type="date" class="form-control" id="last_employee" >
                     </div>
                 </div>
 
@@ -406,7 +406,7 @@
                     </div>
                     <div class="form-group col-md-2">
                       <label class="toggle">
-                        <input type="checkbox">
+                        <input type="checkbox" id="bond_status">
                         <span class="slider"></span>
                         <span class="labels" data-on="Yes" data-off="No"></span>
                     </div>
@@ -414,7 +414,7 @@
                     <label for="lastEmploymentDate">If Yes, Name of bonding company:?</label>
                     </div>
                     <div class="form-group col-md-3">
-                        <input type="text" class="form-control" id="To" >
+                        <input type="text" class="form-control" id="bond_company_name" >
                     </div>
                 </div>
 
@@ -424,7 +424,7 @@
                     </div>
                     <div class="form-group col-md-2">
                       <label class="toggle">
-                        <input type="checkbox">
+                        <input type="checkbox" id="felony_status">
                         <span class="slider"></span>
                         <span class="labels" data-on="Yes" data-off="No"></span>
                     </div>
@@ -432,7 +432,7 @@
                     <label for="lastEmploymentDate">If Yes, explain fully on a separate sheet:?</label>
                     </div>
                     <div class="form-group col-md-3">
-                        <input type="text" class="form-control" id="To" >
+                        <input type="text" class="form-control" id="felony_reason" >
                     </div>
                 </div>
 
@@ -442,7 +442,7 @@
                   </div>
                   <div class="form-group col-md-2">
                       <label class="toggle">
-                        <input type="checkbox">
+                        <input type="checkbox" id="Conviction_status">
                         <span class="slider"></span>
                         <span class="labels" data-on="Yes" data-off="No"></span>
                   </div>
@@ -450,7 +450,7 @@
                    <label for="lastEmploymentDate">If Yes, please explain:</label>
                   </div>
                   <div class="form-group col-md-3">
-                      <input type="text" class="form-control" id="To" >
+                      <input type="text" class="form-control" id="Conviction_reason" >
                   </div>
                 </div>
                 
@@ -465,15 +465,15 @@
                 <div class="form-row">
                   <div class="form-group col-md-6">
                    <label for="Grade">Highest Grade Completed: 1 2 3 4 5 6 7 8 9 10 11 12 College: 1 2 3 4 Higher:<span style="color:#ff0000">*</span></label>
-                    <input type="text" class="form-control" id="Grade" placeholder="Highest Grade" >
+                    <input type="text" class="form-control" id="school_grade" placeholder="Highest Grade" >
                   </div>
                   <div class="form-group col-md-3">
                    <label for="Attended">Last School Attended::</label>
-                    <input type="text" class="form-control" id="Attended" placeholder="Last School Attended" >
+                    <input type="text" class="form-control" id="last_school" placeholder="Last School Attended" >
                   </div>
                   <div class="form-group col-md-3">
                    <label for="CityState">City, State:</label>
-                    <input type="text" class="form-control" id="CityState" placeholder="City, State">
+                    <input type="text" class="form-control" id="school_city_state" placeholder="City, State">
                   </div>
                 </div>
 
@@ -514,49 +514,49 @@
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label for="Employer">Employer<span style="color:#ff0000">*</span></label>
-                            <input type="text" class="form-control" id="Employer" placeholder=" Employer " >
+                            <input type="text" class="form-control" id="Employer1" placeholder=" Employer " >
                         </div>
                         <div class="form-group col-md-3">
                             <label for="EmployedFrom">Employed From<span style="color:#ff0000">*</span></label>
-                            <input type="date" class="form-control" id="EmployedFrom" placeholder=" Employed From " >
+                            <input type="date" class="form-control" id="EmployedFrom1" placeholder=" Employed From " >
                         </div>
                         <div class="form-group col-md-3">
                             <label for="EmployedTo">Employed To<span style="color:#ff0000">*</span></label>
-                            <input type="date" class="form-control" id="EmployedTo" placeholder=" Employed To " >
+                            <input type="date" class="form-control" id="EmployedTo1" placeholder=" Employed To " >
                         </div>
                     </div>
 
                     <div class="form-row">
                         <div class="form-group col-md-3">
                             <label for="Street">Street<span style="color:#ff0000">*</span></label>
-                            <input type="text" class="form-control" id="Street" placeholder=" Street " >
+                            <input type="text" class="form-control" id="EmployerStreet1" placeholder=" Street " >
                         </div>
                         <div class="form-group col-md-3">
                             <label for="CityStateZip">City,State,Zip<span style="color:#ff0000">*</span></label>
-                            <input type="text" class="form-control" id="CityStateZip" placeholder=" City,State,Zip " >
+                            <input type="text" class="form-control" id="EmployerCityStateZip1" placeholder=" City,State,Zip " >
                         </div>
                         <div class="form-group col-md-3">
                             <label for="Phone">Phone <span style="color:#ff0000">*</span></label>
-                            <input type="text" class="form-control" id="Phone" placeholder=" Phone" >
+                            <input type="text" class="form-control" id="EmployerPhone1" placeholder=" Phone" >
                         </div>
                         <div class="form-group col-md-3">
                             <label for="Supervisor">Supervisor<span style="color:#ff0000">*</span></label>
-                            <input type="text" class="form-control" id="Supervisor" placeholder="Supervisor" >
+                            <input type="text" class="form-control" id="EmployerSupervisor1" placeholder="Supervisor" >
                         </div>
                     </div>
 
                     <div class="form-row">
                         <div class="form-group col-md-4">
                             <label for="Position">Position<span style="color:#ff0000">*</span></label>
-                            <input type="text" class="form-control" id="Position" placeholder=" Position " >
+                            <input type="text" class="form-control" id="EmployerPosition1" placeholder=" Position " >
                         </div>
                         <div class="form-group col-md-4">
                             <label for="ReasonforLeaving ">Reason for Leaving <span style="color:#ff0000">*</span></label>
-                            <input type="text" class="form-control" id="ReasonforLeaving " placeholder="Reason for Leaving  " >
+                            <input type="text" class="form-control" id="EmployerReasonforLeaving1 " placeholder="Reason for Leaving  " >
                         </div>
                         <div class="form-group col-md-4">
                             <label for="Email ">Email  <span style="color:#ff0000">*</span></label>
-                            <input type="Email " class="form-control" id="Email " placeholder=" Email " >
+                            <input type="Email " class="form-control" id="EmployerEmail1 " placeholder=" Email " >
                         </div>
                        
                     </div>
@@ -566,7 +566,7 @@
                         </div>
                         <div class="form-group col-md-2">
                             <label class="toggle">
-                            <input type="checkbox">
+                            <input type="checkbox" id="fmcsrs_status1">
                             <span class="slider"></span>
                             <span class="labels" data-on="Yes" data-off="No"></span>
                             </label>
@@ -578,7 +578,7 @@
                         </div>
                         <div class="form-group col-md-2">
                             <label class="toggle">
-                            <input type="checkbox">
+                            <input type="checkbox" id="drug_alcohol_test1">
                             <span class="slider"></span>
                             <span class="labels" data-on="Yes" data-off="No"></span>
                             </label>
@@ -605,34 +605,34 @@
                     <div class="form-row">
                         <div class="form-group col-md-3">
                             <label for="Street2">Street<span style="color:#ff0000">*</span></label>
-                            <input type="text" class="form-control" id="Street2" placeholder=" Street " >
+                            <input type="text" class="form-control" id="EmployerStreet2" placeholder=" Street " >
                         </div>
                         <div class="form-group col-md-3">
                             <label for="CityStateZip2">City,State,Zip<span style="color:#ff0000">*</span></label>
-                            <input type="text" class="form-control" id="CityStateZip2" placeholder=" City,State,Zip " >
+                            <input type="text" class="form-control" id="EmployerCityStateZip2" placeholder=" City,State,Zip " >
                         </div>
                         <div class="form-group col-md-3">
                             <label for="Phone2">Phone <span style="color:#ff0000">*</span></label>
-                            <input type="text" class="form-control" id="Phone2" placeholder=" Phone" >
+                            <input type="text" class="form-control" id="EmployerPhone2" placeholder=" Phone" >
                         </div>
                         <div class="form-group col-md-3">
                             <label for="Supervisor2">Supervisor<span style="color:#ff0000">*</span></label>
-                            <input type="text" class="form-control" id="Supervisor2" placeholder="Supervisor" >
+                            <input type="text" class="form-control" id="EmployerSupervisor2" placeholder="Supervisor" >
                         </div>
                     </div>
 
                     <div class="form-row">
                         <div class="form-group col-md-4">
                             <label for="Position2">Position<span style="color:#ff0000">*</span></label>
-                            <input type="text" class="form-control" id="Position2" placeholder=" Position " >
+                            <input type="text" class="form-control" id="EmployerPosition2" placeholder=" Position " >
                         </div>
                         <div class="form-group col-md-4">
                             <label for="ReasonforLeaving2">Reason for Leaving <span style="color:#ff0000">*</span></label>
-                            <input type="text" class="form-control" id="ReasonforLeaving2" placeholder="Reason for Leaving  " >
+                            <input type="text" class="form-control" id="EmployerReasonforLeaving2" placeholder="Reason for Leaving  " >
                         </div>
                         <div class="form-group col-md-4">
                             <label for="Email2">Email  <span style="color:#ff0000">*</span></label>
-                            <input type="Email " class="form-control" id="Email2" placeholder=" Email " >
+                            <input type="Email " class="form-control" id="EmployerEmail2" placeholder=" Email " >
                         </div>
                     </div>
                     <div class="form-row">
@@ -641,7 +641,7 @@
                         </div>
                         <div class="form-group col-md-2">
                             <label class="toggle">
-                            <input type="checkbox">
+                            <input type="checkbox" id="fmcsrs_status2">
                             <span class="slider"></span>
                             <span class="labels" data-on="Yes" data-off="No"></span>
                             </label>
@@ -653,7 +653,7 @@
                         </div>
                         <div class="form-group col-md-2">
                             <label class="toggle">
-                            <input type="checkbox">
+                            <input type="checkbox" id="drug_alcohol_test2">
                             <span class="slider"></span>
                             <span class="labels" data-on="Yes" data-off="No"></span>
                             </label>
@@ -665,49 +665,49 @@
                     <div class="form-row" >
                         <div class="form-group col-md-6">
                             <label for="Employer3">Employer<span style="color:#ff0000">*</span></label>
-                            <input type="text" class="form-control" id="Employer3" placeholder=" Employer " >
+                            <input type="text" class="form-control" id="EmployerEmployer3" placeholder=" Employer " >
                         </div>
                         <div class="form-group col-md-3">
                             <label for="EmployedFrom3">Employed From<span style="color:#ff0000">*</span></label>
-                            <input type="date" class="form-control" id="EmployedFrom3" placeholder=" Employed From " >
+                            <input type="date" class="form-control" id="EmployerEmployedFrom3" placeholder=" Employed From " >
                         </div>
                         <div class="form-group col-md-3">
                             <label for="EmployedTo">Employed To<span style="color:#ff0000">*</span></label>
-                            <input type="date" class="form-control" id="EmployedTo" placeholder=" Employed To " >
+                            <input type="date" class="form-control" id="EmployerEmployedTo" placeholder=" Employed To " >
                         </div>
                     </div>
 
                     <div class="form-row">
                         <div class="form-group col-md-3">
                             <label for="Street3">Street<span style="color:#ff0000">*</span></label>
-                            <input type="text" class="form-control" id="Street3" placeholder=" Street " >
+                            <input type="text" class="form-control" id="EmployerStreet3" placeholder=" Street " >
                         </div>
                         <div class="form-group col-md-3">
                             <label for="CityStateZip3">City,State,Zip<span style="color:#ff0000">*</span></label>
-                            <input type="text" class="form-control" id="CityStateZip3" placeholder=" City,State,Zip " >
+                            <input type="text" class="form-control" id="EmployerCityStateZip3" placeholder=" City,State,Zip " >
                         </div>
                         <div class="form-group col-md-3">
                             <label for="Phone3">Phone <span style="color:#ff0000">*</span></label>
-                            <input type="text" class="form-control" id="Phone3" placeholder=" Phone" >
+                            <input type="text" class="form-control" id="EmployerPhone3" placeholder=" Phone" >
                         </div>
                         <div class="form-group col-md-3">
                             <label for="Supervisor3">Supervisor<span style="color:#ff0000">*</span></label>
-                            <input type="text" class="form-control" id="Supervisor3" placeholder="Supervisor" >
+                            <input type="text" class="form-control" id="EmployerSupervisor3" placeholder="Supervisor" >
                         </div>
                     </div>
 
                     <div class="form-row">
                         <div class="form-group col-md-4">
                             <label for="Position3">Position<span style="color:#ff0000">*</span></label>
-                            <input type="text" class="form-control" id="Position3" placeholder=" Position " >
+                            <input type="text" class="form-control" id="EmployerPosition3" placeholder=" Position " >
                         </div>
                         <div class="form-group col-md-4">
                             <label for="ReasonforLeaving3">Reason for Leaving <span style="color:#ff0000">*</span></label>
-                            <input type="text" class="form-control" id="ReasonforLeaving3" placeholder="Reason for Leaving  " >
+                            <input type="text" class="form-control" id="EmployerReasonforLeaving3" placeholder="Reason for Leaving  " >
                         </div>
                         <div class="form-group col-md-4">
                             <label for="Email3">Email  <span style="color:#ff0000">*</span></label>
-                            <input type="Email " class="form-control" id="Email3" placeholder=" Email " >
+                            <input type="Email " class="form-control" id="EmployerEmail3" placeholder=" Email " >
                         </div>
                     </div>
                     <div class="form-row">
@@ -716,7 +716,7 @@
                         </div>
                         <div class="form-group col-md-2">
                             <label class="toggle">
-                            <input type="checkbox">
+                            <input type="checkbox" id="fmcsrs_status3">
                             <span class="slider"></span>
                             <span class="labels" data-on="Yes" data-off="No"></span>
                             </label>
@@ -728,7 +728,7 @@
                         </div>
                         <div class="form-group col-md-2">
                             <label class="toggle">
-                            <input type="checkbox">
+                            <input type="checkbox" id="drug_alcohol_test3">
                             <span class="slider"></span>
                             <span class="labels" data-on="Yes" data-off="No"></span>
                             </label>
@@ -740,49 +740,49 @@
                     <div class="form-row" >
                         <div class="form-group col-md-6">
                             <label for="Employer4">Employer<span style="color:#ff0000">*</span></label>
-                            <input type="text" class="form-control" id="Employer4" placeholder=" Employer " >
+                            <input type="text" class="form-control" id="EmployerEmployer4" placeholder=" Employer " >
                         </div>
                         <div class="form-group col-md-3">
                             <label for="EmployedFrom4">Employed From<span style="color:#ff0000">*</span></label>
-                            <input type="date" class="form-control" id="EmployedFrom4" placeholder=" Employed From " >
+                            <input type="date" class="form-control" id="EmployerEmployedFrom4" placeholder=" Employed From " >
                         </div>
                         <div class="form-group col-md-3">
                             <label for="EmployedTo4">Employed To<span style="color:#ff0000">*</span></label>
-                            <input type="date" class="form-control" id="EmployedTo4" placeholder=" Employed To " >
+                            <input type="date" class="form-control" id="EmployerEmployedTo4" placeholder=" Employed To " >
                         </div>
                     </div>
 
                     <div class="form-row">
                         <div class="form-group col-md-3">
                             <label for="Street4">Street<span style="color:#ff0000">*</span></label>
-                            <input type="text" class="form-control" id="Stree4" placeholder=" Street " >
+                            <input type="text" class="form-control" id="EmployerStree4" placeholder=" Street " >
                         </div>
                         <div class="form-group col-md-3">
                             <label for="CityStateZip4">City,State,Zip<span style="color:#ff0000">*</span></label>
-                            <input type="text" class="form-control" id="CityStateZip4" placeholder=" City,State,Zip " >
+                            <input type="text" class="form-control" id="EmployerCityStateZip4" placeholder=" City,State,Zip " >
                         </div>
                         <div class="form-group col-md-3">
                             <label for="Phone4">Phone <span style="color:#ff0000">*</span></label>
-                            <input type="text" class="form-control" id="Phone4" placeholder=" Phone" >
+                            <input type="text" class="form-control" id="EmployerPhone4" placeholder=" Phone" >
                         </div>
                         <div class="form-group col-md-3">
                             <label for="Supervisor4">Supervisor<span style="color:#ff0000">*</span></label>
-                            <input type="text" class="form-control" id="Supervisor4" placeholder="Supervisor" >
+                            <input type="text" class="form-control" id="EmployerSupervisor4" placeholder="Supervisor" >
                         </div>
                     </div>
 
                     <div class="form-row">
                         <div class="form-group col-md-4">
                             <label for="Position4">Position<span style="color:#ff0000">*</span></label>
-                            <input type="text" class="form-control" id="Position4" placeholder=" Position " >
+                            <input type="text" class="form-control" id="EmployerPosition4" placeholder=" Position " >
                         </div>
                         <div class="form-group col-md-4">
                             <label for="ReasonforLeaving4">Reason for Leaving <span style="color:#ff0000">*</span></label>
-                            <input type="text" class="form-control" id="ReasonforLeaving4" placeholder="Reason for Leaving  " >
+                            <input type="text" class="form-control" id="EmployerReasonforLeaving4" placeholder="Reason for Leaving  " >
                         </div>
                         <div class="form-group col-md-4">
                             <label for="Email4">Email  <span style="color:#ff0000">*</span></label>
-                            <input type="Email " class="form-control" id="Email4" placeholder=" Email " >
+                            <input type="Email " class="form-control" id="EmployerEmail4" placeholder=" Email " >
                         </div>
                     </div>
                     <div class="form-row">
@@ -791,7 +791,7 @@
                         </div>
                         <div class="form-group col-md-2">
                             <label class="toggle">
-                            <input type="checkbox">
+                            <input type="checkbox" id="fmcsrs_status4">
                             <span class="slider"></span>
                             <span class="labels" data-on="Yes" data-off="No"></span>
                             </label>
@@ -803,7 +803,7 @@
                         </div>
                         <div class="form-group col-md-2">
                             <label class="toggle">
-                            <input type="checkbox">
+                            <input type="checkbox" id="drug_alcohol_test4">
                             <span class="slider"></span>
                             <span class="labels" data-on="Yes" data-off="No"></span>
                             </label>
@@ -1884,10 +1884,11 @@ $(document).ready(function(){
             inputElement: document.getElementById('demo-multiple-select-input')
         });
     });
+
 //form submit
 $('.submit').click(function(){
     var base_path = $("#url").val();
-
+//form1
     var ApplicantName =$('#ApplicantName').val();
     var DateOfApplication =$('#DateOfApplication').val();
     var DateOfBirthApplication =$('#DateOfBirthApplication').val();
@@ -1896,12 +1897,115 @@ $('.submit').click(function(){
     var LicenseExpDate =$('#LicenseExpDate').val();
     var licence_state =$('#licence_state').val();
 
+//form2
+    var TelephoneApplicant =$('#TelephoneApplicant').val();
+    var EmailApplicant =$('#EmailApplicant').val();
+    var FaxApplicant =$('#FaxApplicant').val();
+    var licence_type =$('#licence_type').val();
+    var LicenseExpDate =$('#LicenseExpDate').val();
+
+    if ($('#licence_suspend').is(':checked')) {
+        var licence_suspend = 'Yes';
+    } else {
+        var licence_suspend = 'No';
+    }
+
+    if ($('#licence_denied').is(':checked')) {
+        var licence_denied = 'Yes';
+    } else {
+        var licence_denied = 'No';
+    }
+
+    // var licence_suspend =$('#licence_suspend').val();
+    // var licence_denied =$('#licence_denied').val();
+    
+    var Address_applicant =$('#Address_applicant').val();
+    var CityStateZip_applicant =$('#CityStateZip_applicant').val();
+    var legal_right =$('#legal_right').val();
+    var leage_proof =$('#leage_proof').val();
+
+    var emergency_contact_name =$('#emergency_contact_name').val();
+    var emergency_contact_relation =$('#emergency_contact_relation').val();
+    var emergency_contact_Address =$('#emergency_contact_Address').val();
+    var emergency_contact_Number =$('#emergency_contact_Number').val();
+
+    var company_employee =$('#company_employee').val();
+    var company_employee_from =$('#company_employee_from').val();
+    var company_employee_to =$('#company_employee_to').val();
+    var company_employee_leave_reason =$('#company_employee_leave_reason').val();
+
+    var employment_status =$('#employment_status').val();
+    var last_employee =$('#last_employee').val();
+    var bond_status =$('#bond_status').val();
+    var bond_company_name =$('#bond_company_name').val();
+    var felony_status =$('#felony_status').val();
+    var felony_reason =$('#felony_reason').val();
+    var Conviction_status =$('#Conviction_status').val();
+    var Conviction_reason =$('#Conviction_reason').val();
+
+    var school_grade =$('#school_grade').val();
+    var last_school =$('#last_school').val();
+    var school_city_state =$('#school_city_state').val();
+//form3
+    var Employer1  =$('#Employer1').val();
+    var EmployedFrom1 =$('#EmployedFrom1').val();
+    var EmployedTo1 =$('#EmployedTo1').val();
+    var EmployerStreet1 =$('#EmployerStreet1').val();
+    var EmployerCityStateZip1=$('#EmployerCityStateZip1').val();
+    var EmployerPhone1=$('#EmployerPhone1').val();
+    var EmployerSupervisor1=$('#EmployerSupervisor1').val();
+    var EmployerPosition1=$('#EmployerPosition1').val();
+    var EmployerReasonforLeaving1=$('#EmployerReasonforLeaving1').val();
+    var EmployerEmail1 =$('#EmployerEmail1').val();
+    var fmcsrs_status1 =$('#fmcsrs_status1').val();
+    var drug_alcohol_test1 =$('#drug_alcohol_test1').val();
+
+    var Employer2  =$('#Employer2').val();
+    var EmployedFrom2 =$('#EmployedFrom2').val();
+    var EmployedTo2 =$('#EmployedTo2').val();
+    var EmployerStreet2 =$('#EmployerStreet2').val();
+    var EmployerCityStateZip2=$('#EmployerCityStateZip2').val();
+    var EmployerPhone2=$('#EmployerPhone2').val();
+    var EmployerSupervisor2=$('#EmployerSupervisor2').val();
+    var EmployerPosition2=$('#EmployerPosition2').val();
+    var EmployerReasonforLeaving2=$('#EmployerReasonforLeaving2').val();
+    var EmployerEmail2=$('#EmployerEmail2').val();
+    var fmcsrs_status2=$('#fmcsrs_status2').val();
+    var drug_alcohol_test2=$('#drug_alcohol_test2').val();
+
+    var Employer3=$('#Employer3').val();
+    var EmployedFrom3=$('#EmployedFrom3').val();
+    var EmployedTo3=$('#EmployedTo3').val();
+    var EmployerStreet3=$('#EmployerStreet3').val();
+    var EmployerCityStateZip3=$('#EmployerCityStateZip3').val();
+    var EmployerPhone3=$('#EmployerPhone3').val();
+    var EmployerSupervisor3=$('#EmployerSupervisor3').val();
+    var EmployerPosition3=$('#EmployerPosition3').val();
+    var EmployerReasonforLeaving3=$('#EmployerReasonforLeaving3').val();
+    var EmployerEmail3=$('#EmployerEmail3').val();
+    var fmcsrs_status3=$('#fmcsrs_status3').val();
+    var drug_alcohol_test3=$('#drug_alcohol_test3').val();
+
+    var Employer4=$('#Employer4').val();
+    var EmployedFrom4=$('#EmployedFrom4').val();
+    var EmployedTo4=$('#EmployedTo4').val();
+    var EmployerStreet4=$('#EmployerStreet4').val();
+    var EmployerCityStateZip4=$('#EmployerCityStateZip4').val();
+    var EmployerPhone4=$('#EmployerPhone4').val();
+    var EmployerSupervisor4=$('#EmployerSupervisor4').val();
+    var EmployerPosition4=$('#EmployerPosition4').val();
+    var EmployerReasonforLeaving4=$('#EmployerReasonforLeaving4').val();
+    var EmployerEmail4=$('#EmployerEmail4').val();
+    var fmcsrs_status4=$('#fmcsrs_status4').val();
+    var drug_alcohol_test4=$('#drug_alcohol_test4').val();
+
     $.ajax({
-                url: base_path+"/admin/addApplicationForm",
+                url: "/admin/addApplicationForm",
                 type: "POST",
                 datatype:"JSON",
                 data: {
                     _token: $("#_tokenApplicationForm").val(),
+                    //form1
                     ApplicantName: ApplicantName,
                     DateOfApplication: DateOfApplication,
                     DateOfBirthApplication: DateOfBirthApplication,
@@ -1909,6 +2013,108 @@ $('.submit').click(function(){
                     LicenseNo: LicenseNo,
                     LicenseExpDate: LicenseExpDate,
                     licence_state: licence_state,
+                    //form2
+                    ApplicantName2: ApplicantName2,
+                    TelephoneApplicant: TelephoneApplicant,
+                    EmailApplicant: EmailApplicant,
+                    DateOfBirthApplicant: DateOfBirthApplicant,
+                    SocialSecurityNoApplicant: SocialSecurityNoApplicant,
+                    FaxApplicant: FaxApplicant,
+                    LicenseNoApplicant: LicenseNoApplicant,
+                    LicenseIssueStateApplicant: LicenseIssueStateApplicant,
+                    licence_type: licence_type,
+                    LicenseExpDate: LicenseExpDate,
+                    licence_suspend: licence_suspend,
+                    licence_denied: licence_denied,
+                    Address_applicant: Address_applicant,
+                    CityStateZip_applicant: CityStateZip_applicant,
+                    legal_right: legal_right,
+                    leage_proof: leage_proof,
+                    emergency_contact_name: emergency_contact_name,
+                    emergency_contact_relation: emergency_contact_relation,
+                    emergency_contact_Address: emergency_contact_Address,
+                    emergency_contact_Number: emergency_contact_Number,
+                    company_employee: company_employee,
+                    company_employee_from: company_employee_from,
+                    company_employee_to: company_employee_to,
+                    company_employee_leave_reason: company_employee_leave_reason,
+                    employment_status:employment_status,
+                    last_employee:last_employee,
+                    bond_status:bond_status,
+                    bond_company_name:bond_company_name,
+                    felony_status:felony_status,
+                    felony_reason:felony_reason,
+                    Conviction_status:Conviction_status,
+                    Conviction_reason:Conviction_reason,
+                    school_grade:school_grade,
+                    last_school:last_school,
+                    school_city_state:school_city_state,
+                    //form3
+                    Employer1:Employer1,
+                    EmployedFrom1:EmployedFrom1,
+                    EmployedTo1:EmployedTo1,
+                    EmployerStreet1:EmployerStreet1,
+                    EmployerCityStateZip1:EmployerCityStateZip1,
+                    EmployerPhone1:EmployerPhone1,
+                    EmployerSupervisor1:EmployerSupervisor1,
+                    EmployerPosition1:EmployerPosition1,
+                    EmployerReasonforLeaving1:EmployerReasonforLeaving1,
+                    EmployerEmail1:EmployerEmail1,
+                    fmcsrs_status1:fmcsrs_status1,
+                    drug_alcohol_test1:drug_alcohol_test1,
+
+                    Employer2:Employer2,
+                    EmployedFrom2:EmployedFrom2,
+                    EmployedTo2:EmployedTo2,
+                    EmployerStreet2:EmployerStreet2,
+                    EmployerCityStateZip2:EmployerCityStateZip2,
+                    EmployerPhone2:EmployerPhone2,
+                    EmployerSupervisor2:EmployerSupervisor2,
+                    EmployerPosition2:EmployerPosition2,
+                    EmployerReasonforLeaving1:EmployerReasonforLeaving1,
+                    EmployerEmail1:EmployerEmail1,
+                    fmcsrs_status1:fmcsrs_status1,
+                    drug_alcohol_test1:drug_alcohol_test1,
+
+                    Employer1:Employer1,
+                    EmployedFrom1:EmployedFrom1,
+                    EmployedTo1:EmployedTo1,
+                    EmployerStreet1:EmployerStreet1,
+                    EmployerCityStateZip1:EmployerCityStateZip1,
+                    EmployerPhone1:EmployerPhone1,
+                    EmployerSupervisor1:EmployerSupervisor1,
+                    EmployerPosition1:EmployerPosition1,
+                    EmployerReasonforLeaving1:EmployerReasonforLeaving1,
+                    EmployerEmail1:EmployerEmail1,
+                    fmcsrs_status1:fmcsrs_status1,
+                    drug_alcohol_test1:drug_alcohol_test1,
+
+                    Employer1:Employer1,
+                    EmployedFrom1:EmployedFrom1,
+                    EmployedTo1:EmployedTo1,
+                    EmployerStreet1:EmployerStreet1,
+                    EmployerCityStateZip1:EmployerCityStateZip1,
+                    EmployerPhone1:EmployerPhone1,
+                    EmployerSupervisor1:EmployerSupervisor1,
+                    EmployerPosition1:EmployerPosition1,
+                    EmployerReasonforLeaving1:EmployerReasonforLeaving1,
+                    EmployerEmail1:EmployerEmail1,
+                    fmcsrs_status1:fmcsrs_status1,
+                    drug_alcohol_test1:drug_alcohol_test1,
+                    :,
+                    :,
+                    :,
+                    :,
+                    :,
+                    :,
+                    :,
+                    :,
+                    :,
+                    :,
+                    :,
+                    :,
+                    :,
+                    :,
                 },
                 cache: false,
                 success: function(Result){
