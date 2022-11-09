@@ -23,6 +23,7 @@ class DriverController extends Controller
         
         return response()->json($driver);  
     }
+    
 //add by Reena
     public function addDriverData(Request $request){
         request()->validate([
