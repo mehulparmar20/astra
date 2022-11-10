@@ -1725,7 +1725,7 @@ $(document).ready(function(){
 
 //form4
 
-    if( $('#checkDeclaration').is(':checked') ){
+    if( $('#employee_gap').is(':checked') ){
        
         $('#declarationRadio').hide();
         $('#declaratuionOption1_1').hide();
@@ -1741,9 +1741,9 @@ $(document).ready(function(){
         $('#declaratuionOption1_2').show();
         $('#declaratuionOption1_1').show();
     }
-    $("#checkDeclaration").click(function(){
+    $("#employee_gap").click(function(){
         
-        if( $('#checkDeclaration').is(':checked') ){
+        if( $('#employee_gap').is(':checked') ){
             $("#step4_wrap").removeClass("formScroll")
             $('#declarationRadio').hide();
             $('#declaratuionOption1_1').hide();
@@ -1791,7 +1791,7 @@ $(document).ready(function(){
 
 //form5
 
-    if( $('#checkAccident').is(':checked') ){
+    if( $('#show_accidents').is(':checked') ){
         $('#AccidentRadio').hide();
         $('#AccidentOption1').hide();
         $('#AccidentOption2').hide();
@@ -1802,9 +1802,9 @@ $(document).ready(function(){
         $('#AccidentOption1').show();
     }
 
-    $("#checkAccident").click(function(){
+    $("#show_accidents").click(function(){
         
-        if( $('#checkAccident').is(':checked') ){
+        if( $('#show_accidents').is(':checked') ){
             $("#step5_wrap").removeClass("formScroll")
             $('#AccidentRadio').hide();
             $('#AccidentOption1').hide();
@@ -1836,7 +1836,7 @@ $(document).ready(function(){
     });
     
 //form6
-    if( $('#checkTraffic ').is(':checked') ){
+    if( $('#show_traffic ').is(':checked') ){
         $('#TrafficRadio').hide();
         $('#TrafficOption1').hide();
         $('#TrafficOption2').hide();
@@ -1847,9 +1847,9 @@ $(document).ready(function(){
         $('#TrafficOption1').show();
     }
 
-    $("#checkTraffic").click(function(){
+    $("#show_traffic").click(function(){
         
-        if( $('#checkTraffic').is(':checked') ){
+        if( $('#show_traffic').is(':checked') ){
             $("#step6_wrap").removeClass("formScroll")
             $('#TrafficRadio').hide();
             $('#TrafficOption1').hide();
@@ -2426,10 +2426,9 @@ $('.submit').click(function(){
                 success: function(Result){
                     console.log(Result);
                     if(Result){
-                        alert("Currency added successfully.");
-                        // $("#plusCurrencyModal").modal("hide");
+                        swal("Good job!", "Application submited successfully", "success")
                     }else{
-                        alert("Currency not added successfully.");
+                        swal("Try Again!", "Application not submited successfully", "error")
                     }
                 }
             });
