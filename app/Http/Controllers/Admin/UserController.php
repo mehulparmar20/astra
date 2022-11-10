@@ -470,4 +470,9 @@ class UserController extends Controller
         ]);
     }
 
+    public function user(Request $request){
+        // $user = User::all();
+        $user = User::where('id', '!=', Auth::user()->id)->get();
+        return view('user.UserPriviligiesEdit');  
+    }
 }

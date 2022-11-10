@@ -3212,7 +3212,7 @@
 @media (min-width: 992px) {
     .horizontal.dark-mode .app-sidebar.horizontal-main {
         border-bottom: 1px solid var(--dark-border) !important;
-        box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3);
+        /* box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3); */
         background-color: var(--dark-body) !important;
     }
 

@@ -36,6 +36,7 @@ Auth::routes();
 
 Route::get('admin/dashboard', [AuthController::class, 'dashboard']);
 Route::get('admin/user', [UserController::class, 'getAllUser']);
+Route::get('admin/user-privilege', [UserController::class, 'user']);
 Route::post('admin/add-user', [UserController::class, 'addUsers']);
 Route::post('admin/edit-user', [UserController::class, 'userEditDetails']);
 Route::post('admin/delete-user', [UserController::class, 'deleteUser'])->name('user.delete');

@@ -1,5 +1,5 @@
 <!-- app-Header -->
-            <div class="app-header header sticky" style="padding: 0;">
+            <div class="app-header header sticky" style="padding: 0; background-color:#FBFBFB">
                 <div class="container-fluid main-container">
                     <div class="d-flex">
                         <a aria-label="Hide Sidebar" class="app-sidebar__toggle" data-bs-toggle="sidebar" href="#"></a>
