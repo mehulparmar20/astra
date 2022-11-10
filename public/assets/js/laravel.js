@@ -50,7 +50,7 @@ function createRows(response) {
                 "<td data-field='ext'>" + ext + "</td>" +
                 "<td data-field='tollfree'>" + tollfree + "</td>" +
                 "<td data-field='fax'>" + fax + "</td>" +
-                "<td style='width: 100px'><a class='btn btn-primary fs-14 text-white edit-icn edit1' id='editmodel' title='Edit'><i class='fe fe-edit'></i></a><a class='delete1 mt-2 btn btn-danger fs-14 text-white delete-icn' data-id="+ email +" title='Delete'><i class='fe fe-delete'></i></a></td></tr>";
+                "<td style='width: 100px'><a class='text-white edit-icn edit1' id='editmodel' title='Edit'><i class='fe fe-edit'></i></a><a class='delete1 text-white delete-icn' data-id="+ email +" title='Delete'><i class='fe fe-delete'></i></a></td></tr>";
             $("#table1").append(tr_str);
         }
     } else {
@@ -586,6 +586,14 @@ $('.driverDataUpdate').click(function(){
     var updateTerminationDate=$('#up_terminationDate').val();
     var updateDriverBalance=$('#up_driverBalance').val();
     var updateInternalNotes=$('#up_internalNotes').val();
+    var updateloadedMiles = $('#loadedmilesedit').val();   
+    var updateemptyMiles = $('#emptymilesedit').val();   
+    var updatepickRate = $('#pickrateedit').val();   
+    var updatepickStart = $('#pickstartedit').val();   
+    var updatedropRate = $('#droprateedit').val();   
+    var updatedropStart = $('#dropstartedit').val();   
+    var updatedriverTarp = $('#driverTarpedit').val();   
+    var updatepercentage = $('#dPercentageEdit').val();
 
     $.ajax({
         url:base_path+"/admin/updateDriver" ,
@@ -624,7 +632,15 @@ $('.driverDataUpdate').click(function(){
             //updateRecurrenceMin: updateRecurrenceMin,
             updateTerminationDate: updateTerminationDate,
             updateDriverBalance: updateDriverBalance,
-            updateInternalNotes: updateInternalNotes
+            updateInternalNotes: updateInternalNotes,
+            driverLoadedMile: updateloadedMiles,
+            driverEmptyMile: updateemptyMiles,
+            pickupRate: updatepickRate,
+            pickupAfter: updatepickStart,
+            dropRate: updatedropRate,
+            dropAfter: updatedropStart,
+            tarp: updatedriverTarp,
+            percentage: updatepercentage,
         } ,
         success: function(response){
             var responsenew = JSON.parse(response);
@@ -694,63 +710,6 @@ $(".deleteDriver").on("click", function(){
 })
     });
 
-    // $(".deleteDriver").on("click", function(){
-	// 	var rowToDelete = $(this).closest('tr');
-	// 	var email = $(this).attr("data-id");
-	// 	swal.fire({
-    //         title: "Delete?",
-    //         text: "Please ensure and then confirm!",
-    //         type: "warning",
-    //         showCancelButton: !0,
-    //         confirmButtonText: "Yes, delete it!",
-    //         cancelButtonText: "No, cancel!",
-    //         reverseButtons: !0
-    //     }).then(function (e) {
-
-    //     if (e.value === true) {
-	// 	$.ajax({ 
-	// 		type: 'POST',
-	// 	  url: base_path+"/admin/deleteDriver",
-	// 	  data: {com_id: 4,driverEmail: email},
-	// 	  success: function (resp) {
-	// 		if (resp.success === true) {
-	// 			swal.fire("Done!", resp.message, "success");
-	// 			rowToDelete.remove();
-	// 		} else {
-	// 			swal.fire("Error!", resp.message, "error");
-	// 		}
-	// 	},
-	// 	error: function (resp) {
-	// 		swal.fire("Error!", 'Something went wrong.', "error");
-	// 	}
-	// 	});
-	// 	} else {
-	// 		e.dismiss;
-	// 	}
-
-	// }, function (dismiss) {
-	// 	return false;
-	// })
-	// });
-// <!-- -------------------------------------------------------------------------end of delete driver ajax ------------------------------------------------------------------------- -->    
-// <!-- ------------------------------------------------------------------------- add driver  ------------------------------------------------------------------------- -->
-
-// <!-- -------------------------------------------------------------------------end of Get driver ajax ------------------------------------------------------------------------- -->    
-// <!-- -------------------------------------------------------------------------delete driver ajax ------------------------------------------------------------------------- -->    
-// $(".delete").on("click", function(){
-//         var email = $(this).attr("data-id");
-//         // console.log(email);
-//         $.ajax({ 
-//           url: base_path+"/admin/delete-user",
-//           data: {userEmail: email},
-//           type: 'post',
-//           success: function(result){
-//             console.log('success');
-//             // $('#userModal').hide().show();
-//             location.reload();
-//           }
-//         });
-//     });
 // <!-- -------------------------------------------------------------------------end of delete driver ajax ------------------------------------------------------------------------- -->    
 
 // <!-- ------------------------------------------------------------------------- add driver  ------------------------------------------------------------------------- -->
@@ -787,6 +746,14 @@ $(".deleteDriver").on("click", function(){
             var terminationDate = $('#terminationDate').val();
             var driverBalance = $('#driverBalance').val();
             var internalNotes = $('#internalNotes').val();   
+            var loadedMiles = $('#loadedmiles').val();   
+            var emptyMiles = $('#emptymiles').val();   
+            var pickRate = $('#pickrate').val();   
+            var pickStart = $('#pickstart').val();   
+            var dropRate = $('#droprate').val();   
+            var dropStart = $('#dropstart').val();   
+            var driverTarp = $('#driverTarp').val();   
+            var percentage = $('#dPercentage').val();   
             var tr_length1 = $("#driverModal").find("tr").length;
             console.log(tr_length1);
             var tr_str4 = "<tr data-id=" + tr_length1 + ">" +
@@ -843,6 +810,14 @@ $(".deleteDriver").on("click", function(){
               terminationDate: terminationDate,
               driverBalance: driverBalance,
               internalNotes: internalNotes,
+              driverLoadedMile: loadedMiles,
+              driverEmptyMile: emptyMiles,
+              pickupRate: pickRate,
+              pickupAfter: pickStart,
+              dropRate: dropRate,
+              dropAfter: dropStart,
+              tarp: driverTarp,
+              percentage: percentage,
             },
             cache: false,
             success: function(resp){

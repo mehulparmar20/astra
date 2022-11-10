@@ -296,5 +296,6 @@
             @include('user') 
             @include('add_user') 
             @include('edit_user') 
+            @include('driver_pay_info') 
         
 			
