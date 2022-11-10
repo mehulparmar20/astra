@@ -323,6 +323,14 @@ function drivermodal()
                     $('#up_terminationDate').val(dataResult.terminationDate);
                     $('#up_driverBalance').val(dataResult.driverBalance);
                     $('#up_internalNotes').val(dataResult.internalNotes);
+                    $('#dPercentageEdit').val(dataResult.percentage);
+                    $('#loadedmilesedit').val(dataResult.driverLoadedMile);
+                    $('#emptymilesedit').val(dataResult.driverEmptyMile);
+                    $('#pickrateedit').val(dataResult.pickupRate);
+                    $('#pickstartedit').val(dataResult.pickupAfter);
+                    $('#droprateedit').val(dataResult.dropRate);
+                    $('#dropstartedit').val(dataResult.dropAfter);
+                    $('#driverTarpedit').val(dataResult.tarp);
                    
                     $('#editDriverModal').modal('show'); 
                 }

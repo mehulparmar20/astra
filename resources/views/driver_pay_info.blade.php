@@ -9,7 +9,7 @@
 
                 <!-- Modal Header -->
                 <div class="modal-header">
-                    <h4 class="modal-title">Delivery Pay Info</h4>
+                    <h4 class="modal-title">Driver Pay Info</h4>
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                 </div>
 
@@ -121,7 +121,7 @@
 
                 <!-- Modal Header -->
                 <div class="modal-header">
-                    <h4 class="modal-title">Delivery Pay Info</h4>
+                    <h4 class="modal-title">Driver Pay Info</h4>
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                 </div>
 
