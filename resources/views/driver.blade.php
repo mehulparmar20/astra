@@ -109,7 +109,8 @@
                                                             placeholder=" Name">
                                                     </div>
                                                     <div class="form-group col-md-6">
-                                                        <label for="username">Username</label>
+                                                        <label for="username">Username<span
+                                                                style="color:#ff0000">*</span></label>
                                                         <input type="text" class="form-control" id="username"
                                                             placeholder="username">
                                                     </div>
@@ -125,13 +126,13 @@
                                                     <div class="form-group col-md-3">
                                                         <label for="telephone">Telephone <span
                                                                 style="color:#ff0000">*</span></label>
-                                                        <input type="text" class="form-control" id="telephone"
-                                                            placeholder="Telephone">
+                                                        <input type="text" class="form-control telephone4"
+                                                            id="telephone" placeholder="Telephone">
                                                     </div>
                                                     <div class="form-group col-md-3">
                                                         <label for="altTelephone">Alt - Tel #</label>
-                                                        <input type="text" class="form-control" id="altTelephone"
-                                                            placeholder="Telephone">
+                                                        <input type="text" class="form-control telephone4"
+                                                            id="altTelephone" placeholder="Telephone">
                                                     </div>
                                                 </div>
 
@@ -164,8 +165,11 @@
                                                     </div>
                                                     <div class="form-group col-md-4">
                                                         <label for="status">Status</label>
-                                                        <input type="text" class="form-control" id="status"
-                                                            placeholder="Status">
+                                                        <select class="form-control" id="status">
+                                                            <option value="Active">Active</option>
+                                                            <option value="Inactive">Inactive</option>
+                                                            <option value="Not Available">Not Available</option>
+                                                        </select>
                                                     </div>
                                                 </div>
 
@@ -199,8 +203,60 @@
                                                     <div class="form-group col-md-4">
                                                         <label for="licenseIssueState">License Issue State <span
                                                                 style="color:#ff0000">*</span> </label>
-                                                        <input type="text" class="form-control" id="licenseIssueState"
-                                                            placeholder="License Issue State">
+                                                        <input list="statelist" class="form-control"
+                                                            placeholder="--Select--" id="licenseIssueState"
+                                                            name="driverLicenseIssue" autocomplete="off">
+                                                        <datalist id="statelist">
+                                                            <option value="AL">
+                                                            <option value="AK">
+                                                            <option value="AR">
+                                                            <option value="CA">
+                                                            <option value="CO">
+                                                            <option value="CT">
+                                                            <option value="DE">
+                                                            <option value="FL">
+                                                            <option value="GA">
+                                                            <option value="HI">
+                                                            <option value="ID">
+                                                            <option value="IL">
+                                                            <option value="IN">
+                                                            <option value="IA">
+                                                            <option value="KS">
+                                                            <option value="KY">
+                                                            <option value="LA">
+                                                            <option value="ME">
+                                                            <option value="MD">
+                                                            <option value="MA">
+                                                            <option value="MI">
+                                                            <option value="MN">
+                                                            <option value="MS">
+                                                            <option value="MO">
+                                                            <option value="MT">
+                                                            <option value="NE">
+                                                            <option value="NV">
+                                                            <option value="NH">
+                                                            <option value="NJ">
+                                                            <option value="NM">
+                                                            <option value="NY">
+                                                            <option value="NC">
+                                                            <option value="ND">
+                                                            <option value="OH">
+                                                            <option value="OK">
+                                                            <option value="OR">
+                                                            <option value="PA">
+                                                            <option value="RI">
+                                                            <option value="SC">
+                                                            <option value="SD">
+                                                            <option value="TN">
+                                                            <option value="TX">
+                                                            <option value="UT">
+                                                            <option value="VT">
+                                                            <option value="VA">
+                                                            <option value="WA">
+                                                            <option value="WV">
+                                                            <option value="WI">
+                                                            <option value="WY">
+                                                        </datalist>
                                                     </div>
                                                     <div class="form-group col-md-4">
                                                         <label for="licenseExpDate">License Exp. Date <span
@@ -278,7 +334,8 @@
                                                         <input type="text" class="form-control" id="dPercentage"
                                                             placeholder="Percentage">
                                                     </div>
-                                                    <div class="form-group col-md-2 col-md-3 ml-6" id="dHourly" style="display: none">
+                                                    <div class="form-group col-md-2 col-md-3 ml-6" id="dHourly"
+                                                        style="display: none">
                                                         <label>Driver Pay Info</label>
                                                         <a href="#driverPayInfoModal" class="btn btn-primary"
                                                             data-toggle="modal" data-target="#driverPayInfoModal">Open
@@ -383,7 +440,8 @@
                                                             placeholder=" Name">
                                                     </div>
                                                     <div class="form-group col-md-6">
-                                                        <label for="up_username">Username</label>
+                                                        <label for="up_username">Username<span
+                                                                style="color:#ff0000">*</span></label>
                                                         <input type="text" class="form-control" id="up_username"
                                                             placeholder="username">
                                                     </div>
@@ -399,19 +457,20 @@
                                                     <div class="form-group col-md-3">
                                                         <label for="up_telephone">Telephone <span
                                                                 style="color:#ff0000">*</span></label>
-                                                        <input type="text" class="form-control" id="up_telephone"
-                                                            placeholder="Telephone">
+                                                        <input type="text" class="form-control telephone4"
+                                                            id="up_telephone" placeholder="Telephone">
                                                     </div>
                                                     <div class="form-group col-md-3">
                                                         <label for="up_altTelephone">Alt - Tel #</label>
-                                                        <input type="text" class="form-control" id="up_altTelephone"
-                                                            placeholder="Telephone">
+                                                        <input type="text" class="form-control telephone4"
+                                                            id="up_altTelephone" placeholder="Telephone">
                                                     </div>
                                                 </div>
 
                                                 <div class="form-row">
                                                     <div class="form-group col-md-6">
-                                                        <label for="up_email">Email</label>
+                                                        <label for="up_email">Email<span
+                                                                style="color:#ff0000">*</span></label>
                                                         <input type="email" class="form-control" id="up_email"
                                                             placeholder="Email">
                                                     </div>
@@ -436,8 +495,11 @@
                                                     </div>
                                                     <div class="form-group col-md-4">
                                                         <label for="up_status">Status</label>
-                                                        <input type="text" class="form-control" id="up_status"
-                                                            placeholder="Status">
+                                                        <select class="form-control" id="up_status">
+                                                            <option value="Active">Active</option>
+                                                            <option value="Inactive">Inactive</option>
+                                                            <option value="Not Available">Not Available</option>
+                                                        </select>
                                                     </div>
                                                 </div>
 
@@ -471,8 +533,60 @@
                                                     <div class="form-group col-md-4">
                                                         <label for="up_licenseIssueState">License Issue State <span
                                                                 style="color:#ff0000">*</span> </label>
-                                                        <input type="text" class="form-control"
-                                                            id="up_licenseIssueState" placeholder="License Issue State">
+                                                        <input list="statelist" class="form-control"
+                                                            placeholder="--Select--" id="up_licenseIssueState"
+                                                            name="driverLicenseIssue" autocomplete="off">
+                                                        <datalist id="statelist">
+                                                            <option value="AL">
+                                                            <option value="AK">
+                                                            <option value="AR">
+                                                            <option value="CA">
+                                                            <option value="CO">
+                                                            <option value="CT">
+                                                            <option value="DE">
+                                                            <option value="FL">
+                                                            <option value="GA">
+                                                            <option value="HI">
+                                                            <option value="ID">
+                                                            <option value="IL">
+                                                            <option value="IN">
+                                                            <option value="IA">
+                                                            <option value="KS">
+                                                            <option value="KY">
+                                                            <option value="LA">
+                                                            <option value="ME">
+                                                            <option value="MD">
+                                                            <option value="MA">
+                                                            <option value="MI">
+                                                            <option value="MN">
+                                                            <option value="MS">
+                                                            <option value="MO">
+                                                            <option value="MT">
+                                                            <option value="NE">
+                                                            <option value="NV">
+                                                            <option value="NH">
+                                                            <option value="NJ">
+                                                            <option value="NM">
+                                                            <option value="NY">
+                                                            <option value="NC">
+                                                            <option value="ND">
+                                                            <option value="OH">
+                                                            <option value="OK">
+                                                            <option value="OR">
+                                                            <option value="PA">
+                                                            <option value="RI">
+                                                            <option value="SC">
+                                                            <option value="SD">
+                                                            <option value="TN">
+                                                            <option value="TX">
+                                                            <option value="UT">
+                                                            <option value="VT">
+                                                            <option value="VA">
+                                                            <option value="WA">
+                                                            <option value="WV">
+                                                            <option value="WI">
+                                                            <option value="WY">
+                                                        </datalist>
                                                     </div>
                                                     <div class="form-group col-md-4">
                                                         <label for="up_licenseExpDate">License Exp. Date <span
@@ -540,7 +654,8 @@
                                                         style="display: none">
                                                         <label>Driver Pay Info</label>
                                                         <a href="#driverPayInfoEditModal" class="btn btn-primary"
-                                                            data-toggle="modal" data-target="#driverPayInfoEditModal">Open
+                                                            data-toggle="modal"
+                                                            data-target="#driverPayInfoEditModal">Open
                                                             Pay Info</a>
 
                                                     </div>
@@ -550,10 +665,12 @@
                                                         <input type="text" class="form-control" id="dPercentageEdit"
                                                             placeholder="Percentage">
                                                     </div>
-                                                    <div class="form-group col-md-2" id="dHourlyEdit" style="display: none">
+                                                    <div class="form-group col-md-3 ml-6" id="dHourlyEdit"
+                                                        style="display: none">
                                                         <label>Driver Pay Info</label>
                                                         <a href="#driverPayInfoEditModal" class="btn btn-primary"
-                                                            data-toggle="modal" data-target="#driverPayInfoEditModal">Open
+                                                            data-toggle="modal"
+                                                            data-target="#driverPayInfoEditModal">Open
                                                             Pay Info</a>
                                                     </div>
                                                     <div class="form-group col-md-2">

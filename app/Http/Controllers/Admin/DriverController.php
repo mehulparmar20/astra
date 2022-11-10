@@ -40,7 +40,6 @@ class DriverController extends Controller
             'licenseExpDate' => 'required',
             'rate' => 'required',
             'companyID' => 'required|unique:driver,companyID',
-            // 'currency' => 'required',
         ]);
         try{
 
@@ -622,14 +621,14 @@ class DriverController extends Controller
        $driverArrayUp[$v]['internalNote']=$request->updateInternalNotes;
     //    $driverArrayUp[$v]['driverName']=$request->updateDriverName;
     //    $driverArrayUp[$v]['driverName']=$request->updateDriverName;
-      $driverArrayUp[$v]['driverLoadedMile'] = $request->driverLoadedMile;
-      $driverArrayUp[$v]['driverEmptyMile'] = $request->driverEmptyMile;
-      $driverArrayUp[$v]['pickupRate'] = $request->pickupRate;
-      $driverArrayUp[$v]['pickupAfter'] = $request->pickupAfter;
-      $driverArrayUp[$v]['dropRate'] = $request->dropRate;
-      $driverArrayUp[$v]['dropAfter'] = $request->dropAfter;
-      $driverArrayUp[$v]['tarp'] = $request->tarp;
-      $driverArrayUp[$v]['percentage'] = $request->percentage;
+      $driverArrayUp[$v]['driverLoadedMile'] = (int)$request->driverLoadedMile;
+      $driverArrayUp[$v]['driverEmptyMile'] = (int)$request->driverEmptyMile;
+      $driverArrayUp[$v]['pickupRate'] = (int)$request->pickupRate;
+      $driverArrayUp[$v]['pickupAfter'] = (int)$request->pickupAfter;
+      $driverArrayUp[$v]['dropRate'] = (int)$request->dropRate;
+      $driverArrayUp[$v]['dropAfter'] = (int)$request->dropAfter;
+      $driverArrayUp[$v]['tarp'] = (int)$request->tarp;
+      $driverArrayUp[$v]['percentage'] = (int)$request->percentage;
 
        $resultUp->driver = $driverArrayUp;
        if($resultUp->save()){
