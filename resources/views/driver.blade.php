@@ -278,7 +278,7 @@
                                                         <input type="text" class="form-control" id="dPercentage"
                                                             placeholder="Percentage">
                                                     </div>
-                                                    <div class="form-group col-md-2" id="dHourly" style="display: none">
+                                                    <div class="form-group col-md-2 col-md-3 ml-6" id="dHourly" style="display: none">
                                                         <label>Driver Pay Info</label>
                                                         <a href="#driverPayInfoModal" class="btn btn-primary"
                                                             data-toggle="modal" data-target="#driverPayInfoModal">Open
