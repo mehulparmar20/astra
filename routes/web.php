@@ -25,6 +25,9 @@ Route::get('/table', function () {
         return view('table');
     });
 
+    Route::get('/admin/driverApplication2', function () {
+        return view('driver_application_form2');
+    });
     Route::get('/admin/driverApplication', function () {
         return view('driver_application_form');
     });

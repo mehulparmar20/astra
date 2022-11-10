@@ -10,7 +10,10 @@
 html {
     height: 100%;
     background: #eee;
+    /* scroll-behavior: smooth; */
 }
+
+
 
 body {
     font-family: Montserrat, arial, verdana;
@@ -359,3 +362,8 @@ body {
     overflow: auto;
     /* text-align:justify; */
 }
+
+/* @media only screen and (max-width: 600px) {
+  #progressbar li {
+   
+  } */
