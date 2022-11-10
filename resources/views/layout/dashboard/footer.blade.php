@@ -29,35 +29,9 @@
 
   <script src="{{URL::to('/')}}/static/js/checkbox.js"></script>
 
- <!-- jQuery -->
- <!-- <script src="{{URL::to('/')}}/static/js/jquery-3.2.1.min.js"></script>
-  <script src="{{URL::to('/')}}/static/js/jquery-migrate-3.0.0.min.js"></script>
-
-  <script src="{{URL::to('/')}}/static/js/custom.js"></script> -->
-
-
-<!-- JQUERY JS -->
-
-    <script src="{{URL::to('/')}}/assets/js/
-    
-    
-    
-    
-    
-    
-
-    
-    "></script>
-
-
-<script src="{{URL::to('/')}}/assets/js/
-
-"></script>
-
-
 <!-- BOOTSTRAP JS -->
 <script src="{{URL::to('/')}}/assets/plugins/bootstrap/js/popper.min.js"></script>
-<script src="{{URL::to('/')}}/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+
 
 <!-- SIDE-MENU JS-->
 <!-- <script src="{{URL::to('/')}}/assets/plugins/sidemenu/sidemenu.js"></script> -->
