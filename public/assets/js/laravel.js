@@ -60,7 +60,7 @@ function createRows(response) {
 
         $("#table1").append(tr_str);
     }
-    modelopenfun();
+    usermodal();
 }
 
 (function() {
@@ -486,185 +486,186 @@ $(document).ready(function() {
 
            
         // });
+        drivermodal();
     }
 
 // <!--------------------------------------------------------------------------- end of Get driver ajax ------------------------------------------------------------------------- -->    
 // <!---------------------------------------------------------------------------  edit driver  ------------------------------------------------------------------------- -->
-$('.edit').click(function(){
-        var id = $(this).attr("data-id");
-        var result = $(this).attr("data-id").split('&');
-        var com_id=result[0];
-        var email=result[1];
+// $('.edit').click(function(){
+//         var id = $(this).attr("data-id");
+//         var result = $(this).attr("data-id").split('&');
+//         var com_id=result[0];
+//         var email=result[1];
       
-       // console.log(result);
-        $.ajax({
-            url: base_path+"/admin/editDriver",
-            type: "POST",
-            datatype:"JSON",
-            data: {_token: $("#drivercsrf").val(),com_id: com_id,email: email},
-            cache: false,
-            success: function(dataResult){
-                //console.log(dataResult);
-                $('#up_comId').val(com_id);
-                $('#emaildriver').val(email);
-                $('#up_name').val(dataResult.driverName);
-                $('#up_username').val(dataResult.driverUsername);
-                $('#up_address').val(dataResult.driverAddress);
-                $('#up_telephone').val(dataResult.driverTelephone);
-                $('#up_altTelephone').val(dataResult.driverAlt);
-                $('#up_email').val(dataResult.driverEmail);
-                // $('#up_password').val(dataResult.driverPassword);
-                $('#up_location').val(dataResult.driverLocation);
-                $('#up_zip').val(dataResult.driverZip);
-                $('#up_status').val(dataResult.driverStatus);
-                $('#up_socialSecurityNo').val(dataResult.driverSocial);
-                $('#up_dateOfBirth').val(dataResult.dateOfbirth);
-                $('#up_dateOfHire').val(dataResult.dateOfHire);
-                $('#up_licenseNo').val(dataResult.driverLicenseNo);
-                $('#up_licenseIssueState').val(dataResult.driverLicenseIssue);
-                $('#up_licenseExpDate').val(dataResult.driverLicenseExp);
-                $('#up_lastMedical').val(dataResult.driverLastMedical);
-                $('#up_nextMedical').val(dataResult.driverNextMedical);
-                $('#up_lastDrugTest').val(dataResult.driverLastDrugTest);
-                $('#up_nextDrugTest').val(dataResult.driverNextDrugTest);
-                $('#up_passportExpiry').val(dataResult.passportExpiry);
-                $('#up_fastCardExpiry').val(dataResult.fastCardExpiry);
-                $('#up_hazmatExpiry').val(dataResult.hazmatExpiry);
-                $('#up_rate').val(dataResult.rate);
-                $('#up_currency').val(dataResult.currency);
-               // $('#up_recurrencePlus').val(dataResult._id);
-               // $('#up_recurrenceMin').val(dataResult._id);
-                $('#up_terminationDate').val(dataResult.terminationDate);
-                $('#up_driverBalance').val(dataResult.driverBalance);
-                $('#up_internalNotes').val(dataResult.internalNotes);
+//        // console.log(result);
+//         $.ajax({
+//             url: base_path+"/admin/editDriver",
+//             type: "POST",
+//             datatype:"JSON",
+//             data: {_token: $("#drivercsrf").val(),com_id: com_id,email: email},
+//             cache: false,
+//             success: function(dataResult){
+//                 //console.log(dataResult);
+//                 $('#up_comId').val(com_id);
+//                 $('#emaildriver').val(email);
+//                 $('#up_name').val(dataResult.driverName);
+//                 $('#up_username').val(dataResult.driverUsername);
+//                 $('#up_address').val(dataResult.driverAddress);
+//                 $('#up_telephone').val(dataResult.driverTelephone);
+//                 $('#up_altTelephone').val(dataResult.driverAlt);
+//                 $('#up_email').val(dataResult.driverEmail);
+//                 // $('#up_password').val(dataResult.driverPassword);
+//                 $('#up_location').val(dataResult.driverLocation);
+//                 $('#up_zip').val(dataResult.driverZip);
+//                 $('#up_status').val(dataResult.driverStatus);
+//                 $('#up_socialSecurityNo').val(dataResult.driverSocial);
+//                 $('#up_dateOfBirth').val(dataResult.dateOfbirth);
+//                 $('#up_dateOfHire').val(dataResult.dateOfHire);
+//                 $('#up_licenseNo').val(dataResult.driverLicenseNo);
+//                 $('#up_licenseIssueState').val(dataResult.driverLicenseIssue);
+//                 $('#up_licenseExpDate').val(dataResult.driverLicenseExp);
+//                 $('#up_lastMedical').val(dataResult.driverLastMedical);
+//                 $('#up_nextMedical').val(dataResult.driverNextMedical);
+//                 $('#up_lastDrugTest').val(dataResult.driverLastDrugTest);
+//                 $('#up_nextDrugTest').val(dataResult.driverNextDrugTest);
+//                 $('#up_passportExpiry').val(dataResult.passportExpiry);
+//                 $('#up_fastCardExpiry').val(dataResult.fastCardExpiry);
+//                 $('#up_hazmatExpiry').val(dataResult.hazmatExpiry);
+//                 $('#up_rate').val(dataResult.rate);
+//                 $('#up_currency').val(dataResult.currency);
+//                // $('#up_recurrencePlus').val(dataResult._id);
+//                // $('#up_recurrenceMin').val(dataResult._id);
+//                 $('#up_terminationDate').val(dataResult.terminationDate);
+//                 $('#up_driverBalance').val(dataResult.driverBalance);
+//                 $('#up_internalNotes').val(dataResult.internalNotes);
                
-                $('#editDriverModal').modal('show'); 
-            }
-        });
-    });
+//                 $('#editDriverModal').modal('show'); 
+//             }
+//         });
+//     });
 
 $('.editModalCloseButton').click(function(){
     $('#editDriverModal').modal('hide');
     $('#driverModal').modal('show');  
 });
 
-$('.driverDataUpdate').click(function(){
+// $('.driverDataUpdate').click(function(){
    
-    // var result = $(this).attr("data-id").split('&');
-    // var com_id=result[0];
-    // var email=result[1];
+//     // var result = $(this).attr("data-id").split('&');
+//     // var com_id=result[0];
+//     // var email=result[1];
 
-    var updateComId= $('#up_comId').val();
-    var updateEmailDriver= $('#emaildriver').val();
-    var updateDriverName= $('#up_name').val();
-    var updateDriverUsername=$('#up_username').val();
-    var updateDriverAddress=$('#up_address').val();
-    var updateDriverTelephone=$('#up_telephone').val();
-    var updateDriverAlt=$('#up_altTelephone').val();
-    var updateDriverEmail=$('#up_email').val();
-    var updateDriverPassword=$('#up_password').val();
-    var updateDriverLocation=$('#up_location').val();
-    var updateDriverZip=$('#up_zip').val();
-    var updateDriverStatus=$('#up_status').val();
-    var updateDriverSocial=$('#up_socialSecurityNo').val();
-    var updateDateOfbirth=$('#up_dateOfBirth').val();
-    var updateDateOfHire=$('#up_dateOfHire').val();
-    var updateDriverLicenseNo=$('#up_licenseNo').val();
-    var updateDriverLicenseIssue=$('#up_licenseIssueState').val();
-    var updateDriverLicenseExp=$('#up_licenseExpDate').val();
-    var updateDriverLastMedical=$('#up_lastMedical').val();
-    var updateDriverNextMedical=$('#up_nextMedical').val();
-    var updateDriverLastDrugTest=$('#up_lastDrugTest').val();
-    var updateDriverNextDrugTest=$('#up_nextDrugTest').val();
-    var updatePassportExpiry=$('#up_passportExpiry').val();
-    var updateFastCardExpiry=$('#up_fastCardExpiry').val();
-    var updateHazmatExpiry=$('#up_hazmatExpiry').val();
-    var updateRate=$('#up_rate').val();
-    var updateCurrency=$('#up_currency').val();
-    // var updateRecurrencePlus=$('#up_recurrencePlus').val();
-    // ver updateRecurrenceMin=$('#up_recurrenceMin').val();
-    var updateTerminationDate=$('#up_terminationDate').val();
-    var updateDriverBalance=$('#up_driverBalance').val();
-    var updateInternalNotes=$('#up_internalNotes').val();
-    var updateloadedMiles = $('#loadedmilesedit').val();   
-    var updateemptyMiles = $('#emptymilesedit').val();   
-    var updatepickRate = $('#pickrateedit').val();   
-    var updatepickStart = $('#pickstartedit').val();   
-    var updatedropRate = $('#droprateedit').val();   
-    var updatedropStart = $('#dropstartedit').val();   
-    var updatedriverTarp = $('#driverTarpedit').val();   
-    var updatepercentage = $('#dPercentageEdit').val();
+//     var updateComId= $('#up_comId').val();
+//     var updateEmailDriver= $('#emaildriver').val();
+//     var updateDriverName= $('#up_name').val();
+//     var updateDriverUsername=$('#up_username').val();
+//     var updateDriverAddress=$('#up_address').val();
+//     var updateDriverTelephone=$('#up_telephone').val();
+//     var updateDriverAlt=$('#up_altTelephone').val();
+//     var updateDriverEmail=$('#up_email').val();
+//     var updateDriverPassword=$('#up_password').val();
+//     var updateDriverLocation=$('#up_location').val();
+//     var updateDriverZip=$('#up_zip').val();
+//     var updateDriverStatus=$('#up_status').val();
+//     var updateDriverSocial=$('#up_socialSecurityNo').val();
+//     var updateDateOfbirth=$('#up_dateOfBirth').val();
+//     var updateDateOfHire=$('#up_dateOfHire').val();
+//     var updateDriverLicenseNo=$('#up_licenseNo').val();
+//     var updateDriverLicenseIssue=$('#up_licenseIssueState').val();
+//     var updateDriverLicenseExp=$('#up_licenseExpDate').val();
+//     var updateDriverLastMedical=$('#up_lastMedical').val();
+//     var updateDriverNextMedical=$('#up_nextMedical').val();
+//     var updateDriverLastDrugTest=$('#up_lastDrugTest').val();
+//     var updateDriverNextDrugTest=$('#up_nextDrugTest').val();
+//     var updatePassportExpiry=$('#up_passportExpiry').val();
+//     var updateFastCardExpiry=$('#up_fastCardExpiry').val();
+//     var updateHazmatExpiry=$('#up_hazmatExpiry').val();
+//     var updateRate=$('#up_rate').val();
+//     var updateCurrency=$('#up_currency').val();
+//     // var updateRecurrencePlus=$('#up_recurrencePlus').val();
+//     // ver updateRecurrenceMin=$('#up_recurrenceMin').val();
+//     var updateTerminationDate=$('#up_terminationDate').val();
+//     var updateDriverBalance=$('#up_driverBalance').val();
+//     var updateInternalNotes=$('#up_internalNotes').val();
+//     var updateloadedMiles = $('#loadedmilesedit').val();   
+//     var updateemptyMiles = $('#emptymilesedit').val();   
+//     var updatepickRate = $('#pickrateedit').val();   
+//     var updatepickStart = $('#pickstartedit').val();   
+//     var updatedropRate = $('#droprateedit').val();   
+//     var updatedropStart = $('#dropstartedit').val();   
+//     var updatedriverTarp = $('#driverTarpedit').val();   
+//     var updatepercentage = $('#dPercentageEdit').val();
 
-    $.ajax({
-        url:base_path+"/admin/updateDriver" ,
-        type:'post',
-        data:{
-            _token:$("#drivercsrf").val(),
-            updateComId:updateComId,
-            updateEmailDriver:updateEmailDriver,
-            updateDriverName: updateDriverName,
-            updateDriverUsername: updateDriverUsername,
-            updateDriverAddress: updateDriverAddress,
-            updateDriverTelephone: updateDriverTelephone,
-            updateDriverAlt: updateDriverAlt,
-            updateDriverEmail: updateDriverEmail,
-            updateDriverPassword: updateDriverPassword,
-            updateDriverLocation: updateDriverLocation,
-            updateDriverLocation: updateDriverLocation,
-            updateDriverZip: updateDriverZip,
-            updateDriverStatus: updateDriverStatus,
-            updateDriverSocial: updateDriverSocial,
-            updateDateOfbirth: updateDateOfbirth,
-            updateDateOfHire: updateDateOfHire,
-            updateDriverLicenseNo: updateDriverLicenseNo,
-            updateDriverLicenseIssue: updateDriverLicenseIssue,
-            updateDriverLicenseExp: updateDriverLicenseExp,
-            updateDriverLastMedical: updateDriverLastMedical,
-            updateDriverNextMedical: updateDriverNextMedical,
-            updateDriverLastDrugTest: updateDriverLastDrugTest,
-            updateDriverNextDrugTest: updateDriverNextDrugTest,
-            updatePassportExpiry: updatePassportExpiry,
-            updateFastCardExpiry: updateFastCardExpiry,
-            updateHazmatExpiry: updateHazmatExpiry,
-            updateRate: updateRate,
-            updateCurrency: updateCurrency,
-            //updateRecurrencePlus: updateRecurrencePlus,
-            //updateRecurrenceMin: updateRecurrenceMin,
-            updateTerminationDate: updateTerminationDate,
-            updateDriverBalance: updateDriverBalance,
-            updateInternalNotes: updateInternalNotes,
-            driverLoadedMile: updateloadedMiles,
-            driverEmptyMile: updateemptyMiles,
-            pickupRate: updatepickRate,
-            pickupAfter: updatepickStart,
-            dropRate: updatedropRate,
-            dropAfter: updatedropStart,
-            tarp: updatedriverTarp,
-            percentage: updatepercentage,
-        } ,
-        success: function(response){
-            var responsenew = JSON.parse(response);
-            if(responsenew.statusCode===200){
-                swal.fire("Done!", responsenew.message, "success");
-                $.ajax({
-                    type: "GET",
-                    url: base_path+"/admin/driver",
-                    success: function(text) {
-                        createDriverRows(text);
-                        response = text;
-                    }
-                });
-                // $("#table1").append(tr_str3);
-                // $('#userEditModal').modal('toggle');			
-            }
-          },
-          error: function(data){
-            $.each( data.responseJSON.errors, function( key, value ) {
-                swal.fire("Error!", value[0], "error"); 
-            });
-        }            
-    });
-}); 
+//     $.ajax({
+//         url:base_path+"/admin/updateDriver" ,
+//         type:'post',
+//         data:{
+//             _token:$("#drivercsrf").val(),
+//             updateComId:updateComId,
+//             updateEmailDriver:updateEmailDriver,
+//             updateDriverName: updateDriverName,
+//             updateDriverUsername: updateDriverUsername,
+//             updateDriverAddress: updateDriverAddress,
+//             updateDriverTelephone: updateDriverTelephone,
+//             updateDriverAlt: updateDriverAlt,
+//             updateDriverEmail: updateDriverEmail,
+//             updateDriverPassword: updateDriverPassword,
+//             updateDriverLocation: updateDriverLocation,
+//             updateDriverLocation: updateDriverLocation,
+//             updateDriverZip: updateDriverZip,
+//             updateDriverStatus: updateDriverStatus,
+//             updateDriverSocial: updateDriverSocial,
+//             updateDateOfbirth: updateDateOfbirth,
+//             updateDateOfHire: updateDateOfHire,
+//             updateDriverLicenseNo: updateDriverLicenseNo,
+//             updateDriverLicenseIssue: updateDriverLicenseIssue,
+//             updateDriverLicenseExp: updateDriverLicenseExp,
+//             updateDriverLastMedical: updateDriverLastMedical,
+//             updateDriverNextMedical: updateDriverNextMedical,
+//             updateDriverLastDrugTest: updateDriverLastDrugTest,
+//             updateDriverNextDrugTest: updateDriverNextDrugTest,
+//             updatePassportExpiry: updatePassportExpiry,
+//             updateFastCardExpiry: updateFastCardExpiry,
+//             updateHazmatExpiry: updateHazmatExpiry,
+//             updateRate: updateRate,
+//             updateCurrency: updateCurrency,
+//             //updateRecurrencePlus: updateRecurrencePlus,
+//             //updateRecurrenceMin: updateRecurrenceMin,
+//             updateTerminationDate: updateTerminationDate,
+//             updateDriverBalance: updateDriverBalance,
+//             updateInternalNotes: updateInternalNotes,
+//             driverLoadedMile: updateloadedMiles,
+//             driverEmptyMile: updateemptyMiles,
+//             pickupRate: updatepickRate,
+//             pickupAfter: updatepickStart,
+//             dropRate: updatedropRate,
+//             dropAfter: updatedropStart,
+//             tarp: updatedriverTarp,
+//             percentage: updatepercentage,
+//         } ,
+//         success: function(response){
+//             var responsenew = JSON.parse(response);
+//             if(responsenew.statusCode===200){
+//                 swal.fire("Done!", responsenew.message, "success");
+//                 $.ajax({
+//                     type: "GET",
+//                     url: base_path+"/admin/driver",
+//                     success: function(text) {
+//                         createDriverRows(text);
+//                         response = text;
+//                     }
+//                 });
+//                 // $("#table1").append(tr_str3);
+//                 // $('#userEditModal').modal('toggle');			
+//             }
+//           },
+//           error: function(data){
+//             $.each( data.responseJSON.errors, function( key, value ) {
+//                 swal.fire("Error!", value[0], "error"); 
+//             });
+//         }            
+//     });
+// }); 
 // <!--------------------------------------------------------------------------- end of edit driver  --------------------------------------------------------------------------->
 // <!--------------------------------------------------------------------------- delete driver ajax --------------------------------------------------------------------------->    
 $(".deleteDriver").on("click", function(){
