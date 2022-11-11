@@ -15,6 +15,9 @@ use Carbon\Carbon;
 use DB;
 use HasFactory;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Twilio\Rest\Client;
+use Exception;
+
 class DriverController extends Controller
 {
 //add by Reena
@@ -377,6 +380,42 @@ class DriverController extends Controller
             'success' => $success,
             'message' => $message,
         ]);
+        
+    }  
+
+    public function setupDriver(Request $request){
+        request()->validate([
+            'driverName' => 'required',
+            'sentVia' => 'required',
+        ]);
+        $driverName=$request->driverName;
+        $sentVia=$request->sentVia;
+        $driverEmail=$request->driverEmail;
+        $driverNo=$request->driverNo;
+        
+        if($sentVia=="email"){
+            $a = \Mail::send('email.setup-driver', ['driverName'=>$driverName], function($message) use($request){
+                $message->from('noreply@veravalonline.com');
+                $message->to($request->driverEmail);
+                $message->subject('E driver setup from Astra TMS!');
+            });
+            return response()->json(['success' => true, 'message' => 'Mail sent successfully.','statusCode' => 200]);
+        }
+
+        if($sentVia=="text"){
+            $account_sid = getenv("TWILIO_SID");
+            $auth_token = getenv("TWILIO_TOKEN");
+            $twilio_number = getenv("TWILIO_FROM");
+  
+            $client = new Client($account_sid, $auth_token);
+            $client->messages->create($driverNo, [
+                'from' => $twilio_number, 
+                'body' => 'Hello '.$driverName.',
+                           please click below link to fill your driver joining application.
+                           Thank You.!
+                           Astra TMS']);
+            return response()->json(['success' => true, 'message' => 'Message sent successfully.','statusCode' => 200]);
+        }
         
     }  
 }

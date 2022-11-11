@@ -56,6 +56,7 @@ Route::post('admin/editDriver', [DriverController::class, 'editDriverData']);
 Route::post('admin/updateDriver', [DriverController::class, 'updateDriverData']);
 Route::post('admin/deleteDriver', [DriverController::class, 'deleteDriver']);
 Route::post('admin/addApplicationForm', [DriverController::class, 'addApplicationFormData']);
+Route::post('admin/setupDriver', [DriverController::class, 'setupDriver']);
 
 //customer
 Route::get('admin/customer', [CustomerController::class, 'getCustomerData']);
