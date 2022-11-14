@@ -10,7 +10,10 @@
 html {
     height: 100%;
     background: #eee;
+    /* scroll-behavior: smooth; */
 }
+
+
 
 body {
     font-family: Montserrat, arial, verdana;
@@ -20,7 +23,7 @@ body {
 
 /*form styles*/
 #msform {
-    text-align: center;
+    text-align: left;
     position: relative;
     margin-top: 30px;
 }
@@ -32,8 +35,9 @@ body {
     box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.4);
     padding: 20px 30px;
     box-sizing: border-box;
-    width: 80%;
-    margin: 0 10%;
+    width: 100%;
+    /* overflow: auto; */
+    /* margin: 0 10%; */
 
     /*stacking fieldsets above each other*/
     position: relative;
@@ -50,7 +54,7 @@ body {
     border: 1px solid #ccc;
     border-radius: 4px;
     margin-bottom: 10px;
-    width: 100%;
+    /* width: 100%; */
     box-sizing: border-box;
     font-family: montserrat;
     color: #2C3E50;
@@ -110,6 +114,7 @@ body {
     margin-bottom: 10px;
     letter-spacing: 2px;
     font-weight: bold;
+    text-align: center;
 }
 
 .fs-subtitle {
@@ -117,6 +122,7 @@ body {
     font-size: 13px;
     color: #666;
     margin-bottom: 20px;
+    text-align: center;
 }
 
 /*progressbar*/
@@ -132,10 +138,11 @@ body {
     color: #666;
     text-transform: uppercase;
     font-size: 9px;
-    width: 33.33%;
+    width:9%;
     float: left;
     position: relative;
     letter-spacing: 1px;
+    text-align: center;
 }
 
 #progressbar li:before {
@@ -177,11 +184,12 @@ body {
 }
 
 #course{
-    background-color:#8fbd56;
+    background-color:#2098ce;
     padding:5px; 
-    border: 2px solid #8fbd56;
+    border: 2px solid #2098ce;
     border-radius: 12px;
-    color:white
+    color:white;
+    box-shadow: 5px 10px rgb(187, 185, 185);
 }
 
 .animate-charcter
@@ -191,7 +199,7 @@ body {
     -225deg,
     #231557 0%,
     #44107a 29%,
-    #03140c 67%,
+    #2098ce 67%,
     #8fbd56 100%
   );
   background-size: auto auto;
@@ -203,7 +211,7 @@ body {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   animation: textclip 2s linear infinite;
-  display: inline-block;
+  /* display: inline-block; */
       font-size: 30px;
 }
 
@@ -217,7 +225,7 @@ body {
 .button {
     position: absolute;
     border-radius: 30px;
-    background-color: #8fbd56;
+    background-color: #2098ce;
     border: none;
     color: #FFFFFF;
     text-align: center;
@@ -253,3 +261,109 @@ body {
     opacity: 1;
     right: 0;
   }
+  .formLabel{
+    text-align: left;
+  }
+
+  /* toggle switch */
+  .toggle {
+    --width: 80px;
+    --height: calc(var(--width) / 3);
+
+    position: relative;
+    display: inline-block;
+    width: var(--width);
+    height: var(--height);
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.3);
+    border-radius: var(--height);
+    cursor: pointer;
+  }
+
+  .toggle input {
+    display: none;
+  }
+
+  .toggle .slider {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: var(--height);
+    background-color: #ccc;
+    transition: all 0.4s ease-in-out;
+  }
+
+  .toggle .slider::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: calc(var(--height));
+    height: calc(var(--height));
+    border-radius: calc(var(--height) / 2);
+    background-color: #fff;
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.3);
+    transition: all 0.4s ease-in-out;
+  }
+
+  .toggle input:checked+.slider {
+    background-color: #2196F3;
+  }
+
+  .toggle input:checked+.slider::before {
+    transform: translateX(calc(var(--width) - var(--height)));
+  }
+
+  .toggle .labels {
+    position: absolute;
+    top: 8px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    font-size: 12px;
+    font-family: sans-serif;
+    transition: all 0.4s ease-in-out;
+  }
+
+  .toggle .labels::after {
+    content: attr(data-off);
+    position: absolute;
+    right: 5px;
+    color: #4d4d4d;
+    opacity: 1;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
+    transition: all 0.4s ease-in-out;
+  }
+
+  .toggle .labels::before {
+    content: attr(data-on);
+    position: absolute;
+    left: 5px;
+    color: #ffffff;
+    opacity: 0;
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.4);
+    transition: all 0.4s ease-in-out;
+  }
+
+  .toggle input:checked~.labels::after {
+    opacity: 0;
+  }
+
+  .toggle input:checked~.labels::before {
+    opacity: 1;
+  }
+  .formScroll {
+    /* margin:5px;
+    padding:5px;
+    background-color: green; */
+    width: 500px;
+    height: 700px;
+    overflow: auto;
+    /* text-align:justify; */
+}
+
+/* @media only screen and (max-width: 600px) {
+  #progressbar li {
+   
+  } */

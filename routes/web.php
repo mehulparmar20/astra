@@ -25,6 +25,9 @@ Route::get('/table', function () {
         return view('table');
     });
 
+    Route::get('/admin/driverApplication2', function () {
+        return view('driver_application_form2');
+    });
     Route::get('/admin/driverApplication', function () {
         return view('driver_application_form');
     });
@@ -42,6 +45,7 @@ Route::post('admin/edit-user', [UserController::class, 'userEditDetails']);
 Route::post('admin/delete-user', [UserController::class, 'deleteUser'])->name('user.delete');
 Route::get('admin/profile', [UserController::class, 'getUser']);
 Route::post('admin/profile-edit', [UserController::class, 'editUserDetails'])->name('profile.edit');
+Route::post('admin/download-pdf', [UserController::class, 'downloadPDF'])->name('download-pdf');
 
 Route::get('login', [AuthController::class, 'login'])->name('login')->middleware('guest');
 Route::post('post-login', [AuthController::class, 'postLogin'])->name('login.post'); 
@@ -55,6 +59,10 @@ Route::post('admin/addDriver', [DriverController::class, 'addDriverData']);
 Route::post('admin/editDriver', [DriverController::class, 'editDriverData']);
 Route::post('admin/updateDriver', [DriverController::class, 'updateDriverData']);
 Route::post('admin/deleteDriver', [DriverController::class, 'deleteDriver']);
+Route::post('admin/addApplicationForm', [DriverController::class, 'addApplicationFormData']);
+Route::post('admin/setupDriver', [DriverController::class, 'setupDriver']);
+Route::post('admin/driverPDF', [DriverController::class, 'downloadPDF'])->name('driver-pdf');
+Route::get('admin/getContract', [DriverController::class, 'getContract']);
 
 //customer
 Route::get('admin/customer', [CustomerController::class, 'getCustomerData']);

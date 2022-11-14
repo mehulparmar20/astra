@@ -60,7 +60,7 @@ function createRows(response) {
 
         $("#table1").append(tr_str);
     }
-    modelopenfun();
+    usermodal();
 }
 
 (function() {
@@ -83,12 +83,6 @@ $('#select-all').click(function(event) {
     }
 });
 
-// if(document.getElementsByClassName('checkbox1').checked) {
-//     document.getElementsByClassName("checkbox1").value = 1;
-// }else{
-//     document.getElementsByClassName("checkbox1").value = 0;
-// }
-
 $(document).ready(function() {
    
     $('#usersave').on('click', function() {
@@ -99,7 +93,6 @@ $(document).ready(function() {
       var password = $('#inputPassword4').val();
       var address = $('#inputAddress').val();
       var location = $('#inputLocation').val();
-    //   var city = $('#inputCity').val();
       var zip = $('#inputZip').val();
       var companyname = $('#inputCompanyName').val();
       var office = $('#inputOffice').val();
@@ -219,7 +212,6 @@ $(document).ready(function() {
       var value55 = checkbox6_11 ? 1 : 0;
       var checkbox6_12 = $('#checkboxl6_12').is(":checked");
       var value56 = checkbox6_12 ? 1 : 0;
-    //   console.log(value56);
       var tr_length = $("#userModal").find("tr").length;
       var tr_str2 = "<tr data-id=" + tr_length + ">" +
       "<td data-field='id'>" + tr_length + "</td>" +
@@ -316,10 +308,7 @@ $(document).ready(function() {
                 if(resp.success === true){
                     swal.fire("Done!", resp.message, "success");
                     $("#table1").append(tr_str2);
-                    // $('#addUserModal').hide();
                     $("#addUserModal form").trigger("reset");
-                    // $('#addUserModal').modal('toggle');
-                    // $('#addUserModal').dialog('close');
                 } else {
                     console.log(resp.errors[0].message);
                     swal.fire("Error!", resp.error, "error");
@@ -334,6 +323,26 @@ $(document).ready(function() {
   });
 });
 
+$(document).ready(function(){
+    $(".telephone4").keypress(function (e) {
+      if (e.which != 8 && e.which != 0 && (e.which < 48 || e.which > 57)) {
+        return false;
+      }
+      var curchr = this.value.length;
+      var curval = $(this).val();
+      if (curchr == 3 && curval.indexOf("(") <= -1) {
+        $(this).val("(" + curval + ")" + " ");
+      } else if (curchr == 4 && curval.indexOf("(") > -1) {
+        $(this).val(curval + ")-");
+      } else if (curchr == 5 && curval.indexOf(")") > -1) {
+        $(this).val(curval + "-");
+      } else if (curchr == 9) {
+        $(this).val(curval + "-");
+        $(this).attr('maxlength', '14');
+      }
+    });
+  });
+  
 // <!-- ------------------------------------------------------------------------- driver ------------------------------------------------------------------------- -->
 
 $(document).ready(function() {
@@ -355,10 +364,9 @@ $(document).ready(function() {
         console.log(driverResponse);
         var len1 = 0;
         
-        $('#driverTable').empty(); // Empty <tbody>
+        $('#driverTable').empty(); 
         if (driverResponse != null) {
             len1 = driverResponse.length;
-            //len1 = sizeof($driverResponse);
         }
 
         if (len1 > 0) {
@@ -367,8 +375,6 @@ $(document).ready(function() {
                 var len2=driverResponse[i].driver.length; 
                     if(len2 > 0){
                         for (var j = 0; j < len2; j++) {
-                        // var counter = driverResponse[i].counter;
-                        // var no = driverResponse[i]._id;
                         var comid =driverResponse[i].companyID;
                         var driverId=driverResponse[i].driver[j]._id;
                         var name = driverResponse[i].driver[j].driverName;
@@ -385,7 +391,6 @@ $(document).ready(function() {
 
                         if(delete_status=="NO"){
                         var tr_str1 = "<tr data-id=" + (i + 1) + ">" +
-                        //  "<td id='id1'>" + id+ "&"+driverId + "</td>" +
                             "<td data-field='no'>" + no + "</td>" +
                             "<td data-field='name' >" + name + "</td>" +
                             "<td data-field='email'>" + email + "</td>" +
@@ -397,10 +402,7 @@ $(document).ready(function() {
                             "<td data-field='lis'>" + lis + "</td>" +
                             "<td data-field='license_exp_date'>" + license_exp_date + "</td>" +
                             "<td data-field='driver_balance'>" + driver_balance + "</td>" +
-
-                            // "<td style='width: 100px'><a class='btn btn-primary fs-14 text-white edit-icn' title='Edit' id='edit'><i class='fe fe-edit' ></i></a></td></tr>"
                             "<td style='width: 100px'><i class='btn btn-primary fe fe-edit edit' data-id=" + comid+ "&"+email + "><a>edit</a></i><a class='deleteDriver mt-2 btn btn-danger fs-14 text-white delete-icn' data-id=" + comid+ "&"+email + " title='Delete'><i class='fe fe-delete'></i></a></td></tr>";
-
                         $("#driverTable").append(tr_str1);
                         no++;
                         }
@@ -414,224 +416,17 @@ $(document).ready(function() {
 
             $("#driverTable").append(tr_str1);
         }
-//---------------------------------------------------
-// $.each(driverResponse, function (i, drivers) {                
-
-        //     counterLen=currProgram.counter;    
-        //     console.Log(drivers);
-        //     //return;                 
-                    
-        //     $.each(drivers.driver, function (i, driverSingal) {
-        //         console.log(driverSingal);
-        //         //return;
-                
-                        
-        //                 var comid =drivers.companyID;
-        //                 var driverId=driverSingal._id;
-        //                 var name = driverSingal.driverName;
-        //                 var email = driverSingal.driverEmail;
-        //                 var location = driverSingal.driverAddress;
-        //                 var social_security_no = driverSingal.driverSocial;
-        //                 var date_of_birth = driverSingal.dateOfbirth;
-        //                 var date_of_hire = driverSingal.dateOfhire;
-        //                 var license_no = driverSingal.driverLicenseNo;
-        //                 var lis = driverSingal.driverLicenseIssue;
-        //                 var license_exp_date = driverSingal.driverLicenseExp;
-        //                 var driver_balance = driverSingal.driverBalance;
-
-        //                 var tr_str1 = 
-        //                 //"<tr data-id=" + (i + 1) + ">" + 
-        //                     "<tr data-id=" + 1 + ">" +                            
-        //                     "<td data-field='no'>" + no + "</td>" +
-        //                     "<td data-field='name' id='up_name'>" + name + "</td>" +
-        //                     "<td data-field='email'>" + email + "</td>" +
-        //                     "<td data-field='location'>" + location + "</td>" +
-        //                     "<td data-field='social_security_no'>" + social_security_no + "</td>" +
-        //                     "<td data-field='date_of_birth'>" + date_of_birth + "</td>" +
-        //                     "<td data-field='date_of_hire'>" + date_of_hire + "</td>" +
-        //                     "<td data-field='license_no'>" + license_no + "</td>" +
-        //                     "<td data-field='lis'>" + lis + "</td>" +
-        //                     "<td data-field='license_exp_date'>" + license_exp_date + "</td>" +
-        //                     "<td data-field='driver_balance'>" + driver_balance + "</td>" +
-
-        //                     // "<td style='width: 100px'><a class='btn btn-primary fs-14 text-white edit-icn' title='Edit' id='edit'><i class='fe fe-edit' ></i></a></td></tr>"
-        //                     "<td style='width: 100px'><i class='btn btn-primary fe fe-edit edit'><a>edit</a></i><a class='deleteDriver mt-2 btn btn-danger fs-14 text-white delete-icn' data-id=" + comid+ "&"+driverId + " title='Delete'><i class='fe fe-delete'></i></a></td></tr>";
-        //                     console.log(tr_str1);
-
-        //                 $("#driverTable").append(tr_str1);
-        //                 no++;
-                    
-        //             });
-
-           
-        // });
+        drivermodal();
     }
-
-// <!--------------------------------------------------------------------------- end of Get driver ajax ------------------------------------------------------------------------- -->    
-// <!---------------------------------------------------------------------------  edit driver  ------------------------------------------------------------------------- -->
-$('.edit').click(function(){
-        var id = $(this).attr("data-id");
-        var result = $(this).attr("data-id").split('&');
-        var com_id=result[0];
-        var email=result[1];
-      
-       // console.log(result);
-        $.ajax({
-            url: base_path+"/admin/editDriver",
-            type: "POST",
-            datatype:"JSON",
-            data: {_token: $("#drivercsrf").val(),com_id: com_id,email: email},
-            cache: false,
-            success: function(dataResult){
-                //console.log(dataResult);
-                $('#up_comId').val(com_id);
-                $('#emaildriver').val(email);
-                $('#up_name').val(dataResult.driverName);
-                $('#up_username').val(dataResult.driverUsername);
-                $('#up_address').val(dataResult.driverAddress);
-                $('#up_telephone').val(dataResult.driverTelephone);
-                $('#up_altTelephone').val(dataResult.driverAlt);
-                $('#up_email').val(dataResult.driverEmail);
-                // $('#up_password').val(dataResult.driverPassword);
-                $('#up_location').val(dataResult.driverLocation);
-                $('#up_zip').val(dataResult.driverZip);
-                $('#up_status').val(dataResult.driverStatus);
-                $('#up_socialSecurityNo').val(dataResult.driverSocial);
-                $('#up_dateOfBirth').val(dataResult.dateOfbirth);
-                $('#up_dateOfHire').val(dataResult.dateOfHire);
-                $('#up_licenseNo').val(dataResult.driverLicenseNo);
-                $('#up_licenseIssueState').val(dataResult.driverLicenseIssue);
-                $('#up_licenseExpDate').val(dataResult.driverLicenseExp);
-                $('#up_lastMedical').val(dataResult.driverLastMedical);
-                $('#up_nextMedical').val(dataResult.driverNextMedical);
-                $('#up_lastDrugTest').val(dataResult.driverLastDrugTest);
-                $('#up_nextDrugTest').val(dataResult.driverNextDrugTest);
-                $('#up_passportExpiry').val(dataResult.passportExpiry);
-                $('#up_fastCardExpiry').val(dataResult.fastCardExpiry);
-                $('#up_hazmatExpiry').val(dataResult.hazmatExpiry);
-                $('#up_rate').val(dataResult.rate);
-                $('#up_currency').val(dataResult.currency);
-               // $('#up_recurrencePlus').val(dataResult._id);
-               // $('#up_recurrenceMin').val(dataResult._id);
-                $('#up_terminationDate').val(dataResult.terminationDate);
-                $('#up_driverBalance').val(dataResult.driverBalance);
-                $('#up_internalNotes').val(dataResult.internalNotes);
-               
-                $('#editDriverModal').modal('show'); 
-            }
-        });
-    });
 
 $('.editModalCloseButton').click(function(){
     $('#editDriverModal').modal('hide');
     $('#driverModal').modal('show');  
 });
 
-$('.driverDataUpdate').click(function(){
-   
-    // var result = $(this).attr("data-id").split('&');
-    // var com_id=result[0];
-    // var email=result[1];
-
-    var updateComId= $('#up_comId').val();
-    var updateEmailDriver= $('#emaildriver').val();
-    var updateDriverName= $('#up_name').val();
-    var updateDriverUsername=$('#up_username').val();
-    var updateDriverAddress=$('#up_address').val();
-    var updateDriverTelephone=$('#up_telephone').val();
-    var updateDriverAlt=$('#up_altTelephone').val();
-    var updateDriverEmail=$('#up_email').val();
-    var updateDriverPassword=$('#up_password').val();
-    var updateDriverLocation=$('#up_location').val();
-    var updateDriverZip=$('#up_zip').val();
-    var updateDriverStatus=$('#up_status').val();
-    var updateDriverSocial=$('#up_socialSecurityNo').val();
-    var updateDateOfbirth=$('#up_dateOfBirth').val();
-    var updateDateOfHire=$('#up_dateOfHire').val();
-    var updateDriverLicenseNo=$('#up_licenseNo').val();
-    var updateDriverLicenseIssue=$('#up_licenseIssueState').val();
-    var updateDriverLicenseExp=$('#up_licenseExpDate').val();
-    var updateDriverLastMedical=$('#up_lastMedical').val();
-    var updateDriverNextMedical=$('#up_nextMedical').val();
-    var updateDriverLastDrugTest=$('#up_lastDrugTest').val();
-    var updateDriverNextDrugTest=$('#up_nextDrugTest').val();
-    var updatePassportExpiry=$('#up_passportExpiry').val();
-    var updateFastCardExpiry=$('#up_fastCardExpiry').val();
-    var updateHazmatExpiry=$('#up_hazmatExpiry').val();
-    var updateRate=$('#up_rate').val();
-    var updateCurrency=$('#up_currency').val();
-    // var updateRecurrencePlus=$('#up_recurrencePlus').val();
-    // ver updateRecurrenceMin=$('#up_recurrenceMin').val();
-    var updateTerminationDate=$('#up_terminationDate').val();
-    var updateDriverBalance=$('#up_driverBalance').val();
-    var updateInternalNotes=$('#up_internalNotes').val();
-
-    $.ajax({
-        url:base_path+"/admin/updateDriver" ,
-        type:'post',
-        data:{
-            _token:$("#drivercsrf").val(),
-            updateComId:updateComId,
-            updateEmailDriver:updateEmailDriver,
-            updateDriverName: updateDriverName,
-            updateDriverUsername: updateDriverUsername,
-            updateDriverAddress: updateDriverAddress,
-            updateDriverTelephone: updateDriverTelephone,
-            updateDriverAlt: updateDriverAlt,
-            updateDriverEmail: updateDriverEmail,
-            updateDriverPassword: updateDriverPassword,
-            updateDriverLocation: updateDriverLocation,
-            updateDriverLocation: updateDriverLocation,
-            updateDriverZip: updateDriverZip,
-            updateDriverStatus: updateDriverStatus,
-            updateDriverSocial: updateDriverSocial,
-            updateDateOfbirth: updateDateOfbirth,
-            updateDateOfHire: updateDateOfHire,
-            updateDriverLicenseNo: updateDriverLicenseNo,
-            updateDriverLicenseIssue: updateDriverLicenseIssue,
-            updateDriverLicenseExp: updateDriverLicenseExp,
-            updateDriverLastMedical: updateDriverLastMedical,
-            updateDriverNextMedical: updateDriverNextMedical,
-            updateDriverLastDrugTest: updateDriverLastDrugTest,
-            updateDriverNextDrugTest: updateDriverNextDrugTest,
-            updatePassportExpiry: updatePassportExpiry,
-            updateFastCardExpiry: updateFastCardExpiry,
-            updateHazmatExpiry: updateHazmatExpiry,
-            updateRate: updateRate,
-            updateCurrency: updateCurrency,
-            //updateRecurrencePlus: updateRecurrencePlus,
-            //updateRecurrenceMin: updateRecurrenceMin,
-            updateTerminationDate: updateTerminationDate,
-            updateDriverBalance: updateDriverBalance,
-            updateInternalNotes: updateInternalNotes
-        } ,
-        success: function(response){
-            var responsenew = JSON.parse(response);
-            if(responsenew.statusCode===200){
-                swal.fire("Done!", responsenew.message, "success");
-                $.ajax({
-                    type: "GET",
-                    url: base_path+"/admin/driver",
-                    success: function(text) {
-                        createDriverRows(text);
-                        response = text;
-                    }
-                });
-                // $("#table1").append(tr_str3);
-                // $('#userEditModal').modal('toggle');			
-            }
-          },
-          error: function(data){
-            $.each( data.responseJSON.errors, function( key, value ) {
-                swal.fire("Error!", value[0], "error"); 
-            });
-        }            
-    });
-}); 
 // <!--------------------------------------------------------------------------- end of edit driver  --------------------------------------------------------------------------->
 // <!--------------------------------------------------------------------------- delete driver ajax --------------------------------------------------------------------------->    
 $(".deleteDriver").on("click", function(){
-   // alert();
         var rowToDelete = $(this).closest('tr');
         var id = $(this).attr("data-id");
         var result = $(this).attr("data-id").split('&');
@@ -673,63 +468,6 @@ $(".deleteDriver").on("click", function(){
 })
     });
 
-    // $(".deleteDriver").on("click", function(){
-	// 	var rowToDelete = $(this).closest('tr');
-	// 	var email = $(this).attr("data-id");
-	// 	swal.fire({
-    //         title: "Delete?",
-    //         text: "Please ensure and then confirm!",
-    //         type: "warning",
-    //         showCancelButton: !0,
-    //         confirmButtonText: "Yes, delete it!",
-    //         cancelButtonText: "No, cancel!",
-    //         reverseButtons: !0
-    //     }).then(function (e) {
-
-    //     if (e.value === true) {
-	// 	$.ajax({ 
-	// 		type: 'POST',
-	// 	  url: base_path+"/admin/deleteDriver",
-	// 	  data: {com_id: 4,driverEmail: email},
-	// 	  success: function (resp) {
-	// 		if (resp.success === true) {
-	// 			swal.fire("Done!", resp.message, "success");
-	// 			rowToDelete.remove();
-	// 		} else {
-	// 			swal.fire("Error!", resp.message, "error");
-	// 		}
-	// 	},
-	// 	error: function (resp) {
-	// 		swal.fire("Error!", 'Something went wrong.', "error");
-	// 	}
-	// 	});
-	// 	} else {
-	// 		e.dismiss;
-	// 	}
-
-	// }, function (dismiss) {
-	// 	return false;
-	// })
-	// });
-// <!-- -------------------------------------------------------------------------end of delete driver ajax ------------------------------------------------------------------------- -->    
-// <!-- ------------------------------------------------------------------------- add driver  ------------------------------------------------------------------------- -->
-
-// <!-- -------------------------------------------------------------------------end of Get driver ajax ------------------------------------------------------------------------- -->    
-// <!-- -------------------------------------------------------------------------delete driver ajax ------------------------------------------------------------------------- -->    
-// $(".delete").on("click", function(){
-//         var email = $(this).attr("data-id");
-//         // console.log(email);
-//         $.ajax({ 
-//           url: base_path+"/admin/delete-user",
-//           data: {userEmail: email},
-//           type: 'post',
-//           success: function(result){
-//             console.log('success');
-//             // $('#userModal').hide().show();
-//             location.reload();
-//           }
-//         });
-//     });
 // <!-- -------------------------------------------------------------------------end of delete driver ajax ------------------------------------------------------------------------- -->    
 
 // <!-- ------------------------------------------------------------------------- add driver  ------------------------------------------------------------------------- -->
@@ -766,10 +504,17 @@ $(".deleteDriver").on("click", function(){
             var terminationDate = $('#terminationDate').val();
             var driverBalance = $('#driverBalance').val();
             var internalNotes = $('#internalNotes').val();   
+            var loadedMiles = $('#loadedmiles').val();   
+            var emptyMiles = $('#emptymiles').val();   
+            var pickRate = $('#pickrate').val();   
+            var pickStart = $('#pickstart').val();   
+            var dropRate = $('#droprate').val();   
+            var dropStart = $('#dropstart').val();   
+            var driverTarp = $('#driverTarp').val();   
+            var percentage = $('#dPercentage').val();   
             var tr_length1 = $("#driverModal").find("tr").length;
             console.log(tr_length1);
             var tr_str4 = "<tr data-id=" + tr_length1 + ">" +
-                        //  "<td id='id1'>" + id+ "&"+driverId + "</td>" +
                             "<td data-field='tr_length1'>" + tr_length1 + "</td>" +
                             "<td data-field='name' >" + name + "</td>" +
                             "<td data-field='email'>" + email + "</td>" +
@@ -781,8 +526,6 @@ $(".deleteDriver").on("click", function(){
                             "<td data-field='lis'>" + licenseIssueState + "</td>" +
                             "<td data-field='license_exp_date'>" + licenseExpDate + "</td>" +
                             "<td data-field='driver_balance'>" + driverBalance + "</td>" +
-
-                            // "<td style='width: 100px'><a class='btn btn-primary fs-14 text-white edit-icn' title='Edit' id='edit'><i class='fe fe-edit' ></i></a></td></tr>"
                             "<td style='width: 100px'><i class='btn btn-primary fe fe-edit edit' data-id=" + companyID + "&"+ email + "><a>edit</a></i><a class='deleteDriver mt-2 btn btn-danger fs-14 text-white delete-icn' data-id=" + companyID + "&" + email + " title='Delete'><i class='fe fe-delete'></i></a></td></tr>";    
         $.ajax({
             url: base_path+"/admin/addDriver",
@@ -790,7 +533,6 @@ $(".deleteDriver").on("click", function(){
             datatype:"JSON",
             data: {
                 _token: $("#csrf").val(),
-              //   type: 1,
               companyID: companyID,
               name: name,
               username: username,
@@ -822,6 +564,14 @@ $(".deleteDriver").on("click", function(){
               terminationDate: terminationDate,
               driverBalance: driverBalance,
               internalNotes: internalNotes,
+              driverLoadedMile: loadedMiles,
+              driverEmptyMile: emptyMiles,
+              pickupRate: pickRate,
+              pickupAfter: pickStart,
+              dropRate: dropRate,
+              dropAfter: dropStart,
+              tarp: driverTarp,
+              percentage: percentage,
             },
             cache: false,
             success: function(resp){
@@ -841,9 +591,105 @@ $(".deleteDriver").on("click", function(){
     });
 // <!-- ------------------------------------------------------------------------- end of add driver  ------------------------------------------------------------------------- -->
 
+$('.setupDriverSubmit').click(function(){    
+    var driverName = $('#drivername12').val();
+    var sentVia = $('#sentvia').val();
+    var driverEmail = $('#driveremail1').val();
+    var driverNo = $('#textno').val();
+$.ajax({
+    url: base_path+"/admin/setupDriver",
+    type: "POST",
+    datatype:"JSON",
+    data: {
+        _token: $("#csrf").val(),
+      driverName: driverName,
+      sentVia: sentVia,
+      driverEmail: driverEmail,
+      driverNo: driverNo,
+    },
+    cache: false,
+    success: function(resp){
+        if(resp.success == true){
+            swal.fire("Done!", resp.message, "success");
+            $("#setupDriverModal form").trigger("reset");
+        } 
+      },
+      error: function(data){
+        $.each( data.responseJSON.errors, function( key, value ) {
+            swal.fire("Error!", value[0], "error");
+        });
+        },
+});
 
+});
 
+$(document).ready(function() {
+    var response = '';
+    $.ajax({
+        type: "GET",
+        url: base_path+"/admin/getContract",
+        async: false,
+        success: function(text) {
+            driverContract(text);
+            response = text;
+        }
+    });
 
+});
+
+function driverContract(driverResponse) {
+
+    console.log(driverResponse);
+    var len1 = 0;
+    
+    $('#accordion').empty(); 
+    if (driverResponse != null) {
+        len2 = driverResponse.length;
+    }
+
+    if (len2 > 0) {
+        var no=1;
+            for (var i = 0; i < len2; i++) {  
+            var len3=driverResponse[i].contract.length; 
+                if(len3 > 0){
+                    
+                    for (var j = 0; j < len3; j++) {
+                    var comid =driverResponse[i].companyID;
+                    var counter =driverResponse[i].counter;
+                    var conttractid=driverResponse[i].contract[j]._id;
+                    var heading=driverResponse[i].contract[j].heading;
+                    var len4=driverResponse[i].contract[j].line.length; 
+                    var str0 = '<div class="acc-card mb-4">'+
+                                            '<div class="acc-header" id="heading'+no+'" role="tab">'+
+                                                '<h5 class="mb-0">'+
+                                                    '<a aria-controls="collapse'+no+'" aria-expanded="true" data-bs-toggle="collapse" href="#collapse'+no+'">'+heading+' <span class="float-end acc-angle"><i class="fe fe-chevron-right"></i></span></a>'+
+                                                '</h5>'+
+                                            '</div>'+
+                                            '<div id="accordiondata'+no+'">'
+                                            $("#accordion").append(str0);
+                    if(len4 > 0){
+                        for (var k = 0; k < len4; k++) {
+                            var data=driverResponse[i].contract[j].line[k];                                                  
+                    
+                            var str2 =     '<div aria-labelledby="heading'+no+'" class="collapse" data-bs-parent="#accordion" id="collapse'+no+'" role="tabpanel">'+
+                                                '<div class="acc-body">'+data+'</div>'+
+                                            '</div>'+
+                                        '</div>'
+                                        '</div>';
+                                        $("#accordiondata"+no).append(str2);
+                                    }
+                                }   
+                                no++;
+                } 
+            }
+        }
+    } else {
+        var str4 = '<div class="acc-card mb-4">No Contract</div>';
+
+        $("#accordion").append(str4);
+    }
+    // drivermodal();
+}
 
 });
 

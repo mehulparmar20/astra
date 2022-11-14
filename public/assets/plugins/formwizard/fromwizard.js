@@ -51,8 +51,8 @@
 			transitionEffect:'fade',
 			showStepURLhash: false,
 			toolbarSettings: {
-							  toolbarButtonPosition: 'end',
-							  toolbarExtraButtons: [btnFinish, btnCancel]
+							//   toolbarButtonPosition: 'end',
+							//   toolbarExtraButtons: [btnFinish, btnCancel]
 							}
 	});
 	

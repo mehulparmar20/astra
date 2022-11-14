@@ -99,7 +99,6 @@
 <script src="{{URL::to('/')}}/assets/js/userprev.js"></script>
 <script src="{{URL::to('/')}}/assets/js/openmodel.js"></script>
 
-
 </body>
 
 </html>
