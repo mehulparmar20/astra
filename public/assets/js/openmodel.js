@@ -36,7 +36,6 @@ $(document).ready(function(){
                       type: "POST",
                       data: {
                           _token: $("#newcsrf").val(),
-                        //   type: 1,
                         email: userEmail,
                         userName: username,
                         userFirstName: firstname,
@@ -65,9 +64,7 @@ $(document).ready(function(){
                                     createRows(text);
                                     response = text;
                                 }
-                            });
-                            // $("#table1").append(tr_str3);
-                            // $('#userEditModal').modal('toggle');			
+                            });		
                         }
                       },
                       error: function(data){
@@ -78,12 +75,7 @@ $(document).ready(function(){
                   });
           });
 
-          $('.driverDataUpdate').click(function(){
-   
-            // var result = $(this).attr("data-id").split('&');
-            // var com_id=result[0];
-            // var email=result[1];
-        
+          $('.driverDataUpdate').click(function(){        
             var updateComId= $('#up_comId').val();
             var updateEmailDriver= $('#emaildriver').val();
             var updateDriverName= $('#up_name').val();
@@ -111,8 +103,6 @@ $(document).ready(function(){
             var updateHazmatExpiry=$('#up_hazmatExpiry').val();
             var updateRate=$('#up_rate').val();
             var updateCurrency=$('#up_currency').val();
-            // var updateRecurrencePlus=$('#up_recurrencePlus').val();
-            // ver updateRecurrenceMin=$('#up_recurrenceMin').val();
             var updateTerminationDate=$('#up_terminationDate').val();
             var updateDriverBalance=$('#up_driverBalance').val();
             var updateInternalNotes=$('#up_internalNotes').val();
@@ -158,8 +148,6 @@ $(document).ready(function(){
                     updateHazmatExpiry: updateHazmatExpiry,
                     updateRate: updateRate,
                     updateCurrency: updateCurrency,
-                    //updateRecurrencePlus: updateRecurrencePlus,
-                    //updateRecurrenceMin: updateRecurrenceMin,
                     updateTerminationDate: updateTerminationDate,
                     updateDriverBalance: updateDriverBalance,
                     updateInternalNotes: updateInternalNotes,
@@ -183,9 +171,7 @@ $(document).ready(function(){
                                 createDriverRows(text);
                                 response = text;
                             }
-                        });
-                        // $("#table1").append(tr_str3);
-                        // $('#userEditModal').modal('toggle');			
+                        });			
                     }
                   },
                   error: function(data){
@@ -281,8 +267,6 @@ function drivermodal()
             var result = $(this).attr("data-id").split('&');
             var com_id=result[0];
             var email=result[1];
-          
-           // console.log(result);
             $.ajax({
                 url: base_path+"/admin/editDriver",
                 type: "POST",
@@ -290,7 +274,6 @@ function drivermodal()
                 data: {_token: $("#drivercsrf").val(),com_id: com_id,email: email},
                 cache: false,
                 success: function(dataResult){
-                    //console.log(dataResult);
                     $('#up_comId').val(com_id);
                     $('#emaildriver').val(email);
                     $('#up_name').val(dataResult.driverName);
@@ -299,7 +282,6 @@ function drivermodal()
                     $('#up_telephone').val(dataResult.driverTelephone);
                     $('#up_altTelephone').val(dataResult.driverAlt);
                     $('#up_email').val(dataResult.driverEmail);
-                    // $('#up_password').val(dataResult.driverPassword);
                     $('#up_location').val(dataResult.driverLocation);
                     $('#up_zip').val(dataResult.driverZip);
                     $('#up_status').val(dataResult.driverStatus);
@@ -318,8 +300,6 @@ function drivermodal()
                     $('#up_hazmatExpiry').val(dataResult.hazmatExpiry);
                     $('#up_rate').val(dataResult.rate);
                     $('#up_currency').val(dataResult.currency);
-                   // $('#up_recurrencePlus').val(dataResult._id);
-                   // $('#up_recurrenceMin').val(dataResult._id);
                     $('#up_terminationDate').val(dataResult.terminationDate);
                     $('#up_driverBalance').val(dataResult.driverBalance);
                     $('#up_internalNotes').val(dataResult.internalNotes);

@@ -17,7 +17,7 @@ $(document).ready(function() {
 
     function createcustomerRows(customerResponse) {
 
-        console.log(customerResponse);
+        // console.log(customerResponse);
         var custlen1 = 0;
         
         $('#customerTable').empty(); // Empty <tbody>

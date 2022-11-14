@@ -7,9 +7,9 @@
     <meta charset="UTF-8">
     <meta name='viewport' content='width=device-width, initial-scale=1.0, user-scalable=0'>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description" content="Noa – Bootstrap 5 Admin & Dashboard Template">
-    <meta name="author" content="Spruko Technologies Private Limited">
-    <meta name="keywords" content="admin,admin dashboard,admin panel,admin template,bootstrap,clean,dashboard,flat,jquery,modern,responsive,premium admin templates,responsive admin,ui,ui kit.">
+    <meta name="description" content="Astra TMS">
+    <meta name="author" content="VeravalOnline Pvt. Ltd.">
+    
 
     <!-- FAVICON -->
     <link rel="shortcut icon" type="image/x-icon" href="{{URL::to('/')}}/assets/images/brand/astra_favicon.ico"/>
@@ -53,7 +53,6 @@
         <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script> -->
         <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css" >
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css"> -->
-        
 
 <style type="text/css">
    .header-brand-img {
@@ -64,7 +63,14 @@
    /* padding-bottom: 5px;*/
 }
 
-
+.course{
+    background-color:#8fbd56;
+    padding:5px; 
+    border: 2px solid #8fbd56;
+    border-radius: 12px;
+    color:white;
+    box-shadow: 5px 10px rgb(187, 185, 185);
+}
 </style>
 </head>
 

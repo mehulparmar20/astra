@@ -24,6 +24,10 @@
 
                                             <a href="#addDriverModal" class="btn btn-primary" data-toggle="modal"
                                                 data-target="#addDriverModal">Add</a>
+                                            <a href="#setupDriverModal" class="btn btn-primary" data-toggle="modal"
+                                                data-target="#setupDriverModal">Setup Driver</a>
+                                            <a href="#contractCategoryModal" class="btn btn-primary" data-toggle="modal"
+                                                data-target="#contractCategoryModal">View Driver Contract</a>
                                             <table id="editable-file-datatable"
                                                 class="table editable-table table-nowrap table-bordered table-edit wp-100">
 
@@ -64,6 +68,10 @@
 
                 <!-- Modal footer -->
                 <div class="modal-footer">
+                <form action="{{route('driver-pdf')}}" method="post" target="__blank">
+                        @csrf
+                        <button class="btn btn-primary" style="vertical-align:middle"><span>Export</span></button>
+                    </form>
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                 </div>
             </div>
@@ -730,3 +738,92 @@
     </div>
 </div>
 <!------------------------------------------------------------------ over edit driver modal ------------------------------------------------------------------>
+
+
+<!------------------------------------------------------------------ Setup driver modal ------------------------------------------------------------------>
+<div class="container">
+    <!-- The Modal -->
+    <div class="modal fade" id="setupDriverModal">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title">Add Driver</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body">
+
+                    <!-- Row -->
+                    <div class="row">
+                        <div class="row row-sm">
+                            <div class="col-lg-12">
+                                <div class="card">
+
+                                    <div class="card-body">
+                                        <div class="table-responsive export-table">
+                                            <form>
+                                                @csrf
+                                                <div class="form-row">
+                                                    <div class="form-group col-md-6">
+                                                        <label for="name">Name <span
+                                                                style="color:#ff0000">*</span></label>
+                                                        <input type="text" class="form-control required" id="drivername12"
+                                                            placeholder=" Name">
+                                                    </div>
+                                                    <div class="form-group col-md-4">
+                                                        <label for="sentvia">Sent via<span
+                                                                style="color:#ff0000">*</span></label>
+                                                        <select onchange="showdata(this.value)" class="form-control"
+                                                            id="sentvia">
+                                                            <option value="0" selected disabled>Select one</option>
+                                                            <option value="email">Email</option>
+                                                            <option value="text" disabled>Text</option>
+                                                            <option value="whatsapp" disabled>Whatsapp (Coming Soon)
+                                                            </option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-row">
+                                                    <div class="form-group col-md-6" id="emaildata"
+                                                        style="display: none">
+                                                        <label>Email <span style="color:#ff0000">*</span></label>
+                                                        <div>
+                                                            <input class="form-control" placeholder="Email *"
+                                                                type="email" name="driveremail1" id="driveremail1">
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group col-md-6" id="phonedata"
+                                                        style="display: none">
+                                                        <label>Telephone No.<span style="color:#ff0000">*</span></label>
+                                                        <div>
+                                                            <input class="form-control" placeholder="Telephone No. *"
+                                                                type="text" name="textno" id="textno">
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </form>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End Row -->
+                </div>
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <a type="submit" class="btn btn-primary setupDriverSubmit">Submit</a>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

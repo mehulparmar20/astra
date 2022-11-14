@@ -78,13 +78,11 @@ class AuthController extends Controller
             $password = Str::random(8);
             $shaPassword = sha1($password);
             $updatePassword = User::where('userEmail',$email)->update(['userPass' => $shaPassword]);
-            // print_r($password);die;
             $a = \Mail::send('email.forgot-password', ['password'=>$password], function($message) use($request){
                 $message->from('noreply@veravalonline.com');
                 $message->to($request->email);
                 $message->subject('Reset Password');
             });
-            // print_r($password);die;
             return redirect('login')->with('message', 'We have e-mailed you your new password');
         }     
         return back()->with('message', 'This email does not exist. Please try with a registered email');

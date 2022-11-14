@@ -39,6 +39,7 @@ Auth::routes();
 
 Route::get('admin/dashboard', [AuthController::class, 'dashboard']);
 Route::get('admin/user', [UserController::class, 'getAllUser']);
+Route::get('admin/user-privilege', [UserController::class, 'user']);
 Route::post('admin/add-user', [UserController::class, 'addUsers']);
 Route::post('admin/edit-user', [UserController::class, 'userEditDetails']);
 Route::post('admin/delete-user', [UserController::class, 'deleteUser'])->name('user.delete');
@@ -59,6 +60,9 @@ Route::post('admin/editDriver', [DriverController::class, 'editDriverData']);
 Route::post('admin/updateDriver', [DriverController::class, 'updateDriverData']);
 Route::post('admin/deleteDriver', [DriverController::class, 'deleteDriver']);
 Route::post('admin/addApplicationForm', [DriverController::class, 'addApplicationFormData']);
+Route::post('admin/setupDriver', [DriverController::class, 'setupDriver']);
+Route::post('admin/driverPDF', [DriverController::class, 'downloadPDF'])->name('driver-pdf');
+Route::get('admin/getContract', [DriverController::class, 'getContract']);
 
 //customer
 Route::get('admin/customer', [CustomerController::class, 'getCustomerData']);

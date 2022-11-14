@@ -191,7 +191,7 @@
                     </div>
                 </div>
                 <input type="button" name="next" class="next action-button action-button_first" value="Next"/>
-                <input type="button" name="submit" class="submit action-button" value="Submit"/>
+                
             </fieldset>
 
             <fieldset id="step2_wrap" class="formScroll">
@@ -1569,7 +1569,7 @@
                     </div>
                 </div>
                 <input type="button" name="previous" class="previous action-button-previous action-button_third" value="Previous"/>
-                <!-- <input type="submit" name="submit" class="submit action-button" value="Submit"/> -->
+                <input type="button" name="submit" class="submit action-button" value="Submit"/>
             </fieldset>
         </form>
     </div>

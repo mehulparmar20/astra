@@ -1,4 +1,4 @@
-<!-- driver modal -->
+<!-- Add User modal -->
 <div class="container">
     <!-- <h2>Large Modal</h2> -->
     <!-- Button to Open the Modal -->
@@ -118,7 +118,6 @@
                                                             id="inputFax">
                                                     </div>
                                                 </div>
-
 
                                                 <div class="form-row">
                                                     <div class="form-group col-md-12">
