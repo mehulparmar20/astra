@@ -89,16 +89,16 @@
                                                             <table id="editable-file-datatable" class="table editable-table table-nowrap table-bordered table-edit wp-100">
                                                                 <thead>
                                                                     <tr>
-                                                                        <th>ID</th>
-                                                                        <th>Name</th>
-                                                                        <th>Age</th>
-                                                                        <th>Gender</th>
-                                                                        <th>Gender</th>
-                                                                        <th>ID</th>
-                                                                        <th>Name</th>
-                                                                        <th>Age</th>
-                                                                        <th>Gender</th>
-                                                                        <th>Gender</th>
+                                                                        <th scope="col" col width="160">ID</th>
+                                                                        <th scope="col" col width="160">Name</th>
+                                                                        <th scope="col" col width="160">Age</th>
+                                                                        <th scope="col" col width="160">Gender</th>
+                                                                        <th scope="col" col width="160">Gender</th>
+                                                                        <th scope="col" col width="160">ID</th>
+                                                                        <th scope="col" col width="160">Name</th>
+                                                                        <th scope="col" col width="160">Age</th>
+                                                                        <th scope="col" col width="160">Gender</th>
+                                                                        <th scope="col" col width="160">Gender</th>
                                                                         <th>Edit</th>
                                                                     </tr>
                                                                 </thead>
