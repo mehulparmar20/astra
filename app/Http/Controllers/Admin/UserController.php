@@ -480,16 +480,5 @@ class UserController extends Controller
         return $pdf->download('Users.pdf');   
     }
 
-    // public function searchUser(Request $request) {
-    //     $key =$request->value;
-    //     $user = User::where('id', '!=', Auth::user()->id)->where('deleteStatus',0)
-    //     ->where(function($query) use($key) {
-    //         $query->where('userEmail', 'LIKE', "%{$key}%");
-    //         $query->orwhere('userFirstName', 'LIKE', "%{$key}%");
-    //         $query->orwhere('userLastName', 'LIKE', "%{$key}%");
-    //         $query->orwhere('userName', 'LIKE', "%{$key}%");
-    //     })->get();
-    //     return view('users-search', compact('user'));
-    // }
 
 }
