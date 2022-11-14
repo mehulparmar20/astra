@@ -77088,6 +77088,11 @@ ul li .legend-dots {
     padding: 0;
     margin-bottom: 0;
     display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: stretch;
+    flex-direction: row;
+    
 }
 
 .wizard>.steps>ul li {
@@ -77117,6 +77122,7 @@ ul li .legend-dots {
     font-weight: 500;
     font-size: 15px;
     display: flex;
+    
     align-items: center;
 }
 

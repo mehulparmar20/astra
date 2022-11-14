@@ -40,8 +40,6 @@
     <link href="{{URL::to('/')}}/assets/switcher/css/switcher.css" rel="stylesheet">
     <link href="{{URL::to('/')}}/assets/switcher/demo.css" rel="stylesheet"> 
 
-   
-     
 
 <style type="text/css">
    .header-brand-img {
@@ -52,7 +50,14 @@
    /* padding-bottom: 5px;*/
 }
 
-
+.course{
+    background-color:#8fbd56;
+    padding:5px; 
+    border: 2px solid #8fbd56;
+    border-radius: 12px;
+    color:white;
+    box-shadow: 5px 10px rgb(187, 185, 185);
+}
 </style>
 </head>
 
