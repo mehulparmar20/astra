@@ -8,6 +8,7 @@ use Session;
 use App\Models\Driver;
 use App\Models\Employement;
 use App\Models\User;
+use App\Models\ContractDetail;
 use App\Models\PasswordReset;
 use Mail; 
 use Hash;
@@ -16,6 +17,10 @@ use Carbon\Carbon;
 use DB;
 use HasFactory;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Twilio\Rest\Client;
+use Exception;
+use PDF;
+
 class DriverController extends Controller
 {
 //add by Reena
@@ -89,7 +94,7 @@ class DriverController extends Controller
                         'percentage' => (int)$request->percentage,
                         'driverBalance' => $request->driverBalance,
                         'terminationDate' => $request->terminationDate,
-                        'internalNotes' => $request->internalNotes,
+                        'internalNote' => $request->internalNotes,
                         'deleteStatus' => "NO",
                         // 'recurrencePlus' => $request->recurrencePlus,
                         // 'recurrenceAdd' => (Array)array(
@@ -675,6 +680,87 @@ class DriverController extends Controller
         ]);
         
     }  
+
+    public function setupDriver(Request $request){
+        request()->validate([
+            'driverName' => 'required',
+            'sentVia' => 'required',
+        ]);
+        $driverName=$request->driverName;
+        $sentVia=$request->sentVia;
+        $driverEmail=$request->driverEmail;
+        $driverNo=$request->driverNo;
+        
+        if($sentVia=="email"){
+            $a = \Mail::send('email.setup-driver', ['driverName'=>$driverName], function($message) use($request){
+                $message->from('noreply@veravalonline.com');
+                $message->to($request->driverEmail);
+                $message->subject('E driver setup from Astra TMS!');
+            });
+            return response()->json(['success' => true, 'message' => 'Mail sent successfully.','statusCode' => 200]);
+        }
+
+        if($sentVia=="text"){
+            $account_sid = getenv("TWILIO_SID");
+            $auth_token = getenv("TWILIO_TOKEN");
+            $twilio_number = getenv("TWILIO_FROM");
+  
+            $client = new Client($account_sid, $auth_token);
+            $client->messages->create($driverNo, [
+                'from' => $twilio_number, 
+                'body' => 'Hello '.$driverName.',
+                           please click below link to fill your driver joining application.
+                           Thank You.!
+                           Astra TMS']);
+            return response()->json(['success' => true, 'message' => 'Message sent successfully.','statusCode' => 200]);
+        }
+        
+    }  
+
+    public function downloadPDF()
+    {
+        $drivers = Driver::get();
+
+        foreach ($drivers as $driv) {
+            $show = $driv['driver'];
+            foreach ($show as $s) {
+                $p[] = array($s['driverName'], $s['driverUsername'], $s['driverTelephone'], $s['driverAlt'],
+                    $s['driverEmail'], $s['driverAddress'], $s['driverLocation'], $s['driverZip'],
+                    $s['driverStatus'], $s['driverSocial'], $s['dateOfbirth'], $s['dateOfHire'],
+                    $s['driverLicenseNo'], $s['driverLicenseIssue'], $s['driverLicenseExp'], $s['driverLastMedical'],
+                    $s['driverNextMedical'],$s['driverLastDrugTest'],$s['driverNextDrugTest'],$s['passportExpiry'],
+                    $s['fastCardExpiry'], $s['hazmatExpiry'], $s['internalNote'], $s['rate'], $s['currency']
+                );
+            }
+        }
+
+        $pdf = PDF::loadView('pdf.driverdetails', array('p' =>  $p))->setPaper('a4', 'landscape');
+        
+
+        return $pdf->download('Drivers.pdf');   
+    }
+
+    //add by Yash
+    public function getContract(Request $request){
+        $contract = ContractDetail::all();       
+        return response()->json($contract);  
+    }
+
+    // public function getContract(Request $request){
+    //     $contract = ContractDetail::all(); 
+    //     foreach($contract as $c){
+    //         $drivercontract = $c->contract;
+    //         foreach($drivercontract as $dc){
+    //             $heading = $dc['heading'];
+    //             foreach($dc['line'] as $l){
+    //                 $lines = $l;
+    //                 // dd($lines);
+    //             }
+    //         }
+    //     }    
+    //     return response()->json([$heading,$lines]);  
+    // }
+
 }
 
     
