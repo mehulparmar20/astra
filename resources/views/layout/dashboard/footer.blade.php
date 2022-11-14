@@ -64,8 +64,7 @@
 <!-- COLOR THEME JS -->
 <script src="{{URL::to('/')}}/assets/js/themeColors.js"></script>
 
-<!-- CUSTOM JS -->
-<script src="{{URL::to('/')}}/assets/js/custom.js"></script>
+
 
 <!-- dashboard js -->
 <script src="{{URL::to('/')}}/assets/js/js/form.js"></script>
@@ -98,6 +97,8 @@
 <script src="{{URL::to('/')}}/assets/js/table-editable.js"></script>
 <script src="{{URL::to('/')}}/assets/js/userprev.js"></script>
 <script src="{{URL::to('/')}}/assets/js/openmodel.js"></script>
+<!-- CUSTOM JS -->
+<script src="{{URL::to('/')}}/assets/js/custom.js"></script>
 
 </body>
 
