@@ -623,7 +623,73 @@ $.ajax({
 
 });
 
+$(document).ready(function() {
+    var response = '';
+    $.ajax({
+        type: "GET",
+        url: base_path+"/admin/getContract",
+        async: false,
+        success: function(text) {
+            driverContract(text);
+            response = text;
+        }
+    });
 
+});
+
+function driverContract(driverResponse) {
+
+    console.log(driverResponse);
+    var len1 = 0;
+    
+    $('#accordion').empty(); 
+    if (driverResponse != null) {
+        len2 = driverResponse.length;
+    }
+
+    if (len2 > 0) {
+        var no=1;
+            for (var i = 0; i < len2; i++) {  
+            var len3=driverResponse[i].contract.length; 
+                if(len3 > 0){
+                    
+                    for (var j = 0; j < len3; j++) {
+                    var comid =driverResponse[i].companyID;
+                    var counter =driverResponse[i].counter;
+                    var conttractid=driverResponse[i].contract[j]._id;
+                    var heading=driverResponse[i].contract[j].heading;
+                    var len4=driverResponse[i].contract[j].line.length; 
+                    var str0 = '<div class="acc-card mb-4">'+
+                                            '<div class="acc-header" id="heading'+no+'" role="tab">'+
+                                                '<h5 class="mb-0">'+
+                                                    '<a aria-controls="collapse'+no+'" aria-expanded="true" data-bs-toggle="collapse" href="#collapse'+no+'">'+heading+' <span class="float-end acc-angle"><i class="fe fe-chevron-right"></i></span></a>'+
+                                                '</h5>'+
+                                            '</div>'+
+                                            '<div id="accordiondata'+no+'">'
+                                            $("#accordion").append(str0);
+                    if(len4 > 0){
+                        for (var k = 0; k < len4; k++) {
+                            var data=driverResponse[i].contract[j].line[k];                                                  
+                    
+                            var str2 =     '<div aria-labelledby="heading'+no+'" class="collapse" data-bs-parent="#accordion" id="collapse'+no+'" role="tabpanel">'+
+                                                '<div class="acc-body">'+data+'</div>'+
+                                            '</div>'+
+                                        '</div>'
+                                        '</div>';
+                                        $("#accordiondata"+no).append(str2);
+                                    }
+                                }   
+                                no++;
+                } 
+            }
+        }
+    } else {
+        var str4 = '<div class="acc-card mb-4">No Contract</div>';
+
+        $("#accordion").append(str4);
+    }
+    // drivermodal();
+}
 
 });
 

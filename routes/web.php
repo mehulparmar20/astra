@@ -57,6 +57,8 @@ Route::post('admin/updateDriver', [DriverController::class, 'updateDriverData'])
 Route::post('admin/deleteDriver', [DriverController::class, 'deleteDriver']);
 Route::post('admin/addApplicationForm', [DriverController::class, 'addApplicationFormData']);
 Route::post('admin/setupDriver', [DriverController::class, 'setupDriver']);
+Route::post('admin/driverPDF', [DriverController::class, 'downloadPDF'])->name('driver-pdf');
+Route::get('admin/getContract', [DriverController::class, 'getContract']);
 
 //customer
 Route::get('admin/customer', [CustomerController::class, 'getCustomerData']);

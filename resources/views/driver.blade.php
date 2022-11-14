@@ -26,6 +26,8 @@
                                                 data-target="#addDriverModal">Add</a>
                                             <a href="#setupDriverModal" class="btn btn-primary" data-toggle="modal"
                                                 data-target="#setupDriverModal">Setup Driver</a>
+                                            <a href="#contractCategoryModal" class="btn btn-primary" data-toggle="modal"
+                                                data-target="#contractCategoryModal">View Driver Contract</a>
                                             <table id="editable-file-datatable"
                                                 class="table editable-table table-nowrap table-bordered table-edit wp-100">
 
@@ -66,6 +68,10 @@
 
                 <!-- Modal footer -->
                 <div class="modal-footer">
+                <form action="{{route('driver-pdf')}}" method="post" target="__blank">
+                        @csrf
+                        <button class="btn btn-primary" style="vertical-align:middle"><span>Export</span></button>
+                    </form>
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                 </div>
             </div>
