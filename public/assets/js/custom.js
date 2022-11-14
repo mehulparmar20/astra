@@ -14,11 +14,6 @@
         $(this).toggleClass('active').siblings().removeClass('active');
     });
 
-    // FAQ ACCORDION
-    $(document).on("click", '[data-bs-toggle="collapse"]', function () {
-        $(this).toggleClass('active').siblings().removeClass('active');
-    });
-
     
     // FULL SCREEN
     $(document).on("click", ".full-screen-link", function toggleFullScreen() {
@@ -541,9 +536,9 @@ let bodyhorizontal1 = $('body').hasClass('horizontal-hover');
     
 
     // ACCORDION STYLE
-    $(document).on("click", '[data-bs-toggle="collapse"]', function () {
-        $(this).toggleClass('active').siblings().removeClass('active');
-    });
+    // $(document).on("click", '[data-bs-toggle="collapse"]', function () {
+    //     $(this).toggleClass('active').siblings().removeClass('active');
+    // });
 
     // EMAIL INBOX
     $(".clickable-row").on('click', function () {
@@ -559,3 +554,9 @@ $('.off-canvas').on('click', function () {
     $('body').addClass('overflow-y-scroll');
     $('body').addClass('pe-0');
 });
+
+
+    // FAQ ACCORDION
+    $(document).on("click", '[data-bs-toggle="collapse"]', function () {
+        $(this).toggleClass('active').siblings().removeClass('active');
+    });
