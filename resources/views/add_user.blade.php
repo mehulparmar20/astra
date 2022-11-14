@@ -119,7 +119,6 @@
                                                     </div>
                                                 </div>
 
-
                                                 <div class="form-row">
                                                     <div class="form-group col-md-12">
                                                         <div id="privilege-data" class="tabs">
