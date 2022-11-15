@@ -52,7 +52,7 @@
                                             We cannot simply send you your old password. We have sent you a New Temporary Password. Use this Password to login to your account and reset your password from the edit profile section.
                                         </p>
                                         <h3>New Password</h3>
-                                        <a style="background:#0A469D;text-decoration:none !important; font-weight:500; color:#fff;text-transform:uppercase; font-size:14px;padding:10px 24px;display:inline-block;border-radius:5px;"><strong>{{$password}}</strong></a>
+                                        <a style="background:#0A469D;text-decoration:none !important; font-weight:500; color:#fff; font-size:14px;padding:10px 24px;display:inline-block;border-radius:5px;"><strong>{{$password}}</strong></a>
                                     </td>
                                 </tr>
                                 <tr>

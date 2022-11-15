@@ -198,3 +198,8 @@ ul.ks-cboxtags li input[type="checkbox"]:focus+label {
     margin-left: 4px;
     border-radius: 3px;
   }
+
+  .modal-xl1
+{
+max-width: 95% !important;
+}
