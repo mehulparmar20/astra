@@ -84,7 +84,7 @@
 			</div>
 			<!-- End PAGE -->
 	
-		</div>
+</div>
 
 
 <!-- PAGE -->
