@@ -827,3 +827,112 @@
         </div>
     </div>
 </div>
+
+<!------------------------------------------------------------------- Contract Category modal ------------------------------------------------------------------->
+<div class="container">
+    <!-- The Modal -->
+    <div class="modal fade" id="contractCategoryModal">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <h4 class="modal-title">Add Contract Category</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+                <!-- Modal Header -->
+                <!-- <div class="modal-header">
+                    <h4 class="modal-title">Driver Contract</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div> -->
+
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <!-- Row-->
+							<div class="row ">
+								<div class="col-md-12">
+									<div class="card">
+										<div class="card-body">
+                                            <a href="#addContractCategory" class="btn btn-primary" data-toggle="modal"
+                                                data-target="#addContractCategory">Add Contract Category</a>
+                                            <a href="#addContractSubCategory" class="btn btn-primary" data-toggle="modal"
+                                                data-target="#addContractSubCategory">Add Contract Sub Category</a>
+											<div aria-multiselectable="true" class="accordion" id="accordion" role="tablist">
+												
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!-- End Row-->
+
+						</div>
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                <!-- <form action="{{route('driver-pdf')}}" method="post" target="__blank">
+                        @csrf
+                        <button class="btn btn-primary" style="vertical-align:middle"><span>Export</span></button>
+                    </form> -->
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<!------------------------------------------------------------------ Add driver Contract Category modal ------------------------------------------------------------------>
+<div class="container">
+    <!-- The Modal -->
+    <div class="modal fade" id="addContractCategory">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title">Add Driver Contract Category</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body">
+
+                    <!-- Row -->
+                    <div class="row">
+                        <div class="row row-sm">
+                            <div class="col-lg-12">
+                                <div class="card">
+
+                                    <div class="card-body">
+                                        <div class="table-responsive export-table">
+                                            <form>
+                                                @csrf
+                                                <div class="form-row">
+                                                    <div class="form-group col-md-6">
+                                                        <label for="contractCategoryName">Contract Category Name <span
+                                                                style="color:#ff0000">*</span></label>
+                                                        <input type="text" class="form-control required" id="contractCategoryName"
+                                                            placeholder="Contract Category Name">
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End Row -->
+                </div>
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <a type="submit" class="btn btn-primary driverContractCategorySubmit">Submit</a>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

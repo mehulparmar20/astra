@@ -68,7 +68,7 @@
 <script src="{{URL::to('/')}}/assets/js/custom.js"></script>
 
 <!-- dashboard js -->
-<script src="{{URL::to('/')}}/assets/js/js/form.js"></script>
+<!-- <script src="{{URL::to('/')}}/assets/js/js/form.js"></script> -->
 
 <!-- DATA TABLE JS-->
 <script src="{{URL::to('/')}}/assets/plugins/datatable/js/jquery.dataTables.min.js"></script>
