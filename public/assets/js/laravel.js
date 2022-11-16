@@ -640,7 +640,7 @@ $(document).ready(function() {
 function driverContract(driverResponse) {
 
     console.log(driverResponse);
-    var len1 = 0;
+    var len2 = 0;
     
     $('#accordion').empty(); 
     if (driverResponse != null) {
@@ -691,8 +691,89 @@ function driverContract(driverResponse) {
     // drivermodal();
 }
 
+function getDriverContractHeading(driverResponse) {
+
+    console.log(driverResponse);
+    var len2 = 0;
+    
+    $('#accordion').empty(); 
+    if (driverResponse != null) {
+        len2 = driverResponse.length;
+    }
+
+    if (len2 > 0) {
+        var no=1;
+            for (var i = 0; i < len2; i++) {  
+            var len3=driverResponse[i].contract.length; 
+                if(len3 > 0){
+                    
+                    for (var j = 0; j < len3; j++) {
+                    var comid =driverResponse[i].companyID;
+                    var counter =driverResponse[i].counter;
+                    var conttractid=driverResponse[i].contract[j]._id;
+                    var heading=driverResponse[i].contract[j].heading;
+                    var len4=heading.length; 
+                    
+                    if(len4 > 0){
+                        for (var k = 0; k < len4; k++) {
+                            var data=driverResponse[i].contract[j].line[k];                                                  
+                    
+                            
+                                    }
+                                }   
+                                no++;
+                } 
+            }
+        }
+    } else {
+        var str4 = '<div class="acc-card mb-4">No Contract</div>';
+
+        $("#accordion").append(str4);
+    }
+    // drivermodal();
+}
+
+// <!-- ------------------------------------------------------------------------- end of add driver  ------------------------------------------------------------------------- -->
+
+$('.driverContractCategorySubmit').click(function(){            
+    var companyID = 4;
+    var driverContractCategory = $('#contractCategory').val();
+$.ajax({
+    url: base_path+"/admin/addDriverContractCategory",
+    type: "POST",
+    datatype:"JSON",
+    data: {
+        _token: $("#drivercsrf").val(),
+      companyID: companyID,
+      driverContractCategory: driverContractCategory,
+    },
+    cache: false,
+    success: function(resp){
+        if(resp.success == true){
+            swal.fire("Done!", resp.message, "success");
+            // $("#driverTable").append(tr_str4);
+            $.ajax({
+                type: "GET",
+                url: base_path+"/admin/getContract",
+                async: false,
+                success: function(text) {
+                    driverContract(text);
+                    response = text;
+                }
+            });
+            $("#addContractCategory form").trigger("reset");
+        } 
+      },
+      error: function(data){
+        $.each( data.responseJSON.errors, function( key, value ) {
+            swal.fire("Error!", value[0], "error");
+        });
+        },
 });
 
+});
+
+});
 
 
 // <!-- ------------------------------------------------------------------------- end of driver ------------------------------------------------------------------------- -->
