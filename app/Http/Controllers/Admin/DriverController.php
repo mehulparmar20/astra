@@ -20,6 +20,7 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 use Twilio\Rest\Client;
 use Exception;
 use PDF;
+use MongoDB\BSON\ObjectId;
 
 class DriverController extends Controller
 {
@@ -748,7 +749,7 @@ class DriverController extends Controller
 
     public function addDriverContractCategory(Request $request){
         request()->validate([
-            'contractCategoryName' => 'required',
+            'driverContractCategory' => 'required',
             'companyID' => 'required|unique:contractdetails,companyID',
         ]);
         try{
@@ -758,9 +759,10 @@ class DriverController extends Controller
 
         $getContract = ContractDetail::where('companyID',$companyID)->first();
 
-        $driverContract[]=array(    
-                        'heading' => $request->driverContractCategory,
-                         'lines' => array()
+        $driverContract[]=array( 
+            '_id' => new ObjectId(),
+            'heading' => $request->driverContractCategory,
+            'line' => array()
             );
 
             if($getContract){
@@ -771,7 +773,7 @@ class DriverController extends Controller
 
                 $data = [
                     'success' => true,
-                    'message'=> 'Driver Contract added successfully'
+                    'message'=> 'Driver Contract Category added successfully'
                 ] ;
                 
                 return response()->json($data);
@@ -784,7 +786,7 @@ class DriverController extends Controller
                 ])) {
                     $data = [
                         'success' => true,
-                        'message'=> 'Driver Contract added successfully'
+                        'message'=> 'Driver Contract Category added successfully'
                         ] ;
                         return response()->json($data);
                 }
@@ -795,37 +797,50 @@ class DriverController extends Controller
         }
     }
 
-    // public function addDriverContractSubCategory(Request $request){
-    //     request()->validate([
-    //         'contractSubCategory' => 'required',
-    //         'companyID' => 'required|unique:contractdetails,companyID',
-    //     ]);
-    //     try{
+    public function addDriverContractSubCategory(Request $request){
+        request()->validate([
+            'contractCategory' => 'required',
+            'contractSubCategory' => 'required',
+            'companyID' => 'required|unique:contractdetails,companyID',
+        ]);
+        try{
 
-    //     // $driver=ContractDetail::all();
-    //     $companyID=(int)$request->companyID;
+        // $driver=ContractDetail::all();
+        $companyID=(int)$request->companyID;
+        $contractCategorySelect=$request->contractCategory;
+        $getContract = ContractDetail::where('companyID',$companyID)->first();
+        $driverContractArray=$getContract->contract[$contractCategorySelect];
 
-    //     $getContract = ContractDetail::where('companyID',$companyID)->first();
+        $arrayLengthUp=count($driverContractArray);
+        $i=0;
+        $v=0;
+       for ($i=0; $i<$arrayLengthUp; $i++){
+            $id=$resultUp->driver[$i];
+                foreach ($id as $value){
+                    if($value==$driverEmailUp){
+                        $v=$i;
+                     }
+                }
+       }
+        foreach($request->driverContractSubCategory as $dc){
+            $driverContractSubCat = $request->driverContractSubCategory;
+        }
+                $driverContractArray=$getContract->contract[$request->heading];
+                ContractDetail::where(['companyID' =>$companyID, 'contract["heading"]' => $driverContractArray ])->update([
+                    'contract["lines"]' => $driverContractSubCat]);
 
-    //     foreach($request->driverContractSubCategory as $dc){
-    //         $driverContractSubCat = $request->driverContractSubCategory;
-    //     }
-    //             $driverContractArray=$getContract->contract[$request->heading];
-    //             ContractDetail::where(['companyID' =>$companyID, 'contract["heading"]' => $driverContractArray ])->update([
-    //                 'contract["lines"]' => $driverContractSubCat]);
-
-    //             $data = [
-    //                 'success' => true,
-    //                 'message'=> 'Driver Contract  added successfully'
-    //             ] ;
+                $data = [
+                    'success' => true,
+                    'message'=> 'Driver Contract  added successfully'
+                ] ;
                 
-    //             return response()->json($data);
+                return response()->json($data);
             
-    //     } 
-    //     catch(\Exception $error){
-    //         return $error->getMessage();
-    //     }
-    // }
+        } 
+        catch(\Exception $error){
+            return $error->getMessage();
+        }
+    }
 
 }
 
