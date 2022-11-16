@@ -1,0 +1,204 @@
+.side-menu__label {
+    font-size: 13px;
+    font-weight: bold;
+  }
+
+.sticky span {
+    font-size: 12px !important;
+  }
+  .horizontal .side-menu .side-menu__icon
+  {
+    width:17px !important;
+  }
+  .header div
+  {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    /* background-color: #FBFBFB !important; */
+  }
+  .customtable th {
+    font-size: 12px !important;
+    font-weight: bold !important;
+  }
+  #table1 {
+    font-size: 13px;
+    color: black;
+  }
+  .tabs {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    margin-bottom: 20px;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 360px;
+    padding: 30px 20px;
+    background: #f5f5f5;
+    box-shadow: 5px 5px 10px 5px #ccc;
+    overflow: hidden;
+}
+
+.tabs .tab-header {
+    float: left;
+    width: 180px;
+    height: 100%;
+    border-right: 1px solid #ccc;
+}
+
+.tabs .tab-header>div {
+    height: 50px;
+    line-height: 50px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #888;
+    cursor: pointer;
+    padding-left: 10px;
+}
+
+.tabs .tab-header>div:hover,
+.tabs .tab-header>div.active {
+    color: #00acee;
+}
+
+.tabs .tab-header div i {
+    display: inline-block;
+    margin-left: 10px;
+    margin-right: 5px;
+}
+
+.tabs .tab-content {
+    position: relative;
+    height: 100%;
+    overflow: hidden;
+}
+
+.tabs .tab-content>div>i {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    background: #555;
+    color: #f5f5f5;
+    font-size: 25px;
+    font-weight: 600;
+    text-align: center;
+    line-height: 50px;
+    border-radius: 50%;
+}
+
+.tabs .tab-content>div {
+    position: absolute;
+    top: -200%;
+    transition: all 500ms ease-in-out;
+}
+
+.tabs .tab-content>div.active {
+    top: 0px;
+}
+
+ul.ks-cboxtags {
+    list-style: none;
+}
+
+ul.ks-cboxtags li {
+    display: inline;
+}
+
+ul.ks-cboxtags li label {
+    display: inline-block;
+    background-color: rgba(255, 255, 255, .9);
+    border: 2px solid rgba(139, 139, 139, .3);
+    color: #adadad;
+    border-radius: 25px;
+    white-space: nowrap;
+    margin: 3px 0px;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    transition: all .2s;
+}
+
+ul.ks-cboxtags li label {
+    padding: 8px 12px;
+    cursor: pointer;
+}
+
+ul.ks-cboxtags li label::before {
+    display: inline-block;
+    font-style: normal;
+    font-variant: normal;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    font-size: 12px;
+    padding: 2px 6px 2px 2px;
+    content: "\f067";
+    transition: transform .3s ease-in-out;
+}
+
+ul.ks-cboxtags li input[type="checkbox"]:checked+label::before {
+    content: "\f00c";
+    transform: rotate(-360deg);
+    transition: transform .3s ease-in-out;
+}
+
+ul.ks-cboxtags li input[type="checkbox"]:checked+label {
+    border: 2px solid #1bdbf8;
+    background-color: #12bbd4;
+    color: #fff;
+    transition: all .2s;
+}
+
+ul.ks-cboxtags li input[type="checkbox"] {
+    display: absolute;
+}
+
+ul.ks-cboxtags li input[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
+}
+
+ul.ks-cboxtags li input[type="checkbox"]:focus+label {
+    border: 2px solid #e9a1ff;
+}
+
+.email_class_err {
+    border-bottom: 1px solid red !important;
+}
+
+.email_class_suc {
+    border-bottom: 1px solid green !important;
+}
+
+.email_error {
+    color: red !important;
+    /* font-weight: bold; */
+    font-family: sans-serif;
+}
+
+.email_succ {
+    color: green !important;
+    /* font-weight: bold; */
+    font-family: sans-serif;
+}
+.add1button {
+    background: #323477;
+  }
+  #editmodel {
+    background-color: green;
+    padding: 5px;
+    border-radius: 3px;
+  }
+  .delete1 {
+    background: red;
+    padding: 5px;
+    margin-left: 4px;
+    border-radius: 3px;
+  }
+  .custom_modal
+  {
+    max-width: 95% !important;
+  }
