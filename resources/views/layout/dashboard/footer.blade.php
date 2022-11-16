@@ -91,6 +91,9 @@
 
 <!-- CUSTOM JS -->
 <script src="{{URL::to('/')}}/assets/js/custom.js"></script>
+<script src="{{URL::to('/')}}/assets/js/openmodel.js"></script>
+<script src="{{URL::to('/')}}/assets/js/userprev.js"></script>
+<script src="{{URL::to('/')}}/static/js/checkbox.js"></script>
 
 </body>
 

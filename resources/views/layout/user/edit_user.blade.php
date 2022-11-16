@@ -4,7 +4,7 @@
 
 
     <div class="modal fade" id="userEditModal">
-        <div class="modal-dialog modal-dialog-scrollable modal-xl">
+        <div class="modal-dialog modal-dialog-scrollable custom_modal">
             <div class="modal-content">
 
                 <!-- Modal Header -->

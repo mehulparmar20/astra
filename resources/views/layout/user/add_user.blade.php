@@ -7,7 +7,7 @@
         </button> -->
     <!-- The Modal -->
     <div class="modal fade" data-backdrop="static" id="addUserModal">
-        <div class="modal-dialog modal-dialog-scrollable modal-xl">
+        <div class="modal-dialog modal-dialog-scrollable custom_modal">
             <div class="modal-content">
                 <!-- Modal Header -->
                 <div class="modal-header">
@@ -599,9 +599,7 @@
                 <!-- End Row -->
             </div>
             <!-- Modal footer -->
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            </div>
+            
         </div>
     </div>
 </div>

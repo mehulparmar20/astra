@@ -2,7 +2,7 @@
 <div class="container">
     <!-- The Modal -->
     <div class="modal fade" id="driverModal">
-        <div class="modal-dialog modal-lg">
+        <div class="modal-dialog custom_modal">
             <div class="modal-content">
 
                 <!-- Modal Header -->
@@ -87,7 +87,7 @@
 <div class="container">
     <!-- The Modal -->
     <div class="modal fade" id="addDriverModal">
-        <div class="modal-dialog modal-lg">
+        <div class="modal-dialog custom_modal">
             <div class="modal-content">
 
                 <!-- Modal Header -->
