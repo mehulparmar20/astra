@@ -1,4 +1,4 @@
-<!-- driver modal -->
+<!-- Add User modal -->
 <div class="container">
     <!-- <h2>Large Modal</h2> -->
     <!-- Button to Open the Modal -->
