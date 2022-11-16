@@ -746,23 +746,87 @@ class DriverController extends Controller
         return response()->json($contract);  
     }
 
-    // public function getContract(Request $request){
-    //     $contract = ContractDetail::all(); 
-    //     foreach($contract as $c){
-    //         $drivercontract = $c->contract;
-    //         foreach($drivercontract as $dc){
-    //             $heading = $dc['heading'];
-    //             foreach($dc['line'] as $l){
-    //                 $lines = $l;
-    //                 // dd($lines);
-    //             }
-    //         }
-    //     }    
-    //     return response()->json([$heading,$lines]);  
+    public function addDriverContractCategory(Request $request){
+        request()->validate([
+            'contractCategoryName' => 'required',
+            'companyID' => 'required|unique:contractdetails,companyID',
+        ]);
+        try{
+
+        $driver=ContractDetail::all();
+        $companyID=(int)$request->companyID;
+
+        $getContract = ContractDetail::where('companyID',$companyID)->first();
+
+        $driverContract[]=array(    
+                        'heading' => $request->driverContractCategory,
+                         'lines' => array()
+            );
+
+            if($getContract){
+                $driverContractArray=$getContract->contract;
+                ContractDetail::where(['companyID' =>$companyID ])->update([
+                    'contract' =>array_merge($driverContract,$driverContractArray), 
+                ]);
+
+                $data = [
+                    'success' => true,
+                    'message'=> 'Driver Contract added successfully'
+                ] ;
+                
+                return response()->json($data);
+            }else{
+                if(ContractDetail::create([
+                    
+                    'companyID' => $companyID,
+                    'counter' => 0,
+                    'contract' => $driverContract,                    
+                ])) {
+                    $data = [
+                        'success' => true,
+                        'message'=> 'Driver Contract added successfully'
+                        ] ;
+                        return response()->json($data);
+                }
+            }
+        } 
+        catch(\Exception $error){
+            return $error->getMessage();
+        }
+    }
+
+    // public function addDriverContractSubCategory(Request $request){
+    //     request()->validate([
+    //         'contractSubCategory' => 'required',
+    //         'companyID' => 'required|unique:contractdetails,companyID',
+    //     ]);
+    //     try{
+
+    //     // $driver=ContractDetail::all();
+    //     $companyID=(int)$request->companyID;
+
+    //     $getContract = ContractDetail::where('companyID',$companyID)->first();
+
+    //     foreach($request->driverContractSubCategory as $dc){
+    //         $driverContractSubCat = $request->driverContractSubCategory;
+    //     }
+    //             $driverContractArray=$getContract->contract[$request->heading];
+    //             ContractDetail::where(['companyID' =>$companyID, 'contract["heading"]' => $driverContractArray ])->update([
+    //                 'contract["lines"]' => $driverContractSubCat]);
+
+    //             $data = [
+    //                 'success' => true,
+    //                 'message'=> 'Driver Contract  added successfully'
+    //             ] ;
+                
+    //             return response()->json($data);
+            
+    //     } 
+    //     catch(\Exception $error){
+    //         return $error->getMessage();
+    //     }
     // }
 
 }
 
     
-
-

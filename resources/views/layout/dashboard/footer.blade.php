@@ -59,6 +59,7 @@
 <!-- SIDE-MENU JS -->
 <script src="{{URL::to('/')}}/assets/plugins/sidemenu/sidemenu.js"></script>
 
+
 <!-- DATA TABLE JS-->
 
 <script src="{{URL::to('/')}}/assets/plugins/datatable/js/dataTables.buttons.min.js"></script>
