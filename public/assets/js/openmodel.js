@@ -73,127 +73,18 @@ $(document).ready(function(){
                         });
                         },
                   });
-          });
-
-          $('.driverDataUpdate').click(function(){        
-            var updateComId= $('#up_comId').val();
-            var updateEmailDriver= $('#emaildriver').val();
-            var updateDriverName= $('#up_name').val();
-            var updateDriverUsername=$('#up_username').val();
-            var updateDriverAddress=$('#up_address').val();
-            var updateDriverTelephone=$('#up_telephone').val();
-            var updateDriverAlt=$('#up_altTelephone').val();
-            var updateDriverEmail=$('#up_email').val();
-            var updateDriverPassword=$('#up_password').val();
-            var updateDriverLocation=$('#up_location').val();
-            var updateDriverZip=$('#up_zip').val();
-            var updateDriverStatus=$('#up_status').val();
-            var updateDriverSocial=$('#up_socialSecurityNo').val();
-            var updateDateOfbirth=$('#up_dateOfBirth').val();
-            var updateDateOfHire=$('#up_dateOfHire').val();
-            var updateDriverLicenseNo=$('#up_licenseNo').val();
-            var updateDriverLicenseIssue=$('#up_licenseIssueState').val();
-            var updateDriverLicenseExp=$('#up_licenseExpDate').val();
-            var updateDriverLastMedical=$('#up_lastMedical').val();
-            var updateDriverNextMedical=$('#up_nextMedical').val();
-            var updateDriverLastDrugTest=$('#up_lastDrugTest').val();
-            var updateDriverNextDrugTest=$('#up_nextDrugTest').val();
-            var updatePassportExpiry=$('#up_passportExpiry').val();
-            var updateFastCardExpiry=$('#up_fastCardExpiry').val();
-            var updateHazmatExpiry=$('#up_hazmatExpiry').val();
-            var updateRate=$('#up_rate').val();
-            var updateCurrency=$('#up_currency').val();
-            var updateTerminationDate=$('#up_terminationDate').val();
-            var updateDriverBalance=$('#up_driverBalance').val();
-            var updateInternalNotes=$('#up_internalNotes').val();
-            var updateloadedMiles = $('#loadedmilesedit').val();   
-            var updateemptyMiles = $('#emptymilesedit').val();   
-            var updatepickRate = $('#pickrateedit').val();   
-            var updatepickStart = $('#pickstartedit').val();   
-            var updatedropRate = $('#droprateedit').val();   
-            var updatedropStart = $('#dropstartedit').val();   
-            var updatedriverTarp = $('#driverTarpedit').val();   
-            var updatepercentage = $('#dPercentageEdit').val();
-        
-            $.ajax({
-                url:base_path+"/admin/updateDriver" ,
-                type:'post',
-                data:{
-                    _token:$("#drivercsrf").val(),
-                    updateComId:updateComId,
-                    updateEmailDriver:updateEmailDriver,
-                    updateDriverName: updateDriverName,
-                    updateDriverUsername: updateDriverUsername,
-                    updateDriverAddress: updateDriverAddress,
-                    updateDriverTelephone: updateDriverTelephone,
-                    updateDriverAlt: updateDriverAlt,
-                    updateDriverEmail: updateDriverEmail,
-                    updateDriverPassword: updateDriverPassword,
-                    updateDriverLocation: updateDriverLocation,
-                    updateDriverLocation: updateDriverLocation,
-                    updateDriverZip: updateDriverZip,
-                    updateDriverStatus: updateDriverStatus,
-                    updateDriverSocial: updateDriverSocial,
-                    updateDateOfbirth: updateDateOfbirth,
-                    updateDateOfHire: updateDateOfHire,
-                    updateDriverLicenseNo: updateDriverLicenseNo,
-                    updateDriverLicenseIssue: updateDriverLicenseIssue,
-                    updateDriverLicenseExp: updateDriverLicenseExp,
-                    updateDriverLastMedical: updateDriverLastMedical,
-                    updateDriverNextMedical: updateDriverNextMedical,
-                    updateDriverLastDrugTest: updateDriverLastDrugTest,
-                    updateDriverNextDrugTest: updateDriverNextDrugTest,
-                    updatePassportExpiry: updatePassportExpiry,
-                    updateFastCardExpiry: updateFastCardExpiry,
-                    updateHazmatExpiry: updateHazmatExpiry,
-                    updateRate: updateRate,
-                    updateCurrency: updateCurrency,
-                    updateTerminationDate: updateTerminationDate,
-                    updateDriverBalance: updateDriverBalance,
-                    updateInternalNotes: updateInternalNotes,
-                    driverLoadedMile: updateloadedMiles,
-                    driverEmptyMile: updateemptyMiles,
-                    pickupRate: updatepickRate,
-                    pickupAfter: updatepickStart,
-                    dropRate: updatedropRate,
-                    dropAfter: updatedropStart,
-                    tarp: updatedriverTarp,
-                    percentage: updatepercentage,
-                } ,
-                success: function(response){
-                    var responsenew = JSON.parse(response);
-                    if(responsenew.statusCode===200){
-                        swal.fire("Done!", responsenew.message, "success");
-                        $.ajax({
-                            type: "GET",
-                            url: base_path+"/admin/driver",
-                            success: function(text) {
-                                createDriverRows(text);
-                                response = text;
-                            }
-                        });			
-                    }
-                  },
-                  error: function(data){
-                    $.each( data.responseJSON.errors, function( key, value ) {
-                        swal.fire("Error!", value[0], "error"); 
-                    });
-                }            
-            });
-        }); 
+          }); 
 
 });
 
 $(document).ready(function(){
     $("#closemodel").on("click",function(){
         $('#userEditModal').modal("hide");
-        console.log("close trigger");
     });
 });
 $(document).ready(function(){
     $("#closemodelfooter").on("click",function(){
         $('#userEditModal').modal("hide");
-        console.log("close trigger");
     });
 });
 
@@ -201,7 +92,6 @@ function usermodal()
 {
     $(document).ready(function(){
         $('.edit1').click(function(){
-            console.log('Hello2');
             $('#userEditModal').modal('show'); 
             var tr = (this).closest('tr');
             $('#id').val(tr.cells[0].innerText);

@@ -310,7 +310,6 @@ $(document).ready(function() {
                     $("#table1").append(tr_str2);
                     $("#addUserModal form").trigger("reset");
                 } else {
-                    console.log(resp.errors[0].message);
                     swal.fire("Error!", resp.error, "error");
                 }
               },
@@ -360,8 +359,6 @@ $(document).ready(function() {
     });
 
     function createDriverRows(driverResponse) {
-
-        console.log(driverResponse);
         var len1 = 0;
         
         $('#driverTable').empty(); 
@@ -513,7 +510,6 @@ $(".deleteDriver").on("click", function(){
             var driverTarp = $('#driverTarp').val();   
             var percentage = $('#dPercentage').val();   
             var tr_length1 = $("#driverModal").find("tr").length;
-            console.log(tr_length1);
             var tr_str4 = "<tr data-id=" + tr_length1 + ">" +
                             "<td data-field='tr_length1'>" + tr_length1 + "</td>" +
                             "<td data-field='name' >" + name + "</td>" +
@@ -628,6 +624,9 @@ $(document).ready(function() {
     $.ajax({
         type: "GET",
         url: base_path+"/admin/getContract",
+        data: {
+            companyID: 4,
+        },
         async: false,
         success: function(text) {
             driverContract(text);
@@ -638,27 +637,25 @@ $(document).ready(function() {
 });
 
 function driverContract(driverResponse) {
-
-    console.log(driverResponse);
     var len2 = 0;
-    
     $('#accordion').empty(); 
     if (driverResponse != null) {
         len2 = driverResponse.length;
     }
 
-    if (len2 > 0) {
+    
+    console.log(driverResponse);
         var no=1;
-            for (var i = 0; i < len2; i++) {  
-            var len3=driverResponse[i].contract.length; 
+            var contract=driverResponse.contract;
+            var len3=contract.length;
                 if(len3 > 0){
                     
                     for (var j = 0; j < len3; j++) {
-                    var comid =driverResponse[i].companyID;
-                    var counter =driverResponse[i].counter;
-                    var conttractid=driverResponse[i].contract[j]._id;
-                    var heading=driverResponse[i].contract[j].heading;
-                    var len4=driverResponse[i].contract[j].line.length; 
+                    var comid =driverResponse.companyID;
+                    var counter =driverResponse.counter;
+                    var conttractid=driverResponse.contract[j]._id;
+                    var heading=driverResponse.contract[j].heading;
+                    var len4=driverResponse.contract[j].line.length; 
                     var str0 = '<div class="acc-card mb-4">'+
                                             '<div class="acc-header" id="heading'+no+'" role="tab">'+
                                                 '<h5 class="mb-0">'+
@@ -669,7 +666,7 @@ function driverContract(driverResponse) {
                                             $("#accordion").append(str0);
                     if(len4 > 0){
                         for (var k = 0; k < len4; k++) {
-                            var data=driverResponse[i].contract[j].line[k];                                                  
+                            var data=driverResponse.contract[j].line[k];                                                  
                     
                             var str2 =     '<div aria-labelledby="heading'+no+'" class="collapse" data-bs-parent="#accordion" id="collapse'+no+'" role="tabpanel">'+
                                                 '<div class="acc-body">'+data+'</div>'+
@@ -682,79 +679,45 @@ function driverContract(driverResponse) {
                                 no++;
                 } 
             }
-        }
-    } else {
-        var str4 = '<div class="acc-card mb-4">No Contract</div>';
-
-        $("#accordion").append(str4);
-    }
-    // drivermodal();
-}
-
-function getDriverContractHeading(driverResponse) {
-
-    console.log(driverResponse);
-    var len2 = 0;
-    
-    $('#accordion').empty(); 
-    if (driverResponse != null) {
-        len2 = driverResponse.length;
-    }
-
-    if (len2 > 0) {
-        var no=1;
-            for (var i = 0; i < len2; i++) {  
-            var len3=driverResponse[i].contract.length; 
-                if(len3 > 0){
-                    
-                    for (var j = 0; j < len3; j++) {
-                    var comid =driverResponse[i].companyID;
-                    var counter =driverResponse[i].counter;
-                    var conttractid=driverResponse[i].contract[j]._id;
-                    var heading=driverResponse[i].contract[j].heading;
-                    var len4=heading.length; 
-                    
-                    if(len4 > 0){
-                        for (var k = 0; k < len4; k++) {
-                            var data=driverResponse[i].contract[j].line[k];                                                  
-                    
-                            
-                                    }
-                                }   
-                                no++;
-                } 
-            }
-        }
-    } else {
-        var str4 = '<div class="acc-card mb-4">No Contract</div>';
-
-        $("#accordion").append(str4);
-    }
-    // drivermodal();
+            else {
+               var str4 = '<div class="acc-card mb-4">No Contract</div>';
+       
+               $("#accordion").append(str4);
+           }
+    drivermodal();
 }
 
 // <!-- ------------------------------------------------------------------------- end of add driver  ------------------------------------------------------------------------- -->
 
 $('.driverContractCategorySubmit').click(function(){            
     var companyID = 4;
+    var k = new Array();
     var driverContractCategory = $('#contractCategory').val();
+    var driverContractSubCategory = document.getElementsByName('driverContractSubCategory[]');
+    for (var i = 0; i < driverContractSubCategory.length; i++) {
+                var a = driverContractSubCategory[i];
+                k[i] = a.value;
+            }
 $.ajax({
     url: base_path+"/admin/addDriverContractCategory",
     type: "POST",
     datatype:"JSON",
     data: {
-        _token: $("#drivercsrf").val(),
+        _token: $("#drivercsrf0").val(),
       companyID: companyID,
       driverContractCategory: driverContractCategory,
+      driverContractSubCategory: k,
     },
     cache: false,
     success: function(resp){
         if(resp.success == true){
             swal.fire("Done!", resp.message, "success");
-            // $("#driverTable").append(tr_str4);
             $.ajax({
                 type: "GET",
                 url: base_path+"/admin/getContract",
+                data: {
+                    companyID: 4,
+                },
                 async: false,
                 success: function(text) {
                     driverContract(text);
@@ -773,6 +736,137 @@ $.ajax({
 
 });
 
+$('.driverDataUpdate').click(function(){        
+    var updateComId= $('#up_comId').val();
+    var updateEmailDriver= $('#emaildriver').val();
+    var updateDriverName= $('#up_name').val();
+    var updateDriverUsername=$('#up_username').val();
+    var updateDriverAddress=$('#up_address').val();
+    var updateDriverTelephone=$('#up_telephone').val();
+    var updateDriverAlt=$('#up_altTelephone').val();
+    var updateDriverEmail=$('#up_email').val();
+    var updateDriverPassword=$('#up_password').val();
+    var updateDriverLocation=$('#up_location').val();
+    var updateDriverZip=$('#up_zip').val();
+    var updateDriverStatus=$('#up_status').val();
+    var updateDriverSocial=$('#up_socialSecurityNo').val();
+    var updateDateOfbirth=$('#up_dateOfBirth').val();
+    var updateDateOfHire=$('#up_dateOfHire').val();
+    var updateDriverLicenseNo=$('#up_licenseNo').val();
+    var updateDriverLicenseIssue=$('#up_licenseIssueState').val();
+    var updateDriverLicenseExp=$('#up_licenseExpDate').val();
+    var updateDriverLastMedical=$('#up_lastMedical').val();
+    var updateDriverNextMedical=$('#up_nextMedical').val();
+    var updateDriverLastDrugTest=$('#up_lastDrugTest').val();
+    var updateDriverNextDrugTest=$('#up_nextDrugTest').val();
+    var updatePassportExpiry=$('#up_passportExpiry').val();
+    var updateFastCardExpiry=$('#up_fastCardExpiry').val();
+    var updateHazmatExpiry=$('#up_hazmatExpiry').val();
+    var updateRate=$('#up_rate').val();
+    var updateCurrency=$('#up_currency').val();
+    var updateTerminationDate=$('#up_terminationDate').val();
+    var updateDriverBalance=$('#up_driverBalance').val();
+    var updateInternalNotes=$('#up_internalNotes').val();
+    var updateloadedMiles = $('#loadedmilesedit').val();   
+    var updateemptyMiles = $('#emptymilesedit').val();   
+    var updatepickRate = $('#pickrateedit').val();   
+    var updatepickStart = $('#pickstartedit').val();   
+    var updatedropRate = $('#droprateedit').val();   
+    var updatedropStart = $('#dropstartedit').val();   
+    var updatedriverTarp = $('#driverTarpedit').val();   
+    var updatepercentage = $('#dPercentageEdit').val();
+
+    $.ajax({
+        url:base_path+"/admin/updateDriver" ,
+        type:'post',
+        data:{
+            _token:$("#drivercsrf").val(),
+            updateComId:updateComId,
+            updateEmailDriver:updateEmailDriver,
+            updateDriverName: updateDriverName,
+            updateDriverUsername: updateDriverUsername,
+            updateDriverAddress: updateDriverAddress,
+            updateDriverTelephone: updateDriverTelephone,
+            updateDriverAlt: updateDriverAlt,
+            updateDriverEmail: updateDriverEmail,
+            updateDriverPassword: updateDriverPassword,
+            updateDriverLocation: updateDriverLocation,
+            updateDriverLocation: updateDriverLocation,
+            updateDriverZip: updateDriverZip,
+            updateDriverStatus: updateDriverStatus,
+            updateDriverSocial: updateDriverSocial,
+            updateDateOfbirth: updateDateOfbirth,
+            updateDateOfHire: updateDateOfHire,
+            updateDriverLicenseNo: updateDriverLicenseNo,
+            updateDriverLicenseIssue: updateDriverLicenseIssue,
+            updateDriverLicenseExp: updateDriverLicenseExp,
+            updateDriverLastMedical: updateDriverLastMedical,
+            updateDriverNextMedical: updateDriverNextMedical,
+            updateDriverLastDrugTest: updateDriverLastDrugTest,
+            updateDriverNextDrugTest: updateDriverNextDrugTest,
+            updatePassportExpiry: updatePassportExpiry,
+            updateFastCardExpiry: updateFastCardExpiry,
+            updateHazmatExpiry: updateHazmatExpiry,
+            updateRate: updateRate,
+            updateCurrency: updateCurrency,
+            updateTerminationDate: updateTerminationDate,
+            updateDriverBalance: updateDriverBalance,
+            updateInternalNotes: updateInternalNotes,
+            driverLoadedMile: updateloadedMiles,
+            driverEmptyMile: updateemptyMiles,
+            pickupRate: updatepickRate,
+            pickupAfter: updatepickStart,
+            dropRate: updatedropRate,
+            dropAfter: updatedropStart,
+            tarp: updatedriverTarp,
+            percentage: updatepercentage,
+        } ,
+        success: function(response){
+            var responsenew = JSON.parse(response);
+            if(responsenew.statusCode===200){
+                swal.fire("Done!", responsenew.message, "success");
+                $.ajax({
+                    type: "GET",
+                    url: base_path+"/admin/driver",
+                    success: function(text) {
+                        createDriverRows(text);
+                        response = text;
+                    }
+                });			
+            }
+          },
+          error: function(data){
+            $.each( data.responseJSON.errors, function( key, value ) {
+                swal.fire("Error!", value[0], "error"); 
+            });
+        }            
+    });
+});
+
+});
+
+$(document).ready(function(){
+    var maxField = 20; //Input fields increment limitation
+    var addButton = $('.add_button'); //Add button selector
+    var wrapper = $('#field_wrapper'); //Input field wrapper
+    var fieldHTML = '<div class="form-group col-md-6"><input type="text" name="driverContractSubCategory[]" class="driverContractSubCategory"/><a href="javascript:void(0);" class="remove_button"><i class="fa fa-minus" aria-hidden="true"></i></a></div>'; //New input field html 
+    var x = 1; //Initial field counter is 1
+    
+    //Once add button is clicked
+    $(addButton).click(function(){
+        //Check maximum number of input fields
+        if(x < maxField){ 
+            x++; //Increment field counter
+            $(wrapper).append(fieldHTML); //Add field html
+        }
+    });
+    
+    //Once remove button is clicked
+    $(wrapper).on('click', '.remove_button', function(e){
+        e.preventDefault();
+        $(this).parent('div').remove(); //Remove field html
+        x--; //Decrement field counter
+    });
 });
 
 

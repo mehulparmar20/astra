@@ -909,13 +909,19 @@
                                             <form>
                                                 @csrf
                                                 <div class="form-row">
-                                                <input type="hidden" name="_token" id="drivercsrf"
+                                                    <input type="hidden" name="_token" id="drivercsrf0"
                                                     value="{{Session::token()}}">
                                                     <div class="form-group col-md-6">
                                                         <label for="contractCategory">Contract Category<span
                                                                 style="color:#ff0000">*</span></label>
                                                         <input type="text" class="form-control required" id="contractCategory"
                                                             placeholder="Contract Category">
+                                                    </div>
+                                                </div>
+                                                <div class="form-row" id="field_wrapper">
+                                                    <div class="form-group col-md-6">
+                                                        <input type="text" name="driverContractSubCategory[]" class="driverContractSubCategory"/>
+                                                        <a href="javascript:void(0);" class="add_button" title="Add field"><i class="fa fa-plus" aria-hidden="true"></i></a>
                                                     </div>
                                                 </div>
                                             </form>
@@ -939,7 +945,7 @@
     </div>
 </div>
 
-<!------------------------------------------------------------------ Add driver Contract Category modal ------------------------------------------------------------------>
+<!------------------------------------------------------------------ Add driver Contract Sub Category modal ------------------------------------------------------------------>
 <div class="container">
     <!-- The Modal -->
     <div class="modal fade" id="addContractSubCategory">
@@ -966,11 +972,11 @@
                                             <form>
                                                 @csrf
                                                 <div class="form-row">
-                                                <input type="hidden" name="_token" id="drivercsrf"
+                                                <input type="hidden" name="_token" id="drivercsrf2"
                                                     value="{{Session::token()}}">
                                                     <div class="form-group col-md-6">
                                                         <label>Contract Category<span class="mandatory">*</span></label>
-                                                        <select name="selectcat" id="catselect" class="form-control" onchange="getSelectContractInfo()">
+                                                        <select name="selectcat" id="catselect" class="form-control" onchange="getDriverContractHeading()">
 
                                                         </select>
 
