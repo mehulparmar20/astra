@@ -84,9 +84,6 @@
 
 <script src="{{URL::to('/')}}/assets/js/laravel.js"></script>
 
-
-
-
 <!-- INTERNAL DATATABLES JS -->
 <script src="{{URL::to('/')}}/assets/js/table-editable.js"></script>
 
