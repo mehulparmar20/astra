@@ -1,3 +1,4 @@
+
 <!-- app-Header -->
             <div class="app-header header sticky" style="padding: 0; background-color:#FBFBFB">
                 <div class="container-fluid main-container">
@@ -20,7 +21,7 @@
 											<path d="M13.293 6.293 7.586 12l5.707 5.707 1.414-1.414L10.414 12l4.293-4.293z" />
 										</svg>
 									</div>
-									<ul class="side-menu">
+									<ul class="side-menu" style="margin-bottom:0px;padding-top:5px">
 									
 										<li class="slide">
 											<a class="side-menu__item has-link" data-bs-toggle="slide" href="{{URL::to('/')}}/admin/dashboard">
@@ -263,12 +264,12 @@
 		
             <!-- /app-Header -->
 
-			@include('customer')
-            @include('driver') 
-            @include('user') 
-            @include('add_user') 
-            @include('edit_user') 
-            @include('driver_pay_info') 
-            @include('driver_contract') 
+			@include('layout.customer.customer')
+            @include('layout.driver.driver') 
+            @include('layout.user.user') 
+            @include('layout.user.add_user') 
+            @include('layout.user.edit_user') 
+            @include('layout.driver.driver_pay_info') 
+            @include('layout.driver.driver_contract') 
         
 			
