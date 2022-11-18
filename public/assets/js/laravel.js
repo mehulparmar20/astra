@@ -878,6 +878,8 @@ $('.driverDataUpdate').click(function(){
     });
 });
 
+});
+
 function drivermodal()
 {
     $(document).ready(function(){
@@ -961,15 +963,7 @@ function drivermodal()
           success: function(resp){
             if (resp.success === true) {
 				swal.fire("Done!", resp.message, "success");
-                $.ajax({
-                    type: "GET",
-                    url: base_path+"/admin/driver",
-                    async: false,
-                    success: function(text) {
-                        createDriverRows(text);
-                        driverResponse = text;
-                    }
-                });
+                rowToDelete.remove();
 			} else {
 				swal.fire("Error!", resp.message, "error");
 			}
@@ -987,8 +981,6 @@ function drivermodal()
 })
     });
 }
-
-});
 
 $(document).ready(function(){
     var maxField = 20; //Input fields increment limitation
