@@ -307,7 +307,15 @@ $(document).ready(function() {
               success: function(resp){
                 if(resp.success === true){
                     swal.fire("Done!", resp.message, "success");
-                    $("#table1").append(tr_str2);
+                    $.ajax({
+                        type: "GET",
+                        url: base_path+"/admin/user",
+                        async: false,
+                        success: function(text) {
+                            createRows(text);
+                            response = text;
+                        }
+                    });
                     $("#addUserModal form").trigger("reset");
                 } else {
                     swal.fire("Error!", resp.error, "error");
@@ -341,6 +349,67 @@ $(document).ready(function(){
       }
     });
   });
+
+  function usermodal()
+{
+    $(document).ready(function(){
+        $('.edit1').click(function(){
+            $('#userEditModal').modal('show'); 
+            var tr = (this).closest('tr');
+            $('#id').val(tr.cells[0].innerText);
+            $('#editFirstName4').val(tr.cells[3].innerText);
+            $('#editLastName4').val(tr.cells[4].innerText);
+            $('#editUsername4').val(tr.cells[2].innerText);
+            $('#editEmail4').val(tr.cells[1].innerText);
+            $('#email4').val(tr.cells[1].innerText);
+            $('#editAddress').val(tr.cells[5].innerText);
+            $('#editLocation').val(tr.cells[6].innerText);
+            $('#editZip').val(tr.cells[7].innerText);
+            $('#editTelephone').val(tr.cells[8].innerText);
+            $('#editExt').val(tr.cells[9].innerText);
+            $('#editTollFree').val(tr.cells[10].innerText);
+            $('#editFax').val(tr.cells[11].innerText);
+        });
+    });
+    $(".delete1").on("click", function(){
+		var rowToDelete = $(this).closest('tr');
+		var email = $(this).attr("data-id");
+		swal.fire({
+            title: "Delete?",
+            text: "Please ensure and then confirm!",
+            type: "warning",
+            showCancelButton: !0,
+            confirmButtonText: "Yes, delete it!",
+            cancelButtonText: "No, cancel!",
+            reverseButtons: !0
+        }).then(function (e) {
+
+        if (e.value === true) {
+		$.ajax({ 
+			type: 'POST',
+		  url: base_path+"/admin/delete-user",
+		  data: {userEmail: email},
+		  success: function (resp) {
+			if (resp.success === true) {
+				swal.fire("Done!", resp.message, "success");
+				rowToDelete.remove();
+			} else {
+				swal.fire("Error!", resp.message, "error");
+			}
+		},
+		error: function (resp) {
+			swal.fire("Error!", 'Something went wrong.', "error");
+		}
+		});
+		} else {
+			e.dismiss;
+		}
+
+	}, function (dismiss) {
+		return false;
+	})
+	});
+}
   
 // <!-- ------------------------------------------------------------------------- driver ------------------------------------------------------------------------- -->
 
@@ -423,47 +492,7 @@ $('.editModalCloseButton').click(function(){
 
 // <!--------------------------------------------------------------------------- end of edit driver  --------------------------------------------------------------------------->
 // <!--------------------------------------------------------------------------- delete driver ajax --------------------------------------------------------------------------->    
-$(".deleteDriver").on("click", function(){
-        var rowToDelete = $(this).closest('tr');
-        var id = $(this).attr("data-id");
-        var result = $(this).attr("data-id").split('&');
-        var com_id=result[0];
-        var email=result[1];
-        swal.fire({
-            title: "Delete?",
-            text: "Please ensure and then confirm!",
-            type: "warning",
-            showCancelButton: !0,
-            confirmButtonText: "Yes, delete it!",
-            cancelButtonText: "No, cancel!",
-            reverseButtons: !0
-        }).then(function (e) {
 
-        if (e.value === true) {
-        $.ajax({ 
-          url: base_path+"/admin/deleteDriver",
-          data: {com_id: com_id,email: email},
-          type: 'post',
-          success: function(resp){
-            if (resp.success === true) {
-				swal.fire("Done!", resp.message, "success");
-				rowToDelete.remove();
-			} else {
-				swal.fire("Error!", resp.message, "error");
-			}
-		},
-		error: function (resp) {
-			swal.fire("Error!", 'Something went wrong.', "error");
-		}
-        });
-    } else {
-        e.dismiss;
-    }
-
-}, function (dismiss) {
-    return false;
-})
-    });
 
 // <!-- -------------------------------------------------------------------------end of delete driver ajax ------------------------------------------------------------------------- -->    
 
@@ -573,7 +602,16 @@ $(".deleteDriver").on("click", function(){
             success: function(resp){
                 if(resp.success == true){
                     swal.fire("Done!", resp.message, "success");
-                    $("#driverTable").append(tr_str4);
+                    // $("#driverTable").append(tr_str4);
+                    $.ajax({
+                        type: "GET",
+                        url: base_path+"/admin/driver",
+                        async: false,
+                        success: function(text) {
+                            createDriverRows(text);
+                            driverResponse = text;
+                        }
+                    });
                     $("#addDriverModal form").trigger("reset");
                 } 
               },
@@ -642,9 +680,6 @@ function driverContract(driverResponse) {
     if (driverResponse != null) {
         len2 = driverResponse.length;
     }
-
-    
-    console.log(driverResponse);
         var no=1;
             var contract=driverResponse.contract;
             var len3=contract.length;
@@ -843,13 +878,123 @@ $('.driverDataUpdate').click(function(){
     });
 });
 
+function drivermodal()
+{
+    $(document).ready(function(){
+        $('.edit').click(function(){
+            var id = $(this).attr("data-id");
+            var result = $(this).attr("data-id").split('&');
+            var com_id=result[0];
+            var email=result[1];
+            $.ajax({
+                url: base_path+"/admin/editDriver",
+                type: "POST",
+                datatype:"JSON",
+                data: {_token: $("#drivercsrf").val(),com_id: com_id,email: email},
+                cache: false,
+                success: function(dataResult){
+                    $('#up_comId').val(com_id);
+                    $('#emaildriver').val(email);
+                    $('#up_name').val(dataResult.driverName);
+                    $('#up_username').val(dataResult.driverUsername);
+                    $('#up_address').val(dataResult.driverAddress);
+                    $('#up_telephone').val(dataResult.driverTelephone);
+                    $('#up_altTelephone').val(dataResult.driverAlt);
+                    $('#up_email').val(dataResult.driverEmail);
+                    $('#up_location').val(dataResult.driverLocation);
+                    $('#up_zip').val(dataResult.driverZip);
+                    $('#up_status').val(dataResult.driverStatus);
+                    $('#up_socialSecurityNo').val(dataResult.driverSocial);
+                    $('#up_dateOfBirth').val(dataResult.dateOfbirth);
+                    $('#up_dateOfHire').val(dataResult.dateOfHire);
+                    $('#up_licenseNo').val(dataResult.driverLicenseNo);
+                    $('#up_licenseIssueState').val(dataResult.driverLicenseIssue);
+                    $('#up_licenseExpDate').val(dataResult.driverLicenseExp);
+                    $('#up_lastMedical').val(dataResult.driverLastMedical);
+                    $('#up_nextMedical').val(dataResult.driverNextMedical);
+                    $('#up_lastDrugTest').val(dataResult.driverLastDrugTest);
+                    $('#up_nextDrugTest').val(dataResult.driverNextDrugTest);
+                    $('#up_passportExpiry').val(dataResult.passportExpiry);
+                    $('#up_fastCardExpiry').val(dataResult.fastCardExpiry);
+                    $('#up_hazmatExpiry').val(dataResult.hazmatExpiry);
+                    $('#up_rate').val(dataResult.rate);
+                    $('#up_currency').val(dataResult.currency);
+                    $('#up_terminationDate').val(dataResult.terminationDate);
+                    $('#up_driverBalance').val(dataResult.driverBalance);
+                    $('#up_internalNotes').val(dataResult.internalNotes);
+                    $('#dPercentageEdit').val(dataResult.percentage);
+                    $('#loadedmilesedit').val(dataResult.driverLoadedMile);
+                    $('#emptymilesedit').val(dataResult.driverEmptyMile);
+                    $('#pickrateedit').val(dataResult.pickupRate);
+                    $('#pickstartedit').val(dataResult.pickupAfter);
+                    $('#droprateedit').val(dataResult.dropRate);
+                    $('#dropstartedit').val(dataResult.dropAfter);
+                    $('#driverTarpedit').val(dataResult.tarp);
+                   
+                    $('#editDriverModal').modal('show'); 
+                }
+            });
+        });
+    });
+    
+    $(".deleteDriver").on("click", function(){
+        var rowToDelete = $(this).closest('tr');
+        var id = $(this).attr("data-id");
+        var result = $(this).attr("data-id").split('&');
+        var com_id=result[0];
+        var email=result[1];
+        swal.fire({
+            title: "Delete?",
+            text: "Please ensure and then confirm!",
+            type: "warning",
+            showCancelButton: !0,
+            confirmButtonText: "Yes, delete it!",
+            cancelButtonText: "No, cancel!",
+            reverseButtons: !0
+        }).then(function (e) {
+
+        if (e.value === true) {
+        $.ajax({ 
+          url: base_path+"/admin/deleteDriver",
+          data: {com_id: com_id,email: email},
+          type: 'post',
+          success: function(resp){
+            if (resp.success === true) {
+				swal.fire("Done!", resp.message, "success");
+                $.ajax({
+                    type: "GET",
+                    url: base_path+"/admin/driver",
+                    async: false,
+                    success: function(text) {
+                        createDriverRows(text);
+                        driverResponse = text;
+                    }
+                });
+			} else {
+				swal.fire("Error!", resp.message, "error");
+			}
+		},
+		error: function (resp) {
+			swal.fire("Error!", 'Something went wrong.', "error");
+		}
+        });
+    } else {
+        e.dismiss;
+    }
+
+}, function (dismiss) {
+    return false;
+})
+    });
+}
+
 });
 
 $(document).ready(function(){
     var maxField = 20; //Input fields increment limitation
     var addButton = $('.add_button'); //Add button selector
     var wrapper = $('#field_wrapper'); //Input field wrapper
-    var fieldHTML = '<div class="form-group col-md-6"><input type="text" name="driverContractSubCategory[]" class="driverContractSubCategory"/><a href="javascript:void(0);" class="remove_button"><i class="fa fa-minus" aria-hidden="true"></i></a></div>'; //New input field html 
+    var fieldHTML = '<div class="form-group col-md-8"><input type="text" name="driverContractSubCategory[]" class="form-control driverContractSubCategory"/><a href="javascript:void(0);" class="remove_button"><i class="fa fa-minus" aria-hidden="true"></i></a></div>'; //New input field html 
     var x = 1; //Initial field counter is 1
     
     //Once add button is clicked
@@ -868,6 +1013,7 @@ $(document).ready(function(){
         x--; //Decrement field counter
     });
 });
+
 
 
 // <!-- ------------------------------------------------------------------------- end of driver ------------------------------------------------------------------------- -->
