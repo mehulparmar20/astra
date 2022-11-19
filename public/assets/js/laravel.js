@@ -402,7 +402,7 @@ $(document).ready(function() {
                             "<td data-field='lis'>" + lis + "</td>" +
                             "<td data-field='license_exp_date'>" + license_exp_date + "</td>" +
                             "<td data-field='driver_balance'>" + driver_balance + "</td>" +
-                            "<td style='width: 100px'><i class='btn btn-primary fe fe-edit edit' data-id=" + comid+ "&"+email + "><a>edit</a></i><a class='deleteDriver mt-2 btn btn-danger fs-14 text-white delete-icn' data-id=" + comid+ "&"+email + " title='Delete'><i class='fe fe-delete'></i></a></td></tr>";
+                            "<td style='width: 100px'><i class='button-23 fe fe-edit edit' data-id=" + comid+ "&"+email + "></i><a class='deleteDriver mt-2 button-23-del fs-14 text-white delete-icn' data-id=" + comid+ "&"+email + " title='Delete'><i class='fe fe-delete'></i></a></td></tr>";
                         $("#driverTable").append(tr_str1);
                         no++;
                         }
