@@ -202,3 +202,9 @@ ul.ks-cboxtags li input[type="checkbox"]:focus+label {
   {
     max-width: 95% !important;
   }
+
+  .custom_modal_small{
+    max-width: 85% !important;
+    max-height: 85% !important;
+    align-self: center;
+  }

@@ -1,15 +1,20 @@
 <!------------------------------------------------------------------- Contract Category modal ------------------------------------------------------------------->
 <div class="container">
     <!-- The Modal -->
-    <div class="modal fade" id="contractCategoryModal">
+    <div class="modal fade" data-backdrop="static" id="contractCategoryModal">
         <div class="modal-dialog modal-dialog-scrollable custom_modal">
             <div class="modal-content">
 
-                <!-- Modal Header -->
                 <div class="modal-header">
-                    <h4 class="modal-title">Driver Contract</h4>
+                    <h4 class="modal-title">Add Contract Category</h4>
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                 </div>
+
+                <!-- Modal Header -->
+                <!-- <div class="modal-header">
+                    <h4 class="modal-title">Driver Contract</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div> -->
 
                 <!-- Modal body -->
                 <div class="modal-body">
@@ -18,6 +23,8 @@
 								<div class="col-md-12">
 									<div class="card">
 										<div class="card-body">
+                                            <a href="#addContractCategory" class="btn btn-primary" data-toggle="modal"
+                                                data-target="#addContractCategory">Add Contract Category</a>
 											<div aria-multiselectable="true" class="accordion" id="accordion" role="tablist">
 												
 											</div>

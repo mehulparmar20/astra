@@ -273,5 +273,6 @@
             @include('layout.driver.driver_contract') 
             @include('layout.driver.addRecurrence')
             @include('layout.driver.subtractRecurrence')
+            @include('layout.driver.add_contract_category')
         
 			
