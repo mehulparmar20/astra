@@ -8,7 +8,7 @@
                 <!-- Modal Header -->
                 <div class="modal-header">
                     <h4 class="modal-title">Driver</h4>
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <button type="button" class="button-24" data-dismiss="modal">&times;</button>
                 </div>
 
                 <!-- Modal body -->
@@ -70,9 +70,9 @@
                 <div class="modal-footer">
                 <form action="{{route('driver-pdf')}}" method="post" target="__blank">
                         @csrf
-                        <button class="btn btn-primary" style="vertical-align:middle"><span>Export</span></button>
+                        <button class="button-29" style="vertical-align:middle"><span>Export</span></button>
                     </form>
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="button-29" data-dismiss="modal">Close</button>
                 </div>
             </div>
         </div>

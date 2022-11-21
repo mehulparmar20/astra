@@ -112,3 +112,6 @@ function GetDynamicTextBox(value) {
         '<td><button type="button" class="btn btn-danger removeSubCategory"><span aria-hidden="true">&times;</span></button></td>'
 }
 </script>
+
+<!-- HTML !-->
+<button class="button-28" role="button">Button 28</button>

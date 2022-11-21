@@ -41,7 +41,7 @@
                         @csrf
                         <button class="btn btn-primary" style="vertical-align:middle"><span>Export</span></button>
                     </form> -->
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="button-29" data-dismiss="modal">Close</button>
                 </div>
             </div>
         </div>
