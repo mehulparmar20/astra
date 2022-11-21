@@ -781,10 +781,10 @@ $(document).ready(function() {
 
 
 function inc_percentage() {
-  document.getElementById("percentage").stepUp(1);
+  document.getElementById("ownerPercentage").stepUp(1);
 }
 function dec_percentage() {
-    document.getElementById("percentage").stepUp(-1);
+    document.getElementById("ownerPercentage").stepUp(-1);
   }
   
 

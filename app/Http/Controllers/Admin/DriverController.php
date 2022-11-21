@@ -93,7 +93,7 @@ class DriverController extends Controller
                         
                         // 'companyID' => (int)$_SESSION['companyId'],
                         '_id' => 1,
-                        'companyID' => 1,
+                        'companyID' => $companyID,
                         'counter' => 0,
                         'ownerOperator' => $ownerOperatorData,
                     ])) {
