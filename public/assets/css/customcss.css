@@ -209,16 +209,53 @@ ul.ks-cboxtags li input[type="checkbox"]:focus+label {
     max-width: 95% !important;
   }
 
+  /* small screen, hidden by default */
+@media only screen and (max-width: 770px ) {
+  .custom_modal_small{
+    top: 4%;
+    left: 5%;
+  }
+}
+
+/* large screen, shown by default */
+@media only screen and (min-width: 771px ) {
+  .custom_modal_small{
+
+    top: 4%;
+  }
+}
+
   .custom_modal_small{
     max-width: 85% !important;
     max-height: 85% !important;
-    align-self: center;
+    position: relative;
+    margin: 0 auto;
+    top: 4%;
   }
+
+    /* small screen, hidden by default */
+@media only screen and (max-width: 770px ) {
+  .custom_modal_small2{
+    top: 4%;
+    left: 10%;
+  }
+}
+
+/* large screen, shown by default */
+@media only screen and (min-width: 771px ) {
+  .custom_modal_small2{
+
+    top: 9%;
+  }
+}
 
   .custom_modal_small2{
     max-width: 75% !important;
     max-height: 75% !important;
-    align-self: center;
+    position: relative;
+    margin: 0 auto;
+    top: 9%;
+
   }
 
 
