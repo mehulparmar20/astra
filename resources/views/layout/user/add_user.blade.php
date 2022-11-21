@@ -35,7 +35,7 @@
                                                     <div class="form-group col-md-3">
                                                         <label for="inputLastName4">Last Name<span
                                                                 class="required"></span></label>
-                                                        <input type="email" class="form-control" name="inputLastName4"
+                                                        <input type="text" class="form-control" name="inputLastName4"
                                                             id="inputLastName4" placeholder="Last Name">
                                                     </div>
                                                     <div class="form-group col-md-3">

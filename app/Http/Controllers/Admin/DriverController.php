@@ -35,7 +35,7 @@ class DriverController extends Controller
     public function addDriverData(Request $request){
         request()->validate([
             'name' => 'required',
-            'email' => 'required|unique:driver,driverEmail',
+            'email' => 'required|unique:driver,driver.driverEmail',
             'telephone' => 'required',
             'address' => 'required',
             'password' => 'required',
@@ -561,7 +561,7 @@ class DriverController extends Controller
 
         request()->validate([
             'updateDriverName' => 'required',
-            'updateDriverEmail' => 'required|unique:driver,driverEmail'.$request->updateEmailDriver,
+            'updateDriverEmail' => 'required|unique:driver,driver.driverEmail'.$request->updateEmailDriver,
             'updateDriverUsername' => 'required',
             'updateDriverTelephone' => 'required',
             'updateDriverAddress' => 'required',

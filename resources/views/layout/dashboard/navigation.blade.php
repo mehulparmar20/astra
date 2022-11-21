@@ -296,5 +296,6 @@
             @include('layout.user.edit_user') 
             @include('layout.driver.driver_pay_info') 
             @include('layout.driver.driver_contract') 
+            @include('layout.company.company') 
         
 			

@@ -5,6 +5,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\Admin\DriverController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\CustomerController;
+use App\Http\Controllers\Admin\CompanyController;
 
 /*
 |--------------------------------------------------------------------------
@@ -74,3 +75,7 @@ Route::get('admin/getCustomerBFactoringCompany', [CustomerController::class, 'ge
 Route::post('admin/addCurrency', [CustomerController::class, 'addCustomerCurrency']);
 Route::post('admin/PaymentTerms', [CustomerController::class, 'addCustomerPaymentTerms']);
 Route::post('admin/factoringCompany', [CustomerController::class, 'addCustomerfactoringCompany']);
+
+//company
+Route::get('admin/company', [CompanyController::class, 'getCompanyData']);
+Route::post('admin/addCompanyData', [CompanyController::class, 'addCompanyData']);
