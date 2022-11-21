@@ -63,6 +63,8 @@ Route::post('admin/addApplicationForm', [DriverController::class, 'addApplicatio
 Route::post('admin/setupDriver', [DriverController::class, 'setupDriver']);
 Route::post('admin/driverPDF', [DriverController::class, 'downloadPDF'])->name('driver-pdf');
 Route::get('admin/getContract', [DriverController::class, 'getContract']);
+Route::get('admin/viewDriverApplication', [DriverController::class, 'getViewDriverApplication']);
+Route::post('admin/addOwnerOparator', [DriverController::class, 'addOwnerOparator']);
 
 //customer
 Route::get('admin/customer', [CustomerController::class, 'getCustomerData']);

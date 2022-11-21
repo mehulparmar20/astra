@@ -402,7 +402,12 @@ $(document).ready(function() {
                             "<td data-field='lis'>" + lis + "</td>" +
                             "<td data-field='license_exp_date'>" + license_exp_date + "</td>" +
                             "<td data-field='driver_balance'>" + driver_balance + "</td>" +
-                            "<td style='width: 100px'><i class='btn btn-primary fe fe-edit edit' data-id=" + comid+ "&"+email + "><a>edit</a></i><a class='deleteDriver mt-2 btn btn-danger fs-14 text-white delete-icn' data-id=" + comid+ "&"+email + " title='Delete'><i class='fe fe-delete'></i></a></td></tr>";
+                            "<td style='display:inline-flex'>"+
+                                // "<i class='btn btn-primary fe fe-edit edit' data-id=" + comid+ "&"+email + "></i>"+
+                                "<a class='editDriver mt-2 btn btn-primary fs-14 text-white edit'  title='Edit' data-id=" + comid+ "&"+email + "><i class='fe fe-edit'></i></a>&nbsp"+
+                                "<a class='deleteDriver mt-2 btn btn-danger fs-14 text-white delete-icn' data-id=" + comid+ "&"+email + " title='Delete'><i class='fe fe-delete'></i></a>&nbsp"+
+                                "<a class='addDriverOwner mt-2 btn btn-success fs-14 text-white '  title='Add As Owner Operator' data-id="+ driverId+" data-name="+ btoa(name)+" ><i class='fe fe-user-plus'></i></a>&nbsp"+
+                            "</td></tr>";
                         $("#driverTable").append(tr_str1);
                         no++;
                         }
@@ -423,8 +428,14 @@ $('.editModalCloseButton').click(function(){
     $('#editDriverModal').modal('hide');
     $('#driverModal').modal('show');  
 });
+$('.addDriverOwner').click(function(){
+    var name =$(this).data('name');
+    $('#owner-driver-name').val(atob(name));
+    console.log(atob(name));
+    $('#addDriverOwnerModal').modal('show');  
+});
 
-// <!--------------------------------------------------------------------------- end of edit driver  --------------------------------------------------------------------------->
+// <!--------------------------------------------------------------------------- end of get driver  --------------------------------------------------------------------------->
 // <!--------------------------------------------------------------------------- delete driver ajax --------------------------------------------------------------------------->    
 $(".deleteDriver").on("click", function(){
         var rowToDelete = $(this).closest('tr');
@@ -472,7 +483,8 @@ $(".deleteDriver").on("click", function(){
 
 // <!-- ------------------------------------------------------------------------- add driver  ------------------------------------------------------------------------- -->
 
-      $('.driverDataSubmit').click(function(){            
+      $('.driverDataSubmit').click(function(){   
+        alert();         
             var companyID = 4;
             var name = $('#name').val();
             var username = $('#username').val();
@@ -526,7 +538,12 @@ $(".deleteDriver").on("click", function(){
                             "<td data-field='lis'>" + licenseIssueState + "</td>" +
                             "<td data-field='license_exp_date'>" + licenseExpDate + "</td>" +
                             "<td data-field='driver_balance'>" + driverBalance + "</td>" +
-                            "<td style='width: 100px'><i class='btn btn-primary fe fe-edit edit' data-id=" + companyID + "&"+ email + "><a>edit</a></i><a class='deleteDriver mt-2 btn btn-danger fs-14 text-white delete-icn' data-id=" + companyID + "&" + email + " title='Delete'><i class='fe fe-delete'></i></a></td></tr>";    
+                            "<td style='display: inline-flex'>"+
+                            "<i class='btn btn-primary fe fe-edit edit' data-id=" + companyID + "&"+ email + "></i>"+
+                                // "<a class='editDriver mt-2 btn btn-primary fs-14 text-white edit' data-id=" + companyID + "&" + email + " title='Edit'><i class='fe fe-edit'></i></a>&nbsp"+
+                                "<a class='deleteDriver mt-2 btn btn-danger fs-14 text-white  data-id=" + companyID + "&" + email + " title='Delete'><i class='fe fe-delete'></i></a>&nbsp"+
+                                
+                            "</td></tr>";    
         $.ajax({
             url: base_path+"/admin/addDriver",
             type: "POST",
@@ -696,3 +713,156 @@ function driverContract(driverResponse) {
 
 
 // <!-- ------------------------------------------------------------------------- end of driver ------------------------------------------------------------------------- -->
+
+// <!-- -------------------------------------------------------------------------Get view driver application data ------------------------------------------------------------------------- -->    
+$(document).ready(function() {
+    var viewDriverApplicationResponse = '';
+
+        $.ajax({
+            type: "GET",
+            url: base_path+"/admin/viewDriverApplication",
+            async: false,
+            success: function(data) {
+                createviewDriverApplicationRows(data);
+                viewDriverApplicationResponse = data;
+            }
+        });
+
+        function createviewDriverApplicationRows(viewDriverApplicationResponse) {i
+
+            console.log(viewDriverApplicationResponse);
+            var len1 = 0;
+            
+            $('#viewDriverApplicationTable').empty(); 
+            if (viewDriverApplicationResponse != null) {
+                len1 = viewDriverApplicationResponse.application.length;
+            }
+
+            if (len1 > 0) {
+                var no=1;
+                    for (var i = 0; i < 3; i++) {  
+                            var applicant_name=viewDriverApplicationResponse.application[i].applicant_info.applicant_name;
+                            var applicationDate=viewDriverApplicationResponse.application[i].applicant_info.date_of_application;
+                            var Email=viewDriverApplicationResponse.application[i].applicant_info.email;
+                            var Contact=viewDriverApplicationResponse.application[i].applicant_info.telephone;
+
+                            var tr_str1 = "<tr data-id=" + (i + 1) + ">" +
+                                "<td data-field='no'>" + no + "</td>" +
+                                "<td data-field='driverName' >" + applicant_name + "</td>" +
+                                "<td data-field='applicationDate'>" + applicationDate + "</td>" +
+                                "<td data-field='Email'>" + Email + "</td>" +
+                                "<td data-field='Contact'>" + Contact + "</td>" +
+                                "<td data-field='Status'> <select style='width: auto;'><option value='0'>Select Status</option><option value='accept'>Accept</option><option value='decline'>Decline</option></select> </td>" +
+                                "<td style='display: inline-flex;'>"+
+                                    "<a class='editDriver mt-2 btn btn-primary fs-14 text-white '  title='Edit'><i class='fe fe-edit edit'></i></a>&nbsp"+
+                                    "<a class='deleteDriver mt-2 btn btn-danger fs-14 text-white delete-icn'  title='Delete'><i class='fe fe-delete'></i></a> &nbsp"+
+                                "</td></tr>";
+                            $("#viewDriverApplicationTable").append(tr_str1);
+                            no++;
+                     
+                    }
+            } else {
+                var tr_str1 = "<tr data-id=" + i + ">" +
+                    "<td align='center' colspan='4'>No record found.</td>" +
+                    "</tr>";
+
+                $("#viewDriverApplicationTable").append(tr_str1);
+            }
+            drivermodal();
+        }
+
+    $('.editModalCloseButton').click(function(){
+        $('#editDriverModal').modal('hide');
+        $('#driverModal').modal('show');  
+    });
+});
+
+// <!-- ------------------------------------------------------------------------- end view driver application data  ------------------------------------------------------------------------- -->
+
+
+function inc_percentage() {
+  document.getElementById("percentage").stepUp(1);
+}
+function dec_percentage() {
+    document.getElementById("percentage").stepUp(-1);
+  }
+  
+
+  var OwnerOperatorblock = '<div class="optionBox ">'+
+  '<div class="block">'+
+      '<div class="row row-sm" id="OwnerOperatorContainer">'+
+              '<div class="col-sm-3">'+
+                  '<label class="form-label" for="owner-driver-name">Category</label>'+
+                  '<input type="text" class="form-control" name="installmentCategory[]" list="fixpaycat" placeholder=" Search here..." autocomplete="off" />'+
+              '</div>'+
+              '<div class="col-sm-3">'+
+                  '<label class="form-label" for="owner-driver-name">Installment Type</label>'+
+                      '<select name="installmentType[]" class="form-control">'+
+                          '<option value="">Select type</option>'+
+                          '<option value="Weekly">Weekly</option>'+
+                          '<option value="Monthly">Monthly</option>'+
+                          '<option value="yearly">Yearly</option>'+
+                          '<option value="Quarterly">Quarterly</option>'+
+                      '</select>'+
+              '</div>'+
+              '<div class="col-sm-3">'+
+                  '<label class="form-label" for="owner-driver-name">Amount</label>'+
+                  '<input name="amount[]" type="text" class="form-control" />'+
+              '</div>'+
+              '<div class="col-sm-3">'+
+                  '<label class="form-label" for="owner-driver-name">Installment</label>'+
+                  '<input name="installment[]" type="text" class="form-control"  />'+
+              '</div>'+
+              '<div class="col-sm-3">'+
+                  '<label class="form-label" for="owner-driver-name">start#</label>'+
+                  '<input name="startNo[]" type="text" class="form-control"  />'+
+              '</div>'+
+              '<div class="col-sm-3">'+
+                  '<label class="form-label" for="owner-driver-name">start Date</label>'+
+                  '<input name="startDate[]" type="date" class="form-control" />'+
+              '</div>'+
+              '<div class="col-sm-5">'+
+                  '<label class="form-label" for="owner-driver-name">Internal Note</label>'+
+                  '<textarea rows="1" cols="20" class="form-control" type="textarea" name="internalNote[]"></textarea>'+
+              '</div>'+
+              '<div class="col-sm-1">'+
+                  '<label class="form-label" for="owner-driver-name">Delete</label>'+
+                  
+              
+                  '</button>'+
+              '</div>'+
+              '<!-- <input type="text" /> <span class="remove">Remove Option</span> -->'+
+              '<button type="button" class="btn btn-danger remove"><spanaria-hidden="true">&times;</span>'+
+      '</div>'+
+  '</div>'+
+'</div>'
+
+$('.add').click(function() {
+    $(this).before(OwnerOperatorblock);
+});
+
+$(document).on('click','.remove',function() {
+    $(this).parent('div').remove();
+});
+
+$('#submitOwnerOparator').click(function(){
+
+    $.ajax({
+        type: "POST",
+        url: base_path+"/admin/addOwnerOparator",
+        dataType: 'json',
+        data: {
+                'data':$('#addOwnerForm').serialize(),
+                '_token': $(".laravel_csrf_tokn").val(),
+            },  
+        success: function(text) {
+            // driverContract(text);
+            // response = text;
+        }
+    });
+    
+});
+
+
+
+

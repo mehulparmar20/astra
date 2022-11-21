@@ -75,10 +75,6 @@
 									<label class="form-label" for="expdate1">Date Of Application <span style="color:#ff0000">*</span></label>
 									<div class="input-group">
 										<input type="date" class="form-control" id="DateOfApplication" placeholder=" Enter Date Of Application " >
-										<!-- <div class="input-group-text bg-primary-transparent text-primary">
-											<i class="fe fe-calendar text-20"></i>
-										</div>
-										<input class="form-control DateOfApplication" id="datepicker-date" placeholder="MM/DD/YYYY" type="text"> -->
 									</div>
 								</div>
 							</div>
