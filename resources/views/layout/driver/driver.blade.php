@@ -23,11 +23,11 @@
                                         <div class="table-responsive export-table">
 
                                             <a href="#addDriverModal" class="button-57" data-toggle="modal"
-                                                data-target="#addDriverModal"><i class="fa fa-plus" aria-hidden="true"></i></span><span>Add<br>Driver</span></a>
+                                                data-target="#addDriverModal"><i class="fa fa-plus" aria-hidden="true"></i></span><span>Add Driver</span></a>
                                             <a href="#setupDriverModal" class="button-57" data-toggle="modal"
                                                 data-target="#setupDriverModal"><i class="fa fa-sliders" aria-hidden="true"></i></span><span>Setup<br>Driver</span></a>
                                             <a href="#contractCategoryModal" class="button-57_alt" data-toggle="modal"
-                                                data-target="#contractCategoryModal"><i class="fa fa-id-card" aria-hidden="true"></i></span><span>View<br>Driver Contract</span></a>
+                                                data-target="#contractCategoryModal"><i class="fa fa-id-card" aria-hidden="true"></i></span><span>View Driver Contract</span></a>
                                             <table id="editable-file-datatable"
                                                 class="table editable-table table-nowrap table-bordered table-edit wp-100 customtable">
 

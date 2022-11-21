@@ -2,14 +2,13 @@
 <div class="container">
     <!-- The Modal -->
     <div class="modal fade" data-backdrop="static" id="contractCategoryModal">
-        <div class="modal-dialog modal-dialog-scrollable custom_modal">
+        <div class="modal-dialog modal-dialog-scrollable custom_modal_small">
             <div class="modal-content">
 
                 <div class="modal-header">
-                    <h4 class="modal-title">Add Contract Category</h4>
+                    <h4 class="modal-title">Contract Category</h4>
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                 </div>
-
                 <!-- Modal Header -->
                 <!-- <div class="modal-header">
                     <h4 class="modal-title">Driver Contract</h4>
