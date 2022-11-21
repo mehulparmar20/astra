@@ -1,3 +1,4 @@
+
 <!-- app-Header -->
             <div class="app-header header sticky" style="padding: 0; background-color:#FBFBFB">
                 <div class="container-fluid main-container">
@@ -20,7 +21,7 @@
 											<path d="M13.293 6.293 7.586 12l5.707 5.707 1.414-1.414L10.414 12l4.293-4.293z" />
 										</svg>
 									</div>
-									<ul class="side-menu">
+									<ul class="side-menu" style="margin-bottom:0px;padding-top:5px">
 									
 										<li class="slide">
 											<a class="side-menu__item has-link" data-bs-toggle="slide" href="{{URL::to('/')}}/admin/dashboard">
@@ -36,6 +37,31 @@
 											</a>
 										</li>
 			
+										<li class="slide">
+											<a class="side-menu__item" data-bs-toggle="slide" href="#">
+												<svg xmlns="http://www.w3.org/2000/svg" class="side-menu__icon" enable-background="new 0 0 24 24" viewBox="0 0 24 24"><path d="M21.5,21h-19C2.223877,21,2,21.223877,2,21.5S2.223877,22,2.5,22h19c0.276123,0,0.5-0.223877,0.5-0.5S21.776123,21,21.5,21z M4.5,18.0888672h5c0.1326294,0,0.2597656-0.0527344,0.3534546-0.1465454l10-10c0.000061,0,0.0001221-0.000061,0.0001831-0.0001221c0.1951294-0.1952515,0.1950684-0.5117188-0.0001831-0.7068481l-5-5c0-0.000061-0.000061-0.0001221-0.0001221-0.0001221c-0.1951904-0.1951904-0.5117188-0.1951294-0.7068481,0.0001221l-10,10C4.0526733,12.3291016,4,12.4562378,4,12.5888672v5c0,0.0001831,0,0.0003662,0,0.0005493C4.0001831,17.8654175,4.223999,18.0890503,4.5,18.0888672z M14.5,3.2958984l4.2930298,4.2929688l-2.121582,2.121582l-4.2926025-4.293396L14.5,3.2958984z M5,12.7958984l6.671814-6.671814l4.2926025,4.293396l-6.6713867,6.6713867H5V12.7958984z"/></svg>
+												<span class="side-menu__label">Custom</span><i class="angle fa fa-angle-right"></i>
+											</a>
+											<ul class="slide-menu">
+												<li class="side-menu-label1"><a href="javascript:void(0)">Custom</a></li>
+												<li><a href="#customerModal" class="slide-item" data-toggle="modal" data-target="#customerModal">Your Company</a></li>
+												<li><a href="#customerModal" class="slide-item" data-toggle="modal" data-target="#customerModal">Branch Office</a></li>
+												<li><a href="https://laravel8.spruko.com/noa/form-layouts" class="slide-item" data-bs-toggle="modal" data-bs-target="#extralargemodal">Truck Make</a></li>
+												<li><a href="https://laravel8.spruko.com/noa/form-validation" class="slide-item">Trailer Make</a></li>
+												<li><a href="#driverModal" class="slide-item" data-toggle="modal" data-target="#driverModal">Equipment Type</a></li>
+												<li><a href="#userModal" class="slide-item" data-toggle="modal" data-target="#userModal">Status</a></li>
+												<li><a href="https://laravel8.spruko.com/noa/wysiwyag" class="slide-item">Load Type</a></li>
+												<li><a href="https://laravel8.spruko.com/noa/form-editable" class="slide-item">Fuel Vendor Name</a></li>
+												<li><a href="https://laravel8.spruko.com/noa/form-wizard" class="slide-item">Recurrence Category</a></li>
+												<li><a href="https://laravel8.spruko.com/noa/form-wizard" class="slide-item">Currency Setiing</a></li>
+												<li><a href="https://laravel8.spruko.com/noa/form-wizard" class="slide-item">Add Terms & Conditions</a></li>
+												<li><a href="https://laravel8.spruko.com/noa/form-wizard" class="slide-item">Payment Terms</a></li>
+												<li><a href="https://laravel8.spruko.com/noa/form-wizard" class="slide-item">Dispatch Conditions</a></li>
+												<li><a href="https://laravel8.spruko.com/noa/form-wizard" class="slide-item">Sales Commison</a></li>
+												<li><a href="https://laravel8.spruko.com/noa/form-wizard" class="slide-item">Document Type</a></li>
+											</ul>
+										</li>
+
 										<li class="slide">
 											<a class="side-menu__item" data-bs-toggle="slide" href="#">
 												<svg xmlns="http://www.w3.org/2000/svg" class="side-menu__icon" enable-background="new 0 0 24 24" viewBox="0 0 24 24"><path d="M21.5,21h-19C2.223877,21,2,21.223877,2,21.5S2.223877,22,2.5,22h19c0.276123,0,0.5-0.223877,0.5-0.5S21.776123,21,21.5,21z M4.5,18.0888672h5c0.1326294,0,0.2597656-0.0527344,0.3534546-0.1465454l10-10c0.000061,0,0.0001221-0.000061,0.0001831-0.0001221c0.1951294-0.1952515,0.1950684-0.5117188-0.0001831-0.7068481l-5-5c0-0.000061-0.000061-0.0001221-0.0001221-0.0001221c-0.1951904-0.1951904-0.5117188-0.1951294-0.7068481,0.0001221l-10,10C4.0526733,12.3291016,4,12.4562378,4,12.5888672v5c0,0.0001831,0,0.0003662,0,0.0005493C4.0001831,17.8654175,4.223999,18.0890503,4.5,18.0888672z M14.5,3.2958984l4.2930298,4.2929688l-2.121582,2.121582l-4.2926025-4.293396L14.5,3.2958984z M5,12.7958984l6.671814-6.671814l4.2926025,4.293396l-6.6713867,6.6713867H5V12.7958984z"/></svg>
@@ -263,12 +289,13 @@
 		
             <!-- /app-Header -->
 
-			@include('customer')
-            @include('driver') 
-            @include('user') 
-            @include('add_user') 
-            @include('edit_user') 
-            @include('driver_pay_info') 
-            @include('driver_contract') 
+			@include('layout.customer.customer')
+            @include('layout.driver.driver') 
+            @include('layout.user.user') 
+            @include('layout.user.add_user') 
+            @include('layout.user.edit_user') 
+            @include('layout.driver.driver_pay_info') 
+            @include('layout.driver.driver_contract') 
+            @include('layout.company.company') 
         
 			

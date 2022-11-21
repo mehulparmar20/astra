@@ -16,7 +16,7 @@ class AuthController extends Controller
 {
     public function login()
     {
-        return view('login');
+        return view('layout.login.login');
     }
 
 
@@ -61,7 +61,7 @@ class AuthController extends Controller
 
     public function showForgetPasswordForm()
     {
-        return view('forgot-password');
+        return view('layout.login.forgot-password');
     }
 
     public function submitForgetPasswordForm(Request $request)

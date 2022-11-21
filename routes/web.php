@@ -5,6 +5,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\Admin\DriverController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\CustomerController;
+use App\Http\Controllers\Admin\CompanyController;
 
 /*
 |--------------------------------------------------------------------------
@@ -63,8 +64,7 @@ Route::post('admin/addApplicationForm', [DriverController::class, 'addApplicatio
 Route::post('admin/setupDriver', [DriverController::class, 'setupDriver']);
 Route::post('admin/driverPDF', [DriverController::class, 'downloadPDF'])->name('driver-pdf');
 Route::get('admin/getContract', [DriverController::class, 'getContract']);
-Route::get('admin/viewDriverApplication', [DriverController::class, 'getViewDriverApplication']);
-Route::post('admin/addOwnerOparator', [DriverController::class, 'addOwnerOparator']);
+Route::post('admin/addDriverContractCategory', [DriverController::class, 'addDriverContractCategory']);
 
 //customer
 Route::get('admin/customer', [CustomerController::class, 'getCustomerData']);
@@ -75,3 +75,7 @@ Route::get('admin/getCustomerBFactoringCompany', [CustomerController::class, 'ge
 Route::post('admin/addCurrency', [CustomerController::class, 'addCustomerCurrency']);
 Route::post('admin/PaymentTerms', [CustomerController::class, 'addCustomerPaymentTerms']);
 Route::post('admin/factoringCompany', [CustomerController::class, 'addCustomerfactoringCompany']);
+
+//company
+Route::get('admin/company', [CompanyController::class, 'getCompanyData']);
+Route::post('admin/addCompanyData', [CompanyController::class, 'addCompanyData']);

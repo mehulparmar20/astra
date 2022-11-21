@@ -46,6 +46,24 @@ class UserController extends Controller
         //         "versions" => array("0.9.7", "0.9.8", "0.9.9")
         //     ]
         // ]);
+        if($request->userLocation == null){
+            $request->userLocation = '';
+        }
+        if($request->userZip == null){
+            $request->userZip = '';
+        }
+        if($request->userTelephone == null){
+            $request->userTelephone = '';
+        }
+        if($request->userExt == null){
+            $request->userExt = '';
+        }
+        if($request->TollFree == null){
+            $request->TollFree = '';
+        }
+        if($request->userFax == null){
+            $request->userFax = '';
+        }
 
         try{
 			$password = sha1($request->userPass);
@@ -63,12 +81,12 @@ class UserController extends Controller
                     'userFirstName' => $request->input('userFirstName'),
                     'userLastName' => $request->input('userLastName'),
                     'userAddress' => $request->input('userAddress'),
-                    'userLocation' => $request->input('userLocation'),
-                    'userZip' => $request->input('userZip'),
-                    'userTelephone' => $request->input('userTelephone'),
-                    'userExt' => $request->input('userExt'),
-                    'TollFree' => $request->input('TollFree'),
-                    'userFax' => $request->input('userFax'),
+                    'userLocation' => $request->userLocation,
+                    'userZip' => $request->userZip,
+                    'userTelephone' => $request->userTelephone,
+                    'userExt' => $request->userExt,
+                    'TollFree' => $request->TollFree,
+                    'userFax' => $request->userFax,
                     // 'privilege' => (object)array(
                     //     'insertUser' => $request->input('insertUser'),
                     //     'updateUser' => $request->input('updateUser'),
@@ -224,7 +242,24 @@ class UserController extends Controller
             'userZip' => 'numeric|nullable',
             'userExt' => 'numeric|nullable',
         ]);
-
+        if($request->userLocation == null){
+            $request->userLocation = '';
+        }
+        if($request->userZip == null){
+            $request->userZip = '';
+        }
+        if($request->userTelephone == null){
+            $request->userTelephone = '';
+        }
+        if($request->userExt == null){
+            $request->userExt = '';
+        }
+        if($request->TollFree == null){
+            $request->TollFree = '';
+        }
+        if($request->userFax == null){
+            $request->userFax = '';
+        }
         try{
             $data = User::where('userEmail', $request->email)->first();
             $data->userEmail = $request->userEmail;
@@ -409,7 +444,7 @@ class UserController extends Controller
 
     public function getUser(Request $request){
         $user = Auth::user();
-        return view('profile',compact('user'));  
+        return view('layout.user.profile',compact('user'));  
     }
 
     public function editUserDetails(Request $request)
