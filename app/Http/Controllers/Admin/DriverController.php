@@ -10,6 +10,8 @@ use App\Models\Employement;
 use App\Models\User;
 use App\Models\ContractDetail;
 use App\Models\PasswordReset;
+use App\Models\Owner_operator_driver;
+
 use Mail; 
 use Hash;
 use Illuminate\Support\Str;
@@ -25,6 +27,90 @@ use MongoDB\BSON\ObjectId;
 class DriverController extends Controller
 {
 //add by Reena
+    public function getViewDriverApplication(Request $request){
+        $companyID=1;
+        $employement = Employement::where('companyID',$companyID)->first();
+        //dd($employement);
+        return response()->json($employement);  
+    }
+
+    public function addOwnerOparator(Request $request){
+        // dd($request->all());
+        
+
+
+
+        // $unserializeData = [];
+        // parse_str($request->data,$unserializeData);
+        //     foreach($unserializeData['installmentCategory'] as $key => $val){
+        //     //  $key;
+        //     echo($val);
+        //     // echo " .<br>.  ";
+        //     // $unserializeData['installmentCategory'][$key];
+        // }
+        // request()->validate([
+        //     'percentage' => 'required',
+        //     'truckNo' => 'required',
+        // ]);
+           
+        try{
+            $getCompany = Owner_operator_driver::where('companyID',$companyID)->first();
+           // dd($getCompany);
+            $installment[]=array(
+                '_id'=>1,
+                'installmentCategory'=>'r',
+                'installmentType'=>'r',
+                'amount'=>'r',
+                'installment'=>'r',
+                'startNo'=>'r',
+                'startDate'=>'r',
+                'internalNote'=>'r',
+            );
+
+            $ownerOperatorData[]=array(    
+                '_id' => 4,
+                'driverId' => 3,
+                'percentage' => 0,
+                'truckNo' => $request->name,
+                'installment' => $installment,
+                );
+
+                if($getCompany){
+                    $ownerOperatorArray;
+                    $ownerOperatorArray=$getCompany->ownerOperator;
+                    Owner_operator_driver::where(['companyID' =>$companyID ])->update([
+                        'ownerOperator' =>array_merge($ownerOperatorData,$ownerOperatorArray) ,
+                       
+                    ]);
+    
+                    $data = [
+                        'success' => true,
+                        'message'=> 'ownerOperator added successfully'
+                    ] ;
+                    
+                    return response()->json($data);
+                }else{
+                    if(Owner_operator_driver::create([
+                        
+                        // 'companyID' => (int)$_SESSION['companyId'],
+                        '_id' => 1,
+                        'companyID' => 1,
+                        'counter' => 0,
+                        'ownerOperator' => $ownerOperatorArray,
+                    ])) {
+                        $data = [
+                            'success' => true,
+                            'message'=> 'Driver added successfully'
+                            ] ;
+                            return response()->json($data);
+                    }
+                }
+            } 
+                catch(\Exception $error){
+                return $error->getMessage();
+            }
+    }
+
     public function getDriverData(Request $request){
         $driver = Driver::all();
         

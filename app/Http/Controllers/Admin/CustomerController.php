@@ -22,7 +22,7 @@ class CustomerController extends Controller
     }
 
     public function getCustomerCurrency(Request $request){
-        $companyIDForCustomer=2;
+        $companyIDForCustomer=1;
         $customerCurr = Currency_add::where('companyID',$companyIDForCustomer)->first();
        // dd($customerCurr);
         return response()->json($customerCurr, 200, [], JSON_PARTIAL_OUTPUT_ON_ERROR);
@@ -30,11 +30,10 @@ class CustomerController extends Controller
 
     public function addCustomerCurrency(Request $request){
          //dd($request);
-        $companyIDForCustomer=2;
 
         //$customerAdd = Customer::all();
    
-        $companyIDForCurrency=2;
+        $companyIDForCurrency=1;
         $totalCurrencyArray=0;
         $getCompanyForCurrency = Currency_add::where('companyID',$companyIDForCurrency)->first();
 
@@ -83,7 +82,7 @@ class CustomerController extends Controller
     }
 
     public function getCustomerPaymentTerms(Request $request){
-        $companyIDForCustomer=2;
+        $companyIDForCustomer=1;
         $customerPaymentterms = Payment_terms::where('companyID',$companyIDForCustomer)->first();
        // dd($customerCurr);
         return response()->json($customerPaymentterms, 200, [], JSON_PARTIAL_OUTPUT_ON_ERROR);
@@ -91,7 +90,7 @@ class CustomerController extends Controller
 
     public function addCustomerPaymentTerms(Request $request){
         //dd($request);
-       $companyIDForPaymentTerms=2;
+       $companyIDForPaymentTerms=1;
 
        //$customerAdd = Customer::all();
   

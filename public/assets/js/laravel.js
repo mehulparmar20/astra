@@ -468,7 +468,12 @@ $(document).ready(function() {
                             "<td data-field='lis'>" + lis + "</td>" +
                             "<td data-field='license_exp_date'>" + license_exp_date + "</td>" +
                             "<td data-field='driver_balance'>" + driver_balance + "</td>" +
-                            "<td style='width: 100px'><i class='btn btn-primary fe fe-edit edit' data-id=" + comid+ "&"+email + "><a>edit</a></i><a class='deleteDriver mt-2 btn btn-danger fs-14 text-white delete-icn' data-id=" + comid+ "&"+email + " title='Delete'><i class='fe fe-delete'></i></a></td></tr>";
+                            "<td style='display:inline-flex'>"+
+                                // "<i class='btn btn-primary fe fe-edit edit' data-id=" + comid+ "&"+email + "></i>"+
+                                "<a class='editDriver mt-2 btn btn-primary fs-14 text-white edit'  title='Edit' data-id=" + comid+ "&"+email + "><i class='fe fe-edit'></i></a>&nbsp"+
+                                "<a class='deleteDriver mt-2 btn btn-danger fs-14 text-white delete-icn' data-id=" + comid+ "&"+email + " title='Delete'><i class='fe fe-delete'></i></a>&nbsp"+
+                                "<a class='addDriverOwner mt-2 btn btn-success fs-14 text-white '  title='Add As Owner Operator' data-id="+ driverId+" data-name="+ btoa(name)+" ><i class='fe fe-user-plus'></i></a>&nbsp"+
+                            "</td></tr>";
                         $("#driverTable").append(tr_str1);
                         no++;
                         }
@@ -489,8 +494,14 @@ $('.editModalCloseButton').click(function(){
     $('#editDriverModal').modal('hide');
     $('#driverModal').modal('show');  
 });
+$('.addDriverOwner').click(function(){
+    var name =$(this).data('name');
+    $('#owner-driver-name').val(atob(name));
+    console.log(atob(name));
+    $('#addDriverOwnerModal').modal('show');  
+});
 
-// <!--------------------------------------------------------------------------- end of edit driver  --------------------------------------------------------------------------->
+// <!--------------------------------------------------------------------------- end of get driver  --------------------------------------------------------------------------->
 // <!--------------------------------------------------------------------------- delete driver ajax --------------------------------------------------------------------------->    
 
 
@@ -498,7 +509,8 @@ $('.editModalCloseButton').click(function(){
 
 // <!-- ------------------------------------------------------------------------- add driver  ------------------------------------------------------------------------- -->
 
-      $('.driverDataSubmit').click(function(){            
+      $('.driverDataSubmit').click(function(){   
+        alert();         
             var companyID = 4;
             var name = $('#name').val();
             var username = $('#username').val();
@@ -551,7 +563,12 @@ $('.editModalCloseButton').click(function(){
                             "<td data-field='lis'>" + licenseIssueState + "</td>" +
                             "<td data-field='license_exp_date'>" + licenseExpDate + "</td>" +
                             "<td data-field='driver_balance'>" + driverBalance + "</td>" +
-                            "<td style='width: 100px'><i class='btn btn-primary fe fe-edit edit' data-id=" + companyID + "&"+ email + "><a>edit</a></i><a class='deleteDriver mt-2 btn btn-danger fs-14 text-white delete-icn' data-id=" + companyID + "&" + email + " title='Delete'><i class='fe fe-delete'></i></a></td></tr>";    
+                            "<td style='display: inline-flex'>"+
+                            "<i class='btn btn-primary fe fe-edit edit' data-id=" + companyID + "&"+ email + "></i>"+
+                                // "<a class='editDriver mt-2 btn btn-primary fs-14 text-white edit' data-id=" + companyID + "&" + email + " title='Edit'><i class='fe fe-edit'></i></a>&nbsp"+
+                                "<a class='deleteDriver mt-2 btn btn-danger fs-14 text-white  data-id=" + companyID + "&" + email + " title='Delete'><i class='fe fe-delete'></i></a>&nbsp"+
+                                
+                            "</td></tr>";    
         $.ajax({
             url: base_path+"/admin/addDriver",
             type: "POST",
@@ -1009,164 +1026,3 @@ $(document).ready(function(){
 
 
 // <!-- ------------------------------------------------------------------------- end of driver ------------------------------------------------------------------------- -->
-
-// Company
-$(document).ready(function() {
-
-    var companyResponse = '';
-
-// <!-- -------------------------------------------------------------------------Get driver ajax ------------------------------------------------------------------------- -->    
-    $.ajax({
-        type: "GET",
-        url: base_path+"/admin/company",
-        async: false,
-        success: function(text) {
-            createCompanyRows(text);
-            companyResponse = text;
-        }
-    });
-
-    function createCompanyRows(companyResponse) {
-        var len1 = 0;
-        
-        $('#companyTable').empty(); 
-        if (companyResponse != null) {
-            len1 = companyResponse.length;
-        }
-
-        if (len1 > 0) {
-           var no=1;
-                for (var i = 0; i < len1; i++) {  
-                var len2=companyResponse[i].company.length; 
-                    if(len2 > 0){
-                        for (var j = 0; j < len2; j++) {
-                        var comid =companyResponse[i].companyID;
-                        var companyId=companyResponse[i].company[j]._id;
-                        var companyName = companyResponse[i].company[j].companyName;
-                        var shippingAddress = companyResponse[i].company[j].shippingAddress;
-                        var telephoneNo = companyResponse[i].company[j].telephoneNo;
-                        var faxNo = companyResponse[i].company[j].faxNo;
-                        var mcNo = companyResponse[i].company[j].mcNo;
-                        var usDotNo = companyResponse[i].company[j].usDotNo;
-                        var mailingAddress = companyResponse[i].company[j].mailingAddress;
-                        var factoringCompany = companyResponse[i].company[j].factoringCompany;
-                        var bankCompany = companyResponse[i].company[j].bankCompany;
-                        var filepath = companyResponse[i].company[j].filepath;
-                        var delete_status = companyResponse[i].company[j].deleteStatus;
-
-                        if(delete_status=="NO"){
-                        var tr_str1 = "<tr data-id=" + (i + 1) + ">" +
-                            "<td data-field="+no+">" + no + "</td>" +
-                            "<td data-field='companyName' >" + companyName + "</td>" +
-                            "<td data-field='shippingAddress'>" + shippingAddress + "</td>" +
-                            "<td data-field='telephoneNo'>" + telephoneNo + "</td>" +
-                            "<td data-field='faxNo'>" + faxNo + "</td>" +
-                            "<td data-field='mcNo'>" + mcNo + "</td>" +
-                            "<td data-field='usDotNo'>" + usDotNo + "</td>" +
-                            "<td data-field='mailingAddress'>" + mailingAddress + "</td>" +
-                            "<td data-field='factoringCompany'>" + factoringCompany + "</td>" +
-                            "<td data-field='bankCompany'>" + bankCompany + "</td>" +
-                            "<td data-field='filepath'><a href="+ filepath +"></a></td>" +
-                            "<td style='width: 100px'><i class='btn btn-primary fe fe-edit edit' data-id=" + comid+ "&"+companyId + "><a>edit</a></i><a class='deleteDriver mt-2 btn btn-danger fs-14 text-white delete-icn' data-id=" + comid+ "&"+companyId + " title='Delete'><i class='fe fe-delete'></i></a></td></tr>";
-                        $("#companyTable").append(tr_str1);
-                        no++;
-                        }
-                    } 
-                }
-            }
-        } else {
-            var tr_str1 = "<tr data-id=" + i + ">" +
-                "<td align='center' colspan='4'>No record found.</td>" +
-                "</tr>";
-
-            $("#companyTable").append(tr_str1);
-        }
-        // drivermodal();
-    }
-
-//     $('#companyDataSubmit').click(function(){            
-//         var companyID = 1;
-//         var companyName = $('#inputCompanyName4').val();
-//         var username = $('#inputShippingAddress4').val();
-//         var address = $('#inputTelephoneNo4').val();
-//         var telephone = $('#inputFaxNo4').val();
-//         var altTelephone = $('#inputMcNo4').val();
-//         var email = $('#inputUsDotNo4').val();
-//         var password = $('#inputEmailAddress4').val();
-//         var location = $('#inputFactoringCompany4').val();
-//         var zip = $('#inputWebsite4').val();
-//         var status = $('#inputFile4').val();  
-//         // var tr_length1 = $("#driverModal").find("tr").length;
-//     $.ajax({
-//         url: base_path+"/admin/addDriver",
-//         type: "POST",
-//         datatype:"JSON",
-//         data: {
-//             _token: $("#csrf").val(),
-//           companyID: companyID,
-//           name: name,
-//           username: username,
-//           address: address,
-//           telephone: telephone,
-//           altTelephone: altTelephone,
-//           email: email,
-//           password: password,
-//           location: location,
-//           zip: zip,
-//           status: status,
-//           socialSecurityNo: socialSecurityNo,
-//           dateOfBirth: dateOfBirth,
-//           dateOfHire: dateOfHire,
-//           licenseNo: licenseNo,
-//           licenseIssueState: licenseIssueState,
-//           licenseExpDate: licenseExpDate,
-//           lastMedical: lastMedical,
-//           nextMedical: nextMedical,
-//           lastDrugTest: lastDrugTest,
-//           nextDrugTest: nextDrugTest,
-//           passportExpiry: passportExpiry,
-//           fastCardExpiry: fastCardExpiry,
-//           hazmatExpiry: hazmatExpiry,
-//           rate: rate,
-//           currency: currency,
-//           recurrencePlus: recurrencePlus,
-//           recurrenceMin: recurrenceMin,
-//           terminationDate: terminationDate,
-//           driverBalance: driverBalance,
-//           internalNotes: internalNotes,
-//           driverLoadedMile: loadedMiles,
-//           driverEmptyMile: emptyMiles,
-//           pickupRate: pickRate,
-//           pickupAfter: pickStart,
-//           dropRate: dropRate,
-//           dropAfter: dropStart,
-//           tarp: driverTarp,
-//           percentage: percentage,
-//         },
-//         cache: false,
-//         success: function(resp){
-//             if(resp.success == true){
-//                 swal.fire("Done!", resp.message, "success");
-//                 // $("#driverTable").append(tr_str4);
-//                 $.ajax({
-//                     type: "GET",
-//                     url: base_path+"/admin/driver",
-//                     async: false,
-//                     success: function(text) {
-//                         createDriverRows(text);
-//                         driverResponse = text;
-//                     }
-//                 });
-//                 $("#addDriverModal form").trigger("reset");
-//             } 
-//           },
-//           error: function(data){
-//             $.each( data.responseJSON.errors, function( key, value ) {
-//                 swal.fire("Error!", value[0], "error");
-//             });
-//             },
-//     });
-    
-// });
-
-})
