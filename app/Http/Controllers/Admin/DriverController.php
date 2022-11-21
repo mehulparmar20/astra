@@ -53,6 +53,7 @@ class DriverController extends Controller
         // ]);
            
         try{
+            $companyID=2;
             $getCompany = Owner_operator_driver::where('companyID',$companyID)->first();
            // dd($getCompany);
             $installment[]=array(
@@ -75,7 +76,6 @@ class DriverController extends Controller
                 );
 
                 if($getCompany){
-                    $ownerOperatorArray;
                     $ownerOperatorArray=$getCompany->ownerOperator;
                     Owner_operator_driver::where(['companyID' =>$companyID ])->update([
                         'ownerOperator' =>array_merge($ownerOperatorData,$ownerOperatorArray) ,
@@ -95,7 +95,7 @@ class DriverController extends Controller
                         '_id' => 1,
                         'companyID' => 1,
                         'counter' => 0,
-                        'ownerOperator' => $ownerOperatorArray,
+                        'ownerOperator' => $ownerOperatorData,
                     ])) {
                         $data = [
                             'success' => true,
