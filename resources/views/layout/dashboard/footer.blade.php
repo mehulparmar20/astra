@@ -59,6 +59,8 @@
 <!-- SIDE-MENU JS -->
 <script src="{{URL::to('/')}}/assets/plugins/sidemenu/sidemenu.js"></script>
 
+<!-- dashboard js -->
+<!-- <script src="{{URL::to('/')}}/assets/js/js/form.js"></script> -->
 
 <!-- DATA TABLE JS-->
 

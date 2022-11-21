@@ -10,6 +10,8 @@ use App\Models\Employement;
 use App\Models\User;
 use App\Models\ContractDetail;
 use App\Models\PasswordReset;
+use App\Models\Owner_operator_driver;
+
 use Mail; 
 use Hash;
 use Illuminate\Support\Str;
@@ -20,10 +22,95 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 use Twilio\Rest\Client;
 use Exception;
 use PDF;
+use MongoDB\BSON\ObjectId;
 
 class DriverController extends Controller
 {
 //add by Reena
+    public function getViewDriverApplication(Request $request){
+        $companyID=1;
+        $employement = Employement::where('companyID',$companyID)->first();
+        //dd($employement);
+        return response()->json($employement);  
+    }
+
+    public function addOwnerOparator(Request $request){
+        // dd($request->all());
+        
+
+
+
+        // $unserializeData = [];
+        // parse_str($request->data,$unserializeData);
+        //     foreach($unserializeData['installmentCategory'] as $key => $val){
+        //     //  $key;
+        //     echo($val);
+        //     // echo " .<br>.  ";
+        //     // $unserializeData['installmentCategory'][$key];
+        // }
+        // request()->validate([
+        //     'percentage' => 'required',
+        //     'truckNo' => 'required',
+        // ]);
+           
+        try{
+            $companyID=2;
+            $getCompany = Owner_operator_driver::where('companyID',$companyID)->first();
+           // dd($getCompany);
+            $installment[]=array(
+                '_id'=>1,
+                'installmentCategory'=>'r',
+                'installmentType'=>'r',
+                'amount'=>'r',
+                'installment'=>'r',
+                'startNo'=>'r',
+                'startDate'=>'r',
+                'internalNote'=>'r',
+            );
+
+            $ownerOperatorData[]=array(    
+                '_id' => 4,
+                'driverId' => 3,
+                'percentage' => 0,
+                'truckNo' => $request->name,
+                'installment' => $installment,
+                );
+
+                if($getCompany){
+                    $ownerOperatorArray=$getCompany->ownerOperator;
+                    Owner_operator_driver::where(['companyID' =>$companyID ])->update([
+                        'ownerOperator' =>array_merge($ownerOperatorData,$ownerOperatorArray) ,
+                       
+                    ]);
+    
+                    $data = [
+                        'success' => true,
+                        'message'=> 'ownerOperator added successfully'
+                    ] ;
+                    
+                    return response()->json($data);
+                }else{
+                    if(Owner_operator_driver::create([
+                        
+                        // 'companyID' => (int)$_SESSION['companyId'],
+                        '_id' => 1,
+                        'companyID' => $companyID,
+                        'counter' => 0,
+                        'ownerOperator' => $ownerOperatorData,
+                    ])) {
+                        $data = [
+                            'success' => true,
+                            'message'=> 'Driver added successfully'
+                            ] ;
+                            return response()->json($data);
+                    }
+                }
+            } 
+                catch(\Exception $error){
+                return $error->getMessage();
+            }
+    }
+
     public function getDriverData(Request $request){
         $driver = Driver::all();
         
@@ -34,7 +121,7 @@ class DriverController extends Controller
     public function addDriverData(Request $request){
         request()->validate([
             'name' => 'required',
-            'email' => 'required|unique:driver,driverEmail',
+            'email' => 'required|unique:driver,driver.driverEmail',
             'telephone' => 'required',
             'address' => 'required',
             'password' => 'required',
@@ -560,7 +647,7 @@ class DriverController extends Controller
 
         request()->validate([
             'updateDriverName' => 'required',
-            'updateDriverEmail' => 'required|unique:driver,driverEmail'.$request->updateEmailDriver,
+            'updateDriverEmail' => 'required|unique:driver,driver.driverEmail'.$request->updateEmailDriver,
             'updateDriverUsername' => 'required',
             'updateDriverTelephone' => 'required',
             'updateDriverAddress' => 'required',
@@ -742,13 +829,15 @@ class DriverController extends Controller
 
     //add by Yash
     public function getContract(Request $request){
-        $contract = ContractDetail::all();       
+        $companyIdcheck=(int)$request->companyID;
+        $contract = ContractDetail::where('companyID',$companyIdcheck)->first();       
         return response()->json($contract);  
     }
 
     public function addDriverContractCategory(Request $request){
         request()->validate([
-            'contractCategoryName' => 'required',
+            'driverContractCategory' => 'required',
+            'driverContractSubCategory' => 'required',
             'companyID' => 'required|unique:contractdetails,companyID',
         ]);
         try{
@@ -758,9 +847,10 @@ class DriverController extends Controller
 
         $getContract = ContractDetail::where('companyID',$companyID)->first();
 
-        $driverContract[]=array(    
-                        'heading' => $request->driverContractCategory,
-                         'lines' => array()
+        $driverContract[]=array( 
+            '_id' => new ObjectId(),
+            'heading' => $request->driverContractCategory,
+            'line' => $request->driverContractSubCategory                
             );
 
             if($getContract){
@@ -771,7 +861,7 @@ class DriverController extends Controller
 
                 $data = [
                     'success' => true,
-                    'message'=> 'Driver Contract added successfully'
+                    'message'=> 'Driver Contract Category added successfully'
                 ] ;
                 
                 return response()->json($data);
@@ -784,7 +874,7 @@ class DriverController extends Controller
                 ])) {
                     $data = [
                         'success' => true,
-                        'message'=> 'Driver Contract added successfully'
+                        'message'=> 'Driver Contract Category added successfully'
                         ] ;
                         return response()->json($data);
                 }
@@ -797,6 +887,7 @@ class DriverController extends Controller
 
     // public function addDriverContractSubCategory(Request $request){
     //     request()->validate([
+    //         'contractCategory' => 'required',
     //         'contractSubCategory' => 'required',
     //         'companyID' => 'required|unique:contractdetails,companyID',
     //     ]);
@@ -804,9 +895,21 @@ class DriverController extends Controller
 
     //     // $driver=ContractDetail::all();
     //     $companyID=(int)$request->companyID;
-
+    //     $contractCategorySelect=$request->contractCategory;
     //     $getContract = ContractDetail::where('companyID',$companyID)->first();
+    //     $driverContractArray=$getContract->contract[$contractCategorySelect];
 
+    //     $arrayLengthUp=count($driverContractArray);
+    //     $i=0;
+    //     $v=0;
+    //    for ($i=0; $i<$arrayLengthUp; $i++){
+    //         $id=$resultUp->driver[$i];
+    //             foreach ($id as $value){
+    //                 if($value==$driverEmailUp){
+    //                     $v=$i;
+    //                  }
+    //             }
+    //    }
     //     foreach($request->driverContractSubCategory as $dc){
     //         $driverContractSubCat = $request->driverContractSubCategory;
     //     }
