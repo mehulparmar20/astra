@@ -444,7 +444,7 @@ class UserController extends Controller
 
     public function getUser(Request $request){
         $user = Auth::user();
-        return view('profile',compact('user'));  
+        return view('layout.user.profile',compact('user'));  
     }
 
     public function editUserDetails(Request $request)
