@@ -27,7 +27,7 @@ Route::get('/table', function () {
     });
 
     Route::get('/admin/driverApplication2', function () {
-        return view('driver_application_form2');
+        return view('layout.driver.driver_application_form2');
     });
     Route::get('/admin/driverApplication', function () {
         return view('driver_application_form');
