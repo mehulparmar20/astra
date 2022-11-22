@@ -12,6 +12,7 @@ use Carbon\Carbon;
 use Auth;
 use PDF;
 use MongoDB\BSON\ObjectId;
+use Image;
 
 class CompanyController extends Controller
 {
@@ -25,12 +26,26 @@ class CompanyController extends Controller
         request()->validate([
             'companyName' => 'required',
             'telephoneNo' => 'required',
+            'mailingAddress' => 'required|unique:company,company.mailingAddress',
             'companyID' => 'required|unique:company,companyID',
+            'file' => 'image|mimes:jpg,jpeg,png,gif,svg|max:2048',
         ]);
         try{
 
         $company=Company::all();
         $companyID=(int)$request->companyID;
+
+        // if($request->file){
+        //     $image = $request->file('file');
+        //     $input['file'] = time().'.'.$image->getClientOriginalExtension();
+        //     $destinationPath = public_path('/thumbnail');
+        //     $imgFile = Image::make($image->getRealPath());
+        //     $imgFile->resize(150, 150, function ($constraint) {
+        //         $constraint->aspectRatio();
+        //     })->save($destinationPath.'/'.$input['file']);
+        //     $destinationPath = public_path('/uploads');
+        //     $image->move($destinationPath, $input['file']);
+        // }
 
         $getCompany = Company::where('companyID',$companyID)->first();
         $companyData[]=array(    
@@ -48,11 +63,11 @@ class CompanyController extends Controller
                         'file' => $request->file,
                         // 'edit_by' => $request->edit_by,
                         // 'edit_time' => $request->edit_time,
-                        // 'status' => $request->status,
+                        'status' => "No",
                         'deleteStatus' => "NO",
                         'deleteTime' => "",
                         'deleteUser' => "",
-                        'factoringParent' => $request->factoringParent,
+                        'factoringParent' => (int)$request->factoringParent,
             );
 
             if($getCompany){
@@ -92,4 +107,113 @@ class CompanyController extends Controller
             return $error->getMessage();
         }
     }
+
+    public function editCompanyData(Request $request){
+        $companyID=(int)$request->com_id;
+
+        $companySubId=$request->companySubId;
+        $result = Company::where('companyID',$companyID )->first();
+        $companyArray=$result->company;
+
+        $arrayLength=count($companyArray);
+       // dd($arrayLength);
+        $i=0;
+        $v=0;
+       for ($i=0; $i<$arrayLength; $i++){
+            $id=$result->company[$i];
+                foreach ($id as $value){
+                    if($value==$companySubId){
+                        $v=$i;
+                     }
+                }
+       }
+       
+       $companyEditData=$result->company[$v];
+       return response()->json($companyEditData);  
+    }  
+//add by Reena
+    public function updateCompanyData(Request $request){
+
+        request()->validate([
+            'companyName' => 'required',
+            'telephoneNo' => 'required',
+            'mailingAddress' => 'required|unique:company,company.mailingAddress'.$request->mailingAddress,
+            'companyID' => 'required|unique:company,companyID',
+            'file' => 'image|mimes:jpg,jpeg,png,gif,svg|max:2048',
+        ]);
+
+        $companyIDUp=(int)$request->companyID;
+        $companySubIdUp=$request->companySubId;
+
+        $resultUp = Company::where('companyID',$companyIDUp )->first();
+        $companyArrayUp=$resultUp->company;
+
+        $arrayLengthUp=count($companyArrayUp);
+        $i=0;
+        $v=0;
+       for ($i=0; $i<$arrayLengthUp; $i++){
+            $id=$resultUp->company[$i];
+                foreach ($id as $value){
+                    if($value==$companySubIdUp){
+                        $v=$i;
+                     }
+                }
+       }
+
+       $companyArrayUp[$v]['companyName']=$request->companyName;
+       $companyArrayUp[$v]['shippingAddress']=$request->shippingAddress;
+       $companyArrayUp[$v]['telephoneNo']=$request->telephoneNo;
+       $companyArrayUp[$v]['faxNo']=$request->faxNo;
+       $companyArrayUp[$v]['mcNo']=$request->mcNo;
+       $companyArrayUp[$v]['usDotNo']=$request->usDotNo;
+       $companyArrayUp[$v]['mailingAddress']=$request->mailingAddress;
+       $companyArrayUp[$v]['website']=$request->updateDriverStatus;
+       $companyArrayUp[$v]['factoringCompany']=(int)$request->factoringCompany;
+
+       $resultUp->company = $companyArrayUp;
+       if($resultUp->save()){
+            $arr = array('status' => 'success', 'message' => 'Company edited successfully.','statusCode' => 200); 
+            return json_encode($arr);
+        }
+    }
+
+    public function deleteCompany(Request $request){
+        $companyID=(int)$request->companyID;
+        $companySubId=$request->companySubId;
+        
+        $result = Company::where('companyID',$companyID )->first();
+        $companyArray=$result->company;
+
+        $arrayLength=count($companyArray);
+        $i=0;
+        $v=0;
+        for ($i=0; $i<$arrayLength; $i++){
+                $id=$result->company[$i];
+            
+                    foreach ($id as $value){
+                        if($value==$companySubId){
+                            $v=$i;
+                        }
+                    }
+        }
+   
+       $companyArray[$v]['deleteStatus'] = "YES"; 
+       $result->company = $companyArray;
+
+       if ($result->save()) {
+            $success = true;
+            $message = "Company deleted successfully";
+        } else {
+            $success = false;
+            $message = "Company not found";
+        }
+
+        //  Return response
+        return response()->json([
+            'success' => $success,
+            'message' => $message,
+        ]);
+        
+    }
+
 }

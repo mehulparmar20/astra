@@ -18,7 +18,7 @@
                                 <div class="card">
                                     <div class="card-body">
                                         <div class="table-responsive export-table">
-                                            <form method="post">
+                                            <form enctype="multipart/form-data" method="post">
                                                 @csrf
                                                 <input type="hidden" name="_token" id="csrf1"
                                                     value="{{Session::token()}}">

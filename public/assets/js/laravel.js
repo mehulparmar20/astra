@@ -1030,7 +1030,7 @@ $(document).ready(function(){
 // <!-- ------------------------------------------------------------------------- end of driver ------------------------------------------------------------------------- -->
 
 
-// Company
+
 $(document).ready(function() {
 
         $.ajax({
@@ -1181,7 +1181,7 @@ $(document).on('click','.remove',function() {
         
     });
     
-
+// Company
 // <!-- -------------------------------------------------------------------------Get Company ajax ------------------------------------------------------------------------- -->    
     $.ajax({
         type: "GET",
@@ -1234,7 +1234,7 @@ $(document).on('click','.remove',function() {
                             "<td data-field='factoringCompany'>" + factoringCompany + "</td>" +
                             "<td data-field='bankCompany'>" + bankCompany + "</td>" +
                             "<td data-field='filepath'><a href="+ filepath +"></a></td>" +
-                            "<td style='width: 100px'><i class='btn btn-primary fe fe-edit edit' data-id=" + comid+ "&"+companyId + "><a>edit</a></i><a class='deleteDriver mt-2 btn btn-danger fs-14 text-white delete-icn' data-id=" + comid+ "&"+companyId + " title='Delete'><i class='fe fe-delete'></i></a></td></tr>";
+                            "<td style='width: 100px'><i class='btn btn-primary fe fe-edit edit3' data-id=" + comid+ "&"+companyId + "><a>edit</a></i><a class='deleteCompany mt-2 btn btn-danger fs-14 text-white delete-icn' data-id=" + comid+ "&"+companyId + " title='Delete'><i class='fe fe-delete'></i></a></td></tr>";
                         $("#companyTable").append(tr_str1);
                         no++;
                         }
@@ -1248,92 +1248,187 @@ $(document).on('click','.remove',function() {
 
             $("#companyTable").append(tr_str1);
         }
-        // drivermodal();
+        companymodal();
     }
 
-//     $('#companyDataSubmit').click(function(){            
-//         var companyID = 1;
-//         var companyName = $('#inputCompanyName4').val();
-//         var username = $('#inputShippingAddress4').val();
-//         var address = $('#inputTelephoneNo4').val();
-//         var telephone = $('#inputFaxNo4').val();
-//         var altTelephone = $('#inputMcNo4').val();
-//         var email = $('#inputUsDotNo4').val();
-//         var password = $('#inputEmailAddress4').val();
-//         var location = $('#inputFactoringCompany4').val();
-//         var zip = $('#inputWebsite4').val();
-//         var status = $('#inputFile4').val();  
-//         // var tr_length1 = $("#driverModal").find("tr").length;
-//     $.ajax({
-//         url: base_path+"/admin/addDriver",
-//         type: "POST",
-//         datatype:"JSON",
-//         data: {
-//             _token: $("#csrf").val(),
-//           companyID: companyID,
-//           name: name,
-//           username: username,
-//           address: address,
-//           telephone: telephone,
-//           altTelephone: altTelephone,
-//           email: email,
-//           password: password,
-//           location: location,
-//           zip: zip,
-//           status: status,
-//           socialSecurityNo: socialSecurityNo,
-//           dateOfBirth: dateOfBirth,
-//           dateOfHire: dateOfHire,
-//           licenseNo: licenseNo,
-//           licenseIssueState: licenseIssueState,
-//           licenseExpDate: licenseExpDate,
-//           lastMedical: lastMedical,
-//           nextMedical: nextMedical,
-//           lastDrugTest: lastDrugTest,
-//           nextDrugTest: nextDrugTest,
-//           passportExpiry: passportExpiry,
-//           fastCardExpiry: fastCardExpiry,
-//           hazmatExpiry: hazmatExpiry,
-//           rate: rate,
-//           currency: currency,
-//           recurrencePlus: recurrencePlus,
-//           recurrenceMin: recurrenceMin,
-//           terminationDate: terminationDate,
-//           driverBalance: driverBalance,
-//           internalNotes: internalNotes,
-//           driverLoadedMile: loadedMiles,
-//           driverEmptyMile: emptyMiles,
-//           pickupRate: pickRate,
-//           pickupAfter: pickStart,
-//           dropRate: dropRate,
-//           dropAfter: dropStart,
-//           tarp: driverTarp,
-//           percentage: percentage,
-//         },
-//         cache: false,
-//         success: function(resp){
-//             if(resp.success == true){
-//                 swal.fire("Done!", resp.message, "success");
-//                 // $("#driverTable").append(tr_str4);
-//                 $.ajax({
-//                     type: "GET",
-//                     url: base_path+"/admin/driver",
-//                     async: false,
-//                     success: function(text) {
-//                         createDriverRows(text);
-//                         driverResponse = text;
-//                     }
-//                 });
-//                 $("#addDriverModal form").trigger("reset");
-//             } 
-//           },
-//           error: function(data){
-//             $.each( data.responseJSON.errors, function( key, value ) {
-//                 swal.fire("Error!", value[0], "error");
-//             });
-//             },
-//     });
-    
-// });
+    $('#companyDataSubmit').click(function(){            
+        var companyID = 1;
+        var companyName = $('#inputCompanyName4').val();
+        var shippingAddress = $('#inputShippingAddress4').val();
+        var telephoneNo = $('#inputTelephoneNo4').val();
+        var faxNo = $('#inputFaxNo4').val();
+        var mcNo = $('#inputMcNo4').val();
+        var usDotNo = $('#inputUsDotNo4').val();
+        var mailingAddress = $('#inputEmailAddress4').val();
+        var factoringCompany = $('#inputFactoringCompany4').val();
+        var website = $('#inputWebsite4').val();
+        var file = $('#inputFile4').val();  
+        // var tr_length1 = $("#driverModal").find("tr").length;
+    $.ajax({
+        url: base_path+"/admin/addCompany",
+        type: "POST",
+        datatype:"JSON",
+        data: {
+            _token: $("#csrf").val(),
+          companyID: companyID,
+          companyName: companyName,
+          shippingAddress: shippingAddress,
+          telephoneNo: telephoneNo,
+          faxNo: faxNo,
+          mcNo: mcNo,
+          usDotNo: usDotNo,
+          mailingAddress: mailingAddress,
+          factoringCompany: factoringCompany,
+          website: website,
+          file: file,
+        },
+        cache: false,
+        success: function(resp){
+            if(resp.success == true){
+                swal.fire("Done!", resp.message, "success");
+                // $("#driverTable").append(tr_str4);
+                $.ajax({
+                    type: "GET",
+                    url: base_path+"/admin/company",
+                    async: false,
+                    success: function(text) {
+                        createCompanyRows(text);
+                        companyResponse = text;
+                    }
+                });
+                $("#addCompanyModal form").trigger("reset");
+            } 
+          },
+          error: function(data){
+            $.each( data.responseJSON.errors, function( key, value ) {
+                swal.fire("Error!", value[0], "error");
+            });
+            },
+    });
+});
 
-// })
+$('.companyDataUpdate').click(function(){        
+    var companyID= $('#up_comId').val();
+    var companySubID= $('#up_comSubId').val();
+    var companyName= $('#up_companyName').val();
+    var shippingAddress= $('#up_shippingAddress').val();
+    var telephoneNo=$('#up_telephoneNo').val();
+    var faxNo=$('#up_faxNo').val();
+    var mcNo=$('#up_mcNo').val();
+    var usDotNo=$('#up_usDotNo').val();
+    var mailingAddress=$('#up_mailingAddress').val();
+    var factoringCompany=$('#up_factoringCompany').val();    
+    var website=$('#up_website').val();    
+    $.ajax({
+        url:base_path+"/admin/updateCompany" ,
+        type:'post',
+        data:{
+            _token:$("#companycsrf").val(),
+            companyID:companyID,
+            companySubID:companySubID,
+            companyName: companyName,
+            shippingAddress: shippingAddress,
+            telephoneNo: telephoneNo,
+            faxNo: faxNo,
+            mcNo: mcNo,
+            usDotNo: usDotNo,
+            mailingAddress: mailingAddress,
+            factoringCompany: factoringCompany,
+            website: website,
+        } ,
+        success: function(response){
+            var responsenew = JSON.parse(response);
+            if(responsenew.statusCode===200){
+                swal.fire("Done!", responsenew.message, "success");
+                $.ajax({
+                    type: "GET",
+                    url: base_path+"/admin/company",
+                    success: function(text) {
+                        createCompanyRows(text);
+                        response = text;
+                    }
+                });			
+            }
+          },
+          error: function(data){
+            $.each( data.responseJSON.errors, function( key, value ) {
+                swal.fire("Error!", value[0], "error"); 
+            });
+        }            
+    });
+});
+
+function companymodal()
+{
+    $(document).ready(function(){
+        $('.edit3').click(function(){
+            var id = $(this).attr("data-id");
+            var result = $(this).attr("data-id").split('&');
+            var com_id=result[0];
+            var companySubId=result[1];
+            $.ajax({
+                url: base_path+"/admin/editCompany",
+                type: "POST",
+                datatype:"JSON",
+                data: {_token: $("#companycsrf").val(),com_id: com_id,companySubId: companySubId},
+                cache: false,
+                success: function(dataResult){
+                    $('#up_comId').val(com_id);
+                    $('#up_comSubId').val(companySubId);
+                    $('#up_companyName').val(dataResult.companyName);
+                    $('#up_shippingAddress').val(dataResult.shippingAddress);
+                    $('#up_telephoneNo').val(dataResult.telephoneNo);
+                    $('#up_faxNo').val(dataResult.faxNo);
+                    $('#up_mcNo').val(dataResult.mcNo);
+                    $('#up_usDotNo').val(dataResult.usDotNo);
+                    $('#up_mailingAddress').val(dataResult.mailingAddress);
+                    $('#up_factoringCompany').val(dataResult.factoringCompany);
+                    $('#up_website').val(dataResult.website);                   
+                    $('#editCompanyModal').modal('show'); 
+                }
+            });
+        });
+    });
+    
+    $(".deleteCompany").on("click", function(){
+        var rowToDelete = $(this).closest('tr');
+        var id = $(this).attr("data-id");
+        var result = $(this).attr("data-id").split('&');
+        var com_id=result[0];
+        var companySubId=result[1];
+        swal.fire({
+            title: "Delete?",
+            text: "Please ensure and then confirm!",
+            type: "warning",
+            showCancelButton: !0,
+            confirmButtonText: "Yes, delete it!",
+            cancelButtonText: "No, cancel!",
+            reverseButtons: !0
+        }).then(function (e) {
+
+        if (e.value === true) {
+        $.ajax({ 
+          url: base_path+"/admin/deleteCompany",
+          data: {com_id: com_id,companySubId: companySubId},
+          type: 'post',
+          success: function(resp){
+            if (resp.success === true) {
+				swal.fire("Done!", resp.message, "success");
+                rowToDelete.remove();
+			} else {
+				swal.fire("Error!", resp.message, "error");
+			}
+		},
+		error: function (resp) {
+			swal.fire("Error!", 'Something went wrong.', "error");
+		}
+        });
+    } else {
+        e.dismiss;
+    }
+
+}, function (dismiss) {
+    return false;
+})
+    });
+}
