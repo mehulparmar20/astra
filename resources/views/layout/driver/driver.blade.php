@@ -353,9 +353,8 @@
                                                     <div class="form-group col-md-2">
                                                         <label for="currency">Currency <span
                                                                 style="color:#ff0000">*</span></label>
-                                                        <input type="text" class="form-control" id="currency"
-                                                            placeholder="
-                                                            ">
+                                                        <input type="text" class="form-control" id="currency_add"
+                                                            placeholder="currency">
                                                     </div>
                                                     <div class="form-group col-md-2">
                                                         <label for="recurrencePlus">Recurrence+</label>

@@ -214,7 +214,7 @@ class DriverController extends Controller
                             // 'LastUpdateId' => $request->  ,
                             // 'ownerOperatorStatus' => $request->  ,
             );
-
+// dd($driverData[]);
             if($getCompany){
                 $driverArray=$getCompany->driver;
                 Driver::where(['companyID' =>$companyID ])->update([

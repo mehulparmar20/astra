@@ -494,12 +494,7 @@ $('.editModalCloseButton').click(function(){
     $('#editDriverModal').modal('hide');
     $('#driverModal').modal('show');  
 });
-$('.addDriverOwner').click(function(){
-    var name =$(this).data('name');
-    $('#owner-driver-name').val(atob(name));
-    console.log(atob(name));
-    $('#addDriverOwnerModal').modal('show');  
-});
+
 
 // <!--------------------------------------------------------------------------- end of get driver  --------------------------------------------------------------------------->
 // <!--------------------------------------------------------------------------- delete driver ajax --------------------------------------------------------------------------->    
@@ -510,7 +505,6 @@ $('.addDriverOwner').click(function(){
 // <!-- ------------------------------------------------------------------------- add driver  ------------------------------------------------------------------------- -->
 
       $('.driverDataSubmit').click(function(){   
-        alert();         
             var companyID = 4;
             var name = $('#name').val();
             var username = $('#username').val();
@@ -536,7 +530,8 @@ $('.addDriverOwner').click(function(){
             var fastCardExpiry = $('#fastCardExpiry').val();
             var hazmatExpiry = $('#hazmatExpiry').val();
             var rate = $('#rate').val();
-            var currency = $('#currency').val();
+            var currency = $('#currency_add').val();
+            console.log(currency);
             var recurrencePlus = $('#recurrencePlus').val();
             var recurrenceMin = $('#recurrenceMin').val();
             var terminationDate = $('#terminationDate').val();
@@ -996,6 +991,13 @@ function drivermodal()
 }, function (dismiss) {
     return false;
 })
+    });
+
+    $('.addDriverOwner').click(function(){
+        var name =$(this).data('name');
+        $('#owner-driver-name').val(atob(name));
+        console.log(atob(name));
+        $('#addDriverOwnerModal').modal('show');  
     });
 }
 
