@@ -21,7 +21,7 @@
         <div class="modal-dialog custom_modal modal-dialog-scrollable" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">User</h5>
+                    <h5 class="modal-title">Your Company</h5>
                     <button type="button" class="close" data-dismiss="modal">×</button>
 
                     </button>
@@ -49,7 +49,7 @@
                                 <th>Action</th>
                             </tr>
                         </thead>
-                        <tbody id="tablecom">
+                        <tbody id="companyTable" class="customtable">
                             
                         </tbody>
                     </table>

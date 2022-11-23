@@ -50,7 +50,7 @@ function createRows(response) {
                 "<td data-field='ext'>" + ext + "</td>" +
                 "<td data-field='tollfree'>" + tollfree + "</td>" +
                 "<td data-field='fax'>" + fax + "</td>" +
-                "<td style='width: 100px'><a class='text-white edit-icn edit1' id='editmodel' title='Edit'><i class='fe fe-edit'></i></a><a class='delete1 text-white delete-icn' data-id="+ email +" title='Delete'><i class='fe fe-delete'></i></a></td></tr>";
+                "<td style='width: 100px'><a class='button-23'><i class='fe fe-edit edit1' id='editmodel'></i></a><a class='button-23'><i class='delete1 fe fe-delete' data-id=" +email + " title='Delete'></i></a></td></tr>";
             $("#table1").append(tr_str);
         }
     } else {
@@ -402,7 +402,7 @@ $(document).ready(function() {
                             "<td data-field='lis'>" + lis + "</td>" +
                             "<td data-field='license_exp_date'>" + license_exp_date + "</td>" +
                             "<td data-field='driver_balance'>" + driver_balance + "</td>" +
-                            "<td style='width: 100px'><a class='button-57_ed edit' data-id=" + comid+ "&"+email + "><i class='fa fa-edit' aria-hidden='true'></i></span><span>Edit</span></a><a class='button-57_ed deleteDriver ' data-id=" + comid+ "&"+email + " title='Delete'><i class='fa fa-delete' aria-hidden='true'></i></span><span>Delete</span></a></td></tr>";
+                            "<td style='width: 100px'><a><i class='button-23 fe fe-edit edit' data-id=" + comid+ "&"+email + "></i></a><a><i class='deleteDriver button-23 fe fe-delete' data-id=" + comid+ "&"+email + " title='Delete'></i></a></td></tr>";
                         $("#driverTable").append(tr_str1);
                         no++;
                         }
@@ -806,3 +806,73 @@ function GetDynamicRecurrencesubstract(value) {
 }
 
 // <!-- ------------------------------------------------------------------------- End of Minus Recurrence ------------------------------------------------------------------------- -->
+
+
+$.ajax({
+    type: "GET",
+    url: base_path+"/admin/company",
+    async: false,
+    success: function(text) {
+    createCompanyRows(text);
+    companyResponse = text;
+    }
+    });
+    
+    function createCompanyRows(companyResponse) {
+    var len1 = 0;
+    
+    $('#companyTable').empty();
+    if (companyResponse != null) {
+    len1 = companyResponse.length;
+    }
+    
+    if (len1 > 0) {
+    var no=1;
+    for (var i = 0; i < len1; i++) {
+    var len2=companyResponse[i].company.length;
+    if(len2 > 0){
+    for (var j = 0; j < len2; j++) {
+    var comid =companyResponse[i].companyID;
+    var companyId=companyResponse[i].company[j]._id;
+    var companyName = companyResponse[i].company[j].companyName;
+    var shippingAddress = companyResponse[i].company[j].shippingAddress;
+    var telephoneNo = companyResponse[i].company[j].telephoneNo;
+    var faxNo = companyResponse[i].company[j].faxNo;
+    var mcNo = companyResponse[i].company[j].mcNo;
+    var usDotNo = companyResponse[i].company[j].usDotNo;
+    var mailingAddress = companyResponse[i].company[j].mailingAddress;
+    var factoringCompany = companyResponse[i].company[j].factoringCompany;
+    var bankCompany = companyResponse[i].company[j].bankCompany;
+    var filepath = companyResponse[i].company[j].filepath;
+    var delete_status = companyResponse[i].company[j].deleteStatus;
+    
+    if(delete_status=="NO"){
+    var tr_str1 = "<tr data-id=" + (i + 1) + ">" +
+    "<td ><input value='"+companyId+"' id='type_radio_2' name='type_radio' type='radio' /></td>" +
+    "<td data-field="+no+">" + no + "</td>" +
+    "<td data-field='companyName' >" + companyName + "</td>" +
+    "<td data-field='shippingAddress'>" + shippingAddress + "</td>" +
+    "<td data-field='telephoneNo'>" + telephoneNo + "</td>" +
+    "<td data-field='faxNo'>" + faxNo + "</td>" +
+    "<td data-field='mcNo'>" + mcNo + "</td>" +
+    "<td data-field='usDotNo'>" + usDotNo + "</td>" +
+    "<td data-field='mailingAddress'>" + mailingAddress + "</td>" +
+    "<td data-field='factoringCompany'>" + factoringCompany + "</td>" +
+    "<td data-field='bankCompany'>" + bankCompany + "</td>" +
+    "<td data-field='filepath'><a href="+ filepath +"></a></td>" +
+    "<td style='width: 100px'><i class='btn btn-primary fe fe-edit edit3' data-id=" + comid+ "&"+companyId + "><a>edit</a></i><a class='deleteCompany mt-2 btn btn-danger fs-14 text-white delete-icn' data-id=" + comid+ "&"+companyId + " title='Delete'><i class='fe fe-delete'></i></a></td></tr>";
+    $("#companyTable").append(tr_str1);
+    no++;
+    }
+    }
+    }
+    }
+    } else {
+    var tr_str1 = "<tr data-id=" + i + ">" +
+    "<td align='center' colspan='4'>No record found.</td>" +
+    "</tr>";
+    
+    $("#companyTable").append(tr_str1);
+    }
+    companymodal();
+    }

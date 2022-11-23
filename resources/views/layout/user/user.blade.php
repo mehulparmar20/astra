@@ -26,6 +26,7 @@
 
                     </button>
                 </div>
+                <a href="#addUserModal" data-toggle="modal" data-target="#addUserModal" class="button-57 btn1"><i class="fa fa-plus" aria-hidden="true"></i><span>Add User</span></a>
                 <button href="#addUserModal" data-toggle="modal" data-target="#addUserModal"
                     class="login_btn btn1 add1button" style="vertical-align:middle"><span>Add </span></button>
                 <div class="modal-body" style="overflow-y: auto !important;">
