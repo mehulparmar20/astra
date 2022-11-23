@@ -1,6 +1,6 @@
 <div class="modal  bs-example-modal-lg" data-keyboard="false" data-backdrop="static" tabindex="-1" role="dialog"
     id="substractRecurrence" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-xl modal-dialog-scrollable">
+    <div class="modal-dialog modal-dialog-scrollable custom_modal_small2">
         <div class="modal-content custom-modal-content">
             <div class="fixpay-container" style="z-index: 1600"></div>
             <div class="modal-header custom-modal-header">

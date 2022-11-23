@@ -16,17 +16,20 @@
                 </div> -->
 
                 <!-- Modal body -->
-                <div class="modal-body">
+                <div class="modal-body" style="overflow-y: auto !important;">
                     <!-- Row-->
 							<div class="row ">
 								<div class="col-md-12">
 									<div class="card">
-										<div class="card-body">
+                                        <div class="card-body">
                                             <a href="#addContractCategory" class="btn btn-primary" data-toggle="modal"
                                                 data-target="#addContractCategory">Add Contract Category</a>
-											<div aria-multiselectable="true" class="accordion" id="accordion" role="tablist">
-												
-											</div>
+										</div>
+										<div class="card-body">
+                                                
+                                                <div aria-multiselectable="true" class="accordion" id="accordion" role="tablist">
+                                                    
+                                                </div>
 										</div>
 									</div>
 								</div>

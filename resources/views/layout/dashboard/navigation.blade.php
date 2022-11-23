@@ -44,6 +44,7 @@
 											</a>
 											<ul class="slide-menu">
 												<li class="side-menu-label1"><a href="javascript:void(0)">Admin</a></li>
+												<li><a href="#companyModal" class="slide-item" data-toggle="modal" data-target="#companyModal">Your Company</a></li>
 												<li><a href="#customerModal" class="slide-item" data-toggle="modal" data-target="#customerModal">Customer</a></li>
 												<li><a href="https://laravel8.spruko.com/noa/form-layouts" class="slide-item" data-bs-toggle="modal" data-bs-target="#extralargemodal">Shipper & Consignee</a></li>
 												<li><a href="https://laravel8.spruko.com/noa/form-validation" class="slide-item">External Carrier</a></li>
@@ -265,6 +266,7 @@
             <!-- /app-Header -->
 
 			@include('layout.customer.customer')
+			@include('layout.company.company')
             @include('layout.driver.driver') 
             @include('layout.user.user') 
             @include('layout.user.add_user') 

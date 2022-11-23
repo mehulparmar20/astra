@@ -1,7 +1,7 @@
 <div class="container">
     <!-- The Modal -->
     <div class="modal fade" data-backdrop="static" id="addRecurrence">
-        <div class="modal-dialog modal-dialog-scrollable custom_modal">
+        <div class="modal-dialog modal-dialog-scrollable custom_modal_small2">
             <div class="modal-content">
 
                 <!-- Modal Header -->

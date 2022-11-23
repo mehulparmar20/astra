@@ -87,7 +87,7 @@
 <div class="container">
     <!-- The Modal -->
     <div class="modal fade" data-backdrop="static" id="addDriverModal">
-        <div class="modal-dialog modal-dialog-scrollable custom_modal">
+        <div class="modal-dialog modal-dialog-scrollable custom_modal_small">
             <div class="modal-content">
 
                 <!-- Modal Header -->
@@ -359,14 +359,14 @@
                                                     <div class="form-group col-md-2 ">
                                                         <label>Recurrence +</label>
                                                         <div>
-                                                            <a href="#addRecurrence" class="btn btn-primary" data-toggle="modal" data-target="#addRecurrence">Open recurrence +</a>
+                                                            <a href="#addRecurrence" class="button-29" data-toggle="modal" data-target="#addRecurrence">Open recurrence +</a>
                                                             
                                                         </div>
                                                     </div>
                                                     <div class="form-group col-md-2">
                                                         <label>Recurrence +</label>
                                                         <div>
-                                                            <a href="#substractRecurrence" class="btn btn-primary" data-toggle="modal" data-target="#addRecurrence">Open recurrence -</a>
+                                                            <a href="#substractRecurrence" class="button-29" data-toggle="modal" data-target="#addRecurrence">Open recurrence -</a>
                                                         </div>
                                                     </div>
                                                     <div class="form-group col-md-3">
@@ -400,8 +400,8 @@
 
                 <!-- Modal footer -->
                 <div class="modal-footer">
-                    <a type="submit" class="btn btn-primary driverDataSubmit">Submit</a>
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="button-29 driverDataSubmit">Submit</button>
+                    <button type="button" class="button-29" data-dismiss="modal">Close</button>
                 </div>
 
             </div>
@@ -747,12 +747,12 @@
 <div class="container">
     <!-- The Modal -->
     <div class="modal fade" data-backdrop="static" id="setupDriverModal">
-        <div class="modal-dialog modal-dialog-scrollable custom_modal">
+        <div class="modal-dialog modal-dialog-scrollable custom_modal_small">
             <div class="modal-content">
 
                 <!-- Modal Header -->
                 <div class="modal-header">
-                    <h4 class="modal-title">Add Driver</h4>
+                    <h4 class="modal-title">Set Up Driver</h4>
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                 </div>
 
@@ -822,8 +822,8 @@
 
                 <!-- Modal footer -->
                 <div class="modal-footer">
-                    <a type="submit" class="btn btn-primary setupDriverSubmit">Submit</a>
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="button-29 setupDriverSubmit">Submit</button>
+                    <button type="button" class="button-29" data-dismiss="modal">Close</button>
                 </div>
 
             </div>
