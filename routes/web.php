@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\DriverController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\CustomerController;
 use App\Http\Controllers\Admin\CompanyController;
+use App\Http\Controllers\Admin\CurrencyController;
 
 /*
 |--------------------------------------------------------------------------
@@ -71,11 +72,19 @@ Route::post('admin/addOwnerOparator', [DriverController::class, 'addOwnerOparato
 //customer
 Route::get('admin/customer', [CustomerController::class, 'getCustomerData']);
 Route::post('admin/addCustomer', [CustomerController::class, 'addCustomerData']);
+
+//addCurrency
 Route::get('admin/customerCurrency', [CustomerController::class, 'getCustomerCurrency']);
-Route::get('admin/getCustomerPaymentTerms', [CustomerController::class, 'getCustomerPaymentTerms']);
-Route::get('admin/getCustomerBFactoringCompany', [CustomerController::class, 'getCustomerBFactoringCompany']);
+Route::get('admin/getCurrency', [CurrencyController::class, 'getCurrency']);
 Route::post('admin/addCurrency', [CustomerController::class, 'addCustomerCurrency']);
+Route::post('admin/updateCurrency', [CurrencyController::class, 'updateCurrency']);
+
+//PaymentTerms
+Route::get('admin/getCustomerPaymentTerms', [CustomerController::class, 'getCustomerPaymentTerms']);
 Route::post('admin/PaymentTerms', [CustomerController::class, 'addCustomerPaymentTerms']);
+
+//factoringCompany
+Route::get('admin/getCustomerBFactoringCompany', [CustomerController::class, 'getCustomerBFactoringCompany']);
 Route::post('admin/factoringCompany', [CustomerController::class, 'addCustomerfactoringCompany']);
 
 //company

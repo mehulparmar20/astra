@@ -30,59 +30,64 @@ class DriverController extends Controller
     public function getViewDriverApplication(Request $request){
         $companyID=1;
         $employement = Employement::where('companyID',$companyID)->first();
+       
         //dd($employement);
         return response()->json($employement);  
     }
 
     public function addOwnerOparator(Request $request){
-        // dd($request->all());
+
+        request()->validate([
+            'percentage' => 'required',
+            'truckNo' => 'required',
+        ]);
+
+        $companyID=2;
+        $object='1';
+        $getCompany = Owner_operator_driver::where('companyID',$companyID)->first();
+
+        $unserializeData = [];
+        parse_str($request->data,$unserializeData);
+
+        foreach($unserializeData['installmentCategory'] as $key => $val){
+            
+            $i_cate=$unserializeData['installmentCategory'][$key];
+            $i_type=$unserializeData['installmentType'][$key];
+            $amount=$unserializeData['amount'][$key];
+            $installment=$unserializeData['installment'][$key];
+            $startNo=$unserializeData['startNo'][$key];
+            $startDate=$unserializeData['startDate'][$key];
+            $internalNote=$unserializeData['internalNote'][$key]; 
+
+        $array[]=((object)[
+                '_id'=>$key,
+                'installmentCategory'=>$i_cate,
+                'installmentType'=>$i_type,
+                'amount'=>$amount,
+                'installment'=>$installment,
+                'startNo'=>$startNo,
+                'startDate'=>$startDate,
+                'internalNote'=>$internalNote,
+        ]);        
+
+    }
         
-
-
-
-        // $unserializeData = [];
-        // parse_str($request->data,$unserializeData);
-        //     foreach($unserializeData['installmentCategory'] as $key => $val){
-        //     //  $key;
-        //     echo($val);
-        //     // echo " .<br>.  ";
-        //     // $unserializeData['installmentCategory'][$key];
-        // }
-        // request()->validate([
-        //     'percentage' => 'required',
-        //     'truckNo' => 'required',
-        // ]);
-           
-        try{
-            $companyID=2;
-            $getCompany = Owner_operator_driver::where('companyID',$companyID)->first();
-           // dd($getCompany);
-            $installment[]=array(
-                '_id'=>1,
-                'installmentCategory'=>'r',
-                'installmentType'=>'r',
-                'amount'=>'r',
-                'installment'=>'r',
-                'startNo'=>'r',
-                'startDate'=>'r',
-                'internalNote'=>'r',
-            );
-
-            $ownerOperatorData[]=array(    
-                '_id' => 4,
-                'driverId' => 3,
-                'percentage' => 0,
-                'truckNo' => $request->name,
-                'installment' => $installment,
+            try{
+                $ownerOperatorData[]=array(    
+                    '_id' => 1,
+                    'driverId' => 0,
+                    'percentage' => $unserializeData['percentage'],
+                    'truckNo' => $unserializeData['truckNo'],
+                    'installment' =>$array ,
                 );
 
                 if($getCompany){
                     $ownerOperatorArray=$getCompany->ownerOperator;
                     Owner_operator_driver::where(['companyID' =>$companyID ])->update([
                         'ownerOperator' =>array_merge($ownerOperatorData,$ownerOperatorArray) ,
-                       
+                    
                     ]);
-    
+        
                     $data = [
                         'success' => true,
                         'message'=> 'ownerOperator added successfully'
@@ -90,25 +95,28 @@ class DriverController extends Controller
                     
                     return response()->json($data);
                 }else{
-                    if(Owner_operator_driver::create([
+                    Owner_operator_driver::create([
                         
                         // 'companyID' => (int)$_SESSION['companyId'],
                         '_id' => 1,
                         'companyID' => $companyID,
                         'counter' => 0,
                         'ownerOperator' => $ownerOperatorData,
-                    ])) {
-                        $data = [
-                            'success' => true,
-                            'message'=> 'Driver added successfully'
-                            ] ;
-                            return response()->json($data);
-                    }
+                    ]);
                 }
             } 
                 catch(\Exception $error){
                 return $error->getMessage();
             }
+    // }
+
+        $data = [
+            'success' => true,
+            'message'=> 'Driver Owner added successfully'
+            ] ;
+            return response()->json($data);
+
+
     }
 
     public function getDriverData(Request $request){

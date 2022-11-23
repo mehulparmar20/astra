@@ -1158,27 +1158,38 @@ $(document).on('click','.remove',function() {
     $(this).parent('div').remove();
 });
 
+$('#submitOwnerOparator').click(function(){
 
+    var ownerPercentage=$('#ownerPercentage').val();
+    var ownerTruckNo=$('#ownerPercentage').val();
+    
 
+    if(ownerPercentage == ''){
+         swal.fire("Error!", "Enter Percentage", "error");
+        // swal({title: 'Please Enter Date Of Birth',text: 'Redirecting...',timer: 1500,buttons: false,})
+        $("#ownerPercentage").focus();
+    }
+    if(ownerTruckNo == ''){
+        swal.fire("Error!", "Enter Truck No", "error");
+       // swal({title: 'Please Enter Date Of Birth',text: 'Redirecting...',timer: 1500,buttons: false,})
+       $("#ownerPercentage").focus();
+   }
 
-    $('#submitOwnerOparator').click(function(){
-
-        $.ajax({
-            type: "POST",
-            url: base_path+"/admin/addOwnerOparator",
-            dataType: 'json',
-            data: {
-                    'data':$('#addOwnerForm').serialize(),
-                    '_token': $(".laravel_csrf_tokn").val(),
-                },  
-            success: function(text) {
-                // driverContract(text);
-                // response = text;
-            }
-        });
-        
+    $.ajax({
+        type: "POST",
+        url: base_path+"/admin/addOwnerOparator",
+        dataType: 'json',
+        data: {
+                'data':$('#addOwnerForm').serialize(),
+                '_token': $(".laravel_csrf_tokn").val(),
+            },  
+        success: function(text) {
+            swal.fire("Done!", 'Add As Owner Oparator', "success");
+        }
     });
     
+});
+
 
 // <!-- -------------------------------------------------------------------------Get Company ajax ------------------------------------------------------------------------- -->    
     $.ajax({

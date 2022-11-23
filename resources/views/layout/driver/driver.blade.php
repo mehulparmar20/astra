@@ -916,7 +916,7 @@
                                             <input type="hidden" id="driverNamesid" value="" />
                                         </div>
                                         <div class="col-sm-4">
-                                            <label class="form-label" for="ssnMask-cvv">Pay Percentage<span class="mandatory">* </span>( % )</label></label>
+                                            <label class="form-label" for="ssnMask-cvv">Pay Percentage<span style="color:#ff0000">*</span>( % )</label></label>
                                             <div class="input-group">
                                                 <div class="input-group-text bg-primary-transparent text-primary">
                                                     <i class="fe fe-minus text-20" onclick="dec_percentage()" ></i>
@@ -928,7 +928,7 @@
                                             </div>
                                         </div>
                                         <div class="col-sm-4">
-                                            <label class="form-label" for="ssnMask-cvv">Select Truck</label>
+                                            <label class="form-label" for="ssnMask-cvv">Select Truck<span style="color:#ff0000">*</span></label>
                                             <input list="fuel_truck_report" class="form-control" placeholder="search here..." id="ownerTruckNo" name="truckNo" autocomplete="off">
                                                 <datalist id="fuel_truck_report">
                                                 </datalist>
