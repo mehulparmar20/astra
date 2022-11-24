@@ -359,6 +359,7 @@ $(document).ready(function() {
         }
     });
 
+    
     function createDriverRows(driverResponse) {
 
         console.log(driverResponse);
@@ -531,7 +532,8 @@ $(".deleteDriver").on("click", function(){
                             "<td data-field='lis'>" + licenseIssueState + "</td>" +
                             "<td data-field='license_exp_date'>" + licenseExpDate + "</td>" +
                             "<td data-field='driver_balance'>" + driverBalance + "</td>" +
-                            "<td style='width: 100px'><i class='btn btn-primary fe fe-edit edit' data-id=" + companyID + "&"+ email + "><a>edit</a></i><a class='deleteDriver mt-2 btn btn-danger fs-14 text-white delete-icn' data-id=" + companyID + "&" + email + " title='Delete'><i class='fe fe-delete'></i></a></td></tr>";    
+                            "<td style='width: 100px'><a><i class='button-23 fe fe-edit edit' data-id=" + companyID + "&"+ email + "></i></a><a><i class='deleteDriver button-23 fe fe-delete' data-id=" + companyID + "&" + email + " title='Delete'></i></a></td></tr>";
+                            // "<td style='width: 100px'><i class='button-23 fe fe-edit edit' data-id=" + companyID + "&"+ email + "><a>edit</a></i><a class='deleteDriver mt-2 btn btn-danger fs-14 text-white delete-icn' data-id=" + companyID + "&" + email + " title='Delete'><i class='fe fe-delete'></i></a></td></tr>";    
         $.ajax({
             url: base_path+"/admin/addDriver",
             type: "POST",

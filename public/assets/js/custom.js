@@ -619,3 +619,5 @@ function createcompRows(response) {
     }
     companyModal();
 }
+
+

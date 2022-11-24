@@ -7,7 +7,7 @@
         </button> -->
   <!-- The Modal -->
   <div class="modal fade" data-backdrop="static" id="addUserModal">
-    <div class="modal-dialog modal-dialog-scrollable custom_modal">
+    <div class="modal-dialog modal-dialog-scrollable custom_modal_small">
       <div class="modal-content">
         <!-- Modal Header -->
         <div class="modal-header">
@@ -105,22 +105,22 @@
                             <div id="privilege-data" class="tabs">
                               <div class="tab-header">
                                 <div class="tab selectedpriviladge" id="dashboard_priviladge_main" name="tab-1" onclick="changeTab('tab-1'); managePriviladgeSelect(this) ">
-                                  <i class="icon-graph-rising" style="vertical-align:middle;"></i> Dashboard
+                                  <i class="fa fa-line-chart" style="vertical-align:middle;"></i> Dashboard
                                 </div>
                                 <div class="tab" id="custom_priviladge_main" name="tab-2" onclick="changeTab('tab-2'); managePriviladgeSelect(this)">
-                                  <i class="icon-life-buoy" style="vertical-align:middle;"></i> Custom
+                                  <i class="fa fa-life-ring" style="vertical-align:middle;"></i> Custom
                                 </div>
                                 <div class="tab" id="admin_priviladge_main" name="tab-3" onclick="changeTab('tab-3'); managePriviladgeSelect(this)">
-                                  <i class="icon-squares" style="vertical-align:middle;"></i> Admin
+                                  <i class="fa fa-th-large" style="vertical-align:middle;"></i> Admin
                                 </div>
                                 <div class="tab" id="ifta_priviladge_main" name="tab-4" onclick="changeTab('tab-4'); managePriviladgeSelect(this)">
-                                  <i class="icon-graph" style="vertical-align:middle;"></i> IFTA
+                                  <i class="fa fa-bar-chart" style="vertical-align:middle;"></i> IFTA
                                 </div>
                                 <div class="tab" id="account_priviladge_main" name="tab-5" onclick="changeTab('tab-5'); managePriviladgeSelect(this)">
-                                  <i class="icon-paper-pen" style="vertical-align:middle;"></i> Account
+                                  <i class="fa fa-file-text-o" style="vertical-align:middle;"></i> Account
                                 </div>
                                 <div class="tab" id="report_priviladge_main" name="tab-6" onclick="changeTab('tab-6'); managePriviladgeSelect(this)">
-                                  <i class="icon-life-buoy" style="vertical-align:middle;"></i> Report
+                                  <i class="fa fa-flag" style="vertical-align:middle;"></i> Report
                                 </div>
                               </div>
                               <div class="tab-indicator"></div>

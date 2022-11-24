@@ -11,7 +11,7 @@
                     <button type="button" class="button-24" data-dismiss="modal">&times;</button>
                 </div>
 
-                <div class="card-body">
+                <div style="margin-top: 15px; margin-left: 15px;">
                 <a href="#addDriverModal" class="button-57" data-toggle="modal"
                                                 data-target="#addDriverModal"><i class="fa fa-plus" aria-hidden="true"></i><span>Add Driver</span></a>
                                             <a href="#setupDriverModal" class="button-57" data-toggle="modal"
@@ -19,15 +19,14 @@
                                             <a href="#contractCategoryModal" class="button-57_alt" data-toggle="modal"
                                                 data-target="#contractCategoryModal"><i class="fa fa-id-card" aria-hidden="true"></i></span><span>View Driver Contract</span></a>
 
-</div>
+                </div>
                 <!-- Modal body -->
                 <div class="modal-body" style="overflow-y: auto !important;">
                     <!-- Row -->
                     <div class="row">
                         <div class="row row-sm">
                             <div class="col-lg-12">
-                                <div class="card">
-                                    <div class="card-body">
+                                
 
                                         <div class="table-responsive export-table">
                                             <table id="editable-file-datatable" class="table editable-table table-nowrap table-bordered table-edit wp-100 customtable">
@@ -59,8 +58,7 @@
                                                 </tbody>
                                             </table>
                                         </div>
-                                    </div>
-                                </div>
+                               
                             </div>
                         </div>
                     </div>
