@@ -1217,12 +1217,14 @@ $(document).on('click','.remove',function() {
                         var usDotNo = companyResponse[i].company[j].usDotNo;
                         var mailingAddress = companyResponse[i].company[j].mailingAddress;
                         var factoringCompany = companyResponse[i].company[j].factoringCompany;
+                        console.log(factoringCompany);
                         var bankCompany = companyResponse[i].company[j].bankCompany;
-                        var filepath = companyResponse[i].company[j].filepath;
+                        var filepath = companyResponse[i].company[j].file;
                         var delete_status = companyResponse[i].company[j].deleteStatus;
 
                         if(delete_status=="NO"){
                         var tr_str1 = "<tr data-id=" + (i + 1) + ">" +
+                            "<td ><input value='"+companyId+"' id='type_radio_2' name='type_radio' type='radio' /></td>" +
                             "<td data-field="+no+">" + no + "</td>" +
                             "<td data-field='companyName' >" + companyName + "</td>" +
                             "<td data-field='shippingAddress'>" + shippingAddress + "</td>" +
@@ -1233,8 +1235,8 @@ $(document).on('click','.remove',function() {
                             "<td data-field='mailingAddress'>" + mailingAddress + "</td>" +
                             "<td data-field='factoringCompany'>" + factoringCompany + "</td>" +
                             "<td data-field='bankCompany'>" + bankCompany + "</td>" +
-                            "<td data-field='filepath'><a href="+ filepath +"></a></td>" +
-                            "<td style='width: 100px'><i class='btn btn-primary fe fe-edit edit3' data-id=" + comid+ "&"+companyId + "><a>edit</a></i><a class='deleteCompany mt-2 btn btn-danger fs-14 text-white delete-icn' data-id=" + comid+ "&"+companyId + " title='Delete'><i class='fe fe-delete'></i></a></td></tr>";
+                            "<td data-field='filepath'><a href="+ filepath +">"+ filepath +"</a></td>" +
+                            "<td><a class='editCompany mt-2 btn btn-primary fs-14 text-white edit3'  title='Edit' data-id=" + comid+ "&"+mailingAddress + "><i class='fe fe-edit'></i></a>&nbsp<a class='deleteCompany mt-2 btn btn-danger fs-14 text-white delete-icn' data-id=" + comid+ "&"+mailingAddress + " title='Delete'><i class='fe fe-delete'></i></a></td></tr>";
                         $("#companyTable").append(tr_str1);
                         no++;
                         }
@@ -1260,7 +1262,7 @@ $(document).on('click','.remove',function() {
         var mcNo = $('#inputMcNo4').val();
         var usDotNo = $('#inputUsDotNo4').val();
         var mailingAddress = $('#inputEmailAddress4').val();
-        var factoringCompany = $('#inputFactoringCompany4').val();
+        var factoringCompany = $('#customerBFactoringCompany1').val();
         var website = $('#inputWebsite4').val();
         var file = $('#inputFile4').val();  
         // var tr_length1 = $("#driverModal").find("tr").length;
@@ -1269,7 +1271,7 @@ $(document).on('click','.remove',function() {
         type: "POST",
         datatype:"JSON",
         data: {
-            _token: $("#csrf").val(),
+            _token: $("#csrf1").val(),
           companyID: companyID,
           companyName: companyName,
           shippingAddress: shippingAddress,
@@ -1308,8 +1310,8 @@ $(document).on('click','.remove',function() {
 });
 
 $('.companyDataUpdate').click(function(){        
-    var companyID= $('#up_comId').val();
-    var companySubID= $('#up_comSubId').val();
+    var companyID= $('#up_comId1').val();
+    // var companySubID= $('#up_comSubId').val();
     var companyName= $('#up_companyName').val();
     var shippingAddress= $('#up_shippingAddress').val();
     var telephoneNo=$('#up_telephoneNo').val();
@@ -1317,15 +1319,15 @@ $('.companyDataUpdate').click(function(){
     var mcNo=$('#up_mcNo').val();
     var usDotNo=$('#up_usDotNo').val();
     var mailingAddress=$('#up_mailingAddress').val();
-    var factoringCompany=$('#up_factoringCompany').val();    
+    var factoringCompany=$('#customerBFactoringCompany2').val();    
     var website=$('#up_website').val();    
     $.ajax({
         url:base_path+"/admin/updateCompany" ,
         type:'post',
         data:{
-            _token:$("#companycsrf").val(),
+            _token:$("#newcsrf2").val(),
             companyID:companyID,
-            companySubID:companySubID,
+            // companySubID:companySubID,
             companyName: companyName,
             shippingAddress: shippingAddress,
             telephoneNo: telephoneNo,
@@ -1365,16 +1367,16 @@ function companymodal()
             var id = $(this).attr("data-id");
             var result = $(this).attr("data-id").split('&');
             var com_id=result[0];
-            var companySubId=result[1];
+            var email=result[1];
             $.ajax({
                 url: base_path+"/admin/editCompany",
-                type: "POST",
+                type: "GET",
                 datatype:"JSON",
-                data: {_token: $("#companycsrf").val(),com_id: com_id,companySubId: companySubId},
+                data: {_token: $("#companycsrf").val(),com_id: com_id,email: email},
                 cache: false,
                 success: function(dataResult){
-                    $('#up_comId').val(com_id);
-                    $('#up_comSubId').val(companySubId);
+                    $('#up_comId1').val(com_id);
+                    // $('#up_comSubId').val(companySubId);
                     $('#up_companyName').val(dataResult.companyName);
                     $('#up_shippingAddress').val(dataResult.shippingAddress);
                     $('#up_telephoneNo').val(dataResult.telephoneNo);
@@ -1382,7 +1384,7 @@ function companymodal()
                     $('#up_mcNo').val(dataResult.mcNo);
                     $('#up_usDotNo').val(dataResult.usDotNo);
                     $('#up_mailingAddress').val(dataResult.mailingAddress);
-                    $('#up_factoringCompany').val(dataResult.factoringCompany);
+                    $('#customerBFactoringCompany2').val(dataResult.factoringCompany);
                     $('#up_website').val(dataResult.website);                   
                     $('#editCompanyModal').modal('show'); 
                 }
@@ -1395,7 +1397,7 @@ function companymodal()
         var id = $(this).attr("data-id");
         var result = $(this).attr("data-id").split('&');
         var com_id=result[0];
-        var companySubId=result[1];
+        var email=result[1];
         swal.fire({
             title: "Delete?",
             text: "Please ensure and then confirm!",
@@ -1409,12 +1411,19 @@ function companymodal()
         if (e.value === true) {
         $.ajax({ 
           url: base_path+"/admin/deleteCompany",
-          data: {com_id: com_id,companySubId: companySubId},
+          data: {com_id: com_id,email: email},
           type: 'post',
           success: function(resp){
             if (resp.success === true) {
 				swal.fire("Done!", resp.message, "success");
-                rowToDelete.remove();
+                $.ajax({
+                    type: "GET",
+                    url: base_path+"/admin/company",
+                    success: function(text) {
+                        createCompanyRows(text);
+                        response = text;
+                    }
+                });
 			} else {
 				swal.fire("Error!", resp.message, "error");
 			}
@@ -1431,4 +1440,9 @@ function companymodal()
     return false;
 })
     });
+}
+
+function getNextSequence($id){
+    $newid = $id + 1;
+    return $newid;
 }

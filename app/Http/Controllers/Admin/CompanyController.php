@@ -17,7 +17,7 @@ use Image;
 class CompanyController extends Controller
 {
     public function getCompanyData(Request $request){
-        $company = Company::all();
+        $company = Company::where('companyID',1)->get();
         
         return response()->json($company);  
     }
@@ -28,7 +28,7 @@ class CompanyController extends Controller
             'telephoneNo' => 'required',
             'mailingAddress' => 'required|unique:company,company.mailingAddress',
             'companyID' => 'required|unique:company,companyID',
-            'file' => 'image|mimes:jpg,jpeg,png,gif,svg|max:2048',
+            // 'file' => 'image|mimes:jpg,jpeg,png,gif,svg|max:2048',
         ]);
         try{
 
@@ -110,8 +110,8 @@ class CompanyController extends Controller
 
     public function editCompanyData(Request $request){
         $companyID=(int)$request->com_id;
-
-        $companySubId=$request->companySubId;
+        // $companySubId=$request->companySubId;
+        $email=$request->email;
         $result = Company::where('companyID',$companyID )->first();
         $companyArray=$result->company;
 
@@ -122,7 +122,7 @@ class CompanyController extends Controller
        for ($i=0; $i<$arrayLength; $i++){
             $id=$result->company[$i];
                 foreach ($id as $value){
-                    if($value==$companySubId){
+                    if($value==$email){
                         $v=$i;
                      }
                 }
@@ -143,7 +143,7 @@ class CompanyController extends Controller
         ]);
 
         $companyIDUp=(int)$request->companyID;
-        $companySubIdUp=$request->companySubId;
+        $email=$request->mailingAddress;
 
         $resultUp = Company::where('companyID',$companyIDUp )->first();
         $companyArrayUp=$resultUp->company;
@@ -154,7 +154,7 @@ class CompanyController extends Controller
        for ($i=0; $i<$arrayLengthUp; $i++){
             $id=$resultUp->company[$i];
                 foreach ($id as $value){
-                    if($value==$companySubIdUp){
+                    if($value==$email){
                         $v=$i;
                      }
                 }
@@ -168,7 +168,7 @@ class CompanyController extends Controller
        $companyArrayUp[$v]['usDotNo']=$request->usDotNo;
        $companyArrayUp[$v]['mailingAddress']=$request->mailingAddress;
        $companyArrayUp[$v]['website']=$request->updateDriverStatus;
-       $companyArrayUp[$v]['factoringCompany']=(int)$request->factoringCompany;
+       $companyArrayUp[$v]['factoringCompany']=$request->factoringCompany;
 
        $resultUp->company = $companyArrayUp;
        if($resultUp->save()){
@@ -178,8 +178,8 @@ class CompanyController extends Controller
     }
 
     public function deleteCompany(Request $request){
-        $companyID=(int)$request->companyID;
-        $companySubId=$request->companySubId;
+        $companyID=(int)$request->com_id;
+        $email=$request->email;
         
         $result = Company::where('companyID',$companyID )->first();
         $companyArray=$result->company;
@@ -191,7 +191,7 @@ class CompanyController extends Controller
                 $id=$result->company[$i];
             
                     foreach ($id as $value){
-                        if($value==$companySubId){
+                        if($value==$email){
                             $v=$i;
                         }
                     }

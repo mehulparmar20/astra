@@ -94,6 +94,7 @@
 <script src="{{URL::to('/')}}/assets/js/openmodel.js"></script>
 <script src="{{URL::to('/')}}/assets/js/userprev.js"></script>
 <script src="{{URL::to('/')}}/static/js/checkbox.js"></script>
+<script src="{{URL::to('/')}}/assets/js/customerLaravel.js"></script>
 
 </body>
 
