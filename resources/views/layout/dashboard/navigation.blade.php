@@ -1,6 +1,6 @@
 
 <!-- app-Header -->
-            <div class="app-header header sticky" style="padding: 0; background-color:#FBFBFB">
+<div class="app-header header sticky" style="padding: 0; background-color:#FBFBFB">
                 <div class="container-fluid main-container">
                     <div class="d-flex">
                         <a aria-label="Hide Sidebar" class="app-sidebar__toggle" data-bs-toggle="sidebar" href="#"></a>
@@ -53,7 +53,7 @@
 												<li><a href="https://laravel8.spruko.com/noa/wysiwyag" class="slide-item">Load Type</a></li>
 												<li><a href="https://laravel8.spruko.com/noa/form-editable" class="slide-item">Fuel Vendor Name</a></li>
 												<li><a href="https://laravel8.spruko.com/noa/form-wizard" class="slide-item">Recurrence Category</a></li>
-												<li><a href="#CurrencyModal" class="slide-item" data-toggle="modal" data-target="#CurrencyModal">Currency Setiing</a></li>
+												<li><a href="#" id="currency_navbar" class="slide-item">Currency Setiing</a></li>
 												<li><a href="https://laravel8.spruko.com/noa/form-wizard" class="slide-item">Add Terms & Conditions</a></li>
 												<li><a href="https://laravel8.spruko.com/noa/form-wizard" class="slide-item">Payment Terms</a></li>
 												<li><a href="https://laravel8.spruko.com/noa/form-wizard" class="slide-item">Dispatch Conditions</a></li>

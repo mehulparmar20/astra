@@ -4,24 +4,26 @@ $(document).ready(function() {
 
     
     //alert('customer');
-    var customerResponse = '';
-    $.ajax({
-        type: "GET",
-        url: base_path+"/admin/getCurrency",
-        async: false,
-        //dataType:JSON,
-        success: function(text) {
-            createGetCurrencyRows(text);
-            currencyResult = text;
-        }
-    });
+    // var customerResponse = '';
+    // $.ajax({
+    //     type: "GET",
+    //     url: base_path+"/admin/getCurrency",
+    //     async: false,
+    //     //dataType:JSON,
+    //     success: function(text) {
+    //         createGetCurrencyRows(text);
+    //         currencyResult = text;
+    //     }
+    // });
 
 
     function createGetCurrencyRows(currencyResult) {
         var custlen1 = 0;
-            $('#currencyTable').empty(); // Empty <tbody>
+            // $('#currencyTable').empty(); // Empty <tbody>
             if (currencyResult != null) {
                 custlen1 = currencyResult.currency.length;
+
+                $("#currencyTable").html('');
 
                 if (custlen1 > 0) {
                     var no=1;
@@ -57,7 +59,19 @@ $(document).ready(function() {
         // $("#CurrencyModal").modal("show");
     }
 
-
+    $("#currency_navbar").click(function(){
+        $.ajax({
+            type: "GET",
+            url: base_path+"/admin/getCurrency",
+            async: false,
+            //dataType:JSON,
+            success: function(text) {
+                createGetCurrencyRows(text);
+                currencyResult = text;
+            }
+        });
+        $("#CurrencyModal").modal("show");
+    });
 
 
 // <!-- -------------------------------------------------------------------------end Get Currency  ------------------------------------------------------------------------- -->  
@@ -67,37 +81,45 @@ $(document).ready(function() {
         $("#plusCurrencyModal").modal("show");
     });
 
-    // $(".CurrencyrDataSubmit").click(function(){
-    //     var currencyName=$('#CurrencyrName').val();
-    //    //alert(currencyName);
-    //     $.ajax({
-    //         url: base_path+"/admin/addCurrency",
-    //         type: "POST",
-    //         datatype:"JSON",
-    //         data: {
-    //             _token: $("#_tokenCustomerCurrency").val(),
-    //             currencyName: currencyName,
-    //         },
-    //         cache: false,
-    //         success: function(dataCustomerCurrencyResult){
-    //             console.log(dataCustomerCurrencyResult);
-    //             if(dataCustomerCurrencyResult){
-    //                 swal.fire("Done!", "Currency added successfully", "success");
-    //                 // alert("Currency added successfully.");
-    //                 $("#plusCurrencyModal").modal("hide");
-    //             }else{
-    //                 swal.fire("Try Again!", "Currency not added successfully", "error");
-    //                 // alert("Currency not added successfully.");
-    //             }
-    //         }
-    //     });
-    // });
-    //});
+    $(".CurrencyrDataSubmit").click(function(){
+        var currencyName=$('#CurrencyrName').val();
+       //alert(currencyName);
+        $.ajax({
+            url: base_path+"/admin/addCurrency",
+            type: "POST",
+            datatype:"JSON",
+            data: {
+                _token: $("#_tokenCustomerCurrency").val(),
+                currencyName: currencyName,
+            },
+            cache: false,
+            success: function(dataCustomerCurrencyResult){
+                console.log(dataCustomerCurrencyResult);
+                if(dataCustomerCurrencyResult){
+                    swal.fire("Done!", "Currency added successfully", "success");
+                    // alert("Currency added successfully.");
+                    $("#plusCurrencyModal").modal("hide");
+                    $.ajax({
+                        type: "GET",
+                        url: base_path+"/admin/getCurrency",
+                        success: function(text) {
+                            createGetCurrencyRows(text);
+                            currencyResult = text;
+                        }
+                    });	
+                }else{
+                    swal.fire("Try Again!", "Currency not added successfully", "error");
+                    // alert("Currency not added successfully.");
+                }
+            }
+        });
+    });
 
 // <!-- -------------------------------------------------------------------------over add  currency ------------------------------------------------------------------------- -->
 
 // <!-- ------------------------------------------------------------------------- Edit  currency ------------------------------------------------------------------------- -->
-$(".editCurrency").click(function(){
+$("body").on("click",".editCurrency",function(){
+// $(".editCurrency").click(function(){
     var currencyId = $(this).attr("data-currencyId");
     var currencyType = $(this).attr("data-currencyType");
     $("#EditCurrencyId").val(currencyId);
@@ -127,22 +149,19 @@ $(".CurrencyrDataUpdate").click(function(){
                     $("#editCurrencyModal").modal("hide");
                     swal.fire("Done!", 'Currency Updated', "success");
                     
-                    // $("#CurrencyModal").modal("show");
-                    // $.ajax({
-                    //     type: "GET",
-                    //     url: base_path+"/admin/getCurrency",
-                    //     success: function(text) {
-                    //         alert();
-                    //         createGetCurrencyRows(text);
-                    //         urrencyResult = text;
-                    //     }
-                    // });			
+                    $("#CurrencyModal").modal("show");
+                    $.ajax({
+                        type: "GET",
+                        url: base_path+"/admin/getCurrency",
+                        success: function(text) {
+                            createGetCurrencyRows(text);
+                            currencyResult = text;
+                        }
+                    });			
                 // }
             },
             error: function(data){
-           
                     swal.fire("Error!", 'Currency Not Updated', "error"); 
-               
             }   
     });
 });
