@@ -417,15 +417,15 @@ $(document).ready(function() {
     var driverResponse = '';
 
 // <!-- -------------------------------------------------------------------------Get driver ajax ------------------------------------------------------------------------- -->    
-    $.ajax({
-        type: "GET",
-        url: base_path+"/admin/driver",
-        async: false,
-        success: function(text) {
-            createDriverRows(text);
-            driverResponse = text;
-        }
-    });
+$.ajax({
+    type: "GET",
+    url: base_path+"/admin/driver",
+    async: false,
+    success: function(text) {
+        createDriverRows(text);
+        driverResponse = text;
+    }
+});
 
     function createDriverRows(driverResponse) {
         var len1 = 0;
@@ -454,10 +454,25 @@ $(document).ready(function() {
                         var license_exp_date = driverResponse[i].driver[j].driverLicenseExp;
                         var driver_balance = driverResponse[i].driver[j].driverBalance;
                         var delete_status = driverResponse[i].driver[j].deleteStatus;
+                        var ownerOperatorStatus =driverResponse[i].driver[j].ownerOperatorStatus;
 
                         if(delete_status=="NO"){
+                            
+                            if(ownerOperatorStatus == 'YES'){
+                                var actionBtnOwnerOperator= "<a class='editDriver mt-2 btn btn-primary fs-14 text-white edit'  title='Edit' data-id=" + comid+ "&"+email + "><i class='fe fe-edit'></i></a>&nbsp"+
+                                    "<a class='deleteDriver mt-2 btn btn-danger fs-14 text-white delete-icn' data-id=" + comid+ "&"+email + " title='Delete'><i class='fe fe-delete'></i></a>&nbsp"+
+                                    "<a class='removeDriverOwner mt-2 btn btn-danger fs-14 text-white '  title='Remove Owner Operator' data-id="+ driverId+" data-name="+ btoa(name)+" ><i class='fe fe-user-x'></i></a>"+
+                                    "<a class='editDriverOwner mt-2 btn btn-info fs-14 text-white '  title='Edit Owner Operator' data-id="+ driverId+" data-name="+ btoa(name)+" ><i class='fe fe-edit'></i></a>&nbsp";
+                                // $('.addDriverOwner').addClass('btn-danger');
+                            }
+                            else if(ownerOperatorStatus == 'NO'){
+                                var actionBtnOwnerOperator="<a class='editDriver mt-2 btn btn-primary fs-14 text-white edit'  title='Edit' data-id=" + comid+ "&"+email + "><i class='fe fe-edit'></i></a>&nbsp"+
+                                    "<a class='deleteDriver mt-2 btn btn-danger fs-14 text-white delete-icn' data-id=" + comid+ "&"+email + " title='Delete'><i class='fe fe-delete'></i></a>&nbsp"+
+                                    "<a class='addDriverOwner mt-2 btn btn-success fs-14 text-white '  title='Add As Owner Operator' data-id="+ driverId+" data-name="+ btoa(name)+" ><i class='fe fe-user-plus'></i></a>&nbsp";
+                                // $('.addDriverOwner').addClass('btn-success');
+                            }
                         var tr_str1 = "<tr data-id=" + (i + 1) + ">" +
-                            "<td data-field='no'>" + no + "</td>" +
+                            "<td data-field='no'>" + no  + "</td>" +
                             "<td data-field='name' >" + name + "</td>" +
                             "<td data-field='email'>" + email + "</td>" +
                             "<td data-field='location'>" + location + "</td>" +
@@ -468,12 +483,7 @@ $(document).ready(function() {
                             "<td data-field='lis'>" + lis + "</td>" +
                             "<td data-field='license_exp_date'>" + license_exp_date + "</td>" +
                             "<td data-field='driver_balance'>" + driver_balance + "</td>" +
-                            "<td style='display:inline-flex'>"+
-                                // "<i class='btn btn-primary fe fe-edit edit' data-id=" + comid+ "&"+email + "></i>"+
-                                "<a class='editDriver mt-2 btn btn-primary fs-14 text-white edit'  title='Edit' data-id=" + comid+ "&"+email + "><i class='fe fe-edit'></i></a>&nbsp"+
-                                "<a class='deleteDriver mt-2 btn btn-danger fs-14 text-white delete-icn' data-id=" + comid+ "&"+email + " title='Delete'><i class='fe fe-delete'></i></a>&nbsp"+
-                                "<a class='addDriverOwner mt-2 btn btn-success fs-14 text-white '  title='Add As Owner Operator' data-id="+ driverId+" data-name="+ btoa(name)+" ><i class='fe fe-user-plus'></i></a>&nbsp"+
-                            "</td></tr>";
+                            "<td  style='display:flex'>"+actionBtnOwnerOperator +"</td></tr>";
                         $("#driverTable").append(tr_str1);
                         no++;
                         }
@@ -497,9 +507,30 @@ $('.editModalCloseButton').click(function(){
 $('.addDriverOwner').click(function(){
     var name =$(this).data('name');
     $('#owner-driver-name').val(atob(name));
-    console.log(atob(name));
+
+    var driver_id =$(this).data('id');
+    $('#driverid').val(driver_id);
+
+    // console.log(atob(name));
     $('#addDriverOwnerModal').modal('show');  
 });
+
+
+
+// $('#driver_navbar').click(function(){
+//     $.ajax({
+//         type: "GET",
+//         url: base_path+"/admin/driver",
+//         async: false,
+//         success: function(text) {
+//             createDriverRows(text);
+//             driverResponse = text;
+//         }
+//     });
+//     $('#driverModal').modal('show');  
+// });
+
+
 
 // <!--------------------------------------------------------------------------- end of get driver  --------------------------------------------------------------------------->
 // <!--------------------------------------------------------------------------- delete driver ajax --------------------------------------------------------------------------->    
@@ -1024,9 +1055,8 @@ $(document).ready(function(){
 });
 
 
-
 // <!-- ------------------------------------------------------------------------- end of driver ------------------------------------------------------------------------- -->
-
+// <!-- -------------------------------------------------------------------------  view driver application data  ------------------------------------------------------------------------- -->
 
 // Company
 $(document).ready(function() {
@@ -1091,7 +1121,7 @@ $(document).ready(function() {
 });
 
 // <!-- ------------------------------------------------------------------------- end view driver application data  ------------------------------------------------------------------------- -->
-
+// <!-- ------------------------------------------------------------------------- Owner driver application data  ------------------------------------------------------------------------- -->
 
 function inc_percentage() {
   document.getElementById("ownerPercentage").stepUp(1);
@@ -1105,11 +1135,11 @@ function dec_percentage() {
   '<div class="block">'+
       '<div class="row row-sm" id="OwnerOperatorContainer">'+
               '<div class="col-sm-3">'+
-                  '<label class="form-label" for="owner-driver-name">Category</label>'+
+                  '<label class="form-label" for="">Category</label>'+
                   '<input type="text" class="form-control" name="installmentCategory[]" list="fixpaycat" placeholder=" Search here..." autocomplete="off" />'+
               '</div>'+
               '<div class="col-sm-3">'+
-                  '<label class="form-label" for="owner-driver-name">Installment Type</label>'+
+                  '<label class="form-label" for="">Installment Type</label>'+
                       '<select name="installmentType[]" class="form-control">'+
                           '<option value="">Select type</option>'+
                           '<option value="Weekly">Weekly</option>'+
@@ -1119,27 +1149,27 @@ function dec_percentage() {
                       '</select>'+
               '</div>'+
               '<div class="col-sm-3">'+
-                  '<label class="form-label" for="owner-driver-name">Amount</label>'+
+                  '<label class="form-label" for="">Amount</label>'+
                   '<input name="amount[]" type="text" class="form-control" />'+
               '</div>'+
               '<div class="col-sm-3">'+
-                  '<label class="form-label" for="owner-driver-name">Installment</label>'+
+                  '<label class="form-label" for="">Installment</label>'+
                   '<input name="installment[]" type="text" class="form-control"  />'+
               '</div>'+
               '<div class="col-sm-3">'+
-                  '<label class="form-label" for="owner-driver-name">start#</label>'+
+                  '<label class="form-label" for="">start#</label>'+
                   '<input name="startNo[]" type="text" class="form-control"  />'+
               '</div>'+
               '<div class="col-sm-3">'+
-                  '<label class="form-label" for="owner-driver-name">start Date</label>'+
+                  '<label class="form-label" for="">start Date</label>'+
                   '<input name="startDate[]" type="date" class="form-control" />'+
               '</div>'+
               '<div class="col-sm-5">'+
-                  '<label class="form-label" for="owner-driver-name">Internal Note</label>'+
+                  '<label class="form-label" for="">Internal Note</label>'+
                   '<textarea rows="1" cols="20" class="form-control" type="textarea" name="internalNote[]"></textarea>'+
               '</div>'+
               '<div class="col-sm-1">'+
-                  '<label class="form-label" for="owner-driver-name">Delete</label>'+
+                  '<label class="form-label" for="">Delete</label>'+
                   
               
                   '</button>'+
@@ -1161,18 +1191,25 @@ $(document).on('click','.remove',function() {
 $('#submitOwnerOparator').click(function(){
 
     var ownerPercentage=$('#ownerPercentage').val();
-    var ownerTruckNo=$('#ownerPercentage').val();
+    var ownerTruckNo=$('#ownerTruckNo').val();
+    var driverId=$('#driverid').val();
+    alert(driverId);
     
 
     if(ownerPercentage == ''){
+        // alert("Enter Percentage");
          swal.fire("Error!", "Enter Percentage", "error");
         // swal({title: 'Please Enter Date Of Birth',text: 'Redirecting...',timer: 1500,buttons: false,})
+        
         $("#ownerPercentage").focus();
+        return false;
     }
     if(ownerTruckNo == ''){
+        // alert("Enter Truck No");
         swal.fire("Error!", "Enter Truck No", "error");
        // swal({title: 'Please Enter Date Of Birth',text: 'Redirecting...',timer: 1500,buttons: false,})
-       $("#ownerPercentage").focus();
+       $("#ownerTruckNo").focus();
+       return false;
    }
 
     $.ajax({
@@ -1182,6 +1219,7 @@ $('#submitOwnerOparator').click(function(){
         data: {
                 'data':$('#addOwnerForm').serialize(),
                 '_token': $(".laravel_csrf_tokn").val(),
+                'driverId':driverId,
             },  
         success: function(text) {
             swal.fire("Done!", 'Add As Owner Oparator', "success");
@@ -1189,7 +1227,45 @@ $('#submitOwnerOparator').click(function(){
     });
     
 });
+// <!-- ------------------------------------------------------------------------- end driver application data  ------------------------------------------------------------------------- -->
+// <!-- ------------------------------------------------------------------------- edit driver application data  ------------------------------------------------------------------------- -->
+// $('body').on('click',function() {
+//     $('.editDriverOwner').click(function() {
+//         $('#editDriverOwnerModal').modal('show');
+//     });
+// });
 
+$(document).ready(function(){
+    $('.editDriverOwner').click(function(){
+        var id = $(this).attr("data-id");
+        $.ajax({
+            url: base_path+"/admin/editDriverOwner",
+            type: "POST",
+            datatype:"JSON",
+            data: {_token: $("#drivercsrf").val(),id: id},
+            cache: false,
+            success: function(dataResult){
+                // $('#up_comId').val(com_id);
+                // $('#emaildriver').val(email);
+                // $('#up_name').val(dataResult.driverName);
+                // $('#up_username').val(dataResult.driverUsername);
+                // $('#up_address').val(dataResult.driverAddress);
+                // $('#up_telephone').val(dataResult.driverTelephone);
+                // $('#up_altTelephone').val(dataResult.driverAlt);
+                // $('#up_email').val(dataResult.driverEmail);
+                // $('#up_location').val(dataResult.driverLocation);
+              
+               
+                $('#editDriverOwnerModal').modal('show'); 
+            }
+        });
+    });
+});
+
+
+
+
+// <!-- ------------------------------------------------------------------------- end editOwner driver application data  ------------------------------------------------------------------------- -->
 
 // <!-- -------------------------------------------------------------------------Get Company ajax ------------------------------------------------------------------------- -->    
     $.ajax({

@@ -68,6 +68,8 @@ Route::get('admin/getContract', [DriverController::class, 'getContract']);
 Route::post('admin/addDriverContractCategory', [DriverController::class, 'addDriverContractCategory']);
 Route::get('admin/viewDriverApplication', [DriverController::class, 'getViewDriverApplication']);
 Route::post('admin/addOwnerOparator', [DriverController::class, 'addOwnerOparator']);
+Route::post('admin/editDriverOwner', [DriverController::class, 'editDriverOwnerData']);
+
 
 //customer
 Route::get('admin/customer', [CustomerController::class, 'getCustomerData']);

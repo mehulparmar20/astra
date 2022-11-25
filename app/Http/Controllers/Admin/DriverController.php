@@ -36,16 +36,53 @@ class DriverController extends Controller
     }
 
     public function addOwnerOparator(Request $request){
+//dd($request);
+        // request()->validate([
+        //     'percentage' => 'required',
+        //     'truckNo' => 'required',
+        // ]);
 
-        request()->validate([
-            'percentage' => 'required',
-            'truckNo' => 'required',
-        ]);
+        $companyID=1;
+        // $object='1';
 
-        $companyID=2;
-        $object='1';
+        $getCompanyForDriver = Driver::where('companyID',$companyID)->first();
+        // $result = Driver::where('companyID',$companyID )->first();
+        $driverArray=$getCompanyForDriver->driver;
+
+        $arrayLength=count($driverArray);
+       // dd($arrayLength);
+        $i=0;
+        $v=0;
+       for ($i=0; $i<$arrayLength; $i++){
+            $id=$getCompanyForDriver->driver[$i];
+                if($id['_id']== $request->driverId){
+                    $v=$i;
+                }
+       }
+       
+    //    $driverEditData=$getCompanyForDriver->driver[$v];
+      // dd($driverEditData);
+      $driverArray[$v]['ownerOperatorStatus'] = 'YES';
+
+      $getCompanyForDriver->driver = $driverArray;
+       $getCompanyForDriver->save();
+    //    if($resultUp->save()){
+    //         $arr = array('status' => 'success', 'message' => 'User edited successfully.','statusCode' => 200); 
+    //         return json_encode($arr);
+    //     }     
+
+
+
+
+
         $getCompany = Owner_operator_driver::where('companyID',$companyID)->first();
 
+        if($getCompany){
+            $ownerOperatorArrayLength=count($getCompany->ownerOperator);
+        }else{
+            $ownerOperatorArrayLength=0;
+        }
+        
         $unserializeData = [];
         parse_str($request->data,$unserializeData);
 
@@ -59,7 +96,7 @@ class DriverController extends Controller
             $startDate=$unserializeData['startDate'][$key];
             $internalNote=$unserializeData['internalNote'][$key]; 
 
-        $array[]=((object)[
+            $array[]=((object)[
                 '_id'=>$key,
                 'installmentCategory'=>$i_cate,
                 'installmentType'=>$i_type,
@@ -68,14 +105,13 @@ class DriverController extends Controller
                 'startNo'=>$startNo,
                 'startDate'=>$startDate,
                 'internalNote'=>$internalNote,
-        ]);        
-
-    }
+            ]);        
+        }
         
             try{
                 $ownerOperatorData[]=array(    
-                    '_id' => 1,
-                    'driverId' => 0,
+                    '_id' => $ownerOperatorArrayLength,
+                    'driverId' => $request->driverId,
                     'percentage' => $unserializeData['percentage'],
                     'truckNo' => $unserializeData['truckNo'],
                     'installment' =>$array ,
@@ -118,6 +154,32 @@ class DriverController extends Controller
 
 
     }
+
+    public function editDriverOwnerData(Request $request){
+        //dd($request);
+        $companyID=(int)1;
+        $ownerOperatorID=(int)$request->id;
+
+        $result = Owner_operator_driver::where('companyID',$companyID )->first();
+        $ownerOperatorArray=$result->ownerOperator;
+
+        $arrayLength=count($ownerOperatorArray);
+        $i=0;
+        $v=0;
+
+        for ($i=0; $i<$arrayLength; $i++){
+            $id=$result->ownerOperator[$i];
+
+            if($id['driverId']== $ownerOperatorID){
+                echo $i;
+                $v=$i; 
+            }
+        }
+       
+       $ownerOperatorEditData=$result->ownerOperator[$v];
+       dd($ownerOperatorEditData);
+       return response()->json($ownerOperatorEditData);  
+    }  
 
     public function getDriverData(Request $request){
         $driver = Driver::all();
@@ -220,7 +282,7 @@ class DriverController extends Controller
                             // 'deleteUser' => $request->  ,
                             // 'deleteTime' => $request->  ,
                             // 'LastUpdateId' => $request->  ,
-                            // 'ownerOperatorStatus' => $request->  ,
+                            'ownerOperatorStatus' => 'NO' ,
             );
 
             if($getCompany){
@@ -301,7 +363,7 @@ class DriverController extends Controller
             'legal_proof' =>$request->leage_proof
         ]);
 
-    //emergency_contact
+     //emergency_contact
        $emergency_contact=((object)[
                 'emergency_contact_name' =>$request->emergency_contact_name,
                 'emergency_contact_relation' =>$request->emergency_contact_relation,
@@ -323,7 +385,7 @@ class DriverController extends Controller
                 'Conviction_status' =>$request->Conviction_status,
                 'Conviction_reason' =>$request->Conviction_reason,
         ]);
-    //education_info
+        //education_info
         $education_info=((object)[
                 'school_grade' =>$request->school_grade,
                 'last_school' =>$request->last_school,
