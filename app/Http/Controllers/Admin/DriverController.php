@@ -11,7 +11,6 @@ use App\Models\User;
 use App\Models\ContractDetail;
 use App\Models\PasswordReset;
 use App\Models\Owner_operator_driver;
-
 use Mail; 
 use Hash;
 use Illuminate\Support\Str;
@@ -28,7 +27,7 @@ class DriverController extends Controller
 {
 //add by Reena
     public function getViewDriverApplication(Request $request){
-        $companyID=1;
+        $companyID=67;
         $employement = Employement::where('companyID',$companyID)->first();
        
         //dd($employement);
@@ -288,7 +287,7 @@ class DriverController extends Controller
                             // 'LastUpdateId' => $request->  ,
                             'ownerOperatorStatus' => 'NO' ,
             );
-
+// dd($driverData[]);
             if($getCompany){
                 $driverArray=$getCompany->driver;
                 Driver::where(['companyID' =>$companyID ])->update([
@@ -722,7 +721,7 @@ class DriverController extends Controller
 
         request()->validate([
             'updateDriverName' => 'required',
-            'updateDriverEmail' => 'required|unique:driver,driver.driverEmail'.$request->updateEmailDriver,
+            'updateDriverEmail' => 'required|unique:driver,driver.driverEmail'.$request->updateDriverEmail,
             'updateDriverUsername' => 'required',
             'updateDriverTelephone' => 'required',
             'updateDriverAddress' => 'required',

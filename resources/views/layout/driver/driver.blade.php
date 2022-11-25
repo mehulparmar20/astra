@@ -25,12 +25,13 @@
                                             <a href="#addDriverModal" class="btn btn-primary" data-toggle="modal"
                                                 data-target="#addDriverModal">Add</a>
                                             <a href="#setupDriverModal" class="btn btn-primary" data-toggle="modal"
-                                                data-target="#viewDriverApplicationModal"><i class="mdi mdi-eye"></i>View Driver Application</a>
+                                                data-target="#viewDriverApplicationModal"><i
+                                                    class="mdi mdi-eye"></i>View Driver Application</a>
                                             <a href="#setupDriverModal" class="btn btn-primary" data-toggle="modal"
                                                 data-target="#setupDriverModal">Setup Driver</a>
                                             <a href="#contractCategoryModal" class="btn btn-primary" data-toggle="modal"
                                                 data-target="#contractCategoryModal">View Driver Contract</a>
-                                            <table id="editable-file-datatable" class="table editable-table table-nowrap table-bordered table-edit wp-100"  style="height: 550px;">
+                                            <table id="editable-file-datatable" class="table editable-table table-nowrap table-bordered table-edit wp-100">
 
                                                 <!-- <button href="#addDriverModal" data-toggle="modal" data-target="#addDriverrModal"  class="add1button" style="vertical-align:middle"><span>Add </span></button>
                                                         
@@ -69,7 +70,7 @@
 
                 <!-- Modal footer -->
                 <div class="modal-footer">
-                <form action="{{route('driver-pdf')}}" method="post" target="__blank">
+                    <form action="{{route('driver-pdf')}}" method="post" target="__blank">
                         @csrf
                         <button class="btn btn-primary" style="vertical-align:middle"><span>Export</span></button>
                     </form>
@@ -353,9 +354,8 @@
                                                     <div class="form-group col-md-2">
                                                         <label for="currency">Currency <span
                                                                 style="color:#ff0000">*</span></label>
-                                                        <input type="text" class="form-control" id="currency"
-                                                            placeholder="
-                                                            ">
+                                                        <input type="text" class="form-control" id="currency_add"
+                                                            placeholder="currency">
                                                     </div>
                                                     <div class="form-group col-md-2">
                                                         <label for="recurrencePlus">Recurrence+</label>
@@ -771,8 +771,8 @@
                                                     <div class="form-group col-md-6">
                                                         <label for="name">Name <span
                                                                 style="color:#ff0000">*</span></label>
-                                                        <input type="text" class="form-control required" id="drivername12"
-                                                            placeholder=" Name">
+                                                        <input type="text" class="form-control required"
+                                                            id="drivername12" placeholder=" Name">
                                                     </div>
                                                     <div class="form-group col-md-4">
                                                         <label for="sentvia">Sent via<span
@@ -852,14 +852,15 @@
 
                                         <div class="table-responsive export-table">
 
-                                            
-                                            <table id="editable-file-datatable" class="table editable-table table-nowrap table-bordered table-edit wp-100">
+
+                                            <table id="editable-file-datatable"
+                                                class="table editable-table table-nowrap table-bordered table-edit wp-100">
 
                                                 <thead>
                                                     <tr>
                                                         <!-- <th>counter</th> -->
                                                         <th>NO</th>
-                                                        <th >Driver Name</th>
+                                                        <th>Driver Name</th>
                                                         <th>Application Date</th>
                                                         <th>Email</th>
                                                         <th>Contact</th>
@@ -882,7 +883,7 @@
 
                 <!-- Modal footer -->
                 <div class="modal-footer">
-                <form action="{{route('driver-pdf')}}" method="post" target="__blank">
+                    <form action="{{route('driver-pdf')}}" method="post" target="__blank">
                         @csrf
                         <button class="btn btn-primary" style="vertical-align:middle"><span>Export</span></button>
                     </form>
@@ -894,17 +895,17 @@
 </div>
 
 
-<input type="hidden" class="laravel_csrf_tokn" value="{{ csrf_token() }}"/>
+<input type="hidden" class="laravel_csrf_tokn" value="{{ csrf_token() }}" />
 <!-------------------------------------------------------------------over driver Application modal------------------------------------------------------------------->
 <!------------------------------------------------------------------ Add  driver Owner modal ------------------------------------------------------------------>
 <div id="addDriverOwnerModal" class="modal fade">
-                <div class="modal-dialog modal-xl" role="document">
-                    <div class="modal-content">
-                        <!-- Modal Header -->
-                        <div class="modal-header">
-                            <h4 class="modal-title">Add as Owner operator</h4>
-                            <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        </div>
+    <div class="modal-dialog modal-xl" role="document">
+        <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title">Add as Owner operator</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
 
                         <div class="modal-body">
                             <form id='addOwnerForm'>                            
@@ -913,10 +914,10 @@
                                         <div class="col-sm-4">
                                             <label class="form-label" for="owner-driver-name">Driver</label>
                                             <input type="text" class="form-control" list="drivernamelist" autocomplete="off" id="owner-driver-name" disabled/>
-                                            <input type="hidden" id="driverid"  />
+                                            <input type="hidden" id="driverNamesid" value="" />
                                         </div>
                                         <div class="col-sm-4">
-                                            <label class="form-label" for="ownerPercentage">Pay Percentage<span style="color:#ff0000">*</span>( % )</label></label>
+                                            <label class="form-label" for="ssnMask-cvv">Pay Percentage<span class="mandatory">* </span>( % )</label></label>
                                             <div class="input-group">
                                                 <div class="input-group-text bg-primary-transparent text-primary">
                                                     <i class="fe fe-minus text-20" onclick="dec_percentage()" ></i>
@@ -928,7 +929,7 @@
                                             </div>
                                         </div>
                                         <div class="col-sm-4">
-                                            <label class="form-label" for="ownerTruckNo">Select Truck<span style="color:#ff0000">*</span></label>
+                                            <label class="form-label" for="ssnMask-cvv">Select Truck</label>
                                             <input list="fuel_truck_report" class="form-control" placeholder="search here..." id="ownerTruckNo" name="truckNo" autocomplete="off">
                                                 <datalist id="fuel_truck_report">
                                                 </datalist>
@@ -936,9 +937,9 @@
                                     </div>
                                     <br>
 
-                                    <br>
-                                        <div class="optionBox ">
-                                            <!-- <div class="block">
+                        <br>
+                        <div class="optionBox ">
+                            <!-- <div class="block">
                                                 <div class="row row-sm">
                                                         <div class="col-sm-3">
                                                             <label class="form-label" for="">Category</label>
@@ -983,23 +984,25 @@
                                                         <button type="button" class="btn btn-danger remove"><spanaria-hidden="true">&times;</span>
                                                 </div>
                                             </div> -->
-                                            <div class="block">
-                                                <button id="btnAdd1" type="button" class="btn btn-primary add" data-toggle="tooltip" data-original-title="Add more controls"><i class="mdi mdi-gamepad-down"></i> ADD </button>
-                                            </div>
-                                        </div>
-                                </div>  
-                            </form>
-                        </div><!-- modal-body -->
-
-                        <!-- Modal footer -->
-                        <div class="modal-footer">
-                            <a type="submit" class="btn btn-primary " id="submitOwnerOparator">Submit</a>
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <div class="block">
+                                <button id="btnAdd1" type="button" class="btn btn-primary add" data-toggle="tooltip"
+                                    data-original-title="Add more controls"><i class="mdi mdi-gamepad-down"></i> ADD
+                                </button>
+                            </div>
                         </div>
+                    </div>
+                </form>
+            </div><!-- modal-body -->
 
-                    </div><!-- modal-content -->
-                </div><!-- modal-dialog -->
-            </div><!-- modal -->
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <a type="submit" class="btn btn-primary " id="submitOwnerOparator">Submit</a>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+
+        </div><!-- modal-content -->
+    </div><!-- modal-dialog -->
+</div><!-- modal -->
 <!-------------------------------------------------------------------over driver Application modal------------------------------------------------------------------->
 <!------------------------------------------------------------------ Add  driver Owner modal ------------------------------------------------------------------>
 <div id="editDriverOwnerModal" class="modal fade">

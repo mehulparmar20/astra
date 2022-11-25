@@ -15,6 +15,8 @@ class VerifyCsrfToken extends Middleware
         '/admin/delete-user',
         '/admin/edit-user',
         '/admin/deleteDriver',
-        '/admin/contractSubCategoryModal'
+        '/admin/contractSubCategoryModal',
+        '/admin/deleteCompany',
+        '/admin/updateCompany',
     ];
 }

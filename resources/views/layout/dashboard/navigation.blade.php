@@ -44,7 +44,7 @@
 											</a>
 											<ul class="slide-menu">
 												<li class="side-menu-label1"><a href="javascript:void(0)">Custom</a></li>
-												<li><a href="#customerModal" class="slide-item" data-toggle="modal" data-target="#customerModal">Your Company</a></li>
+												<li><a href="#customerModal" class="slide-item" data-toggle="modal" data-target="#companyModal">Your Company</a></li>
 												<li><a href="#customerModal" class="slide-item" data-toggle="modal" data-target="#customerModal">Branch Office</a></li>
 												<li><a href="https://laravel8.spruko.com/noa/form-layouts" class="slide-item" data-bs-toggle="modal" data-bs-target="#extralargemodal">Truck Make</a></li>
 												<li><a href="https://laravel8.spruko.com/noa/form-validation" class="slide-item">Trailer Make</a></li>
