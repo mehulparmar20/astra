@@ -170,11 +170,12 @@ class DriverController extends Controller
        
        $EditownerOperatorData=$result->ownerOperator[$v];
        //dd($EditownerOperatorData);
-    //    echo gettype($EditownerOperatorData);
-    //    print_r($EditownerOperatorData);
-    //    echo json_encode($EditownerOperatorData);
-    //    die;
-       return response()->json($EditownerOperatorData);  
+        //    echo gettype($EditownerOperatorData);
+        //    print_r($EditownerOperatorData);
+        //    echo json_encode($EditownerOperatorData);
+        //    die;
+        return response()->json($EditownerOperatorData);
+        // return response()->json($EditownerOperatorData, 200, [], JSON_PARTIAL_OUTPUT_ON_ERROR);  
     }  
 
     public function getDriverData(Request $request){
