@@ -1255,7 +1255,28 @@ $(document).ready(function(){
             type: "POST",
             datatype:"JSON",
             data: {_token: $("#drivercsrf").val(),id: id},
-         
+            success: function(text) {
+                if(text){
+                    alert("yes");
+                }else{
+                    alert("no"); 
+                }
+                
+                // console.log(dataResult);
+                // $('#editDriverOwnerModal').modal('show');
+                // $('#up_comId').val(com_id);
+                // $('#emaildriver').val(email);
+                // $('#up_name').val(dataResult.driverName);
+                // $('#up_username').val(dataResult.driverUsername);
+                // $('#up_address').val(dataResult.driverAddress);
+                // $('#up_telephone').val(dataResult.driverTelephone);
+                // $('#up_altTelephone').val(dataResult.driverAlt);
+                // $('#up_email').val(dataResult.driverEmail);
+                // $('#up_location').val(dataResult.driverLocation);
+              
+               
+                // $('#editDriverOwnerModal').modal('show'); 
+            },
             error: function(data){
                 alert("rr"); 
             }
