@@ -66,15 +66,7 @@ class DriverController extends Controller
 
       $getCompanyForDriver->driver = $driverArray;
        $getCompanyForDriver->save();
-    //    if($resultUp->save()){
-    //         $arr = array('status' => 'success', 'message' => 'User edited successfully.','statusCode' => 200); 
-    //         return json_encode($arr);
-    //     }     
-
-
-
-
-
+  
         $getCompany = Owner_operator_driver::where('companyID',$companyID)->first();
 
         if($getCompany){
@@ -176,14 +168,19 @@ class DriverController extends Controller
             }
         }
        
-       $ownerOperatorEditData=$result->ownerOperator[$v];
-       dd($ownerOperatorEditData);
-       return response()->json($ownerOperatorEditData);  
+       $EditownerOperatorData=$result->ownerOperator[$v];
+       //dd($EditownerOperatorData);
+    //    echo gettype($EditownerOperatorData);
+    //    print_r($EditownerOperatorData);
+    //    echo json_encode($EditownerOperatorData);
+    //    die;
+       return response()->json($EditownerOperatorData);  
     }  
 
     public function getDriverData(Request $request){
-        $driver = Driver::all();
-        
+        $companyID=(int)1;
+        $driver = Driver::where('companyID',$companyID )->first();
+        //dd($driver);
         return response()->json($driver);  
     }
     
@@ -206,16 +203,22 @@ class DriverController extends Controller
         try{
 
         $driver=Driver::all();
-        $companyID=(int)$request->companyID;
+        $companyID=(int)1;
 
         $getCompany = Driver::where('companyID',$companyID)->first();
-   
+       //dd($getCompany);
+        if($getCompany){
+        $totalDriverArray=count($getCompany->driver);
+        }else{
+            $totalDriverArray=0; 
+        }
+       // dd($totalDriverArray);
+
         $password = sha1($request->password);
         $driverData[]=array(    
-                        // '_id' => 4,
+                        '_id' => $totalDriverArray,
                         'counter' => 3,
-                        'ownerID' => 0,
-                        
+                        'ownerID' => '',
                         'driverName' => $request->name,
                         'driverUsername' => $request->username,
                         'driverAddress' => $request->address,
@@ -288,7 +291,8 @@ class DriverController extends Controller
             if($getCompany){
                 $driverArray=$getCompany->driver;
                 Driver::where(['companyID' =>$companyID ])->update([
-                    'driver' =>array_merge($driverData,$driverArray) ,
+                    'counter'=> $totalDriverArray+1,
+                    'driver' =>array_merge($driverArray,$driverData) ,
                     // 'user_type' => "user",
                     // 'deleteStatus' => 0,
                     // 'mode' => 'day',
@@ -306,9 +310,9 @@ class DriverController extends Controller
                 if(Driver::create([
                     
                     // 'companyID' => (int)$_SESSION['companyId'],
-                    '_id' => 2,
+                    '_id' => '',
                     'companyID' => $companyID,
-                    'counter' => 0,
+                    'counter' => $totalDriverArray+1,
                     'driver' => $driverData,
                     // 'user_type' => "user",
                     'deleteStatus' => 0,

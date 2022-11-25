@@ -431,30 +431,30 @@ $.ajax({
         var len1 = 0;
         
         $('#driverTable').empty(); 
-        if (driverResponse != null) {
-            len1 = driverResponse.length;
-        }
-
-        if (len1 > 0) {
+        // if (driverResponse != null) {
+        //     len1 = driverResponse.length;
+        // }
+// alert(len1);
+        // if (len1 > 0) {
            var no=1;
-                for (var i = 0; i < len1; i++) {  
-                var len2=driverResponse[i].driver.length; 
-                    if(len2 > 0){
+                // for (var i = 0; i < len1; i++) {  
+                var len2=driverResponse.driver.length; 
+                    // if(len2 > 0){
                         for (var j = 0; j < len2; j++) {
-                        var comid =driverResponse[i].companyID;
-                        var driverId=driverResponse[i].driver[j]._id;
-                        var name = driverResponse[i].driver[j].driverName;
-                        var email = driverResponse[i].driver[j].driverEmail;
-                        var location = driverResponse[i].driver[j].driverAddress;
-                        var social_security_no = driverResponse[i].driver[j].driverSocial;
-                        var date_of_birth = driverResponse[i].driver[j].dateOfbirth;
-                        var date_of_hire = driverResponse[i].driver[j].dateOfhire;
-                        var license_no = driverResponse[i].driver[j].driverLicenseNo;
-                        var lis = driverResponse[i].driver[j].driverLicenseIssue;
-                        var license_exp_date = driverResponse[i].driver[j].driverLicenseExp;
-                        var driver_balance = driverResponse[i].driver[j].driverBalance;
-                        var delete_status = driverResponse[i].driver[j].deleteStatus;
-                        var ownerOperatorStatus =driverResponse[i].driver[j].ownerOperatorStatus;
+                        var comid =driverResponse.companyID;
+                        var driverId=driverResponse.driver[j]._id;
+                        var name = driverResponse.driver[j].driverName;
+                        var email = driverResponse.driver[j].driverEmail;
+                        var location = driverResponse.driver[j].driverAddress;
+                        var social_security_no = driverResponse.driver[j].driverSocial;
+                        var date_of_birth = driverResponse.driver[j].dateOfbirth;
+                        var date_of_hire = driverResponse.driver[j].dateOfhire;
+                        var license_no = driverResponse.driver[j].driverLicenseNo;
+                        var lis = driverResponse.driver[j].driverLicenseIssue;
+                        var license_exp_date = driverResponse.driver[j].driverLicenseExp;
+                        var driver_balance = driverResponse.driver[j].driverBalance;
+                        var delete_status = driverResponse.driver[j].deleteStatus;
+                        var ownerOperatorStatus =driverResponse.driver[j].ownerOperatorStatus;
 
                         if(delete_status=="NO"){
                             
@@ -488,15 +488,15 @@ $.ajax({
                         no++;
                         }
                     } 
-                }
-            }
-        } else {
-            var tr_str1 = "<tr data-id=" + i + ">" +
-                "<td align='center' colspan='4'>No record found.</td>" +
-                "</tr>";
+                // }
+            // }
+        // } else {
+        //     var tr_str1 = "<tr data-id=" + i + ">" +
+        //         "<td align='center' colspan='4'>No record found.</td>" +
+        //         "</tr>";
 
-            $("#driverTable").append(tr_str1);
-        }
+        //     $("#driverTable").append(tr_str1);
+        // }
         drivermodal();
     }
 
@@ -1223,6 +1223,16 @@ $('#submitOwnerOparator').click(function(){
             },  
         success: function(text) {
             swal.fire("Done!", 'Add As Owner Oparator', "success");
+            // $.ajax({
+            //     type: "GET",
+            //     url: base_path+"/admin/driver",
+            //     async: false,
+            //     success: function(text) {
+            //         createDriverRows(text);
+            //         driverResponse = text;
+            //     }
+            // });
+            
         }
     });
     
@@ -1236,31 +1246,23 @@ $('#submitOwnerOparator').click(function(){
 // });
 
 $(document).ready(function(){
+// $('body').on('click',function() {
     $('.editDriverOwner').click(function(){
+        // alert();
         var id = $(this).attr("data-id");
         $.ajax({
             url: base_path+"/admin/editDriverOwner",
             type: "POST",
             datatype:"JSON",
             data: {_token: $("#drivercsrf").val(),id: id},
-            cache: false,
-            success: function(dataResult){
-                // $('#up_comId').val(com_id);
-                // $('#emaildriver').val(email);
-                // $('#up_name').val(dataResult.driverName);
-                // $('#up_username').val(dataResult.driverUsername);
-                // $('#up_address').val(dataResult.driverAddress);
-                // $('#up_telephone').val(dataResult.driverTelephone);
-                // $('#up_altTelephone').val(dataResult.driverAlt);
-                // $('#up_email').val(dataResult.driverEmail);
-                // $('#up_location').val(dataResult.driverLocation);
-              
-               
-                $('#editDriverOwnerModal').modal('show'); 
+         
+            error: function(data){
+                alert("rr"); 
             }
         });
     });
 });
+// });
 
 
 

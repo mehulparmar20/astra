@@ -30,7 +30,7 @@
                                                 data-target="#setupDriverModal">Setup Driver</a>
                                             <a href="#contractCategoryModal" class="btn btn-primary" data-toggle="modal"
                                                 data-target="#contractCategoryModal">View Driver Contract</a>
-                                            <table id="editable-file-datatable" class="table editable-table table-nowrap table-bordered table-edit wp-100">
+                                            <table id="editable-file-datatable" class="table editable-table table-nowrap table-bordered table-edit wp-100"  style="height: 550px;">
 
                                                 <!-- <button href="#addDriverModal" data-toggle="modal" data-target="#addDriverrModal"  class="add1button" style="vertical-align:middle"><span>Add </span></button>
                                                         
@@ -40,18 +40,18 @@
                                                 <thead>
                                                     <tr>
                                                         <!-- <th>counter</th> -->
-                                                        <th>NO</th>
-                                                        <th style="">Name</th>
-                                                        <th>Email</th>
-                                                        <th>Location</th>
-                                                        <th>Social Security No</th>
-                                                        <th>Date of Birth</th>
-                                                        <th>Date of Hire</th>
-                                                        <th>License No</th>
-                                                        <th>LIS</th>
-                                                        <th>License Exp.Date</th>
-                                                        <th>Driver Balance</th>
-                                                        <th>Action</th>
+                                                        <th><div>NO</div></th>
+                                                        <th style=""><div>Name</div></th>
+                                                        <th><div>Email</div></th>
+                                                        <th><div>Location</div></th>
+                                                        <th><div><marquee width="100px" direction="left" height="17px" scrollamount="2"> Social Security No</marquee></div></th>
+                                                        <th><div>Date of Birth</div></th>
+                                                        <th><div>Date of Hire</div></th>
+                                                        <th><div>License No</div></th>
+                                                        <th><div>LIS</div></th>
+                                                        <th><div><marquee width="100px" direction="left" height="17px" scrollamount="2"> License Exp.Date</marquee></div></th>
+                                                        <th><div><marquee width="100px" direction="left" height="17px" scrollamount="2"> Driver Balance</marquee></div></th>
+                                                        <th><div>Action</div></th>
                                                     </tr>
                                                 </thead>
                                                 <tbody id="driverTable">
@@ -1007,7 +1007,7 @@
                     <div class="modal-content">
                         <!-- Modal Header -->
                         <div class="modal-header">
-                            <h4 class="modal-title">Add as Owner operator</h4>
+                            <h4 class="modal-title">Edit Owner operator</h4>
                             <button type="button" class="close" data-dismiss="modal">&times;</button>
                         </div>
 
@@ -1016,8 +1016,8 @@
                                 <div class="form-group">
                                     <div class="row row-sm">
                                         <div class="col-sm-4">
-                                            <label class="form-label" for="owner-driver-name">Driver</label>
-                                            <input type="text" class="form-control" list="drivernamelist" autocomplete="off" id="owner-driver-name" disabled/>
+                                            <label class="form-label" for="owner-driver-name">Select Driver</label>
+                                            <input type="text" class="form-control" list="drivernamelist" autocomplete="off" id="up_owner-driver-name" disabled/>
                                             <input type="hidden" id="driverNamesid" value="" />
                                         </div>
                                         <div class="col-sm-4">
@@ -1026,7 +1026,7 @@
                                                 <div class="input-group-text bg-primary-transparent text-primary">
                                                     <i class="fe fe-minus text-20" onclick="dec_percentage()" ></i>
                                                 </div>
-                                                    <input type="number" class="form-control" id="ownerPercentage" name="percentage" placeholder="Percentage" >
+                                                    <input type="number" class="form-control" id="up_ownerPercentage" name="percentage" placeholder="Percentage" >
                                                 <div class="input-group-text bg-primary-transparent text-primary">
                                                     <i class="fe fe-plus text-20" onclick="inc_percentage()" ></i>
                                                 </div>
@@ -1034,7 +1034,7 @@
                                         </div>
                                         <div class="col-sm-4">
                                             <label class="form-label" for="ssnMask-cvv">Select Truck<span style="color:#ff0000">*</span></label>
-                                            <input list="fuel_truck_report" class="form-control" placeholder="search here..." id="ownerTruckNo" name="truckNo" autocomplete="off">
+                                            <input list="fuel_truck_report" class="form-control" placeholder="search here..." id="up_ownerTruckNo" name="truckNo" autocomplete="off">
                                                 <datalist id="fuel_truck_report">
                                                 </datalist>
                                         </div>
@@ -1042,7 +1042,7 @@
                                     <br>
 
                                     <br>
-                                        <div class="optionBox ">
+                                        <div class="up_optionBox ">
                                             <!-- <div class="block">
                                                 <div class="row row-sm">
                                                         <div class="col-sm-3">
@@ -1089,7 +1089,7 @@
                                                 </div>
                                             </div> -->
                                             <div class="block">
-                                                <button id="btnAdd1" type="button" class="btn btn-primary add" data-toggle="tooltip" data-original-title="Add more controls"><i class="mdi mdi-gamepad-down"></i> ADD </button>
+                                                <button id="up_btnAdd1" type="button" class="btn btn-primary add" data-toggle="tooltip" data-original-title="Add more controls"><i class="mdi mdi-gamepad-down"></i> ADD </button>
                                             </div>
                                         </div>
                                 </div>  
@@ -1098,7 +1098,7 @@
 
                         <!-- Modal footer -->
                         <div class="modal-footer">
-                            <a type="submit" class="btn btn-primary " id="submitOwnerOparator">Submit</a>
+                            <a type="submit" class="btn btn-primary " id="up_submitOwnerOparator">Submit</a>
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                         </div>
 
