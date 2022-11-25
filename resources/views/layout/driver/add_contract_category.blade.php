@@ -6,8 +6,8 @@
 
                 <!-- Modal Header -->
                 <div class="modal-header">
-                    <h4 class="modal-title">Edit Driver</h4>
-                    <button type="button" class="close " data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Add Contract Category</h4>
+                    <button type="button" class="button-24" data-dismiss="modal">&times;</button>
                 </div>
 
                 <!-- Modal body -->
@@ -65,7 +65,7 @@
                             <tfoot></br>
                                 <tr>
                                     <th colspan="12 " class="tableFooter">
-                                        <button id="btnAddadv" type="button" class="btn btn-primary"
+                                        <button id="btnAddadv" type="button" class="button-29"
                                             data-toggle="tooltip"><i class="glyphicon glyphicon-plus-sign"></i>&nbsp;
                                             Add&nbsp;
                                         </button>
@@ -79,9 +79,9 @@
 
                 <!-- Modal footer -->
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-danger waves-effect" data-dismiss="modal">
+                    <button type="button" class="button-29 waves-effect" data-dismiss="modal">
                         <i class='mdi mdi-close'></i> Close  </button>
-                    <button type="button" class="btn btn-primary waves-effect waves-light"><i class="mdi mdi-shield-lock-outline"></i> Save </button>
+                    <button type="button" class="button-29 waves-effect waves-light"><i class="mdi mdi-shield-lock-outline"></i> Save </button>
                 </div>
 
             </div>

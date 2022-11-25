@@ -23976,6 +23976,11 @@ img {
 
 }
 
+.login_width
+  {
+    max-width: 95% !important;
+  }
+
 
 .forget_text {
     font-size: 13px;

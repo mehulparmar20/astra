@@ -7,7 +7,7 @@
 
                 <div class="modal-header">
                     <h4 class="modal-title">Contract Category</h4>
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <button type="button" class="button-24" data-dismiss="modal">&times;</button>
                 </div>
                 <!-- Modal Header -->
                 <!-- <div class="modal-header">
@@ -22,8 +22,7 @@
 								<div class="col-md-12">
 									<div class="card">
                                         <div class="card-body">
-                                            <a href="#addContractCategory" class="btn btn-primary" data-toggle="modal"
-                                                data-target="#addContractCategory">Add Contract Category</a>
+                                            <a href="#addContractCategory" class="button-29" data-toggle="modal" data-target="#addContractCategory">Add Contract Category</a>
 										</div>
 										<div class="card-body">
                                                 

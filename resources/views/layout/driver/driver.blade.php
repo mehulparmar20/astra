@@ -92,7 +92,7 @@
                 <!-- Modal Header -->
                 <div class="modal-header">
                     <h4 class="modal-title">Add Driver</h4>
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <button type="button" class="button-24" data-dismiss="modal">&times;</button>
                 </div>
 
                 <!-- Modal body -->
@@ -329,8 +329,8 @@
                                                 <div class="form-row">
                                                     <div class="form-group col-md-3 ml-6" id="dMile"
                                                         style="display: none">
-                                                        <label>Driver Pay Info</label>
-                                                        <a href="#driverPayInfoModal" class="btn btn-primary"
+                                                        <label>Driver Pay Info</label><br>
+                                                        <a href="#driverPayInfoModal" class="button-29"
                                                             data-toggle="modal" data-target="#driverPayInfoModal">Open
                                                             Pay Info</a>
 
@@ -343,8 +343,8 @@
                                                     </div>
                                                     <div class="form-group col-md-2 col-md-3 ml-6" id="dHourly"
                                                         style="display: none">
-                                                        <label>Driver Pay Info</label>
-                                                        <a href="#driverPayInfoModal" class="btn btn-primary"
+                                                        <label>Driver Pay Info</label><br>
+                                                        <a href="#driverPayInfoModal" class="button-29"
                                                             data-toggle="modal" data-target="#driverPayInfoModal">Open
                                                             Pay Info</a>
                                                     </div>
@@ -413,13 +413,14 @@
 <div class="container">
     <!-- The Modal -->
     <div class="modal fade" data-backdrop="static" id="editDriverModal">
-        <div class="modal-dialog modal-dialog-scrollable custom_modal">
+        <div class="modal-dialog modal-dialog-scrollable custom_modal_small">
             <div class="modal-content">
 
                 <!-- Modal Header -->
                 <div class="modal-header">
                     <h4 class="modal-title">Edit Driver</h4>
-                    <button type="button" class="close editModalCloseButton" data-dismiss="modal">&times;</button>
+                    <button type="button" class="button-24" data-dismiss="modal">&times;</button>
+                    <!-- <button type="button" class="close editModalCloseButton" data-dismiss="modal">&times;</button> -->
                 </div>
 
                 <!-- Modal body -->
@@ -730,9 +731,8 @@
 
                 <!-- Modal footer -->
                 <div class="modal-footer">
-                    <a type="submit" class="btn btn-primary driverDataUpdate">Update</a>
-                    <button type="button" class="btn btn-secondary editModalCloseButton"
-                        data-dismiss="modal">Close</button>
+                    <button type="submit" class="button-29 driverDataUpdate">Update</button>
+                    <button type="button" class="button-29 editModalCloseButton" data-dismiss="modal">Close</button>
                 </div>
 
             </div>
@@ -752,7 +752,7 @@
                 <!-- Modal Header -->
                 <div class="modal-header">
                     <h4 class="modal-title">Set Up Driver</h4>
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <button type="button" class="button-24" data-dismiss="modal">&times;</button>
                 </div>
 
                 <!-- Modal body -->

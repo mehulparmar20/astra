@@ -209,6 +209,9 @@ ul.ks-cboxtags li input[type="checkbox"]:focus+label {
     max-width: 95% !important;
   }
 
+  
+
+
   /* small screen, hidden by default */
 @media only screen and (max-width: 770px ) {
   .custom_modal_small{
@@ -494,7 +497,7 @@ ul.ks-cboxtags li input[type="checkbox"]:focus+label {
   }
 
 
-  #addContractCategory, #contractCategoryModal, #addDriverModal, #addRecurrence, #substractRecurrence, #setupDriverModal, #addUserModal {
+  #addContractCategory, #contractCategoryModal, #addDriverModal, #addRecurrence, #substractRecurrence, #setupDriverModal, #addUserModal, #editDriverModal {
     backdrop-filter: blur(1px) contrast(.1);
   }
 
