@@ -84,3 +84,4 @@ Route::post('admin/addCompany', [CompanyController::class, 'addCompanyData']);
 Route::get('admin/editCompany', [CompanyController::class, 'editCompanyData']);
 Route::post('admin/updateCompany', [CompanyController::class, 'updateCompanyData']);
 Route::post('admin/deleteCompany', [CompanyController::class, 'deleteCompany']);
+Route::post('admin/updateUserCompany', [CompanyController::class, 'updateUserCompany']);

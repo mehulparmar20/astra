@@ -13,6 +13,7 @@ use Auth;
 use PDF;
 use MongoDB\BSON\ObjectId;
 use Image;
+use File;
 
 class CompanyController extends Controller
 {
@@ -23,56 +24,63 @@ class CompanyController extends Controller
     }
 
     public function addCompanyData(Request $request){
-        request()->validate([
-            'companyName' => 'required',
-            'telephoneNo' => 'required',
-            'mailingAddress' => 'required|unique:company,company.mailingAddress',
-            'companyID' => 'required|unique:company,companyID',
-            // 'file' => 'image|mimes:jpg,jpeg,png,gif,svg|max:2048',
-        ]);
+        $path = public_path().'/CompanyLogo';
+        if(!File::exists($path)) {
+            File::makeDirectory($path, $mode = 0777, true, true);
+        }
+        // request()->validate([
+        //     // 'companyName' => 'required',
+        //     // 'telephoneNo' => 'required',
+        //     // 'mailingAddress' => 'required|unique:company,company.mailingAddress',
+        //     // 'companyID' => 'required|unique:company,companyID',
+        //     // 'file' => 'image|mimes:jpg,jpeg,png,gif,svg|max:2048',
+        // ]);
         try{
 
         $company=Company::all();
-        $companyID=(int)$request->companyID;
+        // $companyID=(int)$request->companyID;
+        if ($files = $request->file('file')) {
+            $ImageUpload = Image::make($files);
+            $originalPath = 'CompanyLogo/';
+            $ImageUpload->save($originalPath.time().$files->getClientOriginalName());
+            $photo_path = 'CompanyLogo/'.time().$files->getClientOriginalName();
+            $photo_name = time().$files->getClientOriginalName();
+            $original_name = $files->getClientOriginalName();
+            $size = $request->file("file")->getSize();
+        }
 
-        // if($request->file){
-        //     $image = $request->file('file');
-        //     $input['file'] = time().'.'.$image->getClientOriginalExtension();
-        //     $destinationPath = public_path('/thumbnail');
-        //     $imgFile = Image::make($image->getRealPath());
-        //     $imgFile->resize(150, 150, function ($constraint) {
-        //         $constraint->aspectRatio();
-        //     })->save($destinationPath.'/'.$input['file']);
-        //     $destinationPath = public_path('/uploads');
-        //     $image->move($destinationPath, $input['file']);
-        // }
-
-        $getCompany = Company::where('companyID',$companyID)->first();
+        $getCompany = Company::where('companyID',1)->first();
         $companyData[]=array(    
                         '_id' => new ObjectId(),
-                        'companyName' => $request->companyName,
-                        'shippingAddress' => $request->shippingAddress,                        
-                        'telephoneNo' => $request->telephoneNo,
-                        'faxNo' => $request->faxNo,
-                        'mcNo' => $request->mcNo,
-                        'usDotNo' => $request->usDotNo,
-                        'mailingAddress' => $request->mailingAddress,
-                        'factoringCompany' => $request->factoringCompany,
-                        'website' => $request->website,
+                        'companyName' => $request->inputCompanyName4,
+                        'shippingAddress' => $request->inputShippingAddress4,                        
+                        'telephoneNo' => $request->inputTelephoneNo4,
+                        'faxNo' => $request->inputFaxNo4,
+                        'mcNo' => $request->inputMcNo4,
+                        'usDotNo' => $request->inputUsDotNo4,
+                        'mailingAddress' => $request->inputEmailAddress4,
+                        'factoringCompany' => $request->customerBFactoringCompany,
+                        'website' => $request->inputWebsite4,
                         'counter' => 0,
-                        'file' => $request->file,
+                        'file' => array(array(
+                        'filename' => $photo_name,
+                        'Originalname' => $original_name,
+                        'filesize' => $size,
+                        'filepath' => $photo_path
+                        )
+                        ),
                         // 'edit_by' => $request->edit_by,
                         // 'edit_time' => $request->edit_time,
                         'status' => "No",
                         'deleteStatus' => "NO",
                         'deleteTime' => "",
                         'deleteUser' => "",
-                        'factoringParent' => (int)$request->factoringParent,
+                        'factoringParent' => $request->factoringParent,
             );
 
             if($getCompany){
                 $companyArray=$getCompany->company;
-                Company::where(['companyID' =>$companyID ])->update([
+                Company::where(['companyID' =>1 ])->update([
                     'company' =>array_merge($companyData,$companyArray) 
                 ]);
 
@@ -85,7 +93,7 @@ class CompanyController extends Controller
             }else{
                 if(Company::create([
                     '_id' => 10,
-                    'companyID' => $companyID,
+                    'companyID' => 1,
                     'counter' => 0,
                     'company' => $companyData,
                     // 'user_type' => "user",
@@ -135,17 +143,16 @@ class CompanyController extends Controller
     public function updateCompanyData(Request $request){
 
         request()->validate([
-            'companyName' => 'required',
-            'telephoneNo' => 'required',
-            'mailingAddress' => 'required|unique:company,company.mailingAddress'.$request->mailingAddress,
-            'companyID' => 'required|unique:company,companyID',
+            'up_companyName' => 'required',
+            'up_telephoneNo' => 'required',
+            'up_mailingAddress' => 'required|unique:company,company.mailingAddress'.$request->up_mailingAddress,
             'file' => 'image|mimes:jpg,jpeg,png,gif,svg|max:2048',
         ]);
 
-        $companyIDUp=(int)$request->companyID;
-        $email=$request->mailingAddress;
+        // $companyIDUp=(int)$request->companyID;
+        $email=$request->up_mailingAddress;
 
-        $resultUp = Company::where('companyID',$companyIDUp )->first();
+        $resultUp = Company::where('companyID',1 )->first();
         $companyArrayUp=$resultUp->company;
 
         $arrayLengthUp=count($companyArrayUp);
@@ -159,16 +166,36 @@ class CompanyController extends Controller
                      }
                 }
        }
+        if ($request->hasFile('filenew') && $request->file('filenew') != '') {
+            if(!empty($companyArrayUp[$v]['file'])){
+            $imagePath = public_path('CompanyLogo/'.$companyArrayUp[$v]['file'][0]['filename']);
+            if(File::exists($imagePath)){
+                unlink($imagePath);
+            }
+            }
+            $files = $request->file('filenew');
+            $ImageUpload = Image::make($files);
+            $originalPath = 'CompanyLogo/';
+            $ImageUpload->save($originalPath.time().$files->getClientOriginalName());
+            $photo_path = 'CompanyLogo/'.time().$files->getClientOriginalName();
+            $photo_name = time().$files->getClientOriginalName();
+            $original_name = $files->getClientOriginalName();
+            $size = $request->file("filenew")->getSize();
+        }
 
-       $companyArrayUp[$v]['companyName']=$request->companyName;
-       $companyArrayUp[$v]['shippingAddress']=$request->shippingAddress;
-       $companyArrayUp[$v]['telephoneNo']=$request->telephoneNo;
-       $companyArrayUp[$v]['faxNo']=$request->faxNo;
-       $companyArrayUp[$v]['mcNo']=$request->mcNo;
-       $companyArrayUp[$v]['usDotNo']=$request->usDotNo;
-       $companyArrayUp[$v]['mailingAddress']=$request->mailingAddress;
-       $companyArrayUp[$v]['website']=$request->updateDriverStatus;
-       $companyArrayUp[$v]['factoringCompany']=$request->factoringCompany;
+       $companyArrayUp[$v]['companyName']=$request->up_companyName;
+       $companyArrayUp[$v]['shippingAddress']=$request->up_shippingAddress;
+       $companyArrayUp[$v]['telephoneNo']=$request->up_telephoneNo;
+       $companyArrayUp[$v]['faxNo']=$request->up_faxNo;
+       $companyArrayUp[$v]['mcNo']=$request->up_mcNo;
+       $companyArrayUp[$v]['usDotNo']=$request->up_usDotNo;
+       $companyArrayUp[$v]['mailingAddress']=$request->up_mailingAddress;
+       $companyArrayUp[$v]['website']=$request->up_website;
+       $companyArrayUp[$v]['factoringCompany']=$request->customerBFactoringCompany2;
+       $companyArrayUp[$v]['file'][0]['filename']=$photo_name;
+       $companyArrayUp[$v]['file'][0]['Originalname']=$original_name;
+       $companyArrayUp[$v]['file'][0]['filesize']=$size;
+       $companyArrayUp[$v]['file'][0]['filepath']=$photo_path;
 
        $resultUp->company = $companyArrayUp;
        if($resultUp->save()){
@@ -214,6 +241,17 @@ class CompanyController extends Controller
             'message' => $message,
         ]);
         
+    }
+
+    public function updateUserCompany(Request $request){
+        $user = Auth::user();
+        $user->companyID = $request->companyId;
+        $user->save();
+        $data = [
+            'success' => true,
+            'message'=> 'Company Updated Successfully'
+            ] ;
+            return response()->json($data);
     }
 
 }

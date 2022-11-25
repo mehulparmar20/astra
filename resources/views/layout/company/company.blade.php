@@ -68,7 +68,7 @@
                                 <div class="card">
                                     <div class="card-body">
                                         <div class="table-responsive export-table">
-                                            <form enctype="multipart/form-data" method="post">
+                                            <form name="addCompanyForm" id="addCompanyForm" enctype="multipart/form-data" method="post">
                                                 @csrf
                                                 <input type="hidden" name="_token" id="csrf1"
                                                     value="{{Session::token()}}">
@@ -139,9 +139,9 @@
                                                             id="inputWebsite4" placeholder="Website">
                                                     </div>
                                                     <div class="form-group col-md-4">
-                                                        <label for="inputFile4">Upload File</label>
-                                                        <input type="file" class="form-control" name="inputFile4"
-                                                            id="inputFile4">
+                                                        <label for="file">Upload File</label>
+                                                        <input type="file" class="form-control" name="file"
+                                                            id="file">
                                                     </div>
                                                 </div>
                                                 <br>
@@ -189,7 +189,7 @@
 
                                     <div class="card-body">
                                         <div class="table-responsive export-table">
-                                            <form method="post">
+                                            <form name="editCompanyForm" id="editCompanyForm" enctype="multipart/form-data" method="post">
                                                 @csrf
                                                 <input type="hidden" name="_token" id="newcsrf2"
                                                     value="{{Session::token()}}">
@@ -262,9 +262,9 @@
                                                             id="up_website" placeholder="Website">
                                                     </div>
                                                     <div class="form-group col-md-4">
-                                                        <label for="inputFile4">Upload File</label>
-                                                        <input type="file" class="form-control" name="inputFile4"
-                                                            id="inputFile4">
+                                                        <label for="filenew">Upload File</label>
+                                                        <input type="file" class="form-control" name="filenew"
+                                                            id="filenew">
                                                     </div>
                                                 </div>
                                                 <br>

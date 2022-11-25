@@ -53,7 +53,7 @@
 												<li><a href="https://laravel8.spruko.com/noa/wysiwyag" class="slide-item">Load Type</a></li>
 												<li><a href="https://laravel8.spruko.com/noa/form-editable" class="slide-item">Fuel Vendor Name</a></li>
 												<li><a href="https://laravel8.spruko.com/noa/form-wizard" class="slide-item">Recurrence Category</a></li>
-												<li><a href="https://laravel8.spruko.com/noa/form-wizard" class="slide-item">Currency Setiing</a></li>
+												<li><a href="https://laravel8.spruko.com/noa/form-wizard" class="slide-item">Currency Setting</a></li>
 												<li><a href="https://laravel8.spruko.com/noa/form-wizard" class="slide-item">Add Terms & Conditions</a></li>
 												<li><a href="https://laravel8.spruko.com/noa/form-wizard" class="slide-item">Payment Terms</a></li>
 												<li><a href="https://laravel8.spruko.com/noa/form-wizard" class="slide-item">Dispatch Conditions</a></li>
