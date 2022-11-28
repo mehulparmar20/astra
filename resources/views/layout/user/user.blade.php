@@ -22,12 +22,13 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title">User</h5>
-                    <button type="button" class="close" data-dismiss="modal">×</button>
+                    <button type="button" class="button-24" data-dismiss="modal">×</button>
 
                     </button>
                 </div>
-                <button href="#addUserModal" data-toggle="modal" data-target="#addUserModal"
-                    class="login_btn btn1 add1button" style="vertical-align:middle"><span>Add </span></button>
+                <div style="margin-top: 15px; margin-left: 15px;">
+                    <a href="#addUserModal" class="button-57" data-toggle="modal" data-target="#addUserModal"><i class="fa fa-plus" aria-hidden="true"></i><span>Add User</span></a>
+                </div>
                 <div class="modal-body" style="overflow-y: auto !important;">
 
                     <table id="editable-file-datatable1"
@@ -57,8 +58,9 @@
                 <div class="modal-footer">
                     <form action="{{route('download-pdf')}}" method="post" target="__blank">
                         @csrf
-                        <button class="btn btn-primary" style="vertical-align:middle"><span>Export</span></button>
+                        <button class="button-29" style="vertical-align:middle"><span>Export</span></button>
                     </form>
+                    <button type="button" class="button-29" data-dismiss="modal">Close</button>
                     <!-- <button class="btn btnclose" style="background-color:red;" data-bs-dismiss="modal">Close</button> -->
                 </div>
             </div>

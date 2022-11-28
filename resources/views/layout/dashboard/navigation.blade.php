@@ -297,6 +297,9 @@
             @include('layout.driver.driver_pay_info') 
             @include('layout.driver.driver_contract') 
             @include('layout.company.company') 
-			@include('layout.currency.currency') 
+			@include('layout.currency.currency')
+			@include('layout.driver.add_contract_category')
+			@include('layout.driver.addRecurrence')
+			@include('layout.company.company')
         
 			

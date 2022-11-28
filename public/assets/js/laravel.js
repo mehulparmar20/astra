@@ -50,7 +50,7 @@ function createRows(response) {
                 "<td data-field='ext'>" + ext + "</td>" +
                 "<td data-field='tollfree'>" + tollfree + "</td>" +
                 "<td data-field='fax'>" + fax + "</td>" +
-                "<td style='width: 100px'><a class='text-white edit-icn edit1' id='editmodel' title='Edit'><i class='fe fe-edit'></i></a><a class='delete1 text-white delete-icn' data-id="+ email +" title='Delete'><i class='fe fe-delete'></i></a></td></tr>";
+                "<td style='width: 100px'><a class='editDriver mt-2 button-23 fs-14 edit1' id='editmodel' title='Edit'><i class='fe fe-edit'></i></a>&nbsp<a class='delete1 button-23' data-id="+ email +" title='Delete'><i class='fe fe-delete'></i></a></td></tr>";
             $("#table1").append(tr_str);
         }
     } else {
@@ -226,7 +226,7 @@ $(document).ready(function() {
       "<td data-field='ext'>" + ext + "</td>" +
       "<td data-field='tollfree'>" + tollfree + "</td>" +
       "<td data-field='fax'>" + fax + "</td>" +
-      "<td style='width: 100px'><a class='btn btn-primary fs-14 text-white edit-icn edit1' id='editmodel' title='Edit'><i class='fe fe-edit'></i></a><a class='delete1 mt-2 btn btn-danger fs-14 text-white delete-icn' data-id="+ email +" title='Delete'><i class='fe fe-delete'></i></a></td></tr>";
+      "<td style='width: 100px'><a class='button-23 fs-14 text-white edit-icn edit1' id='editmodel' title='Edit'><i class='fe fe-edit'></i></a><a class='delete1 mt-2 button-23 fs-14 text-white delete-icn' data-id="+ email +" title='Delete'><i class='fe fe-delete'></i></a></td></tr>";
           $.ajax({
               url: base_path+"/admin/add-user",
               type: "POST",
@@ -410,6 +410,16 @@ $(document).ready(function(){
 	})
 	});
 }
+
+$('.userEditModalCloseButton').click(function(){
+        $('#userEditModal').modal('hide');
+        // $('#userModal').modal('show');
+    });
+    
+    $('#userEditModal').modal({
+        backdrop: 'static',
+        keyboard: false
+    })
   
 // <!-- ------------------------------------------------------------------------- driver ------------------------------------------------------------------------- -->
 
@@ -483,7 +493,12 @@ $.ajax({
                             "<td data-field='lis'>" + lis + "</td>" +
                             "<td data-field='license_exp_date'>" + license_exp_date + "</td>" +
                             "<td data-field='driver_balance'>" + driver_balance + "</td>" +
-                            "<td  style='display:flex'>"+actionBtnOwnerOperator +"</td></tr>";
+                            "<td style='display:inline-flex'>"+
+                                // "<i class='btn btn-primary fe fe-edit edit' data-id=" + comid+ "&"+email + "></i>"+
+                                "<a class='editDriver mt-2 button-23 fs-14 edit'  title='Edit' data-id=" + comid+ "&"+email + "><i class='fe fe-edit'></i></a>&nbsp"+
+                                "<a class='deleteDriver mt-2 button-23 fs-14 delete-icn' data-id=" + comid+ "&"+email + " title='Delete'><i class='fe fe-delete'></i></a>&nbsp"+
+                                "<a class='addDriverOwner mt-2 button-23 fs-14  '  title='Add As Owner Operator' data-id="+ driverId+" data-name="+ btoa(name)+" ><i class='fe fe-user-plus'></i></a>&nbsp"+
+                            "</td></tr>";
                         $("#driverTable").append(tr_str1);
                         no++;
                         }
@@ -500,20 +515,25 @@ $.ajax({
         drivermodal();
     }
 
-$('.editModalCloseButton').click(function(){
-    $('#editDriverModal').modal('hide');
-    $('#driverModal').modal('show');  
-});
-$('.addDriverOwner').click(function(){
-    var name =$(this).data('name');
-    $('#owner-driver-name').val(atob(name));
+    $('.editModalCloseButton').click(function(){
+        $('#editDriverModal').modal('hide');
+        // $('#driverModal').modal('show');
+    });
+    
+    $('#editDriverModal').modal({
+        backdrop: 'static',
+        keyboard: false
+    })
 
-    var driver_id =$(this).data('id');
-    $('#driverid').val(driver_id);
-
-    // console.log(atob(name));
-    $('#addDriverOwnerModal').modal('show');  
-});
+    $('.addDriverOwnerModalCloseButton').click(function(){
+        $('#addDriverOwnerModal').modal('hide');
+        // $('#driverModal').modal('show');
+    });
+    
+    $('#addDriverOwnerModal').modal({
+        backdrop: 'static',
+        keyboard: false
+    })
 
 
 
@@ -1121,10 +1141,10 @@ $(document).ready(function() {
             drivermodal();
         }
 
-    $('.editModalCloseButton').click(function(){
-        $('#editDriverModal').modal('hide');
-        $('#driverModal').modal('show');  
-    });
+    // $('.editModalCloseButton').click(function(){
+    //     $('#editDriverModal').modal('hide');
+    //     $('#driverModal').modal('show');  
+    // });
 });
 
 // <!-- ------------------------------------------------------------------------- end view driver application data  ------------------------------------------------------------------------- -->
@@ -1596,8 +1616,108 @@ function companymodal()
 //         e.dismiss;
 //     }
 
-// }, function (dismiss) {
-//     return false;
 // })
-//     });
-// }
+
+
+// <!-- ------------------------------------------------------------------------- Add Recurrence ------------------------------------------------------------------------- -->
+
+
+
+$(function() {
+    $("#btnAdd2").bind("click", function() {
+        var div = $("<tr />");
+        div.html(GetDynamicRecurrence(""));
+        $("#TextBoxContainer2").append(div);
+    });
+    $("body").on("click", ".remove", function() {
+        $(this).closest("tr").remove();
+    });
+
+});
+
+function removeRowRecurrence(index) {
+    if (index == 0) {
+        return;
+    }
+
+    document.getElementById("recurrence_add" + index).remove();
+    installmentCategory.splice(index, 1);
+    installmentType.splice(index, 1);
+    amount.splice(index, 1);
+    installment.splice(index, 1);
+    startNo.splice(index, 1);
+    startDate.splice(index, 1);
+    internalNote.splice(index, 1);
+}
+
+function GetDynamicRecurrence(value) {
+    return '<td width="150">' +
+        '<input class="form-control" value = "' + value +
+        '" name="installmentCategory" onkeyup="searchFixpay(this.value,' + "'fixpaycat'" +
+        ')" list="fixpaycat" autocomplete="off"/></td>' +
+        '<td width="150">' +
+        '<input class="form-control" value = "' + value +
+        '" name="installmentType" list="instatype1" autocomplete="off"/></td>' +
+        '<td width="100">' +
+        '<input name="amount" type="text" value = "' + value + '" class="form-control" /></td>' +
+        '<td width="100">' +
+        '<input name="installment" type="text" value = "' + value + '" class="form-control" /></td>' +
+        '<td width="100"><input name="startNo" type="text" value = "' + value + '" class="form-control" /></td>' +
+        '<td width="10"><input name="startDate" type="date" value = "' + value + '" class="form-control" /></td>' +
+        '<td width="250"><textarea rows="1" cols="30" value = "' + value +
+        '" class="form-control" type="textarea" name="internalNote"></textarea></td>' +
+        '<td><button type="button" class="btn btn-danger remove"><span aria-hidden="true">&times;</span></button></td>';
+}
+
+// <!-- ------------------------------------------------------------------------- End of Add Recurrence ------------------------------------------------------------------------- -->
+
+
+
+// <!-- ------------------------------------------------------------------------- Minus Recurrence ------------------------------------------------------------------------- -->
+
+
+$(function() {
+    $("#btnAdd3").bind("click", function() {
+        var div = $("<tr />");
+        div.html(GetDynamicRecurrencesubstract(""));
+        $("#TextBoxContainer3").append(div);
+    });
+    $("body").on("click", ".remove", function() {
+        $(this).closest("tr").remove();
+    });
+
+});
+
+function recurrence_substract(index) {
+    if (index == 0) {
+        return;
+    }
+    document.getElementById("recurrencesubstract_add" + index).remove();
+    installment_Category.splice(index, 1);
+    installment_Type.splice(index, 1);
+    amount_recurrence.splice(index, 1);
+    installment_sub.splice(index, 1);
+    start_No.splice(index, 1);
+    start_Date.splice(index, 1);
+    internal_Note.splice(index, 1);
+}
+
+function GetDynamicRecurrencesubstract(value) {
+    return '<td width="150">' +
+        '<input class="form-control" value = "' + value +
+        '" name="installment_Category" onkeyup="searchFixpay(this.value,' + "'fixpay_cat'" +
+        ')" list="fixpay_cat" autocomplete="off"/></td>' +
+        '<td width="150">' +
+        '<input class="form-control" value = "' + value + '" name="installment_Type" list="instatype"/></td>' +
+        '<td width="100">' +
+        '<input name="amount_recurrence" type="text" value = "' + value + '" class="form-control" /></td>' +
+        '<td width="100">' +
+        '<input name="installment_sub" type="text" value = "' + value + '" class="form-control" /></td>' +
+        '<td width="100"><input name="start_No" type="text" value = "' + value + '" class="form-control" /></td>' +
+        '<td width="10"><input name="start_Date" type="date" value = "' + value + '" class="form-control" /></td>' +
+        '<td width="250"><textarea rows="1" cols="30" value = "' + value +
+        '" class="form-control" type="textarea" name="internal_Note"></textarea></td>' +
+        '<td><button type="button" class="btn btn-danger remove"><span aria-hidden="true">&times;</span></button></td>'
+}
+
+// <!-- ------------------------------------------------------------------------- End of Minus Recurrence ------------------------------------------------------------------------- -->
