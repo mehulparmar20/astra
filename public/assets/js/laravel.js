@@ -1265,22 +1265,18 @@ $(document).ready(function(){
             success: function(dataResult) {
                 
                 console.log(dataResult);
-                // $('#up_comId').val(com_id);
-                // $('#emaildriver').val(email);
-                // $('#up_name').val(dataResult.driverName);
-                // $('#up_username').val(dataResult.driverUsername);
-                // $('#up_address').val(dataResult.driverAddress);
-                // $('#up_telephone').val(dataResult.driverTelephone);
-                // $('#up_altTelephone').val(dataResult.driverAlt);
-                // $('#up_email').val(dataResult.driverEmail);
-                // $('#up_location').val(dataResult.driverLocation);
+                $('#up_driverid').val(dataResult.driverId);
+                // $('#up_owner-driver-name').val(dataResult.driverName);
+                $('#up_ownerPercentage').val(dataResult.percentage);
+                $('#up_ownerTruckNo').val(dataResult.truckNo);
+            
               
                
                 $('#editDriverOwnerModal').modal('show'); 
             },
             error: function(data){
                 console.log(data);
-                //alert("rr"); 
+                //alert("rr"); php
             }
         });
     });

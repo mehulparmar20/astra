@@ -1019,24 +1019,24 @@
                                 <div class="form-group">
                                     <div class="row row-sm">
                                         <div class="col-sm-4">
-                                            <label class="form-label" for="owner-driver-name">Select Driver</label>
+                                            <label class="form-label" for="up_owner-driver-name">Select Driver</label>
                                             <input type="text" class="form-control" list="drivernamelist" autocomplete="off" id="up_owner-driver-name" disabled/>
-                                            <input type="hidden" id="driverNamesid" value="" />
+                                            <input type="hidden" id="up_driverid" value="" />
                                         </div>
                                         <div class="col-sm-4">
-                                            <label class="form-label" for="ssnMask-cvv">Pay Percentage<span style="color:#ff0000">*</span>( % )</label></label>
+                                            <label class="form-label" for="up_ownerPercentage">Pay Percentage<span style="color:#ff0000">*</span>( % )</label></label>
                                             <div class="input-group">
                                                 <div class="input-group-text bg-primary-transparent text-primary">
                                                     <i class="fe fe-minus text-20" onclick="dec_percentage()" ></i>
                                                 </div>
-                                                    <input type="number" class="form-control" id="up_ownerPercentage" name="percentage" placeholder="Percentage" >
+                                                    <input type="number" class="form-control" id="up_ownerPercentage" name="up_ownerPercentage" placeholder="Percentage" >
                                                 <div class="input-group-text bg-primary-transparent text-primary">
                                                     <i class="fe fe-plus text-20" onclick="inc_percentage()" ></i>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-sm-4">
-                                            <label class="form-label" for="ssnMask-cvv">Select Truck<span style="color:#ff0000">*</span></label>
+                                            <label class="form-label" for="up_ownerTruckNo">Select Truck<span style="color:#ff0000">*</span></label>
                                             <input list="fuel_truck_report" class="form-control" placeholder="search here..." id="up_ownerTruckNo" name="truckNo" autocomplete="off">
                                                 <datalist id="fuel_truck_report">
                                                 </datalist>
