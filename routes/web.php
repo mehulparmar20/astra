@@ -68,6 +68,8 @@ Route::get('admin/getContract', [DriverController::class, 'getContract']);
 Route::post('admin/addDriverContractCategory', [DriverController::class, 'addDriverContractCategory']);
 Route::get('admin/viewDriverApplication', [DriverController::class, 'getViewDriverApplication']);
 Route::post('admin/addOwnerOparator', [DriverController::class, 'addOwnerOparator']);
+Route::post('admin/editDriverOwner', [DriverController::class, 'editDriverOwnerData']);
+
 
 //customer
 Route::get('admin/customer', [CustomerController::class, 'getCustomerData']);
@@ -89,4 +91,8 @@ Route::post('admin/factoringCompany', [CustomerController::class, 'addCustomerfa
 
 //company
 Route::get('admin/company', [CompanyController::class, 'getCompanyData']);
-Route::post('admin/addCompanyData', [CompanyController::class, 'addCompanyData']);
+Route::post('admin/addCompany', [CompanyController::class, 'addCompanyData']);
+Route::get('admin/editCompany', [CompanyController::class, 'editCompanyData']);
+Route::post('admin/updateCompany', [CompanyController::class, 'updateCompanyData']);
+Route::post('admin/deleteCompany', [CompanyController::class, 'deleteCompany']);
+Route::post('admin/updateUserCompany', [CompanyController::class, 'updateUserCompany']);

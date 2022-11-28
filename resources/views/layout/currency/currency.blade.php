@@ -82,7 +82,7 @@
                 <div class="form-row">
                     <div class="form-group col-md-12">
                         <label for="CurrencyrName">Currency Name  <span style="color:#ff0000">*</span></label>
-                        <input type="text" class="form-control" id="CurrencyrName" placeholder=" Enter Currency Name" >
+                        <input type="text" class="form-control CurrencyrName"  placeholder=" Enter Currency Name" >
                     </div>
                 </div>
             </form>

@@ -417,47 +417,62 @@ $(document).ready(function() {
     var driverResponse = '';
 
 // <!-- -------------------------------------------------------------------------Get driver ajax ------------------------------------------------------------------------- -->    
-    $.ajax({
-        type: "GET",
-        url: base_path+"/admin/driver",
-        async: false,
-        success: function(text) {
-            createDriverRows(text);
-            driverResponse = text;
-        }
-    });
+$.ajax({
+    type: "GET",
+    url: base_path+"/admin/driver",
+    async: false,
+    success: function(text) {
+        createDriverRows(text);
+        driverResponse = text;
+    }
+});
 
     function createDriverRows(driverResponse) {
         var len1 = 0;
         
         $('#driverTable').empty(); 
-        if (driverResponse != null) {
-            len1 = driverResponse.length;
-        }
-
-        if (len1 > 0) {
+        // if (driverResponse != null) {
+        //     len1 = driverResponse.length;
+        // }
+// alert(len1);
+        // if (len1 > 0) {
            var no=1;
-                for (var i = 0; i < len1; i++) {  
-                var len2=driverResponse[i].driver.length; 
-                    if(len2 > 0){
+                // for (var i = 0; i < len1; i++) {  
+                var len2=driverResponse.driver.length; 
+                    // if(len2 > 0){
                         for (var j = 0; j < len2; j++) {
-                        var comid =driverResponse[i].companyID;
-                        var driverId=driverResponse[i].driver[j]._id;
-                        var name = driverResponse[i].driver[j].driverName;
-                        var email = driverResponse[i].driver[j].driverEmail;
-                        var location = driverResponse[i].driver[j].driverAddress;
-                        var social_security_no = driverResponse[i].driver[j].driverSocial;
-                        var date_of_birth = driverResponse[i].driver[j].dateOfbirth;
-                        var date_of_hire = driverResponse[i].driver[j].dateOfhire;
-                        var license_no = driverResponse[i].driver[j].driverLicenseNo;
-                        var lis = driverResponse[i].driver[j].driverLicenseIssue;
-                        var license_exp_date = driverResponse[i].driver[j].driverLicenseExp;
-                        var driver_balance = driverResponse[i].driver[j].driverBalance;
-                        var delete_status = driverResponse[i].driver[j].deleteStatus;
+                        var comid =driverResponse.companyID;
+                        var driverId=driverResponse.driver[j]._id;
+                        var name = driverResponse.driver[j].driverName;
+                        var email = driverResponse.driver[j].driverEmail;
+                        var location = driverResponse.driver[j].driverAddress;
+                        var social_security_no = driverResponse.driver[j].driverSocial;
+                        var date_of_birth = driverResponse.driver[j].dateOfbirth;
+                        var date_of_hire = driverResponse.driver[j].dateOfhire;
+                        var license_no = driverResponse.driver[j].driverLicenseNo;
+                        var lis = driverResponse.driver[j].driverLicenseIssue;
+                        var license_exp_date = driverResponse.driver[j].driverLicenseExp;
+                        var driver_balance = driverResponse.driver[j].driverBalance;
+                        var delete_status = driverResponse.driver[j].deleteStatus;
+                        var ownerOperatorStatus =driverResponse.driver[j].ownerOperatorStatus;
 
                         if(delete_status=="NO"){
+                            
+                            if(ownerOperatorStatus == 'YES'){
+                                var actionBtnOwnerOperator= "<a class='editDriver mt-2 btn btn-primary fs-14 text-white edit'  title='Edit' data-id=" + comid+ "&"+email + "><i class='fe fe-edit'></i></a>&nbsp"+
+                                    "<a class='deleteDriver mt-2 btn btn-danger fs-14 text-white delete-icn' data-id=" + comid+ "&"+email + " title='Delete'><i class='fe fe-delete'></i></a>&nbsp"+
+                                    "<a class='removeDriverOwner mt-2 btn btn-danger fs-14 text-white '  title='Remove Owner Operator' data-id="+ driverId+" data-name="+ btoa(name)+" ><i class='fe fe-user-x'></i></a>"+
+                                    "<a class='editDriverOwner mt-2 btn btn-info fs-14 text-white '  title='Edit Owner Operator' data-id="+ driverId+" data-name="+ btoa(name)+" ><i class='fe fe-edit'></i></a>&nbsp";
+                                // $('.addDriverOwner').addClass('btn-danger');
+                            }
+                            else if(ownerOperatorStatus == 'NO'){
+                                var actionBtnOwnerOperator="<a class='editDriver mt-2 btn btn-primary fs-14 text-white edit'  title='Edit' data-id=" + comid+ "&"+email + "><i class='fe fe-edit'></i></a>&nbsp"+
+                                    "<a class='deleteDriver mt-2 btn btn-danger fs-14 text-white delete-icn' data-id=" + comid+ "&"+email + " title='Delete'><i class='fe fe-delete'></i></a>&nbsp"+
+                                    "<a class='addDriverOwner mt-2 btn btn-success fs-14 text-white '  title='Add As Owner Operator' data-id="+ driverId+" data-name="+ btoa(name)+" ><i class='fe fe-user-plus'></i></a>&nbsp";
+                                // $('.addDriverOwner').addClass('btn-success');
+                            }
                         var tr_str1 = "<tr data-id=" + (i + 1) + ">" +
-                            "<td data-field='no'>" + no + "</td>" +
+                            "<td data-field='no'>" + no  + "</td>" +
                             "<td data-field='name' >" + name + "</td>" +
                             "<td data-field='email'>" + email + "</td>" +
                             "<td data-field='location'>" + location + "</td>" +
@@ -468,25 +483,20 @@ $(document).ready(function() {
                             "<td data-field='lis'>" + lis + "</td>" +
                             "<td data-field='license_exp_date'>" + license_exp_date + "</td>" +
                             "<td data-field='driver_balance'>" + driver_balance + "</td>" +
-                            "<td style='display:inline-flex'>"+
-                                // "<i class='btn btn-primary fe fe-edit edit' data-id=" + comid+ "&"+email + "></i>"+
-                                "<a class='editDriver mt-2 btn btn-primary fs-14 text-white edit'  title='Edit' data-id=" + comid+ "&"+email + "><i class='fe fe-edit'></i></a>&nbsp"+
-                                "<a class='deleteDriver mt-2 btn btn-danger fs-14 text-white delete-icn' data-id=" + comid+ "&"+email + " title='Delete'><i class='fe fe-delete'></i></a>&nbsp"+
-                                "<a class='addDriverOwner mt-2 btn btn-success fs-14 text-white '  title='Add As Owner Operator' data-id="+ driverId+" data-name="+ btoa(name)+" ><i class='fe fe-user-plus'></i></a>&nbsp"+
-                            "</td></tr>";
+                            "<td  style='display:flex'>"+actionBtnOwnerOperator +"</td></tr>";
                         $("#driverTable").append(tr_str1);
                         no++;
                         }
                     } 
-                }
-            }
-        } else {
-            var tr_str1 = "<tr data-id=" + i + ">" +
-                "<td align='center' colspan='4'>No record found.</td>" +
-                "</tr>";
+                // }
+            // }
+        // } else {
+        //     var tr_str1 = "<tr data-id=" + i + ">" +
+        //         "<td align='center' colspan='4'>No record found.</td>" +
+        //         "</tr>";
 
-            $("#driverTable").append(tr_str1);
-        }
+        //     $("#driverTable").append(tr_str1);
+        // }
         drivermodal();
     }
 
@@ -497,9 +507,30 @@ $('.editModalCloseButton').click(function(){
 $('.addDriverOwner').click(function(){
     var name =$(this).data('name');
     $('#owner-driver-name').val(atob(name));
-    console.log(atob(name));
+
+    var driver_id =$(this).data('id');
+    $('#driverid').val(driver_id);
+
+    // console.log(atob(name));
     $('#addDriverOwnerModal').modal('show');  
 });
+
+
+
+// $('#driver_navbar').click(function(){
+//     $.ajax({
+//         type: "GET",
+//         url: base_path+"/admin/driver",
+//         async: false,
+//         success: function(text) {
+//             createDriverRows(text);
+//             driverResponse = text;
+//         }
+//     });
+//     $('#driverModal').modal('show');  
+// });
+
+
 
 // <!--------------------------------------------------------------------------- end of get driver  --------------------------------------------------------------------------->
 // <!--------------------------------------------------------------------------- delete driver ajax --------------------------------------------------------------------------->    
@@ -510,7 +541,6 @@ $('.addDriverOwner').click(function(){
 // <!-- ------------------------------------------------------------------------- add driver  ------------------------------------------------------------------------- -->
 
       $('.driverDataSubmit').click(function(){   
-        alert();         
             var companyID = 4;
             var name = $('#name').val();
             var username = $('#username').val();
@@ -536,7 +566,8 @@ $('.addDriverOwner').click(function(){
             var fastCardExpiry = $('#fastCardExpiry').val();
             var hazmatExpiry = $('#hazmatExpiry').val();
             var rate = $('#rate').val();
-            var currency = $('#currency').val();
+            var currency = $('#currency_add').val();
+            console.log(currency);
             var recurrencePlus = $('#recurrencePlus').val();
             var recurrenceMin = $('#recurrenceMin').val();
             var terminationDate = $('#terminationDate').val();
@@ -997,6 +1028,13 @@ function drivermodal()
     return false;
 })
     });
+
+    $('.addDriverOwner').click(function(){
+        var name =$(this).data('name');
+        $('#owner-driver-name').val(atob(name));
+        console.log(atob(name));
+        $('#addDriverOwnerModal').modal('show');  
+    });
 }
 
 $(document).ready(function(){
@@ -1024,11 +1062,10 @@ $(document).ready(function(){
 });
 
 
-
 // <!-- ------------------------------------------------------------------------- end of driver ------------------------------------------------------------------------- -->
+// <!-- -------------------------------------------------------------------------  view driver application data  ------------------------------------------------------------------------- -->
 
 
-// Company
 $(document).ready(function() {
 
         $.ajax({
@@ -1091,7 +1128,7 @@ $(document).ready(function() {
 });
 
 // <!-- ------------------------------------------------------------------------- end view driver application data  ------------------------------------------------------------------------- -->
-
+// <!-- ------------------------------------------------------------------------- Owner driver application data  ------------------------------------------------------------------------- -->
 
 function inc_percentage() {
   document.getElementById("ownerPercentage").stepUp(1);
@@ -1105,11 +1142,11 @@ function dec_percentage() {
   '<div class="block">'+
       '<div class="row row-sm" id="OwnerOperatorContainer">'+
               '<div class="col-sm-3">'+
-                  '<label class="form-label" for="owner-driver-name">Category</label>'+
+                  '<label class="form-label" for="">Category</label>'+
                   '<input type="text" class="form-control" name="installmentCategory[]" list="fixpaycat" placeholder=" Search here..." autocomplete="off" />'+
               '</div>'+
               '<div class="col-sm-3">'+
-                  '<label class="form-label" for="owner-driver-name">Installment Type</label>'+
+                  '<label class="form-label" for="">Installment Type</label>'+
                       '<select name="installmentType[]" class="form-control">'+
                           '<option value="">Select type</option>'+
                           '<option value="Weekly">Weekly</option>'+
@@ -1119,27 +1156,27 @@ function dec_percentage() {
                       '</select>'+
               '</div>'+
               '<div class="col-sm-3">'+
-                  '<label class="form-label" for="owner-driver-name">Amount</label>'+
+                  '<label class="form-label" for="">Amount</label>'+
                   '<input name="amount[]" type="text" class="form-control" />'+
               '</div>'+
               '<div class="col-sm-3">'+
-                  '<label class="form-label" for="owner-driver-name">Installment</label>'+
+                  '<label class="form-label" for="">Installment</label>'+
                   '<input name="installment[]" type="text" class="form-control"  />'+
               '</div>'+
               '<div class="col-sm-3">'+
-                  '<label class="form-label" for="owner-driver-name">start#</label>'+
+                  '<label class="form-label" for="">start#</label>'+
                   '<input name="startNo[]" type="text" class="form-control"  />'+
               '</div>'+
               '<div class="col-sm-3">'+
-                  '<label class="form-label" for="owner-driver-name">start Date</label>'+
+                  '<label class="form-label" for="">start Date</label>'+
                   '<input name="startDate[]" type="date" class="form-control" />'+
               '</div>'+
               '<div class="col-sm-5">'+
-                  '<label class="form-label" for="owner-driver-name">Internal Note</label>'+
+                  '<label class="form-label" for="">Internal Note</label>'+
                   '<textarea rows="1" cols="20" class="form-control" type="textarea" name="internalNote[]"></textarea>'+
               '</div>'+
               '<div class="col-sm-1">'+
-                  '<label class="form-label" for="owner-driver-name">Delete</label>'+
+                  '<label class="form-label" for="">Delete</label>'+
                   
               
                   '</button>'+
@@ -1161,18 +1198,25 @@ $(document).on('click','.remove',function() {
 $('#submitOwnerOparator').click(function(){
 
     var ownerPercentage=$('#ownerPercentage').val();
-    var ownerTruckNo=$('#ownerPercentage').val();
+    var ownerTruckNo=$('#ownerTruckNo').val();
+    var driverId=$('#driverid').val();
+    alert(driverId);
     
 
     if(ownerPercentage == ''){
+        // alert("Enter Percentage");
          swal.fire("Error!", "Enter Percentage", "error");
         // swal({title: 'Please Enter Date Of Birth',text: 'Redirecting...',timer: 1500,buttons: false,})
+        
         $("#ownerPercentage").focus();
+        return false;
     }
     if(ownerTruckNo == ''){
+        // alert("Enter Truck No");
         swal.fire("Error!", "Enter Truck No", "error");
        // swal({title: 'Please Enter Date Of Birth',text: 'Redirecting...',timer: 1500,buttons: false,})
-       $("#ownerPercentage").focus();
+       $("#ownerTruckNo").focus();
+       return false;
    }
 
     $.ajax({
@@ -1182,14 +1226,71 @@ $('#submitOwnerOparator').click(function(){
         data: {
                 'data':$('#addOwnerForm').serialize(),
                 '_token': $(".laravel_csrf_tokn").val(),
+                'driverId':driverId,
             },  
         success: function(text) {
             swal.fire("Done!", 'Add As Owner Oparator', "success");
+            // $.ajax({
+            //     type: "GET",
+            //     url: base_path+"/admin/driver",
+            //     async: false,
+            //     success: function(text) {
+            //         createDriverRows(text);
+            //         driverResponse = text;
+            //     }
+            // });
+            
         }
     });
     
 });
+// <!-- ------------------------------------------------------------------------- end driver application data  ------------------------------------------------------------------------- -->
+// <!-- ------------------------------------------------------------------------- edit driver application data  ------------------------------------------------------------------------- -->
+// $('body').on('click',function() {
+//     $('.editDriverOwner').click(function() {
+//         $('#editDriverOwnerModal').modal('show');
+//     });
+// });
 
+$(document).ready(function(){
+// $('body').on('click',function() {
+    $('.editDriverOwner').click(function(){
+        // alert();
+        var id = $(this).attr("data-id");
+        $.ajax({
+            url: base_path+"/admin/editDriverOwner",
+            type: "POST",
+            datatype:"JSON",
+            data: {'_token': $("#drivercsrf").val(),'id': id},
+            success: function(dataResult) {
+                
+                console.log(dataResult);
+                // $('#up_comId').val(com_id);
+                // $('#emaildriver').val(email);
+                // $('#up_name').val(dataResult.driverName);
+                // $('#up_username').val(dataResult.driverUsername);
+                // $('#up_address').val(dataResult.driverAddress);
+                // $('#up_telephone').val(dataResult.driverTelephone);
+                // $('#up_altTelephone').val(dataResult.driverAlt);
+                // $('#up_email').val(dataResult.driverEmail);
+                // $('#up_location').val(dataResult.driverLocation);
+              
+               
+                $('#editDriverOwnerModal').modal('show'); 
+            },
+            error: function(data){
+                console.log(data);
+                //alert("rr"); 
+            }
+        });
+    });
+});
+// });
+
+
+
+
+// <!-- ------------------------------------------------------------------------- end editOwner driver application data  ------------------------------------------------------------------------- -->
 
 // <!-- -------------------------------------------------------------------------Get Company ajax ------------------------------------------------------------------------- -->    
     $.ajax({
@@ -1209,11 +1310,12 @@ $('#submitOwnerOparator').click(function(){
         if (companyResponse != null) {
             len1 = companyResponse.length;
         }
-
+        
         if (len1 > 0) {
            var no=1;
-                for (var i = 0; i < len1; i++) {  
-                var len2=companyResponse[i].company.length; 
+           for (var i = 0; i < len1; i++) {  
+               var len2=companyResponse[i].company.length; 
+
                     if(len2 > 0){
                         for (var j = 0; j < len2; j++) {
                         var comid =companyResponse[i].companyID;
@@ -1227,11 +1329,22 @@ $('#submitOwnerOparator').click(function(){
                         var mailingAddress = companyResponse[i].company[j].mailingAddress;
                         var factoringCompany = companyResponse[i].company[j].factoringCompany;
                         var bankCompany = companyResponse[i].company[j].bankCompany;
-                        var filepath = companyResponse[i].company[j].filepath;
+                        if (companyResponse[i].company[j].file != '') {
+                            for (var k = 0; k < companyResponse[i].company[j].file.length; k++) {
+                                var filepath = base_path+'/'+companyResponse[i].company[j].file[k].filepath;
+                                var file_name = companyResponse[i].company[j].file[k].Originalname;
+                            }
+                        }
+                        else {
+                            var file_name = "Not Mentioned";
+                            var filepath = 'javascript:void(0)';
+                        }
+                        // var filepath = companyResponse[i].company[j].file[0].Originalname;
                         var delete_status = companyResponse[i].company[j].deleteStatus;
-
+                        
                         if(delete_status=="NO"){
                         var tr_str1 = "<tr data-id=" + (i + 1) + ">" +
+                            "<td ><input value='"+companyId+"' id='type_radio_2' name='type_radio' type='radio' /></td>" +
                             "<td data-field="+no+">" + no + "</td>" +
                             "<td data-field='companyName' >" + companyName + "</td>" +
                             "<td data-field='shippingAddress'>" + shippingAddress + "</td>" +
@@ -1242,11 +1355,12 @@ $('#submitOwnerOparator').click(function(){
                             "<td data-field='mailingAddress'>" + mailingAddress + "</td>" +
                             "<td data-field='factoringCompany'>" + factoringCompany + "</td>" +
                             "<td data-field='bankCompany'>" + bankCompany + "</td>" +
-                            "<td data-field='filepath'><a href="+ filepath +"></a></td>" +
-                            "<td style='width: 100px'><i class='btn btn-primary fe fe-edit edit' data-id=" + comid+ "&"+companyId + "><a>edit</a></i><a class='deleteDriver mt-2 btn btn-danger fs-14 text-white delete-icn' data-id=" + comid+ "&"+companyId + " title='Delete'><i class='fe fe-delete'></i></a></td></tr>";
+                            "<td data-field='filepath'><a href='"+ filepath +"' target='_blank'>"+ file_name +"</a></td>" +
+                            "<td><a class='editCompany mt-2 btn btn-primary fs-14 text-white edit3'  title='Edit' data-id=" + comid+ "&"+mailingAddress + "><i class='fe fe-edit'></i></a>&nbsp<a class='deleteCompany mt-2 btn btn-danger fs-14 text-white delete-icn' data-id=" + comid+ "&"+mailingAddress + " title='Delete'><i class='fe fe-delete'></i></a></td></tr>";
                         $("#companyTable").append(tr_str1);
                         no++;
                         }
+                        
                     } 
                 }
             }
@@ -1257,92 +1371,233 @@ $('#submitOwnerOparator').click(function(){
 
             $("#companyTable").append(tr_str1);
         }
-        // drivermodal();
+        companymodal();
     }
 
-//     $('#companyDataSubmit').click(function(){            
-//         var companyID = 1;
-//         var companyName = $('#inputCompanyName4').val();
-//         var username = $('#inputShippingAddress4').val();
-//         var address = $('#inputTelephoneNo4').val();
-//         var telephone = $('#inputFaxNo4').val();
-//         var altTelephone = $('#inputMcNo4').val();
-//         var email = $('#inputUsDotNo4').val();
-//         var password = $('#inputEmailAddress4').val();
-//         var location = $('#inputFactoringCompany4').val();
-//         var zip = $('#inputWebsite4').val();
-//         var status = $('#inputFile4').val();  
-//         // var tr_length1 = $("#driverModal").find("tr").length;
-//     $.ajax({
-//         url: base_path+"/admin/addDriver",
-//         type: "POST",
-//         datatype:"JSON",
-//         data: {
-//             _token: $("#csrf").val(),
-//           companyID: companyID,
-//           name: name,
-//           username: username,
-//           address: address,
-//           telephone: telephone,
-//           altTelephone: altTelephone,
-//           email: email,
-//           password: password,
-//           location: location,
-//           zip: zip,
-//           status: status,
-//           socialSecurityNo: socialSecurityNo,
-//           dateOfBirth: dateOfBirth,
-//           dateOfHire: dateOfHire,
-//           licenseNo: licenseNo,
-//           licenseIssueState: licenseIssueState,
-//           licenseExpDate: licenseExpDate,
-//           lastMedical: lastMedical,
-//           nextMedical: nextMedical,
-//           lastDrugTest: lastDrugTest,
-//           nextDrugTest: nextDrugTest,
-//           passportExpiry: passportExpiry,
-//           fastCardExpiry: fastCardExpiry,
-//           hazmatExpiry: hazmatExpiry,
-//           rate: rate,
-//           currency: currency,
-//           recurrencePlus: recurrencePlus,
-//           recurrenceMin: recurrenceMin,
-//           terminationDate: terminationDate,
-//           driverBalance: driverBalance,
-//           internalNotes: internalNotes,
-//           driverLoadedMile: loadedMiles,
-//           driverEmptyMile: emptyMiles,
-//           pickupRate: pickRate,
-//           pickupAfter: pickStart,
-//           dropRate: dropRate,
-//           dropAfter: dropStart,
-//           tarp: driverTarp,
-//           percentage: percentage,
-//         },
-//         cache: false,
-//         success: function(resp){
-//             if(resp.success == true){
-//                 swal.fire("Done!", resp.message, "success");
-//                 // $("#driverTable").append(tr_str4);
+    $('#companyDataSubmit').click(function(){            
+        // var companyID = 1;
+        // var companyName = $('#inputCompanyName4').val();
+        // var shippingAddress = $('#inputShippingAddress4').val();
+        // var telephoneNo = $('#inputTelephoneNo4').val();
+        // var faxNo = $('#inputFaxNo4').val();
+        // var mcNo = $('#inputMcNo4').val();
+        // var usDotNo = $('#inputUsDotNo4').val();
+        // var mailingAddress = $('#inputEmailAddress4').val();
+        // var factoringCompany = $('#customerBFactoringCompany1').val();
+        // var website = $('#inputWebsite4').val();
+        // var file = $('#file').val();  
+        
+        var form = document.forms.namedItem("addCompanyForm");
+        var formData = new FormData(form); 
+    $.ajax({
+        url: base_path+"/admin/addCompany",
+        type: "POST",
+        datatype:"JSON",
+        contentType: false,
+        data: formData,
+        processData: false,
+        cache: false,
+        success: function(resp){
+            if(resp.success == true){
+                swal.fire("Done!", resp.message, "success");
+                $.ajax({
+                    type: "GET",
+                    url: base_path+"/admin/company",
+                    async: false,
+                    success: function(text) {
+                        createCompanyRows(text);
+                        companyResponse = text;
+                    }
+                });
+                $("#addCompanyModal form").trigger("reset");
+            } 
+          },
+          error: function(data){
+            $.each( data.responseJSON.errors, function( key, value ) {
+                swal.fire("Error!", value[0], "error");
+            });
+            },
+    });
+});
+
+$('.companyDataUpdate').click(function(){        
+    // var companyID= $('#up_comId1').val();
+    // // var companySubID= $('#up_comSubId').val();
+    // var companyName= $('#up_companyName').val();
+    // var shippingAddress= $('#up_shippingAddress').val();
+    // var telephoneNo=$('#up_telephoneNo').val();
+    // var faxNo=$('#up_faxNo').val();
+    // var mcNo=$('#up_mcNo').val();
+    // var usDotNo=$('#up_usDotNo').val();
+    // var mailingAddress=$('#up_mailingAddress').val();
+    // var factoringCompany=$('#customerBFactoringCompany2').val();    
+    // var website=$('#up_website').val();  
+    var form = document.forms.namedItem("editCompanyForm");
+    var formData = new FormData(form);   
+    $.ajax({
+        url:base_path+"/admin/updateCompany" ,
+        type:'post',
+        datatype:"JSON",
+        contentType: false,
+        data: formData,
+        processData: false,
+        cache: false,
+        success: function(response){
+            var responsenew = JSON.parse(response);
+            if(responsenew.statusCode===200){
+                swal.fire("Done!", responsenew.message, "success");
+                $.ajax({
+                    type: "GET",
+                    url: base_path+"/admin/company",
+                    success: function(text) {
+                        createCompanyRows(text);
+                        response = text;
+                    }
+                });			
+            }
+          },
+          error: function(data){
+            $.each( data.responseJSON.errors, function( key, value ) {
+                swal.fire("Error!", value[0], "error"); 
+            });
+        }            
+    });
+});
+
+function companymodal()
+{
+    $(document).ready(function(){
+        $('.edit3').click(function(){
+            var id = $(this).attr("data-id");
+            var result = $(this).attr("data-id").split('&');
+            var com_id=result[0];
+            var email=result[1];
+            $.ajax({
+                url: base_path+"/admin/editCompany",
+                type: "GET",
+                datatype:"JSON",
+                data: {_token: $("#companycsrf").val(),com_id: com_id,email: email},
+                cache: false,
+                success: function(dataResult){
+                    $('#up_comId1').val(com_id);
+                    // $('#up_comSubId').val(companySubId);
+                    $('#up_companyName').val(dataResult.companyName);
+                    $('#up_shippingAddress').val(dataResult.shippingAddress);
+                    $('#up_telephoneNo').val(dataResult.telephoneNo);
+                    $('#up_faxNo').val(dataResult.faxNo);
+                    $('#up_mcNo').val(dataResult.mcNo);
+                    $('#up_usDotNo').val(dataResult.usDotNo);
+                    $('#up_mailingAddress').val(dataResult.mailingAddress);
+                    $('#customerBFactoringCompany2').val(dataResult.factoringCompany);
+                    $('#up_website').val(dataResult.website);                   
+                    $('#editCompanyModal').modal('show'); 
+                }
+            });
+        });
+    });
+    
+    $(".deleteCompany").on("click", function(){
+        var rowToDelete = $(this).closest('tr');
+        var id = $(this).attr("data-id");
+        var result = $(this).attr("data-id").split('&');
+        var com_id=result[0];
+        var email=result[1];
+        swal.fire({
+            title: "Delete?",
+            text: "Please ensure and then confirm!",
+            type: "warning",
+            showCancelButton: !0,
+            confirmButtonText: "Yes, delete it!",
+            cancelButtonText: "No, cancel!",
+            reverseButtons: !0
+        }).then(function (e) {
+
+        if (e.value === true) {
+        $.ajax({ 
+          url: base_path+"/admin/deleteCompany",
+          data: {com_id: com_id,email: email},
+          type: 'post',
+          success: function(resp){
+            if (resp.success === true) {
+				swal.fire("Done!", resp.message, "success");
+                $.ajax({
+                    type: "GET",
+                    url: base_path+"/admin/company",
+                    success: function(text) {
+                        createCompanyRows(text);
+                        response = text;
+                    }
+                });
+			} else {
+				swal.fire("Error!", resp.message, "error");
+			}
+		},
+		error: function (resp) {
+			swal.fire("Error!", 'Something went wrong.', "error");
+		}
+        });
+    } else {
+        e.dismiss;
+    }
+
+}, function (dismiss) {
+    return false;
+})
+    });
+}
+
+// function getNextSequence($id){
+//     $newid = $id + 1;
+//     return $newid;
+// }
+
+// function updateUserCompany($id) {
+//     $(".updateCompany").on("click", function(){
+//         var rowToDelete = $(this).closest('tr');
+//         var id = $(this).attr("data-id");
+//         var result = $(this).attr("data-id").split('&');
+//         var com_id=result[0];
+//         var email=result[1];
+//         swal.fire({
+//             title: "Delete?",
+//             text: "Please ensure and then confirm!",
+//             type: "warning",
+//             showCancelButton: !0,
+//             confirmButtonText: "Yes, delete it!",
+//             cancelButtonText: "No, cancel!",
+//             reverseButtons: !0
+//         }).then(function (e) {
+
+//         if (e.value === true) {
+//         $.ajax({ 
+//           url: base_path+"/admin/deleteCompany",
+//           data: {com_id: com_id,email: email},
+//           type: 'post',
+//           success: function(resp){
+//             if (resp.success === true) {
+// 				swal.fire("Done!", resp.message, "success");
 //                 $.ajax({
 //                     type: "GET",
-//                     url: base_path+"/admin/driver",
-//                     async: false,
+//                     url: base_path+"/admin/company",
 //                     success: function(text) {
-//                         createDriverRows(text);
-//                         driverResponse = text;
+//                         createCompanyRows(text);
+//                         response = text;
 //                     }
 //                 });
-//                 $("#addDriverModal form").trigger("reset");
-//             } 
-//           },
-//           error: function(data){
-//             $.each( data.responseJSON.errors, function( key, value ) {
-//                 swal.fire("Error!", value[0], "error");
-//             });
-//             },
-//     });
-    
-// });
+// 			} else {
+// 				swal.fire("Error!", resp.message, "error");
+// 			}
+// 		},
+// 		error: function (resp) {
+// 			swal.fire("Error!", 'Something went wrong.', "error");
+// 		}
+//         });
+//     } else {
+//         e.dismiss;
+//     }
 
+// }, function (dismiss) {
+//     return false;
 // })
+//     });
+// }

@@ -14289,6 +14289,7 @@ table {
 
 .table> :not(:last-child)> :last-child>* {
     border-bottom-color: #eaedf1;
+    /* background-color: #34495e; */
 }
 
 .table> :not(caption)>*>* {
@@ -14344,6 +14345,7 @@ div.dt-button-collection .dt-button:last-child {
 
 .table.editable-table td {
     vertical-align: middle;
+    white-space: nowrap;
 }
 
 .table.editable-table input,
@@ -27916,12 +27918,14 @@ body.rtl .buy-now {
 .table>tbody>tr>th {
     font-weight: 500;
     -webkit-transition: all 0.3s ease;
+   
 }
 
 .table>tfoot>tr>td,
 .table>tfoot>tr>th {
     font-weight: 500;
     -webkit-transition: all 0.3s ease;
+    
 }
 
 .table>thead>tr>td,
@@ -112219,5 +112223,10 @@ textarea.form-control {
 .resizeModal{
     max-height: calc(70vh - 3.5rem);
 }
+table  { margin-top:  20px; display: inline-block; overflow: auto; }
+th div { margin-top: -12px; margin-left: -12px; margin-right: 20px;  position: absolute;      padding: 5px 10px;   width: -webkit-fill-available;background-color: #34495e;color: white;    border-radius: 5px;     font-size: 15px;}
+
+/* design */
+table { border-collapse: collapse; }
 
 /*# sourceMappingURL=style.css.map */

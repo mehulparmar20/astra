@@ -97,7 +97,6 @@
 <script src="{{URL::to('/')}}/assets/js/customerLaravel.js"></script>
 <script src="{{URL::to('/')}}/assets/js/js/currencyLaravel.js"></script>
 
-
 </body>
 
 </html>

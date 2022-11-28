@@ -317,31 +317,39 @@ $(document).ready(function() {
             $("#plusCurrencyModal").modal("hide");
         });
 
-        $(".CurrencyrDataSubmit").click(function(){
-            var currencyName=$('#CurrencyrName').val();
-           //alert(currencyName);
-            $.ajax({
-                url: base_path+"/admin/addCurrency",
-                type: "POST",
-                datatype:"JSON",
-                data: {
-                    _token: $("#_tokenCustomerCurrency").val(),
-                    currencyName: currencyName,
-                },
-                cache: false,
-                success: function(dataCustomerCurrencyResult){
-                    console.log(dataCustomerCurrencyResult);
-                    if(dataCustomerCurrencyResult){
-                        swal.fire("Done!", "Currency added successfully", "success");
-                        // alert("Currency added successfully.");
-                        $("#plusCurrencyModal").modal("hide");
-                    }else{
-                        swal.fire("Try Again!", "Currency not added successfully", "error");
-                        // alert("Currency not added successfully.");
-                    }
-                }
-            });
-        });
+        // $(".CurrencyrDataSubmit").click(function(){
+        //     var currencyName=$('#CurrencyrName').val();
+        //    //alert(currencyName);
+        //     $.ajax({
+        //         url: base_path+"/admin/addCurrency",
+        //         type: "POST",
+        //         datatype:"JSON",
+        //         data: {
+        //             _token: $("#_tokenCustomerCurrency").val(),
+        //             currencyName: currencyName,
+        //         },
+        //         cache: false,
+        //         success: function(dataCustomerCurrencyResult){
+        //             console.log(dataCustomerCurrencyResult);
+        //             if(dataCustomerCurrencyResult){
+        //                 swal.fire("Done!", "Currency added successfully", "success");
+        //                 // alert("Currency added successfully.");
+        //                 $("#plusCurrencyModal").modal("hide");
+        //                 $.ajax({
+        //                     type: "GET",
+        //                     url: base_path+"/admin/getCurrency",
+        //                     success: function(text) {
+        //                         createGetCurrencyRows(text);
+        //                         currencyResult = text;
+        //                     }
+        //                 });	
+        //             }else{
+        //                 swal.fire("Try Again!", "Currency not added successfully", "error");
+        //                 // alert("Currency not added successfully.");
+        //             }
+        //         }
+        //     });
+        // });
         //});
 
     // <!-- -------------------------------------------------------------------------over add customer currency ------------------------------------------------------------------------- -->
