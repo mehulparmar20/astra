@@ -1261,16 +1261,10 @@ $(document).ready(function(){
             url: base_path+"/admin/editDriverOwner",
             type: "POST",
             datatype:"JSON",
-            data: {_token: $("#drivercsrf").val(),id: id},
-            success: function(text) {
-                if(text){
-                    alert("yes");
-                }else{
-                    alert("no"); 
-                }
+            data: {'_token': $("#drivercsrf").val(),'id': id},
+            success: function(dataResult) {
                 
-                // console.log(dataResult);
-                // $('#editDriverOwnerModal').modal('show');
+                console.log(dataResult);
                 // $('#up_comId').val(com_id);
                 // $('#emaildriver').val(email);
                 // $('#up_name').val(dataResult.driverName);
@@ -1282,10 +1276,11 @@ $(document).ready(function(){
                 // $('#up_location').val(dataResult.driverLocation);
               
                
-                // $('#editDriverOwnerModal').modal('show'); 
+                $('#editDriverOwnerModal').modal('show'); 
             },
             error: function(data){
-                alert("rr"); 
+                console.log(data);
+                //alert("rr"); 
             }
         });
     });

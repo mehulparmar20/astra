@@ -172,21 +172,28 @@ class CompanyController extends Controller
         $size='';
         $photo_path='';
 
-        if ($request->hasFile('filenew') && $request->file('filenew') != '') {
-            if(!empty($companyArrayUp[$v]['file'][0]['filename'])){
-                $imagePath = public_path('CompanyLogo/'.$companyArrayUp[$v]['file'][0]['filename']);
-                if(File::exists($imagePath)){
-                    unlink($imagePath);
+        if($request->filenew != null){
+            if ($request->hasFile('filenew') && $request->file('filenew') != '') {
+                if(!empty($companyArrayUp[$v]['file'][0]['filename'])){
+                    $imagePath = public_path('CompanyLogo/'.$companyArrayUp[$v]['file'][0]['filename']);
+                    if(File::exists($imagePath)){
+                        unlink($imagePath);
+                    }
                 }
+                $files = $request->file('filenew');
+                $ImageUpload = Image::make($files);
+                $originalPath = 'CompanyLogo/';
+                $ImageUpload->save($originalPath.time().$files->getClientOriginalName());
+                $photo_path = 'CompanyLogo/'.time().$files->getClientOriginalName();
+                $photo_name = time().$files->getClientOriginalName();
+                $original_name = $files->getClientOriginalName();
+                $size = $request->file("filenew")->getSize();
             }
-            $files = $request->file('filenew');
-            $ImageUpload = Image::make($files);
-            $originalPath = 'CompanyLogo/';
-            $ImageUpload->save($originalPath.time().$files->getClientOriginalName());
-            $photo_path = 'CompanyLogo/'.time().$files->getClientOriginalName();
-            $photo_name = time().$files->getClientOriginalName();
-            $original_name = $files->getClientOriginalName();
-            $size = $request->file("filenew")->getSize();
+        }else{
+            $photo_name=$companyArrayUp[$v]['file'][0]['filename'];
+            $original_name=$companyArrayUp[$v]['file'][0]['Originalname'];
+            $size=$companyArrayUp[$v]['file'][0]['filesize'];
+            $photo_path=$companyArrayUp[$v]['file'][0]['filepath'];
         }
 
        $companyArrayUp[$v]['companyName']=$request->up_companyName;

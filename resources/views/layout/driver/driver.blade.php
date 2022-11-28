@@ -914,7 +914,7 @@
                                         <div class="col-sm-4">
                                             <label class="form-label" for="owner-driver-name">Driver</label>
                                             <input type="text" class="form-control" list="drivernamelist" autocomplete="off" id="owner-driver-name" disabled/>
-                                            <input type="hidden" id="driverNamesid" value="" />
+                                            <input type="hidden" id="driverid" value=""  />
                                         </div>
                                         <div class="col-sm-4">
                                             <label class="form-label" for="ssnMask-cvv">Pay Percentage<span class="mandatory">* </span>( % )</label></label>

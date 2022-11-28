@@ -146,8 +146,7 @@ class DriverController extends Controller
 
     }
 
-    public function editDriverOwnerData(Request $request){
-        //dd($request);
+    public function editDriverOwnerData(Request $request){        
         $companyID=(int)1;
         $ownerOperatorID=(int)$request->id;
 
@@ -160,9 +159,7 @@ class DriverController extends Controller
 
         for ($i=0; $i<$arrayLength; $i++){
             $id=$result->ownerOperator[$i];
-
-            if($id['driverId']== $ownerOperatorID){
-                echo $i;
+            if($id['driverId']== $ownerOperatorID){                
                 $v=$i; 
             }
         }
