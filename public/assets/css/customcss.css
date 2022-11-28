@@ -494,7 +494,7 @@ ul.ks-cboxtags li input[type="checkbox"]:focus+label {
 }
 
 
-#addContractCategory, #contractCategoryModal, #addDriverModal, #addRecurrence, #substractRecurrence, #setupDriverModal, #addUserModal, #addDriverOwnerModal, #driverPayInfoEditModal, #driverPayInfoModal, #editDriverModal, #addDriverOwnerModal {
+#addContractCategory, #contractCategoryModal, #addDriverModal, #addRecurrence, #substractRecurrence, #setupDriverModal, #addUserModal, #userEditModal, #addDriverOwnerModal, #driverPayInfoEditModal, #driverPayInfoModal, #editDriverModal, #addDriverOwnerModal {
   backdrop-filter: blur(1px) contrast(.1);
 }
 
