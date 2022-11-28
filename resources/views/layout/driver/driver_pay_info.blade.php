@@ -3,14 +3,14 @@
 
 
 
-    <div class="modal fade" id="driverPayInfoModal">
-        <div class="modal-dialog modal-dialog-scrollable modal-xl">
+    <div class="modal fade" data-backdrop="static" id="driverPayInfoModal">
+        <div class="modal-dialog modal-dialog-scrollable custom_modal_small2">
             <div class="modal-content">
 
                 <!-- Modal Header -->
                 <div class="modal-header">
                     <h4 class="modal-title">Driver Pay Info</h4>
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <button type="button" class="button-24" data-dismiss="modal">&times;</button>
                 </div>
 
                 <!-- Modal body -->
@@ -83,10 +83,7 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <br>
-                                                <a type="submit" class="btn btn-primary" data-dismiss="modal"
-                                                    id="useredit">Submit</a>
-                                                <br>
+                                                
                                             </form>
                                             <br>
                                         </div>
@@ -100,7 +97,9 @@
 
                 <!-- Modal footer -->
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="button-29" data-dismiss="modal"
+                                                    id="useredit">Submit</button>
+                    <button type="button" class="button-29" data-dismiss="modal">Close</button>
                 </div>
 
             </div>
@@ -115,14 +114,14 @@
 
 
 
-    <div class="modal fade" id="driverPayInfoEditModal">
-        <div class="modal-dialog modal-dialog-scrollable modal-xl">
+    <div class="modal fade" data-backdrop="static" id="driverPayInfoEditModal">
+        <div class="modal-dialog modal-dialog-scrollable custom_modal_small2">
             <div class="modal-content">
 
                 <!-- Modal Header -->
                 <div class="modal-header">
                     <h4 class="modal-title">Driver Pay Info</h4>
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <button type="button" class="button-24" data-dismiss="modal">&times;</button>
                 </div>
 
                 <!-- Modal body -->
@@ -195,10 +194,7 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <br>
-                                                <a type="submit" class="btn btn-primary" data-dismiss="modal"
-                                                    id="useredit">Submit</a>
-                                                <br>
+                                                
                                             </form>
                                             <br>
                                         </div>
@@ -212,7 +208,8 @@
 
                 <!-- Modal footer -->
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="button-29" data-dismiss="modal" id="useredit">Submit</button>
+                    <button type="button" class="button-29" data-dismiss="modal">Close</button>
                 </div>
 
             </div>
