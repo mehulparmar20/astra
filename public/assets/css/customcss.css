@@ -494,7 +494,7 @@
   }
   
   
-  #addContractCategory, #contractCategoryModal, #addDriverModal, #addRecurrence, #substractRecurrence, #setupDriverModal, #addUserModal, #userEditModal, #addDriverOwnerModal, #editDriverOwnerModal, #driverPayInfoEditModal, #driverPayInfoModal, #editDriverModal, #addDriverOwnerModal {
+  #addContractCategory, #contractCategoryModal, #addDriverModal, #addRecurrence, #substractRecurrence, #setupDriverModal, #addUserModal, #userEditModal, #addDriverOwnerModal, #editDriverOwnerModal, #driverPayInfoEditModal, #driverPayInfoModal, #editDriverModal, #addDriverOwnerModal, #addCustomerModal {
     backdrop-filter: blur(1px) contrast(.1);
   }
   
@@ -543,6 +543,59 @@
     box-shadow: #3c4fe0 0 3px 7px inset;
     transform: translateY(2px);
   }
+
+  /* button-29 ALT */
+  .button-29_alt {
+    align-items: center;
+    appearance: none;
+    background-image: radial-gradient(100% 100% at 100% 0, #5adaff 0, #5468ff 100%);
+    border: 0;
+    border-radius: 6px;
+    box-shadow: rgb(45 35 66 / 40%) 0 2px 4px, rgb(45 35 66 / 30%) 0 7px 13px -3px, rgb(58 65 111 / 50%) 0 -3px 0 inset;
+    box-sizing: border-box;
+    color: #fff;
+    cursor: pointer;
+    display: inline-flex;
+    font-family: "JetBrains Mono",monospace;
+    height: 33px;
+    justify-content: center;
+    line-height: 1;
+    list-style: none;
+    overflow: hidden;
+    padding-left: 40px;
+    padding-right: 40px;
+    position: relative;
+    text-align: left;
+    text-decoration: none;
+    transition: box-shadow .15s,transform .15s;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    white-space: nowrap;
+    will-change: box-shadow,transform;
+    font-size: 12px;
+    margin-right: 5px;
+  }
+  
+  .button-29_alt:focus {
+    box-shadow: #3c4fe0 0 0 0 1.5px inset, rgba(45, 35, 66, .4) 0 2px 4px, rgba(45, 35, 66, .3) 0 7px 13px -3px, #3c4fe0 0 -3px 0 inset;
+  }
+  
+  .button-29_alt:hover {
+    box-shadow: rgba(45, 35, 66, .4) 0 4px 8px, rgba(45, 35, 66, .3) 0 7px 13px -3px, #3c4fe0 0 -3px 0 inset;
+    transform: translateY(-2px);
+    color: #fff;
+  }
+  
+  .button-29_alt:active {
+    box-shadow: #3c4fe0 0 3px 7px inset;
+    transform: translateY(2px);
+  }
+
+  /* END */
+
+
+
   
   
   .button-24 {
