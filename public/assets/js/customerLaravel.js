@@ -466,7 +466,8 @@ $('.customerBFactoringCompanySet').focus(function(){
         $(".customerBFactoringCompanySet").html('');
          for (var i = 0; i < customerBFactoringCompanyLength; i++) {  
              var factoringCompanyname =customerBFactoringCompanyResponse.factoring[i].factoringCompanyname;
-             var customerFactoringCompanyname = "<option id='customerFactoringCompanyname' value='"+ factoringCompanyname +"'>"+ factoringCompanyname +"</option>"
+             var factoringCompanyId =customerBFactoringCompanyResponse.factoring[i]._id;
+             var customerFactoringCompanyname = "<option id='customerFactoringCompanyname' value='"+ factoringCompanyId +"'>"+ factoringCompanyname +"</option>"
              //"<a class='dropdown-item custCurrency' value='"+ currency +"'>"+ no +" )"+ currency +"</a>";
 
              $(".customerBFactoringCompanySet").append(customerFactoringCompanyname);
@@ -478,9 +479,10 @@ $('.customerBFactoringCompanySet').focus(function(){
      }
      
  }
+ 
 // <!-- -------------------------------------------------------------------------over get customer  Factoring Company ------------------------------------------------------------------------- -->   
  //<!-- ------------------------------------------------------------------------- add customer factoringCompany ------------------------------------------------------------------------- -->
- $("#plusFactoringCompany").click(function(){
+ $(".plusFactoringCompany").click(function(){
     $("#factoringCompanyModal").modal("show");
 });
 

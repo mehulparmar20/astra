@@ -289,7 +289,6 @@
 		
             <!-- /app-Header -->
 
-			@include('layout.customer.customer')
             @include('layout.driver.driver') 
             @include('layout.user.user') 
             @include('layout.user.add_user') 
@@ -297,9 +296,9 @@
             @include('layout.driver.driver_pay_info') 
             @include('layout.driver.driver_contract') 
             @include('layout.company.company') 
-			@include('layout.currency.currency')
-			@include('layout.driver.add_contract_category')
-			@include('layout.driver.addRecurrence')
-			@include('layout.company.company')
+
+			@include('layout.currency.currency') 
+			@include('layout.customer.customer')
+
         
 			
