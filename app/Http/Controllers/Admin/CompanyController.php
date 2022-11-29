@@ -147,6 +147,7 @@ class CompanyController extends Controller
             'up_telephoneNo' => 'required',
             'up_mailingAddress' => 'required|unique:company,company.mailingAddress'.$request->up_mailingAddress,
             'filenew' => 'image|mimes:jpg,jpeg,png,gif,svg|max:2048',
+
         ]);
 
         // $companyIDUp=(int)$request->companyID;
@@ -257,6 +258,7 @@ class CompanyController extends Controller
     }
 
     public function updateUserCompany(Request $request){
+
         $email=$request->email;
         $result = Company::where('companyID',1 )->first();
         $companyArray=$result->company;
@@ -277,6 +279,7 @@ class CompanyController extends Controller
         $user = Auth::user();
         $user->companyName = $compidupdate;
         $user->companyID = 1;
+
         $user->save();
         $data = [
             'success' => true,
