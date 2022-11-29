@@ -1,6 +1,6 @@
 
 <!-- app-Header -->
-            <div class="app-header header sticky" style="padding: 0; background-color:#FBFBFB">
+<div class="app-header header sticky" style="padding: 0; background-color:#FBFBFB">
                 <div class="container-fluid main-container">
                     <div class="d-flex">
                         <a aria-label="Hide Sidebar" class="app-sidebar__toggle" data-bs-toggle="sidebar" href="#"></a>
@@ -53,7 +53,7 @@
 												<li><a href="https://laravel8.spruko.com/noa/wysiwyag" class="slide-item">Load Type</a></li>
 												<li><a href="https://laravel8.spruko.com/noa/form-editable" class="slide-item">Fuel Vendor Name</a></li>
 												<li><a href="https://laravel8.spruko.com/noa/form-wizard" class="slide-item">Recurrence Category</a></li>
-												<li><a href="https://laravel8.spruko.com/noa/form-wizard" class="slide-item">Currency Setting</a></li>
+												<li><a href="#" id="currency_navbar" class="slide-item">Currency Setiing</a></li>
 												<li><a href="https://laravel8.spruko.com/noa/form-wizard" class="slide-item">Add Terms & Conditions</a></li>
 												<li><a href="https://laravel8.spruko.com/noa/form-wizard" class="slide-item">Payment Terms</a></li>
 												<li><a href="https://laravel8.spruko.com/noa/form-wizard" class="slide-item">Dispatch Conditions</a></li>
@@ -72,7 +72,7 @@
 												<li><a href="#customerModal" class="slide-item" data-toggle="modal" data-target="#customerModal">Customer</a></li>
 												<li><a href="https://laravel8.spruko.com/noa/form-layouts" class="slide-item" data-bs-toggle="modal" data-bs-target="#extralargemodal">Shipper & Consignee</a></li>
 												<li><a href="https://laravel8.spruko.com/noa/form-validation" class="slide-item">External Carrier</a></li>
-												<li><a href="#driverModal" class="slide-item" data-toggle="modal" data-target="#driverModal">Driver & Owner Operator</a></li>
+												<li><a href="#driverModal" class="slide-item" data-toggle="modal" data-target="#driverModal" id="currency_navbar">Driver & Owner Operator</a></li>
 												<li><a href="#userModal" class="slide-item" data-toggle="modal" data-target="#userModal">User</a></li>
 												<li><a href="https://laravel8.spruko.com/noa/wysiwyag" class="slide-item">Truck</a></li>
 												<li><a href="https://laravel8.spruko.com/noa/form-editable" class="slide-item">Trailer</a></li>
@@ -289,7 +289,6 @@
 		
             <!-- /app-Header -->
 
-			@include('layout.customer.customer')
             @include('layout.driver.driver') 
             @include('layout.user.user') 
             @include('layout.user.add_user') 
@@ -297,5 +296,7 @@
             @include('layout.driver.driver_pay_info') 
             @include('layout.driver.driver_contract') 
             @include('layout.company.company') 
+			@include('layout.currency.currency') 
+			@include('layout.customer.customer')
         
 			
