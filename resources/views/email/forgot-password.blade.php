@@ -27,7 +27,7 @@
                     </tr>
                     <tr>
                         <td style="text-align:center;">
-                          <a href="" title="logo" target="_blank">
+                          <a href="https://rakeshmandal.com" title="logo" target="_blank">
                             <img width="60" src="{{URL::to('/')}}/assets/images/brand/Astra_logo.png" title="logo" alt="logo">
                           </a>
                         </td>
@@ -52,7 +52,7 @@
                                             We cannot simply send you your old password. We have sent you a New Temporary Password. Use this Password to login to your account and reset your password from the edit profile section.
                                         </p>
                                         <h3>New Password</h3>
-                                        <a style="background:#0A469D;text-decoration:none !important; font-weight:500; color:#fff; font-size:14px;padding:10px 24px;display:inline-block;border-radius:5px;"><strong>{{$password}}</strong></a>
+                                        <a style="background:#0A469D;text-decoration:none !important; font-weight:500; color:#fff;text-transform:uppercase; font-size:14px;padding:10px 24px;display:inline-block;border-radius:5px;"><strong>{{$password}}</strong></a>
                                     </td>
                                 </tr>
                                 <tr>
@@ -79,4 +79,3 @@
 </body>
 
 </html>
-

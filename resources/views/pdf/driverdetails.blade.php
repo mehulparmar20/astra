@@ -9,7 +9,7 @@
 
     <style>
         table {
-            width: 95%;
+            width: 100%;
             border-collapse: collapse;
             margin: 50px auto;
         }
@@ -54,7 +54,6 @@
             <tr>
                 <th style="width:10%">Driver Name</th>
                 <th style="width:10%">Username</th>
-                <th style="width:10%">Email</th>
                 <th style="width:10%">Email</th>
                 <th style="width:10%">Telephone</th>
                 <th style="width:10%">Address</th>

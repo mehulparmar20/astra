@@ -6,8 +6,8 @@
 
                 <!-- Modal Header -->
                 <div class="modal-header">
-                    <h4 class="modal-title">Edit Driver</h4>
-                    <button type="button" class="close " data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Add Recurrence</h4>
+                    <button type="button" class="button-24" data-dismiss="modal">&times;</button>
                 </div>
 
                 <!-- Modal body -->
@@ -64,7 +64,7 @@
                             <tfoot>
                                 <tr>
                                     <th colspan="12" class="tableFooter" style="text-align:left;">
-                                        <button id="btnAdd2" type="button" class="btn btn-primary" data-toggle="tooltip"
+                                        <button id="btnAdd2" type="button" class="button-29" data-toggle="tooltip"
                                             data-original-title="Add more controls"><i class="mdi mdi-gamepad-down"></i> ADD
                                         </button>
                                     </th>
@@ -78,13 +78,9 @@
 
                 <!-- Modal footer -->
                 <div class="modal-footer">
-                    
-                    <!-- <button type="button" class="btn btn-secondary editModalCloseButton"
-                        data-dismiss="modal">Close</button> -->
-                        <label class="text-danger" style="padding-right: 65%"><b>Note :</b>&nbsp; * Fields are mandatory</label>
-                <button type="button" class="btn btn-danger waves-effect" data-dismiss="modal">
-                    <i class='mdi mdi-close'></i> Close  </button>
-                <button type="button" class="btn btn-primary waves-effect waves-light"><i class="mdi mdi-shield-lock-outline"></i> Save </button>
+                    <label class="text-danger" style="padding-right: 65%"><b>Note :</b>&nbsp; * Fields are mandatory</label>
+                    <button type="button" class="button-29"><i class="mdi mdi-shield-lock-outline"></i> Save </button>
+                    <button type="button" class="button-29" data-dismiss="modal">Close</button>
                 </div>
 
                 <datalist id="fixpaycat">
@@ -101,8 +97,3 @@
         </div>
     </div>
 </div>
-
-
-<script>
-
-</script>

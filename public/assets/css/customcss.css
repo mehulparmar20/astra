@@ -2,8 +2,8 @@
     font-size: 13px;
     font-weight: bold;
   }
-
-.sticky span {
+  
+  .sticky span {
     font-size: 12px !important;
   }
   .horizontal .side-menu .side-menu__icon
@@ -24,12 +24,12 @@
     font-size: 13px;
     color: black;
   }
-
+  
   #driverTable {
     font-size: 13px;
     color: black;
   }
-
+  
   .tabs {
     position: relative;
     top: 50%;
@@ -42,16 +42,16 @@
     background: #f5f5f5;
     box-shadow: 5px 5px 10px 5px #ccc;
     overflow: hidden;
-}
-
-.tabs .tab-header {
+  }
+  
+  .tabs .tab-header {
     float: left;
     width: 180px;
     height: 100%;
     border-right: 1px solid #ccc;
-}
-
-.tabs .tab-header>div {
+  }
+  
+  .tabs .tab-header>div {
     height: 50px;
     line-height: 50px;
     font-size: 16px;
@@ -59,26 +59,26 @@
     color: #888;
     cursor: pointer;
     padding-left: 10px;
-}
-
-.tabs .tab-header>div:hover,
-.tabs .tab-header>div.active {
+  }
+  
+  .tabs .tab-header>div:hover,
+  .tabs .tab-header>div.active {
     color: #00acee;
-}
-
-.tabs .tab-header div i {
+  }
+  
+  .tabs .tab-header div i {
     display: inline-block;
     margin-left: 10px;
     margin-right: 5px;
-}
-
-.tabs .tab-content {
+  }
+  
+  .tabs .tab-content {
     position: relative;
     height: 100%;
     overflow: hidden;
-}
-
-.tabs .tab-content>div>i {
+  }
+  
+  .tabs .tab-content>div>i {
     display: inline-block;
     width: 50px;
     height: 50px;
@@ -89,27 +89,27 @@
     text-align: center;
     line-height: 50px;
     border-radius: 50%;
-}
-
-.tabs .tab-content>div {
+  }
+  
+  .tabs .tab-content>div {
     position: absolute;
     top: -200%;
     transition: all 500ms ease-in-out;
-}
-
-.tabs .tab-content>div.active {
+  }
+  
+  .tabs .tab-content>div.active {
     top: 0px;
-}
-
-ul.ks-cboxtags {
+  }
+  
+  ul.ks-cboxtags {
     list-style: none;
-}
-
-ul.ks-cboxtags li {
+  }
+  
+  ul.ks-cboxtags li {
     display: inline;
-}
-
-ul.ks-cboxtags li label {
+  }
+  
+  ul.ks-cboxtags li label {
     display: inline-block;
     background-color: rgba(255, 255, 255, .9);
     border: 2px solid rgba(139, 139, 139, .3);
@@ -124,14 +124,14 @@ ul.ks-cboxtags li label {
     user-select: none;
     -webkit-tap-highlight-color: transparent;
     transition: all .2s;
-}
-
-ul.ks-cboxtags li label {
+  }
+  
+  ul.ks-cboxtags li label {
     padding: 8px 12px;
     cursor: pointer;
-}
-
-ul.ks-cboxtags li label::before {
+  }
+  
+  ul.ks-cboxtags li label::before {
     display: inline-block;
     font-style: normal;
     font-variant: normal;
@@ -143,54 +143,54 @@ ul.ks-cboxtags li label::before {
     padding: 2px 6px 2px 2px;
     content: "\f067";
     transition: transform .3s ease-in-out;
-}
-
-ul.ks-cboxtags li input[type="checkbox"]:checked+label::before {
+  }
+  
+  ul.ks-cboxtags li input[type="checkbox"]:checked+label::before {
     content: "\f00c";
     transform: rotate(-360deg);
     transition: transform .3s ease-in-out;
-}
-
-ul.ks-cboxtags li input[type="checkbox"]:checked+label {
+  }
+  
+  ul.ks-cboxtags li input[type="checkbox"]:checked+label {
     border: 2px solid #1bdbf8;
     background-color: #12bbd4;
     color: #fff;
     transition: all .2s;
-}
-
-ul.ks-cboxtags li input[type="checkbox"] {
+  }
+  
+  ul.ks-cboxtags li input[type="checkbox"] {
     display: absolute;
-}
-
-ul.ks-cboxtags li input[type="checkbox"] {
+  }
+  
+  ul.ks-cboxtags li input[type="checkbox"] {
     position: absolute;
     opacity: 0;
-}
-
-ul.ks-cboxtags li input[type="checkbox"]:focus+label {
+  }
+  
+  ul.ks-cboxtags li input[type="checkbox"]:focus+label {
     border: 2px solid #e9a1ff;
-}
-
-.email_class_err {
+  }
+  
+  .email_class_err {
     border-bottom: 1px solid red !important;
-}
-
-.email_class_suc {
+  }
+  
+  .email_class_suc {
     border-bottom: 1px solid green !important;
-}
-
-.email_error {
+  }
+  
+  .email_error {
     color: red !important;
     /* font-weight: bold; */
     font-family: sans-serif;
-}
-
-.email_succ {
+  }
+  
+  .email_succ {
     color: green !important;
     /* font-weight: bold; */
     font-family: sans-serif;
-}
-.add1button {
+  }
+  .add1button {
     background: #323477;
   }
   #editmodel {
@@ -208,26 +208,23 @@ ul.ks-cboxtags li input[type="checkbox"]:focus+label {
   {
     max-width: 95% !important;
   }
-
   
-
-
   /* small screen, hidden by default */
-@media only screen and (max-width: 770px ) {
+  @media only screen and (max-width: 770px ) {
   .custom_modal_small{
     top: 4%;
     left: 5%;
   }
-}
-
-/* large screen, shown by default */
-@media only screen and (min-width: 771px ) {
+  }
+  
+  /* large screen, shown by default */
+  @media only screen and (min-width: 771px ) {
   .custom_modal_small{
-
+  
     top: 4%;
   }
-}
-
+  }
+  
   .custom_modal_small{
     max-width: 85% !important;
     max-height: 85% !important;
@@ -235,33 +232,33 @@ ul.ks-cboxtags li input[type="checkbox"]:focus+label {
     margin: 0 auto;
     top: 4%;
   }
-
+  
     /* small screen, hidden by default */
-@media only screen and (max-width: 770px ) {
+  @media only screen and (max-width: 770px ) {
   .custom_modal_small2{
     top: 4%;
     left: 10%;
   }
-}
-
-/* large screen, shown by default */
-@media only screen and (min-width: 771px ) {
+  }
+  
+  /* large screen, shown by default */
+  @media only screen and (min-width: 771px ) {
   .custom_modal_small2{
-
+  
     top: 9%;
   }
-}
-
+  }
+  
   .custom_modal_small2{
     max-width: 75% !important;
     max-height: 75% !important;
     position: relative;
     margin: 0 auto;
     top: 9%;
-
+  
   }
-
-
+  
+  
   .button-54 {
     font-family: "Open Sans", sans-serif;
     font-size: 16px;
@@ -291,8 +288,8 @@ ul.ks-cboxtags li input[type="checkbox"]:focus+label {
         padding: 0.25em 0.75em;
     }
   }
-
-
+  
+  
   .button-57 {
     position: relative;
     overflow: hidden;
@@ -355,10 +352,10 @@ ul.ks-cboxtags li input[type="checkbox"]:focus+label {
     opacity: 1;
     transition: all 900ms cubic-bezier(0.48, 0, 0.12, 1);
   }
-
-
+  
+  
   /* alter css */
-
+  
   .button-57_alt {
     position: relative;
     overflow: hidden;
@@ -421,8 +418,8 @@ ul.ks-cboxtags li input[type="checkbox"]:focus+label {
     opacity: 1;
     transition: all 900ms cubic-bezier(0.48, 0, 0.12, 1);
   }
-
-
+  
+  
   .button-23 {
     background-color: transparent;
     border: 0.5px solid #1A1A1A;
@@ -448,7 +445,7 @@ ul.ks-cboxtags li input[type="checkbox"]:focus+label {
     box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
     transform: translateY(-2px);
   }
-
+  
   .button-23:active {
     background-color: #0202029d;
     border-color: #000000;
@@ -462,7 +459,7 @@ ul.ks-cboxtags li input[type="checkbox"]:focus+label {
     cursor: not-allowed;
     opacity: 1;
   }
-
+  
   /* button delete */
   .button-23-del {
     background-color: transparent;
@@ -495,12 +492,12 @@ ul.ks-cboxtags li input[type="checkbox"]:focus+label {
     cursor: not-allowed;
     opacity: 1;
   }
-
-
-  #addContractCategory, #contractCategoryModal, #addDriverModal, #addRecurrence, #substractRecurrence, #setupDriverModal, #addUserModal, #editDriverModal {
+  
+  
+  #addContractCategory, #contractCategoryModal, #addDriverModal, #addRecurrence, #substractRecurrence, #setupDriverModal, #addUserModal, #userEditModal, #addDriverOwnerModal, #editDriverOwnerModal, #driverPayInfoEditModal, #driverPayInfoModal, #editDriverModal, #addDriverOwnerModal {
     backdrop-filter: blur(1px) contrast(.1);
   }
-
+  
   .button-29 {
     align-items: center;
     appearance: none;
@@ -546,8 +543,8 @@ ul.ks-cboxtags li input[type="checkbox"]:focus+label {
     box-shadow: #3c4fe0 0 3px 7px inset;
     transform: translateY(2px);
   }
-
-
+  
+  
   .button-24 {
     background: #FF4742;
     border: 1px solid #FF4742;
@@ -583,7 +580,7 @@ ul.ks-cboxtags li input[type="checkbox"]:focus+label {
   .button-24:active {
     opacity: .5;
   }
-
+  
   .button-28 {
     appearance: none;
     background-color: transparent;

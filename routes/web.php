@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\DriverController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\CustomerController;
 use App\Http\Controllers\Admin\CompanyController;
+use App\Http\Controllers\Admin\CurrencyController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,7 +28,7 @@ Route::get('/table', function () {
     });
 
     Route::get('/admin/driverApplication2', function () {
-        return view('driver_application_form2');
+        return view('layout.driver.driver_application_form2');
     });
     Route::get('/admin/driverApplication', function () {
         return view('driver_application_form');
@@ -64,17 +65,34 @@ Route::post('admin/addApplicationForm', [DriverController::class, 'addApplicatio
 Route::post('admin/setupDriver', [DriverController::class, 'setupDriver']);
 Route::post('admin/driverPDF', [DriverController::class, 'downloadPDF'])->name('driver-pdf');
 Route::get('admin/getContract', [DriverController::class, 'getContract']);
+Route::post('admin/addDriverContractCategory', [DriverController::class, 'addDriverContractCategory']);
+Route::get('admin/viewDriverApplication', [DriverController::class, 'getViewDriverApplication']);
+Route::post('admin/addOwnerOparator', [DriverController::class, 'addOwnerOparator']);
+Route::post('admin/editDriverOwner', [DriverController::class, 'editDriverOwnerData']);
+
 
 //customer
 Route::get('admin/customer', [CustomerController::class, 'getCustomerData']);
 Route::post('admin/addCustomer', [CustomerController::class, 'addCustomerData']);
+
+//addCurrency
 Route::get('admin/customerCurrency', [CustomerController::class, 'getCustomerCurrency']);
-Route::get('admin/getCustomerPaymentTerms', [CustomerController::class, 'getCustomerPaymentTerms']);
-Route::get('admin/getCustomerBFactoringCompany', [CustomerController::class, 'getCustomerBFactoringCompany']);
+Route::get('admin/getCurrency', [CurrencyController::class, 'getCurrency']);
 Route::post('admin/addCurrency', [CustomerController::class, 'addCustomerCurrency']);
+Route::post('admin/updateCurrency', [CurrencyController::class, 'updateCurrency']);
+
+//PaymentTerms
+Route::get('admin/getCustomerPaymentTerms', [CustomerController::class, 'getCustomerPaymentTerms']);
 Route::post('admin/PaymentTerms', [CustomerController::class, 'addCustomerPaymentTerms']);
+
+//factoringCompany
+Route::get('admin/getCustomerBFactoringCompany', [CustomerController::class, 'getCustomerBFactoringCompany']);
 Route::post('admin/factoringCompany', [CustomerController::class, 'addCustomerfactoringCompany']);
 
-
-// company
+//company
 Route::get('admin/company', [CompanyController::class, 'getCompanyData']);
+Route::post('admin/addCompany', [CompanyController::class, 'addCompanyData']);
+Route::get('admin/editCompany', [CompanyController::class, 'editCompanyData']);
+Route::post('admin/updateCompany', [CompanyController::class, 'updateCompanyData']);
+Route::post('admin/deleteCompany', [CompanyController::class, 'deleteCompany']);
+Route::post('admin/updateUserCompany', [CompanyController::class, 'updateUserCompany']);

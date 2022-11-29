@@ -10,8 +10,8 @@ $(document).ready(function() {
         //dataType:JSON,
         success: function(customerResult) {
             //console.log(customerResult);
-            createcustomerRows(customerResult);
-            customerResponse = customerResult;
+            // createcustomerRows(customerResult);
+            // customerResponse = customerResult;
         }
     });
 
@@ -107,6 +107,7 @@ $(document).ready(function() {
         var customerZip= $('#customerZip').val();
 
         if(customerName == ''){
+            // swal.fire("Done!", "Currency added successfully", "success");
             alert("Please Enter Name");
             $('#customerName').focus();
             return false;
@@ -271,9 +272,6 @@ $(document).ready(function() {
                 success: function(customerCurrencyResult) {                    
                     createcustomerCurrencyList(customerCurrencyResult);
                     customerCurrencyResponse = customerCurrencyResult;
-
-                    
-
                 }
             });
         });
@@ -303,7 +301,7 @@ $(document).ready(function() {
             }
             
         }
-    // <!-- -------------------------------------------------------------------------over get customer currency ------------------------------------------------------------------------- -->
+//     // <!-- -------------------------------------------------------------------------over get customer currency ------------------------------------------------------------------------- -->
     // <!-- ------------------------------------------------------------------------- add customer currency ------------------------------------------------------------------------- -->
         $("#plusCurrency").click(function(){
             $("#plusCurrencyModal").modal("show");
@@ -319,71 +317,44 @@ $(document).ready(function() {
             $("#plusCurrencyModal").modal("hide");
         });
 
-        $(".CurrencyrDataSubmit").click(function(){
-            var currencyName=$('#CurrencyrName').val();
-           //alert(currencyName);
-            $.ajax({
-                url: base_path+"/admin/addCurrency",
-                type: "POST",
-                datatype:"JSON",
-                data: {
-                    _token: $("#_tokenCustomerCurrency").val(),
-                    currencyName: currencyName,
-                },
-                cache: false,
-                success: function(dataCustomerCurrencyResult){
-                    console.log(dataCustomerCurrencyResult);
-                    if(dataCustomerCurrencyResult){
-                        alert("Currency added successfully.");
-                        $("#plusCurrencyModal").modal("hide");
-                    }else{
-                        alert("Currency not added successfully.");
-                    }
-                }
-            });
-        });
+        // $(".CurrencyrDataSubmit").click(function(){
+        //     var currencyName=$('#CurrencyrName').val();
+        //    //alert(currencyName);
+        //     $.ajax({
+        //         url: base_path+"/admin/addCurrency",
+        //         type: "POST",
+        //         datatype:"JSON",
+        //         data: {
+        //             _token: $("#_tokenCustomerCurrency").val(),
+        //             currencyName: currencyName,
+        //         },
+        //         cache: false,
+        //         success: function(dataCustomerCurrencyResult){
+        //             console.log(dataCustomerCurrencyResult);
+        //             if(dataCustomerCurrencyResult){
+        //                 swal.fire("Done!", "Currency added successfully", "success");
+        //                 // alert("Currency added successfully.");
+        //                 $("#plusCurrencyModal").modal("hide");
+        //                 $.ajax({
+        //                     type: "GET",
+        //                     url: base_path+"/admin/getCurrency",
+        //                     success: function(text) {
+        //                         createGetCurrencyRows(text);
+        //                         currencyResult = text;
+        //                     }
+        //                 });	
+        //             }else{
+        //                 swal.fire("Try Again!", "Currency not added successfully", "error");
+        //                 // alert("Currency not added successfully.");
+        //             }
+        //         }
+        //     });
+        // });
         //});
 
     // <!-- -------------------------------------------------------------------------over add customer currency ------------------------------------------------------------------------- -->
-    //<!-- ------------------------------------------------------------------------- add customer PaymentTerms ------------------------------------------------------------------------- -->
-        $("#plusPaymentTerms").click(function(){
-            $("#PaymentTermsModal").modal("show");
-        });
-        $("#plusPaymentTerms2").click(function(){
-            $("#PaymentTermsModal").modal("show");
-        });
-
-        $("#closePaymentTermsModal").click(function(){
-            $("#PaymentTermsModal").modal("hide");
-        });
-
-        $(".PaymentTermsDataSubmit").click(function(){
-            var PaymentTermsName=$('#PaymentTermsName').val();
-           //alert(currencyName);
-            $.ajax({
-                url: base_path+"/admin/PaymentTerms",
-                type: "POST",
-                datatype:"JSON",
-                data: {
-                    _token: $("#_tokenCustomerPaymentTerms").val(),
-                    PaymentTermsName: PaymentTermsName,
-                },
-                cache: false,
-                success: function(dataCustomerPaymentTermsNameResult){
-                    console.log(dataCustomerPaymentTermsNameResult);
-                    if(dataCustomerPaymentTermsNameResult){
-                        alert("Payment Terms added successfully.");
-                        $("#PaymentTermsModal").modal("hide");
-                    }else{
-                        alert("Payment Terms not added successfully.");
-                    }
-                }
-            });
-        });
-        //});
-
-    // <!-- -------------------------------------------------------------------------over add customer currency ------------------------------------------------------------------------- -->
-    // <!-- -------------------------------------------------------------------------get customer payment terms ------------------------------------------------------------------------- -->  
+    
+        // <!-- -------------------------------------------------------------------------get customer payment terms ------------------------------------------------------------------------- -->  
   
    $('.customerPaymentTermSet').focus(function(){
     //alert(); 
@@ -429,6 +400,46 @@ $(document).ready(function() {
      
  }
 // <!-- -------------------------------------------------------------------------over get customer  payment terms ------------------------------------------------------------------------- -->  
+
+    
+    //<!-- ------------------------------------------------------------------------- add customer PaymentTerms ------------------------------------------------------------------------- -->
+        $("#plusPaymentTerms").click(function(){
+            $("#PaymentTermsModal").modal("show");
+        });
+        $("#plusPaymentTerms2").click(function(){
+            $("#PaymentTermsModal").modal("show");
+        });
+
+        $("#closePaymentTermsModal").click(function(){
+            $("#PaymentTermsModal").modal("hide");
+        });
+
+        $(".PaymentTermsDataSubmit").click(function(){
+            var PaymentTermsName=$('#PaymentTermsName').val();
+           //alert(currencyName);
+            $.ajax({
+                url: base_path+"/admin/PaymentTerms",
+                type: "POST",
+                datatype:"JSON",
+                data: {
+                    _token: $("#_tokenCustomerPaymentTerms").val(),
+                    PaymentTermsName: PaymentTermsName,
+                },
+                cache: false,
+                success: function(dataCustomerPaymentTermsNameResult){
+                    console.log(dataCustomerPaymentTermsNameResult);
+                    if(dataCustomerPaymentTermsNameResult){
+                        alert("Payment Terms added successfully.");
+                        $("#PaymentTermsModal").modal("hide");
+                    }else{
+                        alert("Payment Terms not added successfully.");
+                    }
+                }
+            });
+        });
+        //});
+
+    // <!-- -------------------------------------------------------------------------over add PaymentTerms ------------------------------------------------------------------------- -->
 // <!-- -------------------------------------------------------------------------get customer Factoring Company ------------------------------------------------------------------------- -->  
   
 $('.customerBFactoringCompanySet').focus(function(){

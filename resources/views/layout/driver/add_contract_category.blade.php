@@ -79,9 +79,8 @@
 
                 <!-- Modal footer -->
                 <div class="modal-footer">
-                    <button type="button" class="button-29 waves-effect" data-dismiss="modal">
-                        <i class='mdi mdi-close'></i> Close  </button>
                     <button type="button" class="button-29 waves-effect waves-light"><i class="mdi mdi-shield-lock-outline"></i> Save </button>
+                    <button type="button" class="button-29 waves-effect" data-dismiss="modal"> <i class='mdi mdi-close'></i> Close </button>
                 </div>
 
             </div>

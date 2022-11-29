@@ -14,6 +14,9 @@ class VerifyCsrfToken extends Middleware
     protected $except = [
         '/admin/delete-user',
         '/admin/edit-user',
-        '/admin/deleteDriver'
+        '/admin/deleteDriver',
+        '/admin/contractSubCategoryModal',
+        '/admin/deleteCompany',
+        '/admin/updateCompany',
     ];
 }

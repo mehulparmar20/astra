@@ -560,4 +560,12 @@ $('.off-canvas').on('click', function () {
     $('body').addClass('pe-0');
 });
 
+$('.userEditModalCloseButton').click(function(){
+    $('#userEditModal').modal('hide');
+    // $('#userModal').modal('show');  
+});
 
+$('#userEditModal').modal({
+    backdrop: 'static',
+    keyboard: false
+})

@@ -22,7 +22,8 @@ class CustomerController extends Controller
     }
 
     public function getCustomerCurrency(Request $request){
-        $companyIDForCustomer=2;
+        
+        $companyIDForCustomer=1;
         $customerCurr = Currency_add::where('companyID',$companyIDForCustomer)->first();
        // dd($customerCurr);
         return response()->json($customerCurr, 200, [], JSON_PARTIAL_OUTPUT_ON_ERROR);
@@ -30,24 +31,22 @@ class CustomerController extends Controller
 
     public function addCustomerCurrency(Request $request){
          //dd($request);
-        $companyIDForCustomer=2;
-
         //$customerAdd = Customer::all();
    
-        $companyIDForCurrency=2;
+        $companyIDForCurrency=1;
         $totalCurrencyArray=0;
         $getCompanyForCurrency = Currency_add::where('companyID',$companyIDForCurrency)->first();
 
         if($getCompanyForCurrency){
             $currencyArray=$getCompanyForCurrency->currency;
-            $totalCurrencyArray=count($currencyArray)+ 1;
+            $totalCurrencyArray=count($currencyArray);
         }
    
         $currencyData[]=array(    
                         '_id' => $totalCurrencyArray,
                         'counter' => 0,
                         'currencyType' => $request->currencyName,
-                        'deleteStatus' => '',
+                        'deleteStatus' => 'no',
                         'deleteUser' => '',
                         'deleteTime' => '',
                         );
@@ -55,8 +54,8 @@ class CustomerController extends Controller
             if($getCompanyForCurrency){
                 
                 Currency_add::where(['companyID' =>$companyIDForCurrency])->update([
-                    'counter'=> $totalCurrencyArray,
-                    'currency' =>array_merge($currencyData,$currencyArray) ,
+                    'counter'=> $totalCurrencyArray+1,
+                    'currency' =>array_merge($currencyArray,$currencyData) ,
                 ]);
 
                 $arrCurrency = array('status' => 'success', 'message' => 'Currency added successfully.'); 
@@ -83,7 +82,7 @@ class CustomerController extends Controller
     }
 
     public function getCustomerPaymentTerms(Request $request){
-        $companyIDForCustomer=2;
+        $companyIDForCustomer=1;
         $customerPaymentterms = Payment_terms::where('companyID',$companyIDForCustomer)->first();
        // dd($customerCurr);
         return response()->json($customerPaymentterms, 200, [], JSON_PARTIAL_OUTPUT_ON_ERROR);
@@ -91,11 +90,11 @@ class CustomerController extends Controller
 
     public function addCustomerPaymentTerms(Request $request){
         //dd($request);
-       $companyIDForPaymentTerms=2;
+       $companyIDForPaymentTerms=1;
 
        //$customerAdd = Customer::all();
   
-       $companyIDForPaymentTerms=2;
+       $companyIDForPaymentTerms=1;
        $totalPaymentTermsArray=0;
        $getCompanyForPaymentTerms = Payment_terms::where('companyID',$companyIDForPaymentTerms)->first();
 
@@ -106,7 +105,7 @@ class CustomerController extends Controller
   
        $PaymentTermsData[]=array(    
                        '_id' => $totalPaymentTermsArray,
-                       'counter' => 0,
+                       'counter' => $totalPaymentTermsArray,
                        'paymentTerm' => $request->PaymentTermsName,
                        'created_by' => '',
                        'deleteStatus' => 'No',
@@ -167,7 +166,7 @@ class CustomerController extends Controller
   
        $CustomerfactoringData[]=array(    
                        '_id' => $totalCustomerfactoringArray,
-                       'counter' => 0,
+                       'counter' => $totalCustomerfactoringArray,
                        
                        'factoringCompanyname' => $request->factoringCompanyName,
                        'address' => $request->factoringCompanyAddress,

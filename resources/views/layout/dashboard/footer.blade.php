@@ -59,6 +59,9 @@
 <!-- SIDE-MENU JS -->
 <script src="{{URL::to('/')}}/assets/plugins/sidemenu/sidemenu.js"></script>
 
+<!-- dashboard js -->
+<!-- <script src="{{URL::to('/')}}/assets/js/js/form.js"></script> -->
+
 <!-- DATA TABLE JS-->
 
 <script src="{{URL::to('/')}}/assets/plugins/datatable/js/dataTables.buttons.min.js"></script>
@@ -83,9 +86,6 @@
 
 <script src="{{URL::to('/')}}/assets/js/laravel.js"></script>
 
-
-
-
 <!-- INTERNAL DATATABLES JS -->
 <script src="{{URL::to('/')}}/assets/js/table-editable.js"></script>
 
@@ -94,6 +94,8 @@
 <script src="{{URL::to('/')}}/assets/js/openmodel.js"></script>
 <script src="{{URL::to('/')}}/assets/js/userprev.js"></script>
 <script src="{{URL::to('/')}}/static/js/checkbox.js"></script>
+<script src="{{URL::to('/')}}/assets/js/customerLaravel.js"></script>
+<script src="{{URL::to('/')}}/assets/js/js/currencyLaravel.js"></script>
 
 </body>
 

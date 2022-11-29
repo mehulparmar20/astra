@@ -48,6 +48,12 @@
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
         <script src = "http://cdn.datatables.net/1.10.18/js/jquery.dataTables.min.js" defer ></script>
+<!-- sweetalert -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js" ></script>
+
+
+        
+      
 
 <style type="text/css">
    .header-brand-img {
@@ -58,14 +64,14 @@
    /* padding-bottom: 5px;*/
 }
 
-.course{
+/* .course{
     background-color:#8fbd56;
     padding:5px; 
     border: 2px solid #8fbd56;
     border-radius: 12px;
     color:white;
     box-shadow: 5px 10px rgb(187, 185, 185);
-}
+} */
 </style>
 </head>
 
