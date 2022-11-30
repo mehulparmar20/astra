@@ -1,6 +1,7 @@
 var base_path = $("#url").val();
-// <!-- -------------------------------------------------------------------------Get customer ajax ------------------------------------------------------------------------- -->  
 $(document).ready(function() {
+// <!-- -------------------------------------------------------------------------Get customer ------------------------------------------------------------------------- -->  
+  $('#customer_navbar').click(function(){
     //alert('customer');
     var customerResponse = '';
     $.ajax({
@@ -10,10 +11,13 @@ $(document).ready(function() {
         //dataType:JSON,
         success: function(customerResult) {
             //console.log(customerResult);
-            // createcustomerRows(customerResult);
-            // customerResponse = customerResult;
+            createcustomerRows(customerResult);
+            customerResponse = customerResult;
         }
     });
+    $("#customerModal").modal("show");
+  }); 
+
 
     function createcustomerRows(customerResponse) {
 
@@ -21,53 +25,55 @@ $(document).ready(function() {
         var custlen1 = 0;
         
         $('#customerTable').empty(); // Empty <tbody>
-        if (customerResponse != null) {
-            custlen1 = customerResponse.length;
-            //len1 = sizeof($driverResponse);
-        }
+        // if (customerResponse != null) {
+        //     custlen1 = customerResponse.length;
+        //     //len1 = sizeof($driverResponse);
+        // }
 
-        if (custlen1 > 0) {
+        //if (custlen1 > 0) {
            var no=1;
-                for (var i = 0; i < custlen1; i++) {  
-                var custlen2=customerResponse[i].customer.length; 
-                    if(custlen2 > 0){
+                //for (var i = 0; i < custlen1; i++) {  
+                var custlen2=customerResponse.customer.length; 
+                    //if(custlen2 > 0){
                         for (var j = 0; j < custlen2; j++) {
                         // var counter = driverResponse[i].counter;
                         // var no = driverResponse[i]._id;
-                        var custComid =customerResponse[i].companyID;
+                        var custComid =customerResponse.companyID;
                         //var driverId=customerResponse[i].customer[j]._id;
-                        var custName = customerResponse[i].customer[j].custName;
-                        var custLocation = customerResponse[i].customer[j].custLocation;
-                        var custZip = customerResponse[i].customer[j].custZip;
-                        var custPrimaryContact = customerResponse[i].customer[j].primaryContact;
-                        var custTelephone = customerResponse[i].customer[j].custTelephone;
-                        var custEmail = customerResponse[i].customer[j].custEmail;
+                        var custName = customerResponse.customer[j].custName;
+                        var custLocation = customerResponse.customer[j].custLocation;
+                        var custZip = customerResponse.customer[j].custZip;
+                        var custPrimaryContact = customerResponse.customer[j].primaryContact;
+                        var custTelephone = customerResponse.customer[j].custTelephone;
+                        var custEmail = customerResponse.customer[j].custEmail;
+                        var delete_status = customerResponse.customer[j].deleteStatus;
+                        if(delete_status=="NO"){
+                            var customerStr = "<tr data-id=" + (i + 1) + ">" +
+                            //  "<td id='id1'>" + id+ "&"+driverId + "</td>" +
+                                "<td data-field='no'>" + no + "</td>" +
+                                "<td data-field='customerName' >" + custName + "</td>" +
+                                "<td data-field='customerLocation'>" + custLocation + "</td>" +
+                                "<td data-field='customerZip'>" + custZip + "</td>" +
+                                "<td data-field='customerPrimaryContacte'>" + custPrimaryContact + "</td>" +
+                                "<td data-field='customerTelephone'>" + custTelephone + "</td>" +
+                                "<td data-field='customerEmail'>" + custEmail + "</td>" +
 
-                        var customerStr = "<tr data-id=" + (i + 1) + ">" +
-                        //  "<td id='id1'>" + id+ "&"+driverId + "</td>" +
-                            "<td data-field='no'>" + no + "</td>" +
-                            "<td data-field='customerName' >" + custName + "</td>" +
-                            "<td data-field='customerLocation'>" + custLocation + "</td>" +
-                            "<td data-field='customerZip'>" + custZip + "</td>" +
-                            "<td data-field='customerPrimaryContacte'>" + custPrimaryContact + "</td>" +
-                            "<td data-field='customerTelephone'>" + custTelephone + "</td>" +
-                            "<td data-field='customerEmail'>" + custEmail + "</td>" +
+                                // "<td style='width: 100px'><a class='btn btn-primary fs-14 text-white edit-icn' title='Edit' id='edit'><i class='fe fe-edit' ></i></a></td></tr>"
+                                "<td style='width: 100px'><i class='btn btn-primary fe fe-edit customerEdit' data-id=" + custComid+ "&"+custEmail + "> </i><a class=' btn btn-danger fs-14 text-white customerDelete-icn' data-id=" + custComid+ "&"+custEmail + " title='Delete'><i class='fe fe-delete'></i></a></td></tr>";
 
-                            // "<td style='width: 100px'><a class='btn btn-primary fs-14 text-white edit-icn' title='Edit' id='edit'><i class='fe fe-edit' ></i></a></td></tr>"
-                            "<td style='width: 100px'><i class='btn btn-primary fe fe-edit customerEdit' data-id=" + custComid+ "&"+custEmail + "> </i><a class=' btn btn-danger fs-14 text-white customerDelete-icn' data-id=" + custComid+ "&"+custEmail + " title='Delete'><i class='fe fe-delete'></i></a></td></tr>";
-
-                        $("#customerTable").append(customerStr);
-                        no++;
-                    } 
-                }
+                            $("#customerTable").append(customerStr);
+                            no++;
+                        }
+                    //} 
+                //}
             }
-        } else {
-            var customerStr = "<tr data-id=" + i + ">" +
-                "<td align='center' colspan='4'>No record found.</td>" +
-                "</tr>";
+        // } else {
+        //     var customerStr = "<tr data-id=" + i + ">" +
+        //         "<td align='center' colspan='4'>No record found.</td>" +
+        //         "</tr>";
 
-            $("#customerTable").append(customerStr);
-        }
+        //     $("#customerTable").append(customerStr);
+        // }
 
     }
     // <!-- -------------------------------------------------------------------------Get customer over ------------------------------------------------------------------------- -->  
@@ -466,7 +472,8 @@ $('.customerBFactoringCompanySet').focus(function(){
         $(".customerBFactoringCompanySet").html('');
          for (var i = 0; i < customerBFactoringCompanyLength; i++) {  
              var factoringCompanyname =customerBFactoringCompanyResponse.factoring[i].factoringCompanyname;
-             var customerFactoringCompanyname = "<option id='customerFactoringCompanyname' value='"+ factoringCompanyname +"'>"+ factoringCompanyname +"</option>"
+             var factoringCompanyId =customerBFactoringCompanyResponse.factoring[i]._id;
+             var customerFactoringCompanyname = "<option id='customerFactoringCompanyname' value='"+ factoringCompanyId +"'>"+ factoringCompanyname +"</option>"
              //"<a class='dropdown-item custCurrency' value='"+ currency +"'>"+ no +" )"+ currency +"</a>";
 
              $(".customerBFactoringCompanySet").append(customerFactoringCompanyname);
@@ -637,7 +644,7 @@ $(".factoringCompanyDataSubmit").click(function(){
           
         }
     });
-
+// <!-- -------------------------------------------------------------------------------------------------------------------------------------------------- -->  
 });
 
 //show_add_customer

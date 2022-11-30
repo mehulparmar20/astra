@@ -69,6 +69,7 @@ Route::post('admin/addDriverContractCategory', [DriverController::class, 'addDri
 Route::get('admin/viewDriverApplication', [DriverController::class, 'getViewDriverApplication']);
 Route::post('admin/addOwnerOparator', [DriverController::class, 'addOwnerOparator']);
 Route::post('admin/editDriverOwner', [DriverController::class, 'editDriverOwnerData']);
+Route::post('admin/updateOwnerOparator', [DriverController::class, 'updateOwnerOparator']);
 
 
 //customer

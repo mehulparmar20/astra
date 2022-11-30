@@ -17,8 +17,10 @@ class CustomerController extends Controller
     
     
     public function getCustomerData(Request $request){
-        $customer = Customer::all();
+        $companyID=(int)1;
+        $customer = Customer::where('companyID',$companyID )->first();
         return response()->json($customer, 200, [], JSON_PARTIAL_OUTPUT_ON_ERROR);
+       
     }
 
     public function getCustomerCurrency(Request $request){

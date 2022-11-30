@@ -69,7 +69,8 @@
 											</a>
 											<ul class="slide-menu">
 												<li class="side-menu-label1"><a href="javascript:void(0)">Admin</a></li>
-												<li><a href="#customerModal" class="slide-item" data-toggle="modal" data-target="#customerModal">Customer</a></li>
+												<!-- <li><a href="#customerModal" class="slide-item" data-toggle="modal" data-target="#customerModal">Customer</a></li> -->
+												<li><a href="#" id="customer_navbar" class="slide-item">Customer</a></li>
 												<li><a href="https://laravel8.spruko.com/noa/form-layouts" class="slide-item" data-bs-toggle="modal" data-bs-target="#extralargemodal">Shipper & Consignee</a></li>
 												<li><a href="https://laravel8.spruko.com/noa/form-validation" class="slide-item">External Carrier</a></li>
 												<li><a href="#driverModal" class="slide-item" data-toggle="modal" data-target="#driverModal" id="currency_navbar">Driver & Owner Operator</a></li>

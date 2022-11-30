@@ -504,16 +504,16 @@ $('.editModalCloseButton').click(function(){
     $('#editDriverModal').modal('hide');
     $('#driverModal').modal('show');  
 });
-$('.addDriverOwner').click(function(){
-    var name =$(this).data('name');
-    $('#owner-driver-name').val(atob(name));
+// $('.addDriverOwner').click(function(){
+//     var name =$(this).data('name');
+//     $('#owner-driver-name').val(atob(name));
 
-    var driver_id =$(this).data('id');
-    $('#driverid').val(driver_id);
+//     var driver_id =$(this).data('id');
+//     $('.driver-id').val(driver_id);
 
-    // console.log(atob(name));
-    $('#addDriverOwnerModal').modal('show');  
-});
+//     // console.log(atob(name));
+//     $('#addDriverOwnerModal').modal('show');  
+// });
 
 
 
@@ -533,11 +533,268 @@ $('.addDriverOwner').click(function(){
 
 
 // <!--------------------------------------------------------------------------- end of get driver  --------------------------------------------------------------------------->
-// <!--------------------------------------------------------------------------- delete driver ajax --------------------------------------------------------------------------->    
+// <!-- ------------------------------------------------------------------------- Owner driver application data  ------------------------------------------------------------------------- -->
+
+   
+  
+  var OwnerOperatorblock = '<div class="optionBox ">'+
+      '<div class="block">'+
+          '<div class="row row-sm" id="OwnerOperatorContainer">'+
+                  '<div class="col-sm-3">'+
+                      '<label class="form-label" for="">Category</label>'+
+                      '<input type="text" class="form-control" name="installmentCategory[]" list="fixpaycat" placeholder=" Search here..." autocomplete="off" />'+
+                  '</div>'+
+                  '<div class="col-sm-3">'+
+                      '<label class="form-label" for="">Installment Type</label>'+
+                          '<select name="installmentType[]" class="form-control">'+
+                              '<option value="">Select type</option>'+
+                              '<option value="Weekly">Weekly</option>'+
+                              '<option value="Monthly">Monthly</option>'+
+                              '<option value="yearly">Yearly</option>'+
+                              '<option value="Quarterly">Quarterly</option>'+
+                          '</select>'+
+                  '</div>'+
+                  '<div class="col-sm-3">'+
+                      '<label class="form-label" for="">Amount</label>'+
+                      '<input name="amount[]" type="text" class="form-control" />'+
+                  '</div>'+
+                  '<div class="col-sm-3">'+
+                      '<label class="form-label" for="">Installment</label>'+
+                      '<input name="installment[]" type="text" class="form-control"  />'+
+                  '</div>'+
+                  '<div class="col-sm-3">'+
+                      '<label class="form-label" for="">start#</label>'+
+                      '<input name="startNo[]" type="text" class="form-control"  />'+
+                  '</div>'+
+                  '<div class="col-sm-3">'+
+                      '<label class="form-label" for="">start Date</label>'+
+                      '<input name="startDate[]" type="date" class="form-control" />'+
+                  '</div>'+
+                  '<div class="col-sm-5">'+
+                      '<label class="form-label" for="">Internal Note</label>'+
+                      '<textarea rows="1" cols="20" class="form-control" type="textarea" name="internalNote[]"></textarea>'+
+                  '</div>'+
+                  '<div class="col-sm-1">'+
+                      '<label class="form-label" for="">Delete</label>'+
+                      
+                  
+                      '</button>'+
+                  '</div>'+
+                  '<!-- <input type="text" /> <span class="remove">Remove Option</span> -->'+
+                  '<button type="button" class="btn btn-danger remove"><spanaria-hidden="true">&times;</span>'+
+          '</div>'+
+      '</div>'+
+      '</div>'
+  
+  $('.add').click(function() {
+      $(this).before(OwnerOperatorblock);
+  });
+  
+  $(document).on('click','.remove',function() {
+      $(this).parent('div').remove();
+  });
+  
+  $('#submitOwnerOparator').click(function(){
+  
+      var ownerPercentage=$('#ownerPercentage').val();
+      var ownerTruckNo=$('#ownerTruckNo').val();
+      var driverId=$('#driverid').val();
+     // alert(driverId);
+      
+  
+      if(ownerPercentage == ''){
+          // alert("Enter Percentage");
+           swal.fire("Error!", "Enter Percentage", "error");
+          // swal({title: 'Please Enter Date Of Birth',text: 'Redirecting...',timer: 1500,buttons: false,})
+          
+          $("#ownerPercentage").focus();
+          return false;
+      }
+      if(ownerTruckNo == ''){
+          // alert("Enter Truck No");
+          swal.fire("Error!", "Enter Truck No", "error");
+         // swal({title: 'Please Enter Date Of Birth',text: 'Redirecting...',timer: 1500,buttons: false,})
+         $("#ownerTruckNo").focus();
+         return false;
+     }
+  
+      $.ajax({
+          type: "POST",
+          url: base_path+"/admin/addOwnerOparator",
+          dataType: 'json',
+          data: {
+                  'data':$('#addOwnerForm').serialize(),
+                  '_token': $(".laravel_csrf_tokn").val(),
+                  'driverId':driverId,
+              },  
+          success: function(text) {
+              swal.fire("Done!", 'Add As Owner Oparator', "success");
+  
+              $.ajax({
+                  type: "GET",
+                  url: base_path+"/admin/driver",
+                  success: function(text) {
+                      createDriverRows(text);
+                      response = text;
+                  }
+              });	
+  
+              $('#addDriverOwnerModal').modal('hide');
+              $('#driverModal').modal('show');
+              
+          }
+      });
+      
+  });
+  // <!-- ------------------------------------------------------------------------- end driver application data  ------------------------------------------------------------------------- -->
+  // <!-- ------------------------------------------------------------------------- edit driver application data  ------------------------------------------------------------------------- -->
+  // $('body').on('click',function() {
+  //     $('.editDriverOwner').click(function() {
+  //         $('#editDriverOwnerModal').modal('show');
+  //     });
+  // });
+  
+  //$(document).ready(function(){
+  
+  
+  $('body').on('click',function() {
+      $('.editDriverOwner').click(function(){
+        
+          // alert();
+          var id = $(this).attr("data-id");
+          $.ajax({
+              url: base_path+"/admin/editDriverOwner",
+              type: "POST",
+              datatype:"JSON",
+              data: {'_token': $("#drivercsrf").val(),'id': id},
+              success: function(dataResult) {
+                  $('.up_optionBox').empty(); 
+                  $('.optionBox').empty(); 
+                  // console.log(dataResult);
+                  $('#up_ownerid').val(dataResult[0]._id);
+                  $('#up_driverid').val(dataResult[0].driverId);
+                  $('#up_owner-driver-name').val(dataResult[1]);
+                  $('#up_ownerPercentage').val(dataResult[0].percentage);
+                  $('#up_ownerTruckNo').val(dataResult[0].truckNo);
+              
+                  $array=dataResult[0].installment;
+                  //alert($array.length)
+                  
+                  $.each($array, function(index,value) {
+                      // alert($array[index]['installmentCategory']);
+  
+                      var _id =$array[index]['_id'];
+                      var installmentCategory =$array[index]['installmentCategory'];
+                      var installmentType =$array[index]['installmentType'];
+                      var amount =$array[index]['amount'];
+                      var installment =$array[index]['installment'];
+                      var startNo =$array[index]['startNo'];
+                      var startDate =$array[index]['startDate'];
+                      var internalNote =$array[index]['internalNote'];
+                      
+                      $(".up_optionBox").append('<div>'+
+                                              '<div class="block">'+
+                                                  '<div class="row row-sm" id="up_OwnerOperatorContainer">'+
+                                                      '<div class="col-sm-3">'+
+                                                          '<label class="form-label" for="">Category</label>'+
+                                                          '<input type="text" class="form-control" name="up_installmentCategory[]" list="fixpaycat" placeholder=" Search here..." autocomplete="off" value="'+installmentCategory +'"/>'+
+                                                      '</div>'+
+                                                      '<div class="col-sm-3">'+
+                                                          '<label class="form-label" for="">Installment Type</label>'+
+                                                              '<select name="up_installmentType[]" class="form-control test_test ">'+
+                                                                  '<option value="">Select type</option>'+
+                                                                  '<option value="Weekly">Weekly</option>'+
+                                                                  '<option value="Monthly">Monthly</option>'+
+                                                                  '<option value="yearly">Yearly</option>'+
+                                                                  '<option value="Quarterly">Quarterly</option>'+
+                                                              '</select>'+
+                                                      '</div>'+
+                                                      '<div class="col-sm-3">'+
+                                                          '<label class="form-label" for="">Amount</label>'+
+                                                          '<input name="up_amount[]" type="text" class="form-control" value="'+amount +'"  />'+
+                                                      '</div>'+
+                                                      '<div class="col-sm-3">'+
+                                                          '<label class="form-label" for="">Installment</label>'+
+                                                          '<input name="up_installment[]" type="text" class="form-control" value="'+installment +'" />'+
+                                                      '</div>'+
+                                                      '<div class="col-sm-3">'+
+                                                          '<label class="form-label" for="">start#</label>'+
+                                                          '<input name="up_startNo[]" type="text" class="form-control" value="'+startNo +'" />'+
+                                                      '</div>'+
+                                                      '<div class="col-sm-3">'+
+                                                          '<label class="form-label" for="">start Date</label>'+
+                                                          '<input name="up_startDate[]" type="date" class="form-control" value="'+startDate +'" />'+
+                                                      '</div>'+
+                                                      '<div class="col-sm-5">'+
+                                                          '<label class="form-label" for="">Internal Note</label>'+
+                                                          '<textarea rows="1" cols="20" class="form-control" type="textarea" name="up_internalNote[]">'+internalNote +'</textarea>'+
+                                                      '</div>'+
+                                                      '<div class="col-sm-1">'+
+                                                          '<label class="form-label" for="">Delete</label>'+
+                                                          
+                                                          '</button>'+
+                                                      '</div>'+
+                                                      '<!-- <input type="text" /> <span class="remove">Remove Option</span> -->'+
+                                                      '<button type="button" class="btn btn-danger remove"><spanaria-hidden="true">&times;</span>'+
+                                                  '</div>'+
+                                              '</div>'+
+                                          '</div>'
+                      );
+  
+                      $(".test_test").val(installmentType);
+                      
+                  });
+               
+                  $('#editDriverOwnerModal').modal('show'); 
+              },
+              error: function(data){
+                  console.log(data);
+                  //alert("rr"); php
+              }
+          });
+      });
+  
+      
+  });
+//   });
+  
+  $('#up_submitOwnerOparator').click(function(){
+    // alert();
+    var ownerId =$('#up_ownerid').val();
+    var driverId=$('#up_driverid').val();
+
+    // alert(ownerId);
+    // alert(driverId);
 
 
-// <!-- -------------------------------------------------------------------------end of delete driver ajax ------------------------------------------------------------------------- -->    
-
+    $.ajax({
+        type: "POST",
+        url: base_path+"/admin/updateOwnerOparator",
+        dataType: 'json',
+        data: {
+                'data':$('#up_addOwnerForm').serialize(),
+                '_token': $(".laravel_csrf_tokn").val(),
+                'ownerId':ownerId,
+                'driverId':driverId,
+            },  
+        success: function(text) {
+            swal.fire("Done!", 'UpdateOwner Oparator', "success");
+            $("#editDriverOwnerModal").modal('hide');
+            $.ajax({
+                type: "GET",
+                url: base_path+"/admin/driver",
+                success: function(text) {
+                    createDriverRows(text);
+                    driverResponse = text;
+                }
+            });
+            
+        }
+    });
+});
+  
+  
+  // <!-- ------------------------------------------------------------------------- end editOwner driver application data  ------------------------------------------------------------------------- -->
 // <!-- ------------------------------------------------------------------------- add driver  ------------------------------------------------------------------------- -->
 
       $('.driverDataSubmit').click(function(){   
@@ -1033,6 +1290,11 @@ function drivermodal()
         var name =$(this).data('name');
         $('#owner-driver-name').val(atob(name));
         console.log(atob(name));
+
+        var driver_id =$(this).data('id');
+        $('.driver-id').val(driver_id);
+        console.log(driver_id);
+
         $('#addDriverOwnerModal').modal('show');  
     });
 }
@@ -1128,165 +1390,7 @@ $(document).ready(function() {
 });
 
 // <!-- ------------------------------------------------------------------------- end view driver application data  ------------------------------------------------------------------------- -->
-// <!-- ------------------------------------------------------------------------- Owner driver application data  ------------------------------------------------------------------------- -->
 
-function inc_percentage() {
-  document.getElementById("ownerPercentage").stepUp(1);
-}
-function dec_percentage() {
-    document.getElementById("ownerPercentage").stepUp(-1);
-  }
-  
-
-  var OwnerOperatorblock = '<div class="optionBox ">'+
-  '<div class="block">'+
-      '<div class="row row-sm" id="OwnerOperatorContainer">'+
-              '<div class="col-sm-3">'+
-                  '<label class="form-label" for="">Category</label>'+
-                  '<input type="text" class="form-control" name="installmentCategory[]" list="fixpaycat" placeholder=" Search here..." autocomplete="off" />'+
-              '</div>'+
-              '<div class="col-sm-3">'+
-                  '<label class="form-label" for="">Installment Type</label>'+
-                      '<select name="installmentType[]" class="form-control">'+
-                          '<option value="">Select type</option>'+
-                          '<option value="Weekly">Weekly</option>'+
-                          '<option value="Monthly">Monthly</option>'+
-                          '<option value="yearly">Yearly</option>'+
-                          '<option value="Quarterly">Quarterly</option>'+
-                      '</select>'+
-              '</div>'+
-              '<div class="col-sm-3">'+
-                  '<label class="form-label" for="">Amount</label>'+
-                  '<input name="amount[]" type="text" class="form-control" />'+
-              '</div>'+
-              '<div class="col-sm-3">'+
-                  '<label class="form-label" for="">Installment</label>'+
-                  '<input name="installment[]" type="text" class="form-control"  />'+
-              '</div>'+
-              '<div class="col-sm-3">'+
-                  '<label class="form-label" for="">start#</label>'+
-                  '<input name="startNo[]" type="text" class="form-control"  />'+
-              '</div>'+
-              '<div class="col-sm-3">'+
-                  '<label class="form-label" for="">start Date</label>'+
-                  '<input name="startDate[]" type="date" class="form-control" />'+
-              '</div>'+
-              '<div class="col-sm-5">'+
-                  '<label class="form-label" for="">Internal Note</label>'+
-                  '<textarea rows="1" cols="20" class="form-control" type="textarea" name="internalNote[]"></textarea>'+
-              '</div>'+
-              '<div class="col-sm-1">'+
-                  '<label class="form-label" for="">Delete</label>'+
-                  
-              
-                  '</button>'+
-              '</div>'+
-              '<!-- <input type="text" /> <span class="remove">Remove Option</span> -->'+
-              '<button type="button" class="btn btn-danger remove"><spanaria-hidden="true">&times;</span>'+
-      '</div>'+
-  '</div>'+
-'</div>'
-
-$('.add').click(function() {
-    $(this).before(OwnerOperatorblock);
-});
-
-$(document).on('click','.remove',function() {
-    $(this).parent('div').remove();
-});
-
-$('#submitOwnerOparator').click(function(){
-
-    var ownerPercentage=$('#ownerPercentage').val();
-    var ownerTruckNo=$('#ownerTruckNo').val();
-    var driverId=$('#driverid').val();
-    alert(driverId);
-    
-
-    if(ownerPercentage == ''){
-        // alert("Enter Percentage");
-         swal.fire("Error!", "Enter Percentage", "error");
-        // swal({title: 'Please Enter Date Of Birth',text: 'Redirecting...',timer: 1500,buttons: false,})
-        
-        $("#ownerPercentage").focus();
-        return false;
-    }
-    if(ownerTruckNo == ''){
-        // alert("Enter Truck No");
-        swal.fire("Error!", "Enter Truck No", "error");
-       // swal({title: 'Please Enter Date Of Birth',text: 'Redirecting...',timer: 1500,buttons: false,})
-       $("#ownerTruckNo").focus();
-       return false;
-   }
-
-    $.ajax({
-        type: "POST",
-        url: base_path+"/admin/addOwnerOparator",
-        dataType: 'json',
-        data: {
-                'data':$('#addOwnerForm').serialize(),
-                '_token': $(".laravel_csrf_tokn").val(),
-                'driverId':driverId,
-            },  
-        success: function(text) {
-            swal.fire("Done!", 'Add As Owner Oparator', "success");
-            // $.ajax({
-            //     type: "GET",
-            //     url: base_path+"/admin/driver",
-            //     async: false,
-            //     success: function(text) {
-            //         createDriverRows(text);
-            //         driverResponse = text;
-            //     }
-            // });
-            
-        }
-    });
-    
-});
-// <!-- ------------------------------------------------------------------------- end driver application data  ------------------------------------------------------------------------- -->
-// <!-- ------------------------------------------------------------------------- edit driver application data  ------------------------------------------------------------------------- -->
-// $('body').on('click',function() {
-//     $('.editDriverOwner').click(function() {
-//         $('#editDriverOwnerModal').modal('show');
-//     });
-// });
-
-$(document).ready(function(){
-// $('body').on('click',function() {
-    $('.editDriverOwner').click(function(){
-        // alert();
-        var id = $(this).attr("data-id");
-        $.ajax({
-            url: base_path+"/admin/editDriverOwner",
-            type: "POST",
-            datatype:"JSON",
-            data: {'_token': $("#drivercsrf").val(),'id': id},
-            success: function(dataResult) {
-                
-                console.log(dataResult);
-                $('#up_driverid').val(dataResult.driverId);
-                // $('#up_owner-driver-name').val(dataResult.driverName);
-                $('#up_ownerPercentage').val(dataResult.percentage);
-                $('#up_ownerTruckNo').val(dataResult.truckNo);
-            
-              
-               
-                $('#editDriverOwnerModal').modal('show'); 
-            },
-            error: function(data){
-                console.log(data);
-                //alert("rr"); php
-            }
-        });
-    });
-});
-// });
-
-
-
-
-// <!-- ------------------------------------------------------------------------- end editOwner driver application data  ------------------------------------------------------------------------- -->
 
 // <!-- -------------------------------------------------------------------------Get Company ajax ------------------------------------------------------------------------- -->    
     $.ajax({
@@ -1597,3 +1701,23 @@ function companymodal()
 // })
 //     });
 // }
+    $('.closeFooter').click(function(){
+        $('#editDriverOwnerModal').modal();
+    });
+
+    function inc_percentage() {
+    document.getElementById("ownerPercentage").stepUp(1);
+    }
+
+    function dec_percentage() {
+      document.getElementById("ownerPercentage").stepUp(-1);
+    }
+
+    function up_inc_percentage() {
+    document.getElementById("up_ownerPercentage").stepUp(1);
+    }
+
+    function up_dec_percentage() {
+        document.getElementById("up_ownerPercentage").stepUp(-1);
+    }
+    

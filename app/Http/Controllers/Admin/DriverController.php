@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
+
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Auth;
@@ -26,6 +27,101 @@ use MongoDB\BSON\ObjectId;
 class DriverController extends Controller
 {
 //add by Reena
+
+    public function updateOwnerOparator(Request $request){
+      // dd($request->all());
+        $companyID=1;
+
+        $getOwner_operator_driver = Owner_operator_driver::where('companyID',$companyID)->first();
+        $OwnerArray=$getOwner_operator_driver->ownerOperator;
+        $arrayLength=count($OwnerArray);
+
+        $i=0;
+        $v=0;
+        for ($i=0; $i<$arrayLength; $i++){
+            $id=$getOwner_operator_driver->ownerOperator[$i];
+                if($id['_id']== $request->ownerId){
+                    $v=$i;
+                }
+        }
+
+        $unserializeData = [];
+        
+        parse_str($request->data,$unserializeData);
+        //dd($unserializeData['installmentCategory']);
+        foreach($unserializeData['up_installmentCategory'] as $key => $val){
+            
+            $up_i_cate=$unserializeData['up_installmentCategory'][$key];
+            $up_i_type=$unserializeData['up_installmentType'][$key];
+            $up_amount=$unserializeData['up_amount'][$key];
+            $up_installment=$unserializeData['up_installment'][$key];
+            $up_startNo=$unserializeData['up_startNo'][$key];
+            $up_startDate=$unserializeData['up_startDate'][$key];
+            $up_internalNote=$unserializeData['up_internalNote'][$key]; 
+
+            $updateinstallmentarray[]=((object)[
+                '_id'=>$key,
+                'installmentCategory'=>$up_i_cate,
+                'installmentType'=>$up_i_type,
+                'amount'=>$up_amount,
+                'installment'=>$up_installment,
+                'startNo'=>$up_startNo,
+                'startDate'=>$up_startDate,
+                'internalNote'=>$up_internalNote,
+            ]);        
+        }
+//dd(isset($unserializeData['installmentCategory']));
+        if(isset($unserializeData['installmentCategory'])){
+            foreach($unserializeData['installmentCategory'] as $key => $val){
+            
+                $up_i_cate=$unserializeData['installmentCategory'][$key];
+                $up_i_type=$unserializeData['installmentType'][$key];
+                $up_amount=$unserializeData['amount'][$key];
+                $up_installment=$unserializeData['installment'][$key];
+                $up_startNo=$unserializeData['startNo'][$key];
+                $up_startDate=$unserializeData['startDate'][$key];
+                $up_internalNote=$unserializeData['internalNote'][$key]; 
+    
+                $newInstallmentarray[]=((object)[
+                    '_id'=>$key,
+                    'installmentCategory'=>$up_i_cate,
+                    'installmentType'=>$up_i_type,
+                    'amount'=>$up_amount,
+                    'installment'=>$up_installment,
+                    'startNo'=>$up_startNo,
+                    'startDate'=>$up_startDate,
+                    'internalNote'=>$up_internalNote,
+                ]);        
+            } 
+        }
+
+//dd($updateinstallmentarray);
+        $OwnerArray[$v]['driverId'] = $request->driverId;
+        $OwnerArray[$v]['percentage'] = $unserializeData['up_ownerPercentage'];
+        $OwnerArray[$v]['truckNo'] = $unserializeData['truckNo'];
+        $OwnerArray[$v]['installment'] = $updateinstallmentarray;
+
+        if(isset($unserializeData['installmentCategory'])){
+            $OwnerArray[$v]['installment'] =array_merge($updateinstallmentarray,$newInstallmentarray);
+        }else{
+            $OwnerArray[$v]['installment'] = $updateinstallmentarray;
+        }
+       
+        $getOwner_operator_driver->ownerOperator = $OwnerArray;
+        if($getOwner_operator_driver->save()){
+                $arr = array('status' => 'success', 'message' => 'Owner Operator edited successfully.','statusCode' => 200); 
+                return json_encode($arr);
+        } 
+
+
+
+
+
+     
+       
+    }
+
+
     public function getViewDriverApplication(Request $request){
         $companyID=67;
         $employement = Employement::where('companyID',$companyID)->first();
@@ -152,11 +248,10 @@ class DriverController extends Controller
 
         $result = Owner_operator_driver::where('companyID',$companyID )->first();
         $ownerOperatorArray=$result->ownerOperator;
-
         $arrayLength=count($ownerOperatorArray);
         $i=0;
         $v=0;
-
+       
         for ($i=0; $i<$arrayLength; $i++){
             $id=$result->ownerOperator[$i];
             if($id['driverId']== $ownerOperatorID){                
@@ -164,20 +259,37 @@ class DriverController extends Controller
             }
         }
        
-       $EditownerOperatorData=$result->ownerOperator[$v];
-       //dd($EditownerOperatorData);
-        //    echo gettype($EditownerOperatorData);
-        //    print_r($EditownerOperatorData);
-        //    echo json_encode($EditownerOperatorData);
-        //    die;
-        return response()->json($EditownerOperatorData);
-        // return response()->json($EditownerOperatorData, 200, [], JSON_PARTIAL_OUTPUT_ON_ERROR);  
+        $EditownerOperatorData=$result->ownerOperator[$v];
+   
+        $resultDriver = Driver::where('companyID',$companyID )->first();
+        $arrayLengthDriver=count($resultDriver->driver);
+        $j=0;
+        $k=0;
+        $driver_id=0;
+
+        $opratorDriverId=$EditownerOperatorData['driverId'];
+        for ($j=0; $j<$arrayLengthDriver; $j++){
+            $driver_id=$resultDriver->driver[$j]['_id'];
+            //$id=$result->ownerOperator[$j];
+            if($opratorDriverId == $driver_id){                
+                $k=$j; 
+                break;
+            }
+        }
+        $driverData=$resultDriver->driver[$k];
+        $driverName=$driverData['driverName'];
+
+         $newArr = [
+            $EditownerOperatorData,
+            $driverName,
+          ];
+
+        return response()->json($newArr);
     }  
 
     public function getDriverData(Request $request){
         $companyID=(int)1;
         $driver = Driver::where('companyID',$companyID )->first();
-        //dd($driver);
         return response()->json($driver);  
     }
     
