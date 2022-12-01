@@ -2,7 +2,7 @@
 <div class="container">
     <!-- The Modal -->
     <div class="modal fade" id="driverModal">
-        <div class="modal-dialog modal-lg" style="display: table;">
+        <div class="modal-dialog modal-lg " style="display: table;">
             <div class="modal-content">
 
                 <!-- Modal Header -->

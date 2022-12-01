@@ -7,6 +7,8 @@ use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\CustomerController;
 use App\Http\Controllers\Admin\CompanyController;
 use App\Http\Controllers\Admin\CurrencyController;
+use App\Http\Controllers\Admin\TruckController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -97,3 +99,6 @@ Route::get('admin/editCompany', [CompanyController::class, 'editCompanyData']);
 Route::post('admin/updateCompany', [CompanyController::class, 'updateCompanyData']);
 Route::post('admin/deleteCompany', [CompanyController::class, 'deleteCompany']);
 Route::post('admin/updateUserCompany', [CompanyController::class, 'updateUserCompany']);
+
+//truck
+Route::get('admin/getTruck', [TruckController::class, 'getTruck']);

@@ -96,7 +96,7 @@
 <script src="{{URL::to('/')}}/static/js/checkbox.js"></script>
 <script src="{{URL::to('/')}}/assets/js/customerLaravel.js"></script>
 <script src="{{URL::to('/')}}/assets/js/js/currencyLaravel.js"></script>
-
+<script src="{{URL::to('/')}}/assets/js/js/truckLaravel.js"></script>
 </body>
 
 </html>
