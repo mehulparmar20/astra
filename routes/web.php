@@ -102,3 +102,4 @@ Route::post('admin/updateUserCompany', [CompanyController::class, 'updateUserCom
 
 //truck
 Route::get('admin/getTruck', [TruckController::class, 'getTruck']);
+Route::get('admin/truck_getTrucktype', [TruckController::class, 'truck_getTrucktype']);

@@ -89,6 +89,8 @@
 <!-- INTERNAL DATATABLES JS -->
 <script src="{{URL::to('/')}}/assets/js/table-editable.js"></script>
 
+
+
 <!-- CUSTOM JS -->
 <script src="{{URL::to('/')}}/assets/js/custom.js"></script>
 <script src="{{URL::to('/')}}/assets/js/openmodel.js"></script>
@@ -97,6 +99,13 @@
 <script src="{{URL::to('/')}}/assets/js/customerLaravel.js"></script>
 <script src="{{URL::to('/')}}/assets/js/js/currencyLaravel.js"></script>
 <script src="{{URL::to('/')}}/assets/js/js/truckLaravel.js"></script>
+
+
+
+
+
+
+
 </body>
 
 </html>
