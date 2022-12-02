@@ -313,9 +313,29 @@ $(document).ready(function() {
 
         
 
-        $("#closeCurrencyModal").click(function(){
+        $(".plusCurrencyModalCloseButton").click(function(){
             $("#plusCurrencyModal").modal("hide");
         });
+        $('#plusCurrencyModal').modal({
+            backdrop: 'static',
+            keyboard: false
+        })
+
+        $(".PaymentTermsModalCloseButton").click(function(){
+            $("#PaymentTermsModal").modal("hide");
+        });
+        $('#PaymentTermsModal').modal({
+            backdrop: 'static',
+            keyboard: false
+        })
+
+        $(".factoringCompanyModalCloseButton").click(function(){
+            $("#factoringCompanyModal").modal("hide");
+        });
+        $('#factoringCompanyModal').modal({
+            backdrop: 'static',
+            keyboard: false
+        })
 
         // $(".CurrencyrDataSubmit").click(function(){
         //     var currencyName=$('#CurrencyrName').val();

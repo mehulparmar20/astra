@@ -1379,7 +1379,7 @@ $(document).ready(function(){
                             "<td data-field='factoringCompany'>" + factoringCompany + "</td>" +
                             "<td data-field='bankCompany'>" + bankCompany + "</td>" +
                             "<td data-field='filepath'><a href='"+ filepath +"' target='_blank'>"+ file_name +"</a></td>" +
-                            "<td><a class='editCompany mt-2 btn btn-primary fs-14 text-white edit3'  title='Edit' data-id=" + comid+ "&"+mailingAddress + "><i class='fe fe-edit'></i></a>&nbsp<a class='deleteCompany mt-2 btn btn-danger fs-14 text-white delete-icn' data-id=" + comid+ "&"+mailingAddress + " title='Delete'><i class='fe fe-delete'></i></a></td></tr>";
+                            "<td><a class='editCompany button-23 edit3'  title='Edit' data-id=" + comid+ "&"+mailingAddress + "><i class='fe fe-edit'></i></a>&nbsp<a class='deleteCompany button-23' data-id=" + comid+ "&"+mailingAddress + " title='Delete'><i class='fe fe-delete'></i></a></td></tr>";
                         $("#companyTable").append(tr_str1);
                         no++;
                         }
@@ -1727,3 +1727,14 @@ function GetDynamicRecurrencesubstract(value) {
 }
 
 // <!-- ------------------------------------------------------------------------- End of Minus Recurrence ------------------------------------------------------------------------- -->
+
+
+$('.editCompanyModalCloseButton').click(function(){
+    $('#editCompanyModal').modal('hide');
+    // $('#driverModal').modal('show');  
+});
+
+$('#editCompanyModal').modal({
+    backdrop: 'static',
+    keyboard: false
+})

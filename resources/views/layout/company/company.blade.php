@@ -4,16 +4,14 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title">Company</h5>
-                    <button type="button" class="close" data-dismiss="modal">×</button>
-
-                    </button>
+                    <button type="button" class="button-24" data-dismiss="modal">×</button>
                 </div>
-                <button href="#addCompanyModal" data-toggle="modal" data-target="#addCompanyModal"
-                    class="login_btn btn1 add1button" style="vertical-align:middle"><span>Add </span></button>
+                <div style="margin-top: 15px; margin-left: 15px;">
+                    <a href="#addCompanyModal" class="button-57_alt" data-toggle="modal" data-target="#addCompanyModal"><i class="fa fa-plus" aria-hidden="true"></i><span>Add Company</span></a>
+                </div>
                 <div class="modal-body" style="overflow-y: auto !important;">
 
-                    <table id="editable-file-datatable1"
-                        class="table editable-table table-nowrap table-bordered table-edit wp-100 customtable">
+                    <table id="editable-file-datatable1" class="table editable-table table-nowrap table-bordered table-edit wp-100 customtable">
                         <thead>
                             <tr>
                                 <th>#</th>
@@ -39,8 +37,8 @@
                 <div class="modal-footer">
                     <!-- <form action="{{route('download-pdf')}}" method="post" target="__blank"> -->
                     @csrf
-                    <button class="btn btn-primary" style="vertical-align:middle"><span>Export</span></button>
-                    </form>
+                    <button class="button-29" style="vertical-align:middle"><span>Export</span></button>
+                    
                     <!-- <button class="btn btnclose" style="background-color:red;" data-bs-dismiss="modal">Close</button> -->
                 </div>
             </div>
@@ -52,12 +50,12 @@
 <div class="container">
     <!-- The Modal -->
     <div class="modal fade" data-backdrop="static" id="addCompanyModal">
-        <div class="modal-dialog modal-dialog-scrollable custom_modal">
+        <div class="modal-dialog modal-dialog-scrollable custom_modal_small">
             <div class="modal-content">
                 <!-- Modal Header -->
                 <div class="modal-header">
                     <h4 class="modal-title">Add Company</h4>
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <button type="button" class="button-24" data-dismiss="modal">&times;</button>
                 </div>
                 <!-- Modal body -->
                 <div class="modal-body" style="overflow-y: auto !important;">
@@ -144,10 +142,6 @@
                                                             id="file">
                                                     </div>
                                                 </div>
-                                                <br>
-                                                <a type="submit" class="btn btn-primary" data-dismiss="modal"
-                                                    id="companyDataSubmit">Submit</a>
-                                                <br>
                                             </form>
                                             <br>
                                         </div>
@@ -156,6 +150,9 @@
                             </div>
                         </div>
                     </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="button-29" data-dismiss="modal" id="companyDataSubmit">Submit</button>
                 </div>
             </div>
         </div>
@@ -171,13 +168,13 @@
 
 <!-- driver modal -->
 <div class="container">
-    <div class="modal fade" id="editCompanyModal">
-        <div class="modal-dialog modal-dialog-scrollable custom_modal">
+    <div class="modal fade" data-backdrop="static" id="editCompanyModal">
+        <div class="modal-dialog modal-dialog-scrollable custom_modal_small">
             <div class="modal-content">
                 <!-- Modal Header -->
                 <div class="modal-header">
                     <h4 class="modal-title">Edit Company</h4>
-                    <button type="button" class="close" id="closemodel">&times;</button>
+                    <button type="button" class="button-24 editCompanyModalCloseButton">&times;</button>
                 </div>
                 <!-- Modal body -->
                 <div class="modal-body" style="overflow-y: auto !important;">
@@ -267,10 +264,6 @@
                                                             id="filenew">
                                                     </div>
                                                 </div>
-                                                <br>
-                                                <a type="submit" class="btn btn-primary companyDataUpdate"
-                                                    data-dismiss="modal">Submit</a>
-                                                <br>
                                             </form>
                                             <br>
                                         </div>
@@ -283,7 +276,8 @@
                 </div>
                 <!-- Modal footer -->
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" id="closemodelfooter">Close</button>
+                    <button type="submit" class="button-29 companyDataUpdate" data-dismiss="modal">Submit</button>
+                    <button type="button" class="button-29 editCompanyModalCloseButton">Close</button>
                 </div>
             </div>
         </div>

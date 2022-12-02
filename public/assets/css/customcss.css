@@ -494,7 +494,8 @@
   }
   
   
-  #addContractCategory, #contractCategoryModal, #addDriverModal, #addRecurrence, #substractRecurrence, #setupDriverModal, #addUserModal, #userEditModal, #addDriverOwnerModal, #editDriverOwnerModal, #driverPayInfoEditModal, #driverPayInfoModal, #editDriverModal, #addDriverOwnerModal, #addCustomerModal {
+  #addContractCategory, #contractCategoryModal, #addDriverModal, #addRecurrence, #substractRecurrence, #setupDriverModal, #addUserModal, #userEditModal, #addDriverOwnerModal, #editDriverOwnerModal,
+   #driverPayInfoEditModal, #driverPayInfoModal, #editDriverModal, #addDriverOwnerModal, #addCustomerModal, #plusCurrencyModal, #PaymentTermsModal, #factoringCompanyModal, #addCompanyModal, #editCompanyModal {
     backdrop-filter: blur(1px) contrast(.1);
   }
   

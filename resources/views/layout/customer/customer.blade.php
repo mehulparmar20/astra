@@ -189,7 +189,9 @@
                                 <br>
                                 <div class="form-row">
                                     <div class="form-group col-md-3">
-                                        <label for="customerCurrencySetting">Currency Setting  <span class="glyphicon glyphicon-plus-sign" id="plusCurrency" ></span> </label>
+                                        <!-- <button type="button" class="btn btn-icon btn-facebook"><i class="fa fa-facebook"></i></button> -->
+                                        <!-- <a class="btn btn-outline-info">Info</a> -->
+                                        <label for="customerCurrencySetting">Currency Setting</label><span class="button-29" id="plusCurrency" style="margin-left: 5px;"><i class="fa fa-plus"></i></span>
                                         <div class="dropdown show">
 
                                             <!-- <select name="currency" id="currency" class="customerCurrencySet11 btn-dropdown">
@@ -201,7 +203,7 @@
                                         </div>
                                     </div>
                                     <div class="form-group col-md-3">
-                                        <label for="customerPaymentTerms">Payment Terms <span class="glyphicon glyphicon-plus-sign" id="plusPaymentTerms" ></span> </label>
+                                        <label for="customerPaymentTerms">Payment Terms</label><span class="button-29" id="plusPaymentTerms" style="margin-left: 5px;"><i class="fa fa-plus"></i></span> 
                                         <div class="dropdown show">
                                             <!-- <select name="PaymentTerms" id="PaymentTerms" class="customerPaymentTermSet btn-dropdown">
                                             <option value="">Select Payment Terms</option>
@@ -224,7 +226,7 @@
                                 </div>
                                 <div class="form-row">
                                     <div class="form-group col-md-3">
-                                        <label for="customerBFactoringCompany">Factoring Company <span class="glyphicon glyphicon-plus-sign" id="plusFactoringCompany" ></span></label>
+                                        <label for="customerBFactoringCompany">Factoring Company</label><span class="button-29" id="plusFactoringCompany" style="margin-left: 5px;"><i class="fa fa-plus"></i></span>
                                         <div class="dropdown show">
                                             <!-- <select name="customerBFactoringCompany" id="customerBFactoringCompany" class="customerBFactoringCompanySet btn-dropdown">
                                             <option value="">Select Factoring Company</option>
@@ -291,14 +293,14 @@
 
 <div class="container">
   <!-- The Modal -->
-  <div class="modal" id="PaymentTermsModal" style="z-index:1000000000;">
-    <div class="modal-dialog">
+  <div class="modal fade" id="PaymentTermsModal" data-backdrop="static">
+    <div class="modal-dialog custom_modal_small2 modal-dialog-scrollable">
       <div class="modal-content">
       
         <!-- Modal Header -->
         <div class="modal-header">
         <h5 class="modal-title">Create Payment Terms</h5>
-          <button type="button" class="close" data-dismiss="modal" id="closePaymentTermsModal">&times;</button>
+          <button type="button" class="button-24 PaymentTermsModalCloseButton" data-dismiss="modal">&times;</button>
         </div>
         
         <!-- Modal body -->
@@ -328,8 +330,8 @@
         
         <!-- Modal footer -->
         <div class="modal-footer" >
-            <a type="submit" class="btn btn-primary PaymentTermsDataSubmit">Save</a>
-            <button type="button" class="btn btn-secondary" data-dismiss="modal" id="closePaymentTermsModal">Close</button>
+            <button type="submit" class="button-29 PaymentTermsDataSubmit">Save</button>
+            <button type="button" class="button-29 PaymentTermsModalCloseButton" data-dismiss="modal" id="closePaymentTermsModal">Close</button>
         </div>
         
       </div>
@@ -339,82 +341,37 @@
 </div>
 <!------------------------------------------------------------------ over Payment Terms modal ------------------------------------------------------------------>
 <!------------------------------------------------------------------- Currency modal ------------------------------------------------------------------->
-
 <div class="container">
-  <!-- The Modal -->
-  <div class="modal" id="plusCurrencyModal" style="z-index:1000000000;">
-    <div class="modal-dialog">
-      <div class="modal-content">
-      
-        <!-- Modal Header -->
-        <div class="modal-header">
-        <h5 class="modal-title">Create Currency</h5>
-          <button type="button" class="close" data-dismiss="modal" id="closeCurrencyModal">&times;</button>
-        </div>
-        
-        <!-- Modal body -->
-        <div class="modal-body">
-            <from>
-                <input type="hidden" name="_token" id="_tokenCustomerCurrency" value="{{ csrf_token() }}" />
-                <div class="form-row">
-                    <div class="form-group col-md-12">
-                        <label for="CurrencyrName">Currency Name  <span style="color:#ff0000">*</span></label>
-                        <input type="text" class="form-control" id="CurrencyrName" placeholder=" Enter Currency Name" >
-                    </div>
-                </div>
-            </form>
-        </div>
-        
-        <!-- Modal footer -->
-        <div class="modal-footer" >
-            <a type="submit" class="btn btn-primary CurrencyrDataSubmit">Save</a>
-            <button type="button" class="btn btn-secondary" data-dismiss="modal" id="closeCurrencyModal">Close</button>
-        </div>
-        
-      </div>
-    </div>
-  </div>
-  
-</div>
-<!------------------------------------------------------------------ over Currency modal ------------------------------------------------------------------>
-<!------------------------------------------------------------------- Currency modal ------------------------------------------------------------------->
 
-<div class="container">
-  <!-- The Modal -->
-  <div class="modal" id="plusCurrencyModal2">
-    <div class="modal-dialog">
-      <div class="modal-content">
-      
-        <!-- Modal Header -->
-        <div class="modal-header">
-        <h5 class="modal-title">Create Currency</h5>
-          <button type="button" class="close" data-dismiss="modal" id="closeCurrencyModal">&times;</button>
-        </div>
-        
-        <!-- Modal body -->
-        <div class="modal-body">
-            <from>
-                <input type="hidden" name="_token" id="_tokenCustomerCurrency" value="{{ csrf_token() }}" />
-                <div class="form-row">
-                    <div class="form-group col-md-12">
-                        <label for="CurrencyrName">Currency Name  <span style="color:#ff0000">*</span></label>
-                        <input type="text" class="form-control" id="CurrencyrName" placeholder=" Enter Currency Name" >
-                    </div>
+    <div class="modal fade" data-backdrop="static" id="plusCurrencyModal" role="dialog">
+        <div class="modal-dialog custom_modal_small2 modal-dialog-scrollable" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Create Currency</h5>
+                    <button type="button" class="button-24 plusCurrencyModalCloseButton" data-dismiss="modal">×</button>
                 </div>
-            </form>
+                
+                <div class="modal-body" style="overflow-y: auto !important;">
+
+                    <from>
+                        <input type="hidden" name="_token" id="_tokenCustomerCurrency" value="{{ csrf_token() }}" />
+                        <div class="form-row">
+                            <div class="form-group col-md-12">
+                                <label for="CurrencyrName">Currency Name  <span style="color:#ff0000">*</span></label>
+                                <input type="text" class="form-control" id="CurrencyrName" placeholder=" Enter Currency Name" >
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="button-29 CurrencyrDataSubmit">Save</button>
+                    <button type="button" class="button-29 plusCurrencyModalCloseButton" data-dismiss="modal">Close</button>
+                </div>
+            </div>
         </div>
-        
-        <!-- Modal footer -->
-        <div class="modal-footer" >
-            <a type="submit" class="btn btn-primary CurrencyrDataSubmit">Save</a>
-            <button type="button" class="btn btn-secondary" data-dismiss="modal" id="closeCurrencyModal">Close</button>
-        </div>
-        
-      </div>
     </div>
-  </div>
-  
 </div>
+
 <!------------------------------------------------------------------ over Currency modal ------------------------------------------------------------------>
 
 <!------------------------------------------------------------------  add Factoring Company  modal ------------------------------------------------------------------>
@@ -422,11 +379,11 @@
 <div class="container resizeModal">
 
     <div class="modal fade" data-backdrop="static" id="factoringCompanyModal" role="dialog">
-        <div class="modal-dialog modal-xl modal-dialog-scrollable" role="document">
+        <div class="modal-dialog custom_modal_small2 modal-dialog-scrollable" role="document">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title">Add Factoring Company</h5>
-                    <button type="button" class="close" data-dismiss="modal" id="closefactoringCompanyModal">&times;</button>
+                    <button type="button" class="button-24 factoringCompanyModalCloseButton" data-dismiss="modal">&times;</button>
                 </div>
 
                 <div class="modal-body">
@@ -500,7 +457,7 @@
                                 </div>
                             </div>
                             <div class="form-group col-md-3">
-                                    <label for="customerPaymentTerms">Payment Terms <span class="glyphicon glyphicon-plus-sign" id="plusPaymentTerms2" ></span> </label>
+                                    <label for="customerPaymentTerms">Payment Terms <span class="glyphicon glyphicon-plus-sign" id="plusPaymentTerms" ></span> </label>
                                     <div class="dropdown show">
                                         <!-- <select name="PaymentTerms" id="PaymentTerms" class="customerPaymentTermSet btn-dropdown">
                                         <option value="">Select Payment Terms</option>
@@ -526,8 +483,8 @@
             
                 <!-- Modal footer -->
                 <div class="modal-footer" >
-                    <a type="submit" class="btn btn-primary factoringCompanyDataSubmit">Save</a>
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal" id="closefactoringCompanyModal">Close</button>
+                    <button type="submit" class="button-29 factoringCompanyDataSubmit">Save</button>
+                    <button type="button" class="button-29 factoringCompanyModalCloseButton" data-dismiss="modal" id="closefactoringCompanyModal">Close</button>
                    
                 </div>
             </div>
