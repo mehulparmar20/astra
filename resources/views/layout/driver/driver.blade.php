@@ -929,10 +929,17 @@
                                             </div>
                                         </div>
                                         <div class="col-sm-4">
-                                            <label class="form-label" for="ssnMask-cvv">Select Truck</label>
-                                            <input list="fuel_truck_report" class="form-control" placeholder="search here..." id="ownerTruckNo" name="truckNo" autocomplete="off">
+                                            <label class="form-label" for="ssnMask-cvv">Select Truck <span class="glyphicon glyphicon-plus-sign" id="driverAddTruck" ></span></label>
+                                            <!-- <input list="fuel_truck_report" class="form-control" placeholder="search here..." id="ownerTruckNo" name="truckNo" autocomplete="off">
                                                 <datalist id="fuel_truck_report">
-                                                </datalist>
+                                                </datalist> -->
+
+                                                <div class="dropdown show">
+                                                    <input class="form-control truckSet" list="truckSet" name="ownerTruckNo" id="ownerTruckNo">
+                                                    <datalist id="truckSet" class="truckSet">
+                                                        <option>Select Here</option>
+                                                    </datalist>
+                                                </div>  
                                         </div>
                                     </div>
                                     <br>

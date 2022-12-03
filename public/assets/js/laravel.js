@@ -1646,6 +1646,52 @@ function companymodal()
     });
 }
 
+// <!-- -------------------------------------------------------------------------get driver truck  ------------------------------------------------------------------------- -->  
+   // $('.list select').selectpicker();   
+   $('.truckSet').focus(function(){
+    $('.truckSet').val('');
+        //alert(); 
+        $.ajax({
+            type: "GET",
+            url: base_path+"/admin/driver_getTruck",
+            async: false,
+            //dataType:JSON,
+            success: function(data) {
+                console.log(data)                    
+                createDriverTruckList(data);
+                truckResponse = data;
+            }
+        });
+    });
+
+//get truck type
+function createDriverTruckList(truckResponse) {           
+    var TruckLength = 0;    
+    
+    if (truckResponse != null) {
+       TruckLength = truckResponse.truck.length;
+    }
+
+    if (TruckLength > 0) {
+     
+        $(".truckTypeSet").html('');
+        for (var i = 0; i < TruckLength; i++) {  
+            var truckNumber =truckResponse.truck[i].truckNumber;
+            var truckTypeId =truckResponse.truck[i]._id;
+          
+           var TruckList = "<option class='truckType' value='"+ truckTypeId+"-"+ truckNumber +"'>"                
+           $(".truckSet").append(TruckList);
+           
+
+        }
+        
+    }
+    
+}
+
+ 
+// <!-- -------------------------------------------------------------------------over get driver truck ------------------------------------------------------------------------- -->
+
 // function getNextSequence($id){
 //     $newid = $id + 1;
 //     return $newid;
@@ -1702,7 +1748,7 @@ function companymodal()
 //     });
 // }
     $('.closeFooter').click(function(){
-        $('#editDriverOwnerModal').modal();
+        $('#editDriverOwnerModal').modal('hide');
     });
 
     function inc_percentage() {

@@ -107,7 +107,7 @@
                             <div class="col-lg-12">
                                 <div class="card">
                                     <div class="card-body">
-                                        <form>
+                                        <form id="addTruckForm">
                                             <input type="hidden" name="_token" id="_tokenTruck" value="{{ csrf_token() }}" />
                                             <!-- row 1 -->
                                             
@@ -162,8 +162,8 @@
                                             <div class="form-row">
                                                 <div class="form-group col-md-12">
                                                     <label for="customerBillingAddressChkbox">Ownership <span style="color:#ff0000">*</span> :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </label>
-                                                    <input type="radio" class="form-check-input radioButton" id="ownership" name="Ownership" value="CompanyTruck" checked>Company Truck &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                                    <input type="radio" class="form-check-input radioButton" id="Own" name="Ownership" value="OwnerOperator" checked>Owner Operator
+                                                    <input type="radio" class="form-check-input radioButton" id="ownership" name="Ownership" value="CompanyTruck" >Company Truck &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                    <input type="radio" class="form-check-input radioButton" id="Own" name="Ownership" value="OwnerOperator" >Owner Operator
                                                 </div>
                                             </div>
                                             <!-- row 3 -->
@@ -245,7 +245,7 @@
                                                 </div>
                                             </div>
 
-                                            <div class="row">
+                                            <div class="form-row">
                                                 <div class="form-group col-md-2" data-name="selectifta">
                                                     <label>IFTA Truck</label>
                                                     <div class="custom-control custom-checkbox">
@@ -263,15 +263,28 @@
                                                             value=""> -->
                                                     </div>
                                                 </div>
-                                                <div class="row col-md-2">
+
+<!-- ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ -->
+
+
+                                                <div class="form-group col-md-2">
                                                     <label>Upload Files</label>
-                                                    <div class="custom-upload-btn-wrapper float-right">
-                                                        <button class="custom-btn">Choose file
-                                                        </button>
-                                                        <input type="file" id="files"  name="files[]" multiple accept=".png, .jpg, .jpeg, .pdf" />
+                                                    <div >
+                                                        <!-- <button class="custom-btn">Choose file
+                                                        </button> -->
+                                                        <!-- <input type="file" id="files"  name="files[]" multiple accept=".png, .jpg, .jpeg, .pdf" /> -->
+                                                        <input type="file" class="form-control" id="files"  name="files[]" multiple accept=".png, .jpg, .jpeg, .pdf" >
+                                                        
                                                     </div>
+                                                    <!-- <div class="form-group">
+														<label for="formFileMultiple" class="form-label">Multiple files input example</label>
+														<input class="form-control file-input" type="file" id="formFileMultiple" multiple>
+													</div> -->
                                                 </div>
                                             </div>
+
+
+<!-- ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ -->
 
                                         </form>
                                     </div>
@@ -284,7 +297,7 @@
 
                 <!-- Modal footer -->
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-primary closeAddTruckModal" id="truckbutton" >Save</button>
+                    <button type="button" class="btn btn-primary" id="truckSavebutton" >Save</button>
                     <button type="button" class="btn btn-secondary closeAddTruckModal" >Close</button>
                 </div>
           
@@ -296,3 +309,54 @@
 <!------------------------------------------------------------------- over add truck  modal ------------------------------------------------------------------->
 
 <!------------------------------------------------------------------ over add modal ------------------------------------------------------------------>
+<datalist id="registered_state">
+    <option value="AL">
+    <option value="AK">
+    <option value="AR">
+    <option value="CA">
+    <option value="CO">
+    <option value="CT">
+    <option value="DE">
+    <option value="FL">
+    <option value="GA">
+    <option value="HI">
+    <option value="ID">
+    <option value="IL">
+    <option value="IN">
+    <option value="IA">
+    <option value="KS">
+    <option value="KY">
+    <option value="LA">
+    <option value="ME">
+    <option value="MD">
+    <option value="MA">
+    <option value="MI">
+    <option value="MN">
+    <option value="MS">
+    <option value="MO">
+    <option value="MT">
+    <option value="NE">
+    <option value="NV">
+    <option value="NH">
+    <option value="NJ">
+    <option value="NM">
+    <option value="NY">
+    <option value="NC">
+    <option value="ND">
+    <option value="OH">
+    <option value="OK">
+    <option value="OR">
+    <option value="PA">
+    <option value="RI">
+    <option value="SC">
+    <option value="SD">
+    <option value="TN">
+    <option value="TX">
+    <option value="UT">
+    <option value="VT">
+    <option value="VA">
+    <option value="WA">
+    <option value="WV">
+    <option value="WI">
+    <option value="WY">
+</datalist>

@@ -63,10 +63,10 @@ class CompanyController extends Controller
                         'website' => $request->inputWebsite4,
                         'counter' => 0,
                         'file' => array(array(
-                        'filename' => $photo_name,
-                        'Originalname' => $original_name,
-                        'filesize' => $size,
-                        'filepath' => $photo_path
+                            'filename' => $photo_name,
+                            'Originalname' => $original_name,
+                            'filesize' => $size,
+                            'filepath' => $photo_path
                         )
                         ),
                         // 'edit_by' => $request->edit_by,

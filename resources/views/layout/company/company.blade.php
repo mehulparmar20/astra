@@ -140,13 +140,11 @@
                                                     </div>
                                                     <div class="form-group col-md-4">
                                                         <label for="file">Upload File</label>
-                                                        <input type="file" class="form-control" name="file"
-                                                            id="file">
+                                                        <input type="file" class="form-control" name="file"id="file">
                                                     </div>
                                                 </div>
                                                 <br>
-                                                <a type="submit" class="btn btn-primary" data-dismiss="modal"
-                                                    id="companyDataSubmit">Submit</a>
+                                                <a type="submit" class="btn btn-primary" data-dismiss="modal" id="companyDataSubmit">Submit</a>
                                                 <br>
                                             </form>
                                             <br>

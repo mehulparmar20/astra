@@ -72,7 +72,7 @@ Route::get('admin/viewDriverApplication', [DriverController::class, 'getViewDriv
 Route::post('admin/addOwnerOparator', [DriverController::class, 'addOwnerOparator']);
 Route::post('admin/editDriverOwner', [DriverController::class, 'editDriverOwnerData']);
 Route::post('admin/updateOwnerOparator', [DriverController::class, 'updateOwnerOparator']);
-
+Route::get('admin/driver_getTruck', [DriverController::class, 'driver_getTruck']);
 
 //customer
 Route::get('admin/customer', [CustomerController::class, 'getCustomerData']);
@@ -103,3 +103,4 @@ Route::post('admin/updateUserCompany', [CompanyController::class, 'updateUserCom
 //truck
 Route::get('admin/getTruck', [TruckController::class, 'getTruck']);
 Route::get('admin/truck_getTrucktype', [TruckController::class, 'truck_getTrucktype']);
+Route::post('admin/addTruck', [TruckController::class, 'addTruckData']);

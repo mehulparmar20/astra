@@ -1,5 +1,6 @@
 var base_path = $("#url").val();
 $(document).ready(function() {
+
 // <!-- -------------------------------------------------------------------------start ------------------------------------------------------------------------- -->  
     $('.closeTruckModal').click(function(){
          $('#truckModal').modal('hide');
@@ -15,7 +16,11 @@ $(document).ready(function() {
         //$('#truckModal').modal('hide');
         $('#addTruckModal').modal('show');
     });
-    // <!-- -------------------------------------------------------------------------Get truck  ------------------------------------------------------------------------- -->  
+
+    $('#driverAddTruck').click(function(){
+        $('#addTruckModal').modal('show');
+    });
+// <!-- -------------------------------------------------------------------------Get truck  ------------------------------------------------------------------------- -->  
    
     $('#truck_navbar').click(function(){
         $.ajax({
@@ -34,60 +39,157 @@ $(document).ready(function() {
     });
 
 
-    // <!-- -------------------------------------------------------------------------over Get truck  ------------------------------------------------------------------------- --> 
-
-
-    // <!-- -------------------------------------------------------------------------get truck type ------------------------------------------------------------------------- -->  
+// <!-- -------------------------------------------------------------------------over Get truck  ------------------------------------------------------------------------- --> 
+// <!-- -------------------------------------------------------------------------get truck type ------------------------------------------------------------------------- -->  
    // $('.list select').selectpicker();   
    $('.truckTypeSet').focus(function(){
-    //alert(); 
-     $.ajax({
-         type: "GET",
-         url: base_path+"/admin/truck_getTrucktype",
-         async: false,
-         //dataType:JSON,
-         success: function(data) {
-            //console.log(data)                    
-             createTruckTypeList(data);
-             truckTypeResponse = data;
-         }
-     });
- });
+    $('.truckTypeSet').val('');
+        //alert(); 
+        $.ajax({
+            type: "GET",
+            url: base_path+"/admin/truck_getTrucktype",
+            async: false,
+            //dataType:JSON,
+            success: function(data) {
+                //console.log(data)                    
+                createTruckTypeList(data);
+                truckTypeResponse = data;
+            }
+        });
+    });
 
-//  $('#license_plate').focus(function(){
-//  alert($('#truckType').attr());
-//  });
 
- function createTruckTypeList(truckTypeResponse) {           
-     var TruckTypeLength = 0;    
-     
-     if (truckTypeResponse != null) {
-        TruckTypeLength = truckTypeResponse.truck.length;
-     }
+ 
+// <!-- -------------------------------------------------------------------------over get truck type ------------------------------------------------------------------------- -->
+// <!-- -------------------------------------------------------------------------Add truck  ------------------------------------------------------------------------- --> 
+    $('#truckSavebutton').click(function(){
+    //asign veriable
+        var trucktype='';
+        var truck_number = $('#truck_number').val();
+        var trucktype = $('#truckType').val().split('-');
+        var trucktypeId=trucktype[0];
+        var license_plate =$('#license_plate').val();
+        var plate_expiry =$('#plate_expiry').val();
+        var inspection =$('#inspection').val();
+        var status =$('#status').val();
+        if ($("#ownership").is(":checked")) {
+            var ownership = 'CompanyTruck';
+        } else if ($("#Own").is(":checked")) {
+            var ownership = 'OwnerOperator';
+        }else{
+            var ownership ='';
+        }
+        var mileage =$('#mileage').val();
+        var axies =$('#axies').val();
+        var year =$('#year').val();
+        var fuel_type =$('#fuel_type').val();
+        var start_date =$('#start_date').val();
+        var deactivation =$('#deactivation').val();
+        var RegisteredState =$('#RegisteredState').val();
+        var Insurance_Policy =$('#Insurance_Policy').val();
+        var gross =$('#gross').val();
+        var vin =$('#vin').val();
+        var dot =$('#dot').val();
+        var transponder =$('#transponder').val();
+        if( $('#ifta').is(':checked') ){
+            var ifta = " IFTA Truck";
+        } else {
+            var ifta = "NOT IFTA Truck";
+        }
+        var internal_note =$('#internal_note').val();
+    //validation  
+        if(truck_number==''){
+            swal.fire( "'Enter truck number");
+            $('#truck_number').focus();
+            return false;
+            
+        } 
+        if(trucktype==''){
+            swal.fire( "'Select truck number from dropdown menu");
+            return false;
+        }
+        if(license_plate==''){
+            swal.fire( "'Enter license plate");
+            return false;
+        }
+        if(plate_expiry==''){
+            swal.fire( "'Enter plate expiry");
+            return false;
+        }  
+        if(ownership==''){
+            swal.fire( "'Select ownership");
+            return false;
+        }
+        if(vin==''){
+            swal.fire( "'Enter VIN");
+            return false;
+        }
 
-     if (TruckTypeLength > 0) {
-        // var no=1;
-         //$(".customerCurrencySet").html('');
-         $(".truckTypeSet").html('');
-         for (var i = 0; i < TruckTypeLength; i++) {  
-             var truckType =truckTypeResponse.truck[i].truckType;
-             var truckTypeId =truckTypeResponse.truck[i]._id;
-             //var customerCurrency = "<option id='customerCurrency' value='"+ currency +"'>"+ currency +"</option>"
-             //"<a class='dropdown-item custCurrency' value='"+ currency +"'>"+ no +" )"+ currency +"</a>";                  
+    //upload files
+        var formData = new FormData();
 
-            var TruckTypeList = "<option id='truckType' t_type_id="+truckTypeId +" value='"+ truckType +"'>"                 
-            $(".truckTypeSet").append(TruckTypeList);
-            //<option value="Edge">
-             //no++;
+        $.each($("#files")[0].files, function(i, file) {            
+            formData.append('file[]', file);
+        });
 
-         }
-         
-     }
-     
- }
-//     // <!-- -------------------------------------------------------------------------over get truck type ------------------------------------------------------------------------- -->
-    // <!-- -------------------------------------------------------------------------function  ------------------------------------------------------------------------- --> 
+        formData.append('_token',$("#_tokenTruck").val());
+        formData.append('truck_number',truck_number.trim());
+        formData.append('trucktypeId',trucktypeId);
+        formData.append('license_plate',license_plate);        
+        formData.append('plate_expiry',plate_expiry);
+        formData.append('inspection',inspection);
+        formData.append('status',status);
+        formData.append('ownership',ownership);
+        formData.append('mileage',mileage);
+        formData.append('axies',axies); 
+        formData.append('year',year);      
+        formData.append('fuel_type',fuel_type);      
+        formData.append('start_date',start_date); 
+        formData.append('deactivation',deactivation); 
+        formData.append('start_date',start_date); 
+        formData.append('RegisteredState',RegisteredState); 
+        formData.append('Insurance_Policy',Insurance_Policy); 
+        formData.append('gross',gross);                               
+        formData.append('vin',vin);
+        formData.append('dot',dot);                       
+        formData.append('transponder',transponder);                       
+        formData.append('ifta',ifta);                       
+        formData.append('internal_note',internal_note);        
+
+        $.ajax({
+            type: "POST",
+            url: base_path+"/admin/addTruck",
+            async: false,
+            cache: false,
+            contentType: false,
+            processData: false,
+            data: formData,
+            success: function(data) {
+                //console.log(data)                    
+                swal.fire("Done!", "Truck added successfully", "success");
+                $('#addTruckModal').modal('hide');
+                $.ajax({
+                    type: "GET",
+                    url: base_path+"/admin/getTruck",
+                    async: false,
+                    //dataType:JSON,
+                    success: function(text) {
+                        //alert();
+                        console.log(text);
+                        createGetTruckRows(text);
+                        truckResult = text;
+                     }
+                });
+            }
+        });
+
+
+
+    });
+// <!-- -------------------------------------------------------------------------over add truck  ------------------------------------------------------------------------- --> 
+// <!-- -------------------------------------------------------------------------function  ------------------------------------------------------------------------- --> 
     
+// get truck
     function createGetTruckRows(truckResult) {
         var trucklen1 = 0;
             if (truckResult != null) {
@@ -188,6 +290,36 @@ $(document).ready(function() {
             $("#currencyTable").append(currencyStr);
         }
         // $("#CurrencyModal").modal("show");
+    }
+
+//get truck type
+    function createTruckTypeList(truckTypeResponse) {           
+        var TruckTypeLength = 0;    
+        
+        if (truckTypeResponse != null) {
+           TruckTypeLength = truckTypeResponse.truck.length;
+        }
+   
+        if (TruckTypeLength > 0) {
+           // var no=1;
+            //$(".customerCurrencySet").html('');
+            $(".truckTypeSet").html('');
+            for (var i = 0; i < TruckTypeLength; i++) {  
+                var truckType =truckTypeResponse.truck[i].truckType;
+                var truckTypeId =truckTypeResponse.truck[i]._id;
+                //var customerCurrency = "<option id='customerCurrency' value='"+ currency +"'>"+ currency +"</option>"
+                //"<a class='dropdown-item custCurrency' value='"+ currency +"'>"+ no +" )"+ currency +"</a>";                  
+   
+              // var TruckTypeList = "<option class='truckType' t_type_id="+truckTypeId +" data-value='"+ truckTypeId +"'>"+ truckType +"<option "
+               var TruckTypeList = "<option class='truckType' value='"+ truckTypeId+"-"+ truckType +"'>"                
+               $(".truckTypeSet").append(TruckTypeList);
+               //<option value="Edge">
+                //no++;
+   
+            }
+            
+        }
+        
     }
 
 // <!-- -------------------------------------------------------------------------End------------------------------------------------------------------------- -->  

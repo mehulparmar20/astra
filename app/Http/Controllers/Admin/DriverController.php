@@ -23,6 +23,7 @@ use Twilio\Rest\Client;
 use Exception;
 use PDF;
 use MongoDB\BSON\ObjectId;
+use App\Models\Truckadd;
 
 class DriverController extends Controller
 {
@@ -130,6 +131,14 @@ class DriverController extends Controller
         return response()->json($employement);  
     }
 
+    public function driver_getTruck(){
+        $companyID=1;
+        $truckadd = Truckadd::where('companyID',$companyID)->first();
+       
+        //dd($truckadd);
+        return response()->json($truckadd);  
+    }
+
     public function addOwnerOparator(Request $request){
 //dd($request);
         // request()->validate([
@@ -173,34 +182,43 @@ class DriverController extends Controller
         $unserializeData = [];
         parse_str($request->data,$unserializeData);
 
-        foreach($unserializeData['installmentCategory'] as $key => $val){
+        if(isset($unserializeData['installmentCategory'])){
+            foreach($unserializeData['installmentCategory'] as $key => $val){
             
-            $i_cate=$unserializeData['installmentCategory'][$key];
-            $i_type=$unserializeData['installmentType'][$key];
-            $amount=$unserializeData['amount'][$key];
-            $installment=$unserializeData['installment'][$key];
-            $startNo=$unserializeData['startNo'][$key];
-            $startDate=$unserializeData['startDate'][$key];
-            $internalNote=$unserializeData['internalNote'][$key]; 
-
-            $array[]=((object)[
-                '_id'=>$key,
-                'installmentCategory'=>$i_cate,
-                'installmentType'=>$i_type,
-                'amount'=>$amount,
-                'installment'=>$installment,
-                'startNo'=>$startNo,
-                'startDate'=>$startDate,
-                'internalNote'=>$internalNote,
-            ]);        
+                $i_cate=$unserializeData['installmentCategory'][$key];
+                $i_type=$unserializeData['installmentType'][$key];
+                $amount=$unserializeData['amount'][$key];
+                $installment=$unserializeData['installment'][$key];
+                $startNo=$unserializeData['startNo'][$key];
+                $startDate=$unserializeData['startDate'][$key];
+                $internalNote=$unserializeData['internalNote'][$key]; 
+    
+                $array[]=((object)[
+                    '_id'=>$key,
+                    'installmentCategory'=>$i_cate,
+                    'installmentType'=>$i_type,
+                    'amount'=>$amount,
+                    'installment'=>$installment,
+                    'startNo'=>$startNo,
+                    'startDate'=>$startDate,
+                    'internalNote'=>$internalNote,
+                ]);        
+            }
+        }else{
+            $array=array();
         }
         
+        $truckno='';
+        $truckno=$unserializeData['ownerTruckNo'];
+        $truckID= explode("-", $truckno);
+            // $truckID[0]; // piece1.
+           // echo $truckID[1]; // piece2.
             try{
                 $ownerOperatorData[]=array(    
                     '_id' => $ownerOperatorArrayLength,
                     'driverId' => $request->driverId,
                     'percentage' => $unserializeData['percentage'],
-                    'truckNo' => $unserializeData['truckNo'],
+                    'truckNo' => $truckID[0],
                     'installment' =>$array ,
                 );
 
