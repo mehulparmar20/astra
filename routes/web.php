@@ -73,6 +73,8 @@ Route::post('admin/addOwnerOparator', [DriverController::class, 'addOwnerOparato
 Route::post('admin/editDriverOwner', [DriverController::class, 'editDriverOwnerData']);
 Route::post('admin/updateOwnerOparator', [DriverController::class, 'updateOwnerOparator']);
 Route::get('admin/driver_getTruck', [DriverController::class, 'driver_getTruck']);
+Route::post('admin/deleteDriverOwnerOperator', [DriverController::class, 'deleteDriverOwnerOperator']);
+Route::post('admin/restoreDriverOwnerOperator', [DriverController::class, 'restoreDriverOwnerOperator']);
 
 //customer
 Route::get('admin/customer', [CustomerController::class, 'getCustomerData']);

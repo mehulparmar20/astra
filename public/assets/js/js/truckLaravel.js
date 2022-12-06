@@ -17,7 +17,12 @@ $(document).ready(function() {
         $('#addTruckModal').modal('show');
     });
 
+
+//driver as owner operator modal
     $('#driverAddTruck').click(function(){
+        $('#addTruckModal').modal('show');
+    });
+    $('#up_driverAddTruck').click(function(){
         $('#addTruckModal').modal('show');
     });
 // <!-- -------------------------------------------------------------------------Get truck  ------------------------------------------------------------------------- -->  

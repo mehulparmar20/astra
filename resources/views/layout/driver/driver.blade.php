@@ -904,7 +904,7 @@
             <!-- Modal Header -->
             <div class="modal-header">
                 <h4 class="modal-title">Add as Owner operator</h4>
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <button type="button" class="closeAddOwnerModal" >&times;</button>
             </div>
 
                         <div class="modal-body">
@@ -930,7 +930,7 @@
                                         </div>
                                         <div class="col-sm-4">
                                             <label class="form-label" for="ssnMask-cvv">Select Truck <span class="glyphicon glyphicon-plus-sign" id="driverAddTruck" ></span></label>
-                                            <!-- <input list="fuel_truck_report" class="form-control" placeholder="search here..." id="ownerTruckNo" name="truckNo" autocomplete="off">
+                                            <!-- <input list="fuel_truck_report" class="form-control" placeholder="search here..." id="" name="truckNo" autocomplete="off">
                                                 <datalist id="fuel_truck_report">
                                                 </datalist> -->
 
@@ -960,7 +960,7 @@
             <!-- Modal footer -->
             <div class="modal-footer">
                 <a type="submit" class="btn btn-primary " id="submitOwnerOparator">Submit</a>
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="closeAddOwnerModal" >Close</button>
             </div>
 
         </div><!-- modal-content -->
@@ -974,7 +974,7 @@
                         <!-- Modal Header -->
                         <div class="modal-header">
                             <h4 class="modal-title">Edit Owner operator</h4>
-                            <button type="button" class="closeFooter " >&times;</button>
+                            <button type="button" class="editDriverOwnerClose " >&times;</button>
                         </div>
 
                         <div class="modal-body">
@@ -1000,10 +1000,19 @@
                                             </div>
                                         </div>
                                         <div class="col-sm-4">
-                                            <label class="form-label" for="up_ownerTruckNo">Select Truck<span style="color:#ff0000">*</span></label>
-                                            <input list="fuel_truck_report" class="form-control" placeholder="search here..." id="up_ownerTruckNo" name="truckNo" autocomplete="off">
-                                                <datalist id="fuel_truck_report">
-                                                </datalist>
+                                            <label class="form-label" for="up_ownerTruckNo">Select Truck<span style="color:#ff0000">*</span><span class="glyphicon glyphicon-plus-sign" id="up_driverAddTruck" ></label>
+                                            <!-- <input list="fuel_truck_report" class="form-control" placeholder="search here..." id="up_ownerTruckNo" name="truckNo" autocomplete="off">
+                                                <datalist id="up_truckSet" class="up_truckSet">
+                                                    <option>Select Here</option>
+                                                </datalist> -->
+
+
+                                                <div class="dropdown show">
+                                                    <input class="form-control up_truckSet" list="up_truckSet" name="truckNo" id="up_ownerTruckNo">
+                                                    <datalist id="up_truckSet" class="up_truckSet">
+                                                        <option>Select Here</option>
+                                                    </datalist>
+                                                </div>  
                                         </div>
                                     </div>
                                     <br>
@@ -1025,7 +1034,7 @@
                         <!-- Modal footer -->
                         <div class="modal-footer">
                             <a type="submit" class="btn btn-primary " id="up_submitOwnerOparator">Update</a>
-                            <button type="button" class="btn btn-secondary closeFooter" >Close</button>
+                            <button type="button" class="btn btn-secondary editDriverOwnerClose" >Close</button>
                           
                         </div>
 

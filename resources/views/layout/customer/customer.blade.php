@@ -187,11 +187,10 @@
                                     <label for="customerCurrencySetting">Currency Setting  <span class="glyphicon glyphicon-plus-sign" id="plusCurrency" ></span> </label>
                                     <div class="dropdown show">
 
-                                        <!-- <select name="currency" id="currency" class="customerCurrencySet11 btn-dropdown">
-                                        <option value="">Select Currency</option>
-                                        </select> -->
+                                       
                                       
-                                            <input class="form-control customerCurrencySet" list="customerCurrencySet" name="currency" id="currency">
+                                            <!-- <input class="form-control customerCurrencySet" list="customerCurrencySet" name="currency" id="currency"> -->
+                                            <input class="form-control customerCurrencySet" list="customerCurrencySet" name="currency" id="cust_currency">
                                             <datalist id="customerCurrencySet" class="customerCurrencySet"><option>Select Here</option></datalist>    
                                     </div>
                                 </div>
@@ -374,19 +373,16 @@
 <!------------------------------------------------------------------ over Currency modal ------------------------------------------------------------------>
 <!------------------------------------------------------------------- Currency modal ------------------------------------------------------------------->
 
-<div class="container">
-  <!-- The Modal -->
+<!-- <div class="container">
   <div class="modal" id="plusCurrencyModal2">
     <div class="modal-dialog">
       <div class="modal-content">
       
-        <!-- Modal Header -->
         <div class="modal-header">
         <h5 class="modal-title">Create Currency</h5>
           <button type="button" class="close" data-dismiss="modal" id="closeCurrencyModal">&times;</button>
         </div>
         
-        <!-- Modal body -->
         <div class="modal-body">
             <from>
                 <input type="hidden" name="_token" id="_tokenCustomerCurrency" value="{{ csrf_token() }}" />
@@ -399,7 +395,6 @@
             </form>
         </div>
         
-        <!-- Modal footer -->
         <div class="modal-footer" >
             <a type="submit" class="btn btn-primary CurrencyrDataSubmit">Save</a>
             <button type="button" class="btn btn-secondary" data-dismiss="modal" id="closeCurrencyModal">Close</button>
@@ -409,7 +404,7 @@
     </div>
   </div>
   
-</div>
+</div> -->
 <!------------------------------------------------------------------ over Currency modal ------------------------------------------------------------------>
 
 <!------------------------------------------------------------------  add Factoring Company  modal ------------------------------------------------------------------>
@@ -497,10 +492,8 @@
                             <div class="form-group col-md-3">
                                     <label for="customerPaymentTerms">Payment Terms <span class="glyphicon glyphicon-plus-sign" id="plusPaymentTerms2" ></span> </label>
                                     <div class="dropdown show">
-                                        <!-- <select name="PaymentTerms" id="PaymentTerms" class="customerPaymentTermSet btn-dropdown">
-                                        <option value="">Select Payment Terms</option>
-                                        </select> -->
-                                        <input class="form-control customerPaymentTermSet" list="customerPaymentTermSet" name="PaymentTerms" id="PaymentTerms">
+                                        <!-- <input class="form-control customerPaymentTermSet" list="customerPaymentTermSet" name="PaymentTerms" id="PaymentTerms"> -->
+                                        <input class="form-control customerPaymentTermSet" list="customerPaymentTermSet" name="fact_PaymentTerms" id="fact_PaymentTerms">
                                     <datalist id="customerPaymentTermSet" class="customerPaymentTermSet"></datalist>    
                                     </div>
                                 </div>

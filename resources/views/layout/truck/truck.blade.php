@@ -151,7 +151,7 @@
                                                 <div class="form-group col-md-2">
                                                     <label>
                                                         Status</label>
-                                                    <select class="form-control" id="status" name="status">
+                                                    <select class="form-control" id="truck_status" name="status">
                                                         <option value="Active">Active</option>
                                                         <option value="Inactive">Inactive</option>
                                                         <option value="Not Available">Not Available</option>

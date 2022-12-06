@@ -105,7 +105,7 @@ class TruckController extends Controller
                     'licensePlate' => $request->license_plate,
                     'plateExpiry' => $request->plate_expiry,
                     'inspectionExpiry' => $request->inspection,
-                    'status' => $request->status,
+                    'status' => $request->truck_status,
                     'ownership' => $request->ownership,
                     'mileage' => $request->mileage,
                     'axies' => $request->axies,

@@ -121,7 +121,7 @@
                 <input type="hidden" id="EditCurrencyId" />
                 <div class="form-row">
                     <div class="form-group col-md-12">
-                        <label for="CurrencyrName">Currency Name  <span style="color:#ff0000">*</span></label>
+                        <label for="editCurrencyrName">Currency Name  <span style="color:#ff0000">*</span></label>
                         <input type="text" class="form-control" id="editCurrencyrName" placeholder=" Enter Currency Name" >
                     </div>
                 </div>

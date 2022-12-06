@@ -2,6 +2,11 @@ var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
 
 var base_path = $("#url").val();
 
+$('.closeAddOwnerModal').click(function(){
+    $('#addDriverOwnerModal').modal('hide');
+});
+
+
 $(document).ready(function() {
     var response = '';
     $.ajax({
@@ -455,6 +460,7 @@ $.ajax({
                         var driver_balance = driverResponse.driver[j].driverBalance;
                         var delete_status = driverResponse.driver[j].deleteStatus;
                         var ownerOperatorStatus =driverResponse.driver[j].ownerOperatorStatus;
+                        var ownerOperatorDeleteStatus =driverResponse.driver[j].ownerOperatorDeleteStatus;
 
                         if(delete_status=="NO"){
                             
@@ -465,11 +471,16 @@ $.ajax({
                                     "<a class='editDriverOwner mt-2 btn btn-info fs-14 text-white '  title='Edit Owner Operator' data-id="+ driverId+" data-name="+ btoa(name)+" ><i class='fe fe-edit'></i></a>&nbsp";
                                 // $('.addDriverOwner').addClass('btn-danger');
                             }
-                            else if(ownerOperatorStatus == 'NO'){
+                            else if(ownerOperatorStatus == 'NO' && ownerOperatorDeleteStatus == 'NO'){
                                 var actionBtnOwnerOperator="<a class='editDriver mt-2 btn btn-primary fs-14 text-white edit'  title='Edit' data-id=" + comid+ "&"+email + "><i class='fe fe-edit'></i></a>&nbsp"+
                                     "<a class='deleteDriver mt-2 btn btn-danger fs-14 text-white delete-icn' data-id=" + comid+ "&"+email + " title='Delete'><i class='fe fe-delete'></i></a>&nbsp"+
                                     "<a class='addDriverOwner mt-2 btn btn-success fs-14 text-white '  title='Add As Owner Operator' data-id="+ driverId+" data-name="+ btoa(name)+" ><i class='fe fe-user-plus'></i></a>&nbsp";
                                 // $('.addDriverOwner').addClass('btn-success');
+                            }else if(ownerOperatorDeleteStatus == 'YES'){
+                                var actionBtnOwnerOperator="<a class='editDriver mt-2 btn btn-primary fs-14 text-white edit'  title='Edit' data-id=" + comid+ "&"+email + "><i class='fe fe-edit'></i></a>&nbsp"+
+                                    "<a class='deleteDriver mt-2 btn btn-danger fs-14 text-white delete-icn' data-id=" + comid+ "&"+email + " title='Delete'><i class='fe fe-delete'></i></a>&nbsp"+
+                                    "<a class='restoreDriverOwner mt-2 btn btn-warning fs-14 text-white '  title='Restore As Owner Operator' data-id="+ driverId+" data-name="+ btoa(name)+" ><i class='fe  fe-user-plus'></i></a>&nbsp";
+
                             }
                         var tr_str1 = "<tr data-id=" + (i + 1) + ">" +
                             "<td data-field='no'>" + no  + "</td>" +
@@ -532,7 +543,114 @@ $('.editModalCloseButton').click(function(){
 
 
 
+
 // <!--------------------------------------------------------------------------- end of get driver  --------------------------------------------------------------------------->
+//--------------------------------------------------------------remove (delete) driver owner modal------------------------------------------------------------------------    
+$('body').on('click',function() {
+    $(".restoreDriverOwner").on("click", function(){
+            //alert();
+            var id = $(this).attr("data-id");
+            var name = $(this).attr("data-name");
+            var name=atob(name);
+           
+            swal.fire({
+                title: "Restore?",
+                text: "Please ensure and then confirm!",
+                type: "warning",
+                showCancelButton: !0,
+                confirmButtonText: "Yes, Restore it!",
+                cancelButtonText: "No, cancel!",
+                reverseButtons: !0
+            }).then(function (e) {
+        
+                if (e.value === true) {
+                    $.ajax({ 
+                    url: base_path+"/admin/restoreDriverOwnerOperator",
+                    data: {id: id,name: name,_token: $(".laravel_csrf_tokn").val(),},
+                    type: 'post',
+                    success: function(resp){
+                        if (resp.success === true) {
+                            swal.fire("Done!", resp.message, "success");
+                            $.ajax({
+                                type: "GET",
+                                url: base_path+"/admin/driver",
+                                async: false,
+                                success: function(text) {
+                                    createDriverRows(text);
+                                    driverResponse = text;
+                                }
+                            });
+                        } else {
+                            swal.fire("Error!", resp.message, "error");
+                        }
+                        },
+                        error: function (resp) {
+                            swal.fire("Error!", 'Something went wrong.', "error");
+                        }
+                    });
+                } else {
+                    e.dismiss;
+                }
+            }, function (dismiss) {
+            return false;
+            });
+        });
+    });
+    // ------------------------------------------------------------------over remove (delete) driver owner modal------------------------------------------------------------------------    
+// ------------------------------------------------------------------remove (delete) driver owner modal------------------------------------------------------------------------    
+$('body').on('click',function() {
+    $(".removeDriverOwner").on("click", function(){
+      
+            var id = $(this).attr("data-id");
+            var name = $(this).attr("data-name");
+            var name=atob(name);
+        
+            swal.fire({
+                title: "Delete?",
+                text: "Please ensure and then confirm!",
+                type: "warning",
+                showCancelButton: !0,
+                confirmButtonText: "Yes, delete it!",
+                cancelButtonText: "No, cancel!",
+                reverseButtons: !0
+            }).then(function (e) {
+        
+                if (e.value === true) {
+                    $.ajax({ 
+                    url: base_path+"/admin/deleteDriverOwnerOperator",
+                    data: {id: id,name: name,_token: $(".laravel_csrf_tokn").val(),},
+                    type: 'post',
+                    success: function(resp){
+                        if (resp.success === true) {
+                            swal.fire("Done!", resp.message, "success");
+                            $.ajax({
+                                type: "GET",
+                                url: base_path+"/admin/driver",
+                                async: false,
+                                success: function(text) {
+                                    createDriverRows(text);
+                                    driverResponse = text;
+                                }
+                            });
+                        } else {
+                            swal.fire("Error!", resp.message, "error");
+                        }
+                        },
+                        error: function (resp) {
+                            swal.fire("Error!", 'Something went wrong.', "error");
+                        }
+                    });
+                } else {
+                    e.dismiss;
+                }
+            }, function (dismiss) {
+            return false;
+            });
+        });
+    });
+    // ------------------------------------------------------------------over remove (delete) driver owner modal------------------------------------------------------------------------    
+    
+
 // <!-- ------------------------------------------------------------------------- Owner driver application data  ------------------------------------------------------------------------- -->
 
    
@@ -1243,7 +1361,7 @@ function drivermodal()
             });
         });
     });
-    
+// ------------------------------------------------------------------delete driver-------------------------------------------------------------------------    
     $(".deleteDriver").on("click", function(){
         var rowToDelete = $(this).closest('tr');
         var id = $(this).attr("data-id");
@@ -1285,20 +1403,25 @@ function drivermodal()
     return false;
 })
     });
+// ------------------------------------------------------------------over delete driver-------------------------------------------------------------------------    
+// ------------------------------------------------------------------ driver owner modal------------------------------------------------------------------------    
 
     $('.addDriverOwner').click(function(){
         var name =$(this).data('name');
         $('#owner-driver-name').val(atob(name));
-        console.log(atob(name));
+        // console.log(atob(name));
 
         var driver_id =$(this).data('id');
         $('.driver-id').val(driver_id);
-        console.log(driver_id);
+        // console.log(driver_id);
 
         $('#addDriverOwnerModal').modal('show');  
     });
-}
+    
 
+
+}
+// ------------------------------------------------------------------ driver owner modal------------------------------------------------------------------------    
 $(document).ready(function(){
     var maxField = 20; //Input fields increment limitation
     var addButton = $('.add_button'); //Add button selector
@@ -1674,7 +1797,7 @@ function createDriverTruckList(truckResponse) {
 
     if (TruckLength > 0) {
      
-        $(".truckTypeSet").html('');
+        $(".truckSet").html('');
         for (var i = 0; i < TruckLength; i++) {  
             var truckNumber =truckResponse.truck[i].truckNumber;
             var truckTypeId =truckResponse.truck[i]._id;
@@ -1691,6 +1814,53 @@ function createDriverTruckList(truckResponse) {
 
  
 // <!-- -------------------------------------------------------------------------over get driver truck ------------------------------------------------------------------------- -->
+
+// <!-- -------------------------------------------------------------------------getedit driver truck  ------------------------------------------------------------------------- -->  
+   // $('.list select').selectpicker();   
+   $('.up_truckSet').focus(function(){
+    $('.up_truckSet').val('');
+        //alert(); 
+        $.ajax({
+            type: "GET",
+            url: base_path+"/admin/driver_getTruck",
+            async: false,
+            //dataType:JSON,
+            success: function(data) {
+                console.log(data)                    
+                createDriverUpTruckList(data);
+                truckResponse = data;
+            }
+        });
+    });
+
+//get truck type
+function createDriverUpTruckList(truckResponse) {           
+    var TruckLength = 0;    
+    
+    if (truckResponse != null) {
+       TruckLength = truckResponse.truck.length;
+    }
+
+    if (TruckLength > 0) {
+     
+        $(".up_truckSet").html('');
+        for (var i = 0; i < TruckLength; i++) {  
+            var truckNumber =truckResponse.truck[i].truckNumber;
+            var truckTypeId =truckResponse.truck[i]._id;
+          
+           var TruckList = "<option class='truckType' value='"+ truckTypeId+"-"+ truckNumber +"'>"                
+           $(".up_truckSet").append(TruckList);
+           
+
+        }
+        
+    }
+    
+}
+
+ 
+// <!-- -------------------------------------------------------------------------over get driver truck ------------------------------------------------------------------------- -->
+
 
 // function getNextSequence($id){
 //     $newid = $id + 1;
@@ -1747,8 +1917,10 @@ function createDriverTruckList(truckResponse) {
 // })
 //     });
 // }
-    $('.closeFooter').click(function(){
+    $('.editDriverOwnerClose').click(function(){
+       // alert();
         $('#editDriverOwnerModal').modal('hide');
+        //return
     });
 
     function inc_percentage() {

@@ -50,27 +50,32 @@ class DriverController extends Controller
         
         parse_str($request->data,$unserializeData);
         //dd($unserializeData['installmentCategory']);
-        foreach($unserializeData['up_installmentCategory'] as $key => $val){
+        if(isset($unserializeData['up_installmentCategory'])){
+            foreach($unserializeData['up_installmentCategory'] as $key => $val){
             
-            $up_i_cate=$unserializeData['up_installmentCategory'][$key];
-            $up_i_type=$unserializeData['up_installmentType'][$key];
-            $up_amount=$unserializeData['up_amount'][$key];
-            $up_installment=$unserializeData['up_installment'][$key];
-            $up_startNo=$unserializeData['up_startNo'][$key];
-            $up_startDate=$unserializeData['up_startDate'][$key];
-            $up_internalNote=$unserializeData['up_internalNote'][$key]; 
-
-            $updateinstallmentarray[]=((object)[
-                '_id'=>$key,
-                'installmentCategory'=>$up_i_cate,
-                'installmentType'=>$up_i_type,
-                'amount'=>$up_amount,
-                'installment'=>$up_installment,
-                'startNo'=>$up_startNo,
-                'startDate'=>$up_startDate,
-                'internalNote'=>$up_internalNote,
-            ]);        
+                $up_i_cate=$unserializeData['up_installmentCategory'][$key];
+                $up_i_type=$unserializeData['up_installmentType'][$key];
+                $up_amount=$unserializeData['up_amount'][$key];
+                $up_installment=$unserializeData['up_installment'][$key];
+                $up_startNo=$unserializeData['up_startNo'][$key];
+                $up_startDate=$unserializeData['up_startDate'][$key];
+                $up_internalNote=$unserializeData['up_internalNote'][$key]; 
+    
+                $updateinstallmentarray[]=((object)[
+                    '_id'=>$key,
+                    'installmentCategory'=>$up_i_cate,
+                    'installmentType'=>$up_i_type,
+                    'amount'=>$up_amount,
+                    'installment'=>$up_installment,
+                    'startNo'=>$up_startNo,
+                    'startDate'=>$up_startDate,
+                    'internalNote'=>$up_internalNote,
+                ]);        
+            }
+        }else{
+            $updateinstallmentarray=array();
         }
+        
 //dd(isset($unserializeData['installmentCategory']));
         if(isset($unserializeData['installmentCategory'])){
             foreach($unserializeData['installmentCategory'] as $key => $val){
@@ -220,6 +225,7 @@ class DriverController extends Controller
                     'percentage' => $unserializeData['percentage'],
                     'truckNo' => $truckID[0],
                     'installment' =>$array ,
+                    'deleteStatus' => 'NO',
                 );
 
                 if($getCompany){
@@ -383,6 +389,7 @@ class DriverController extends Controller
                         'terminationDate' => $request->terminationDate,
                         'internalNote' => $request->internalNotes,
                         'deleteStatus' => "NO",
+                        
                         // 'recurrencePlus' => $request->recurrencePlus,
                         // 'recurrenceAdd' => (Array)array(
 
@@ -413,6 +420,7 @@ class DriverController extends Controller
                             // 'deleteTime' => $request->  ,
                             // 'LastUpdateId' => $request->  ,
                             'ownerOperatorStatus' => 'NO' ,
+                            'ownerOperatorDeleteStatus' => "NO",
             );
 // dd($driverData[]);
             if($getCompany){
@@ -968,6 +976,112 @@ class DriverController extends Controller
         ]);
         
     }  
+
+    public function deleteDriverOwnerOperator(Request $request){
+       // dd($request->all());
+        $companyID=(int)1;
+        $driverID=$request->id;
+        
+        $result = Driver::where('companyID',$companyID )->first();
+        $driverArray=$result->driver;
+
+        $arrayLength=count($driverArray);
+        $i=0;
+        $v=0;
+        for ($i=0; $i<$arrayLength; $i++){
+            $id=$result->driver[$i]['_id'];
+            if($id==$driverID){
+               $v=$i;
+            }
+        }
+       $driverArray[$v]['ownerOperatorStatus'] = "NO"; 
+       $driverArray[$v]['ownerOperatorDeleteStatus'] = "YES"; 
+       $result->driver = $driverArray;
+
+    //////////
+       $oo_result = Owner_operator_driver::where('companyID',$companyID )->first();
+        $oo_driverArray=$oo_result->ownerOperator;
+
+        $oo_arrayLength=count($oo_driverArray);
+        $i=0;
+        $v=0;
+        for ($i=0; $i<$oo_arrayLength; $i++){
+            $oo_id=$oo_result->ownerOperator[$i]['_id'];
+            if($oo_id==$driverID){
+               $v=$i;
+            }
+        }
+       $oo_driverArray[$v]['deleteStatus'] = "YES"; 
+       $oo_result->ownerOperator = $oo_driverArray;
+
+       if ($result->save() && $oo_result->save()) {
+            $success = true;
+            $message = "Driver Owner Operator deleted successfully";
+        } else {
+            $success = false;
+            $message = "Driver Owner Operator  not found";
+        }
+
+        //  Return response
+        return response()->json([
+            'success' => $success,
+            'message' => $message,
+        ]);
+        
+    } 
+
+    public function restoreDriverOwnerOperator(Request $request){
+        //dd($request->all());
+         $companyID=(int)1;
+         $driverID=$request->id;
+         
+         $result = Driver::where('companyID',$companyID )->first();
+         $driverArray=$result->driver;
+ 
+         $arrayLength=count($driverArray);
+         $i=0;
+         $v=0;
+         for ($i=0; $i<$arrayLength; $i++){
+             $id=$result->driver[$i]['_id'];
+             if($id==$driverID){
+                $v=$i;
+             }
+         }
+        $driverArray[$v]['ownerOperatorStatus'] = "YES"; 
+        $driverArray[$v]['ownerOperatorDeleteStatus'] = "NO"; 
+        $result->driver = $driverArray;
+ 
+     //////////
+        $oo_result = Owner_operator_driver::where('companyID',$companyID )->first();
+         $oo_driverArray=$oo_result->ownerOperator;
+ 
+         $oo_arrayLength=count($oo_driverArray);
+         $i=0;
+         $v=0;
+         for ($i=0; $i<$oo_arrayLength; $i++){
+             $oo_id=$oo_result->ownerOperator[$i]['_id'];
+             if($oo_id==$driverID){
+                $v=$i;
+             }
+         }
+        $oo_driverArray[$v]['deleteStatus'] = "NO"; 
+        $oo_result->ownerOperator = $oo_driverArray;
+ 
+        if ($result->save() && $oo_result->save()) {
+             $success = true;
+             $message = "Driver Owner Operator Restore Successfully";
+         } else {
+             $success = false;
+             $message = "Driver Owner Operator  not found";
+         }
+ 
+         //  Return response
+         return response()->json([
+             'success' => $success,
+             'message' => $message,
+         ]);
+         
+     } 
 
     public function setupDriver(Request $request){
         request()->validate([
