@@ -28,15 +28,18 @@ class CompanyController extends Controller
         if(!File::exists($path)) {
             File::makeDirectory($path, $mode = 0777, true, true);
         }
-        // request()->validate([
-        //     // 'companyName' => 'required',
-        //     // 'telephoneNo' => 'required',
-        //     // 'mailingAddress' => 'required|unique:company,company.mailingAddress',
-        //     // 'companyID' => 'required|unique:company,companyID',
-        //     // 'file' => 'image|mimes:jpg,jpeg,png,gif,svg|max:2048',
-        // ]);
+        request()->validate([
+            'inputCompanyName4' => 'required',
+            'inputTelephoneNo4' => 'required',
+            'inputEmailAddress4' => 'required|unique:company,company.mailingAddress',
+            // 'companyID' => 'required|unique:company,companyID',
+            'file' => 'image|mimes:jpg,jpeg,png,gif,svg|max:2048',
+        ]);
         try{
-
+            $photo_name='';
+            $original_name='';
+            $size='';
+            $photo_path='';
         $company=Company::all();
         // $companyID=(int)$request->companyID;
         if ($files = $request->file('file')) {

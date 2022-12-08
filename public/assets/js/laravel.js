@@ -63,6 +63,10 @@ function createRows(response) {
     usermodal();
 }
 
+$(".plusCompany").click(function(){
+    $("#factoringCompanyModal").modal("show");
+});
+
 (function() {
     window.onpageshow = function(event) {
         if (event.persisted) {
@@ -352,6 +356,10 @@ $(document).ready(function(){
 
   function usermodal()
 {
+    $("#plusCompany").click(function(){
+        $("#addCompanyModal").modal("show");
+    });
+
     $(document).ready(function(){
         $('.edit1').click(function(){
             $('#userEditModal').modal('show'); 

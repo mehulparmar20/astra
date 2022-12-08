@@ -80,12 +80,18 @@
                                                 </div>
                                                 <div class="form-row">
                                                     <div class="form-group col-md-4">
-                                                        <label for="inputCompanyName">Company Name</label>
-                                                        <select id="inputCompanyName" name="inputCompanyName"
-                                                            class="form-control">
-                                                            <option selected>Choose...</option>
-                                                            <option value="1">1</option>
-                                                        </select>
+                                                        <label for="inputCompanyName">Company <span
+                                                                class="glyphicon glyphicon-plus-sign plusCompany"
+                                                                id="plusCompany"></span></label>
+                                                        <div class="dropdown show">  <input class="form-control inputCompanyNameSet"
+                                                                list="inputCompanyNameSet"
+                                                                name="inputCompanyName"
+                                                                id="inputCompanyName">
+                                                            <datalist id="inputCompanyNameSet"
+                                                                class="inputCompanyNameSet">
+                                                                <option>Select Here</option>
+                                                            </datalist>
+                                                        </div>
                                                     </div>
                                                     <div class="form-group col-md-4">
                                                         <label for="inputOffice">Office</label>
@@ -97,8 +103,8 @@
                                                     </div>
                                                     <div class="form-group col-md-2">
                                                         <label for="inputTelephone">Telephone</label>
-                                                        <input type="tel" class="form-control telephone4" name="inputTelephone"
-                                                            id="inputTelephone">
+                                                        <input type="tel" class="form-control telephone4"
+                                                            name="inputTelephone" id="inputTelephone">
                                                     </div>
                                                     <div class="form-group col-md-2">
                                                         <label for="inputExt">Ext</label>
@@ -599,7 +605,7 @@
                 <!-- End Row -->
             </div>
             <!-- Modal footer -->
-            
+
         </div>
     </div>
 </div>
