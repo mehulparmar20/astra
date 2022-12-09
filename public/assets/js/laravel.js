@@ -764,8 +764,8 @@ $('body').on('click',function() {
       });
       
   });
-  // <!-- ------------------------------------------------------------------------- end driver application data  ------------------------------------------------------------------------- -->
-  // <!-- ------------------------------------------------------------------------- edit driver application data  ------------------------------------------------------------------------- -->
+  // <!-- ------------------------------------------------------------------------- end driver Owner data  ------------------------------------------------------------------------- -->
+  // <!-- ------------------------------------------------------------------------- edit driver Owner  data  ------------------------------------------------------------------------- -->
   // $('body').on('click',function() {
   //     $('.editDriverOwner').click(function() {
   //         $('#editDriverOwnerModal').modal('show');
@@ -912,7 +912,7 @@ $('body').on('click',function() {
 });
   
   
-  // <!-- ------------------------------------------------------------------------- end editOwner driver application data  ------------------------------------------------------------------------- -->
+  // <!-- ------------------------------------------------------------------------- end editOwner driver  data  ------------------------------------------------------------------------- -->
 // <!-- ------------------------------------------------------------------------- add driver  ------------------------------------------------------------------------- -->
 
       $('.driverDataSubmit').click(function(){   
@@ -1480,6 +1480,7 @@ $(document).ready(function() {
                             var applicationDate=viewDriverApplicationResponse.application[i].applicant_info.date_of_application;
                             var Email=viewDriverApplicationResponse.application[i].applicant_info.email;
                             var Contact=viewDriverApplicationResponse.application[i].applicant_info.telephone;
+                            var id = viewDriverApplicationResponse.application[i]._id;
 
                             var tr_str1 = "<tr data-id=" + (i + 1) + ">" +
                                 "<td data-field='no'>" + no + "</td>" +
@@ -1489,8 +1490,8 @@ $(document).ready(function() {
                                 "<td data-field='Contact'>" + Contact + "</td>" +
                                 "<td data-field='Status'> <select style='width: auto;'><option value='0'>Select Status</option><option value='accept'>Accept</option><option value='decline'>Decline</option></select> </td>" +
                                 "<td style='display: inline-flex;'>"+
-                                    "<a class='editDriver mt-2 btn btn-primary fs-14 text-white '  title='Edit'><i class='fe fe-edit edit'></i></a>&nbsp"+
-                                    "<a class='deleteDriver mt-2 btn btn-danger fs-14 text-white delete-icn'  title='Delete'><i class='fe fe-delete'></i></a> &nbsp"+
+                                    "<a class='editViewDriverApp mt-2 btn btn-primary fs-14 text-white '  title='Edit'><i class='fe fe-edit edit'></i></a>&nbsp"+
+                                    "<a class='deleteViewDriverApp mt-2 btn btn-danger fs-14 text-white delete-icn'  title='Delete' data-Id='"+id +"'><i class='fe fe-delete'></i></a> &nbsp"+
                                 "</td></tr>";
                             $("#viewDriverApplicationTable").append(tr_str1);
                             no++;
@@ -1505,11 +1506,56 @@ $(document).ready(function() {
             }
             drivermodal();
         }
+// <!-- ------------------------------------------------------------------------- end view driver application data  ------------------------------------------------------------------------- -->
 
     $('.editModalCloseButton').click(function(){
         $('#editDriverModal').modal('hide');
         $('#driverModal').modal('show');  
     });
+
+    // ------------------------------------------------------------------delete driver-------------------------------------------------------------------------    
+    $(".deleteViewDriverApp").on("click", function(){
+            var rowToDelete = $(this).closest('tr');
+            var id = $(this).attr("data-id");
+          
+            swal.fire({
+                title: "Are You Sure?",
+                text: "Once deleted, you will not be able to recover this Driver Application!",
+                type: "warning",
+                showCancelButton: !0,
+                confirmButtonText: "Yes, delete it!",
+                cancelButtonText: "No, cancel!",
+                reverseButtons: !0
+            }).then(function (e) {
+
+                if (e.value === true) {
+                    $.ajax({ 
+                    url: base_path+"/admin/deleteViewDriverApp",
+                    data: {id: id,_token: $(".laravel_csrf_tokn").val()},
+                    type: 'post',
+                        success: function(resp){
+                            if (resp.success === true) {
+                                swal.fire("Done!", resp.message, "success");
+                                rowToDelete.remove();
+                            } else {
+                                swal.fire("Error!", resp.message, "error");
+                            }
+                        },
+                        error: function (resp) {
+                            swal.fire("Error!", 'Something went wrong.', "error");
+                        }
+                    });
+                } else {
+                    e.dismiss;
+                }
+
+            }, function (dismiss) {
+                return false;
+            })
+    });
+// ------------------------------------------------------------------over delete driver-------------------------------------------------------------------------    
+
+
 });
 
 // <!-- ------------------------------------------------------------------------- end view driver application data  ------------------------------------------------------------------------- -->

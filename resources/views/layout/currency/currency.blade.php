@@ -8,7 +8,7 @@
                 <!-- Modal Header -->
                 <div class="modal-header">
                     <h4 class="modal-title">Currency Setting</h4>
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <button type="button" class="closeCurrency">&times;</button>
                 </div>
 
                 <!-- Modal body -->
@@ -52,7 +52,7 @@
                         @csrf
                         <button class="btn btn-primary" style="vertical-align:middle"><span>Export</span></button>
                     </form>
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="closeCurrency btn btn-secondary"  data-dismiss="modal">Close</button>
                 </div>
             </div>
         </div>

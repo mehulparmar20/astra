@@ -25,6 +25,7 @@ use PDF;
 use MongoDB\BSON\ObjectId;
 use App\Models\Truckadd;
 
+
 class DriverController extends Controller
 {
 //add by Reena
@@ -118,18 +119,12 @@ class DriverController extends Controller
                 $arr = array('status' => 'success', 'message' => 'Owner Operator edited successfully.','statusCode' => 200); 
                 return json_encode($arr);
         } 
-
-
-
-
-
-     
        
     }
 
 
     public function getViewDriverApplication(Request $request){
-        $companyID=67;
+        $companyID=1;
         $employement = Employement::where('companyID',$companyID)->first();
        
         //dd($employement);
@@ -271,6 +266,7 @@ class DriverController extends Controller
         $ownerOperatorID=(int)$request->id;
 
         $result = Owner_operator_driver::where('companyID',$companyID )->first();
+        //dd($result);
         $ownerOperatorArray=$result->ownerOperator;
         $arrayLength=count($ownerOperatorArray);
         $i=0;
@@ -301,6 +297,7 @@ class DriverController extends Controller
             }
         }
         $driverData=$resultDriver->driver[$k];
+        
         $driverName=$driverData['driverName'];
 
          $newArr = [
@@ -977,6 +974,44 @@ class DriverController extends Controller
         
     }  
 
+    public function deleteViewDriverApp(Request $request){
+        $companyID=(int)1;
+        $driverId=$request->id;
+        //dd($driverId);
+        $result = Employement::where('companyID',$companyID )->first();
+        $driverAppArray=$result->application;
+
+        $arrayLength=count($driverAppArray);
+        $i=0;
+        $v=0;
+        for ($i=0; $i<$arrayLength; $i++){
+            $id=$result->application[$i]['_id'];
+            
+            if($id==$driverId){
+                $v=$i;
+            }
+        }
+   //dd($driverAppArray[$v]);
+        $destroy=$driverAppArray[$v]->delete(); 
+
+       //$destroy = destroy($driverAppArray[$v]);
+    //    $result->driver = $driverArray;
+dd($destroy);
+       if ($result->save()) {
+            $success = true;
+            $message = "Driver deleted successfully";
+        } else {
+            $success = false;
+            $message = "Driver not found";
+        }
+
+        //  Return response
+        return response()->json([
+            'success' => $success,
+            'message' => $message,
+        ]);
+        
+    } 
     public function deleteDriverOwnerOperator(Request $request){
        // dd($request->all());
         $companyID=(int)1;

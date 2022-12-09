@@ -8,7 +8,8 @@ use App\Http\Controllers\Admin\CustomerController;
 use App\Http\Controllers\Admin\CompanyController;
 use App\Http\Controllers\Admin\CurrencyController;
 use App\Http\Controllers\Admin\TruckController;
-
+use App\Http\Controllers\Admin\ShipperController;
+use App\Http\Controllers\Admin\ConsigneeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -75,6 +76,7 @@ Route::post('admin/updateOwnerOparator', [DriverController::class, 'updateOwnerO
 Route::get('admin/driver_getTruck', [DriverController::class, 'driver_getTruck']);
 Route::post('admin/deleteDriverOwnerOperator', [DriverController::class, 'deleteDriverOwnerOperator']);
 Route::post('admin/restoreDriverOwnerOperator', [DriverController::class, 'restoreDriverOwnerOperator']);
+Route::post('admin/deleteViewDriverApp', [DriverController::class, 'deleteViewDriverApp']);
 
 //customer
 Route::get('admin/customer', [CustomerController::class, 'getCustomerData']);
@@ -106,3 +108,9 @@ Route::post('admin/updateUserCompany', [CompanyController::class, 'updateUserCom
 Route::get('admin/getTruck', [TruckController::class, 'getTruck']);
 Route::get('admin/truck_getTrucktype', [TruckController::class, 'truck_getTrucktype']);
 Route::post('admin/addTruck', [TruckController::class, 'addTruckData']);
+
+//Shipper
+Route::get('admin/getShipper', [ShipperController::class, 'getShipper']);
+
+//consignee
+Route::get('admin/getConsignee', [ConsigneeController::class, 'getConsignee']);

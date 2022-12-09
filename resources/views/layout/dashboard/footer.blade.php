@@ -99,8 +99,8 @@
 <script src="{{URL::to('/')}}/assets/js/customerLaravel.js"></script>
 <script src="{{URL::to('/')}}/assets/js/js/currencyLaravel.js"></script>
 <script src="{{URL::to('/')}}/assets/js/js/truckLaravel.js"></script>
-
-
+<script src="{{URL::to('/')}}/assets/js/js/shipper.js"></script>
+<script src="{{URL::to('/')}}/assets/js/js/consignee.js"></script>
 
 
 

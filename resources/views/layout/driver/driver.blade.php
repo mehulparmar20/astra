@@ -832,7 +832,7 @@
 <div class="container">
     <!-- The Modal -->
     <div class="modal fade" id="viewDriverApplicationModal">
-        <div class="modal-dialog modal-lg">
+        <div class="modal-dialog modal-xl">
             <div class="modal-content">
 
                 <!-- Modal Header -->

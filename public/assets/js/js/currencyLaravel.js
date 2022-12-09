@@ -1,5 +1,9 @@
 var base_path = $("#url").val();
 $(document).ready(function() {
+
+    $('.closeCurrency').click(function(){
+        $('#CurrencyModal').modal('hide');
+    })
 // <!-- -------------------------------------------------------------------------Get Currency  ------------------------------------------------------------------------- -->  
 
     
@@ -60,6 +64,7 @@ $(document).ready(function() {
     }
 
     $("#currency_navbar").click(function(){
+        //alert();
         $.ajax({
             type: "GET",
             url: base_path+"/admin/getCurrency",
