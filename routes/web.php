@@ -10,6 +10,7 @@ use App\Http\Controllers\Admin\CurrencyController;
 use App\Http\Controllers\Admin\TruckController;
 use App\Http\Controllers\Admin\ShipperController;
 use App\Http\Controllers\Admin\ConsigneeController;
+use App\Http\Controllers\Admin\factCompanyController;
 
 /*
 |--------------------------------------------------------------------------
@@ -95,6 +96,7 @@ Route::post('admin/PaymentTerms', [CustomerController::class, 'addCustomerPaymen
 //factoringCompany
 Route::get('admin/getCustomerBFactoringCompany', [CustomerController::class, 'getCustomerBFactoringCompany']);
 Route::post('admin/factoringCompany', [CustomerController::class, 'addCustomerfactoringCompany']);
+Route::get('admin/getFactCompany', [factCompanyController::class, 'getFactCompany']);
 
 //company
 Route::get('admin/company', [CompanyController::class, 'getCompanyData']);

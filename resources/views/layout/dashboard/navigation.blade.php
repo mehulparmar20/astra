@@ -79,7 +79,8 @@
 												<li><a href="#userModal" class="slide-item" data-toggle="modal" data-target="#userModal">User</a></li>
 												<li><a href="#" id="truck_navbar" class="slide-item">Truck</a></li>
 												<li><a href="#TrailerModal" class="slide-item" data-toggle="modal" data-target="#TrailerModal">Trailer</a></li>
-												<li><a href="#FacoringCompanyModal" class="slide-item" data-toggle="modal" data-target="#FacoringCompanyModal">Factoring Company</a></li>
+												<li><a href="#" id="facCompany_navbar" class="slide-item">Factoring Company</a></li>
+												<!-- <li><a href="#FacoringCompanyModal" class="slide-item" data-toggle="modal" data-target="#FacoringCompanyModal">Factoring Company</a></li> -->
 											</ul>
 										</li>
 			
@@ -356,3 +357,6 @@
 			@include('layout.Trailer.Trailer')
 			@include('layout.Shipper & Consignee.Shipper_and_Consignee')
 			@include('layout.External Carrier.External_Carrier')
+			@include('layout.driver.addRecurrence')
+            @include('layout.driver.subtractRecurrence')
+            @include('layout.driver.add_contract_category')

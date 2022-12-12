@@ -7,12 +7,12 @@
         </button> -->
     <!-- The Modal -->
     <div class="modal fade" data-backdrop="static" id="addUserModal">
-        <div class="modal-dialog modal-dialog-scrollable custom_modal">
+        <div class="modal-dialog modal-dialog-scrollable custom_modal_small">
             <div class="modal-content">
                 <!-- Modal Header -->
                 <div class="modal-header">
                     <h4 class="modal-title">Add User</h4>
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <button type="button" class="button-24" data-dismiss="modal">&times;</button>
                 </div>
                 <!-- Modal body -->
                 <div class="modal-body" style="overflow-y: auto !important;">
@@ -583,24 +583,22 @@
                                                         </div>
                                                     </div>
                                                 </div>
+                                            </form>
+                                        
                                         </div>
-                                        <br>
-                                        <a type="submit" class="btn btn-primary" data-dismiss="modal"
-                                            id="usersave">Submit</a>
-                                        <br>
-                                        </form>
-                                        <br>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+                    <!-- End Row -->
                 </div>
-                <!-- End Row -->
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button type="submit" class="button-29" data-dismiss="modal" id="usersave">Submit</button>
+                    <button type="button" class="button-29" data-dismiss="modal">Close</button>
+                </div>
             </div>
-            <!-- Modal footer -->
-            
         </div>
     </div>
-</div>
 </div>

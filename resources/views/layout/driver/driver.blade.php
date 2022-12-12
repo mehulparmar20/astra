@@ -1,37 +1,35 @@
 <!------------------------------------------------------------------- driver modal ------------------------------------------------------------------->
 <div class="container">
     <!-- The Modal -->
-    <div class="modal fade" id="driverModal">
-        <div class="modal-dialog modal-lg " style="display: table;">
+    <div class="modal fade" data-backdrop="static" id="driverModal">
+        <div class="modal-dialog modal-dialog-scrollable custom_modal">
             <div class="modal-content">
 
                 <!-- Modal Header -->
                 <div class="modal-header">
                     <h4 class="modal-title">Driver</h4>
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <button type="button" class="button-24" data-dismiss="modal">&times;</button>
                 </div>
 
+                <div style="margin-top: 15px; margin-left: 15px;">
+                <a href="#addDriverModal" class="button-57" data-toggle="modal"
+                                                data-target="#addDriverModal"><i class="fa fa-plus" aria-hidden="true"></i><span>Add Driver</span></a>
+                                            <a href="#setupDriverModal" class="button-57" data-toggle="modal"
+                                                data-target="#setupDriverModal"><i class="fa fa-sliders" aria-hidden="true"></i></span><span>Setup<br>Driver</span></a>
+                                            <a href="#contractCategoryModal" class="button-57_alt" data-toggle="modal"
+                                                data-target="#contractCategoryModal"><i class="fa fa-id-card" aria-hidden="true"></i></span><span>View Driver Contract</span></a>
+
+                </div>
                 <!-- Modal body -->
-                <div class="modal-body">
+                <div class="modal-body" style="overflow-y: auto !important;">
                     <!-- Row -->
                     <div class="row">
                         <div class="row row-sm">
                             <div class="col-lg-12">
-                                <div class="card">
-                                    <div class="card-body">
+                                
 
                                         <div class="table-responsive export-table">
-
-                                            <a href="#addDriverModal" class="btn btn-primary" data-toggle="modal"
-                                                data-target="#addDriverModal">Add</a>
-                                            <a href="#setupDriverModal" class="btn btn-primary" data-toggle="modal"
-                                                data-target="#viewDriverApplicationModal"><i
-                                                    class="mdi mdi-eye"></i>View Driver Application</a>
-                                            <a href="#setupDriverModal" class="btn btn-primary" data-toggle="modal"
-                                                data-target="#setupDriverModal">Setup Driver</a>
-                                            <a href="#contractCategoryModal" class="btn btn-primary" data-toggle="modal"
-                                                data-target="#contractCategoryModal">View Driver Contract</a>
-                                            <table id="editable-file-datatable" class="table editable-table table-nowrap table-bordered table-edit wp-100">
+                                            <table id="editable-file-datatable" class="table editable-table table-nowrap table-bordered table-edit wp-100 customtable">
 
                                                 <!-- <button href="#addDriverModal" data-toggle="modal" data-target="#addDriverrModal"  class="add1button" style="vertical-align:middle"><span>Add </span></button>
                                                         
@@ -41,18 +39,18 @@
                                                 <thead>
                                                     <tr>
                                                         <!-- <th>counter</th> -->
-                                                        <th><div>NO</div></th>
-                                                        <th style=""><div>Name</div></th>
-                                                        <th><div>Email</div></th>
-                                                        <th><div>Location</div></th>
-                                                        <th><div><marquee width="100px" direction="left" height="17px" scrollamount="2"> Social Security No</marquee></div></th>
-                                                        <th><div>Date of Birth</div></th>
-                                                        <th><div>Date of Hire</div></th>
-                                                        <th><div>License No</div></th>
-                                                        <th><div>LIS</div></th>
-                                                        <th><div><marquee width="100px" direction="left" height="17px" scrollamount="2"> License Exp.Date</marquee></div></th>
-                                                        <th><div><marquee width="100px" direction="left" height="17px" scrollamount="2"> Driver Balance</marquee></div></th>
-                                                        <th><div>Action</div></th>
+                                                        <th>NO</th>
+                                                        <th style="">Name</th>
+                                                        <th>Email</th>
+                                                        <th>Location</th>
+                                                        <th>Social Security No</th>
+                                                        <th>Date of Birth</th>
+                                                        <th>Date of Hire</th>
+                                                        <th>License No</th>
+                                                        <th>LIS</th>
+                                                        <th>License Exp.Date</th>
+                                                        <th>Driver Balance</th>
+                                                        <th>Action</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody id="driverTable">
@@ -60,8 +58,7 @@
                                                 </tbody>
                                             </table>
                                         </div>
-                                    </div>
-                                </div>
+                               
                             </div>
                         </div>
                     </div>
@@ -70,11 +67,11 @@
 
                 <!-- Modal footer -->
                 <div class="modal-footer">
-                    <form action="{{route('driver-pdf')}}" method="post" target="__blank">
+                <form action="{{route('driver-pdf')}}" method="post" target="__blank">
                         @csrf
-                        <button class="btn btn-primary" style="vertical-align:middle"><span>Export</span></button>
+                        <button class="button-29" style="vertical-align:middle"><span>Export</span></button>
                     </form>
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="button-29" data-dismiss="modal">Close</button>
                 </div>
             </div>
         </div>
@@ -88,18 +85,18 @@
 
 <div class="container">
     <!-- The Modal -->
-    <div class="modal fade" id="addDriverModal">
-        <div class="modal-dialog custom_modal">
+    <div class="modal fade" data-backdrop="static" id="addDriverModal">
+        <div class="modal-dialog modal-dialog-scrollable custom_modal_small">
             <div class="modal-content">
 
                 <!-- Modal Header -->
                 <div class="modal-header">
                     <h4 class="modal-title">Add Driver</h4>
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <button type="button" class="button-24" data-dismiss="modal">&times;</button>
                 </div>
 
                 <!-- Modal body -->
-                <div class="modal-body">
+                <div class="modal-body" style="overflow-y: auto !important;">
 
                     <!-- Row -->
                     <div class="row">
@@ -332,8 +329,8 @@
                                                 <div class="form-row">
                                                     <div class="form-group col-md-3 ml-6" id="dMile"
                                                         style="display: none">
-                                                        <label>Driver Pay Info</label>
-                                                        <a href="#driverPayInfoModal" class="btn btn-primary"
+                                                        <label>Driver Pay Info</label><br>
+                                                        <a href="#driverPayInfoModal" class="button-29"
                                                             data-toggle="modal" data-target="#driverPayInfoModal">Open
                                                             Pay Info</a>
 
@@ -346,26 +343,30 @@
                                                     </div>
                                                     <div class="form-group col-md-2 col-md-3 ml-6" id="dHourly"
                                                         style="display: none">
-                                                        <label>Driver Pay Info</label>
-                                                        <a href="#driverPayInfoModal" class="btn btn-primary"
+                                                        <label>Driver Pay Info</label><br>
+                                                        <a href="#driverPayInfoModal" class="button-29"
                                                             data-toggle="modal" data-target="#driverPayInfoModal">Open
                                                             Pay Info</a>
                                                     </div>
                                                     <div class="form-group col-md-2">
                                                         <label for="currency">Currency <span
                                                                 style="color:#ff0000">*</span></label>
-                                                        <input type="text" class="form-control" id="currency_add"
-                                                            placeholder="currency">
+                                                        <input type="text" class="form-control" id="currency"
+                                                            placeholder="
+                                                            ">
+                                                    </div>
+                                                    <div class="form-group col-md-2 ">
+                                                        <label>Recurrence +</label>
+                                                        <div>
+                                                            <a href="#addRecurrence" class="button-29" data-toggle="modal" data-target="#addRecurrence">Open recurrence +</a>
+                                                            
+                                                        </div>
                                                     </div>
                                                     <div class="form-group col-md-2">
-                                                        <label for="recurrencePlus">Recurrence+</label>
-                                                        <input type="text" class="form-control" id="recurrencePlus"
-                                                            placeholder="Recurrence">
-                                                    </div>
-                                                    <div class="form-group col-md-2">
-                                                        <label for="recurrenceMin">Recurrence -</label>
-                                                        <input type="text" class="form-control" id="recurrenceMin"
-                                                            placeholder="Recurrence-">
+                                                        <label>Recurrence -</label>
+                                                        <div>
+                                                            <a href="#substractRecurrence" class="button-29" data-toggle="modal" data-target="#substractRecurrence">Open recurrence -</a>
+                                                        </div>
                                                     </div>
                                                     <div class="form-group col-md-3">
                                                         <label for="terminationDate">Termination Date </label>
@@ -398,8 +399,8 @@
 
                 <!-- Modal footer -->
                 <div class="modal-footer">
-                    <a type="submit" class="btn btn-primary driverDataSubmit">Submit</a>
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="button-29 driverDataSubmit">Submit</button>
+                    <button type="button" class="button-29" data-dismiss="modal">Close</button>
                 </div>
 
             </div>
@@ -411,18 +412,19 @@
 
 <div class="container">
     <!-- The Modal -->
-    <div class="modal fade" id="editDriverModal">
-        <div class="modal-dialog modal-lg">
+    <div class="modal fade" data-backdrop="static" id="editDriverModal">
+        <div class="modal-dialog modal-dialog-scrollable custom_modal_small">
             <div class="modal-content">
 
                 <!-- Modal Header -->
                 <div class="modal-header">
                     <h4 class="modal-title">Edit Driver</h4>
-                    <button type="button" class="close editModalCloseButton" data-dismiss="modal">&times;</button>
+                    <button type="button" class="button-24 editModalCloseButton" data-dismiss="modal">&times;</button>
+                    <!-- <button type="button" class="close editModalCloseButton" data-dismiss="modal">&times;</button> -->
                 </div>
 
                 <!-- Modal body -->
-                <div class="modal-body">
+                <div class="modal-body" style="overflow-y: auto !important;">
 
                     <!-- Row -->
                     <div class="row">
@@ -662,7 +664,7 @@
                                                     <div class="form-group col-md-3 ml-6" id="dMileEdit"
                                                         style="display: none">
                                                         <label>Driver Pay Info</label>
-                                                        <a href="#driverPayInfoEditModal" class="btn btn-primary"
+                                                        <a href="#driverPayInfoEditModal" class="button-29"
                                                             data-toggle="modal"
                                                             data-target="#driverPayInfoEditModal">Open
                                                             Pay Info</a>
@@ -677,7 +679,7 @@
                                                     <div class="form-group col-md-3 ml-6" id="dHourlyEdit"
                                                         style="display: none">
                                                         <label>Driver Pay Info</label>
-                                                        <a href="#driverPayInfoEditModal" class="btn btn-primary"
+                                                        <a href="#driverPayInfoEditModal" class="button-29"
                                                             data-toggle="modal"
                                                             data-target="#driverPayInfoEditModal">Open
                                                             Pay Info</a>
@@ -729,9 +731,8 @@
 
                 <!-- Modal footer -->
                 <div class="modal-footer">
-                    <a type="submit" class="btn btn-primary driverDataUpdate">Update</a>
-                    <button type="button" class="btn btn-secondary editModalCloseButton"
-                        data-dismiss="modal">Close</button>
+                    <button type="submit" class="button-29 driverDataUpdate">Update</button>
+                    <button type="button" class="button-29 editModalCloseButton" data-dismiss="modal">Close</button>
                 </div>
 
             </div>
@@ -744,14 +745,14 @@
 <!------------------------------------------------------------------ Setup driver modal ------------------------------------------------------------------>
 <div class="container">
     <!-- The Modal -->
-    <div class="modal fade" id="setupDriverModal">
-        <div class="modal-dialog modal-lg">
+    <div class="modal fade" data-backdrop="static" id="setupDriverModal">
+        <div class="modal-dialog modal-dialog-scrollable custom_modal_small">
             <div class="modal-content">
 
                 <!-- Modal Header -->
                 <div class="modal-header">
-                    <h4 class="modal-title">Add Driver</h4>
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Set Up Driver</h4>
+                    <button type="button" class="button-24" data-dismiss="modal">&times;</button>
                 </div>
 
                 <!-- Modal body -->
@@ -771,8 +772,8 @@
                                                     <div class="form-group col-md-6">
                                                         <label for="name">Name <span
                                                                 style="color:#ff0000">*</span></label>
-                                                        <input type="text" class="form-control required"
-                                                            id="drivername12" placeholder=" Name">
+                                                        <input type="text" class="form-control required" id="drivername12"
+                                                            placeholder=" Name">
                                                     </div>
                                                     <div class="form-group col-md-4">
                                                         <label for="sentvia">Sent via<span
@@ -820,8 +821,8 @@
 
                 <!-- Modal footer -->
                 <div class="modal-footer">
-                    <a type="submit" class="btn btn-primary setupDriverSubmit">Submit</a>
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="button-29 setupDriverSubmit">Submit</button>
+                    <button type="button" class="button-29" data-dismiss="modal">Close</button>
                 </div>
 
             </div>
@@ -832,7 +833,7 @@
 <div class="container">
     <!-- The Modal -->
     <div class="modal fade" id="viewDriverApplicationModal">
-        <div class="modal-dialog modal-xl">
+        <div class="modal-dialog modal-lg">
             <div class="modal-content">
 
                 <!-- Modal Header -->
@@ -898,13 +899,13 @@
 <input type="hidden" class="laravel_csrf_tokn" value="{{ csrf_token() }}" />
 <!-------------------------------------------------------------------over driver Application modal------------------------------------------------------------------->
 <!------------------------------------------------------------------ Add  driver Owner modal ------------------------------------------------------------------>
-<div id="addDriverOwnerModal" class="modal fade">
-    <div class="modal-dialog modal-xl" role="document">
+<div id="addDriverOwnerModal" data-backdrop="static" class="modal fade">
+    <div class="modal-dialog modal-dialog-scrollable custom_modal_small" role="document">
         <div class="modal-content">
             <!-- Modal Header -->
             <div class="modal-header">
                 <h4 class="modal-title">Add as Owner operator</h4>
-                <button type="button" class="closeAddOwnerModal" >&times;</button>
+                <button type="button" class="button-24 addDriverOwnerModalCloseButton" data-dismiss="modal">&times;</button>
             </div>
 
                         <div class="modal-body">
@@ -914,7 +915,7 @@
                                         <div class="col-sm-4">
                                             <label class="form-label" for="owner-driver-name">Driver</label>
                                             <input type="text" class="form-control" list="drivernamelist" autocomplete="off" id="owner-driver-name" disabled/>
-                                            <input type="hidden" id="driverid" value="" class="driver-id" />
+                                            <input type="hidden" id="driverid" value=""  />
                                         </div>
                                         <div class="col-sm-4">
                                             <label class="form-label" for="ssnMask-cvv">Pay Percentage<span class="mandatory">* </span>( % )</label></label>
@@ -929,28 +930,63 @@
                                             </div>
                                         </div>
                                         <div class="col-sm-4">
-                                            <label class="form-label" for="ssnMask-cvv">Select Truck <span class="glyphicon glyphicon-plus-sign" id="driverAddTruck" ></span></label>
-                                            <!-- <input list="fuel_truck_report" class="form-control" placeholder="search here..." id="" name="truckNo" autocomplete="off">
+                                            <label class="form-label" for="ssnMask-cvv">Select Truck</label>
+                                            <input list="fuel_truck_report" class="form-control" placeholder="search here..." id="ownerTruckNo" name="truckNo" autocomplete="off">
                                                 <datalist id="fuel_truck_report">
-                                                </datalist> -->
-
-                                                <div class="dropdown show">
-                                                    <input class="form-control truckSet" list="truckSet" name="ownerTruckNo" id="ownerTruckNo">
-                                                    <datalist id="truckSet" class="truckSet">
-                                                        <option>Select Here</option>
-                                                    </datalist>
-                                                </div>  
+                                                </datalist>
                                         </div>
                                     </div>
                                     <br>
 
                         <br>
-                        <div class="optionBox ">
-                           
+                        <div class="">
+                            <!-- <div class="block">
+                                                <div class="row row-sm">
+                                                        <div class="col-sm-3">
+                                                            <label class="form-label" for="">Category</label>
+                                                            <input type="text" class="form-control" name="installmentCategory1[]" list="fixpaycat" placeholder=" Search here..." autocomplete="off" />
+                                                        </div>
+                                                        <div class="col-sm-3">
+                                                            <label class="form-label" for="">Installment Type</label>
+                                                                <select name="installmentType[]" class="form-control">
+                                                                    <option value="">Select type</option>
+                                                                    <option value="Weekly">Weekly</option>
+                                                                    <option value="Monthly">Monthly</option>
+                                                                    <option value="yearly">Yearly</option>
+                                                                    <option value="Quarterly">Quarterly</option>
+                                                                </select>
+                                                        </div>
+                                                        <div class="col-sm-3">
+                                                            <label class="form-label" for="">Amount</label>
+                                                            <input name="amount[]" type="text" class="form-control" id="amount"/>
+                                                        </div>
+                                                        <div class="col-sm-3">
+                                                            <label class="form-label" for="">Installment</label>
+                                                            <input name="installment[]" type="text" class="form-control" id="installment" />
+                                                        </div>
+                                                        <div class="col-sm-3">
+                                                            <label class="form-label" for="">start#</label>
+                                                            <input name="startNo[]" type="text" class="form-control" id="startNo" />
+                                                        </div>
+                                                        <div class="col-sm-3">
+                                                            <label class="form-label" for="e">start Date</label>
+                                                            <input name="startDate[]" type="date" class="form-control" id="startDate"/>
+                                                        </div>
+                                                        <div class="col-sm-5">
+                                                            <label class="form-label" for="">Internal Note</label>
+                                                            <textarea rows="1" cols="20" class="form-control" type="textarea" name="internalNote[]"></textarea>
+                                                        </div>
+                                                        <div class="col-sm-1">
+                                                            <label class="form-label" for="">Delete</label>
+                                                            
+                                                        
+                                                            </button>
+                                                        </div>
+                                                        <button type="button" class="btn btn-danger remove"><spanaria-hidden="true">&times;</span>
+                                                </div>
+                                            </div> -->
                             <div class="block">
-                                <button id="btnAdd1" type="button" class="btn btn-primary add" data-toggle="tooltip"
-                                    data-original-title="Add more controls"><i class="mdi mdi-gamepad-down"></i> ADD
-                                </button>
+                                <button id="btnAdd1" type="button" class="button-23 add" data-toggle="tooltip" data-original-title="Add more controls"><i class="mdi mdi-gamepad-down"></i> ADD </button>
                             </div>
                         </div>
                     </div>
@@ -959,83 +995,116 @@
 
             <!-- Modal footer -->
             <div class="modal-footer">
-                <a type="submit" class="btn btn-primary " id="submitOwnerOparator">Submit</a>
-                <button type="button" class="closeAddOwnerModal" >Close</button>
+                <button type="submit" class="button-29" id="submitOwnerOparator">Submit</button>
+                <button type="button" class="button-29 addDriverOwnerModalCloseButton" data-dismiss="modal">Close</button>
             </div>
 
         </div><!-- modal-content -->
     </div><!-- modal-dialog -->
 </div><!-- modal -->
 <!-------------------------------------------------------------------over driver Application modal------------------------------------------------------------------->
-<!------------------------------------------------------------------ Add  driver Owner modal ------------------------------------------------------------------>
-<div id="editDriverOwnerModal" class="modal fade">
-                <div class="modal-dialog modal-xl" role="document">
+<!------------------------------------------------------------------ Edit  driver Owner modal ------------------------------------------------------------------>
+<div id="editDriverOwnerModal" data-backdrop="static" class="modal fade">
+                <div class="modal-dialog modal-dialog-scrollable custom_modal_small" role="document">
                     <div class="modal-content">
                         <!-- Modal Header -->
                         <div class="modal-header">
                             <h4 class="modal-title">Edit Owner operator</h4>
-                            <button type="button" class="editDriverOwnerClose " >&times;</button>
+                            <button type="button" class="button-24 editDriverOwnerModalCloseButton" data-dismiss="modal">&times;</button>
                         </div>
 
                         <div class="modal-body">
-                            <form id='up_addOwnerForm'>                            
+                            <form id='addOwnerForm'>                            
                                 <div class="form-group">
                                     <div class="row row-sm">
                                         <div class="col-sm-4">
-                                            <label class="form-label" for="up_owner-driver-name">Select Driver</label>
+                                            <label class="form-label" for="owner-driver-name">Select Driver</label>
                                             <input type="text" class="form-control" list="drivernamelist" autocomplete="off" id="up_owner-driver-name" disabled/>
-                                            <input type="hidden" id="up_driverid" value="" />
-                                            <input type="hidden" id="up_ownerid" value="" />
+                                            <input type="hidden" id="driverNamesid" value="" />
                                         </div>
                                         <div class="col-sm-4">
-                                            <label class="form-label" for="up_ownerPercentage">Pay Percentage<span style="color:#ff0000">*</span>( % )</label></label>
+                                            <label class="form-label" for="ssnMask-cvv">Pay Percentage<span style="color:#ff0000">*</span>( % )</label></label>
                                             <div class="input-group">
                                                 <div class="input-group-text bg-primary-transparent text-primary">
-                                                    <i class="fe fe-minus text-20" onclick="up_dec_percentage()" ></i>
+                                                    <i class="fe fe-minus text-20" onclick="dec_percentage()" ></i>
                                                 </div>
-                                                    <input type="number" class="form-control" id="up_ownerPercentage" name="up_ownerPercentage" placeholder="Percentage" >
+                                                    <input type="number" class="form-control" id="up_ownerPercentage" name="percentage" placeholder="Percentage" >
                                                 <div class="input-group-text bg-primary-transparent text-primary">
-                                                    <i class="fe fe-plus text-20" onclick="up_inc_percentage()" ></i>
+                                                    <i class="fe fe-plus text-20" onclick="inc_percentage()" ></i>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-sm-4">
-                                            <label class="form-label" for="up_ownerTruckNo">Select Truck<span style="color:#ff0000">*</span><span class="glyphicon glyphicon-plus-sign" id="up_driverAddTruck" ></label>
-                                            <!-- <input list="fuel_truck_report" class="form-control" placeholder="search here..." id="up_ownerTruckNo" name="truckNo" autocomplete="off">
-                                                <datalist id="up_truckSet" class="up_truckSet">
-                                                    <option>Select Here</option>
-                                                </datalist> -->
-
-
-                                                <div class="dropdown show">
-                                                    <input class="form-control up_truckSet" list="up_truckSet" name="truckNo" id="up_ownerTruckNo">
-                                                    <datalist id="up_truckSet" class="up_truckSet">
-                                                        <option>Select Here</option>
-                                                    </datalist>
-                                                </div>  
+                                            <label class="form-label" for="ssnMask-cvv">Select Truck<span style="color:#ff0000">*</span></label>
+                                            <input list="fuel_truck_report" class="form-control" placeholder="search here..." id="up_ownerTruckNo" name="truckNo" autocomplete="off">
+                                                <datalist id="fuel_truck_report">
+                                                </datalist>
                                         </div>
                                     </div>
                                     <br>
-                                    
-                                   
-                                        <div class="up_optionBox ">
-                                         
+
+                                    <br>
+                                        <div>
                                             <!-- <div class="block">
-                                                <button id="btnAdd1" type="button" class="btn btn-primary add" data-toggle="tooltip" data-original-title="Add more controls"><i class="mdi mdi-gamepad-down"></i> ADD </button>
+                                                <div class="row row-sm">
+                                                        <div class="col-sm-3">
+                                                            <label class="form-label" for="">Category</label>
+                                                            <input type="text" class="form-control" name="installmentCategory1[]" list="fixpaycat" placeholder=" Search here..." autocomplete="off" />
+                                                        </div>
+                                                        <div class="col-sm-3">
+                                                            <label class="form-label" for="">Installment Type</label>
+                                                                <select name="installmentType[]" class="form-control">
+                                                                    <option value="">Select type</option>
+                                                                    <option value="Weekly">Weekly</option>
+                                                                    <option value="Monthly">Monthly</option>
+                                                                    <option value="yearly">Yearly</option>
+                                                                    <option value="Quarterly">Quarterly</option>
+                                                                </select>
+                                                        </div>
+                                                        <div class="col-sm-3">
+                                                            <label class="form-label" for="">Amount</label>
+                                                            <input name="amount[]" type="text" class="form-control" id="amount"/>
+                                                        </div>
+                                                        <div class="col-sm-3">
+                                                            <label class="form-label" for="">Installment</label>
+                                                            <input name="installment[]" type="text" class="form-control" id="installment" />
+                                                        </div>
+                                                        <div class="col-sm-3">
+                                                            <label class="form-label" for="">start#</label>
+                                                            <input name="startNo[]" type="text" class="form-control" id="startNo" />
+                                                        </div>
+                                                        <div class="col-sm-3">
+                                                            <label class="form-label" for="e">start Date</label>
+                                                            <input name="startDate[]" type="date" class="form-control" id="startDate"/>
+                                                        </div>
+                                                        <div class="col-sm-5">
+                                                            <label class="form-label" for="">Internal Note</label>
+                                                            <textarea rows="1" cols="20" class="form-control" type="textarea" name="internalNote[]"></textarea>
+                                                        </div>
+                                                        <div class="col-sm-1">
+                                                            <label class="form-label" for="">Delete</label>
+                                                            
+                                                        
+                                                            </button>
+                                                        </div>
+                                                        <button type="button" class="btn btn-danger remove"><spanaria-hidden="true">&times;</span>
+                                                </div>
                                             </div> -->
-                                        </div>
-                                        <div class="block">
-                                                <button id="btnAdd1" type="button" class="btn btn-primary add" data-toggle="tooltip" data-original-title="Add more controls"><i class="mdi mdi-gamepad-down"></i> ADD </button>
+                                            <div>
+                                                <p> test </p>
                                             </div>
+                                            <div class="block">
+                                                <button id="up_btnAdd1" type="button" class="button-23 add" data-toggle="tooltip" data-original-title="Add more controls"><i class="mdi mdi-gamepad-down"></i> ADD </button>
+                                            </div>
+                                        </div>
                                 </div>  
                             </form>
                         </div><!-- modal-body -->
 
                         <!-- Modal footer -->
                         <div class="modal-footer">
-                            <a type="submit" class="btn btn-primary " id="up_submitOwnerOparator">Update</a>
-                            <button type="button" class="btn btn-secondary editDriverOwnerClose" >Close</button>
-                          
+                            <button type="submit" class="button-29" id="up_submitOwnerOparator">Submit</button>
+                            <button type="button" class="button-29 editDriverOwnerModalCloseButton" data-dismiss="modal">Close</button>
                         </div>
 
                     </div><!-- modal-content -->
