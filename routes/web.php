@@ -11,6 +11,13 @@ use App\Http\Controllers\Admin\TruckController;
 use App\Http\Controllers\Admin\ShipperController;
 use App\Http\Controllers\Admin\ConsigneeController;
 use App\Http\Controllers\Admin\factCompanyController;
+use App\Http\Controllers\Admin\FuelVendorController;
+use App\Http\Controllers\Admin\FuelCardController;
+use App\Http\Controllers\Admin\FuelReceiptController;
+
+
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -116,3 +123,12 @@ Route::get('admin/getShipper', [ShipperController::class, 'getShipper']);
 
 //consignee
 Route::get('admin/getConsignee', [ConsigneeController::class, 'getConsignee']);
+
+//fuel vendor
+Route::get('admin/getFuelVendor', [FuelVendorController::class, 'getFuelVendor']);
+
+//fuel card
+Route::get('admin/getFuelCard', [FuelCardController::class, 'getFuelCard']);
+
+//FuelReceipt
+Route::get('admin/getFuelReceipt', [FuelReceiptController::class, 'getFuelReceipt']);

@@ -91,9 +91,9 @@
 											</a>
 											<ul class="slide-menu">
 												<li class="side-menu-label1"><a href="javascript:void(0)">IFTA</a></li>
-												<li><a href="https://laravel8.spruko.com/noa/form-elements" class="slide-item">Fuel Vendor</a></li>
-												<li><a href="https://laravel8.spruko.com/noa/form-layouts" class="slide-item">Fuel Card</a></li>
-												<li><a href="https://laravel8.spruko.com/noa/form-validation" class="slide-item">Fuel Reciepts & Cash Advance</a></li>
+												<li><a href="#" id="fuelVendor_navbar" class="slide-item">Fuel Vendor</a></li>
+												<li><a href="#" id="fuelCard_navbar" class="slide-item">Fuel Card</a></li>
+												<li><a href="#" id="fuelReceipt_navbar" class="slide-item">Fuel Reciepts & Cash Advance</a></li>
 												<li><a href="https://laravel8.spruko.com/noa/form-advanced" class="slide-item">Tolls</a></li>
 												<li><a href="https://laravel8.spruko.com/noa/wysiwyag" class="slide-item">IFTA Trips</a></li>
 											</ul>
@@ -360,3 +360,6 @@
 			@include('layout.driver.addRecurrence')
             @include('layout.driver.subtractRecurrence')
             @include('layout.driver.add_contract_category')
+			@include('layout.fuel vendor.fuelVendor')
+			@include('layout.fuel card.fuelCard')
+			@include('layout.Fuel Receipts.FuelReceipt')

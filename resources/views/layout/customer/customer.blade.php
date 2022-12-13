@@ -68,7 +68,7 @@
                                     <div class="form-row">
                                         <div class="form-group col-md-3">
                                             <label for="customerName">Customer Name  <span style="color:#ff0000">*</span></label>
-                                            <input type="text" class="form-control" id="customerName" placeholder=" Enter Customer Name" >
+                                            <input type="text" class="form-control" id="customerName1" placeholder=" Enter Customer Name" >
                                         </div>
                                         <div class="form-group col-md-3">
                                             <label for="customerAddress">Address <span style="color:#ff0000">*</span> </label>

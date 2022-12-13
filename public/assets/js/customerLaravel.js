@@ -113,23 +113,22 @@ $(document).ready(function() {
         var customerZip= $('#customerZip').val();
 
         if(customerName == ''){
-            // swal.fire("Done!", "Currency added successfully", "success");
-            alert("Please Enter Name");
+            swal.fire("", "Please Enter Name", "",);
             $('#customerName').focus();
             return false;
         }
         if(customerAddress == ''){
-            alert("Please Enter Address");
+            swal.fire("", "Please Enter Address", "");
             $('#customerAddress').focus();
             return false;
         }
         if(customerLocation == ''){
-            alert("Please Enter Location");
+            swal.fire("", "Please Enter Location", "");
             $('#customerLocation').focus();
             return false;
         }
         if(customerZip == ''){
-            alert("Please Enter Zip");
+            swal.fire("", "Please Enter Zip", "");
             $('#customerZip').focus();
             return false;
         }

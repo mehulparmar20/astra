@@ -102,9 +102,9 @@
 <script src="{{URL::to('/')}}/assets/js/js/shipper.js"></script>
 <script src="{{URL::to('/')}}/assets/js/js/consignee.js"></script>
 <script src="{{URL::to('/')}}/assets/js/js/factoringCompany.js"></script>
-
-
-
+<script src="{{URL::to('/')}}/assets/js/js/fuelVendor.js"></script>
+<script src="{{URL::to('/')}}/assets/js/js/fuelCard.js"></script>
+<script src="{{URL::to('/')}}/assets/js/js/fuelReceipts.js"></script>
 
 </body>
 
