@@ -14,7 +14,7 @@ use App\Http\Controllers\Admin\factCompanyController;
 use App\Http\Controllers\Admin\FuelVendorController;
 use App\Http\Controllers\Admin\FuelCardController;
 use App\Http\Controllers\Admin\FuelReceiptController;
-
+use App\Http\Controllers\Admin\IftaTollController;
 
 
 

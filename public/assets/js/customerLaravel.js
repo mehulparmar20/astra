@@ -1,7 +1,13 @@
 var base_path = $("#url").val();
 $(document).ready(function() {
+    
+    $('.plusCurrencyModalCloseButton').click(function(){
+        $("#plusCurrencyModal").modal("hide");
+    });
+
+
 // <!-- -------------------------------------------------------------------------Get customer ------------------------------------------------------------------------- -->  
-  $('#customer_navbar').click(function(){
+//   $('#customer_navbar').click(function(){
     //alert('customer');
     var customerResponse = '';
     $.ajax({
@@ -15,8 +21,8 @@ $(document).ready(function() {
             customerResponse = customerResult;
         }
     });
-    $("#customerModal").modal("show");
-  }); 
+//     $("#customerModal").modal("show");
+//   }); 
 
 
     function createcustomerRows(customerResponse) {
