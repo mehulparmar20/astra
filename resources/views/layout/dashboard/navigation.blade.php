@@ -343,7 +343,6 @@
 
 		
 
-			@include('layout.customer.customer')
             @include('layout.driver.driver') 
             @include('layout.user.user') 
             @include('layout.user.add_user') 
@@ -351,6 +350,7 @@
             @include('layout.driver.driver_pay_info') 
             @include('layout.driver.driver_contract') 
             @include('layout.company.company') 
+
 			@include('layout.currency.currency') 
 			@include('layout.truck.truck')
 			@include('layout.Factoring Company.Factoring_company')
@@ -363,3 +363,7 @@
 			@include('layout.fuel vendor.fuelVendor')
 			@include('layout.fuel card.fuelCard')
 			@include('layout.Fuel Receipts.FuelReceipt')
+			@include('layout.customer.customer')
+
+        
+			

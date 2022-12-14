@@ -29,7 +29,19 @@
                                 
 
                                         <div class="table-responsive export-table">
-                                            <table id="editable-file-datatable" class="table editable-table table-nowrap table-bordered table-edit wp-100 customtable">
+
+
+                                            <a href="#addDriverModal" class="btn btn-primary" data-toggle="modal"
+                                                data-target="#addDriverModal">Add</a>
+                                            <a href="#setupDriverModal" class="btn btn-primary" data-toggle="modal"
+                                                data-target="#viewDriverApplicationModal"><i
+                                                    class="mdi mdi-eye"></i>View Driver Application</a>
+                                            <a href="#setupDriverModal" class="btn btn-primary" data-toggle="modal"
+                                                data-target="#setupDriverModal">Setup Driver</a>
+                                            <a href="#contractCategoryModal" class="btn btn-primary" data-toggle="modal"
+                                                data-target="#contractCategoryModal">View Driver Contract</a>
+                                            <table id="editable-file-datatable" class="table editable-table table-nowrap table-bordered table-edit wp-100">
+
 
                                                 <!-- <button href="#addDriverModal" data-toggle="modal" data-target="#addDriverrModal"  class="add1button" style="vertical-align:middle"><span>Add </span></button>
                                                         
@@ -362,10 +374,17 @@
                                                             
                                                         </div>
                                                     </div>
-                                                    <div class="form-group col-md-2">
-                                                        <label>Recurrence -</label>
+                                                    <div class="form-group col-md-2 ">
+                                                        <label>Recurrence +</label>
                                                         <div>
-                                                            <a href="#substractRecurrence" class="button-29" data-toggle="modal" data-target="#substractRecurrence">Open recurrence -</a>
+                                                            <a href="#addRecurrence" class="button-29" data-toggle="modal" data-target="#addRecurrence">Open recurrence +</a>
+                                                            
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group col-md-2">
+                                                        <label>Recurrence +</label>
+                                                        <div>
+                                                            <a href="#substractRecurrence" class="button-29" data-toggle="modal" data-target="#addRecurrence">Open recurrence -</a>
                                                         </div>
                                                     </div>
                                                     <div class="form-group col-md-3">
@@ -663,7 +682,7 @@
                                                 <div class="form-row">
                                                     <div class="form-group col-md-3 ml-6" id="dMileEdit"
                                                         style="display: none">
-                                                        <label>Driver Pay Info</label>
+                                                        <label>Driver Pay Info</label><br>
                                                         <a href="#driverPayInfoEditModal" class="button-29"
                                                             data-toggle="modal"
                                                             data-target="#driverPayInfoEditModal">Open
@@ -678,7 +697,7 @@
                                                     </div>
                                                     <div class="form-group col-md-3 ml-6" id="dHourlyEdit"
                                                         style="display: none">
-                                                        <label>Driver Pay Info</label>
+                                                        <label>Driver Pay Info</label><br>
                                                         <a href="#driverPayInfoEditModal" class="button-29"
                                                             data-toggle="modal"
                                                             data-target="#driverPayInfoEditModal">Open
@@ -691,14 +710,17 @@
                                                             placeholder="Currency">
                                                     </div>
                                                     <div class="form-group col-md-2">
-                                                        <label for="up_recurrencePlus">Recurrence+</label>
-                                                        <input type="text" class="form-control" id="up_recurrencePlus"
-                                                            placeholder="Recurrence">
+                                                        <label for="up_recurrencePlus">Recurrence +</label>
+                                                        <div>
+                                                            <a href="#addRecurrence" class="button-29" data-toggle="modal" data-target="#addRecurrence">Open recurrence +</a>
+                                                            
+                                                        </div>
                                                     </div>
                                                     <div class="form-group col-md-2">
                                                         <label for="up_recurrenceMin">Recurrence -</label>
-                                                        <input type="text" class="form-control" id="up_recurrenceMin"
-                                                            placeholder="Recurrence-">
+                                                        <div>
+                                                            <a href="#substractRecurrence" class="button-29" data-toggle="modal" data-target="#addRecurrence">Open recurrence -</a>
+                                                        </div>
                                                     </div>
                                                     <div class="form-group col-md-3">
                                                         <label for="up_terminationDate">Termination Date </label>
@@ -752,7 +774,7 @@
                 <!-- Modal Header -->
                 <div class="modal-header">
                     <h4 class="modal-title">Set Up Driver</h4>
-                    <button type="button" class="button-24" data-dismiss="modal">&times;</button>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
                 </div>
 
                 <!-- Modal body -->
@@ -829,6 +851,7 @@
         </div>
     </div>
 </div>
+
 <!------------------------------------------------------------------- driver Application modal ------------------------------------------------------------------->
 <div class="container">
     <!-- The Modal -->
@@ -899,8 +922,9 @@
 <input type="hidden" class="laravel_csrf_tokn" value="{{ csrf_token() }}" />
 <!-------------------------------------------------------------------over driver Application modal------------------------------------------------------------------->
 <!------------------------------------------------------------------ Add  driver Owner modal ------------------------------------------------------------------>
-<div id="addDriverOwnerModal" data-backdrop="static" class="modal fade">
-    <div class="modal-dialog modal-dialog-scrollable custom_modal_small" role="document">
+
+<div id="addDriverOwnerModal" class="modal fade">
+    <div class="modal-dialog modal-xl" role="document">
         <div class="modal-content">
             <!-- Modal Header -->
             <div class="modal-header">
@@ -1031,9 +1055,17 @@
                                                     <input type="number" class="form-control" id="up_ownerPercentage" name="percentage" placeholder="Percentage" >
                                                 <div class="input-group-text bg-primary-transparent text-primary">
                                                     <i class="fe fe-plus text-20" onclick="inc_percentage()" ></i>
+
                                                 </div>
                                             </div>
+                                            <div class="col-sm-4">
+                                                <label class="form-label" for="ssnMask-cvv">Select Truck<span style="color:#ff0000">*</span></label>
+                                                <input list="fuel_truck_report" class="form-control" placeholder="search here..." id="ownerTruckNo" name="truckNo" autocomplete="off">
+                                                    <datalist id="fuel_truck_report">
+                                                    </datalist>
+                                            </div>
                                         </div>
+
                                         <div class="col-sm-4">
                                             <label class="form-label" for="ssnMask-cvv">Select Truck<span style="color:#ff0000">*</span></label>
                                             <input list="fuel_truck_report" class="form-control" placeholder="search here..." id="up_ownerTruckNo" name="truckNo" autocomplete="off">
@@ -1083,12 +1115,17 @@
                                                         </div>
                                                         <div class="col-sm-1">
                                                             <label class="form-label" for="">Delete</label>
+
                                                             
-                                                        
-                                                            </button>
-                                                        </div>
-                                                        <button type="button" class="btn btn-danger remove"><spanaria-hidden="true">&times;</span>
+                                                                </button>
+                                                            </div>
+                                                            <button type="button" class="btn btn-danger remove"><spanaria-hidden="true">&times;</span>
+                                                    </div>
+                                                </div> -->
+                                                <div class="block">
+                                                    <button id="btnAdd1" type="button" class="button-29 add" data-toggle="tooltip" data-original-title="Add more controls"><i class="mdi mdi-gamepad-down"></i> ADD </button>
                                                 </div>
+
                                             </div> -->
                                             <div>
                                                 <p> test </p>
@@ -1107,7 +1144,14 @@
                             <button type="button" class="button-29 editDriverOwnerModalCloseButton" data-dismiss="modal">Close</button>
                         </div>
 
-                    </div><!-- modal-content -->
-                </div><!-- modal-dialog -->
-            </div><!-- modal -->
-<!-------------------------------------------------------------------over driver Application modal------------------------------------------------------------------->
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button type="submit" class="button-29 driverDataUpdate">Update</button>
+                    <button type="button" class="button-29 addDriverOwnerModalCloseButton" data-dismiss="modal">Close</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

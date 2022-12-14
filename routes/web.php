@@ -132,3 +132,6 @@ Route::get('admin/getFuelCard', [FuelCardController::class, 'getFuelCard']);
 
 //FuelReceipt
 Route::get('admin/getFuelReceipt', [FuelReceiptController::class, 'getFuelReceipt']);
+
+Route::get('admin/updateUserCompany', [CompanyController::class, 'updateUserCompany']);
+

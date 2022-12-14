@@ -73,9 +73,9 @@ class UserController extends Controller
                 if (User::create([
                     'counter' => 0,
                     'companyName' => $request->input('companyName'),
-                    // 'companyID' => (int)$_SESSION['companyId'],
+                    'companyID' => 1,
                     'userEmail' => $request->input('userEmail'),
-                    'companyName' => $request->input('companyName'),
+                    // 'companyName' => $request->input('companyName'),
                     'userName' => $request->input('userName'),
                     'userPass' => $password,
                     'userFirstName' => $request->input('userFirstName'),
