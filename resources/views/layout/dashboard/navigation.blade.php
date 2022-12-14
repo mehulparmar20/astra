@@ -353,7 +353,7 @@
             @include('layout.company.company') 
 			@include('layout.currency.currency') 
 			@include('layout.truck.truck')
-			@include('layout.Factoring Company.Factoring_company')
+			@include('layout.Factoring company.Factoring_company')
 			@include('layout.Trailer.Trailer')
 			@include('layout.Shipper & Consignee.Shipper_and_Consignee')
 			@include('layout.External Carrier.External_Carrier')
