@@ -357,9 +357,7 @@
 			@include('layout.Trailer.Trailer')
 			@include('layout.Shipper & Consignee.Shipper_and_Consignee')
 			@include('layout.External Carrier.External_Carrier')
-			@include('layout.driver.addRecurrence')
-            @include('layout.driver.subtractRecurrence')
-            @include('layout.driver.add_contract_category')
+		
 			@include('layout.fuel vendor.fuelVendor')
 			@include('layout.fuel card.fuelCard')
 			@include('layout.Fuel Receipts.FuelReceipt')
