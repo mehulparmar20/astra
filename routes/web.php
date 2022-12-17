@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\CustomerController;
 use App\Http\Controllers\Admin\CompanyController;
 use App\Http\Controllers\Admin\CurrencyController;
 use App\Http\Controllers\Admin\TruckController;
+use App\Http\Controllers\Admin\TrailerAdminAddController;
 use App\Http\Controllers\Admin\ShipperController;
 use App\Http\Controllers\Admin\ConsigneeController;
 use App\Http\Controllers\Admin\factCompanyController;
@@ -116,3 +117,11 @@ Route::get('admin/getShipper', [ShipperController::class, 'getShipper']);
 
 //consignee
 Route::get('admin/getConsignee', [ConsigneeController::class, 'getConsignee']);
+
+//TrailerAdminAddController
+Route::get('admin/getTrailer', [TrailerAdminAddController::class, 'getTrailer']);
+Route::post('admin/addTrailer', [TrailerAdminAddController::class, 'addTrailerData']);
+Route::get('admin/trailer_getTrailertype', [TrailerAdminAddController::class, 'trailer_getTrailertype']);
+Route::post('admin/trailer_addTrailertype', [TrailerAdminAddController::class, 'trailer_addTrailertype']);
+Route::get('admin/edit_trailer', [TrailerAdminAddController::class, 'edit_trailer']);
+Route::post('admin/updateTrailer', [TrailerAdminAddController::class, 'updateTrailer']);

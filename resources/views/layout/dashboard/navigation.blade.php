@@ -78,7 +78,7 @@
 												<li><a href="#driverModal" class="slide-item" data-toggle="modal" data-target="#driverModal">Driver & Owner Operator</a></li>
 												<li><a href="#userModal" class="slide-item" data-toggle="modal" data-target="#userModal">User</a></li>
 												<li><a href="#" id="truck_navbar" class="slide-item">Truck</a></li>
-												<li><a href="#TrailerModal" class="slide-item" data-toggle="modal" data-target="#TrailerModal">Trailer</a></li>
+												<li><a href="#" class="slide-item"  id="trailer_nav">Trailer</a></li>
 												<li><a href="#" id="facCompany_navbar" class="slide-item">Factoring Company</a></li>
 												<!-- <li><a href="#FacoringCompanyModal" class="slide-item" data-toggle="modal" data-target="#FacoringCompanyModal">Factoring Company</a></li> -->
 											</ul>

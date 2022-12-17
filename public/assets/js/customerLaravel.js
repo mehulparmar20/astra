@@ -112,27 +112,27 @@ $(document).ready(function() {
         var customerLocation= $('#customerLocation').val();
         var customerZip= $('#customerZip').val();
 
-        if(customerName == ''){
-            // swal.fire("Done!", "Currency added successfully", "success");
-            alert("Please Enter Name");
-            $('#customerName').focus();
-            return false;
-        }
-        if(customerAddress == ''){
-            alert("Please Enter Address");
-            $('#customerAddress').focus();
-            return false;
-        }
-        if(customerLocation == ''){
-            alert("Please Enter Location");
-            $('#customerLocation').focus();
-            return false;
-        }
-        if(customerZip == ''){
-            alert("Please Enter Zip");
-            $('#customerZip').focus();
-            return false;
-        }
+        // if(customerName == ''){
+        //     // swal.fire("Done!", "Currency added successfully", "success");
+        //     alert("Please Enter Name");
+        //     $('#customerName').focus();
+        //     return false;
+        // }
+        // if(customerAddress == ''){
+        //     alert("Please Enter Address");
+        //     $('#customerAddress').focus();
+        //     return false;
+        // }
+        // if(customerLocation == ''){
+        //     alert("Please Enter Location");
+        //     $('#customerLocation').focus();
+        //     return false;
+        // }
+        // if(customerZip == ''){
+        //     alert("Please Enter Zip");
+        //     $('#customerZip').focus();
+        //     return false;
+        // }
     });
 
     // <!-- -------------------------------------------------------------------------add customer  ------------------------------------------------------------------------- -->  

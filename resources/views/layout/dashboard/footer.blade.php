@@ -102,6 +102,7 @@
 <script src="{{URL::to('/')}}/assets/js/js/shipper.js"></script>
 <script src="{{URL::to('/')}}/assets/js/js/consignee.js"></script>
 <script src="{{URL::to('/')}}/assets/js/js/factoringCompany.js"></script>
+<script src="{{URL::to('/')}}/assets/js/js/trailerLaravel.js"></script>
 
 
 

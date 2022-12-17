@@ -212,6 +212,7 @@ $(document).ready(function() {
                         var truckTypeLen = truckResult.truck_type.truck.length;
                         for (var j = 0; j < truckTypeLen; j++) { 
                             var truck_Type_id = truckResult.truck_type.truck[j]._id;
+                            // console.log(truckTypeid);
                             if(truckTypeid == truck_Type_id){
                                 truckType=truckResult.truck_type.truck[j].truckType;
                                 break;
@@ -329,3 +330,4 @@ $(document).ready(function() {
 
 // <!-- -------------------------------------------------------------------------End------------------------------------------------------------------------- -->  
 });
+// trailer_nav model 
