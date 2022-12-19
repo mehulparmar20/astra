@@ -42,7 +42,7 @@ class TrailerAdminAddController extends Controller
           }
           $privilege=Auth::user()->privilege;
           try{
-            dd($trailerfiles);
+            // dd($trailerfiles);
               if ($files = $request->file('trailerfiles')) {
                   foreach ($request->file('trailerfiles') as $file) {
                     // dd($files);
@@ -85,7 +85,7 @@ class TrailerAdminAddController extends Controller
                 }else{
                     $trailerDoc=array();
                 }
-                // dd($request->trailer_number);
+                // dd($totalTrailerArray);
             
             $trailerData[]=array(    
                     '_id' => $totalTrailerArray,
@@ -276,26 +276,27 @@ class TrailerAdminAddController extends Controller
         $id=$request->id;
         // dd($id);
         $companyID=1;
-        $trailerType=traileradd::where('companyID',$companyID)->first();
-        $trailerTyperArray=$trailerType->trailer;
-        $trailerTypeLength=count($trailerTyperArray);
+
+
+        // $this->steps = collect($companyID)->map(function ($id) {
+        //     return collect($this->steps)->where('_id', (int) $id)->first();
+        // })->map(function ($item, $key) {
+        //     $item['order'] = $key + 1;
+        //     return $item;
+        // });
+
+
+        dd( $this->steps);
+
+        // $trailerType=traileradd::where('companyID',$companyID)->first();
+        // $trailerTyperArray=$trailerType->trailer;
+        // $trailerTypeLength=count($trailerTyperArray);
         $traileradd=TrailerAdminAdd::where('companyID',$companyID)->first();
-        $trailerArray=$traileradd->trailer;
-        $lengt=count($traileradd->trailer);
-        // dd($lengt);
+        $trailerArray=$traileradd->trailer[$id];
         $arrayLength=count($trailerArray);
+        // dd($arrayLength);
         $i=0;
         $v=0;
-        $j=0;
-        $h=0;
-        for ($j=0; $j<$lengt; $j++){
-            $ids=$traileradd->trailer[$j];
-                foreach ($ids as $value){
-                    if($value==$id){
-                        $h=$j;
-                     }
-                }
-       }
        for ($i=0; $i<$arrayLength; $i++){
             $ids=$traileradd->trailer[$i];
                 foreach ($ids as $value){
@@ -304,17 +305,18 @@ class TrailerAdminAddController extends Controller
                      }
                 }
        }
+    //    dd($v);
        
-       for ($j=0; $j<$trailerTypeLength; $j++){
-        $ids=$trailerType->trailer[$j];
-            foreach ($ids as $value){
-                if($value==$id){
-                    $h=$j;
-                 }
-            }
-        }
+    //    for ($j=0; $j<$trailerTypeLength; $j++){
+    //     $ids=$trailerType->trailer[$j];
+    //         foreach ($ids as $value){
+    //             if($value==$id){
+    //                 $h=$j;
+    //              }
+    //         }
+        // }
         // $trailerTyperArray[$h]['trailertypeId']=$request->trailertypeId;
-        // dd($trailerArray[$v]);
+        // dd($trailerArrays);
        $trailerArray[$v]['trailerNumber'] = $request->trailer_number;
        $trailerArray[$v]['trailerType'] = $request->trailertypeId;
        $trailerArray[$v]['licenseType'] = $request->license_plate;
@@ -335,16 +337,46 @@ class TrailerAdminAddController extends Controller
        $trailerArray[$v]['deleteStatus'] = "NO";
        $trailerArray[$v]['edit_by'] =Auth::user()->userName;
        $trailerArray[$v]['edit_time'] ='';
-    //    dd($traileradd->trailer[$v]);
-        // $traileradd->trialer=['trailer'=>$traileradd->trialer];
-        $traileradd->trailer= $trailerArray[$v];
-    // dd(['trailer'=>$traileradd->trialer]);;
-        // print_r(json_encode($traileradd->trialer));exit;
-    //   ["trailer"=>$traileradd->trialer] = $trailerArray[$v];
+        $traileradd->trailer= $trailerArray;
        if(['trailer'=>$traileradd->save()])
        {
         $arr = array('status' => 'success', 'message' => 'Trailer updated successfully.','statusCode' => 200); 
         return json_encode($arr);
        }
+    }
+    public function deleteTrailer(Request $request)
+    {
+        $companyID=(int)1;
+        $id=$request->id;
+        $traileradd=TrailerAdminAdd::where('companyID',$companyID)->first();
+        $trailerArray=$traileradd->trailer;
+        $arrayLength=count($trailerArray);
+        $i=0;
+        $v=0;
+        for ($i=0; $i<$arrayLength; $i++){
+            $ids=$traileradd->trailer[$i];
+                foreach ($ids as $value){
+                    if($value==$id){
+                        $v=$i;
+                     }
+                }
+       }
+       $trailerArray[$v]['deleteStatus'] = "YES"; 
+       $traileradd->trailer = $trailerArray;
+       dd($traileradd->trailer);
+        // echo "delete";
+        if ($traileradd->save()) {
+            $success = true;
+            $message = "Trailer deleted successfully";
+        } else {
+            $success = false;
+            $message = "Trailer not found";
+        }
+
+        //  Return response
+        return response()->json([
+            'success' => $success,
+            'message' => $message,
+        ]);
     }
 }

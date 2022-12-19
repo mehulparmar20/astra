@@ -39,7 +39,8 @@ $(document).ready(function() {
                         // console.log(trailerTypeid);
                         if(trailerTypeid == trailer_Type_id)
                         {
-                            trailerType=TrailerResult.trailer.trailer[j].trailerType;
+                            // trailerType=TrailerResult.trailer.trailer[j].trailerType;
+                            trailerType="";
                             break;
                         }
                         else
@@ -153,7 +154,7 @@ $(document).ready(function() {
                         "<td data-field='internalNotes' >" +internalNotes  + "</td>" +
                         "<td style='text-align:center'>"+
                             "<a class='mt-2 button-29 fs-14 text-white edit_trailerModel'  title='edit' data-trailerId='"+trailerId+"' data-trailerType='' ><i class='fe fe-edit'></i></a>&nbsp <input type='hidden' value="+trailerId+" class='trailer_id_edit'>"+
-                            "<a class='mt-2 button-29 fs-14 text-white delete_trailerModel'  title='edit' data-trailerId='"+trailerId+"' data-trailerType='' ><i class='fe fe-trash'></i></a>&nbsp <input type='hidden' value="+trailerId+" class='trailer_id_delete'>"
+                            "<a class='mt-2 button-29 fs-14 text-white delete_trailer'  title='edit' data-trailerId='"+trailerId+"' data-trailerType='' ><i class='fe fe-trash'></i></a>&nbsp <input type='hidden' value="+trailerId+" class='trailer_id_delete'>"
                         "</td></tr>";
 
                     $("#trailer_tbl").append(trailerStr);
@@ -501,6 +502,53 @@ $(document).ready(function() {
      });
     //=============== end edit trailer model ================  
 
+
+
+    // ================== start delete trailer ==============
+  
+    $('body').on('click','.delete_trailer',function(){
+        var id=$(this).attr("data-trailerId");
+        swal.fire({
+            title: "Delete?",
+            text: "Please ensure and then confirm!",
+            type: "warning",
+            showCancelButton: !0,
+            confirmButtonText: "Yes, delete it!",
+            cancelButtonText: "No, cancel!",
+            reverseButtons: !0
+        }).then(function (e) {
+
+            if (e.value === true) 
+            {
+                $.ajax({
+                    // headers: {
+                    //     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    // },
+                    type: 'get',
+                    url: base_path+"/admin/deleteTrailer",
+                    data: {id: id},
+                    success: function(resp){
+                        alert("success");
+                        if (resp.success === true) {
+                        	swal.fire("Done!", resp.message, "success");
+                            rowToDelete.remove();
+                        } else {
+                        	swal.fire("Error!", resp.message, "error");
+                        }
+                    },
+                    error: function (resp) {
+                        swal.fire("Error!", 'Something went wrong.', "error");
+                    }
+                });
+            } 
+            else 
+            {
+                e.dismiss;
+            }
+        }, function (dismiss) {
+            return false;
+        })
+    });
 });
 
    

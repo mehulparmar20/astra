@@ -125,3 +125,4 @@ Route::get('admin/trailer_getTrailertype', [TrailerAdminAddController::class, 't
 Route::post('admin/trailer_addTrailertype', [TrailerAdminAddController::class, 'trailer_addTrailertype']);
 Route::get('admin/edit_trailer', [TrailerAdminAddController::class, 'edit_trailer']);
 Route::post('admin/updateTrailer', [TrailerAdminAddController::class, 'updateTrailer']);
+Route::get('admin/deleteTrailer', [TrailerAdminAddController::class, 'deleteTrailer']);
