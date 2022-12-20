@@ -98,6 +98,7 @@ Route::post('admin/PaymentTerms', [CustomerController::class, 'addCustomerPaymen
 Route::get('admin/getCustomerBFactoringCompany', [CustomerController::class, 'getCustomerBFactoringCompany']);
 Route::post('admin/factoringCompany', [CustomerController::class, 'addCustomerfactoringCompany']);
 Route::get('admin/getFactCompany', [factCompanyController::class, 'getFactCompany']);
+Route::get('admin/get_currency_Type', [factCompanyController::class, 'get_currency_Type']);
 
 //company
 Route::get('admin/company', [CompanyController::class, 'getCompanyData']);
@@ -125,4 +126,4 @@ Route::get('admin/trailer_getTrailertype', [TrailerAdminAddController::class, 't
 Route::post('admin/trailer_addTrailertype', [TrailerAdminAddController::class, 'trailer_addTrailertype']);
 Route::get('admin/edit_trailer', [TrailerAdminAddController::class, 'edit_trailer']);
 Route::post('admin/updateTrailer', [TrailerAdminAddController::class, 'updateTrailer']);
-Route::get('admin/deleteTrailer', [TrailerAdminAddController::class, 'deleteTrailer']);
+Route::post('admin/deleteTrailer', [TrailerAdminAddController::class, 'deleteTrailer']);

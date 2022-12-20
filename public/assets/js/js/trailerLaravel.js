@@ -20,14 +20,15 @@ $(document).ready(function() {
         if (TrailerResult != null) 
         {
             Trailer1 = TrailerResult.trailer_type.trailer.length;
-            
+            // alert(Trailer1);
 
             $("#trailer_tbl").html('');
             // console.log(Trailer1);
             if (Trailer1 > 0) 
             {
                 var no=1;
-                for (var i = Trailer1-1; i > 0; i--) {  
+                for (var i = Trailer1-1; i >=0; i--) {  
+                    // alert(i);
                     var  trailerId =TrailerResult.trailer_type.trailer[i]._id;
                     var trailerNumber =TrailerResult.trailer_type.trailer[i].trailerNumber;
                     var trailerTypeid =TrailerResult.trailer_type.trailer[i].trailerType;
@@ -134,9 +135,13 @@ $(document).ready(function() {
                     if(dotexpiryDate== false){
                         dotexpiryDate='';
                     }
+                    if(TrailerResult.trailer_type.trailer[i].deleteStatus == "NO")
+                    {
+                       
+                   
                     
-                    var trailerStr = "<tr data-id=" + (i + 1) + ">" +
-                    //  "<td id='id1'>" + id+ "&"+driverId + "</td>" +
+                        var trailerStr = "<tr data-id=" + (i + 1) + ">" +
+                        //  "<td id='id1'>" + id+ "&"+driverId + "</td>" +
                         "<td data-field='no'>" + no + "</td>" +
                         "<td data-field='trailerNumber' >" + trailerNumber + "</td>" +
                         "<td data-field='trailerType' >" + trailerType + "</td>" +
@@ -154,11 +159,12 @@ $(document).ready(function() {
                         "<td data-field='internalNotes' >" +internalNotes  + "</td>" +
                         "<td style='text-align:center'>"+
                             "<a class='mt-2 button-29 fs-14 text-white edit_trailerModel'  title='edit' data-trailerId='"+trailerId+"' data-trailerType='' ><i class='fe fe-edit'></i></a>&nbsp <input type='hidden' value="+trailerId+" class='trailer_id_edit'>"+
-                            "<a class='mt-2 button-29 fs-14 text-white delete_trailer'  title='edit' data-trailerId='"+trailerId+"' data-trailerType='' ><i class='fe fe-trash'></i></a>&nbsp <input type='hidden' value="+trailerId+" class='trailer_id_delete'>"
+                            "<form> <input type='hidden' name='_token' id='_tokenDeleteTrailer' value='{{ csrf_token() }}' /> <a class='mt-2 button-29 fs-14 text-white delete_trailer'  title='edit' data-trailerId='"+trailerId+"' data-trailerType='' ><i class='fe fe-trash'></i></a>&nbsp </form><input type='hidden' value="+trailerId+" class='trailer_id_delete'>"
                         "</td></tr>";
 
-                    $("#trailer_tbl").append(trailerStr);
-                    no++;
+                        $("#trailer_tbl").append(trailerStr);
+                        no++;
+                    }
                     
                 }
             } 
@@ -285,11 +291,12 @@ $(document).ready(function() {
             swal.fire( "'Enter VIN");
             return false;
         }
+        var formData = new FormData();
         $.each($("#trailerfiles")[0].trailerfiles, function(i, file) { 
             // alert(file);           
             formData.append('trailerfiles[]', file);
         });
-        var formData = new FormData();
+        
         formData.append('_token',$("#_tokenTrailer").val());
         formData.append('trailer_number',trailer_number.trim());
         formData.append('trailertypeId',trailertypeId);
@@ -454,11 +461,12 @@ $(document).ready(function() {
             swal.fire( "'Enter VIN");
             return false;
         }
+        var formData = new FormData();
         $.each($("#edit_trailerfiles")[0].trailerfiles, function(i, file) { 
             // alert(file);           
             formData.append('trailerfiles[]', file);
         });
-        var formData = new FormData();
+        
         formData.append('_token',$("#_tokenEditTrailer").val());
         formData.append('id',id);
         formData.append('trailer_number',trailer_number.trim());
@@ -508,6 +516,9 @@ $(document).ready(function() {
   
     $('body').on('click','.delete_trailer',function(){
         var id=$(this).attr("data-trailerId");
+        // var formData = new FormData();
+        // formData.append('_token',$("#_tokenDeleteTrailer").val());
+        // alert(formData);
         swal.fire({
             title: "Delete?",
             text: "Please ensure and then confirm!",
@@ -521,17 +532,17 @@ $(document).ready(function() {
             if (e.value === true) 
             {
                 $.ajax({
-                    // headers: {
-                    //     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                    // },
-                    type: 'get',
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    },
+                    type: 'post',
                     url: base_path+"/admin/deleteTrailer",
-                    data: {id: id},
+                    data: {_token: $("#_tokenTrailer").val(),id: id},
                     success: function(resp){
-                        alert("success");
+                        // alert("success");
                         if (resp.success === true) {
                         	swal.fire("Done!", resp.message, "success");
-                            rowToDelete.remove();
+                            // rowToDelete.remove();
                         } else {
                         	swal.fire("Error!", resp.message, "error");
                         }
