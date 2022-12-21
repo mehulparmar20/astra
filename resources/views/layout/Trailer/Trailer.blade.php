@@ -1,4 +1,5 @@
 <!------------------------------------------------------------------- Trailer modal ------------------------------------------------------------------->
+
 <div class="container">
     <!-- The Modal -->
     <div class="modal fade" data-backdrop="static" id="TrailerModal">
@@ -124,11 +125,14 @@
                                                     <span class="glyphicon glyphicon-plus-sign addTrailerType " id="addTrailerType" data-toggle="modal"  style="cursor:pointer;"></span>
                                                 </label>
                                                         <div class="dropdown show">
-                                                            <input class="form-control trailerTypeSet" list="trailerTypeSet" name="trailerType" id="trailerType">
+                                                            <select  class="form-control trailerTypeSet trailerType_Set_id" name="trailerType" >
+                                                                <option>Select Here</option>
+                                                            </select>
+                                                            <!-- <input class="form-control trailerTypeSet" list="trailerTypeSet" name="trailerType" id="trailerType">
                                                             <datalist id="trailerTypeSet" class="trailerTypeSet">
                                                                 <option>Select Here</option>
                                                               
-                                                            </datalist>
+                                                            </datalist> -->
                                                         </div>
                                                 </div>
                                                 <div class="form-group col-md-2">
@@ -141,7 +145,7 @@
                                                 <div class="form-group col-md-2 ">
                                                     <label>Plate Expiry <span style="color:#ff0000">*</span></label>
                                                     <div>
-                                                        <input class="form-control" type="date" id="trailerplate_expiry" name="plate_expiry" required />
+                                                        <input class="form-control date_formate_change" type="date" id="trailerplate_expiry date_formate_change" name="plate_expiry" required />
                                                     </div>
                                                 </div>
                                                 <div class="form-group col-md-2 ">
@@ -304,7 +308,7 @@
             <div class="form-group col-md-12">
                 <label>Name<span style="color:#ff0000">*</span></label>
                 <div>
-                    <input class="form-control" placeholder="trailer type" type="text" id="trailer_type_name" name="trailer_type_name" required />
+                    <input class="form-control" placeholder="trailer type" type="text" id="addtrailer_type" name="trailer_type_name" required />
                 </div>
             </div>
         </form>
@@ -351,11 +355,9 @@
                                                     <!-- <span class="glyphicon glyphicon-plus-sign addTrailerType "  data-toggle="modal"  style="cursor:pointer;"></span> -->
                                                 </label>
                                                         <div class="dropdown show">
-                                                            <input class="form-control trailerTypeSet" list="trailerTypeSet" name="trailerType" id="editTrailerType">
-                                                            <datalist id="trailerTypeSet" class="trailerTypeSet">
+                                                        <select  class="form-control trailerTypeSet trailerType_Set_id" name="trailerType" id="editTrailerType" >
                                                                 <option>Select Here</option>
-                                                              
-                                                            </datalist>
+                                                            </select>
                                                         </div>
                                                 </div>
                                                 <div class="form-group col-md-2">
@@ -399,7 +401,7 @@
                                                 </div>
                                                 <div class="form-group col-md-2">
                                                     <label for="Axles">Axles</label>
-                                                    <input class="form-control" placeholder="Axles" type="text" id="traileraxies" name="axies">
+                                                    <input class="form-control" placeholder="Axles" type="text" id="trailer_axies" name="axies">
                                                 </div>
                                                 <div class="form-group col-md-2">
                                                     <p class="form-box">

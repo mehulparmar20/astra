@@ -165,7 +165,7 @@ class TrailerAdminAddController extends Controller
             '_id' => $totalTrailerArray,
             //'_id' => new ObjectId(),
             'counter' => 2,
-            'trailerType' => $request->trailer_type_name,
+            'trailerType' => $request->trailerType,
             'deleteStatus' => "NO",
             'deleteUser'=>"",
                 
@@ -231,7 +231,7 @@ class TrailerAdminAddController extends Controller
     public function updateTrailer(Request $request)
     {
         request()->validate([
-            //'trailer_number' => 'required',
+            // 'trailer_number' => 'required',
             // 'trailertype' => 'required',
             // 'license_plate' => 'required',
             // 'plate_expiry' => 'required',
@@ -244,7 +244,7 @@ class TrailerAdminAddController extends Controller
           }
           $privilege=Auth::user()->privilege;
           try{
-            dd($trailerfiles);
+            // dd($trailerfiles);
               if ($files = $request->file('trailerfiles')) {
                   foreach ($request->file('trailerfiles') as $file) {
                     // dd($files);
@@ -288,12 +288,13 @@ class TrailerAdminAddController extends Controller
                      }
                 }
        }
+    //    dd($request->axies);
        $trailerArray[$v]['trailerNumber'] = $request->trailer_number;
        $trailerArray[$v]['trailerType'] = $request->trailertypeId;
        $trailerArray[$v]['licenseType'] = $request->license_plate;
        $trailerArray[$v]['plateExpiry'] = $request->plate_expiry;
        $trailerArray[$v]['inspectionExpiration'] = $request->inspection;
-       $trailerArray[$v]['status'] = $request->statuss;
+       $trailerArray[$v]['status'] = $request->status;
        $trailerArray[$v]['model'] = $request->model;
        $trailerArray[$v]['year'] = $request->year;
        $trailerArray[$v]['axies'] = $request->axies;
@@ -319,12 +320,15 @@ class TrailerAdminAddController extends Controller
     {
         $companyID=(int)1;
         $id=$request->id;
+        $companyID=(int)1;
+        $id=$request->id;
         $traileradd=TrailerAdminAdd::where('companyID',$companyID)->first();
         $trailerArray=$traileradd->trailer;
         $arrayLength=count($trailerArray);
+        // dd($arrayLength);
         $i=0;
         $v=0;
-        for ($i=0; $i<$arrayLength; $i++){
+       for ($i=0; $i<$arrayLength; $i++){
             $ids=$traileradd->trailer[$i];
                 foreach ($ids as $value){
                     if($value==$id){
@@ -332,24 +336,12 @@ class TrailerAdminAddController extends Controller
                      }
                 }
        }
-       // dd($trailerArray[$v]);
-       $trailerArray[$v]['deleteStatus'] = "YES"; 
-    //    $traileradd->trailer = $trailerArray;
-    //    dd($traileradd->trailer);
-        // echo "delete";
-        // $destroy=$trailerArray[$v]->delete(); 
+    
+       $trailerArray[$v]['deleteStatus'] = "YES";
+        $traileradd->trailer= $trailerArray;
         if ($traileradd->save()) {
-            $success = true;
-            $message = "Trailer deleted successfully";
-        } else {
-            $success = false;
-            $message = "Trailer not found";
+            $arr = array('status' => 'success', 'message' => 'Trailer deleted successfully.','statusCode' => 200); 
+        return json_encode($arr);
         }
-
-        //  Return response
-        return response()->json([
-            'success' => $success,
-            'message' => $message,
-        ]);
     }
 }

@@ -40,8 +40,8 @@ $(document).ready(function() {
                         // console.log(trailerTypeid);
                         if(trailerTypeid == trailer_Type_id)
                         {
-                            // trailerType=TrailerResult.trailer.trailer[j].trailerType;
-                            trailerType="";
+                            trailerType=TrailerResult.trailer.trailer[j].trailerType;
+                            // trailerType="";
                             break;
                         }
                         else
@@ -51,18 +51,18 @@ $(document).ready(function() {
                     }
 
                     var licensePlate =TrailerResult.trailer_type.trailer[i].licenseType;
-                    var plateExpiry =TrailerResult.trailer_type.trailer[i].plateExpiry;
-                    var inspectionExpiry =TrailerResult.trailer_type.trailer[i].inspectionExpiration;
+                    var plateExpiry = new Date(TrailerResult.trailer_type.trailer[i].plateExpiry);
+                    var inspectionExpiry = new Date(TrailerResult.trailer_type.trailer[i].inspectionExpiration);
                     var registeredState=TrailerResult.trailer_type.trailer[i].registeredState;
                     var status =TrailerResult.trailer_type.trailer[i].status;
                     var model =TrailerResult.trailer_type.trailer[i].model;
-                    var activationDate =TrailerResult.trailer_type.trailer[i].activationDate;
+                    var activationDate = new Date(TrailerResult.trailer_type.trailer[i].activationDate);
                     var axies =TrailerResult.trailer_type.trailer[i].axies;
                     var vin =TrailerResult.trailer_type.trailer[i].vin;
-                    var dot =TrailerResult.trailer_type.trailer[i].dot;
+                    var dot = new Date(TrailerResult.trailer_type.trailer[i].dot);
                     var year =TrailerResult.trailer_type.trailer[i].year;
                     var internalNotes =TrailerResult.trailer_type.trailer[i].internalNotes;
-                    var startDate =TrailerResult.trailer_type.trailer[i].startDate;
+                    // var startDate =new Date(TrailerResult.trailer_type.trailer[i].startDate);
                     if(model !="" && model != null)
                     {
                         model=model;
@@ -127,18 +127,24 @@ $(document).ready(function() {
                     {
                         activationDate="----";
                     }
-                    var deactivationDate =TrailerResult.trailer_type.trailer[i].deactivationDate;
-                    if(deactivationDate== false){
-                        deactivationDate='';
-                    }
-                    var dotexpiryDate =TrailerResult.trailer_type.trailer[i].dotexpiryDate;
-                    if(dotexpiryDate== false){
-                        dotexpiryDate='';
-                    }
+                    // var deactivationDate =TrailerResult.trailer_type.trailer[i].deactivationDate;
+                    // if(deactivationDate== false){
+                    //     deactivationDate='';
+                    // }
+                    // var dotexpiryDate =TrailerResult.trailer_type.trailer[i].dotexpiryDate;
+                    // if(dotexpiryDate== false){
+                    //     dotexpiryDate='';
+                    // }
                     if(TrailerResult.trailer_type.trailer[i].deleteStatus == "NO")
                     {
-                       
-                   
+                    
+                        plateExpiry= ((plateExpiry.getMonth() > 8) ? (plateExpiry.getMonth() + 1) : ('0' + (plateExpiry.getMonth() + 1))) + '/' + ((plateExpiry.getDate() > 9) ? plateExpiry.getDate() : ('0' + plateExpiry.getDate())) + '/' + plateExpiry.getFullYear();
+
+                        inspectionExpiry= ((inspectionExpiry.getMonth() > 8) ? (inspectionExpiry.getMonth() + 1) : ('0' + (inspectionExpiry.getMonth() + 1))) + '/' + ((inspectionExpiry.getDate() > 9) ? inspectionExpiry.getDate() : ('0' + inspectionExpiry.getDate())) + '/' + inspectionExpiry.getFullYear();
+
+                        dot= ((dot.getMonth() > 8) ? (dot.getMonth() + 1) : ('0' + (dot.getMonth() + 1))) + '/' + ((dot.getDate() > 9) ? dot.getDate() : ('0' + dot.getDate())) + '/' + dot.getFullYear();
+
+                        activationDate= ((activationDate.getMonth() > 8) ? (activationDate.getMonth() + 1) : ('0' + (activationDate.getMonth() + 1))) + '/' + ((activationDate.getDate() > 9) ? activationDate.getDate() : ('0' + activationDate.getDate())) + '/' + activationDate.getFullYear();
                     
                         var trailerStr = "<tr data-id=" + (i + 1) + ">" +
                         //  "<td id='id1'>" + id+ "&"+driverId + "</td>" +
@@ -199,6 +205,7 @@ $(document).ready(function() {
     });
     
     $('.addTrailerModal').click(function(){
+        createTrailerTypeList();
        $('#addTrailerModal').modal('show');
     });
     $('.addTrailerType').click(function(){
@@ -213,16 +220,16 @@ $(document).ready(function() {
 
     // ======================= start save trailer model ======================
     $('.saveTrailerType').click(function(){
-        var trailer_type_name = $('#trailer_type_name').val();
+        var trailer_type_name = $('#addtrailer_type').val();
         if(trailer_type_name=='')
         {
             swal.fire( "'Enter trailer type name");
-            $('#trailer_type_name').focus();
+            $('#addtrailer_type').focus();
             return false;            
         }
         var formData = new FormData();
         formData.append('_token',$("#_tokenTrailerType").val());        
-        formData.append('trailer_type_name',trailer_type_name);
+        formData.append('trailerType',trailer_type_name);
         $.ajax({
             type: "POST",
             url: base_path+"/admin/trailer_addTrailertype",
@@ -250,7 +257,9 @@ $(document).ready(function() {
     $('#TrailerSavebutton').click(function(){
         var trailertype='';
         var trailer_number = $('#trailer_number').val();
-        var trailertype = $('#trailerType').val().split('-');
+        var trailertype = $('.trailerType_Set_id').val().split('-');
+        // alert(trailertype);
+        // return false;
         var trailertypeId=trailertype[0];
         var license_plate =$('#trailerlicense_plate').val();
         var plate_expiry =$('#trailerplate_expiry').val();
@@ -299,7 +308,7 @@ $(document).ready(function() {
         
         formData.append('_token',$("#_tokenTrailer").val());
         formData.append('trailer_number',trailer_number.trim());
-        formData.append('trailertypeId',trailertypeId);
+        formData.append('trailerType',trailertypeId);
         formData.append('license_plate',license_plate);        
         formData.append('plate_expiry',plate_expiry);
         formData.append('inspection',inspection);
@@ -344,7 +353,7 @@ $(document).ready(function() {
 
 
     //===================== start save trailer type model ====================
-    $('.trailerTypeSet').focus(function(){
+    // $('.trailerTypeSet').focus(function(){
         $('.trailerTypeSet').val('');
         $.ajax({
             type: "GET",
@@ -356,7 +365,7 @@ $(document).ready(function() {
                 trailerTypeResponse = data;
             }
         });
-    });
+    // });
     function createTrailerTypeList(trailerTypeResponse) 
     {           
         var trailerTypelength = 0; 
@@ -369,11 +378,14 @@ $(document).ready(function() {
             // var no=1;
             //$(".customerCurrencySet").html('');
             $(".trailerTypeSet").html('');
-            for (var i = 0; i < trailerTypelength; i++) 
+            for (var i = 0; i <= trailerTypelength; i++) 
             {  
                 var trailerType =trailerTypeResponse.trailer[i].trailerType;
                 var trailerTypeId =trailerTypeResponse.trailer[i]._id;
-                var TrailerTypeList = "<option class='trailerType' value='"+ trailerType +"'>"                
+                if(trailerTypeResponse.trailer[i].deleteStatus == "NO")
+                {
+                    var TrailerTypeList = "<option  value='"+ trailerTypeId +"'>"+ trailerType +" </option>"   
+                }             
                 $(".trailerTypeSet").append(TrailerTypeList);
                 //<option value="Edge">
                     //no++;
@@ -385,6 +397,7 @@ $(document).ready(function() {
     //============== start edit trailer model ==================
     $('body').on('click','.edit_trailerModel',function(){
        var id=$(this).attr("data-trailerId");
+    //    alert(id);
         $.ajax({
             type:'get',
             url:base_path+"/admin/edit_trailer",
@@ -392,8 +405,13 @@ $(document).ready(function() {
             async: false,
             success:function(response)
             {
+                createTrailerTypeList();
+            //   alert(response.trailerType);
                 $("#edittrailer_id").val(response._id);
                $("#editetrailer_number").val(response.trailerNumber); 
+              
+            //    $("#editTrailerType option:selected").val(response.trailerType).attr("selected", "selected");
+            //    $("#editTrailerType").val(response.trailerType).selected = true;
                $("#editTrailerType").val(response.trailerType); 
                $("#editTrailerlicense_plate").val(response.licenseType); 
                $("#editTrailerplate_expiry").val(response.plateExpiry); 
@@ -401,7 +419,7 @@ $(document).ready(function() {
                $("#editTrailer_status").val(response.status); 
                $("#editTrailerModel").val(response.model); 
                $("#editTraileryear").val(response.year); 
-               $("#traileraxies").val(response.axies); 
+               $("#trailer_axies").val(response.axies); 
                $("#editTrailerRegisteredState").val(response.registeredState); 
                $("#editTrailervin").val(response.vin); 
                $("#edit_trailerActivation").val(response.activationDate); 
@@ -420,7 +438,7 @@ $(document).ready(function() {
         var trailertype='';
         var trailer_number = $('#editetrailer_number').val();
         var id = $('#edittrailer_id').val();
-        var trailertype = $('#editTrailerType').val().split('-');
+        var trailertype = $('#editTrailerType').val();
         var trailertypeId=trailertype[0];
         var license_plate =$('#editTrailerlicense_plate').val();
         var plate_expiry =$('#editTrailerplate_expiry').val();
@@ -428,12 +446,13 @@ $(document).ready(function() {
         var status =$('#editTrailer_status').val();
         var model =$('#editTrailerModel').val();
         var year =$('#editTraileryear').val();
-        var axies =$('#traileraxies').val();
+        var axies =$('#trailer_axies').val();
         var RegisteredState =$('#editTrailerRegisteredState').val();
         var vin =$('#editTrailervin').val();
         var activation =$('#edit_trailerActivation').val();
         var dot =$('#edit_trailer_dot').val();
         var internal_note =$('#edit_trailerinternal_note').val(); 
+        // alert(axies);
         if(trailer_number=='')
         {
             swal.fire( "'Enter trailer number");
@@ -517,8 +536,9 @@ $(document).ready(function() {
     $('body').on('click','.delete_trailer',function(){
         var id=$(this).attr("data-trailerId");
         // var formData = new FormData();
+        // ,
         // formData.append('_token',$("#_tokenDeleteTrailer").val());
-        // alert(formData);
+        // alert(id);
         swal.fire({
             title: "Delete?",
             text: "Please ensure and then confirm!",
@@ -537,15 +557,17 @@ $(document).ready(function() {
                     },
                     type: 'post',
                     url: base_path+"/admin/deleteTrailer",
-                    data: {_token: $("#_tokenTrailer").val(),id: id},
+                    data: { _token: $("#_tokenTrailer").val(), id: id},
                     success: function(resp){
-                        // alert("success");
-                        if (resp.success === true) {
-                        	swal.fire("Done!", resp.message, "success");
-                            // rowToDelete.remove();
-                        } else {
-                        	swal.fire("Error!", resp.message, "error");
-                        }
+                        swal.fire("Done!", "Trailer Deleted successfully", "success");
+                        $.ajax({
+                            type: "GET",
+                            url: base_path+"/admin/getTrailer",
+                            success: function(response) {
+                                creategetTrailerRows(response);
+                                TrailerResult = response;
+                                }
+                        });
                     },
                     error: function (resp) {
                         swal.fire("Error!", 'Something went wrong.', "error");
