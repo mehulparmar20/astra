@@ -3,6 +3,7 @@ $(document).ready(function() {
 // <!-- -------------------------------------------------------------------------Get customer ------------------------------------------------------------------------- -->  
   $('#customer_navbar').click(function(){
     //alert('customer');
+    $("#customerModal").modal("show");
     var customerResponse = '';
     $.ajax({
         type: "GET",
@@ -15,7 +16,7 @@ $(document).ready(function() {
             customerResponse = customerResult;
         }
     });
-    $("#customerModal").modal("show");
+    // $("#customerModal").modal("show");
   }); 
 
 
@@ -59,7 +60,7 @@ $(document).ready(function() {
                                 "<td data-field='customerEmail'>" + custEmail + "</td>" +
 
                                 // "<td style='width: 100px'><a class='btn btn-primary fs-14 text-white edit-icn' title='Edit' id='edit'><i class='fe fe-edit' ></i></a></td></tr>"
-                                "<td style='width: 100px'><i class='btn btn-primary fe fe-edit customerEdit' data-id=" + custComid+ "&"+custEmail + "> </i><a class=' btn btn-danger fs-14 text-white customerDelete-icn' data-id=" + custComid+ "&"+custEmail + " title='Delete'><i class='fe fe-delete'></i></a></td></tr>";
+                                "<td style='width: 100px'><i class='button-29 fe fe-edit customerEdit' data-id=" + custComid+ " data-email="+custEmail +"> </i><a class=' button-29 fs-14 text-white customerDelete-icn' data-id=" + custComid+ "&"+custEmail + " title='Delete'><i class='fe fe-delete'></i></a></td></tr>";
 
                             $("#customerTable").append(customerStr);
                             no++;
@@ -652,4 +653,91 @@ function show_add_customer(){
     $("#addCustomerTab").addClass("tab-pane fade in active show");
     $("#addAdvanceCustomerTab").removeClass('active show');    
 }
+function show_update_customer(){    
+    $("#updateCustomerTab").addClass("tab-pane fade in active show");
+    $("#updateAdvanceCustomerTab").removeClass('active show');    
+}
 
+//  =============== start update customer show model ====================
+
+$(".closeUpdateCustomerModel").click(function(){
+    $("#updateCustomerModal").modal("hide");
+})
+$('body').on('click','.customerEdit',function(){
+    $("#updateCustomerModal").modal("show");
+    show_update_customer();
+    var id=$(this).attr("data-id");
+    var email=$(this).attr("data-email");
+    // alert(id);
+    $.ajax({
+        type:'get',
+        url:base_path+"/admin/edit_customer",
+        data:{id:id,email:email},
+        // dataType:JSON,
+        async: false,
+        success:function(response){
+           $("#updateCustomerName").val(response.customer.custName);
+        //    $("#updateCustomerName").val(response.customer.custName);
+        //    $("#updateCustomerName").val(response.customer.custName);
+        //    $("#updateCustomerName").val(response.customer.custName);
+        //    $("#updateCustomerName").val(response.customer.custName);
+        //    $("#updateCustomerName").val(response.customer.custName);
+        //    $("#updateCustomerName").val(response.customer.custName);
+        //    $("#updateCustomerName").val(response.customer.custName);
+        //    $("#updateCustomerName").val(response.customer.custName);
+        //    $("#updateCustomerName").val(response.customer.custName);
+        //    $("#updateCustomerName").val(response.customer.custName);
+        //    $("#updateCustomerName").val(response.customer.custName);
+        //    $("#updateCustomerName").val(response.customer.custName);
+        //    $("#updateCustomerName").val(response.customer.custName);
+        //    $("#updateCustomerName").val(response.customer.custName);
+        //    $("#updateCustomerName").val(response.customer.custName);
+        }
+    });
+});
+$(".updateCustomerData").click(function(){
+    $.ajax({
+            type:'post',
+            url:base_path+"/admin/update_customers",
+            data:{_token:$("#_tokenUpdateCustomer").val()},
+            success:function(response){
+                alert("success");
+            }
+    });
+})
+// ====================== end update customer ==================================
+
+//===========================create currency =========================
+$(".closeaddCreateCurrencyCustomer").click(function(){
+    $("#addCreateCurrencyCustomer").modal("hide");
+});
+$(".addCurrencySetting").click(function(){
+    $("#addCreateCurrencyCustomer").modal("show");
+});
+$(".saveaddCreateCurrencycustomer").click(function(){
+    alert("add currency");
+})
+//================================== end currency ============================
+
+// ================ add payment terms ===========
+$(".closeadPaymentTermsCustomer").click(function(){
+    $("#addPaymentTermsCustom").modal("hide");
+});
+$(".addUpPaymentTermsCustomer").click(function(){
+    $("#addPaymentTermsCustom").modal("show");
+});
+$(".savePaymentTermsCustomer").click(function(){
+    alert("add payment terms");
+});
+// /============= end payment terms =======================
+
+//============= addFactoringCompanyCutomer===========================
+$(".closeaddFactoringModelCustomer").click(function(){
+    $("#addFactoringModelCustomer").modal("hide");
+});
+$(".addFactoringCompanyCutomer").click(function(){
+    $("#addFactoringModelCustomer").modal("show");
+});
+$(".saveFactoringModelCustomer").click(function(){
+    alert("add addFactoringModelCustomer");
+});

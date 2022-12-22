@@ -519,6 +519,7 @@
                         <div class="tab-content">
                             <div id="updateCustomerTab" class="tab-pane fade in active">
                                 <form>
+                                    @csrf
                                     <input type="hidden" name="_token" id="_tokenUpdateCustomer" value="{{ csrf_token() }}" />
                                     <div class="form-row">
                                         <div class="form-group col-md-3">
@@ -730,8 +731,6 @@
                                         <button type="submit" class="button-29 updateCustomerData">Save</button>
                                         <button type="button" class="button-29 closeUpdateCustomerModel" data-dismiss="modal ">Close</button>
                                     </div>
-                                    
-
                                     </form>
                                 </div>
                             </div>
@@ -740,10 +739,6 @@
                     </div>
 
                 </div>
-            
-                <!-- <div class="modal-footer">
-                    <button class="btnclose" data-bs-dismiss="modal">Close</button>
-                </div> -->
             </div>
         </div>
     </div>
@@ -835,7 +830,7 @@
                 <!-- Modal Header -->
                 <div class="modal-header">
                     <h4 class="modal-title">Add Factoring Company</h4>
-                    <button type="button" class="closeaddFactoringModel" >&times;</button>
+                    <button type="button" class="closeaddFactoringModelCustomer" >&times;</button>
                 </div>
                 <!-- Modal body -->
                 <div class="modal-body">
@@ -845,7 +840,7 @@
                             <div class="col-lg-12">
                                 <div class="card">
                                     <div class="card-body">
-                                        <form id="addFactoringModel">
+                                        <form >
                                             @csrf
                                             <input type="hidden" name="_token" id="_tokenAddFactoring" value="{{ csrf_token() }}" />
                                             <div class="form-row">
@@ -933,7 +928,7 @@
                                                     <span class="glyphicon glyphicon-plus-sign addcurrencySetting "  data-toggle="modal"  style="cursor:pointer;"></span>
                                                     </label>
                                                         <div class="dropdown show">
-                                                            <input class="form-control currencySetting_option" list="currencySetting_option" name="currencyType" id="currencyType">
+                                                            <input class="form-control customerCurrencySet" list="currencySetting_option" name="currencyType" id="customerCurrencySet">
                                                             <datalist id="currencySetting_option" class="currencySetting_option">
                                                                 <option>Select Here</option>
                                                               
@@ -945,8 +940,8 @@
                                                     <span class="glyphicon glyphicon-plus-sign addpaymentTerms " id="addpaymentTerms" data-toggle="modal"  style="cursor:pointer;"></span>
                                                     </label>
                                                         <div class="dropdown show">
-                                                            <input class="form-control paymentTerms_option" list="paymentTerms_option" name="paymentTerms" id="paymentTerms">
-                                                            <datalist id="paymentTerms_option" class="paymentTerms_option">
+                                                            <input class="form-control addPaymentTermsCustom" list="addPaymentTermsCustom" name="paymentTerms" id="paymentTerms">
+                                                            <datalist id="addPaymentTermsCustom" class="addPaymentTermsCustom">
                                                                 <option>Select Here</option>
                                                               
                                                             </datalist>

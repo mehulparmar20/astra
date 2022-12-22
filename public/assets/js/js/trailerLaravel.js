@@ -263,6 +263,7 @@ $(document).ready(function() {
         var trailertypeId=trailertype[0];
         var license_plate =$('#trailerlicense_plate').val();
         var plate_expiry =$('#trailerplate_expiry').val();
+        // alert(plate_expiry);
         var inspection =$('#trailerinspection').val();
         var status =$('#trailer_status').val();
         var model =$('#model').val();

@@ -266,7 +266,7 @@
 </div>
 <!-- ========== end addFactoringModel ========== -->
 
-<!-- ========== strart Factoring Model Modal ========== -->
+<!-- ========== strart Create Currency Modal ========== -->
 <div class="modal fade" id="addCreateCurrency"  tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -296,7 +296,7 @@
   </div>
 </div>
 
-<!-- ==================== end add Factoring Model model ===================== -->
+<!-- ==================== end Create Currency model ===================== -->
 
 
 <!-- =====================  strart Payment Terms Modal  ======================== -->
@@ -343,4 +343,4 @@
   </div>
 </div>
 
-<!-- ==================== end add Factoring Model l ===================== -->
+<!-- ==================== end add payment Terms Model l ===================== -->

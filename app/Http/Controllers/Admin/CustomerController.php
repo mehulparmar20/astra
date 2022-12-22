@@ -356,4 +356,31 @@ class CustomerController extends Controller
         // $customer1 = Customer::all();
         // return response()->json($customer1, 200, [], JSON_PARTIAL_OUTPUT_ON_ERROR);
     }
+    public function edit_customer(Request $request)
+    {
+        $id=$request->id;
+        $email=$request->email;
+        $companyID=(int)1;
+        $customerData=Customer::where("companyID",$companyID)->first();
+        $cusomerArray=$customerData->customer;
+        $arrayLength=count($cusomerArray);
+        // dd($arrayLength);
+        $i=0;
+        $v=0;
+       for ($i=0; $i<$arrayLength; $i++){
+            $ids=$customerData->customer[$i];
+                foreach ($ids as $value){
+                    if($value==$id){
+                        $v=$i;
+                     }
+                }
+       }
+    
+        $customerData->customer= $cusomerArray[$v];
+        return response()->json($customerData); 
+    }
+    public function update_customer(Request $request)
+    {
+        echo "update customer success";
+    }
 }

@@ -145,7 +145,7 @@
                                                 <div class="form-group col-md-2 ">
                                                     <label>Plate Expiry <span style="color:#ff0000">*</span></label>
                                                     <div>
-                                                        <input class="form-control date_formate_change" type="date" id="trailerplate_expiry date_formate_change" name="plate_expiry" required />
+                                                        <input class="form-control date_formate_change" type="date" id="trailerplate_expiry" name="plate_expiry" required />
                                                     </div>
                                                 </div>
                                                 <div class="form-group col-md-2 ">

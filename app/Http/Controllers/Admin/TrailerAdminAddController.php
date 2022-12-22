@@ -85,7 +85,7 @@ class TrailerAdminAddController extends Controller
                 }else{
                     $trailerDoc=array();
                 }
-                // dd($totalTrailerArray);
+                // dd($request->plate_expiry);
             
             $trailerData[]=array(    
                     '_id' => $totalTrailerArray,
