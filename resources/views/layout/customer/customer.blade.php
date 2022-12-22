@@ -494,3 +494,495 @@
 </div>
  
 <!------------------------------------------------------------------ over add Factoring Company  modal ------------------------------------------------------------------>
+
+
+
+<!-- ========================= start edit customer model =============================== -->
+
+<div class="container">
+    <div class="modal fade" data-backdrop="static" id="updateCustomerModal" role="dialog">
+        <div class="modal-dialog custom_modal_small modal-dialog-scrollable" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Update Customer</h5>
+                    <button type="button" class="close closeUpdateCustomerModel" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body" style="overflow-y: auto !important;">
+                    
+                    <div class="container">
+                        <ul class="nav nav-tabs">
+                            <li  ><a onClick="show_add_customer()" style="text-decoration:none;" class="button-29 add_customer_btn" data-toggle="tab" href="#updateCustomerTab" >Update Customer</a></li>
+                            <li  ><a data-toggle="tab" href="#updateAdvanceCustomerTab" class="button-29 advanceTabCustomer" style="margin-left: 5px;">Update Advance</a></li>
+                        </ul>
+                        <div class="tab-content">
+                            <div id="updateCustomerTab" class="tab-pane fade in active">
+                                <form>
+                                    <input type="hidden" name="_token" id="_tokenUpdateCustomer" value="{{ csrf_token() }}" />
+                                    <div class="form-row">
+                                        <div class="form-group col-md-3">
+                                            <label for="customerName">Customer Name  <span style="color:#ff0000">*</span></label>
+                                            <input type="text" class="form-control" id="updateCustomerName" placeholder=" Enter Customer Name" >
+                                        </div>
+                                        <div class="form-group col-md-3">
+                                            <label for="customerAddress">Address <span style="color:#ff0000">*</span> </label>
+                                            <input type="text" class="form-control" id="updateCustomerAddress"placeholder="Enter Address">
+                                        </div>
+                                        <div class="form-group col-md-3">
+                                            <label for="customerLocation">Location <span style="color:#ff0000">*</span>  </label>
+                                            <input type="text" class="form-control" id="updateCustomerLocation"placeholder="Enter Location">
+                                        </div>
+                                        <div class="form-group col-md-3">
+                                            <label for="customerZip">Zip  <span style="color:#ff0000">*</span></label>
+                                            <input type="text" class="form-control" id="updateCustomerZip"placeholder="Enter Zip">
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-group col-md-12">
+                                            <label for="customerBillingAddressChkbox">Billing Address : </label>
+                                            <input type="checkbox" id="updateCustomerBillingAddressChkbox" value="off" name=""> Same as Mailing Address
+                                        </div>
+                                    </div>
+
+                                    <div class="form-row">
+                                        <div class="form-group col-md-3">
+                                            <label for="customerBillingAddress">Billing Address</label>
+                                            <input type="text" class="form-control" id="updateCustomerBillingAddress" placeholder=" Enter Billing Address" >
+                                        </div>
+                                        <div class="form-group col-md-3">
+                                            <label for="customerBillingLocation">Location  </label>
+                                            <input type="text" class="form-control" id="updateCustomerBillingLocation"placeholder="Enter Location">
+                                        </div>
+                                        <div class="form-group col-md-3">
+                                            <label for="customerBillingZip">Zip </label>
+                                            <input type="text" class="form-control" id="updateCustomerBillingZip"placeholder="Enter Zip">
+                                        </div>
+                                        <div class="form-group col-md-3">
+                                            <label for="customerPrimaryContact">Primary Contact </span></label>
+                                            <input type="text" class="form-control" id="updateCustomerPrimaryContact" placeholder=" Enter Primary Contact" >
+                                        </div>
+                                    </div>
+
+                                    <div class="form-row">
+                                        <div class="form-group col-md-3">
+                                            <label for="customerTelephone">Telephone  </label>
+                                            <input type="text" class="form-control" id="updateCustomerTelephone"placeholder="Enter Telephone">
+                                        </div>
+                                        <div class="form-group col-md-3">
+                                            <label for="customerExt">Ext </label>
+                                            <input type="text" class="form-control" id="updateCustomerExt"placeholder="Enter Ext">
+                                        </div>
+                                        <div class="form-group col-md-3">
+                                            <label for="customerEmail">Email</label>
+                                            <input type="text" class="form-control" id="updateCustomerEmail" placeholder=" Enter Email" >
+                                        </div>
+                                        <div class="form-group col-md-3">
+                                            <label for="customerFax">Fax  </label>
+                                            <input type="text" class="form-control" id="updateCustomerFax"placeholder="Enter Fax">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-row">
+                                        <div class="form-group col-md-3">
+                                            <label for="customerBillingContact">Billing Contact </span></label>
+                                            <input type="text" class="form-control" id="updateCustomerBillingContact" placeholder="Enter Billing Contact" >
+                                        </div>
+                                        <div class="form-group col-md-3">
+                                            <label for="customerBillingEmail">Billing Email  </label>
+                                            <input type="text" class="form-control" id="updateCustomerBillingEmail"placeholder="Enter Billing Email">
+                                        </div>
+                                        <div class="form-group col-md-3">
+                                            <label for="customerBillingTelephone">Billing Telephone</label>
+                                            <input type="text" class="form-control" id="updateCustomerBillingTelephone"placeholder="Enter Billing Telephone">
+                                        </div>
+                                        <div class="form-group col-md-3">
+                                            <label for="customerBillingExt">Ext</label>
+                                            <input type="text" class="form-control" id="updateCustomerBillingExt"placeholder="Enter Ext">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-row">
+                                        <div class="form-group col-md-4">
+                                            <label for="customerUrs">URS</span></label>
+                                            <input type="text" class="form-control" id="updateCustomerUrs" placeholder=" Enter" >
+                                        </div>
+                                        <div class="form-group col-md-4 MC">
+                                            <label for="customerMc">M.C.</label>
+                                            <input type="text" class="form-control" id="updateCustomerMc"placeholder="Enter">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-row">
+                                        <div class="form-group col-md-12">
+                                            <label for="customerBlacklisted">Blacklisted :</span></label>
+                                            <!-- <input type="checkbox" class="form-control " id="" value="Same as Mailing Address"> -->
+                                            <input type="checkbox" id="updateCustomerBlacklisted" name="" value="off"> This Customer is Blacklisted
+                                        </div>
+                                    </div>
+
+                                    <div class="form-row">
+                                        <div class="form-group col-md-12">
+                                            <label for="customerIsBroker">Is Broker :</span></label>
+                                            <input type="checkbox" id="updateCustomerIsBroker" name="" value="off"> This is a Broker
+                                        </div>
+                                    </div>
+
+                                    <div class="form-row">
+                                        <div class="form-group col-md-12">
+                                            <label for="customerDuplicate">Duplicate :</span></label>
+                                            <input type="checkbox" id="updateCustomerDuplicateShipper" name="" value="off"> As a Shipper
+                                            <input type="checkbox" id="updateCstomerDuplicateConsignee" name="" value="off"> As a Consignee
+                                        </div>
+                                    </div>
+                                
+                                    <div class="modal-footer">
+                                        <a data-toggle="tab" href="#updateAdvanceCustomerTab" class="button-29 advanceTabCustomer" style="align:right;" >Next</a>
+                                        <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> --> 
+                                    </div>
+                            </div>
+                            <div id="updateAdvanceCustomerTab" class="tab-pane fade">
+                                <br>
+                                <div class="form-row">
+                                    <div class="form-group col-md-3">
+                                        <!-- <button type="button" class="btn btn-icon btn-facebook"><i class="fa fa-facebook"></i></button> -->
+                                        <!-- <a class="btn btn-outline-info">Info</a> -->
+                                        <label for="customerCurrencySetting">Currency Setting
+                                        <span class="glyphicon glyphicon-plus-sign addCurrencySetting "  data-toggle="modal"  style="cursor:pointer;"></span>
+                                        </label>
+                                        <div class="dropdown show">
+                                            <select class="form-control customerCurrencySet" name="currency" id="customerCurrencySet" > 
+                                                <option>Select Here</option>
+                                            </select>
+                                                <!-- <input class="form-control customerCurrencySet" list="customerCurrencySet" name="currency" id="currency">
+                                                <datalist id="customerCurrencySet" class="customerCurrencySet"><option>Select Here</option></datalist>     -->
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-md-3">
+                                        <label for="customerPaymentTerms">Payment Terms
+                                        <span class="glyphicon glyphicon-plus-sign addUpPaymentTermsCustomer " id="addPaymentTermsCustomer" data-toggle="modal"  style="cursor:pointer;"></span>
+                                        </label>
+                                        <div class="dropdown show">
+                                            <select class="form-control customerPaymentTermSet" name="PaymentTerms" > 
+                                                <option>Select Here</option>
+                                            </select>
+                                                <!-- <input class="form-control customerPaymentTermSet" list="customerPaymentTermSet" name="PaymentTerms" id="PaymentTerms">
+                                                <datalist id="updateCustomerPaymentTermSet" class="customerPaymentTermSet">
+                                                    <option>Select Here</option>
+                                                </datalist> -->
+
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-md-3">
+                                        <label for="customerCreditLimit">Credit Limit $ </label>
+                                        <input type="text" class="form-control" id="updateCustomerCreditLimit"placeholder="Enter Zip">
+                                    </div>
+                                    <div class="form-group col-md-3">
+                                        <label for="customerSalesRepresentative">Sales Representative </span></label>
+                                        <input type="text" class="form-control" id="updateCustomerSalesRepresentative" placeholder=" Enter Sales Representative" >
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col-md-3">
+                                        <label for="customerBFactoringCompany">Factoring Company
+                                        <span class="glyphicon glyphicon-plus-sign addFactoringCompanyCutomer " id="addFactoringCompanyCutomer" data-toggle="modal"  style="cursor:pointer;"></span>
+                                        </label>
+                                        <div class="dropdown show">
+                                            <select class="form-control customerBFactoringCompanySet" name="customerBFactoringCompany" id="customerBFactoringCompany">
+                                                <option>Select Here</option>
+                                            </select>
+                                            <!-- <input class="form-control customerBFactoringCompanySet" list="customerBFactoringCompanySet" name="customerBFactoringCompany" id="customerBFactoringCompany">
+                                            <datalist id="updateCustomerBFactoringCompanySet" class="customerBFactoringCompanySet">
+                                                <option>Select Here</option>
+                                            </datalist> -->
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-md-3">
+                                        <label for="customerFederalID">Federal ID</label>
+                                        <input type="text" class="form-control" id="updateCustomerFederalID" placeholder="Enter Federal ID">
+                                    </div>
+                                    <div class="form-group col-md-3">
+                                        <label for="customerWorkerComp">Worker's Comp # </label>
+                                        <input type="text" class="form-control" id="updateCustomerWorkerComp" placeholder="Enter Worker's Comp">
+                                    </div>
+                                    <div class="form-group col-md-3">
+                                        <label for="customerWebsiteURL">Website URL </span></label>
+                                        <input type="text" class="form-control" id="updateCustomerWebsiteURL" placeholder=" Enter Website URL" >
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col-md-3">
+                                        <label for="customerNumbersonInvoice">Numbers on Invoice</label><br>
+                                        <input type="checkbox" id="updateCustomerNumbersonInvoice" name="" value="off"> Show tel. and fax number on Invoice
+                                    </div>
+                                    <div class="form-group col-md-3">
+                                        <label for="customerCustomerRate">Customer Rate </label><br>
+                                        <input type="checkbox" id="updateCustomerCustomerRate" name="" value="off"> Show detailed Rate on Invoice
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label for="customerInternalNotes">Internal Notes</label>
+                                        <input type="text" class="form-control" id="updateCustomerInternalNotes"placeholder="Enter Internal Notes">
+                                    </div>
+
+                                    
+                                    <div class="modal-footer w-100" style="align:right;">
+                                        <a onClick="show_add_customer()" style="text-decoration:none;" class="button-29 add_customer_btn" data-toggle="tab" href="#updateCustomerTab" >Previous</a>
+                                        <button type="submit" class="button-29 updateCustomerData">Save</button>
+                                        <button type="button" class="button-29 closeUpdateCustomerModel" data-dismiss="modal ">Close</button>
+                                    </div>
+                                    
+
+                                    </form>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+
+                </div>
+            
+                <!-- <div class="modal-footer">
+                    <button class="btnclose" data-bs-dismiss="modal">Close</button>
+                </div> -->
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--============================== end update customer =================== -->
+
+<!-- ===========================create currency model ==================== -->
+<div class="modal fade" id="addCreateCurrencyCustomer"  tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" >Create Currency</h5>
+        <button type="button" class="close closeaddCreateCurrencyCustomer" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form id="addTrailerTypeForm">
+            @csrf
+            <input type="hidden" name="_token" id="_tokenTrailerType" value="{{ csrf_token() }}" />
+            <div class="form-group col-md-12">
+                <label>Name<span style="color:#ff0000">*</span></label>
+                <div>
+                    <input class="form-control" placeholder="Currency type" type="text" id="saveCurrencyType" name="currencyType" required />
+                </div>
+            </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="button-29 closeaddCreateCurrencyCustomer" data-dismiss="modal">Close</button>
+        <button type="button" class="button-29 saveaddCreateCurrencycustomer " >Save </button>
+      </div>
+    </div>
+  </div>
+</div>
+<!--======================= end currency =============== -->
+
+ <!-- =================crete payment terms =============================== -->
+ <div class="modal fade" id="addPaymentTermsCustom"  tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" >Create Payment Terms</h5>
+        <button type="button" class="close closeadPaymentTermsCustomer" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form id="addTrailerTypeForm">
+            @csrf
+            <input type="hidden" name="_token" id="_tokenPaymentTerms" value="{{ csrf_token() }}" />
+            <div class="form-group col-md-12">
+                <label>Name<span style="color:#ff0000">*</span></label>
+                <div>
+                    <input class="form-control" placeholder="Enter Name" type="text" id="trailer_type_name" name="trailer_type_name" required />
+                </div>
+            </div>
+            <div class="form-group col-md-12">
+                <label>Net Days<span style="color:#ff0000">*</span></label>
+                <div>
+                    <select name="" class="form-control">
+                        <option>select one</option>
+                        <?php 
+                        $j=180;
+                        for($i=1; $j>=$i; $i++){
+                        ?>
+                        <option value="{{$i}}">{{$i}}</option>
+                        <?php }?>
+                    </select>
+                </div>
+            </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="button-29 closeadPaymentTermsCustomer" data-dismiss="modal">Close</button>
+        <button type="button" class="button-29 savePaymentTermsCustomer " >Save </button>
+      </div>
+    </div>
+  </div>
+</div>
+ <!--==================== end payment terms model ====================== -->
+
+ <!--======================== add  Factoring Company ============================s-->
+ <div class="container">
+    <div class="modal fade" data-backdrop="static" id="addFactoringModelCustomer" role="dialog">
+        <div class="modal-dialog custom_modal" role="document">
+            <div class="modal-content">
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title">Add Factoring Company</h4>
+                    <button type="button" class="closeaddFactoringModel" >&times;</button>
+                </div>
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <!-- Row -->
+                    <div class="row">
+                        <div class="row row-sm">
+                            <div class="col-lg-12">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <form id="addFactoringModel">
+                                            @csrf
+                                            <input type="hidden" name="_token" id="_tokenAddFactoring" value="{{ csrf_token() }}" />
+                                            <div class="form-row">
+                                                <div class="form-group col-md-2">
+                                                    <label>Factoring Company Name<span style="color:#ff0000">*</span></label>
+                                                    <div>
+                                                        <input class="form-control" placeholder="Factoring Company Name" type="text" id="addFactoringCompanyname" name="factoringCompanyname" required />
+                                                    </div>
+                                                </div>
+                                                
+                                                <div class="form-group col-md-2">
+                                                    <label>Address <span style="color:#ff0000">*</span></label>
+                                                    <div>
+                                                        <input class="form-control" placeholder="Address" type="text" id="addFacAddress" name="address" required />
+                                                    </div>
+                                                </div>
+                                                <div class="form-group col-md-2 ">
+                                                    <label>Loction <span style="color:#ff0000">*</span></label>
+                                                    <div>
+                                                        <input class="form-control" placeholder="Enter Location" type="text" id="addFaclocation" name="location" required />
+                                                    </div>
+                                                </div>
+                                                <div class="form-group col-md-2 ">
+                                                    <label>Postal / Zip<span style="color:#ff0000">*</span> </label>
+                                                    <div>
+                                                        <input class="form-control" placeholder="Postal / Zip" type="text" id="addFacZip" name="zip" required>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group col-md-2 ">
+                                                    <label>Primary Contact </label>
+                                                    <div>
+                                                        <input class="form-control" placeholder="Primary Contact" type="text" id="addFacPrimaryContact" name="primaryContact">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group col-md-2 ">
+                                                    <label>Telephone </label>
+                                                    <div>
+                                                        <input class="form-control" placeholder="(___) ___ - ____" type="text" id="addFacTelephone" name="telephone">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group col-md-2 ">
+                                                    <label>Ext Factoring </label>
+                                                    <div>
+                                                        <input class="form-control" placeholder="Ext" type="text" id="addFacExtFactoring" name="extFactoring">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group col-md-2 ">
+                                                    <label>Fax </label>
+                                                    <div>
+                                                        <input class="form-control" placeholder="(___) ___ - ____" type="text" id="addFacFax" name="fax">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group col-md-2 ">
+                                                    <label>Toll Free </label>
+                                                    <div>
+                                                        <input class="form-control" placeholder="(___) ___ - ____" type="text" id="addFacTollFree" name="tollFree">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group col-md-2 ">
+                                                    <label>Contact Email </label>
+                                                    <div>
+                                                        <input class="form-control" placeholder="Contact Email" type="email" id="addFacEmail" name="email">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group col-md-2 ">
+                                                    <label>Secondary Contact </label>
+                                                    <div>
+                                                        <input class="form-control" placeholder="Secondary Contact " type="text" id="addFacSecondaryContact" name="secondaryContact">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group col-md-2 ">
+                                                    <label>Factoring Telephone </label>
+                                                    <div>
+                                                        <input class="form-control" placeholder="(___) ___ - ____" type="text" id="addFacFactoringtelephone" name="factoringtelephone">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group col-md-2 ">
+                                                    <label>Ext </label>
+                                                    <div>
+                                                        <input class="form-control" placeholder="Ext" type="text" id="addFacExt" name="ext">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group col-md-2">
+                                                    <label >Currency Setting <span style="color:#ff0000">*</span>&nbsp; 
+                                                    <span class="glyphicon glyphicon-plus-sign addcurrencySetting "  data-toggle="modal"  style="cursor:pointer;"></span>
+                                                    </label>
+                                                        <div class="dropdown show">
+                                                            <input class="form-control currencySetting_option" list="currencySetting_option" name="currencyType" id="currencyType">
+                                                            <datalist id="currencySetting_option" class="currencySetting_option">
+                                                                <option>Select Here</option>
+                                                              
+                                                            </datalist>
+                                                        </div>
+                                                </div>
+                                                <div class="form-group col-md-2">
+                                                    <label>Payment Terms <span style="color:#ff0000">*</span>&nbsp; 
+                                                    <span class="glyphicon glyphicon-plus-sign addpaymentTerms " id="addpaymentTerms" data-toggle="modal"  style="cursor:pointer;"></span>
+                                                    </label>
+                                                        <div class="dropdown show">
+                                                            <input class="form-control paymentTerms_option" list="paymentTerms_option" name="paymentTerms" id="paymentTerms">
+                                                            <datalist id="paymentTerms_option" class="paymentTerms_option">
+                                                                <option>Select Here</option>
+                                                              
+                                                            </datalist>
+                                                        </div>
+                                                </div>
+                                            <div class="form-row">
+                                                
+                                            <div class="form-group col-md-4 ">
+                                                    <label>taxID </label>
+                                                    <div>
+                                                        <input class="form-control" placeholder="__-_______" type="text" id="addFactaxID" name="taxID">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group col-md-12">
+                                                    <label>Internal Notes</label>
+                                                    <div>
+                                                        <textarea rows="2" cols="30" class="form-control" type="textarea" id="addFacInternalNote" placeholder="Internal Note" name="internalNote"></textarea>
+                                                    </div>
+                                                </div>
+                                                
+                                            </div> 
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- End Row -->                
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button type="button" style="vertical-align:middle" class="button-29 saveFactoringModelCustomer" >Save</button>
+                    <button type="button"style="vertical-align:middle" class=" closeaddFactoringModelCustomer button-29" >Close</button>
+                </div>          
+            </div>
+        </div>
+    </div>
+</div>
+ <!--======================== end add  Factoring Company ============================s-->
