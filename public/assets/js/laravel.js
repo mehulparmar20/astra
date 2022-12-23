@@ -42,7 +42,7 @@ function createRows(response) {
             var ext = response[i].userExt;
             var tollfree = response[i].TollFree;
             var fax = response[i].userFax;
-            var tr_str = "<tr data-id=" + (i + 1) + ">" +
+            var tr_str = "<tr class='tr' data-id=" + (i + 1) + ">" +
                 "<td data-field='id'>" + (i + 1) + "</td>" +
                 "<td data-field='email' id="+email+">" + email + "</td>" +
                 "<td data-field='username'>" + username + "</td>" +

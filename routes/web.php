@@ -15,9 +15,12 @@ use App\Http\Controllers\Admin\FuelVendorController;
 use App\Http\Controllers\Admin\FuelCardController;
 use App\Http\Controllers\Admin\FuelReceiptController;
 use App\Http\Controllers\Admin\IftaTollController;
-
-
-
+use App\Http\Controllers\Admin\BankController;
+use App\Http\Controllers\Admin\CreditCardController;
+use App\Http\Controllers\Admin\SubCreditCardController;
+use App\Http\Controllers\Admin\AccountManagerController;
+use App\Http\Controllers\Admin\BranchOfficeController;
+use App\Http\Controllers\Admin\PaymentTermsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -50,6 +53,7 @@ Route::get('/table', function () {
 
 Auth::routes();
 
+// User
 Route::get('admin/dashboard', [AuthController::class, 'dashboard']);
 Route::get('admin/user', [UserController::class, 'getAllUser']);
 Route::get('admin/user-privilege', [UserController::class, 'user']);
@@ -60,6 +64,7 @@ Route::get('admin/profile', [UserController::class, 'getUser']);
 Route::post('admin/profile-edit', [UserController::class, 'editUserDetails'])->name('profile.edit');
 Route::post('admin/download-pdf', [UserController::class, 'downloadPDF'])->name('download-pdf');
 
+// Login
 Route::get('login', [AuthController::class, 'login'])->name('login')->middleware('guest');
 Route::post('post-login', [AuthController::class, 'postLogin'])->name('login.post'); 
 Route::get('logout', [AuthController::class, 'logout'])->name('logout');
@@ -99,6 +104,7 @@ Route::post('admin/updateCurrency', [CurrencyController::class, 'updateCurrency'
 //PaymentTerms
 Route::get('admin/getCustomerPaymentTerms', [CustomerController::class, 'getCustomerPaymentTerms']);
 Route::post('admin/PaymentTerms', [CustomerController::class, 'addCustomerPaymentTerms']);
+Route::get('admin/getPaymentTerms', [PaymentTermsController::class, 'getPaymentTerms']);
 
 //factoringCompany
 Route::get('admin/getCustomerBFactoringCompany', [CustomerController::class, 'getCustomerBFactoringCompany']);
@@ -132,3 +138,23 @@ Route::get('admin/getFuelCard', [FuelCardController::class, 'getFuelCard']);
 
 //FuelReceipt
 Route::get('admin/getFuelReceipt', [FuelReceiptController::class, 'getFuelReceipt']);
+
+//Ifta Toll
+Route::get('admin/getIftaToll', [IftaTollController::class, 'getIftaToll']);
+
+//Bank
+Route::get('admin/getBankData', [BankController::class, 'getBankData']);
+
+//creditCard
+Route::get('admin/getcreditCard', [CreditCardController::class, 'getcreditCard']);
+
+//sucCreditCard
+Route::get('admin/getsubCreditCard', [SubCreditCardController::class, 'getsubCreditCard']);
+
+//Accounting Manager
+Route::get('admin/getAccountDeliverdValue', [AccountManagerController::class, 'getAccountDeliverdValue']);
+Route::get('admin/getAccountInvoiceValue', [AccountManagerController::class, 'getAccountInvoiceValue']);
+Route::get('admin/getAccountCompletedValue', [AccountManagerController::class, 'getAccountCompletedValue']);
+
+//Branch Office
+Route::get('admin/getBranchOffice', [BranchOfficeController::class, 'getBranchOffice']);

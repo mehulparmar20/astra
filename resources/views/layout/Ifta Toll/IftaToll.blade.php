@@ -1,14 +1,14 @@
 <!------------------------------------------------------------------- Trailer modal ------------------------------------------------------------------->
 <div class="container">
     <!-- The Modal -->
-    <div class="modal fade" data-backdrop="static" id="fuelReceiptModal">
+    <div class="modal fade" data-backdrop="static" id="iftaTollModal">
         <div class="modal-dialog modal-dialog-scrollable custom_modal">
             <div class="modal-content">
 
                 <!-- Modal Header -->
                 <div class="modal-header">
                     <h4 class="modal-title">Fuel Receipts</h4>
-                    <button type="button" class="button-24 fuelReceiptClose" >&times;</button>
+                    <button type="button" class="button-24 iftaTollClose" >&times;</button>
                 </div>
 
                 <div style="margin-top: 15px; margin-left: 15px;">
@@ -43,54 +43,34 @@
                                             <!-- <th scope="col" col width="50"> <input type="checkbox" disabled></th>     -->
 
                                             <th >No</th>
-                                            <th >Driver Name</th>
-                                            <th >Transaction Date </th>
-                                            <th >Card Number </th>
-                                            <th >Truck Number </th>
-                                            <th >Driver Number</th>
-                                            <th >Transaction Time</th>
-                                            <th >Location Name </th>
-                                            <th >Location City</th>
-                                            <th > Location State </th>
-                                            <th >Fuel Vendor</th>
-                                            <th >Fuel Type</th>
-                                            <th >Amount</th>
-                                            <th >Quantity</th>
-                                            <th >Total Amount </th>
-                                            <th >Transaction Discount</th>
-                                            <th >Transaction Fee</th>
-                                            <th >Transaction Gross </th>
-                                            <th >Invoice No </th>
-                                            <th >Action</th>
+                                            <th>Transaction Date</th>
+                                            <th>Transaction Type</th>
+                                            <th>Location</th>
+                                            <th>Transponder</th>
+                                            <th>License Plate</th>
+                                            <th>Amount</th>
+                                            <th>Truck No.</th>
+                                            <th>Invoice No.</th>
+                                            <th>Action</th>
                                         </tr>
                                         </thead>
 
-                                        <tbody id="FuelReceTable">
+                                        <tbody id="iftaTollTable">
 
                                         </tbody>
                                         <tfoot>
                                             <tr>
                                             <th ></th>
                                             <th >No</th>
-                                            <th >Driver Name</th>
-                                            <th >Transaction Date </th>
-                                            <th >Card Number </th>
-                                            <th >Number </th>
-                                            <th >Driver Number</th>
-                                            <th >Transaction Time</th>
-                                            <th >Location Name </th>
-                                            <th >Location City</th>
-                                            <th > Location State </th>
-                                            <th >Fuel Vendor</th>
-                                            <th >Fuel Type</th>
-                                            <th >Amount</th>
-                                            <th >Quantity</th>
-                                            <th >Total Amount </th>
-                                            <th >Transaction Discount</th>
-                                            <th >Transaction Fee</th>
-                                            <th >Transaction Gross </th>
-                                            <th >Invoice No </th>
-                                            <th >Action</th>
+                                            <th>Transaction Date</th>
+                                            <th>Transaction Type</th>
+                                            <th>Location</th>
+                                            <th>Transponder</th>
+                                            <th>License Plate</th>
+                                            <th>Amount</th>
+                                            <th>Truck No.</th>
+                                            <th>Invoice No.</th>
+                                            <th>Action</th>
                                             </tr>
                                         </tfoot>
                                     </table>
@@ -104,7 +84,7 @@
 
                 <!-- Modal footer -->
                 <div class="modal-footer">
-                    <button type="button" class="button-29 fuelReceiptClose">Close</button>
+                    <button type="button" class="button-29 iftaTollClose">Close</button>
                 </div>
             </div>
         </div>

@@ -11,6 +11,7 @@ use App\Models\Currency_add;
 use App\Models\Payment_terms;
 use App\Models\Factoring_company_add;
 use Illuminate\Database\Eloquent\Collection;
+use Auth;
 
 class CustomerController extends Controller
 {
@@ -107,10 +108,11 @@ class CustomerController extends Controller
   
        $PaymentTermsData[]=array(    
                        '_id' => $totalPaymentTermsArray,
-                       'counter' => $totalPaymentTermsArray,
                        'paymentTerm' => $request->PaymentTermsName,
-                       'created_by' => '',
-                       'deleteStatus' => 'No',
+                       'paymentDays' => $request->NetDay,
+                       'counter' => $totalPaymentTermsArray,
+                       'created_by' => Auth::user()->userFirstName,
+                       'deleteStatus' => 'NO',
                        'deleteUser' => '',
                        'deleteTime' => '',
                        );
