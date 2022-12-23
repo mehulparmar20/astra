@@ -359,23 +359,25 @@ class CustomerController extends Controller
     public function edit_customer(Request $request)
     {
         $id=$request->id;
+        // dd($id);
         $email=$request->email;
         $companyID=(int)1;
         $customerData=Customer::where("companyID",$companyID)->first();
         $cusomerArray=$customerData->customer;
         $arrayLength=count($cusomerArray);
-        // dd($arrayLength);
+        // dd($arrayLength);s
         $i=0;
         $v=0;
        for ($i=0; $i<$arrayLength; $i++){
             $ids=$customerData->customer[$i];
+            // dd($ids);
                 foreach ($ids as $value){
                     if($value==$id){
-                        $v=$i;
+                        // dd($value);
+                        $v=$value;
                      }
                 }
        }
-    
         $customerData->customer= $cusomerArray[$v];
         return response()->json($customerData); 
     }

@@ -52,6 +52,7 @@ class TruckController extends Controller
         }
         $privilege=Auth::user()->privilege;
         try{
+            // dd($request->file('file'));
             if ($files = $request->file('file')) {
                 foreach ($request->file('file') as $file) {
                     

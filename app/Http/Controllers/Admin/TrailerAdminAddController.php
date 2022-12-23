@@ -35,17 +35,19 @@ class TrailerAdminAddController extends Controller
             // 'plate_expiry' => 'required',
             // 'vin' => 'required',
         ]);  
-        $path = public_path().'/TrailerFile';        
+        $path = public_path().'/TrailerFile'; 
+        // dd($path);       
         if(!File::exists($path)) {
            
           File::makeDirectory($path, $mode = 0777, true, true);
           }
           $privilege=Auth::user()->privilege;
+         
           try{
-            // dd($trailerfiles);
-              if ($files = $request->file('trailerfiles')) {
-                  foreach ($request->file('trailerfiles') as $file) {
-                    // dd($files);
+            // dd($request->file('file'));
+                if ($files = $request->file('file')) {
+                    foreach ($request->file('file') as $file) {
+                    // dd($file);
                       
                       $name =  time().rand(0,1000).$file->getClientOriginalName();
                       $filePath=$file->move(public_path().'/TrailerFile/', $name);
@@ -64,13 +66,18 @@ class TrailerAdminAddController extends Controller
                           'companyId' => 1,
                           'privilege' => $privilege,
                       );
+                    //   dd($trailerfile);
                   }
-              }
-          }
+                }
+            }
+           
           catch(\Exception $error){
               return $error->getMessage();
-          }   
+          } 
+            
         try{
+             
+
             $Trailer=TrailerAdminAdd::all();
             $companyID=(int)1;
 
@@ -245,8 +252,8 @@ class TrailerAdminAddController extends Controller
           $privilege=Auth::user()->privilege;
           try{
             // dd($trailerfiles);
-              if ($files = $request->file('trailerfiles')) {
-                  foreach ($request->file('trailerfiles') as $file) {
+              if ($files = $request->file('file')) {
+                  foreach ($request->file('file') as $file) {
                     // dd($files);
                       
                       $name =  time().rand(0,1000).$file->getClientOriginalName();
@@ -277,6 +284,19 @@ class TrailerAdminAddController extends Controller
         $traileradd=TrailerAdminAdd::where('companyID',$companyID)->first();
         $trailerArray=$traileradd->trailer;
         $arrayLength=count($trailerArray);
+
+        $Trailer=TrailerAdminAdd::all();
+            $getTrailer = TrailerAdminAdd::where('companyID',$companyID)->first();
+                if($getTrailer){
+                    $totalTrailerArray=count($getTrailer->trailer);
+                }else{
+                    $totalTrailerArray=0; 
+                }
+                if(isset($trailerfile)){
+                    $trailerDoc=array($trailerfile);
+                }else{
+                    $trailerDoc=array();
+                }
         // dd($arrayLength);
         $i=0;
         $v=0;
@@ -288,6 +308,7 @@ class TrailerAdminAddController extends Controller
                      }
                 }
        }
+    //    $trailerDoc=$trailerfile;
     //    dd($request->axies);
        $trailerArray[$v]['trailerNumber'] = $request->trailer_number;
        $trailerArray[$v]['trailerType'] = $request->trailertypeId;
@@ -310,6 +331,7 @@ class TrailerAdminAddController extends Controller
        $trailerArray[$v]['edit_by'] =Auth::user()->userName;
        $trailerArray[$v]['edit_time'] ='';
         $traileradd->trailer= $trailerArray;
+      
        if($traileradd->save())
        {
         $arr = array('status' => 'success', 'message' => 'Trailer updated successfully.','statusCode' => 200); 

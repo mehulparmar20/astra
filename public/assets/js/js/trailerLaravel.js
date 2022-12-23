@@ -302,11 +302,13 @@ $(document).ready(function() {
             return false;
         }
         var formData = new FormData();
-        $.each($("#trailerfiles")[0].trailerfiles, function(i, file) { 
-            // alert(file);           
-            formData.append('trailerfiles[]', file);
+        // $.each($("#trailerfiles")[0].trailerfiles, function(i, file) { 
+        //     // alert(file);           
+        //     formData.append('file[]', file);
+        // });
+        $.each($("#trailerfiles")[0].files, function(i, file) {            
+            formData.append('file[]', file);
         });
-        
         formData.append('_token',$("#_tokenTrailer").val());
         formData.append('trailer_number',trailer_number.trim());
         formData.append('trailerType',trailertypeId);
@@ -482,11 +484,13 @@ $(document).ready(function() {
             return false;
         }
         var formData = new FormData();
-        $.each($("#edit_trailerfiles")[0].trailerfiles, function(i, file) { 
-            // alert(file);           
-            formData.append('trailerfiles[]', file);
+        // $.each($("#edit_trailerfiles")[0].trailerfiles, function(i, file) { 
+        //     // alert(file);           
+        //     formData.append('trailerfiles[]', file);
+        // });
+        $.each($("#edit_trailerfiles")[0].files, function(i, file) {            
+            formData.append('file[]', file);
         });
-        
         formData.append('_token',$("#_tokenEditTrailer").val());
         formData.append('id',id);
         formData.append('trailer_number',trailer_number.trim());

@@ -41,6 +41,7 @@ $(document).ready(function() {
                         // var no = driverResponse[i]._id;
                         var custComid =customerResponse.companyID;
                         //var driverId=customerResponse[i].customer[j]._id;
+                        var customerId=customerResponse.customer[j]._id;
                         var custName = customerResponse.customer[j].custName;
                         var custLocation = customerResponse.customer[j].custLocation;
                         var custZip = customerResponse.customer[j].custZip;
@@ -60,7 +61,7 @@ $(document).ready(function() {
                                 "<td data-field='customerEmail'>" + custEmail + "</td>" +
 
                                 // "<td style='width: 100px'><a class='btn btn-primary fs-14 text-white edit-icn' title='Edit' id='edit'><i class='fe fe-edit' ></i></a></td></tr>"
-                                "<td style='width: 100px'><i class='button-29 fe fe-edit customerEdit' data-id=" + custComid+ " data-email="+custEmail +"> </i><a class=' button-29 fs-14 text-white customerDelete-icn' data-id=" + custComid+ "&"+custEmail + " title='Delete'><i class='fe fe-delete'></i></a></td></tr>";
+                                "<td style='width: 100px'><i class='button-29 fe fe-edit customerEdit' data-id=" + customerId+ " data-email="+custEmail +"> </i>&nbsp; &nbsp; <a class=' button-29 fs-14 text-white customerDelete-icn' data-id=" + customerId+ "&"+custEmail + " title='Delete'><i class='fe fe-delete'></i></a></td></tr>";
 
                             $("#customerTable").append(customerStr);
                             no++;
@@ -677,33 +678,159 @@ $('body').on('click','.customerEdit',function(){
         async: false,
         success:function(response){
            $("#updateCustomerName").val(response.customer.custName);
-        //    $("#updateCustomerName").val(response.customer.custName);
-        //    $("#updateCustomerName").val(response.customer.custName);
-        //    $("#updateCustomerName").val(response.customer.custName);
-        //    $("#updateCustomerName").val(response.customer.custName);
-        //    $("#updateCustomerName").val(response.customer.custName);
-        //    $("#updateCustomerName").val(response.customer.custName);
-        //    $("#updateCustomerName").val(response.customer.custName);
-        //    $("#updateCustomerName").val(response.customer.custName);
-        //    $("#updateCustomerName").val(response.customer.custName);
-        //    $("#updateCustomerName").val(response.customer.custName);
-        //    $("#updateCustomerName").val(response.customer.custName);
-        //    $("#updateCustomerName").val(response.customer.custName);
-        //    $("#updateCustomerName").val(response.customer.custName);
-        //    $("#updateCustomerName").val(response.customer.custName);
-        //    $("#updateCustomerName").val(response.customer.custName);
+           $("#updateCustomerAddress").val(response.customer.custAddress);
+           $("#updateCustomerLocation").val(response.customer.custLocation);
+           $("#updateCustomerZip").val(response.customer.custZip);
+        //    $("#updateCustomerBillingAddressChkbox").val(response.customer.billingAddress);
+           $("#updateCustomerBillingAddress").val(response.customer.billingAddress);
+           $("#updateCustomerBillingLocation").val(response.customer.billingLocation);
+           $("#updateCustomerBillingZip").val(response.customer.billingZip);
+           $("#updateCustomerPrimaryContact").val(response.customer.primaryContact);
+           $("#updateCustomerTelephone").val(response.customer.custTelephone);
+           $("#updateCustomerExt").val(response.customer.custExt);
+           $("#updateCustomerEmail").val(response.customer.custEmail);
+           $("#updateCustomerFax").val(response.customer.custFax);
+           $("#updateCustomerBillingContact").val(response.customer.billingContact);
+           $("#updateCustomerBillingEmail").val(response.customer.billingEmail);
+           $("#updateCustomerBillingTelephone").val(response.customer.billingTelephone);
+           $("#updateCustomerBillingExt").val(response.customer.billingExt);
+           $("#updateCustomerUrs").val(response.customer.URS);
+           $("#updateCustomerMc").val(response.customer.MC);
+           $("#updateCustomerBlacklisted").val(response.customer.blacklisted);
+           $("#updateCustomerIsBroker").val(response.customer.isBroker);
+        //    $("#updateCustomerDuplicateShipper").val(response.customer.numberOninvoice);
+        //    $("#updateCstomerDuplicateConsignee").val(response.customer.customerRate);
+           $("#customerCurrencySet").val(response.customer.currencySetting);
+           $("#addPaymentTermsCustomer").val(response.customer.paymentTerms);
+           $("#updateCustomerCreditLimit").val(response.customer.creditLimit);
+           $("#updateCustomerSalesRepresentative").val(response.customer.salesRep);
+           $("#customerBFactoringCompany").val(response.customer.factoringCompany);
+           $("#updateCustomerFederalID").val(response.customer.federalID);
+           $("#updateCustomerWorkerComp").val(response.customer.workerComps);
+           $("#updateCustomerWebsiteURL").val(response.customer.websiteURL);
+           $("#updateCustomerNumbersonInvoice").val(response.customer.numberOninvoice);
+           $("#updateCustomerCustomerRate").val(response.customer.customerRate);
+           $("#updateCustomerInternalNotes").val(response.customer.internalNotes);
         }
     });
 });
 $(".updateCustomerData").click(function(){
-    $.ajax({
-            type:'post',
-            url:base_path+"/admin/update_customers",
-            data:{_token:$("#_tokenUpdateCustomer").val()},
-            success:function(response){
-                alert("success");
-            }
-    });
+    var custName=$("#updateCustomerName").val();
+    // alert(custName);
+    var custAddress = $("#updateCustomerAddress").val();
+    var custLocation = $("#updateCustomerLocation").val();
+    var custZip = $("#updateCustomerZip").val();
+    var BillingAddressChkbox = $("#updateCustomerBillingAddressChkbox").val();
+    var billingAddress = $("#updateCustomerBillingAddress").val();
+    var billingLocation = $("#updateCustomerBillingLocation").val();
+    var billingZip = $("#updateCustomerBillingZip").val();
+    var primaryContact = $("#updateCustomerPrimaryContact").val();
+    var custTelephone = $("#updateCustomerTelephone").val();
+    var custExt = $("#updateCustomerExt").val();
+    var custEmail = $("#updateCustomerEmail").val();
+    var custFax = $("#updateCustomerFax").val();
+    var billingContact = $("#updateCustomerBillingContact").val();
+    var billingEmail = $("#updateCustomerBillingEmail").val();
+    var billingTelephone = $("#updateCustomerBillingTelephone").val();
+    var billingExt = $("#updateCustomerBillingExt").val();
+    var URS = $("#updateCustomerUrs").val();
+    var MC = $("#updateCustomerMc").val();
+    var blacklisted = $("#updateCustomerBlacklisted").val();
+    var isBroker = $("#updateCustomerIsBroker").val();
+    var DuplicateShipper = $("#updateCustomerDuplicateShipper").val();
+    var DuplicateConsignee = $("#updateCstomerDuplicateConsignee").val();
+    var currencySetting = $("#customerCurrencySet").val();
+    var paymentTerms = $("#addPaymentTermsCustomer").val();
+    var creditLimit = $("#updateCustomerCreditLimit").val();
+    var salesRep = $("#updateCustomerSalesRepresentative").val();
+    var factoringCompany = $("#customerBFactoringCompany").val();
+    var federalID = $("#updateCustomerFederalID").val();
+    var workerComps = $("#updateCustomerWorkerComp").val();
+    var websiteURL = $("#updateCustomerWebsiteURL").val();
+    var numberOninvoice = $("#updateCustomerNumbersonInvoice").val();
+    var customerRate = $("#updateCustomerCustomerRate").val();
+    var internalNotes = $("#updateCustomerInternalNotes").val();
+    if(custName=='')
+    {
+        swal.fire( "Enter Customer Name");
+        $('#updateCustomerName').focus();
+        return false;
+        
+    } 
+    if(custAddress=='')
+    {
+        swal.fire( "Enter Customer Address");
+        return false;
+    }
+    if(custLocation=='')
+    {
+        swal.fire( "'Enter Location");
+        return false;
+    }
+    if(custZip=='')
+    {
+        swal.fire( "'Enter Zip");
+        return false;
+    }
+    var formData = new FormData();
+    formData.append('_token',$("#_tokenUpdateCustomer").val());
+    formData.append('custName',custName);
+    formData.append('custAddress',custAddress);
+    formData.append('custLocation',custLocation);
+    formData.append('custZip',custZip);        
+    formData.append('BillingAddressChkbox',BillingAddressChkbox); 
+    formData.append('billingAddress',billingAddress);    
+    formData.append('billingLocation',billingLocation); 
+    formData.append('billingZip',billingZip); 
+    formData.append('primaryContact',primaryContact); 
+    formData.append('custTelephone',custTelephone); 
+    formData.append('custExt',custExt); 
+    formData.append('custEmail',custEmail); 
+    formData.append('custFax',custFax); 
+    formData.append('billingContact',billingContact); 
+    formData.append('billingEmail',billingEmail); 
+    formData.append('billingTelephone',billingTelephone); 
+    formData.append('billingExt',billingExt); 
+    formData.append('URS',URS); 
+    formData.append('MC',MC); 
+    formData.append('blacklisted',blacklisted); 
+    formData.append('isBroker',isBroker); 
+    formData.append('DuplicateShipper',DuplicateShipper); 
+    formData.append('DuplicateConsignee',DuplicateConsignee); 
+    formData.append('currencySetting',currencySetting); 
+    formData.append('paymentTerms',paymentTerms); 
+    formData.append('creditLimit',creditLimit); 
+    formData.append('salesRep',salesRep); 
+    formData.append('factoringCompany',factoringCompany); 
+    formData.append('federalID',federalID); 
+    formData.append('workerComps',workerComps); 
+    formData.append('websiteURL',websiteURL);  
+    formData.append('customerRate',customerRate);  
+    formData.append('numberOninvoice',numberOninvoice); 
+    formData.append('internalNotes',internalNotes);
+    
+    // alert("fgfhfgghggf");
+    // $.ajax({
+    //         type:'post',
+    //         url:base_path+"/admin/update_customers",
+    //         data:formData,
+    //         success:function(response){
+    //             alert("success");
+    //             // swal.fire("Done!", "Customer updated successfully", "success");
+    //             // $('#updateCustomerModal').modal('hide');
+    //             // $.ajax({
+    //             //     type: "GET",
+    //             //     url: base_path+"/admin/customer",
+    //             //     async: false,
+    //             //     //dataType:JSON,
+    //             //     success: function(customerResult) {
+    //             //         //console.log(customerResult);
+    //             //         createcustomerRows(customerResult);
+    //             //         customerResponse = customerResult;
+    //             //     }
+    //             // });
+    //         }
+    // });
 })
 // ====================== end update customer ==================================
 

@@ -106,7 +106,7 @@
                             <div class="col-lg-12">
                                 <div class="card">
                                     <div class="card-body">
-                                        <form id="addTrailerForm">
+                                        <form id="addTrailerForm" enctype="multipart/form-data">
                                             @csrf
                                             <input type="hidden" name="_token" id="_tokenTrailer" value="{{ csrf_token() }}" />
                                             <div class="form-row">
@@ -214,7 +214,7 @@
                                                 <div class="form-group col-md-2">
                                                     <label>Upload Files</label>
                                                     <div >
-                                                        <input type="file" class="form-control" id="trailerfiles"  name="trailerfiles[]" multiple accept=".png, .jpg, .jpeg, .pdf" >
+                                                        <input type="file" class="form-control" id="trailerfiles"  name="files[]" multiple accept=".png, .jpg, .jpeg, .pdf" >
                                                         
                                                     </div>
                                                 </div>
@@ -339,7 +339,7 @@
                             <div class="col-lg-12">
                                 <div class="card">
                                     <div class="card-body">
-                                        <form id="editTrailerForm">
+                                        <form id="editTrailerForm" enctype="multipart/form-data">
                                             @csrf
                                             <input type="hidden" name="_token" id="_tokenEditTrailer" value="{{ csrf_token() }}" />
                                             <input type="hidden" name="id" id="edittrailer_id" >
@@ -439,7 +439,7 @@
                                                 <div class="form-group col-md-2">
                                                     <label>Upload Files</label>
                                                     <div >
-                                                        <input type="file" class="form-control" id="edit_trailerfiles"  name="trailerfiles[]" multiple accept=".png, .jpg, .jpeg, .pdf" >
+                                                        <input type="file" class="form-control" id="edit_trailerfiles"  name="files[]" multiple accept=".png, .jpg, .jpeg, .pdf" >
                                                         
                                                     </div>
                                                 </div>

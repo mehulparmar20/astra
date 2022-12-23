@@ -136,7 +136,7 @@ $(document).ready(function() {
         $.each($("#files")[0].files, function(i, file) {            
             formData.append('file[]', file);
         });
-
+        // alert(file);
         formData.append('_token',$("#_tokenTruck").val());
         formData.append('truck_number',truck_number.trim());
         formData.append('trucktypeId',trucktypeId);
