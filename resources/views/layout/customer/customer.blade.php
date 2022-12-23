@@ -292,16 +292,16 @@
 <!------------------------------------------------------------------ over add customer modal ------------------------------------------------------------------>
 <!------------------------------------------------------------------- Payment Terms modal ------------------------------------------------------------------->
 
-<div class="container">
+<div class="container" >
   <!-- The Modal -->
-  <div class="modal fade" id="PaymentTermsModal" data-backdrop="static">
+  <div class="modal fade" id="PaymentTermsModal" data-backdrop="static" style="z-index:1000000000;"> >
     <div class="modal-dialog custom_modal_small2 modal-dialog-scrollable">
       <div class="modal-content">
       
         <!-- Modal Header -->
         <div class="modal-header">
         <h5 class="modal-title">Create Payment Terms</h5>
-          <button type="button" class="button-24 PaymentTermsModalCloseButton" data-dismiss="modal">&times;</button>
+          <button type="button" class="button-24 PaymentTermsModalCloseButton">&times;</button>
         </div>
         
         <!-- Modal body -->
@@ -366,7 +366,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="submit" class="button-29 CurrencyrDataSubmit">Save</button>
-                    <button type="button" class="button-29 plusCurrencyModalCloseButton" data-dismiss="modal">Close</button>
+                    <button type="button" class="button-29 plusCurrencyModalCloseButton" >Close</button>
                 </div>
             </div>
         </div>
