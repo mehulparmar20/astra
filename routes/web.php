@@ -84,7 +84,7 @@ Route::post('admin/deleteViewDriverApp', [DriverController::class, 'deleteViewDr
 Route::get('admin/customer', [CustomerController::class, 'getCustomerData']);
 Route::post('admin/addCustomer', [CustomerController::class, 'addCustomerData']);
 Route::get('admin/edit_customer', [CustomerController::class, 'edit_customer']);
-Route::post('admin/update_customer', [CustomerController::class, 'update_customers']);
+Route::post('admin/update_customer', [CustomerController::class, 'update_customer']);
 
 //addCurrency
 Route::get('admin/customerCurrency', [CustomerController::class, 'getCustomerCurrency']);

@@ -395,7 +395,8 @@ $(document).ready(function() {
          $(".customerPaymentTermSet").html('');
          for (var i = 0; i < customerPaymentTermsLength; i++) {  
              var paymentTerm =customerPaymentTermsResponse.payment[i].paymentTerm;
-             var customerPaymentTerm = "<option id='customerPaymentTerm' value='"+ paymentTerm +"'>"+ paymentTerm +"</option>"
+             var payId =customerPaymentTermsResponse.payment[i]._ids;
+             var customerPaymentTerm = "<option  value='"+ payId +"'>"+ paymentTerm +"</option>"
              //"<a class='dropdown-item custCurrency' value='"+ currency +"'>"+ no +" )"+ currency +"</a>";
 
              $(".customerPaymentTermSet").append(customerPaymentTerm);
@@ -654,10 +655,10 @@ function show_add_customer(){
     $("#addCustomerTab").addClass("tab-pane fade in active show");
     $("#addAdvanceCustomerTab").removeClass('active show');    
 }
-function show_update_customer(){    
-    $("#updateCustomerTab").addClass("tab-pane fade in active show");
-    $("#updateAdvanceCustomerTab").removeClass('active show');    
-}
+// function show_update_customer(){    
+//     $("#updateCustomerTab").addClass("tab-pane fade in active show");
+//     $("#updateAdvanceCustomerTab").removeClass('active show');    
+// }
 
 //  =============== start update customer show model ====================
 
@@ -666,7 +667,9 @@ $(".closeUpdateCustomerModel").click(function(){
 })
 $('body').on('click','.customerEdit',function(){
     $("#updateCustomerModal").modal("show");
-    show_update_customer();
+    $(".update_customer_first_tap").show();
+    $(".update_advance_first_tap").hide();
+    // show_update_customer();
     var id=$(this).attr("data-id");
     var email=$(this).attr("data-email");
     // alert(id);
@@ -677,6 +680,7 @@ $('body').on('click','.customerEdit',function(){
         // dataType:JSON,
         async: false,
         success:function(response){
+            $("#updateCustomer_id").val(response.customer._id);
            $("#updateCustomerName").val(response.customer.custName);
            $("#updateCustomerAddress").val(response.customer.custAddress);
            $("#updateCustomerLocation").val(response.customer.custLocation);
@@ -696,8 +700,40 @@ $('body').on('click','.customerEdit',function(){
            $("#updateCustomerBillingExt").val(response.customer.billingExt);
            $("#updateCustomerUrs").val(response.customer.URS);
            $("#updateCustomerMc").val(response.customer.MC);
-           $("#updateCustomerBlacklisted").val(response.customer.blacklisted);
-           $("#updateCustomerIsBroker").val(response.customer.isBroker);
+        //    alert(response.customer.blacklisted);
+           if(response.customer.blacklisted=="on")
+           {
+                $("#updateCustomerBlacklisted").attr('checked',true);
+           }
+           else
+           {
+                $("#updateCustomerBlacklisted").attr('checked',falses);
+           }
+           if(response.customer.isBroker=="on")
+           {
+                $("#updateCustomerIsBroker").attr('checked',true);
+           }
+           else
+           {
+                $("#updateCustomerIsBroker").attr('checked',falses);
+           }
+           if(response.customer.numberOninvoice=="on")
+           {
+                $("#updateCustomerNumbersonInvoice").attr('checked',true);
+           }
+           else
+           {
+                $("#updateCustomerNumbersonInvoice").attr('checked',falses);
+           }
+           if(response.customer.customerRate=="on")
+           {
+                $("#updateCustomerCustomerRate").attr('checked',true);
+           }
+           else
+           {
+                $("#updateCustomerCustomerRate").attr('checked',falses);
+           }
+        //    $("#updateCustomerIsBroker").val(response.customer.isBroker);
         //    $("#updateCustomerDuplicateShipper").val(response.customer.numberOninvoice);
         //    $("#updateCstomerDuplicateConsignee").val(response.customer.customerRate);
            $("#customerCurrencySet").val(response.customer.currencySetting);
@@ -708,13 +744,24 @@ $('body').on('click','.customerEdit',function(){
            $("#updateCustomerFederalID").val(response.customer.federalID);
            $("#updateCustomerWorkerComp").val(response.customer.workerComps);
            $("#updateCustomerWebsiteURL").val(response.customer.websiteURL);
-           $("#updateCustomerNumbersonInvoice").val(response.customer.numberOninvoice);
-           $("#updateCustomerCustomerRate").val(response.customer.customerRate);
+        //    $("#updateCustomerNumbersonInvoice").val(response.customer.numberOninvoice);
+        //    $("#updateCustomerCustomerRate").val(response.customer.customerRate);
            $("#updateCustomerInternalNotes").val(response.customer.internalNotes);
         }
     });
 });
-$(".updateCustomerData").click(function(){
+
+$(".next_update_customer").click(function(){
+    $(".update_customer_first_tap").show();
+    $(".update_advance_first_tap").hide();
+});
+$(".Previous_update_customer").click(function(){
+    $(".update_customer_first_tap").hide();
+    $(".update_advance_first_tap").show();
+});
+$("#updateCustomerData").click(function(){
+    // alert("Dgfhhhfghfghfgh");
+    var id=$("#updateCustomer_id").val();
     var custName=$("#updateCustomerName").val();
     // alert(custName);
     var custAddress = $("#updateCustomerAddress").val();
@@ -774,6 +821,7 @@ $(".updateCustomerData").click(function(){
     }
     var formData = new FormData();
     formData.append('_token',$("#_tokenUpdateCustomer").val());
+    formData.append('id',id);
     formData.append('custName',custName);
     formData.append('custAddress',custAddress);
     formData.append('custLocation',custLocation);
@@ -808,29 +856,31 @@ $(".updateCustomerData").click(function(){
     formData.append('customerRate',customerRate);  
     formData.append('numberOninvoice',numberOninvoice); 
     formData.append('internalNotes',internalNotes);
-    
-    // alert("fgfhfgghggf");
-    // $.ajax({
-    //         type:'post',
-    //         url:base_path+"/admin/update_customers",
-    //         data:formData,
-    //         success:function(response){
-    //             alert("success");
-    //             // swal.fire("Done!", "Customer updated successfully", "success");
-    //             // $('#updateCustomerModal').modal('hide');
-    //             // $.ajax({
-    //             //     type: "GET",
-    //             //     url: base_path+"/admin/customer",
-    //             //     async: false,
-    //             //     //dataType:JSON,
-    //             //     success: function(customerResult) {
-    //             //         //console.log(customerResult);
-    //             //         createcustomerRows(customerResult);
-    //             //         customerResponse = customerResult;
-    //             //     }
-    //             // });
-    //         }
-    // });
+    // alert("DSgfhgjhkjjhgfd");
+    $.ajax({
+            type:'post',
+            url:base_path+"/admin/update_customer",
+            async: false,
+            cache: false,
+            contentType: false,
+            processData: false,
+            data:formData,
+            success:function(response){
+                swal.fire("Done!", "Customer updated successfully", "success");
+                $('#updateCustomerModal').modal('hide');
+                $.ajax({
+                    type: "GET",
+                    url: base_path+"/admin/customer",
+                    async: false,
+                    //dataType:JSON,
+                    success: function(customerResult) {
+                        //console.log(customerResult);
+                        createcustomerRows(customerResult);
+                        customerResponse = customerResult;
+                    }
+                });
+            }
+    });
 })
 // ====================== end update customer ==================================
 

@@ -383,6 +383,69 @@ class CustomerController extends Controller
     }
     public function update_customer(Request $request)
     {
-        echo "update customer success";
+        request()->validate([
+          
+        ]);
+
+        $companyID=(int)1;
+        $id=$request->id;
+
+        $customerData = Customer::where('companyID',$companyID )->first();
+        $customerArray=$customerData->customer;
+
+        $arrayLengthUp=count($customerArray);
+        $i=0;
+        $v=0;
+       for ($i=0; $i<$arrayLengthUp; $i++){
+            $id=$customerData->customer[$i];
+                foreach ($id as $value){
+                    if($value==$id){
+                        $v=$i;
+                     }
+                }
+       }
+       $customerArray[$v]['_id']=$request->id;
+       $customerArray[$v]['custName']=$request->custName;
+       $customerArray[$v]['custAddress']=$request->custAddress;
+       $customerArray[$v]['custLocation']=$request->custLocation;
+       $customerArray[$v]['custZip']=$request->custZip;
+       $customerArray[$v]['BillingAddressChkbox']=$request->BillingAddressChkbox;
+       $customerArray[$v]['billingAddress']=$request->billingAddress;
+       $customerArray[$v]['billingLocation']=$request->billingLocation;
+       $customerArray[$v]['billingZip']=$request->billingZip;
+       $customerArray[$v]['primaryContact']=$request->primaryContact;
+       $customerArray[$v]['custTelephone']=$request->custTelephone;
+       $customerArray[$v]['custExt']=$request->custExt;
+       $customerArray[$v]['custEmail']=$request->custEmail;
+       $customerArray[$v]['custFax']=$request->custFax;
+       $customerArray[$v]['billingContact']=$request->billingContact;
+       $customerArray[$v]['billingEmail']=$request->billingEmail;
+       $customerArray[$v]['billingTelephone']=$request->billingTelephone;
+       $customerArray[$v]['billingExt']=$request->billingExt;
+       $customerArray[$v]['URS']=$request->URS;
+       $customerArray[$v]['MC']=$request->MC;
+       $customerArray[$v]['blacklisted']=$request->blacklisted;
+       $customerArray[$v]['isBroker']=$request->isBroker;
+       $customerArray[$v]['DuplicateShipper']=$request->DuplicateShipper;
+       $customerArray[$v]['DuplicateConsignee']=$request->DuplicateConsignee;
+       $customerArray[$v]['currencySetting']=$request->currencySetting;
+       $customerArray[$v]['paymentTerms']=$request->paymentTerms;
+       $customerArray[$v]['creditLimit']=$request->creditLimit;
+       $customerArray[$v]['salesRep']=$request->salesRep;
+       $customerArray[$v]['factoringCompany']=$request->factoringCompany;
+       $customerArray[$v]['federalID']=$request->federalID;
+       $customerArray[$v]['workerComps']=$request->workerComps;
+       $customerArray[$v]['websiteURL']=$request->websiteURL;
+       $customerArray[$v]['customerRate']=$request->customerRate;
+       $customerArray[$v]['numberOninvoice']=$request->numberOninvoice;
+       $customerArray[$v]['internalNotes']=$request->internalNotes;
+    //    dd($customerArray);
+       $customerData->customer = $customerArray;
+    //    dd( $customerData->customer);
+       if($customerData->save()){
+            $arr = array('status' => 'success', 'message' => 'Customer updated successfully.','statusCode' => 200); 
+            return json_encode($arr);
+        }
     }
+
 }
