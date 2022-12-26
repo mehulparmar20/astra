@@ -369,15 +369,18 @@ class CustomerController extends Controller
         $i=0;
         $v=0;
        for ($i=0; $i<$arrayLength; $i++){
-            $ids=$customerData->customer[$i];
-            // dd($ids);
+            $ids=$customerData->customer[$i]['_id'];
+            $ids=(array)$ids;
                 foreach ($ids as $value){
-                    if($value==$id){
-                        // dd($value);
-                        $v=$value;
+                    // dd($value);
+                    if($value==$id){                      
+                        $v=$i;
+                        
                      }
                 }
        }
+    //    dd($v);
+    //    dd($cusomerArray[$v]);
         $customerData->customer= $cusomerArray[$v];
         return response()->json($customerData); 
     }
@@ -397,14 +400,16 @@ class CustomerController extends Controller
         $i=0;
         $v=0;
        for ($i=0; $i<$arrayLengthUp; $i++){
-            $id=$customerData->customer[$i];
-                foreach ($id as $value){
+                $ids=$customerData->customer[$i]['_id'];
+                $ids=(array)$ids;
+                foreach ($ids as $value){
                     if($value==$id){
+                        // dd($id);
                         $v=$i;
                      }
                 }
        }
-       $customerArray[$v]['_id']=$request->id;
+    //    dd($request->workerComp);
        $customerArray[$v]['custName']=$request->custName;
        $customerArray[$v]['custAddress']=$request->custAddress;
        $customerArray[$v]['custLocation']=$request->custLocation;
@@ -434,18 +439,44 @@ class CustomerController extends Controller
        $customerArray[$v]['salesRep']=$request->salesRep;
        $customerArray[$v]['factoringCompany']=$request->factoringCompany;
        $customerArray[$v]['federalID']=$request->federalID;
-       $customerArray[$v]['workerComps']=$request->workerComps;
+       $customerArray[$v]['workerComp']=$request->workerComp;
        $customerArray[$v]['websiteURL']=$request->websiteURL;
        $customerArray[$v]['customerRate']=$request->customerRate;
        $customerArray[$v]['numberOninvoice']=$request->numberOninvoice;
        $customerArray[$v]['internalNotes']=$request->internalNotes;
-    //    dd($customerArray);
+    //    dd($request);
        $customerData->customer = $customerArray;
     //    dd( $customerData->customer);
        if($customerData->save()){
             $arr = array('status' => 'success', 'message' => 'Customer updated successfully.','statusCode' => 200); 
             return json_encode($arr);
         }
+    }
+    public function delete_customer(Request $request)
+    {
+        $id=$request->id;
+        // dd($id);
+        $email=$request->email;
+        $custID=(int)$request->custID;
+        $customerData = Customer::where('companyID',$custID )->first();
+        $customerArray=$customerData->customer;
+        $arrayLength=count($customerArray);
+        $i=0;
+        $v=0;
+        for ($i=0; $i<$arrayLength; $i++){
+            $ids=$customerData->customer[$i];
+            foreach ($ids as $value){
+                if($value==$id){
+                    $v=$id;
+                    }
+            }
+       }
+       $customerArray[$v]['deleteStatus'] = "YES";
+       $customerData->customer= $customerArray;
+       if ($customerData->save()) {
+           $arr = array('status' => 'success', 'message' => 'Customer deleted successfully.','statusCode' => 200); 
+       return json_encode($arr);
+       }
     }
 
 }

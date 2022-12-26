@@ -3,7 +3,7 @@ $(document).ready(function() {
 // <!-- -------------------------------------------------------------------------Get customer ------------------------------------------------------------------------- -->  
   $('#customer_navbar').click(function(){
     //alert('customer');
-    $("#customerModal").modal("show");
+    // $("#customerModal").modal("show");
     var customerResponse = '';
     $.ajax({
         type: "GET",
@@ -16,7 +16,7 @@ $(document).ready(function() {
             customerResponse = customerResult;
         }
     });
-    // $("#customerModal").modal("show");
+    $("#customerModal").modal("show");
   }); 
 
 
@@ -24,8 +24,8 @@ $(document).ready(function() {
 
         // console.log(customerResponse);
         var custlen1 = 0;
-        
-        $('#customerTable').empty(); // Empty <tbody>
+        $("#customerTable").html('');
+        // $('#customerTable').empty(); // Empty <tbody>
         // if (customerResponse != null) {
         //     custlen1 = customerResponse.length;
         //     //len1 = sizeof($driverResponse);
@@ -39,7 +39,7 @@ $(document).ready(function() {
                         for (var j = 0; j < custlen2; j++) {
                         // var counter = driverResponse[i].counter;
                         // var no = driverResponse[i]._id;
-                        var custComid =customerResponse.companyID;
+                        var companyID =customerResponse.companyID;
                         //var driverId=customerResponse[i].customer[j]._id;
                         var customerId=customerResponse.customer[j]._id;
                         var custName = customerResponse.customer[j].custName;
@@ -61,7 +61,7 @@ $(document).ready(function() {
                                 "<td data-field='customerEmail'>" + custEmail + "</td>" +
 
                                 // "<td style='width: 100px'><a class='btn btn-primary fs-14 text-white edit-icn' title='Edit' id='edit'><i class='fe fe-edit' ></i></a></td></tr>"
-                                "<td style='width: 100px'><i class='button-29 fe fe-edit customerEdit' data-id=" + customerId+ " data-email="+custEmail +"> </i>&nbsp; &nbsp; <a class=' button-29 fs-14 text-white customerDelete-icn' data-id=" + customerId+ "&"+custEmail + " title='Delete'><i class='fe fe-delete'></i></a></td></tr>";
+                                "<td style='width: 100px'><i class='button-29 fe fe-edit customerEdit' data-id=" + customerId+ " date-cusId="+companyID+" data-email="+custEmail +"> </i>&nbsp; &nbsp; <a class=' button-29 fs-14 text-white customerDelete' data-id=" + customerId+ " date-cusId="+companyID+"  data-email="+custEmail +" title='Delete'><i class='fe fe-delete'></i></a></td></tr>";
 
                             $("#customerTable").append(customerStr);
                             no++;
@@ -395,7 +395,7 @@ $(document).ready(function() {
          $(".customerPaymentTermSet").html('');
          for (var i = 0; i < customerPaymentTermsLength; i++) {  
              var paymentTerm =customerPaymentTermsResponse.payment[i].paymentTerm;
-             var payId =customerPaymentTermsResponse.payment[i]._ids;
+             var payId =customerPaymentTermsResponse.payment[i]._id;
              var customerPaymentTerm = "<option  value='"+ payId +"'>"+ paymentTerm +"</option>"
              //"<a class='dropdown-item custCurrency' value='"+ currency +"'>"+ no +" )"+ currency +"</a>";
 
@@ -476,7 +476,7 @@ $('.customerBFactoringCompanySet').focus(function(){
          for (var i = 0; i < customerBFactoringCompanyLength; i++) {  
              var factoringCompanyname =customerBFactoringCompanyResponse.factoring[i].factoringCompanyname;
              var factoringCompanyId =customerBFactoringCompanyResponse.factoring[i]._id;
-             var customerFactoringCompanyname = "<option id='customerFactoringCompanyname' value='"+ factoringCompanyId +"'>"+ factoringCompanyname +"</option>"
+             var customerFactoringCompanyname = "<option  value='"+ factoringCompanyId +"'>"+ factoringCompanyname +"</option>"
              //"<a class='dropdown-item custCurrency' value='"+ currency +"'>"+ no +" )"+ currency +"</a>";
 
              $(".customerBFactoringCompanySet").append(customerFactoringCompanyname);
@@ -655,28 +655,23 @@ function show_add_customer(){
     $("#addCustomerTab").addClass("tab-pane fade in active show");
     $("#addAdvanceCustomerTab").removeClass('active show');    
 }
-// function show_update_customer(){    
-//     $("#updateCustomerTab").addClass("tab-pane fade in active show");
-//     $("#updateAdvanceCustomerTab").removeClass('active show');    
-// }
-
 //  =============== start update customer show model ====================
 
 $(".closeUpdateCustomerModel").click(function(){
     $("#updateCustomerModal").modal("hide");
 })
-$('body').on('click','.customerEdit',function(){
-    $("#updateCustomerModal").modal("show");
+$('body').on('click','.customerEdit',function(){   
     $(".update_customer_first_tap").show();
     $(".update_advance_first_tap").hide();
-    // show_update_customer();
+    // createcustomerPaymentTermsList()
     var id=$(this).attr("data-id");
     var email=$(this).attr("data-email");
+    var custID=$(this).attr("date-cusId");
     // alert(id);
     $.ajax({
         type:'get',
         url:base_path+"/admin/edit_customer",
-        data:{id:id,email:email},
+        data:{id:id,email:email,custID:custID},
         // dataType:JSON,
         async: false,
         success:function(response){
@@ -701,13 +696,96 @@ $('body').on('click','.customerEdit',function(){
            $("#updateCustomerUrs").val(response.customer.URS);
            $("#updateCustomerMc").val(response.customer.MC);
         //    alert(response.customer.blacklisted);
+            $(".updateCustomerMc").hide();
+            $("#updateCustomerIsBroker").change(function(){
+                if ($(this).is(':checked'))
+                {
+                    $("#updateCustomerIsBroker").val("on");
+                    $(".updateCustomerMc").show();
+                }
+                else
+                {
+                    $("#updateCustomerIsBroker").val("off");
+                    $(".updateCustomerMc").hide();
+                }
+              });
+              $("#updateCustomerDuplicateShipper").change(function(){
+                if ($(this).is(':checked'))
+                {
+                    $("#updateCustomerDuplicateShipper").val("on");
+                }
+                else
+                {
+                    $("#updateCustomerDuplicateShipper").val("off");
+                }
+              });
+              
+              $("#updateCstomerDuplicateConsignee").change(function(){
+                if ($(this).is(':checked'))
+                {
+                    $("#updateCstomerDuplicateConsignee").val("on");
+                }
+                else
+                {
+                    $("#updateCstomerDuplicateConsignee").val("off");
+                }
+              });
+              $("#updateCustomerBlacklisted").change(function(){
+                if ($(this).is(':checked'))
+                {
+                    $("#updateCustomerBlacklisted").val("on");
+                }
+                else
+                {
+                    $("#updateCustomerBlacklisted").val("off");
+                }
+              });
+              
+              $("#updateCustomerBillingAddressChkbox").change(function(){
+                if ($(this).is(':checked'))
+                {
+                    $("#updateCustomerBillingAddressChkbox").val("on");
+                }
+                else
+                {
+                    $("#updateCustomerBillingAddressChkbox").val("off");
+                }
+              });
+              $("#updateCustomerNumbersonInvoice").change(function(){
+                if ($(this).is(':checked'))
+                {
+                    $("#updateCustomerNumbersonInvoice").val("on");
+                }
+                else
+                {
+                    $("#updateCustomerNumbersonInvoice").val("off");
+                }
+              });
+              $("#updateCustomerCustomerRate").change(function(){
+                if ($(this).is(':checked'))
+                {
+                    $("#updateCustomerCustomerRate").val("on");
+                }
+                else
+                {
+                    $("#updateCustomerCustomerRate").val("off");
+                }
+              });
+            // if($("#updateCustomerIsBroker").is(':checked'))
+            // {
+            //     $(".updateCustomerMc").show();
+            // }
+            // else
+            // {
+            //     $(".updateCustomerMc").hide();
+            // }
            if(response.customer.blacklisted=="on")
            {
                 $("#updateCustomerBlacklisted").attr('checked',true);
            }
            else
            {
-                $("#updateCustomerBlacklisted").attr('checked',falses);
+                $("#updateCustomerBlacklisted").attr('checked',false);
            }
            if(response.customer.isBroker=="on")
            {
@@ -715,7 +793,7 @@ $('body').on('click','.customerEdit',function(){
            }
            else
            {
-                $("#updateCustomerIsBroker").attr('checked',falses);
+                $("#updateCustomerIsBroker").attr('checked',false);
            }
            if(response.customer.numberOninvoice=="on")
            {
@@ -723,7 +801,7 @@ $('body').on('click','.customerEdit',function(){
            }
            else
            {
-                $("#updateCustomerNumbersonInvoice").attr('checked',falses);
+                $("#updateCustomerNumbersonInvoice").attr('checked',false);
            }
            if(response.customer.customerRate=="on")
            {
@@ -731,24 +809,42 @@ $('body').on('click','.customerEdit',function(){
            }
            else
            {
-                $("#updateCustomerCustomerRate").attr('checked',falses);
+                $("#updateCustomerCustomerRate").attr('checked',false);
            }
-        //    $("#updateCustomerIsBroker").val(response.customer.isBroker);
-        //    $("#updateCustomerDuplicateShipper").val(response.customer.numberOninvoice);
-        //    $("#updateCstomerDuplicateConsignee").val(response.customer.customerRate);
-           $("#customerCurrencySet").val(response.customer.currencySetting);
-           $("#addPaymentTermsCustomer").val(response.customer.paymentTerms);
+           if(response.customer.DuplicateShipper=="on")
+           {
+                $("#updateCustomerDuplicateShipper").attr('checked',true);
+           }
+           else
+           {
+                $("#updateCustomerDuplicateShipper").attr('checked',false);
+           }
+           if(response.customer.DuplicateConsignee=="on")
+           {
+                $("#updateCstomerDuplicateConsignee").attr('checked',true);
+           }
+           else
+           {
+                $("#updateCstomerDuplicateConsignee").attr('checked',false);
+           }
+           $("#updateCustomerIsBroker").val(response.customer.isBroker);
+           $("#updateCustomerDuplicateShipper").val(response.customer.numberOninvoice);
+           $("#updateCstomerDuplicateConsignee").val(response.customer.customerRate);
+           $("#updatecurrency").val(response.customer.currencySetting);
+           $(".Update_customer_terms").val(response.customer.paymentTerms);
            $("#updateCustomerCreditLimit").val(response.customer.creditLimit);
            $("#updateCustomerSalesRepresentative").val(response.customer.salesRep);
-           $("#customerBFactoringCompany").val(response.customer.factoringCompany);
+           $(".update_factroring_name").val(response.customer.factoringCompany);
            $("#updateCustomerFederalID").val(response.customer.federalID);
-           $("#updateCustomerWorkerComp").val(response.customer.workerComps);
+           $("#updateCustomerWorkerComp").val(response.customer.workerComp);
            $("#updateCustomerWebsiteURL").val(response.customer.websiteURL);
-        //    $("#updateCustomerNumbersonInvoice").val(response.customer.numberOninvoice);
-        //    $("#updateCustomerCustomerRate").val(response.customer.customerRate);
+           $("#updateCustomerNumbersonInvoice").val(response.customer.numberOninvoice);
+           $("#updateCustomerCustomerRate").val(response.customer.customerRate);
            $("#updateCustomerInternalNotes").val(response.customer.internalNotes);
+           
         }
     });
+    $("#updateCustomerModal").modal("show");
 });
 
 $(".next_update_customer").click(function(){
@@ -786,17 +882,21 @@ $("#updateCustomerData").click(function(){
     var isBroker = $("#updateCustomerIsBroker").val();
     var DuplicateShipper = $("#updateCustomerDuplicateShipper").val();
     var DuplicateConsignee = $("#updateCstomerDuplicateConsignee").val();
-    var currencySetting = $("#customerCurrencySet").val();
-    var paymentTerms = $("#addPaymentTermsCustomer").val();
+    var currencySetting = $("#updatecurrency").val();
+    var paymentTerms = $(".Update_customer_terms").val();
     var creditLimit = $("#updateCustomerCreditLimit").val();
     var salesRep = $("#updateCustomerSalesRepresentative").val();
-    var factoringCompany = $("#customerBFactoringCompany").val();
+    var factoringCompany = $(".update_factroring_name").val();
     var federalID = $("#updateCustomerFederalID").val();
-    var workerComps = $("#updateCustomerWorkerComp").val();
+    var workerComp = $("#updateCustomerWorkerComp").val();
     var websiteURL = $("#updateCustomerWebsiteURL").val();
     var numberOninvoice = $("#updateCustomerNumbersonInvoice").val();
     var customerRate = $("#updateCustomerCustomerRate").val();
     var internalNotes = $("#updateCustomerInternalNotes").val();
+    // alert(paymentTerms);
+    // alert(factoringCompany);
+    // alert(currencySetting);
+    // console.log("MC = "+MC + "DuplicateShipper = " + DuplicateShipper+ "DuplicateConsignee = " +DuplicateConsignee + "paymentTerms ="+paymentTerms + "numberOninvoice =" +numberOninvoice + "customerRate =  " + customerRate + "factoringCompany = " + factoringCompany);
     if(custName=='')
     {
         swal.fire( "Enter Customer Name");
@@ -851,7 +951,7 @@ $("#updateCustomerData").click(function(){
     formData.append('salesRep',salesRep); 
     formData.append('factoringCompany',factoringCompany); 
     formData.append('federalID',federalID); 
-    formData.append('workerComps',workerComps); 
+    formData.append('workerComp',workerComp); 
     formData.append('websiteURL',websiteURL);  
     formData.append('customerRate',customerRate);  
     formData.append('numberOninvoice',numberOninvoice); 
@@ -918,3 +1018,48 @@ $(".addFactoringCompanyCutomer").click(function(){
 $(".saveFactoringModelCustomer").click(function(){
     alert("add addFactoringModelCustomer");
 });
+
+//=================== delete customer ==========
+$('body').on('click','.customerDelete',function(){
+    var id=$(this).attr("data-id");
+    var email=$(this).attr("data-email");
+    var custID=$(this).attr("date-cusId");
+    swal.fire({
+        title: "Delete?",
+        text: "Please ensure and then confirm!",
+        type: "warning",
+        showCancelButton: !0,
+        confirmButtonText: "Yes, delete it!",
+        cancelButtonText: "No, cancel!",
+        reverseButtons: !0
+    }).then(function (e) {
+        if (e.value === true) 
+        {
+            $.ajax({
+                type:"post",
+                url:base_path+"/admin/delete_customer",
+                data:{_token:$("#_tokenUpdateCustomer").val(),id:id,email:email,custID:custID},
+                success:function(response)
+                {
+                    swal.fire("Done!", "Customer deleted successfully", "success");
+                    $.ajax({
+                        type: "GET",
+                        url: base_path+"/admin/customer",
+                        async: false,
+                        dataType:JSON,
+                        success: function(customerResult) {
+                            // alert(customerResult);
+                            createcustomerRows(customerResult);
+                            customerResponse = customerResult;
+                        }
+                    });
+                },
+                error: function (resp) {
+                    swal.fire("Error!", 'Something went wrong.', "error");
+                }
+            })
+        }
+    })
+    
+
+})

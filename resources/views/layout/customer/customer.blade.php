@@ -209,7 +209,7 @@
                                             <!-- <select name="PaymentTerms" id="PaymentTerms" class="customerPaymentTermSet btn-dropdown">
                                             <option value="">Select Payment Terms</option>
                                             </select> -->
-                                                <input class="form-control customerPaymentTermSet" list="customerPaymentTermSet" name="PaymentTerms" id="PaymentTerms">
+                                                <input class="form-control customerPaymentTermSet" list="customerPaymentTermSet" name="PaymentTerms" id="update_PaymentTerms">
                                                 <datalist id="customerPaymentTermSet" class="customerPaymentTermSet">
                                                     <option>Select Here</option>
                                                 </datalist>
@@ -229,10 +229,7 @@
                                     <div class="form-group col-md-3">
                                         <label for="customerBFactoringCompany">Factoring Company</label><span class="button-29" id="plusFactoringCompany" style="margin-left: 5px;"><i class="fa fa-plus"></i></span>
                                         <div class="dropdown show">
-                                            <!-- <select name="customerBFactoringCompany" id="customerBFactoringCompany" class="customerBFactoringCompanySet btn-dropdown">
-                                            <option value="">Select Factoring Company</option>
-                                            </select> -->
-                                            <input class="form-control customerBFactoringCompanySet" list="customerBFactoringCompanySet" name="customerBFactoringCompany" id="customerBFactoringCompany">
+                                            <input class="form-control customerBFactoringCompanySet" list="customerBFactoringCompanySet" name="customerBFactoringCompany" id="updatecustomerBFactoringCompany">
                                             <datalist id="customerBFactoringCompanySet" class="customerBFactoringCompanySet">
                                                 <option>Select Here</option>
                                             </datalist>
@@ -510,20 +507,6 @@
 <!-- ========================= start edit customer model =============================== -->
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <div class="container">
     <div class="modal fade" data-backdrop="static" id="updateCustomerModal" role="dialog">
         <div class="modal-dialog custom_modal" role="document">
@@ -531,10 +514,11 @@
                 <div class="modal-header">
                     <h4 class="modal-title">Update Customer</h4>
                     <button type="button" class="closeUpdateCustomerModel" >&times;</button>
-                    <button type="button"style="vertical-align:middle" class=" next_update_customer button-29" >Update Customer</button><button type="button"style="vertical-align:middle" class=" Previous_update_customer button-29" >Update Advance</button>
                 </div>
                 <div class="modal-body">
-                    <div class="row">
+                    <div class="row">                        
+                    <button type="button"style="vertical-align:middle" class=" next_update_customer button-29 col-lg-2" >Update Customer</button> &nbsp; &nbsp; 
+                    <button type="button"style="vertical-align:middle" class=" Previous_update_customer button-29 col-lg-2" >Update Advance</button>
                         <div class="row row-sm">
                             <div class="col-lg-12">
                                 <div class="card">
@@ -631,7 +615,7 @@
                                                         <label for="customerUrs">URS</span></label>
                                                         <input type="text" class="form-control" id="updateCustomerUrs" placeholder=" Enter" name="URS" >
                                                     </div>
-                                                    <div class="form-group col-md-4 MC">
+                                                    <div class="form-group col-md-4 updateCustomerMc">
                                                         <label for="customerMc">M.C.</label>
                                                         <input type="text" class="form-control" id="updateCustomerMc"placeholder="Enter" name="MC">
                                                     </div>
@@ -663,13 +647,12 @@
                                             <div class="update_advance_first_tap">
                                                 <div class="form-row">
                                                     <div class="form-group col-md-3">
+                                                  
                                                         <label for="customerCurrencySetting">Currency Setting
-                                                        <!-- <span class="glyphicon glyphicon-plus-sign addCurrencySetting "  data-toggle="modal"  style="cursor:pointer;"></span> -->
                                                         </label>
                                                         <div class="dropdown show">
-                                                            <select class="form-control customerCurrencySet" name="currency" id="customerCurrencySet" name="currencySetting" > 
-                                                                <option>Select Here</option>
-                                                            </select>
+                                                            <input class="form-control customerCurrencySet" list="customerCurrencySet" name="currency" id="updatecurrency">
+                                                            <datalist id="customerCurrencySet" class="customerCurrencySet"><option>Select Here</option></datalist> 
                                                         </div>
                                                     </div>
                                                     <div class="form-group col-md-3">
@@ -677,9 +660,13 @@
                                                         <!-- <span class="glyphicon glyphicon-plus-sign addUpPaymentTermsCustomer " id="addPaymentTermsCustomer" data-toggle="modal"  style="cursor:pointer;"></span> -->
                                                         </label>
                                                         <div class="dropdown show">
-                                                            <select class="form-control customerPaymentTermSet" name="PaymentTerms"  name="paymentTerms"> 
+                                                            <!-- <select class="form-control customerPaymentTermSet Update_customer_terms" name="PaymentTerms"> 
                                                                 <option>Select Here</option>
-                                                            </select>
+                                                            </select> -->
+                                                            <input class="form-control  customerPaymentTermSet Update_customer_terms" list="customerPaymentTermSet" name="PaymentTerms" >
+                                                            <datalist id="customerPaymentTermSet" class="customerPaymentTermSet">
+                                                                <option>Select Here</option>
+                                                            </datalist>
 
                                                         </div>
                                                     </div>
@@ -698,9 +685,13 @@
                                                         <!-- <span class="glyphicon glyphicon-plus-sign addFactoringCompanyCutomer " id="addFactoringCompanyCutomer" data-toggle="modal"  style="cursor:pointer;"></span> -->
                                                         </label>
                                                         <div class="dropdown show">
-                                                            <select class="form-control customerBFactoringCompanySet" name="customerBFactoringCompany" id="customerBFactoringCompany">
+                                                            <!-- <select class="form-control customerBFactoringCompanySet update_factroring_name" name="customerBFactoringCompany" id="customerBFactoringCompany">
                                                                 <option>Select Here</option>
-                                                            </select>
+                                                            </select> -->
+                                                            <input class="form-control customerBFactoringCompanySet update_factroring_name" list="customerBFactoringCompanySet" name="customerBFactoringCompany" id="customerBFactoringCompany">
+                                                            <datalist class="customerBFactoringCompanySet">
+                                                                <option>Select Here</option>
+                                                            </datalist>
                                                         </div>
                                                     </div>
                                                     <div class="form-group col-md-3">
@@ -709,7 +700,7 @@
                                                     </div>
                                                     <div class="form-group col-md-3">
                                                         <label for="customerWorkerComp">Worker's Comp # </label>
-                                                        <input type="text" class="form-control" id="updateCustomerWorkerComp" placeholder="Enter Worker's Comp" name="workerComps">
+                                                        <input type="text" class="form-control" id="updateCustomerWorkerComp" placeholder="Enter Worker's Comp" name="workerComp">
                                                     </div>
                                                     <div class="form-group col-md-3">
                                                         <label for="customerWebsiteURL">Website URL </span></label>
@@ -750,275 +741,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- <div class="container">
-    <div class="modal fade" data-backdrop="static" id="updateCustomerModal" role="dialog">
-        <div class="modal-dialog custom_modal_small modal-dialog-scrollable" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Update Customer</h5>
-                    <button type="button" class="close closeUpdateCustomerModel" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body" style="overflow-y: auto !important;">                    
-                    <div class="container">
-                        <ul class="nav nav-tabs">
-                            <li  >
-                                <a onClick="show_update_customer()" style="text-decoration:none;" class="button-29 add_customer_btn" data-toggle="tab" href="#updateCustomerTab" >
-                                    Update Customer
-                                </a>
-                            </li>
-                            <li  >
-                                <a data-toggle="tab" href="#updateAdvanceCustomerTab" class="button-29 advanceTabCustomer" style="margin-left: 5px;">
-                                    Update Advance
-                                </a>
-                            </li>
-                        </ul>
-                        <div class="tab-content">
-                            <div id="updateCustomerTab" class="tab-pane fade in active">
-                                <form>
-                                    @csrf
-                                    <input type="hidden" name="_token" id="_tokenUpdateCustomer" value="{{ csrf_token() }}" />
-                                    <div class="form-row">
-                                        <div class="form-group col-md-3">
-                                            <label for="customerName">Customer Name  <span style="color:#ff0000">*</span></label>
-                                            <input type="text" class="form-control" id="updateCustomerName" placeholder=" Enter Customer Name"  name="custName">
-                                        </div>
-                                        <div class="form-group col-md-3">
-                                            <label for="customerAddress">Address <span style="color:#ff0000">*</span> </label>
-                                            <input type="text" class="form-control" id="updateCustomerAddress"placeholder="Enter Address" name="custAddress">
-                                        </div>
-                                        <div class="form-group col-md-3">
-                                            <label for="customerLocation">Location <span style="color:#ff0000">*</span>  </label>
-                                            <input type="text" class="form-control" id="updateCustomerLocation"placeholder="Enter Location" name="custLocation">
-                                        </div>
-                                        <div class="form-group col-md-3">
-                                            <label for="customerZip">Zip  <span style="color:#ff0000">*</span></label>
-                                            <input type="text" class="form-control" id="updateCustomerZip"placeholder="Enter Zip" name="custZip">
-                                        </div>
-                                    </div>
-                                    <div class="form-row">
-                                        <div class="form-group col-md-12">
-                                            <label for="customerBillingAddressChkbox">Billing Address : </label>
-                                            <input type="checkbox" id="updateCustomerBillingAddressChkbox" value="off" name="billingAddressCheckbox"> Same as Mailing Address
-                                        </div>
-                                    </div>
-
-                                    <div class="form-row">
-                                        <div class="form-group col-md-3">
-                                            <label for="customerBillingAddress">Billing Address</label>
-                                            <input type="text" class="form-control" id="updateCustomerBillingAddress" placeholder=" Enter Billing Address" name="billingAddress">
-                                        </div>
-                                        <div class="form-group col-md-3">
-                                            <label for="customerBillingLocation">Location  </label>
-                                            <input type="text" class="form-control" id="updateCustomerBillingLocation"placeholder="Enter Location" name="billingLocation">
-                                        </div>
-                                        <div class="form-group col-md-3">
-                                            <label for="customerBillingZip">Zip </label>
-                                            <input type="text" class="form-control" id="updateCustomerBillingZip"placeholder="Enter Zip" name="billingZip">
-                                        </div>
-                                        <div class="form-group col-md-3">
-                                            <label for="customerPrimaryContact">Primary Contact </span></label>
-                                            <input type="text" class="form-control" id="updateCustomerPrimaryContact" placeholder=" Enter Primary Contact"  name="primaryContact">
-                                        </div>
-                                    </div>
-
-                                    <div class="form-row">
-                                        <div class="form-group col-md-3">
-                                            <label for="customerTelephone">Telephone  </label>
-                                            <input type="text" class="form-control" id="updateCustomerTelephone"placeholder="Enter Telephone" name="custTelephone">
-                                        </div>
-                                        <div class="form-group col-md-3">
-                                            <label for="customerExt">Ext </label>
-                                            <input type="text" class="form-control" id="updateCustomerExt"placeholder="Enter Ext" name="custExt">
-                                        </div>
-                                        <div class="form-group col-md-3">
-                                            <label for="customerEmail">Email</label>
-                                            <input type="text" class="form-control" id="updateCustomerEmail" placeholder=" Enter Email"  name="custEmail">
-                                        </div>
-                                        <div class="form-group col-md-3">
-                                            <label for="customerFax">Fax  </label>
-                                            <input type="text" class="form-control" id="updateCustomerFax"placeholder="Enter Fax" name="custFax">
-                                        </div>
-                                    </div>
-
-                                    <div class="form-row">
-                                        <div class="form-group col-md-3">
-                                            <label for="customerBillingContact">Billing Contact </span></label>
-                                            <input type="text" class="form-control" id="updateCustomerBillingContact" placeholder="Enter Billing Contact" name="billingContact">
-                                        </div>
-                                        <div class="form-group col-md-3">
-                                            <label for="customerBillingEmail">Billing Email  </label>
-                                            <input type="text" class="form-control" id="updateCustomerBillingEmail"placeholder="Enter Billing Email" name="billingEmail">
-                                        </div>
-                                        <div class="form-group col-md-3">
-                                            <label for="customerBillingTelephone">Billing Telephone</label>
-                                            <input type="text" class="form-control" id="updateCustomerBillingTelephone"placeholder="Enter Billing Telephone" name="billingTelephone">
-                                        </div>
-                                        <div class="form-group col-md-3">
-                                            <label for="customerBillingExt">Ext</label>
-                                            <input type="text" class="form-control" id="updateCustomerBillingExt"placeholder="Enter Ext" name="billingExt">
-                                        </div>
-                                    </div>
-
-                                    <div class="form-row">
-                                        <div class="form-group col-md-4">
-                                            <label for="customerUrs">URS</span></label>
-                                            <input type="text" class="form-control" id="updateCustomerUrs" placeholder=" Enter" name="URS" >
-                                        </div>
-                                        <div class="form-group col-md-4 MC">
-                                            <label for="customerMc">M.C.</label>
-                                            <input type="text" class="form-control" id="updateCustomerMc"placeholder="Enter" name="MC">
-                                        </div>
-                                    </div>
-
-                                    <div class="form-row">
-                                        <div class="form-group col-md-12">
-                                            <label for="customerBlacklisted">Blacklisted :</span></label>
-                                            <input type="checkbox" id="updateCustomerBlacklisted" name="blacklisted" value="off"> This Customer is Blacklisted
-                                        </div>
-                                    </div>
-
-                                    <div class="form-row">
-                                        <div class="form-group col-md-12">
-                                            <label for="customerIsBroker">Is Broker :</span></label>
-                                            <input type="checkbox" id="updateCustomerIsBroker" value="off" name="isBroker"> This is a Broker
-                                        </div>
-                                    </div>
-
-                                    <div class="form-row">
-                                        <div class="form-group col-md-12">
-                                            <label for="customerDuplicate">Duplicate :</span></label>
-                                            <input type="checkbox" id="updateCustomerDuplicateShipper" name="" value="off"> As a Shipper
-                                            <input type="checkbox" id="updateCstomerDuplicateConsignee" name="" value="off"> As a Consignee
-                                        </div>
-                                    </div>
-                                
-                                    <div class="modal-footer">
-                                        <a data-toggle="tab" href="#updateAdvanceCustomerTab" class="button-29 advanceTabCustomer" style="align:right;" >Next</a>
-                                    </div>
-                            </div>
-                            <div id="updateAdvanceCustomerTab" class="tab-pane fade">
-                                <br>
-                                <div class="form-row">
-                                    <div class="form-group col-md-3">
-                                        <label for="customerCurrencySetting">Currency Setting
-                                        <span class="glyphicon glyphicon-plus-sign addCurrencySetting "  data-toggle="modal"  style="cursor:pointer;"></span>
-                                        </label>
-                                        <div class="dropdown show">
-                                            <select class="form-control customerCurrencySet" name="currency" id="customerCurrencySet" name="currencySetting" > 
-                                                <option>Select Here</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="form-group col-md-3">
-                                        <label for="customerPaymentTerms">Payment Terms
-                                        <span class="glyphicon glyphicon-plus-sign addUpPaymentTermsCustomer " id="addPaymentTermsCustomer" data-toggle="modal"  style="cursor:pointer;"></span>
-                                        </label>
-                                        <div class="dropdown show">
-                                            <select class="form-control customerPaymentTermSet" name="PaymentTerms"  name="paymentTerms"> 
-                                                <option>Select Here</option>
-                                            </select>
-
-                                        </div>
-                                    </div>
-                                    <div class="form-group col-md-3">
-                                        <label for="customerCreditLimit">Credit Limit $ </label>
-                                        <input type="text" class="form-control" id="updateCustomerCreditLimit"placeholder="Enter Zip" name="creditLimit">
-                                    </div>
-                                    <div class="form-group col-md-3">
-                                        <label for="customerSalesRepresentative">Sales Representative </span></label>
-                                        <input type="text" class="form-control" id="updateCustomerSalesRepresentative" placeholder=" Enter Sales Representative" name="salesRep" >
-                                    </div>
-                                </div>
-                                <div class="form-row">
-                                    <div class="form-group col-md-3">
-                                        <label for="customerBFactoringCompany">Factoring Company
-                                        <span class="glyphicon glyphicon-plus-sign addFactoringCompanyCutomer " id="addFactoringCompanyCutomer" data-toggle="modal"  style="cursor:pointer;"></span>
-                                        </label>
-                                        <div class="dropdown show">
-                                            <select class="form-control customerBFactoringCompanySet" name="customerBFactoringCompany" id="customerBFactoringCompany">
-                                                <option>Select Here</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="form-group col-md-3">
-                                        <label for="customerFederalID">Federal ID</label>
-                                        <input type="text" class="form-control" id="updateCustomerFederalID" placeholder="Enter Federal ID" name="federalID">
-                                    </div>
-                                    <div class="form-group col-md-3">
-                                        <label for="customerWorkerComp">Worker's Comp # </label>
-                                        <input type="text" class="form-control" id="updateCustomerWorkerComp" placeholder="Enter Worker's Comp" name="workerComps">
-                                    </div>
-                                    <div class="form-group col-md-3">
-                                        <label for="customerWebsiteURL">Website URL </span></label>
-                                        <input type="text" class="form-control" id="updateCustomerWebsiteURL" placeholder=" Enter Website URL" name="websiteURL">
-                                    </div>
-                                </div>
-                                <div class="form-row">
-                                    <div class="form-group col-md-3">
-                                        <label for="customerNumbersonInvoice">Numbers on Invoice</label><br>
-                                        <input type="checkbox" id="updateCustomerNumbersonInvoice" name="numberOninvoice" value="off"> Show tel. and fax number on Invoice
-                                    </div>
-                                    <div class="form-group col-md-3">
-                                        <label for="customerCustomerRate">Customer Rate </label><br>
-                                        <input type="checkbox" id="updateCustomerCustomerRate" name="customerRate" value="off"> Show detailed Rate on Invoice
-                                    </div>
-                                    <div class="form-group col-md-6">
-                                        <label for="customerInternalNotes">Internal Notes</label>
-                                        <input type="text" class="form-control" id="updateCustomerInternalNotes"placeholder="Enter Internal Notes" name="internalNotes">
-                                    </div>
-
-                                    
-                                    <div class="modal-footer w-100" style="align:right;">
-                                        <a onClick="show_add_customer()" style="text-decoration:none;" class="button-29 add_customer_btn" data-toggle="tab" href="#updateCustomerTab" >Previous</a>
-                                        <button  class="button-29 updateCustomerData">Update</button>
-                                        <button type="button" class="button-29 closeUpdateCustomerModel" data-dismiss="modal ">Close</button>
-                                    </div>
-                                    </form>
-                                </div>
-                            </div>
-                            
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-    </div>
-</div> -->
 
 <!--============================== end update customer =================== -->
 
