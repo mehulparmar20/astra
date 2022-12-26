@@ -1,14 +1,18 @@
 <!------------------------------------------------------------------- get truck  modal ------------------------------------------------------------------->
 <div class="container">
     <!-- The Modal -->
-    <div class="modal fade" id="truckModal">
+    <div class="modal fade" data-backdrop="static" id="truckModal">
         <div class="modal-dialog custom_modal">
             <div class="modal-content">
 
                 <!-- Modal Header -->
                 <div class="modal-header">
                     <h4 class="modal-title">Truck</h4>
-                    <button type="button" class="closeTruckModal" >&times;</button>
+                    <button type="button" class="button-24 closeTruckModal" >&times;</button>
+                </div>
+
+                <div style="margin-top: 15px; margin-left: 15px;">
+                    <a class="button-57 addtruckModal" data-toggle="modal" data-target="#addtruckModal"><i class="fa fa-plus" aria-hidden="true"></i><span>Add Truck</span></a>
                 </div>
 
                 <!-- Modal body -->
@@ -23,11 +27,11 @@
                                         <div class="table-responsive export-table">
 
                                             <!-- <a href="#addTruckModal" class="btn btn-primary" data-toggle="modal" data-target="#addTruckModal">Add</a> -->
-                                            <button type="button" class="btn btn-primary btn-lg addtruckModal" >ADD</button>
-                                            <table id="editable-file-datatable" class="table editable-table table-nowrap table-bordered table-edit wp-100"  style="width:100%;height:500px">
+                                            <!-- <button type="button" class="btn btn-primary btn-lg addtruckModal" >ADD</button> -->
+                                            <table id="truck_table_pagination" class="table editable-table table-nowrap table-bordered table-edit wp-100"  style="width:100%;height:500px">
 
-                                                <thead>
-                                                    <tr>
+                                                <thead class="thead_th">
+                                                    <tr class="tr">
                                                         <!-- <th>counter</th> -->
                                                         <th>NO</th>
                                                         <th>Truck</th>
@@ -74,7 +78,7 @@
                         @csrf
                         <button class="btn btn-primary" style="vertical-align:middle"><span>Export</span></button>
                     </form> -->
-                    <button type="button" class="btn btn-secondary closeTruckModal" >Close</button>
+                    <button type="button" class="button-29 closeTruckModal" >Close</button>
                     
                 </div>
             </div>
@@ -90,13 +94,13 @@
 <div class="container">
 
 <div class="modal fade" data-backdrop="static" id="addTruckModal" role="dialog">
-    <div class="modal-dialog custom_modal" role="document">
+    <div class="modal-dialog custom_modal_small" role="document">
         <div class="modal-content">
 
             <!-- Modal Header -->
             <div class="modal-header">
                     <h4 class="modal-title">Add Truck</h4>
-                    <button type="button" class="closeAddTruckModal" >&times;</button>
+                    <button type="button" class="button-24  closeAddTruckModal" >&times;</button>
                 </div>
 
                 <!-- Modal body -->
@@ -297,8 +301,8 @@
 
                 <!-- Modal footer -->
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" id="truckSavebutton" >Save</button>
-                    <button type="button" class="btn btn-secondary closeAddTruckModal" >Close</button>
+                    <button type="button" class="button-29" id="truckSavebutton" >Save</button>
+                    <button type="button" class="button-29 closeAddTruckModal" >Close</button>
                 </div>
           
         </div>

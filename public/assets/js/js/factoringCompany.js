@@ -4,8 +4,8 @@ $(document).ready(function() {
 // <!-- -------------------------------------------------------------------------start ------------------------------------------------------------------------- -->  
  
 
-$('.closeShipperModal').click(function(){
-         $('#Shipper_and_ConsigneeModal').modal('hide');
+$('.FactoringCompanyModalClose').click(function(){
+         $('#FacoringCompanyModal').modal('hide');
     //     $('#addTruckModal').modal('hide');
      });
 
@@ -128,4 +128,18 @@ $('.closeShipperModal').click(function(){
 
 
 // <!-- -------------------------------------------------------------------------End------------------------------------------------------------------------- -->  
+});
+
+$(document).ready(function() {
+    $('#factoring_table_pagination').DataTable({
+
+        "columnDefs": [
+            {
+                "targets": [ 12 ],
+                "searchable": false,
+                "sortable":false
+            },
+        ]
+
+    });
 });

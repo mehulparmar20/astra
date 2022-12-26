@@ -44,8 +44,9 @@ $(document).ready(function() {
                         for (var j = 0; j < custlen2; j++) {
                         // var counter = driverResponse[i].counter;
                         // var no = driverResponse[i]._id;
-                        var custComid =customerResponse.companyID;
+                        var companyID =customerResponse.companyID;
                         //var driverId=customerResponse[i].customer[j]._id;
+                        var customerId=customerResponse.customer[j]._id;
                         var custName = customerResponse.customer[j].custName;
                         var custLocation = customerResponse.customer[j].custLocation;
                         var custZip = customerResponse.customer[j].custZip;
@@ -54,7 +55,7 @@ $(document).ready(function() {
                         var custEmail = customerResponse.customer[j].custEmail;
                         var delete_status = customerResponse.customer[j].deleteStatus;
                         if(delete_status=="NO"){
-                            var customerStr = "<tr data-id=" + (i + 1) + ">" +
+                            var customerStr = "<tr class='tr' data-id=" + (i + 1) + ">" +
                             //  "<td id='id1'>" + id+ "&"+driverId + "</td>" +
                                 "<td data-field='no'>" + no + "</td>" +
                                 "<td data-field='customerName' >" + custName + "</td>" +
@@ -65,8 +66,8 @@ $(document).ready(function() {
                                 "<td data-field='customerEmail'>" + custEmail + "</td>" +
 
                                 // "<td style='width: 100px'><a class='btn btn-primary fs-14 text-white edit-icn' title='Edit' id='edit'><i class='fe fe-edit' ></i></a></td></tr>"
-                                "<td style='width: 100px'><i class='btn btn-primary fe fe-edit customerEdit' data-id=" + custComid+ "&"+custEmail + "> </i><a class=' btn btn-danger fs-14 text-white customerDelete-icn' data-id=" + custComid+ "&"+custEmail + " title='Delete'><i class='fe fe-delete'></i></a></td></tr>";
-
+                                // "<td style='width: 100px'><i class='btn btn-primary fe fe-edit customerEdit' data-id=" + custComid+ "&"+custEmail + "> </i><a class=' btn btn-danger fs-14 text-white customerDelete-icn' data-id=" + custComid+ "&"+custEmail + " title='Delete'><i class='fe fe-delete'></i></a></td></tr>";
+                                "<td style='width: 100px'><i class='button-29 fe fe-edit customerEdit' data-id=" + customerId+ " date-cusId="+companyID+" data-email="+custEmail +"> </i>&nbsp; &nbsp; <a class=' button-29 fs-14 text-white customerDelete' data-id=" + customerId+ " date-cusId="+companyID+"  data-email="+custEmail +" title='Delete'><i class='fe fe-delete'></i></a></td></tr>";
                             $("#customerTable").append(customerStr);
                             no++;
                         }
@@ -520,9 +521,9 @@ $(".factoringCompanyDataSubmit").click(function(){
     var factoringTollFree=$('#factoringTollFree').val();
 
     var factoringCompanyContactEmail=$('#factoringCompanyContactEmail').val();
-    var factoringCompanycurrency=$('#currency').val();
-    var factoringCompanyPaymentTerms=$('#PaymentTerms').val();
-    var factoringCompanyTaxID=$('#factoringCompanyTaxID').val();
+    var factoringCompanycurrency=$('#currency1').val();
+    var factoringCompanyPaymentTerms=$('#PaymentTerms1').val();
+    var factoringCompanyTaxID=$('#factoringCompanyTaxID1').val();
 
     var factoringCompanyInternalNotes=$('#factoringCompanyInternalNotes').val();
 
@@ -660,3 +661,412 @@ function show_add_customer(){
     $("#addAdvanceCustomerTab").removeClass('active show');    
 }
 
+// =============== start update customer show model ====================
+
+$(".closeUpdateCustomerModel").click(function(){
+    $("#updateCustomerModal").modal("hide");
+})
+$('body').on('click','.customerEdit',function(){   
+    $(".update_customer_first_tap").show();
+    $(".update_advance_first_tap").hide();
+    // createcustomerPaymentTermsList()
+    var id=$(this).attr("data-id");
+    var email=$(this).attr("data-email");
+    var custID=$(this).attr("date-cusId");
+    // alert(id);
+    $.ajax({
+        type:'get',
+        url:base_path+"/admin/edit_customer",
+        data:{id:id,email:email,custID:custID},
+        // dataType:JSON,
+        async: false,
+        success:function(response){
+            $("#updateCustomer_id").val(response.customer._id);
+           $("#updateCustomerName").val(response.customer.custName);
+           $("#updateCustomerAddress").val(response.customer.custAddress);
+           $("#updateCustomerLocation").val(response.customer.custLocation);
+           $("#updateCustomerZip").val(response.customer.custZip);
+        //    $("#updateCustomerBillingAddressChkbox").val(response.customer.billingAddress);
+           $("#updateCustomerBillingAddress").val(response.customer.billingAddress);
+           $("#updateCustomerBillingLocation").val(response.customer.billingLocation);
+           $("#updateCustomerBillingZip").val(response.customer.billingZip);
+           $("#updateCustomerPrimaryContact").val(response.customer.primaryContact);
+           $("#updateCustomerTelephone").val(response.customer.custTelephone);
+           $("#updateCustomerExt").val(response.customer.custExt);
+           $("#updateCustomerEmail").val(response.customer.custEmail);
+           $("#updateCustomerFax").val(response.customer.custFax);
+           $("#updateCustomerBillingContact").val(response.customer.billingContact);
+           $("#updateCustomerBillingEmail").val(response.customer.billingEmail);
+           $("#updateCustomerBillingTelephone").val(response.customer.billingTelephone);
+           $("#updateCustomerBillingExt").val(response.customer.billingExt);
+           $("#updateCustomerUrs").val(response.customer.URS);
+           $("#updateCustomerMc").val(response.customer.MC);
+        //    alert(response.customer.blacklisted);
+            $(".updateCustomerMc").hide();
+            $("#updateCustomerIsBroker").change(function(){
+                if ($(this).is(':checked'))
+                {
+                    $("#updateCustomerIsBroker").val("on");
+                    $(".updateCustomerMc").show();
+                }
+                else
+                {
+                    $("#updateCustomerIsBroker").val("off");
+                    $(".updateCustomerMc").hide();
+                }
+              });
+              $("#updateCustomerDuplicateShipper").change(function(){
+                if ($(this).is(':checked'))
+                {
+                    $("#updateCustomerDuplicateShipper").val("on");
+                }
+                else
+                {
+                    $("#updateCustomerDuplicateShipper").val("off");
+                }
+              });
+              
+              $("#updateCstomerDuplicateConsignee").change(function(){
+                if ($(this).is(':checked'))
+                {
+                    $("#updateCstomerDuplicateConsignee").val("on");
+                }
+                else
+                {
+                    $("#updateCstomerDuplicateConsignee").val("off");
+                }
+              });
+              $("#updateCustomerBlacklisted").change(function(){
+                if ($(this).is(':checked'))
+                {
+                    $("#updateCustomerBlacklisted").val("on");
+                }
+                else
+                {
+                    $("#updateCustomerBlacklisted").val("off");
+                }
+              });
+              
+              $("#updateCustomerBillingAddressChkbox").change(function(){
+                if ($(this).is(':checked'))
+                {
+                    $("#updateCustomerBillingAddressChkbox").val("on");
+                }
+                else
+                {
+                    $("#updateCustomerBillingAddressChkbox").val("off");
+                }
+              });
+              $("#updateCustomerNumbersonInvoice").change(function(){
+                if ($(this).is(':checked'))
+                {
+                    $("#updateCustomerNumbersonInvoice").val("on");
+                }
+                else
+                {
+                    $("#updateCustomerNumbersonInvoice").val("off");
+                }
+              });
+              $("#updateCustomerCustomerRate").change(function(){
+                if ($(this).is(':checked'))
+                {
+                    $("#updateCustomerCustomerRate").val("on");
+                }
+                else
+                {
+                    $("#updateCustomerCustomerRate").val("off");
+                }
+              });
+            // if($("#updateCustomerIsBroker").is(':checked'))
+            // {
+            //     $(".updateCustomerMc").show();
+            // }
+            // else
+            // {
+            //     $(".updateCustomerMc").hide();
+            // }
+           if(response.customer.blacklisted=="on")
+           {
+                $("#updateCustomerBlacklisted").attr('checked',true);
+           }
+           else
+           {
+                $("#updateCustomerBlacklisted").attr('checked',false);
+           }
+           if(response.customer.isBroker=="on")
+           {
+                $("#updateCustomerIsBroker").attr('checked',true);
+           }
+           else
+           {
+                $("#updateCustomerIsBroker").attr('checked',false);
+           }
+           if(response.customer.numberOninvoice=="on")
+           {
+                $("#updateCustomerNumbersonInvoice").attr('checked',true);
+           }
+           else
+           {
+                $("#updateCustomerNumbersonInvoice").attr('checked',false);
+           }
+           if(response.customer.customerRate=="on")
+           {
+                $("#updateCustomerCustomerRate").attr('checked',true);
+           }
+           else
+           {
+                $("#updateCustomerCustomerRate").attr('checked',false);
+           }
+           if(response.customer.DuplicateShipper=="on")
+           {
+                $("#updateCustomerDuplicateShipper").attr('checked',true);
+           }
+           else
+           {
+                $("#updateCustomerDuplicateShipper").attr('checked',false);
+           }
+           if(response.customer.DuplicateConsignee=="on")
+           {
+                $("#updateCstomerDuplicateConsignee").attr('checked',true);
+           }
+           else
+           {
+                $("#updateCstomerDuplicateConsignee").attr('checked',false);
+           }
+           $("#updateCustomerIsBroker").val(response.customer.isBroker);
+           $("#updateCustomerDuplicateShipper").val(response.customer.numberOninvoice);
+           $("#updateCstomerDuplicateConsignee").val(response.customer.customerRate);
+           $("#updatecurrency").val(response.customer.currencySetting);
+           $(".Update_customer_terms").val(response.customer.paymentTerms);
+           $("#updateCustomerCreditLimit").val(response.customer.creditLimit);
+           $("#updateCustomerSalesRepresentative").val(response.customer.salesRep);
+           $(".update_factroring_name").val(response.customer.factoringCompany);
+           $("#updateCustomerFederalID").val(response.customer.federalID);
+           $("#updateCustomerWorkerComp").val(response.customer.workerComp);
+           $("#updateCustomerWebsiteURL").val(response.customer.websiteURL);
+           $("#updateCustomerNumbersonInvoice").val(response.customer.numberOninvoice);
+           $("#updateCustomerCustomerRate").val(response.customer.customerRate);
+           $("#updateCustomerInternalNotes").val(response.customer.internalNotes);
+           
+        }
+    });
+    $("#updateCustomerModal").modal("show");
+});
+
+$(".next_update_customer").click(function(){
+    $(".update_customer_first_tap").show();
+    $(".update_advance_first_tap").hide();
+});
+$(".Previous_update_customer").click(function(){
+    $(".update_customer_first_tap").hide();
+    $(".update_advance_first_tap").show();
+});
+$("#updateCustomerData").click(function(){
+    // alert("Dgfhhhfghfghfgh");
+    var id=$("#updateCustomer_id").val();
+    var custName=$("#updateCustomerName").val();
+    // alert(custName);
+    var custAddress = $("#updateCustomerAddress").val();
+    var custLocation = $("#updateCustomerLocation").val();
+    var custZip = $("#updateCustomerZip").val();
+    var BillingAddressChkbox = $("#updateCustomerBillingAddressChkbox").val();
+    var billingAddress = $("#updateCustomerBillingAddress").val();
+    var billingLocation = $("#updateCustomerBillingLocation").val();
+    var billingZip = $("#updateCustomerBillingZip").val();
+    var primaryContact = $("#updateCustomerPrimaryContact").val();
+    var custTelephone = $("#updateCustomerTelephone").val();
+    var custExt = $("#updateCustomerExt").val();
+    var custEmail = $("#updateCustomerEmail").val();
+    var custFax = $("#updateCustomerFax").val();
+    var billingContact = $("#updateCustomerBillingContact").val();
+    var billingEmail = $("#updateCustomerBillingEmail").val();
+    var billingTelephone = $("#updateCustomerBillingTelephone").val();
+    var billingExt = $("#updateCustomerBillingExt").val();
+    var URS = $("#updateCustomerUrs").val();
+    var MC = $("#updateCustomerMc").val();
+    var blacklisted = $("#updateCustomerBlacklisted").val();
+    var isBroker = $("#updateCustomerIsBroker").val();
+    var DuplicateShipper = $("#updateCustomerDuplicateShipper").val();
+    var DuplicateConsignee = $("#updateCstomerDuplicateConsignee").val();
+    var currencySetting = $("#updatecurrency").val();
+    var paymentTerms = $(".Update_customer_terms").val();
+    var creditLimit = $("#updateCustomerCreditLimit").val();
+    var salesRep = $("#updateCustomerSalesRepresentative").val();
+    var factoringCompany = $(".update_factroring_name").val();
+    var federalID = $("#updateCustomerFederalID").val();
+    var workerComp = $("#updateCustomerWorkerComp").val();
+    var websiteURL = $("#updateCustomerWebsiteURL").val();
+    var numberOninvoice = $("#updateCustomerNumbersonInvoice").val();
+    var customerRate = $("#updateCustomerCustomerRate").val();
+    var internalNotes = $("#updateCustomerInternalNotes").val();
+    // alert(paymentTerms);
+    // alert(factoringCompany);
+    // alert(currencySetting);
+    // console.log("MC = "+MC + "DuplicateShipper = " + DuplicateShipper+ "DuplicateConsignee = " +DuplicateConsignee + "paymentTerms ="+paymentTerms + "numberOninvoice =" +numberOninvoice + "customerRate =  " + customerRate + "factoringCompany = " + factoringCompany);
+    if(custName=='')
+    {
+        swal.fire( "Enter Customer Name");
+        $('#updateCustomerName').focus();
+        return false;
+        
+    } 
+    if(custAddress=='')
+    {
+        swal.fire( "Enter Customer Address");
+        return false;
+    }
+    if(custLocation=='')
+    {
+        swal.fire( "'Enter Location");
+        return false;
+    }
+    if(custZip=='')
+    {
+        swal.fire( "'Enter Zip");
+        return false;
+    }
+    var formData = new FormData();
+    formData.append('_token',$("#_tokenUpdateCustomer").val());
+    formData.append('id',id);
+    formData.append('custName',custName);
+    formData.append('custAddress',custAddress);
+    formData.append('custLocation',custLocation);
+    formData.append('custZip',custZip);        
+    formData.append('BillingAddressChkbox',BillingAddressChkbox); 
+    formData.append('billingAddress',billingAddress);    
+    formData.append('billingLocation',billingLocation); 
+    formData.append('billingZip',billingZip); 
+    formData.append('primaryContact',primaryContact); 
+    formData.append('custTelephone',custTelephone); 
+    formData.append('custExt',custExt); 
+    formData.append('custEmail',custEmail); 
+    formData.append('custFax',custFax); 
+    formData.append('billingContact',billingContact); 
+    formData.append('billingEmail',billingEmail); 
+    formData.append('billingTelephone',billingTelephone); 
+    formData.append('billingExt',billingExt); 
+    formData.append('URS',URS); 
+    formData.append('MC',MC); 
+    formData.append('blacklisted',blacklisted); 
+    formData.append('isBroker',isBroker); 
+    formData.append('DuplicateShipper',DuplicateShipper); 
+    formData.append('DuplicateConsignee',DuplicateConsignee); 
+    formData.append('currencySetting',currencySetting); 
+    formData.append('paymentTerms',paymentTerms); 
+    formData.append('creditLimit',creditLimit); 
+    formData.append('salesRep',salesRep); 
+    formData.append('factoringCompany',factoringCompany); 
+    formData.append('federalID',federalID); 
+    formData.append('workerComp',workerComp); 
+    formData.append('websiteURL',websiteURL);  
+    formData.append('customerRate',customerRate);  
+    formData.append('numberOninvoice',numberOninvoice); 
+    formData.append('internalNotes',internalNotes);
+    // alert("DSgfhgjhkjjhgfd");
+    $.ajax({
+            type:'post',
+            url:base_path+"/admin/update_customer",
+            async: false,
+            cache: false,
+            contentType: false,
+            processData: false,
+            data:formData,
+            success:function(response){
+                swal.fire("Done!", "Customer updated successfully", "success");
+                $('#updateCustomerModal').modal('hide');
+                $.ajax({
+                    type: "GET",
+                    url: base_path+"/admin/customer",
+                    async: false,
+                    //dataType:JSON,
+                    success: function(customerResult) {
+                        //console.log(customerResult);
+                        createcustomerRows(customerResult);
+                        customerResponse = customerResult;
+                    }
+                });
+            }
+    });
+})
+// ====================== end update customer ==================================
+
+//===========================create currency =========================
+$(".closeaddCreateCurrencyCustomer").click(function(){
+    $("#addCreateCurrencyCustomer").modal("hide");
+});
+$(".addCurrencySetting").click(function(){
+    $("#addCreateCurrencyCustomer").modal("show");
+});
+$(".saveaddCreateCurrencycustomer").click(function(){
+    alert("add currency");
+})
+//================================== end currency ============================
+
+// ================ add payment terms ===========
+$(".closeadPaymentTermsCustomer").click(function(){
+    $("#addPaymentTermsCustom").modal("hide");
+});
+$(".addUpPaymentTermsCustomer").click(function(){
+    $("#addPaymentTermsCustom").modal("show");
+});
+$(".savePaymentTermsCustomer").click(function(){
+    alert("add payment terms");
+});
+// /============= end payment terms =======================
+
+//============= addFactoringCompanyCutomer===========================
+$(".closeaddFactoringModelCustomer").click(function(){
+    $("#addFactoringModelCustomer").modal("hide");
+});
+$(".addFactoringCompanyCutomer").click(function(){
+    $("#addFactoringModelCustomer").modal("show");
+});
+$(".saveFactoringModelCustomer").click(function(){
+    alert("add addFactoringModelCustomer");
+});
+
+//=================== delete customer ==========
+$('body').on('click','.customerDelete',function(){
+    var id=$(this).attr("data-id");
+    var email=$(this).attr("data-email");
+    var custID=$(this).attr("date-cusId");
+    swal.fire({
+        title: "Delete?",
+        text: "Please ensure and then confirm!",
+        type: "warning",
+        showCancelButton: !0,
+        confirmButtonText: "Yes, delete it!",
+        cancelButtonText: "No, cancel!",
+        reverseButtons: !0
+    }).then(function (e) {
+        if (e.value === true) 
+        {
+            $.ajax({
+                type:"post",
+                url:base_path+"/admin/delete_customer",
+                data:{_token:$("#_tokenUpdateCustomer").val(),id:id,email:email,custID:custID},
+                success:function(response)
+                {
+                    swal.fire("Done!", "Customer deleted successfully", "success");
+                    $.ajax({
+                        type: "GET",
+                        url: base_path+"/admin/customer",
+                        async: false,
+                        dataType:JSON,
+                        success: function(customerResult) {
+                            // alert(customerResult);
+                            createcustomerRows(customerResult);
+                            customerResponse = customerResult;
+                        }
+                    });
+                },
+                error: function (resp) {
+                    swal.fire("Error!", 'Something went wrong.', "error");
+                }
+            })
+        }
+    })
+    
+
+})
+// ======================================================== end delete customer =================================

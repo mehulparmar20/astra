@@ -2112,10 +2112,14 @@ $('.editCompanyModalCloseButton').click(function(){
     // $('#driverModal').modal('show');  
 });
 
-$('#editCompanyModal').modal({
-    backdrop: 'static',
-    keyboard: false
-})
+/* Initialization of datatable */
+$(document).ready(function() {
+    $('#editCompanyModal').modal({
+        backdrop: 'static',
+        keyboard: false
+    })
+});
+
 
 
 

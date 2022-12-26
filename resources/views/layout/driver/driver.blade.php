@@ -29,7 +29,7 @@
                                 
 
                                         <div class="table-responsive export-table">
-                                            <table id="editable-file-datatable" class="table editable-table table-nowrap table-bordered table-edit wp-100 customtable">
+                                            <table id="driver_table_pagination" class="table editable-table table-nowrap table-bordered table-edit wp-100 customtable">
 
                                                 <!-- <button href="#addDriverModal" data-toggle="modal" data-target="#addDriverrModal"  class="add1button" style="vertical-align:middle"><span>Add </span></button>
                                                         

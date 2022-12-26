@@ -7,23 +7,23 @@
 
                 <!-- Modal Header -->
                 <div class="modal-header">
-                    <h4 class="modal-title">Facoring Company</h4>
-                    <button type="button" class="button-24" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Factoring Company</h4>
+                    <button type="button" class="button-24 FactoringCompanyModalClose" >&times;</button>
                 </div>
 
                 <div style="margin-top: 15px; margin-left: 15px;">
-                    <a href="#AddFacoringCompanymodal" class="button-57" data-toggle="modal" data-target="#AddFacoringCompanymodal"><i class="fa fa-plus" aria-hidden="true"></i><span>Add Facoring Company</span></a>
+                    <a href="#" class="button-57" id="AddFactoringCompany"><i class="fa fa-plus" aria-hidden="true"></i><span>Add Factoring Company</span></a>
                     <a class="button-57" data-toggle="modal"><i class="fa fa-file-excel-o" aria-hidden="true"></i></span><span>Export CSV</span></a>
                     <a class="button-57" data-toggle="modal"><i class="fa fa-upload" aria-hidden="true"></i></span><span>Upload File</span></a>
                     <a href="#contractCategoryModal" class="button-57_alt" data-toggle="modal" data-target="#contractCategoryModal"><i class="fa fa-id-card" aria-hidden="true"></i></span><span>Button 3</span></a>
                     <div class="searchbar" style="float: right; margin-right: 15px;">
                         <input type="text" placeholder="search" />
-                        <div class="symbol">
+                        <!-- <div class="symbol">
                             
                             <svg class="lens">
                             <use xlink:href="#lens" />
                             </svg>
-                        </div>
+                        </div> -->
                     </div>
 
                 </div>
@@ -33,12 +33,11 @@
                     <div class="row">
                         <div class="row row-sm">
                             <div class="col-lg-12">
-                                
 
                                         <div class="table-responsive export-table">
-                                            <table id="editable-file-datatable" class="table editable-table table-nowrap table-bordered table-edit wp-100 customtable">
-                                                <thead>
-                                                    <tr>
+                                            <table id="factoring_table_pagination" class="table editable-table table-nowrap table-bordered table-edit wp-100 customtable">
+                                                <thead class="thead_th">
+                                                    <tr class="tr">
                                                         <th>NO</th>
                                                         <th > Factoring Company Name</th>
                                                         <th>Address</th>
@@ -57,7 +56,6 @@
                                                         <th>Payment Terms</th>
                                                         <th>Tax ID</th>
                                                         <th>Internal Notes</th>
-                                                       
                                                         <th>Action</th>
                                                     </tr>
                                                 </thead>
@@ -79,7 +77,7 @@
                         @csrf
                         <button class="button-29" style="vertical-align:middle"><span>Export</span></button>
                     </form>
-                    <button type="button" class="button-29" data-dismiss="modal">Close</button>
+                    <button type="button" class="button-29 FactoringCompanyModalClose" >Close</button>
                 </div>
             </div>
         </div>

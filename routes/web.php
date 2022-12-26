@@ -21,7 +21,8 @@ use App\Http\Controllers\Admin\SubCreditCardController;
 use App\Http\Controllers\Admin\AccountManagerController;
 use App\Http\Controllers\Admin\BranchOfficeController;
 use App\Http\Controllers\Admin\PaymentTermsController;
-
+use App\Http\Controllers\Admin\TrailerAdminAddController;
+use App\Http\Controllers\Admin\EquipmentTypeController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -94,6 +95,9 @@ Route::post('admin/deleteViewDriverApp', [DriverController::class, 'deleteViewDr
 //customer
 Route::get('admin/customer', [CustomerController::class, 'getCustomerData']);
 Route::post('admin/addCustomer', [CustomerController::class, 'addCustomerData']);
+Route::get('admin/edit_customer', [CustomerController::class, 'edit_customer']);
+Route::post('admin/update_customer', [CustomerController::class, 'update_customer']);
+Route::post('admin/delete_customer', [CustomerController::class, 'delete_customer']);
 
 //addCurrency
 Route::get('admin/customerCurrency', [CustomerController::class, 'getCustomerCurrency']);
@@ -136,7 +140,7 @@ Route::get('admin/getFuelVendor', [FuelVendorController::class, 'getFuelVendor']
 //fuel card
 Route::get('admin/getFuelCard', [FuelCardController::class, 'getFuelCard']);
 
-//FuelReceipt
+//Fuel Receipt
 Route::get('admin/getFuelReceipt', [FuelReceiptController::class, 'getFuelReceipt']);
 
 //Ifta Toll
@@ -145,10 +149,10 @@ Route::get('admin/getIftaToll', [IftaTollController::class, 'getIftaToll']);
 //Bank
 Route::get('admin/getBankData', [BankController::class, 'getBankData']);
 
-//creditCard
+//credit Card
 Route::get('admin/getcreditCard', [CreditCardController::class, 'getcreditCard']);
 
-//sucCreditCard
+//sub Credit Card
 Route::get('admin/getsubCreditCard', [SubCreditCardController::class, 'getsubCreditCard']);
 
 //Accounting Manager
@@ -158,3 +162,16 @@ Route::get('admin/getAccountCompletedValue', [AccountManagerController::class, '
 
 //Branch Office
 Route::get('admin/getBranchOffice', [BranchOfficeController::class, 'getBranchOffice']);
+
+//Trailer
+Route::get('admin/getTrailer', [TrailerAdminAddController::class, 'getTrailer']);
+Route::post('admin/addTrailer', [TrailerAdminAddController::class, 'addTrailerData']);
+Route::get('admin/trailer_getTrailertype', [TrailerAdminAddController::class, 'trailer_getTrailertype']);
+Route::post('admin/trailer_addTrailertype', [TrailerAdminAddController::class, 'trailer_addTrailertype']);
+Route::get('admin/edit_trailer', [TrailerAdminAddController::class, 'edit_trailer']);
+Route::post('admin/updateTrailer', [TrailerAdminAddController::class, 'updateTrailer']);
+Route::post('admin/deleteTrailer', [TrailerAdminAddController::class, 'deleteTrailer']);
+
+//Equipment Type
+Route::get('admin/getEquipmentType', [EquipmentTypeController::class, 'getEquipmentType']);
+Route::post('admin/addEquipmentType', [EquipmentTypeController::class, 'addEquipmentType']);

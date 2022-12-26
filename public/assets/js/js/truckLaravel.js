@@ -6,6 +6,10 @@ $(document).ready(function() {
          $('#truckModal').modal('hide');
     //     $('#addTruckModal').modal('hide');
      });
+     $('#truckModal').modal({
+        backdrop: 'static',
+        keyboard: false
+    })
 
     $('.closeAddTruckModal').click(function(){
         $('#addTruckModal').modal('hide');
@@ -16,6 +20,11 @@ $(document).ready(function() {
         //$('#truckModal').modal('hide');
         $('#addTruckModal').modal('show');
     });
+
+    $('#addTruckModal').modal({
+        backdrop: 'static',
+        keyboard: false
+    })
 
 
 //driver as owner operator modal
@@ -248,7 +257,7 @@ $(document).ready(function() {
                         var internalNotes =truckResult.truck.truck[i].internalNotes;
                         
 
-                        var truckStr = "<tr data-id=" + (i + 1) + ">" +
+                        var truckStr = "<tr class='tr' data-id=" + (i + 1) + ">" +
                         //  "<td id='id1'>" + id+ "&"+driverId + "</td>" +
                             "<td data-field='no'>" + no + "</td>" +
                             "<td data-field='truckNumber' >" + truckNumber + "</td>" +
@@ -273,7 +282,7 @@ $(document).ready(function() {
                             "<td data-field='transponder' >" + transponder + "</td>" +
                             "<td data-field='internalNotes' >" + internalNotes + "</td>" +
                             "<td style='text-align:center'>"+
-                                "<a class='mt-2 btn btn-primary fs-14 text-white editCurrency'  title='Edit1' data-truckId='"+truckId+"' data-truckType='' ><i class='fe fe-edit'></i></a>&nbsp"+
+                                "<a class='button-23 editCurrency'  title='Edit1' data-truckId='"+truckId+"' data-truckType='' ><i class='fe fe-edit'></i></a>&nbsp"+
                             "</td></tr>";
 
                         $("#truckTable").append(truckStr);

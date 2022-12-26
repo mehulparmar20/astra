@@ -112,6 +112,10 @@
 <script src="{{URL::to('/')}}/assets/js/js/accountManager.js"></script>
 <script src="{{URL::to('/')}}/assets/js/js/branchOffice.js"></script>
 <script src="{{URL::to('/')}}/assets/js/js/PaymentTerms.js"></script>
+<script src="{{URL::to('/')}}/assets/js/js/trailerLaravel.js"></script>
+<script src="{{URL::to('/')}}/assets/js/js/EquipmentType.js"></script>
+<script src="{{URL::to('/')}}/assets/js/js/status.js"></script>
+
 </body>
 
 </html>
