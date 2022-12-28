@@ -116,6 +116,11 @@ Route::post('admin/updateUserCompany', [CompanyController::class, 'updateUserCom
 Route::get('admin/getTruck', [TruckController::class, 'getTruck']);
 Route::get('admin/truck_getTrucktype', [TruckController::class, 'truck_getTrucktype']);
 Route::post('admin/addTruck', [TruckController::class, 'addTruckData']);
+Route::get('admin/edit_truck', [TruckController::class, 'edit_truck']);
+Route::post('admin/update_truck', [TruckController::class, 'update_truck']);
+Route::post('admin/delete_truck', [TruckController::class, 'delete_truck']);
+Route::post('admin/restore_truck', [TruckController::class, 'restore_truck']);
+Route::post('admin/create_truckType', [TruckController::class, 'create_truckType']);
 
 //Shipper
 Route::get('admin/getShipper', [ShipperController::class, 'getShipper']);
