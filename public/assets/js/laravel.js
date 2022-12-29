@@ -88,6 +88,7 @@ $('#select-all').click(function(event) {
     }
 });
 
+// =============================== create user=================================================
 $(document).ready(function() {
    
     $('#usersave').on('click', function() {
@@ -105,6 +106,16 @@ $(document).ready(function() {
       var ext = $('#inputExt').val();
       var tollfree = $('#inputTollFree').val();
       var fax = $('#inputFax').val();
+      var insertUser = $('.insertUser').is(":checked");
+      var inser_user = insertUser ? 1 : 0;
+      var updateUser = $('.updateUser').is(":checked");
+      var update_user = updateUser ? 1 : 0;
+      var deleteUser = $('.deleteUser').is(":checked");
+      var delete_user = deleteUser ? 1 : 0;
+      var importUser = $('.importUser').is(":checked");
+      var import_user = importUser ? 1 : 0;
+      var exportUsers = $('.exportUsers').is(":checked");
+      var export_user = exportUsers ? 1 : 0;
       var checkbox1 = $('#checkbox-1').is(":checked");
       var value1 = checkbox1 ? 1 : 0;
       var checkbox2 = $('#checkbox-2').is(":checked");
@@ -307,6 +318,11 @@ $(document).ready(function() {
                 Report1099: value54,
                 emailTrack: value55,
                 laneAnalysis: value56,
+                inser_user:inser_user,
+                update_user:update_user,
+                delete_user:delete_user,
+                import_user:import_user,
+                export_user:export_user,
               },
               cache: false,
               success: function(resp){
@@ -820,7 +836,7 @@ $('body').on('click',function() {
               url: base_path+"/admin/editDriverOwner",
               type: "POST",
               datatype:"JSON",
-              data: {'_token': $("#drivercsrf").val(),'id': id},
+              data: {'_token': $("#driver_csrf").val(),'id': id},
               success: function(dataResult) {
                   $('.up_optionBox').empty(); 
                   $('.optionBox').empty(); 
@@ -1274,7 +1290,7 @@ $('.driverDataUpdate').click(function(){
         url:base_path+"/admin/updateDriver" ,
         type:'post',
         data:{
-            _token:$("#drivercsrf").val(),
+            _token:$("#driver_csrf").val(),
             updateComId:updateComId,
             updateEmailDriver:updateEmailDriver,
             updateDriverName: updateDriverName,
@@ -1351,7 +1367,7 @@ function drivermodal()
                 url: base_path+"/admin/editDriver",
                 type: "POST",
                 datatype:"JSON",
-                data: {_token: $("#drivercsrf").val(),com_id: com_id,email: email},
+                data: {_token: $("#driver_csrf").val(),com_id: com_id,email: email},
                 cache: false,
                 success: function(dataResult){
                     $('#up_comId').val(com_id);
@@ -2112,10 +2128,10 @@ $('.editCompanyModalCloseButton').click(function(){
     // $('#driverModal').modal('show');  
 });
 
-$('#editCompanyModal').modal({
-    backdrop: 'static',
-    keyboard: false
-})
+// $('#editCompanyModal').modal({
+//     backdrop: 'static',
+//     keyboard: false
+// })
 
 
 

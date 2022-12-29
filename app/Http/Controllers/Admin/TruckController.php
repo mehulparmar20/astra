@@ -404,32 +404,41 @@ class TruckController extends Controller
     }
     public function create_truckType(Request $request)
     {
-        $companyID=1;
+        $companyID=(int)1;
+        // dd($request->truckType);
         $getTruck = Truck_type::where('companyID',$companyID)->get();
-        // if($getTruck){
-        //     $totalTruckArray=count($getTruck->truck);
-        // }else{
-        //     $totalTruckArray=0; 
-        // }
-        // $trackData[]=array(    
-        //     '_id' => $totalTruckArray,
-        //     'counter' => 2,
-        //     'truckType' => $request->truckType,
-        //     'deleteStatus' => "NO",
-        //     'deleteUser'=>"",
-                
-        // );
-        // $truckArray=$getTruck->truck;
-        // if(Truck_type::where(['companyID' =>$companyID ])->update([
-        //     'companyID' => $companyID,
-        //     'counter' => $truckArray+1,
-        //     'truck' =>array_merge($truckArray,$trackData) , 
-        // ])) {
-        //     $data = [
-        //         'success' => true,
-        //         'message'=> 'truck added successfully'
-        //         ] ;
-        //         return response()->json($data);
-        // }
+        // dd($getTruck);
+         $totalTruckArray=array();
+         foreach($getTruck as $row)
+         {
+            if($row){
+                $totalTruckArray=count($row->truck);
+                // dd( $totalTruckArray);
+            }else{
+                $totalTruckArray=0; 
+            }
+            $trackData[]=array(    
+                '_id' => $totalTruckArray,
+                'counter' => 2,
+                'truckType' => $request->truckType,
+                'deleteStatus' => "NO",
+                'deleteUser'=>"",
+                    
+            );
+            $truckArray=$row->truck;
+            // dd( $totalTruckArray);
+            if(Truck_type::where(['companyID' =>$companyID ])->update([
+                'companyID' => $companyID,
+                'counter' => $totalTruckArray+1,
+                'truck' =>array_merge($truckArray,$trackData) , 
+            ])) {
+                $data = [
+                    'success' => true,
+                    'message'=> 'truck added successfully'
+                    ] ;
+                    // return response()->json($data);
+            }
+        }
+        return response()->json($data);
     }
 }

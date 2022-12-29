@@ -228,7 +228,7 @@ $(document).ready(function() {
             return false;            
         }
         var formData = new FormData();
-        formData.append('_token',$("#_tokenTrailerType").val());        
+        formData.append('_token',$("#_token_Trailer_Type").val());        
         formData.append('trailerType',trailer_type_name);
         $.ajax({
             type: "POST",

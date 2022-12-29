@@ -109,7 +109,7 @@
                             <div class="col-lg-12">
                                 <div class="card">
                                     <div class="card-body">
-                                        <form id="addTruckForm">
+                                        <form >
                                             <input type="hidden" name="_token" id="_tokenTruck" value="{{ csrf_token() }}" />
                                             <!-- row 1 -->
                                             
@@ -121,7 +121,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="form-group col-md-2">
-                                                    <label for="trucktype">Truck Type <span style="color:#ff0000">*</span>&nbsp; <span class="glyphicon glyphicon-plus-sign" id="addTruckType" ></span></label>
+                                                    <label for="trucktype">Truck Type <span style="color:#ff0000">*</span>&nbsp; <span class="glyphicon glyphicon-plus-sign create_truck_type" id="addTruckType" ></span></label>
                                                         <div class="dropdown show">
                                                             <input class="form-control truckTypeSet" list="truckTypeSet" name="truckType" id="truckType">
                                                             <datalist id="truckTypeSet" class="truckTypeSet">

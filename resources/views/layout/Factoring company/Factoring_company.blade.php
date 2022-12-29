@@ -277,9 +277,9 @@
         </button>
       </div>
       <div class="modal-body">
-        <form id="addTrailerTypeForm">
+        <form >
             @csrf
-            <input type="hidden" name="_token" id="_tokenTrailerType" value="{{ csrf_token() }}" />
+            <input type="hidden" name="_token" id="_tokenCurrencyName" value="{{ csrf_token() }}" />
             <div class="form-group col-md-12">
                 <label>Name<span style="color:#ff0000">*</span></label>
                 <div>
@@ -310,13 +310,13 @@
         </button>
       </div>
       <div class="modal-body">
-        <form id="addTrailerTypeForm">
+        <form >
             @csrf
             <input type="hidden" name="_token" id="_tokenPaymentTerms" value="{{ csrf_token() }}" />
             <div class="form-group col-md-12">
                 <label>Name<span style="color:#ff0000">*</span></label>
                 <div>
-                    <input class="form-control" placeholder="Enter Name" type="text" id="trailer_type_name" name="trailer_type_name" required />
+                    <input class="form-control" placeholder="Enter Name" type="text" id="" name="trailer_type_name" required />
                 </div>
             </div>
             <div class="form-group col-md-12">

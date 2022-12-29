@@ -351,7 +351,7 @@
                                                     <div class="form-group col-md-2">
                                                         <label for="currency">Currency <span
                                                                 style="color:#ff0000">*</span></label>
-                                                        <input type="text" class="form-control" id="currency"
+                                                        <input type="text" class="form-control" id="currency_drive"
                                                             placeholder="
                                                             ">
                                                     </div>
@@ -438,7 +438,7 @@
                                                 @csrf
                                                 <!-- <input type="hidden" id="up_comId" name="" > -->
 
-                                                <input type="hidden" name="_token" id="drivercsrf"
+                                                <input type="hidden" name="_token" id="driver_csrf"
                                                     value="{{Session::token()}}">
                                                 <input type="hidden" id="up_comId">
                                                 <input type="hidden" name="emaildriver" id="emaildriver">
@@ -1014,7 +1014,7 @@
                         </div>
 
                         <div class="modal-body">
-                            <form id='addOwnerForm'>                            
+                            <form>                            
                                 <div class="form-group">
                                     <div class="row row-sm">
                                         <div class="col-sm-4">

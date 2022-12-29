@@ -16,6 +16,7 @@ class UserController extends Controller
 {
     public function addUsers(Request $request)
     {
+        dd($request->inser_user);
 		// $data = $db->companyAdmin->findOne(["_id"=> (int)$_SESSION['companyId']]);
         // $flag = false;
         // $flagfield = '';
@@ -35,7 +36,6 @@ class UserController extends Controller
             'userZip' => 'numeric|nullable',
             'userExt' => 'numeric|nullable',
         ]);
-    
         //Data::insert($request->all());
         // User::create(['name' => $request->input('name'),
         //     "Information"=>[              
@@ -87,13 +87,13 @@ class UserController extends Controller
                     'userExt' => $request->userExt,
                     'TollFree' => $request->TollFree,
                     'userFax' => $request->userFax,
-                    // 'privilege' => (object)array(
-                    //     'insertUser' => $request->input('insertUser'),
-                    //     'updateUser' => $request->input('updateUser'),
-                    //     'deleteUser' => $request->input('deleteUser'),
-                    //     'importUser' => $request->input('importUser'),
-                    //     'exportUser' => $request->input('exportUser'),
-                    // ),
+                    'privilege' => (object)array(
+                        'insertUser' => $request->inser_user,
+                        'updateUser' => $request->update_user,
+                        'deleteUser' => $request->delete_user,
+                        'importUser' => $request->import_user,
+                        'exportUser' => $request->export_user,
+                    ),
                     'dashboard' => (object)array(
                         'profit_loss' => (int)$request->input('profit_loss'),
                         'dispatcher' => (int)$request->input('dispatcher'),

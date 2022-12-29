@@ -200,7 +200,7 @@
                                             <option value="">Select Currency</option>
                                             </select> -->
                                         
-                                                <input class="form-control customerCurrencySet" list="customerCurrencySet" name="currency" id="currency">
+                                                <input class="form-control customerCurrencySet" list="customerCurrencySet" name="currency" id="currency_setting">
                                                 <datalist id="customerCurrencySet" class="customerCurrencySet"><option>Select Here</option></datalist>    
                                         </div>
                                     </div>
@@ -762,7 +762,7 @@
             <div class="form-group col-md-12">
                 <label>Name<span style="color:#ff0000">*</span></label>
                 <div>
-                    <input class="form-control" placeholder="Currency type" type="text" id="saveCurrencyType" name="currencyType" required />
+                    <input class="form-control" placeholder="Currency type" type="text" id="save_Currency_Type" name="currencyType" required />
                 </div>
             </div>
         </form>
@@ -789,7 +789,7 @@
       <div class="modal-body">
         <form id="addTrailerTypeForm">
             @csrf
-            <input type="hidden" name="_token" id="_tokenPaymentTerms" value="{{ csrf_token() }}" />
+            <input type="hidden" name="_token" id="_token_Payment_Terms" value="{{ csrf_token() }}" />
             <div class="form-group col-md-12">
                 <label>Name<span style="color:#ff0000">*</span></label>
                 <div>
@@ -841,85 +841,85 @@
                                     <div class="card-body">
                                         <form >
                                             @csrf
-                                            <input type="hidden" name="_token" id="_tokenAddFactoring" value="{{ csrf_token() }}" />
+                                            <input type="hidden" name="_token" id="_token_Add_Factoring" value="{{ csrf_token() }}" />
                                             <div class="form-row">
                                                 <div class="form-group col-md-2">
                                                     <label>Factoring Company Name<span style="color:#ff0000">*</span></label>
                                                     <div>
-                                                        <input class="form-control" placeholder="Factoring Company Name" type="text" id="addFactoringCompanyname" name="factoringCompanyname" required />
+                                                        <input class="form-control v" placeholder="Factoring Company Name" type="text" id="" name="factoringCompanyname" required />
                                                     </div>
                                                 </div>
                                                 
                                                 <div class="form-group col-md-2">
                                                     <label>Address <span style="color:#ff0000">*</span></label>
                                                     <div>
-                                                        <input class="form-control" placeholder="Address" type="text" id="addFacAddress" name="address" required />
+                                                        <input class="form-control addFacAddress" placeholder="Address" type="text"  name="address" required />
                                                     </div>
                                                 </div>
                                                 <div class="form-group col-md-2 ">
                                                     <label>Loction <span style="color:#ff0000">*</span></label>
                                                     <div>
-                                                        <input class="form-control" placeholder="Enter Location" type="text" id="addFaclocation" name="location" required />
+                                                        <input class="form-control addFaclocation" placeholder="Enter Location" type="text" id="" name="location" required />
                                                     </div>
                                                 </div>
                                                 <div class="form-group col-md-2 ">
                                                     <label>Postal / Zip<span style="color:#ff0000">*</span> </label>
                                                     <div>
-                                                        <input class="form-control" placeholder="Postal / Zip" type="text" id="addFacZip" name="zip" required>
+                                                        <input class="form-control addFacZip" placeholder="Postal / Zip" type="text" id="" name="zip" required>
                                                     </div>
                                                 </div>
                                                 <div class="form-group col-md-2 ">
                                                     <label>Primary Contact </label>
                                                     <div>
-                                                        <input class="form-control" placeholder="Primary Contact" type="text" id="addFacPrimaryContact" name="primaryContact">
+                                                        <input class="form-control addFacPrimaryContact" placeholder="Primary Contact" type="text" id="" name="primaryContact">
                                                     </div>
                                                 </div>
                                                 <div class="form-group col-md-2 ">
                                                     <label>Telephone </label>
                                                     <div>
-                                                        <input class="form-control" placeholder="(___) ___ - ____" type="text" id="addFacTelephone" name="telephone">
+                                                        <input class="form-control addFacTelephone" placeholder="(___) ___ - ____" type="text" id="" name="telephone">
                                                     </div>
                                                 </div>
                                                 <div class="form-group col-md-2 ">
                                                     <label>Ext Factoring </label>
                                                     <div>
-                                                        <input class="form-control" placeholder="Ext" type="text" id="addFacExtFactoring" name="extFactoring">
+                                                        <input class="form-control addFacExtFactoring" placeholder="Ext" type="text" id="" name="extFactoring">
                                                     </div>
                                                 </div>
                                                 <div class="form-group col-md-2 ">
                                                     <label>Fax </label>
                                                     <div>
-                                                        <input class="form-control" placeholder="(___) ___ - ____" type="text" id="addFacFax" name="fax">
+                                                        <input class="form-control addFacFax" placeholder="(___) ___ - ____" type="text" id="" name="fax">
                                                     </div>
                                                 </div>
                                                 <div class="form-group col-md-2 ">
                                                     <label>Toll Free </label>
                                                     <div>
-                                                        <input class="form-control" placeholder="(___) ___ - ____" type="text" id="addFacTollFree" name="tollFree">
+                                                        <input class="form-control addFacTollFree" placeholder="(___) ___ - ____" type="text" id="" name="tollFree">
                                                     </div>
                                                 </div>
                                                 <div class="form-group col-md-2 ">
                                                     <label>Contact Email </label>
                                                     <div>
-                                                        <input class="form-control" placeholder="Contact Email" type="email" id="addFacEmail" name="email">
+                                                        <input class="form-control addFacEmail" placeholder="Contact Email" type="email" id="" name="email">
                                                     </div>
                                                 </div>
                                                 <div class="form-group col-md-2 ">
                                                     <label>Secondary Contact </label>
                                                     <div>
-                                                        <input class="form-control" placeholder="Secondary Contact " type="text" id="addFacSecondaryContact" name="secondaryContact">
+                                                        <input class="form-control addFacSecondaryContact" placeholder="Secondary Contact " type="text" id="" name="secondaryContact">
                                                     </div>
                                                 </div>
                                                 <div class="form-group col-md-2 ">
                                                     <label>Factoring Telephone </label>
                                                     <div>
-                                                        <input class="form-control" placeholder="(___) ___ - ____" type="text" id="addFacFactoringtelephone" name="factoringtelephone">
+                                                        <input class="form-control addFacFactoringtelephone" placeholder="(___) ___ - ____" type="text" id="" name="factoringtelephone">
                                                     </div>
                                                 </div>
                                                 <div class="form-group col-md-2 ">
                                                     <label>Ext </label>
                                                     <div>
-                                                        <input class="form-control" placeholder="Ext" type="text" id="addFacExt" name="ext">
+                                                        <input class="form-control addFacExt" placeholder="Ext" type="text" id="" name="ext">
                                                     </div>
                                                 </div>
                                                 <div class="form-group col-md-2">
@@ -939,7 +939,7 @@
                                                     <span class="glyphicon glyphicon-plus-sign addpaymentTerms " id="addpaymentTerms" data-toggle="modal"  style="cursor:pointer;"></span>
                                                     </label>
                                                         <div class="dropdown show">
-                                                            <input class="form-control addPaymentTermsCustom" list="addPaymentTermsCustom" name="paymentTerms" id="paymentTerms">
+                                                            <input class="form-control addPaymentTermsCustom" list="addPaymentTermsCustom" name="paymentTerms" id="payment_Terms">
                                                             <datalist id="addPaymentTermsCustom" class="addPaymentTermsCustom">
                                                                 <option>Select Here</option>
                                                               
@@ -951,13 +951,13 @@
                                             <div class="form-group col-md-4 ">
                                                     <label>taxID </label>
                                                     <div>
-                                                        <input class="form-control" placeholder="__-_______" type="text" id="addFactaxID" name="taxID">
+                                                        <input class="form-control addFactaxID" placeholder="__-_______" type="text" id="" name="taxID">
                                                     </div>
                                                 </div>
                                                 <div class="form-group col-md-12">
                                                     <label>Internal Notes</label>
                                                     <div>
-                                                        <textarea rows="2" cols="30" class="form-control" type="textarea" id="addFacInternalNote" placeholder="Internal Note" name="internalNote"></textarea>
+                                                        <textarea rows="2" cols="30" class="form-control addFacInternalNote" type="textarea" id="" placeholder="Internal Note" name="internalNote"></textarea>
                                                     </div>
                                                 </div>
                                                 

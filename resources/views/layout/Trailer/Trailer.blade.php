@@ -17,7 +17,7 @@
                         <i class="fa fa-plus " aria-hidden="true"></i>
                         <span>Add trailer</span>
                     </a>
-                    <a href="#setupDriverModal" class="button-57" data-toggle="modal"
+                    <!-- <a href="#setupDriverModal" class="button-57" data-toggle="modal"
                         data-target="#setupDriverModal">
                         <i class="fa fa-sliders" aria-hidden="true"></i>
                         </span><span>Button 2</span>
@@ -26,7 +26,7 @@
                         data-target="#contractCategoryModal">
                         <i class="fa fa-id-card" aria-hidden="true"></i>
                         </span><span>Button 3</span>
-                    </a>
+                    </a> -->
 
                 </div>
                 <!-- Modal body -->
@@ -302,9 +302,9 @@
         </button>
       </div>
       <div class="modal-body">
-        <form id="addTrailerTypeForm">
+        <form >
             @csrf
-            <input type="hidden" name="_token" id="_tokenTrailerType" value="{{ csrf_token() }}" />
+            <input type="hidden" name="_token" id="_token_Trailer_Type" value="{{ csrf_token() }}" />
             <div class="form-group col-md-12">
                 <label>Name<span style="color:#ff0000">*</span></label>
                 <div>
@@ -339,7 +339,7 @@
                             <div class="col-lg-12">
                                 <div class="card">
                                     <div class="card-body">
-                                        <form id="editTrailerForm" enctype="multipart/form-data">
+                                        <form  enctype="multipart/form-data">
                                             @csrf
                                             <input type="hidden" name="_token" id="_tokenEditTrailer" value="{{ csrf_token() }}" />
                                             <input type="hidden" name="id" id="edittrailer_id" >
@@ -353,7 +353,7 @@
                                                 <div class="form-group col-md-2">
                                                     <label for="trailertype">Trailer Type <span style="color:#ff0000">*</span>&nbsp; 
                                                     <!-- <span class="glyphicon glyphicon-plus-sign addTrailerType "  data-toggle="modal"  style="cursor:pointer;"></span> -->
-                                                </label>
+                                                    </label>
                                                         <div class="dropdown show">
                                                         <select  class="form-control trailerTypeSet trailerType_Set_id" name="trailerType" id="editTrailerType" >
                                                                 <option>Select Here</option>
