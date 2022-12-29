@@ -908,35 +908,35 @@
                 <button type="button" class="button-24 addDriverOwnerModalCloseButton" data-dismiss="modal">&times;</button>
             </div>
 
-                        <div class="modal-body">
-                            <form id='addOwnerForm'>                            
-                                <div class="form-group">
-                                    <div class="row row-sm">
-                                        <div class="col-sm-4">
-                                            <label class="form-label" for="owner-driver-name">Driver</label>
-                                            <input type="text" class="form-control" list="drivernamelist" autocomplete="off" id="owner-driver-name" disabled/>
-                                            <input type="hidden" id="driverid" value=""  />
-                                        </div>
-                                        <div class="col-sm-4">
-                                            <label class="form-label" for="ssnMask-cvv">Pay Percentage<span class="mandatory">* </span>( % )</label></label>
-                                            <div class="input-group">
-                                                <div class="input-group-text bg-primary-transparent text-primary">
-                                                    <i class="fe fe-minus text-20" onclick="dec_percentage()" ></i>
-                                                </div>
-                                                    <input type="number" class="form-control" id="ownerPercentage" name="percentage" placeholder="Percentage" >
-                                                <div class="input-group-text bg-primary-transparent text-primary">
-                                                    <i class="fe fe-plus text-20" onclick="inc_percentage()" ></i>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-4">
-                                            <label class="form-label" for="ssnMask-cvv">Select Truck</label>
-                                            <input list="fuel_truck_report" class="form-control" placeholder="search here..." id="ownerTruckNo" name="truckNo" autocomplete="off">
-                                                <datalist id="fuel_truck_report">
-                                                </datalist>
-                                        </div>
+            <div class="modal-body">
+                <form id='addOwnerForm'>                            
+                    <div class="form-group">
+                        <div class="row row-sm">
+                            <div class="col-sm-4">
+                                <label class="form-label" for="owner-driver-name">Driver</label>
+                                <input type="text" class="form-control" list="drivernamelist" autocomplete="off" id="owner-driver-name" disabled/>
+                                <input type="hidden" id="driverid" value=""  />
+                            </div>
+                            <div class="col-sm-4">
+                                <label class="form-label" for="ssnMask-cvv">Pay Percentage<span class="mandatory">* </span>( % )</label></label>
+                                <div class="input-group">
+                                    <div class="input-group-text bg-primary-transparent text-primary">
+                                        <i class="fe fe-minus text-20" onclick="dec_percentage()" ></i>
                                     </div>
-                                    <br>
+                                        <input type="number" class="form-control" id="ownerPercentage" name="percentage" placeholder="Percentage" >
+                                    <div class="input-group-text bg-primary-transparent text-primary">
+                                        <i class="fe fe-plus text-20" onclick="inc_percentage()" ></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <label class="form-label" for="ssnMask-cvv">Select Truck</label>
+                                <input list="fuel_truck_report" class="form-control" placeholder="search here..." id="ownerTruckNo" name="truckNo" autocomplete="off">
+                                    <datalist id="fuel_truck_report">
+                                    </datalist>
+                            </div>
+                        </div>
+                        <br>
 
                         <br>
                         <div class="">

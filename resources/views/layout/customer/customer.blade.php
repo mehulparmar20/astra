@@ -292,7 +292,7 @@
 
 <div class="container" >
   <!-- The Modal -->
-  <div class="modal fade" id="PaymentTermsModal" data-backdrop="static" style="z-index:1000000000;"> >
+  <div class="modal fade" id="PaymentTermsModal" data-backdrop="static" style="z-index:10000000000;"> >
     <div class="modal-dialog custom_modal_small2 modal-dialog-scrollable">
       <div class="modal-content">
       
@@ -342,7 +342,7 @@
 <!------------------------------------------------------------------- Currency modal ------------------------------------------------------------------->
 <div class="container">
 
-    <div class="modal fade" data-backdrop="static" id="plusCurrencyModal" role="dialog">
+    <div class="modal fade" data-backdrop="static" id="plusCurrencyModal" style="z-index:10000000000;">
         <div class="modal-dialog custom_modal_small2 modal-dialog-scrollable" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -377,12 +377,12 @@
 
 <div class="container resizeModal">
 
-    <div class="modal fade" data-backdrop="static" id="factoringCompanyModal" role="dialog">
+    <div class="modal fade"  id="factoringCompanyModal" style="z-index:1000000000;">
         <div class="modal-dialog custom_modal_small2 modal-dialog-scrollable" role="document">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title">Add Factoring Company</h5>
-                    <button type="button" class="button-24 factoringCompanyModalCloseButton" data-dismiss="modal">&times;</button>
+                    <button type="button" class="button-24 factoringCompanyModalCloseButton">&times;</button>
                 </div>
 
                 <div class="modal-body">
@@ -481,7 +481,7 @@
                 <!-- Modal footer -->
                 <div class="modal-footer" >
                     <button type="submit" class="button-29 factoringCompanyDataSubmit">Save</button>
-                    <button type="button" class="button-29 factoringCompanyModalCloseButton" data-dismiss="modal" id="closefactoringCompanyModal">Close</button>
+                    <button type="button" class="button-29 factoringCompanyModalCloseButton">Close</button>
                    
                 </div>
             </div>

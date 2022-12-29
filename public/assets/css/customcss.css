@@ -566,7 +566,7 @@ ul.ks-cboxtags li input[type="checkbox"]:focus+label {
 
 
 #addContractCategory, #contractCategoryModal, #addDriverModal, #addRecurrence, #substractRecurrence, #setupDriverModal, #addUserModal, #addCustomerModal, #plusCurrencyModal, #factoringCompanyModal, #factoringCompanyModal, #PaymentTermsModal,
-#addTruckModal, #userEditModal, #addTruckModal {
+#addTruckModal, #userEditModal, #addTruckModal, #addEquipmentTypeModal, #TruckTrailerMakeModal, #addTruckTrailerMakeModal {
   backdrop-filter: blur(1px) contrast(.1);
 }
 
@@ -925,18 +925,55 @@ color: #ffffff;
   
   /* ---------------------------------------------------------------------------- modal 4 --------------------------------------------------- */
   
-  /* small screen, hidden by default */
-  @media only screen and (max-width: 770px ) {
-  .custom_modal_small_4{
-  top: 4%;
-  left: 10%;
-  }
-  }
+      /* small screen, hidden by default */
+      @media only screen and (max-width: 770px ) {
+        .custom_modal_small_4{
+          top: 4%;
+          left: 10%;
+        }
+      }
+      
+      /* large screen, shown by default */
+      @media only screen and (min-width: 771px ) {
+        .custom_modal_small_4{
+      
+          top: 9%;
+        }
+      }
+      
+        .custom_modal_small_4{
+          max-width: 55% !important;
+          max-height: 55% !important;
+          position: relative;
+          margin: 0 auto;
+          top: 18%;
+      
+        }
+      
+
+        /* ---------------------------------------------------------------------------- modal 5 --------------------------------------------------- */
   
-  /* large screen, shown by default */
-  @media only screen and (min-width: 771px ) {
-  .custom_modal_small_4{
-  
-  top: 9%;
-  }
-  }
+      /* small screen, hidden by default */
+      @media only screen and (max-width: 770px ) {
+        .custom_modal_small_5{
+          top: 4%;
+          left: 10%;
+        }
+      }
+      
+      /* large screen, shown by default */
+      @media only screen and (min-width: 771px ) {
+        .custom_modal_small_5{
+      
+          top: 9%;
+        }
+      }
+      
+        .custom_modal_small_5{
+          max-width: 30% !important;
+          max-height: 30% !important;
+          position: relative;
+          margin: 0 auto;
+          top: 32%;
+      
+        }

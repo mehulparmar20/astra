@@ -1094,8 +1094,7 @@
                                                             <label for="language" class="form-label">Language</label>
                                                         </div>
                                                         <div class="col-md-9" data-select2-id="106">
-                                                            <select class="form-control select2" id="language"
-                                                                tabindex="-1" aria-hidden="true">
+                                                            <select class="form-control select2" id="language" tabindex="-1" aria-hidden="true">
                                                                 <option>Us English</option>
                                                                 <option>Arabic</option>
                                                                 <option>Korean</option>

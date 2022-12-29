@@ -115,6 +115,10 @@
 <script src="{{URL::to('/')}}/assets/js/js/trailerLaravel.js"></script>
 <script src="{{URL::to('/')}}/assets/js/js/EquipmentType.js"></script>
 <script src="{{URL::to('/')}}/assets/js/js/status.js"></script>
+<script src="{{URL::to('/')}}/assets/js/js/recurrenceCategory.js"></script>
+<script src="{{URL::to('/')}}/assets/js/js/Terms&Conditions.js"></script>
+<script src="{{URL::to('/')}}/assets/js/js/TruckTrailerMake.js"></script>
+
 
 </body>
 

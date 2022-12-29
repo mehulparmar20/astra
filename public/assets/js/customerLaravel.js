@@ -560,10 +560,10 @@ $(".factoringCompanyDataSubmit").click(function(){
         success: function(dataCustomerfactoringCompanyResult){
             console.log(dataCustomerfactoringCompanyResult);
             if(dataCustomerfactoringCompanyResult){
-                alert("Factoring Company added successfully.");
+                swal.fire("Factoring Company added successfully.");
                 $("#factoringCompanyModal").modal("hide");
             }else{
-                alert("Factoring Company not added successfully.");
+                swal.fire("Factoring Company not added successfully.");
             }
         }
     });

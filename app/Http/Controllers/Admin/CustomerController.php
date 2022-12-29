@@ -159,7 +159,7 @@ class CustomerController extends Controller
 
        //$customerAdd = Customer::all();
   
-       $companyIDForCustomerfactoring=2;
+       $companyIDForCustomerfactoring=1;
        $totalCustomerfactoringArray=0;
        $getCompanyForCustomerfactoring = Factoring_company_add::where('companyID',$companyIDForCustomerfactoring)->first();
 
@@ -201,7 +201,7 @@ class CustomerController extends Controller
                
             Factoring_company_add::where(['companyID' =>$companyIDForCustomerfactoring])->update([
                    'counter'=> $totalCustomerfactoringArray,
-                   'factoring' =>array_merge($CustomerfactoringData,$CustomerfactoringArray) ,
+                   'factoring' =>array_merge($CustomerfactoringArray,$CustomerfactoringData) ,
                ]);
 
                $arrrCustomerfactoring = array('status' => 'success', 'message' => ' added successfully.'); 

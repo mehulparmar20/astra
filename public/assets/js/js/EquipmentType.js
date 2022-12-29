@@ -2,6 +2,11 @@ var base_path = $("#url").val();
 $(document).ready(function() {
 
 // <!-- -------------------------------------------------------------------------start ------------------------------------------------------------------------- -->  
+    $('#EquipmentTypeModal, #addEquipmentTypeModal').modal({
+        backdrop: 'static',
+        keyboard: false
+    })
+
     $('.EquipmentTypeClose').click(function(){
         $('#EquipmentTypeModal').modal('hide');
     });
@@ -11,6 +16,8 @@ $(document).ready(function() {
     $('#addEquipmentType').click(function(){
         $('#addEquipmentTypeModal').modal('show');
     });
+
+    
 // <!-- -------------------------------------------------------------------------Get  EquipmentType ------------------------------------------------------------------------- -->  
    
     $('#EquipmentType_navbar').click(function(){
@@ -57,7 +64,7 @@ $(document).ready(function() {
                                         "<td data-field='equipmentType'>" + equipmentType + "</td>" +
                                        
                                         "<td style='text-align:center'>"+
-                                            "<a class='mt-2 btn btn-primary fs-14 text-white editCurrency'  title='Edit1' data-Id='"+id+"' data-truckType='' ><i class='fe fe-edit'></i></a>&nbsp"+
+                                            "<a class='button-23 editCurrency'  title='Edit1' data-Id='"+id+"' data-truckType='' ><i class='fe fe-edit'></i></a>&nbsp"+
                                         "</td></tr>";
             
                                     $("#EquipmentTypeTable").append(Str);

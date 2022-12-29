@@ -1,17 +1,17 @@
-<!------------------------------------------------------------------- Equipment Type modal ------------------------------------------------------------------->
+<!------------------------------------------------------------------- view Recurrence Category modal ------------------------------------------------------------------->
 <div class="container">
     <!-- The Modal -->
-    <div class="modal fade" data-backdrop="static" id="EquipmentTypeModal" role="dialog">
+    <div class="modal fade" data-backdrop="static" id="RecurrenceCategoryModal" role="dialog">
         <div class="modal-dialog custom_modal_small3 modal-dialog-scrollable" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Equipment Type</h5>
-                    <button type="button" class="button-24 EquipmentTypeClose" >×</button>
+                    <h5 class="modal-title">Recurrence Category</h5>
+                    <button type="button" class="button-24 RecurrenceCategoryClose" >×</button>
 
                     </button>
                 </div>
                 <div style="margin-top: 15px; margin-left: 15px;">
-                    <a  class="button-57" id="addEquipmentType"><i class="fa fa-plus" aria-hidden="true"></i><span>Add</span></a>
+                    <a  class="button-57" id="addRecurrenceCategory"><i class="fa fa-plus" aria-hidden="true"></i><span>Add</span></a>
                 </div>
                 <div class="modal-body" style="overflow-y: auto !important;margin-left: -16px;">
 
@@ -31,7 +31,7 @@
                                                         <th>Action</th>
                                                     </tr>
                                                 </thead>
-                                                <tbody id="EquipmentTypeTable">
+                                                <tbody id="RecurrenceCategoryTable">
                         
                                                 </tbody>
                                             </table>
@@ -56,18 +56,18 @@
     </div>
 </div>
 
-<!-------------------------------------------------------------------End Equipment Type modal------------------------------------------------------------------->
+<!-------------------------------------------------------------------End Recurrence Category modal------------------------------------------------------------------->
 
 
-<!------------------------------------------------------------------- Add Equipment Type modal ------------------------------------------------------------------->
+<!------------------------------------------------------------------- Add Recurrence Category modal ------------------------------------------------------------------->
 <div class="container">
     <!-- The Modal -->
-    <div class="modal fade" data-backdrop="static" id="addEquipmentTypeModal" role="dialog">
+    <div class="modal fade" data-backdrop="static" id="addRecurrenceCategoryModal" role="dialog">
         <div class="modal-dialog custom_modal_small_5 modal-dialog-scrollable" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Create Equipment Type</h5>
-                    <button type="button" class="button-24 addEquipmentTypeClose" >×</button>
+                    <h5 class="modal-title">Create Recurrence Category</h5>
+                    <button type="button" class="button-24 addRecurrenceCategoryClose" >×</button>
 
                 </div>
                 <div class="modal-body" style="overflow-y: auto !important;margin-left: -16px;">
@@ -81,11 +81,11 @@
                                     <div class="card-body">
                                         <div class="table-responsive export-table">
                                             <form>
-                                            <input type="hidden" name="_token" id="_tokenEquipmentType" value="{{ csrf_token() }}" />
+                                            <input type="hidden" name="_token" id="_tokenRecurrenceCategory" value="{{ csrf_token() }}" />
                                                 <div class="form-row">
                                                     <div class="form-group col-md-6">
                                                         <label for="name">Name <span style="color:#ff0000">*</span></label>
-                                                        <input type="text" class="form-control required" id="EquipmentType_name" placeholder=" Name">
+                                                        <input type="text" class="form-control required" id="fixPayType_name" placeholder=" Name">
                                                     </div>
                                                 </div>
                                             </form>
@@ -102,8 +102,8 @@
                         @csrf
                         <button class="button-29" style="vertical-align:middle"><span>Export</span></button>
                     </form>
-                    <button type="button" class="button-29" id="saveEquipmentType" >Save</button>
-                    <button type="button" class="button-29 addEquipmentTypeClose" >Close</button>
+                    <button type="button" class="button-29" id="saveRecurrenceCategory" >Save</button>
+                    <button type="button" class="button-29 addRecurrenceCategoryClose" >Close</button>
                 </div>
             </div>
         </div>
@@ -115,18 +115,38 @@
 
 <script>
 
-$(document).ready(function() {
-    $('#EquipmentType_table_pagination').DataTable({
+// $(document).ready(function() {
+//     $('#EquipmentType_table_pagination').DataTable({
 
-        "columnDefs": [
-            {
-                "targets": [ 2 ],
-                "searchable": false,
-                "sortable":false
-            },
-        ]
+//         "columnDefs": [
+//             {
+//                 "targets": [ 2 ],
+//                 "searchable": false,
+//                 "sortable":false
+//             },
+//         ]
 
-    });
-});
+//     });
+// });
+
+</script>
+<!-------------------------------------------------------------------End Add Equipment Type modal------------------------------------------------------------------->
+
+
+<script>
+
+// $(document).ready(function() {
+//     $('#EquipmentType_table_pagination').DataTable({
+
+//         "columnDefs": [
+//             {
+//                 "targets": [ 2 ],
+//                 "searchable": false,
+//                 "sortable":false
+//             },
+//         ]
+
+//     });
+// });
 
 </script>

@@ -23,6 +23,9 @@ use App\Http\Controllers\Admin\BranchOfficeController;
 use App\Http\Controllers\Admin\PaymentTermsController;
 use App\Http\Controllers\Admin\TrailerAdminAddController;
 use App\Http\Controllers\Admin\EquipmentTypeController;
+use App\Http\Controllers\Admin\RecurrenceCategoryController;
+use App\Http\Controllers\Admin\TermsConditionsController;
+use App\Http\Controllers\Admin\TruckTrailerMakeController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -175,3 +178,15 @@ Route::post('admin/deleteTrailer', [TrailerAdminAddController::class, 'deleteTra
 //Equipment Type
 Route::get('admin/getEquipmentType', [EquipmentTypeController::class, 'getEquipmentType']);
 Route::post('admin/addEquipmentType', [EquipmentTypeController::class, 'addEquipmentType']);
+
+//Recurrence Category
+Route::get('admin/getRecurrenceCategory', [RecurrenceCategoryController::class, 'getRecurrenceCategory']);
+Route::post('admin/addRecurrenceCategory', [RecurrenceCategoryController::class, 'addRecurrenceCategory']);
+
+//Terms Conditions
+Route::get('admin/getTermsConditions', [TermsConditionsController::class, 'getTermsConditions']);
+Route::post('admin/addTermsConditions', [TermsConditionsController::class, 'addTermsConditions']);
+
+//Truck & Trailer Make
+Route::get('admin/getTruckTrailerMake', [TruckTrailerMakeController::class, 'getTruckTrailerMake']);
+Route::post('admin/addTruckTrailer', [TruckTrailerMakeController::class, 'addTruckTrailer']);
