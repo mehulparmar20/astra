@@ -123,10 +123,13 @@
                                                 <div class="form-group col-md-2">
                                                     <label for="trucktype">Truck Type <span style="color:#ff0000">*</span>&nbsp; <span class="glyphicon glyphicon-plus-sign create_truck_type" id="addTruckType" ></span></label>
                                                         <div class="dropdown show">
-                                                            <input class="form-control truckTypeSet" list="truckTypeSet" name="truckType" id="truckType">
+                                                            <!-- <input class="form-control truckTypeSet" list="truckTypeSet" name="truckType" id="truckType">
                                                             <datalist id="truckTypeSet" class="truckTypeSet">
                                                                 <option>Select Here</option>
-                                                            </datalist>
+                                                            </datalist> -->
+                                                            <select  id="truckType" class="truckTypeSet truck_Type_Set form-control" list="truckTypeSet">
+                                                            <option> Select  </option>
+                                                        </select>
                                                         </div>
 
                                                    
@@ -399,10 +402,13 @@
                                                     <span style="color:#ff0000">*</span>&nbsp; <span class="glyphicon glyphicon-plus-sign create_truck_type"  ></span>
                                                 </label>
                                                     <div class="dropdown show">
-                                                        <input class="form-control truckTypeSet" list="truckTypeSet" name="truckType" id="editTruckType">
+                                                        <!-- <input class="form-control truckTypeSet" list="truckTypeSet" name="truckType" id="editTruckType">
                                                         <datalist id="truckTypeSet" class="truckTypeSet">
                                                             <option>Select Here</option>
-                                                        </datalist>
+                                                        </datalist> -->
+                                                        <select  id="editTruckType" class="truckTypeSet truck_Type_Set form-control" list="truckTypeSet">
+                                                            <option> Select  </option>
+                                                        </select>
                                                     </div>
 
                                                 
@@ -578,7 +584,7 @@
                 <div style="margin-top: 15px; margin-left: 15px;">
                         <input type="hidden" name="checked_id" id="checked_truck_ids" value="">
                         <input type="hidden" name="company_id" id="checked_truck_company_ids" value="">
-                        <button id="restore_truck_data"  class="button-57_alt restore_truck_data" disabled><i class="fa fa-repeat" aria-hidden="true"></i><span>Restore Customer</span></button>
+                        <button id="restore_truck_data"  class="button-57_alt restore_truck_data" disabled><i class="fa fa-repeat" aria-hidden="true"></i><span>Restore Truck</span></button>
                 </div> 
                 <!-- Modal body -->
                 <div class="modal-body">

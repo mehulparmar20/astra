@@ -165,7 +165,7 @@ $(document).ready(function() {
       var checkbox2_15 = $('#checkboxl2_15').is(":checked");
       var value24 = checkbox2_15 ? 1 : 0;
       var checkbox3_1 = $('#checkboxl3_1').is(":checked");
-      var value25 = checkbox3_1 ? 1 : 0;
+      var customer = checkbox3_1 ? 1 : 0;
       var checkbox3_2 = $('#checkboxl3_2').is(":checked");
       var value26 = checkbox3_2 ? 1 : 0;
       var checkbox3_3 = $('#checkboxl3_3').is(":checked");
@@ -178,8 +178,8 @@ $(document).ready(function() {
       var value30 = checkbox3_6 ? 1 : 0;
       var checkbox3_7 = $('#checkboxl3_7').is(":checked");
       var value31 = checkbox3_7 ? 1 : 0;
-      var checkbox3_8 = $('#checkboxl3_8').is(":checked");
-      var value32 = checkbox3_8 ? 1 : 0;
+      var admin = $('#checkboxl3_8').is(":checked");
+      var admin_val = admin ? 1 : 0;
       var checkbox3_9 = $('#checkboxl3_9').is(":checked");
       var value33 = checkbox3_9 ? 1 : 0;
       var checkbox3_10 = $('#checkboxl3_10').is(":checked");
@@ -196,6 +196,11 @@ $(document).ready(function() {
       var value39 = checkbox4_2 ? 1 : 0;
       var checkbox4_3 = $('#checkboxl4_3').is(":checked");
       var value40 = checkbox4_3 ? 1 : 0;
+      var checkbox4_4 = $('#checkboxl4_4').is(":checked");
+      var toll = checkbox4_4 ? 1 : 0;
+      var checkboxl4_5 = $('#checkboxl4_5').is(":checked");
+      var IFTA_trip = checkboxl4_5 ? 1 : 0;
+      
       var checkbox5_1 = $('#checkboxl5_1').is(":checked");
       var value41 = checkbox5_1 ? 1 : 0;
       var checkbox5_2 = $('#checkboxl5_2').is(":checked");
@@ -204,6 +209,11 @@ $(document).ready(function() {
       var value43 = checkbox5_3 ? 1 : 0;
       var checkbox5_4 = $('#checkboxl5_4').is(":checked");
       var value44 = checkbox5_4 ? 1 : 0;
+      var checkbox5_5 = $('#checkboxl5_5').is(":checked");
+      var bank = checkbox5_5 ? 1 : 0;
+      var checkbox5_6 = $('#checkboxl5_6').is(":checked");
+      var account = checkbox5_6 ? 1 : 0;
+
       var checkbox6_1 = $('#checkboxl6_1').is(":checked");
       var value45 = checkbox6_1 ? 1 : 0;
       var checkbox6_2 = $('#checkboxl6_2').is(":checked");
@@ -286,38 +296,42 @@ $(document).ready(function() {
                 dispactherIncentive: value22,
                 salesIncentive: value23,
                 documentType: value24,
-                addCustomer: value25,
+                customer: customer,
                 addShipper: value26,
                 addConsignee: value27,
-                addDriver: value28,
-                users: value29,
-                addTruck: value30,
-                addTrailer: value31,
-                customsBroker: value32,
+                external_carrier: value28,
+                driver_owner_operator: value29,
+                user: value30,
+                truck: value31,
+                admin: admin_val,
                 factoringCompany: value33,
-                addBank: value34,
+                trailer: value34,
                 creditCard: value35,
                 subCreditCard: value36,
                 iftaCard: value37,
-                fuelReceipt: value38,
-                addToll: value39,
-                verifyTrip: value40,
+                fuel_vendor: value38,
+                ifta: value39,
+                Fuel_reciepts_cash_advance: value40,
+                tolls:toll,
+                IFTA_trips:IFTA_trip,
                 accountManager: value41,
                 paymentRegistration: value42,
                 advancePayment: value43,
                 manageReceipt: value44,
+                bank:bank,
+                Finance:account,
                 driverReport: value45,
                 bankStateReport: value46,
                 creditStateReport: value47,
                 fuelcardReport: value48,
                 fuelReport: value49,
-                tollReport: value50,
+                report: value50,
                 aggingReport: value51,
                 payableReport: value52,
                 receivableReport: value53,
                 Report1099: value54,
-                emailTrack: value55,
-                laneAnalysis: value56,
+                Expense_report: value55,
+                Revenue_report: value56,
                 inser_user:inser_user,
                 update_user:update_user,
                 delete_user:delete_user,

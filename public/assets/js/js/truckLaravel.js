@@ -47,7 +47,7 @@ $(document).ready(function() {
     // <!-- -------------------------------------------------------------------------over Get truck  ------------------------------------------------------------------------- --> 
     // <!-- -------------------------------------------------------------------------get truck type ------------------------------------------------------------------------- -->  
    // $('.list select').selectpicker();   
-   $('.truckTypeSet').focus(function(){
+//    $('.truckTypeSet').focus(function(){
     $('.truckTypeSet').val('');
         //alert(); 
         $.ajax({
@@ -61,7 +61,7 @@ $(document).ready(function() {
                 truckTypeResponse = data;
             }
         });
-    });
+    // });
 
 
  
@@ -304,7 +304,7 @@ $(document).ready(function() {
     //get truck type
     function createTruckTypeList(truckTypeResponse) {           
         var TruckTypeLength = 0;    
-        
+            // alert(truckTypeResponse.truck.length);
         if (truckTypeResponse != null) {
            TruckTypeLength = truckTypeResponse.truck.length;
         }
@@ -320,8 +320,13 @@ $(document).ready(function() {
                 //"<a class='dropdown-item custCurrency' value='"+ currency +"'>"+ no +" )"+ currency +"</a>";                  
    
               // var TruckTypeList = "<option class='truckType' t_type_id="+truckTypeId +" data-value='"+ truckTypeId +"'>"+ truckType +"<option "
-               var TruckTypeList = "<option class='truckType' value='"+ truckTypeId+"-"+ truckType +"'>"                
-               $(".truckTypeSet").append(TruckTypeList);
+            //   if(truckTypeResponse.truck[i].deleteStatus == "NO")
+            //     {
+                // var Truck_Type_List = "<option class='truckType' value='"+truckTypeId+">"+truckType+" </option>" ;    
+                // }
+                var dataop="<option class='truckType' value='"+truckTypeId+"'> "+truckType+" </option>"  
+                // alert(TruckTypeList);           
+               $(".truck_Type_Set").append(dataop);
                //<option value="Edge">
                 //no++;
    
@@ -340,6 +345,7 @@ $(document).ready(function() {
         $("#editTruckModal").modal("hide");
     });
     $('body').on('click','.edit_truck_data',function(){
+        createTruckTypeList(truckTypeResponse)
         var id=$(this).attr('data-truckid');
         var companyID=$(this).attr('data-com_Id');
         $.ajax({
@@ -792,15 +798,17 @@ $(document).ready(function() {
             success:function(response){
                 swal.fire("Done!", "Truck Type added successfully", "success");
                 $('#addTtruckTypeModal').modal('hide');
-                // $.ajax({
-                //     type: "GET",
-                //     url: base_path+"/admin/create_truckType",
-                //     async: false,
-                //     success: function(data) {                 
-                //         // createTrailerTypeList(data);
-                //         // trailerTypeResponse = data;
-                //     }
-                // });
+                $.ajax({
+                    type: "GET",
+                    url: base_path+"/admin/truck_getTrucktype",
+                    async: false,
+                    //dataType:JSON,
+                    success: function(data) {
+                        //console.log(data)                    
+                        createTruckTypeList(data);
+                        truckTypeResponse = data;
+                    }
+                });
             }
         })
     })

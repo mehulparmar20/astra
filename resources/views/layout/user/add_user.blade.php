@@ -1,6 +1,7 @@
 <?php 
 	$userdata=Auth::user();
 	// dd($userdata);
+    
 	$dashboardArray=$userdata->dashboard;
 	$masterArray=$userdata->master;
 	$adminArray=$userdata->admin;
@@ -92,7 +93,7 @@
                                                 </div>
                                                 <div class="form-row">
                                                     <div class="form-group col-md-2">
-                                                        <label>Company Name <span style="color:#ff0000">*</span>&nbsp; 
+                                                        <label>Company Name &nbsp; 
                                                         <span class="glyphicon glyphicon-plus-sign add_company_name "  data-toggle="modal"  style="cursor:pointer;"></span>
                                                         </label>
                                                             <div class="dropdown show">
@@ -102,7 +103,7 @@
                                                             </div>
                                                     </div>
                                                     <div class="form-group col-md-2">
-                                                        <label for="trailertype">Trailer Type <span style="color:#ff0000">*</span>&nbsp; 
+                                                        <label for="trailertype">Office<span style="color:#ff0000">*</span>&nbsp; 
                                                         <span class="glyphicon glyphicon-plus-sign add_office_name "  data-toggle="modal"  style="cursor:pointer;"></span>
                                                         </label>
                                                             <div class="dropdown show">
@@ -383,7 +384,12 @@
                                                                             </li>
                                                                             <li>
                                                                                 <input class="checkbox3" type="checkbox"
-                                                                                    name="checkbox" id="checkboxl3_1" />
+                                                                                    name="admin" id="checkboxl3_8" />
+                                                                                <label for="checkboxl3_8">Admin</label>
+                                                                            </li>
+                                                                            <li>
+                                                                                <input class="checkbox3" type="checkbox"
+                                                                                    name="customer" id="checkboxl3_1" />
                                                                                 <label
                                                                                     for="checkboxl3_1">Customer</label>
                                                                             </li>
@@ -391,40 +397,40 @@
                                                                                 <input class="checkbox3" type="checkbox"
                                                                                     name="checkbox" id="checkboxl3_2" />
                                                                                 <label
-                                                                                    for="checkboxl3_2">Shipper & Consignee</label>
+                                                                                    for="checkboxl3_2">Shipper</label>
                                                                             </li>
                                                                             <li>
                                                                                 <input class="checkbox3" type="checkbox"
                                                                                     name="checkbox" id="checkboxl3_3" />
                                                                                 <label
-                                                                                    for="checkboxl3_3">External Carrier</label>
+                                                                                    for="checkboxl3_3">Consignee</label>
                                                                             </li>
                                                                             <li>
                                                                                 <input class="checkbox3" type="checkbox"
                                                                                     name="checkbox" id="checkboxl3_4" />
-                                                                                <label for="checkboxl3_4">Driver & Owner Operator</label>
+                                                                                <label
+                                                                                    for="checkboxl3_4">External Carrier</label>
                                                                             </li>
                                                                             <li>
                                                                                 <input class="checkbox3" type="checkbox"
                                                                                     name="checkbox" id="checkboxl3_5" />
-                                                                                <label for="checkboxl3_5">User</label>
+                                                                                <label for="checkboxl3_5">Driver & Owner Operator</label>
                                                                             </li>
                                                                             <li>
                                                                                 <input class="checkbox3" type="checkbox"
                                                                                     name="checkbox" id="checkboxl3_6" />
-                                                                                <label for="checkboxl3_6">Truck</label>
+                                                                                <label for="checkboxl3_6">User</label>
                                                                             </li>
                                                                             <li>
                                                                                 <input class="checkbox3" type="checkbox"
                                                                                     name="checkbox" id="checkboxl3_7" />
-                                                                                <label
-                                                                                    for="checkboxl3_7">Trailer</label>
+                                                                                <label for="checkboxl3_7">Truck</label>
                                                                             </li>
                                                                             <li>
                                                                                 <input class="checkbox3" type="checkbox"
-                                                                                    name="checkbox" id="checkboxl3_8" />
-                                                                                <label for="checkboxl3_8">Custom
-                                                                                    Broker</label>
+                                                                                    name="checkbox" id="checkboxl3_10" />
+                                                                                <label
+                                                                                    for="checkboxl3_10">Trailer</label>
                                                                             </li>
                                                                             <li>
                                                                                 <input class="checkbox3" type="checkbox"
@@ -474,13 +480,18 @@
                                                                             </li>
                                                                             <li>
                                                                                 <input class="checkbox4" type="checkbox"
+                                                                                    name="checkbox" id="checkboxl4_2" />
+                                                                                <label for="checkboxl4_2">Ifta</label>
+                                                                            </li>
+                                                                            <li>
+                                                                                <input class="checkbox4" type="checkbox"
                                                                                     name="checkbox" id="checkboxl4_1" />
                                                                                 <label for="checkboxl4_1">Fuel Vendor</label>
                                                                             </li>
                                                                             <li>
                                                                                 <input class="checkbox4" type="checkbox"
-                                                                                    name="checkbox" id="checkboxl4_2" />
-                                                                                <label for="checkboxl4_2">Fuel Card</label>
+                                                                                    name="checkbox" id="checkboxl3_13" />
+                                                                                <label for="checkboxl3_13">Fuel Card</label>
                                                                             </li>
                                                                             <li>
                                                                                 <input class="checkbox4" type="checkbox"
@@ -511,6 +522,11 @@
                                                                                     All</label>
                                                                             </li>
                                                                             <li>
+                                                                            <li>
+                                                                                <input class="checkbox5" type="checkbox"
+                                                                                    name="checkbox" id="checkboxl5_6" />
+                                                                                <label for="checkboxl5_6">Account</label>
+                                                                            </li>
                                                                                 <input class="checkbox5" type="checkbox"
                                                                                     name="checkbox" id="checkboxl5_1" />
                                                                                 <label for="checkboxl5_1">Accounting
@@ -580,12 +596,11 @@
                                                                                 <label for="checkboxl6_5">Fuel
                                                                                     Report</label>
                                                                             </li> -->
-                                                                            <!-- <li>
+                                                                            <li>
                                                                                 <input class="checkbox6" type="checkbox"
                                                                                     name="checkbox" id="checkboxl6_6" />
-                                                                                <label for="checkboxl6_6">Toll
-                                                                                    Report</label>
-                                                                            </li> -->
+                                                                                <label for="checkboxl6_6">Reports</label>
+                                                                            </li>
                                                                             <li>
                                                                                 <input class="checkbox6" type="checkbox"
                                                                                     name="checkbox" id="checkboxl6_7" />
