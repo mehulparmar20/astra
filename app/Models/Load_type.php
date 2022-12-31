@@ -10,7 +10,7 @@ use Jenssegers\Mongodb\Eloquent\Model;
 use Jenssegers\Mongodb\Eloquent\SoftDeletes;
 
 
-class FuelCard extends Model 
+class Load_type extends Model 
 {
     use Notifiable, Authenticatable;
     use HasFactory;
@@ -21,7 +21,7 @@ class FuelCard extends Model
      */
 
     protected $connection = 'mongodb';
-    protected $collection = 'ifta_card_category';
+    protected $collection = 'load_type';
 
   
 
@@ -31,11 +31,5 @@ class FuelCard extends Model
      *
      * @var array
      */
-    // protected $hidden = [
-    //     'userPass',
-    // ];
-    // public function getAuthPassword()
-    // {
-    //     return $this->userPassword;
-    // }
+   
 }

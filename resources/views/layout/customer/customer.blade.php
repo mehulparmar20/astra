@@ -13,6 +13,7 @@
                 <div style="margin-top: 15px; margin-left: 15px;">
                     
                     <button href="#addCustomerModal" data-toggle="modal" data-target="#addCustomerModal" class="button-57_alt addCustomerButton" ><i class="fa fa-plus" aria-hidden="true"></i><span>Add Customer</span></button>
+                    <button class="button-57_alt restoreCustomerData" ><i class="fa fa-repeat " aria-hidden="true"></i><span>Restore Customer</span></button>
                 </div>
                 
                 <div class="modal-body" style="overflow-y: auto !important;">
@@ -721,3 +722,48 @@
     </div>
 </div>
 <!-- ========================= end edit customer model =============================== -->
+
+
+<!--========================== resote customer start model ========================== -->
+<div class="modal fade" data-backdrop="static" id="restoreCustomerData" role="dialog">
+        <div class="modal-dialog custom_modal modal-dialog-scrollable" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title"> Restore Customer</h5>
+                    <button type="button" class="button-24 closeRestoreCustomer" data-dismiss="modal">×</button>
+                </div>
+
+                <div style="margin-top: 15px; margin-left: 15px;">
+                    <!-- <form class="" >
+                        @csrf -->
+                        <input type="hidden" name="checked_id" id="checked_customer_ids" value="">
+                        <input type="hidden" name="company_id" id="checked_company_ids" value="">
+                        <button id="restore_customer_data"  class="button-57_alt restore_customer_data" disabled><i class="fa fa-repeat" aria-hidden="true"></i><span>Restore Customer</span></button>
+                    <!-- </form>  -->
+                    <!-- <button   class="button-57_alt " ><i class="fa fa-repeat" aria-hidden="true"></i><span>Restore Customer</span></button> -->
+                </div>                
+                <div class="modal-body" style="overflow-y: auto !important;">
+                    <table id="editable-file-datatable" class="table editable-table table-nowrap table-bordered table-edit wp-100">
+                        <thead>
+                            <tr>
+                                <th><input type="checkbox" name="all_ids[]" class="all_ids_cust"></th>
+                                <th>Customer Name</th>
+                                <th>Location</th>
+                                <th>Zip</th>
+                                <th>Primary Contacte</th>
+                                <th>Telephone</th>
+                                <th>Email</th>
+                                <!-- <th>Action</th> -->
+                            </tr>
+                        </thead>
+                        <tbody class="restoreCustomerTable">
+
+                        </tbody>
+                    </table>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="button-29 closeRestoreCustomer" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>

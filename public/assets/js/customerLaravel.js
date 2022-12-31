@@ -653,7 +653,7 @@ $(".factoringCompanyDataSubmit").click(function(){
         }
     });
 // <!-- -------------------------------------------------------------------------------------------------------------------------------------------------- -->  
-});
+
 
 //show_add_customer
 function show_add_customer(){    
@@ -1070,3 +1070,139 @@ $('body').on('click','.customerDelete',function(){
 
 })
 // ======================================================== end delete customer =================================
+
+  //============================ restore  customer =================  
+  $(".closeRestoreCustomer").click(function(){
+    $("#restoreCustomerData").modal("hide");
+});
+$('.restoreCustomerData').click(function(){
+    $.ajax({
+        type: "GET",
+        url: base_path+"/admin/customer",
+        // async: false,
+        // dataType:JSON,
+        success: function(customerResult) {
+            // alert("sussss");
+            RestorecustomerRows(customerResult);
+            RecustomerResponse = customerResult;
+        }
+    });
+    $("#restoreCustomerData").modal("show");
+}); 
+function RestorecustomerRows(RecustomerResponse) {
+    var custlen1 = 0;
+    $(".restoreCustomerTable").html('');
+    var no=1;
+    var custlen2=RecustomerResponse.customer.length; 
+    for (var j = 0; j < custlen2; j++) 
+    {
+        var companyID =RecustomerResponse.companyID;
+        var customerId=RecustomerResponse.customer[j]._id;
+        var custName = RecustomerResponse.customer[j].custName;
+        var custLocation = RecustomerResponse.customer[j].custLocation;
+        var custZip = RecustomerResponse.customer[j].custZip;
+        var custPrimaryContact = RecustomerResponse.customer[j].primaryContact;
+        var custTelephone = RecustomerResponse.customer[j].custTelephone;
+        var custEmail = RecustomerResponse.customer[j].custEmail;
+        var delete_status = RecustomerResponse.customer[j].deleteStatus;
+        if(delete_status=="YES"){
+            var customerStr = "<tr data-id=" + (i + 1) + ">" +
+            "<td data-field='no'><input type='checkbox' class='check_cust_one' name='all_cst_id[]' data-id=" + customerId+ " date-cusId="+companyID+"  value="+customerId+"> </td>" +
+            "<td data-field='customerName' >" + custName + "</td>" +
+            "<td data-field='customerLocation'>" + custLocation + "</td>" +
+            "<td data-field='customerZip'>" + custZip + "</td>" +
+            "<td data-field='customerPrimaryContacte'>" + custPrimaryContact + "</td>" +
+            "<td data-field='customerTelephone'>" + custTelephone + "</td>" +
+            "<td data-field='customerEmail'>" + custEmail + "</td>" +
+            "</tr>";
+
+            // ===================== action  btn ========================
+
+            // "<td style='width: 100px'><a class=' button-29 fs-14 text-white CustomerRestore restore_customer_data' data-id=" + customerId+ " date-cusId="+companyID+"  data-email="+custEmail +"><i class='fa fa-repeat' aria-hidden='true'></i></a></td>"
+
+
+                $(".restoreCustomerTable").append(customerStr);
+                no++;
+        }
+    }
+}
+
+$(document).on("change", ".all_ids_cust", function() 
+{
+    if(this.checked) {
+        $('.check_cust_one:checkbox').each(function() 
+        {
+            this.checked = true;
+            customerCheckbox();
+            // customerCheckboxRestore();
+        });
+    } 
+    else 
+    {
+        $('.check_cust_one:checkbox').each(function() {
+            this.checked = false;
+        });
+    }
+});
+$('body').on('click','.check_cust_one',function(){
+    customerCheckbox();
+    // customerCheckboxRestore();
+});
+function customerCheckbox()
+{
+    var custIds = [];
+    var companyIds=[]
+        $.each($("input[name='all_cst_id[]']:checked"), function(){
+            custIds.push($(this).val());
+        });
+        console.log(custIds);
+        var CustomerCheckedIds =JSON.stringify(custIds);
+        $('#checked_customer_ids').val(CustomerCheckedIds);
+        $.each($("input[name='all_cst_id[]']:checked"), function(){
+            companyIds.push($(this).attr("date-cusId"));
+        });
+        // console.log(companyIds);
+        var customerCheckedAllIds =JSON.stringify(companyIds);
+        $('#checked_company_ids').val(customerCheckedAllIds);
+
+
+        if(custIds.length > 0)
+        {
+            $('#restore_customer_data').removeAttr('disabled');
+        }
+        else
+        {
+            $('#restore_customer_data').attr('disabled',true);
+        }
+}
+$('body').on('click','.restore_customer_data',function(){
+    var all_ids=$('#checked_customer_ids').val();
+    var custID=$("#checked_company_ids").val();
+    // alert(custID);
+    $.ajax({
+        type:"post",
+        data:{_token:$("#_tokenUpdateCustomer").val(),all_ids:all_ids,custID:custID},
+        url: base_path+"/admin/restoreCustomer",
+        // async: false,
+        // dataType:JSON,
+        success: function(response) {               
+            swal.fire("Done!", "Customer Restored successfully", "success");
+            $("#restoreCustomerData").modal("hide");
+            // RestorecustomerRows(response);
+            // RecustomerResponse = response;
+                $.ajax({
+                    type: "get",
+                    url: base_path+"/admin/customer",
+                    async: false,
+                    // dataType:JSON,
+                    success: function(customerResult) {
+                        //console.log(customerResult);
+                        createcustomerRows(customerResult);
+                        customerResponse = customerResult;
+                    }
+                });
+        }
+    });
+});
+//============================ end restore  customer =================
+});

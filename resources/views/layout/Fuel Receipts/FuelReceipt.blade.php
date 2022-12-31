@@ -1,6 +1,7 @@
 <!------------------------------------------------------------------- Trailer modal ------------------------------------------------------------------->
 <div class="container">
     <!-- The Modal -->
+    <!-- <div class="modal fade" data-backdrop="static" id="Fuel Receipts"> -->
     <div class="modal fade" data-backdrop="static" id="fuelReceiptModal">
         <div class="modal-dialog modal-dialog-scrollable custom_modal">
             <div class="modal-content">

@@ -481,6 +481,72 @@ class CustomerController extends Controller
        return json_encode($arr);
        }
     }
+    public function restoreCustomer(Request $request)
+    {
+        $cu_ids=$request->all_ids;
+        $custID=(array)$request->custID;
+        // dd($custID);
+        foreach($custID as $customer_id)
+        {
+            $customer_id=str_replace( array( '\'', '"',
+            ',' , ' " " ', '[', ']' ), ' ', $customer_id);
+            $customer_id=(int)$customer_id;
+            $customerData = Customer::where('companyID',$customer_id )->first();
+            // dd($customerData);
+            $customerArray=$customerData->customer;
+            $arrayLength=count($customerArray);            
+            $i=0;
+            $v=0;
+            $data=array();
+            for ($i=0; $i<$arrayLength; $i++){
+                $ids=$customerData->customer[$i]['_id'];
+                $ids=(array)$ids;
+                foreach ($ids as $value){
+                //    print_r(gettype($cu_ids));
 
+                    $cu_ids= str_replace( array('[', ']'), ' ', $cu_ids);
+                    if(is_string($cu_ids))
+                    {
+                        $cu_ids=explode(",",$cu_ids);
+                    }
+                    // dd($cu_ids);
+                    foreach($cu_ids as $c_ids)
+                    {
+                        $c_ids= str_replace( array('"', ']' ), ' ', $c_ids);
+                        // echo "<p>". $c_ids ."  ".$value . "</p>";
+                        // dd($c_ids);
+                        if($value==$c_ids)
+                        {                        
+                            $data[]=$i; 
+                            // print($v);
+                        //    $v= explode(",",$v);
+                        //    $data[]=$v;
+                        //    print_r($data);
+                        //    dd($v);
+                        }
+                    }
+                }
+            }
+            // dd($data);
+            // dd($arrayLength);
+            // echo $v;
+            // $rows=implode(" ,",$data);
+            // dd($rows);
+            foreach($data as $row)
+            {
+                // echo "<p>".$row. "</p>";
+                $customerArray[$row]['deleteStatus'] = "NO";
+                // dd( $customerArray[$row]);
+                $customerData->customer= $customerArray;
+                $save=$customerData->save();
+            }
+            if ($save) {
+                $arr = array('status' => 'success', 'message' => 'Customer Restored successfully.','statusCode' => 200); 
+            return json_encode($arr);
+            }
+        }
+        // $dd($cu_ids);
+        
+    }
 
 }

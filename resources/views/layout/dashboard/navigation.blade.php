@@ -1,5 +1,16 @@
 
 <!-- app-Header -->
+<?php 
+	$userdata=Auth::user();
+	// dd($userdata);
+	$dashboardArray=$userdata->dashboard;
+	$masterArray=$userdata->master;
+	$adminArray=$userdata->admin;
+	$iftaArray=$userdata->ifta;
+	$accountArray=$userdata->account;
+	$reportsArray=$userdata->reports;
+	//dd($adminArray['addCustomer']);
+ ?>
 <div class="app-header header sticky" style="padding: 0; background-color:#FBFBFB">
                 <div class="container-fluid main-container">
                     <div class="d-flex">
@@ -36,70 +47,266 @@
 												<span class="side-menu__label">LoadBoard</span>
 											</a>
 										</li>
-			
-										<li class="slide">
-											<a class="side-menu__item" data-bs-toggle="slide" href="#">
-												<svg xmlns="http://www.w3.org/2000/svg" class="side-menu__icon" enable-background="new 0 0 24 24" viewBox="0 0 24 24"><path d="M21.5,21h-19C2.223877,21,2,21.223877,2,21.5S2.223877,22,2.5,22h19c0.276123,0,0.5-0.223877,0.5-0.5S21.776123,21,21.5,21z M4.5,18.0888672h5c0.1326294,0,0.2597656-0.0527344,0.3534546-0.1465454l10-10c0.000061,0,0.0001221-0.000061,0.0001831-0.0001221c0.1951294-0.1952515,0.1950684-0.5117188-0.0001831-0.7068481l-5-5c0-0.000061-0.000061-0.0001221-0.0001221-0.0001221c-0.1951904-0.1951904-0.5117188-0.1951294-0.7068481,0.0001221l-10,10C4.0526733,12.3291016,4,12.4562378,4,12.5888672v5c0,0.0001831,0,0.0003662,0,0.0005493C4.0001831,17.8654175,4.223999,18.0890503,4.5,18.0888672z M14.5,3.2958984l4.2930298,4.2929688l-2.121582,2.121582l-4.2926025-4.293396L14.5,3.2958984z M5,12.7958984l6.671814-6.671814l4.2926025,4.293396l-6.6713867,6.6713867H5V12.7958984z"/></svg>
-												<span class="side-menu__label">Admin</span><i class="angle fa fa-angle-right"></i>
-											</a>
-											<ul class="slide-menu">
-												<li class="side-menu-label1"><a href="javascript:void(0)">Admin</a></li>
-												<li><a href="#customerModal" class="slide-item" data-toggle="modal" data-target="#customerModal">Customer</a></li>
-												<!-- <li><a href="#" id="customer_navbar" class="slide-item">Customer</a></li> -->
-												<li><a href="#" id="shipperConsignee_navbar" class="slide-item">Shipper & Consignee</a></li>
-												<li><a href="#ExternalCarrierModal" class="slide-item" data-toggle="modal" data-target="#ExternalCarrierModal">External Carrier</a></li>
-												<li><a href="#driverModal" class="slide-item" data-toggle="modal" data-target="#driverModal">Driver & Owner Operator</a></li>
-												<li><a href="#userModal" class="slide-item" data-toggle="modal" data-target="#userModal">User</a></li>
-												<li><a href="#" id="truck_navbar" class="slide-item">Truck</a></li>
-												<li><a href="#" class="slide-item" id="trailer_nav">Trailer</a></li>
-												<li><a href="#" id="facCompany_navbar" class="slide-item">Factoring Company</a></li>
-												<!-- <li><a href="#FacoringCompanyModal" class="slide-item" data-toggle="modal" data-target="#FacoringCompanyModal">Factoring Company</a></li> -->
-											</ul>
-										</li>
-			
-										<li class="slide">
-											<a class="side-menu__item" data-bs-toggle="slide" href="#">
-												<svg xmlns="http://www.w3.org/2000/svg" class="side-menu__icon" enable-background="new 0 0 24 24" viewBox="0 0 24 24"><path d="M21.5,21h-19C2.223877,21,2,21.223877,2,21.5S2.223877,22,2.5,22h19c0.276123,0,0.5-0.223877,0.5-0.5S21.776123,21,21.5,21z M4.5,18.0888672h5c0.1326294,0,0.2597656-0.0527344,0.3534546-0.1465454l10-10c0.000061,0,0.0001221-0.000061,0.0001831-0.0001221c0.1951294-0.1952515,0.1950684-0.5117188-0.0001831-0.7068481l-5-5c0-0.000061-0.000061-0.0001221-0.0001221-0.0001221c-0.1951904-0.1951904-0.5117188-0.1951294-0.7068481,0.0001221l-10,10C4.0526733,12.3291016,4,12.4562378,4,12.5888672v5c0,0.0001831,0,0.0003662,0,0.0005493C4.0001831,17.8654175,4.223999,18.0890503,4.5,18.0888672z M14.5,3.2958984l4.2930298,4.2929688l-2.121582,2.121582l-4.2926025-4.293396L14.5,3.2958984z M5,12.7958984l6.671814-6.671814l4.2926025,4.293396l-6.6713867,6.6713867H5V12.7958984z"/></svg>
-												<span class="side-menu__label">IFTA</span><i class="angle fa fa-angle-right"></i>
-											</a>
-											<ul class="slide-menu">
-												<li class="side-menu-label1"><a href="javascript:void(0)">IFTA</a></li>
-												<li><a href="#" id="fuelVendor_navbar" class="slide-item">Fuel Vendor</a></li>
-												<li><a href="#" id="fuelCard_navbar" class="slide-item">Fuel Card</a></li>
-												<li><a href="#" id="fuelReceipt_navbar" class="slide-item">Fuel Reciepts & Cash Advance</a></li>
-												<li><a href="#" id="iftaToll_navbar" class="slide-item">Tolls</a></li>
-												<li><a href="https://laravel8.spruko.com/noa/wysiwyag" class="slide-item">IFTA Trips</a></li>
-											</ul>
-										</li>
-			
-										<li class="slide">
-											<a class="side-menu__item" data-bs-toggle="slide" href="#">
-												<svg xmlns="http://www.w3.org/2000/svg" class="side-menu__icon" enable-background="new 0 0 24 24" viewBox="0 0 24 24"><path d="M21.5,21h-19C2.223877,21,2,21.223877,2,21.5S2.223877,22,2.5,22h19c0.276123,0,0.5-0.223877,0.5-0.5S21.776123,21,21.5,21z M4.5,18.0888672h5c0.1326294,0,0.2597656-0.0527344,0.3534546-0.1465454l10-10c0.000061,0,0.0001221-0.000061,0.0001831-0.0001221c0.1951294-0.1952515,0.1950684-0.5117188-0.0001831-0.7068481l-5-5c0-0.000061-0.000061-0.0001221-0.0001221-0.0001221c-0.1951904-0.1951904-0.5117188-0.1951294-0.7068481,0.0001221l-10,10C4.0526733,12.3291016,4,12.4562378,4,12.5888672v5c0,0.0001831,0,0.0003662,0,0.0005493C4.0001831,17.8654175,4.223999,18.0890503,4.5,18.0888672z M14.5,3.2958984l4.2930298,4.2929688l-2.121582,2.121582l-4.2926025-4.293396L14.5,3.2958984z M5,12.7958984l6.671814-6.671814l4.2926025,4.293396l-6.6713867,6.6713867H5V12.7958984z"/></svg>
-												<span class="side-menu__label">Finance</span><i class="angle fa fa-angle-right"></i>
-											</a>
-											<ul class="slide-menu">
-												<li class="side-menu-label1"><a href="javascript:void(0)">Finance</a></li>
-												<li><a href="#" id="bank_navbar" class="slide-item">Bank</a></li>
-												<li><a href="#" id="creditCard_navbar" class="slide-item">Credit card</a></li>
-												<li><a href="#" id="subCreditCard_navbar" class="slide-item">Sub Credit card</a></li>
-												<li><a href="#" id="accMana_navbar" class="slide-item">Accounting Manager</a></li>
-												<li><a href="https://laravel8.spruko.com/noa/form-advanced" class="slide-item">Payment & Receipt Registration</a></li>
-											</ul>
-										</li>
-			
-										<li class="slide">
-											<a class="side-menu__item" data-bs-toggle="slide" href="#">
-												<svg xmlns="http://www.w3.org/2000/svg" class="side-menu__icon" enable-background="new 0 0 24 24" viewBox="0 0 24 24"><path d="M21.5,21h-19C2.223877,21,2,21.223877,2,21.5S2.223877,22,2.5,22h19c0.276123,0,0.5-0.223877,0.5-0.5S21.776123,21,21.5,21z M4.5,18.0888672h5c0.1326294,0,0.2597656-0.0527344,0.3534546-0.1465454l10-10c0.000061,0,0.0001221-0.000061,0.0001831-0.0001221c0.1951294-0.1952515,0.1950684-0.5117188-0.0001831-0.7068481l-5-5c0-0.000061-0.000061-0.0001221-0.0001221-0.0001221c-0.1951904-0.1951904-0.5117188-0.1951294-0.7068481,0.0001221l-10,10C4.0526733,12.3291016,4,12.4562378,4,12.5888672v5c0,0.0001831,0,0.0003662,0,0.0005493C4.0001831,17.8654175,4.223999,18.0890503,4.5,18.0888672z M14.5,3.2958984l4.2930298,4.2929688l-2.121582,2.121582l-4.2926025-4.293396L14.5,3.2958984z M5,12.7958984l6.671814-6.671814l4.2926025,4.293396l-6.6713867,6.6713867H5V12.7958984z"/></svg>
-												<span class="side-menu__label">Reports</span><i class="angle fa fa-angle-right"></i>
-											</a>
-											<ul class="slide-menu">
-												<li class="side-menu-label1"><a href="javascript:void(0)">Reports</a></li>
-												<li><a href="https://laravel8.spruko.com/noa/form-elements" class="slide-item">Aging Report</a></li>
-												<li><a href="https://laravel8.spruko.com/noa/form-layouts" class="slide-item">Revenue Report</a></li>
-												<li><a href="https://laravel8.spruko.com/noa/form-layouts" class="slide-item">Expense Report</a></li>
-												<li><a href="https://laravel8.spruko.com/noa/form-validation" class="slide-item">1099 Report</a></li>
-											</ul>
-										</li>
+										@if(isset($adminArray['admin']))
+											@if($adminArray['admin']==1)
+												<li class="slide">
+													<a class="side-menu__item" data-bs-toggle="slide" href="#">
+														<svg xmlns="http://www.w3.org/2000/svg" class="side-menu__icon" enable-background="new 0 0 24 24" viewBox="0 0 24 24"><path d="M21.5,21h-19C2.223877,21,2,21.223877,2,21.5S2.223877,22,2.5,22h19c0.276123,0,0.5-0.223877,0.5-0.5S21.776123,21,21.5,21z M4.5,18.0888672h5c0.1326294,0,0.2597656-0.0527344,0.3534546-0.1465454l10-10c0.000061,0,0.0001221-0.000061,0.0001831-0.0001221c0.1951294-0.1952515,0.1950684-0.5117188-0.0001831-0.7068481l-5-5c0-0.000061-0.000061-0.0001221-0.0001221-0.0001221c-0.1951904-0.1951904-0.5117188-0.1951294-0.7068481,0.0001221l-10,10C4.0526733,12.3291016,4,12.4562378,4,12.5888672v5c0,0.0001831,0,0.0003662,0,0.0005493C4.0001831,17.8654175,4.223999,18.0890503,4.5,18.0888672z M14.5,3.2958984l4.2930298,4.2929688l-2.121582,2.121582l-4.2926025-4.293396L14.5,3.2958984z M5,12.7958984l6.671814-6.671814l4.2926025,4.293396l-6.6713867,6.6713867H5V12.7958984z"/></svg>
+														<span class="side-menu__label">Admin</span><i class="angle fa fa-angle-right"></i>
+													</a>
+													<ul class="slide-menu">
+														<li class="side-menu-label1"><a href="javascript:void(0)">Admin</a></li>
+														@if(isset($adminArray['addCustomer']))
+															@if($adminArray['addCustomer']==1)
+															<li><a href="#customerModal" class="slide-item" data-toggle="modal" data-target="#customerModal">Customer</a></li>
+															@endif 
+														@elseif(isset($adminArray['customer']))
+															@if($adminArray['customer']==1)
+															<li><a href="#customerModal" class="slide-item" data-toggle="modal" data-target="#customerModal">Customer</a></li>
+															@endif 
+														@endif
+
+														@if(isset($adminArray['addShipper']) && isset($adminArray['addConsignee']))
+															@if($adminArray['addShipper']==1 && $adminArray['addConsignee']==1)
+																<li><a href="#" id="shipperConsignee_navbar" class="slide-item">Shipper & Consignee</a></li>
+															@endif 
+														@elseif(isset($adminArray['customer']))
+															@if($adminArray['customer']==1)
+																<li><a href="#" id="shipperConsignee_navbar" class="slide-item">Shipper & Consignee</a></li>
+															@endif 
+														@endif	
+
+														@if(isset($adminArray['addExternalCarrier']))
+															@if($adminArray['addExternalCarrier']==1)
+															<li><a href="#ExternalCarrierModal" class="slide-item" data-toggle="modal" data-target="#ExternalCarrierModal">External Carrier</a></li>
+															@endif 
+														@elseif(isset($adminArray['external_carrier']))
+															@if($adminArray['external_carrier']==1)
+															<li><a href="#ExternalCarrierModal" class="slide-item" data-toggle="modal" data-target="#ExternalCarrierModal">External Carrier</a></li>
+															@endif 
+														@endif
+
+														@if(isset($adminArray['addDriver']))
+															@if($adminArray['addDriver']==1)
+															<li><a href="#driverModal" class="slide-item" data-toggle="modal" data-target="#driverModal">Driver & Owner Operator</a></li>
+															@endif 
+														@elseif(isset($adminArray['driver_owner_operator']))
+															@if($adminArray['driver_owner_operator']==1)
+															<li><a href="#driverModal" class="slide-item" data-toggle="modal" data-target="#driverModal">Driver & Owner Operator</a></li>
+															@endif 
+														@endif
+														
+														@if(isset($adminArray['addDriver']))
+															@if($adminArray['addDriver']==1)
+															<li><a href="#userModal" class="slide-item" data-toggle="modal" data-target="#userModal">User</a></li>
+															@endif 
+														@elseif(isset($adminArray['driver_owner_operator']))
+															@if($adminArray['driver_owner_operator']==1)
+															<li><a href="#userModal" class="slide-item" data-toggle="modal" data-target="#userModal">User</a></li>
+															@endif 
+														@endif
+														
+														
+														@if(isset($adminArray['addTruck']))
+															@if($adminArray['addTruck']==1)
+															<li><a href="#" id="truck_navbar" class="slide-item">Truck</a></li>
+															@endif 
+														@elseif(isset($adminArray['truck']))
+															@if($adminArray['truck']==1)
+															<li><a href="#" id="truck_navbar" class="slide-item">Truck</a></li>
+															@endif 
+														@endif
+
+														@if(isset($adminArray['addTrailer']))
+															@if($adminArray['addTrailer']==1)
+															<li><a href="#" class="slide-item" id="trailer_nav">Trailer</a></li>
+															@endif 
+														@elseif(isset($adminArray['trailer']))
+															@if($adminArray['trailer']==1)
+															<li><a href="#" class="slide-item" id="trailer_nav">Trailer</a></li>
+															@endif 
+														@endif
+
+														@if(isset($adminArray['factoringCompany']))
+															@if($adminArray['factoringCompany']==1)
+															<li><a href="#" id="facCompany_navbar" class="slide-item">Factoring Company</a></li>
+															@endif 
+														@elseif(isset($adminArray['factoring_Company']))
+															@if($adminArray['factoring_Company']==1)
+															<li><a href="#" id="facCompany_navbar" class="slide-item">Factoring Company</a></li>
+															@endif 
+														@endif
+														<!-- <li><a href="#FacoringCompanyModal" class="slide-item" data-toggle="modal" data-target="#FacoringCompanyModal">Factoring Company</a></li> -->
+													</ul>
+												</li>
+											@endif 
+										@endif
+
+										@if(isset($iftaArray['ifta']))
+											@if($iftaArray['ifta']==1)
+												<li class="slide">
+													<a class="side-menu__item" data-bs-toggle="slide" href="#">
+														<svg xmlns="http://www.w3.org/2000/svg" class="side-menu__icon" enable-background="new 0 0 24 24" viewBox="0 0 24 24"><path d="M21.5,21h-19C2.223877,21,2,21.223877,2,21.5S2.223877,22,2.5,22h19c0.276123,0,0.5-0.223877,0.5-0.5S21.776123,21,21.5,21z M4.5,18.0888672h5c0.1326294,0,0.2597656-0.0527344,0.3534546-0.1465454l10-10c0.000061,0,0.0001221-0.000061,0.0001831-0.0001221c0.1951294-0.1952515,0.1950684-0.5117188-0.0001831-0.7068481l-5-5c0-0.000061-0.000061-0.0001221-0.0001221-0.0001221c-0.1951904-0.1951904-0.5117188-0.1951294-0.7068481,0.0001221l-10,10C4.0526733,12.3291016,4,12.4562378,4,12.5888672v5c0,0.0001831,0,0.0003662,0,0.0005493C4.0001831,17.8654175,4.223999,18.0890503,4.5,18.0888672z M14.5,3.2958984l4.2930298,4.2929688l-2.121582,2.121582l-4.2926025-4.293396L14.5,3.2958984z M5,12.7958984l6.671814-6.671814l4.2926025,4.293396l-6.6713867,6.6713867H5V12.7958984z"/></svg>
+														<span class="side-menu__label">IFTA</span><i class="angle fa fa-angle-right"></i>
+													</a>
+													<ul class="slide-menu">
+														<li class="side-menu-label1"><a href="javascript:void(0)">IFTA</a></li>
+														@if(isset($masterArray['fuelCardType']))
+															@if($masterArray['fuelCardType']==1)
+																<li><a href="#" id="fuelVendor_navbar" class="slide-item">Fuel Vendor</a></li>
+															@endif 
+														@elseif(isset($iftaArray['fuel_vendor']))
+															@if($iftaArray['fuel_vendor']==1)
+																<li><a href="#" id="fuelVendor_navbar" class="slide-item">Fuel Vendor</a></li>
+															@endif 
+														@endif
+
+														@if(isset($iftaArray['iftaCard']))
+															@if($iftaArray['iftaCard']==1)
+																<li><a href="#" id="fuelCard_navbar" class="slide-item">Fuel Card</a></li>
+															@endif 
+														@endif
+
+														@if(isset($iftaArray['fuelReceipt']))
+															@if($iftaArray['fuelReceipt']==1)
+																<li><a href="#" id="fuelReceipt_navbar" class="slide-item">Fuel Reciepts & Cash Advance</a></li>
+															@endif 
+														@elseif(isset($iftaArray['Fuel_reciepts_cash_advance']))
+															@if($iftaArray['Fuel_reciepts_cash_advance']==1)
+																<li><a href="#" id="fuelReceipt_navbar" class="slide-item">Fuel Reciepts & Cash Advance</a></li>
+															@endif 
+														@endif
+
+														@if(isset($iftaArray['addToll']))
+															@if($iftaArray['addToll']==1)
+																<li><a href="#" id="iftaToll_navbar" class="slide-item">Tolls</a></li>
+															@endif 
+														@elseif(isset($iftaArray['tolls']))
+															@if($iftaArray['tolls']==1)
+																<li><a href="#" id="iftaToll_navbar" class="slide-item">Tolls</a></li>
+															@endif 
+														@endif
+															
+														@if(isset($iftaArray['verifyTrip']))
+															@if($iftaArray['verifyTrip']==1)
+																<li><a href="" class="slide-item" id="ifta_navbar">IFTA Trips</a></li>
+															@endif 
+														@elseif(isset($iftaArray['IFTA_trips']))
+															@if($iftaArray['IFTA_trips']==1)
+																<li><a href="" class="slide-item" id="ifta_navbar">IFTA Trips</a></li>
+															@endif 
+														@endif	
+															
+													</ul>
+												</li>
+											@endif 
+										@endif
+
+										@if(isset($accountArray['account']))
+											@if($accountArray['account']==1)
+												<li class="slide">
+													<a class="side-menu__item" data-bs-toggle="slide" href="#">
+														<svg xmlns="http://www.w3.org/2000/svg" class="side-menu__icon" enable-background="new 0 0 24 24" viewBox="0 0 24 24"><path d="M21.5,21h-19C2.223877,21,2,21.223877,2,21.5S2.223877,22,2.5,22h19c0.276123,0,0.5-0.223877,0.5-0.5S21.776123,21,21.5,21z M4.5,18.0888672h5c0.1326294,0,0.2597656-0.0527344,0.3534546-0.1465454l10-10c0.000061,0,0.0001221-0.000061,0.0001831-0.0001221c0.1951294-0.1952515,0.1950684-0.5117188-0.0001831-0.7068481l-5-5c0-0.000061-0.000061-0.0001221-0.0001221-0.0001221c-0.1951904-0.1951904-0.5117188-0.1951294-0.7068481,0.0001221l-10,10C4.0526733,12.3291016,4,12.4562378,4,12.5888672v5c0,0.0001831,0,0.0003662,0,0.0005493C4.0001831,17.8654175,4.223999,18.0890503,4.5,18.0888672z M14.5,3.2958984l4.2930298,4.2929688l-2.121582,2.121582l-4.2926025-4.293396L14.5,3.2958984z M5,12.7958984l6.671814-6.671814l4.2926025,4.293396l-6.6713867,6.6713867H5V12.7958984z"/></svg>
+														<span class="side-menu__label">Finance</span><i class="angle fa fa-angle-right"></i>
+													</a>
+													<ul class="slide-menu">
+														<li class="side-menu-label1"><a href="javascript:void(0)">Finance</a></li>
+
+														@if(isset($adminArray['addBank']))
+															@if($adminArray['addBank']==1)
+																<li><a href="#" id="bank_navbar" class="slide-item">Bank</a></li>
+															@endif 
+														@elseif(isset($accountArray['bank']))
+															@if($accountArray['bank']==1)
+																<li><a href="#" id="bank_navbar" class="slide-item">Bank</a></li>
+															@endif 
+														@endif
+
+														@if(isset($adminArray['creditCard']))
+															@if($adminArray['creditCard']==1)
+																<li><a href="#" id="creditCard_navbar" class="slide-item">Credit card</a></li>
+															@endif 
+														@elseif(isset($accountArray['credit_card']))
+															@if($accountArray['credit_card']==1)
+																<li><a href="#" id="creditCard_navbar" class="slide-item">Credit card</a></li>
+															@endif 
+														@endif
+
+														@if(isset($adminArray['subCreditCard']))
+															@if($adminArray['subCreditCard']==1)
+																<li><a href="#" id="subCreditCard_navbar" class="slide-item">Sub Credit card</a></li>
+															@endif 
+														@elseif(isset($accountArray['sub_credit_card']))
+															@if($accountArray['sub_credit_card']==1)
+																<li><a href="#" id="subCreditCard_navbar" class="slide-item">Sub Credit card</a></li>
+															@endif 
+														@endif
+
+														@if(isset($accountArray['accountManager']))
+															@if($accountArray['accountManager']==1)
+																<li><a href="#" id="accMana_navbar" class="slide-item">Accounting Manager</a></li>
+															@endif 
+														@endif
+														
+														@if(isset($accountArray['paymentRegistration']))
+															@if($accountArray['paymentRegistration']==1)
+															<li><a href="https://laravel8.spruko.com/noa/form-advanced" class="slide-item">Payment & Receipt Registration</a></li>
+															@endif 
+														@elseif(isset($accountArray['paymentRegistration']))
+															@if($accountArray['paymentRegistration']==1)
+															<li><a href="https://laravel8.spruko.com/noa/form-advanced" class="slide-item">Payment & Receipt Registration</a></li>
+															@endif 
+														@endif
+													</ul>
+												</li>
+											@endif 
+										@endif
+										
+										@if(isset($reportsArray['report']))
+											@if($reportsArray['report']==1)
+												<li class="slide">
+												<a class="side-menu__item" data-bs-toggle="slide" href="#">
+													<svg xmlns="http://www.w3.org/2000/svg" class="side-menu__icon" enable-background="new 0 0 24 24" viewBox="0 0 24 24"><path d="M21.5,21h-19C2.223877,21,2,21.223877,2,21.5S2.223877,22,2.5,22h19c0.276123,0,0.5-0.223877,0.5-0.5S21.776123,21,21.5,21z M4.5,18.0888672h5c0.1326294,0,0.2597656-0.0527344,0.3534546-0.1465454l10-10c0.000061,0,0.0001221-0.000061,0.0001831-0.0001221c0.1951294-0.1952515,0.1950684-0.5117188-0.0001831-0.7068481l-5-5c0-0.000061-0.000061-0.0001221-0.0001221-0.0001221c-0.1951904-0.1951904-0.5117188-0.1951294-0.7068481,0.0001221l-10,10C4.0526733,12.3291016,4,12.4562378,4,12.5888672v5c0,0.0001831,0,0.0003662,0,0.0005493C4.0001831,17.8654175,4.223999,18.0890503,4.5,18.0888672z M14.5,3.2958984l4.2930298,4.2929688l-2.121582,2.121582l-4.2926025-4.293396L14.5,3.2958984z M5,12.7958984l6.671814-6.671814l4.2926025,4.293396l-6.6713867,6.6713867H5V12.7958984z"/></svg>
+													<span class="side-menu__label">Reports</span><i class="angle fa fa-angle-right"></i>
+												</a>
+													<ul class="slide-menu">
+														<li class="side-menu-label1"><a href="javascript:void(0)">Reports</a></li>
+
+														@if(isset($reportsArray['aggingReport']))
+															@if($reportsArray['aggingReport']==1)
+																<li><a href="https://laravel8.spruko.com/noa/form-elements" class="slide-item">Aging Report</a></li> 
+															@endif 
+														@endif
+
+														@if(isset($reportsArray['receivableReport']))
+															@if($reportsArray['receivableReport']==1)
+																<li><a href="https://laravel8.spruko.com/noa/form-layouts" class="slide-item">Revenue Report</a></li>
+															@endif 
+														@elseif(isset($reportsArray['Revenue_report']))
+															@if($reportsArray['Revenue_report']==1)
+																<li><a href="https://laravel8.spruko.com/noa/form-layouts" class="slide-item">Revenue Report</a></li> 
+															@endif
+														@endif
+
+														@if(isset($reportsArray['payableReport']))
+															@if($reportsArray['payableReport']==1)
+																<li><a href="https://laravel8.spruko.com/noa/form-layouts" class="slide-item">Expense Report</a></li>
+															@endif	
+														@elseif(isset($reportsArray['Expense_report']))
+															@if($reportsArray['Expense_report']==1)
+																<li><a href="https://laravel8.spruko.com/noa/form-layouts" class="slide-item">Expense Report</a></li>
+															@endif 
+														@endif
+
+														@if(isset($reportsArray['Report1099']))
+															@if($reportsArray['Report1099']==1)
+																<li><a href="https://laravel8.spruko.com/noa/form-validation" class="slide-item">1099 Report</a></li>
+															@endif 
+														@endif
+													</ul>
+												</li>
+											@endif
+										@endif
 			
 										<li class="slide">
 											<a class="side-menu__item" data-bs-toggle="slide" href="#">
@@ -108,7 +315,46 @@
 											</a>
 											<ul class="slide-menu">
 												<li class="side-menu-label1"><a href="javascript:void(0)">Settlements</a></li>
-												<li><a href="https://laravel8.spruko.com/noa/form-elements" class="slide-item">Driver Pay Settlements</a></li>
+
+												 @if(isset($reportsArray['driverReport']))
+													@if($reportsArray['driverReport']==1)
+													<li><a href="https://laravel8.spruko.com/noa/form-elements" class="slide-item">Driver Pay Settlements</a></li>
+													@endif	
+												@elseif(isset($settlements['driverReport']))
+													@if($settlements['driverReport']==1)
+													<li><a href="https://laravel8.spruko.com/noa/form-elements" class="slide-item">Driver Pay Settlements</a></li>
+													@endif 
+												@endif
+
+												<!--@if(isset($settlements['CustomerSettlement']))
+													@if($settlements['CustomerSettlement']==1)
+														<li><a href="https://laravel8.spruko.com/noa/form-layouts" class="slide-item">Customer Settlement</a></li>
+													@endif	
+												@elseif(isset($settlements['CustomerSettlement']))
+													@if($settlements['CustomerSettlement']==1)
+														<li><a href="https://laravel8.spruko.com/noa/form-layouts" class="slide-item">Customer Settlement</a></li>
+													@endif 
+												@endif
+
+												@if(isset($settlements['CarrierSettlement']))
+													@if($settlements['CarrierSettlement']==1)
+														<li><a href="https://laravel8.spruko.com/noa/form-layouts" class="slide-item">Carrier Settlement</a></li>
+													@endif	
+												@elseif(isset($settlements['CarrierSettlement']))
+													@if($settlements['CarrierSettlement']==1)
+														<li><a href="https://laravel8.spruko.com/noa/form-layouts" class="slide-item">Carrier Settlement</a></li>
+													@endif 
+												@endif
+
+												@if(isset($settlements['Factoringcompany']))
+													@if($settlements['Factoringcompany']==1)
+														<li><a href="https://laravel8.spruko.com/noa/form-validation" class="slide-item">Factoring company</a></li>
+													@endif	
+												@elseif(isset($settlements['Factoringcompany']))
+													@if($settlements['Factoringcompany']==1)
+														<li><a href="https://laravel8.spruko.com/noa/form-validation" class="slide-item">Factoring company</a></li>
+													@endif 
+												@endif -->
 												<li><a href="https://laravel8.spruko.com/noa/form-layouts" class="slide-item">Customer Settlement</a></li>
 												<li><a href="https://laravel8.spruko.com/noa/form-layouts" class="slide-item">Carrier Settlement</a></li>
 												<li><a href="https://laravel8.spruko.com/noa/form-validation" class="slide-item">Factoring company</a></li>
@@ -260,7 +506,7 @@
 															<svg xmlns="" class="w-inner-icn" enable-background="new 0 0 24 24" viewBox="0 0 24 24"><path d="M19.5,7H18V6c-0.0018311-1.6561279-1.3438721-2.9981689-3-3H4.5C3.119812,3.0012817,2.0012817,4.119812,2,5.5V18c0.0018311,1.6561279,1.3438721,2.9981689,3,3h14.5c1.380188-0.0012817,2.4987183-1.119812,2.5-2.5v-9C21.9987183,8.119812,20.880188,7.0012817,19.5,7z M4.5,4H15c1.1040039,0.0014038,1.9985962,0.8959961,2,2v1H4.5C3.6715698,7,3,6.3284302,3,5.5S3.6715698,4,4.5,4z M21,16h-2c-1.1045532,0-2-0.8954468-2-2s0.8954468-2,2-2h2V16z M21,11h-2c-1.6568604,0-3,1.3431396-3,3s1.3431396,3,3,3h2v1.5c-0.0009155,0.828064-0.671936,1.4990845-1.5,1.5H5c-1.1040039-0.0014038-1.9985962-0.8959961-2-2V7.4990234C3.4321899,7.8247681,3.9588013,8.0006714,4.5,8h15c0.828064,0.0009155,1.4990845,0.671936,1.5,1.5V11z"/></svg>
 															Status
 														</a></li>
-														<li><a class="dropdown-item" href="mail-compose.html">
+														<li><a class="dropdown-item" id="Load_navbar">
 															<svg xmlns="" class="w-inner-icn" enable-background="new 0 0 24 24" viewBox="0 0 24 24"><path d="M19.5,7H18V6c-0.0018311-1.6561279-1.3438721-2.9981689-3-3H4.5C3.119812,3.0012817,2.0012817,4.119812,2,5.5V18c0.0018311,1.6561279,1.3438721,2.9981689,3,3h14.5c1.380188-0.0012817,2.4987183-1.119812,2.5-2.5v-9C21.9987183,8.119812,20.880188,7.0012817,19.5,7z M4.5,4H15c1.1040039,0.0014038,1.9985962,0.8959961,2,2v1H4.5C3.6715698,7,3,6.3284302,3,5.5S3.6715698,4,4.5,4z M21,16h-2c-1.1045532,0-2-0.8954468-2-2s0.8954468-2,2-2h2V16z M21,11h-2c-1.6568604,0-3,1.3431396-3,3s1.3431396,3,3,3h2v1.5c-0.0009155,0.828064-0.671936,1.4990845-1.5,1.5H5c-1.1040039-0.0014038-1.9985962-0.8959961-2-2V7.4990234C3.4321899,7.8247681,3.9588013,8.0006714,4.5,8h15c0.828064,0.0009155,1.4990845,0.671936,1.5,1.5V11z"/></svg>
 															New Active Type (Load Type) Defult
 														</a></li>
@@ -352,4 +598,4 @@
 			@include('layout.Recurrence Category.RecurrenceCategory')
 			@include('layout.Terms & Conditions.Terms&Conditions')
 			@include('layout.Truck & Trailer make.TruckTrailerMake')
-			
+			@include('layout.Load.Load')

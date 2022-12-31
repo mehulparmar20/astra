@@ -566,7 +566,7 @@ ul.ks-cboxtags li input[type="checkbox"]:focus+label {
 
 
 #addContractCategory, #contractCategoryModal, #addDriverModal, #addRecurrence, #substractRecurrence, #setupDriverModal, #addUserModal, #addCustomerModal, #plusCurrencyModal, #factoringCompanyModal, #factoringCompanyModal, #PaymentTermsModal,
-#addTruckModal, #userEditModal, #addTruckModal, #addEquipmentTypeModal, #TruckTrailerMakeModal, #addTruckTrailerMakeModal {
+#addTruckModal, #userEditModal, #addTruckModal, #addEquipmentTypeModal, #TruckTrailerMakeModal, #addTruckTrailerMakeModal, #LoadModal, #addLoadTypeModal {
   backdrop-filter: blur(1px) contrast(.1);
 }
 

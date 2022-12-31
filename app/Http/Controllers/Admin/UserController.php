@@ -16,6 +16,7 @@ class UserController extends Controller
 {
     public function addUsers(Request $request)
     {
+        // dd($request->inser_user);
 		// $data = $db->companyAdmin->findOne(["_id"=> (int)$_SESSION['companyId']]);
         // $flag = false;
         // $flagfield = '';
@@ -35,7 +36,6 @@ class UserController extends Controller
             'userZip' => 'numeric|nullable',
             'userExt' => 'numeric|nullable',
         ]);
-    
         //Data::insert($request->all());
         // User::create(['name' => $request->input('name'),
         //     "Information"=>[              
@@ -87,13 +87,13 @@ class UserController extends Controller
                     'userExt' => $request->userExt,
                     'TollFree' => $request->TollFree,
                     'userFax' => $request->userFax,
-                    // 'privilege' => (object)array(
-                    //     'insertUser' => $request->input('insertUser'),
-                    //     'updateUser' => $request->input('updateUser'),
-                    //     'deleteUser' => $request->input('deleteUser'),
-                    //     'importUser' => $request->input('importUser'),
-                    //     'exportUser' => $request->input('exportUser'),
-                    // ),
+                    'privilege' => (object)array(
+                        'insertUser' => $request->inser_user,
+                        'updateUser' => $request->update_user,
+                        'deleteUser' => $request->delete_user,
+                        'importUser' => $request->import_user,
+                        'exportUser' => $request->export_user,
+                    ),
                     'dashboard' => (object)array(
                         'profit_loss' => (int)$request->input('profit_loss'),
                         'dispatcher' => (int)$request->input('dispatcher'),
@@ -106,6 +106,7 @@ class UserController extends Controller
                         'new_active_load' => (int)$request->input('new_active_load'),
                     ),
                     'master' => (object)array(
+                        
                         // 'master' => $request->input('master'),
                         'addCompany' => (int)$request->input('addCompany'),
                         'paymentTerms' => (int)$request->input('paymentTerms'),
@@ -125,52 +126,84 @@ class UserController extends Controller
                         'documentType' => (int)$request->input('documentType')
                     ),
                     'admin' => (object)array(
-                        // 'admin' => $request->input('admin'),
-                        'addCustomer' => (int)$request->input('addCustomer'),
-                        'addShipper' => (int)$request->input('addShipper'),
-                        'addBank' => (int)$request->input('addBank'),
-                        'addConsignee' => (int)$request->input('addConsignee'),
-                        'addDriver' => (int)$request->input('addDriver'),
-                        'addTruck' => (int)$request->input('addTruck'),
-                        'addTrailer' => (int)$request->input('addTrailer'),
-                        // 'addExternalCarrier' => $request->input('addExternalCarrier'),
-                        'factoringCompany' => (int)$request->input('factoringCompany'),
-                        'customsBroker' => (int)$request->input('customsBroker'),
-                        'creditCard' => (int)$request->input('creditCard'),
-                        'subCreditCard' => (int)$request->input('subCreditCard'),
-                        'users' => (int)$request->input('users'),
-                        'iftaCard' => (int)$request->input('iftaCard'),
+                        'admin' => $request->admin,
+                        'customer'=>$request->customer,
+                        'shipper_Consignee'=>$request->addShipper,
+                        // 'consignee' =>$request->addConsignee,
+                        'external_carrier'=>$request->external_carrier,
+                        'driver_owner_operator'=>$request->driver_owner_operator,
+                        'user'=>$request->user,
+                        'truck'=>$request->truck,
+                        'trailer'=>$request->trailer,
+                        'factoring_Company'=>$request->factoringCompany,
+                        // 'addCustomer' => (int)$request->input('addCustomer'),
+                        // 'addShipper' => (int)$request->input('addShipper'),
+                        // 'addBank' => (int)$request->input('addBank'),
+                        // 'addConsignee' => (int)$request->input('addConsignee'),
+                        // 'addDriver' => (int)$request->input('addDriver'),
+                        // 'addTruck' => (int)$request->input('addTruck'),
+                        // 'addTrailer' => (int)$request->input('addTrailer'),
+                        // // 'addExternalCarrier' => $request->input('addExternalCarrier'),
+                        // 'factoringCompany' => (int)$request->input('factoringCompany'),
+                        // 'customsBroker' => (int)$request->input('customsBroker'),
+                        // 'creditCard' => (int)$request->input('creditCard'),
+                        // 'subCreditCard' => (int)$request->input('subCreditCard'),
+                        // 'users' => (int)$request->input('users'),
+                        // 'iftaCard' => (int)$request->input('iftaCard'),
                     ),
                     'ifta' => (object)array(
+                        'ifta'=>$request->ifta,
+                        'fuel_vendor'=>$request->fuel_vendor,
+                        'iftaCard' => $request->iftaCard,
+                        'Fuel_reciepts_cash_advance' => $request->Fuel_reciepts_cash_advance,
+                        'tolls'=>$request->tolls,
+                        'IFTA_trips'=>$request->IFTA_trips,
                         // 'ifta' => $request->input('ifta'),
-                        'fuelReceipt' => (int)$request->input('fuelReceipt'),
-                        'addToll' => (int)$request->input('addToll'),
-                        'verifyTrip' => (int)$request->input('verifyTrip'),
+                        // 'fuelReceipt' => (int)$request->input('fuelReceipt'),
+                        // 'addToll' => (int)$request->input('addToll'),
+                        // 'verifyTrip' => (int)$request->input('verifyTrip'),
                         // 'iftaReport' => $request->input('iftaReport'),
-                        // 'iftaCard' => $request->input('iftaCard')
                     ),
                     'account' => (object)array(
-                        // 'account' => $request->input('account'),
-                        'accountManager' => (int)$request->input('accountManager'),
-                        'paymentRegistration' => (int)$request->input('paymentRegistration'),
-                        'advancePayment' => (int)$request->input('advancePayment'),
-                        'manageReceipt' => (int)$request->input('manageReceipt'),
+                        'account'=>$request->Finance,
+                        'bank'=>$request->bank,
+                        'accountManager'=>$request->accountManager,
+                        'paymentRegistration'=>$request->paymentRegistration,
+                        'sub_credit_card'=>$request->advancePayment,
+                        'credit_card'=>$request->manageReceipt,
+                        // // 'account' => $request->input('account'),
+                        // 'accountManager' => (int)$request->input('accountManager'),
+                        // 'paymentRegistration' => (int)$request->input('paymentRegistration'),
+                        // 'advancePayment' => (int)$request->input('advancePayment'),
+                        // 'manageReceipt' => (int)$request->input('manageReceipt'),
                     ),
                     'reports' => (object)array(
-                        // 'report' => $request->input('report'),
-                        'creditStateReport' => (int)$request->input('creditStateReport'),
-                        'bankStateReport' => (int)$request->input('bankStateReport'),
-                        'driverReport' => (int)$request->input('driverReport'),
-                        'fuelReport' => (int)$request->input('fuelReport'),
-                        'aggingReport' => (int)$request->input('aggingReport'),
-                        'tollReport' => (int)$request->input('tollReport'),
-                        'receivableReport' => (int)$request->input('receivableReport'),
-                        'payableReport' => (int)$request->input('payableReport'),
-                        'fuelcardReport' => (int)$request->input('fuelcardReport'),
-                        'Report1099'=> (int)$request->input('Report1099'),
-                        'emailTrack' => (int)$request->input('emailTrack'),
-                        'laneAnalysis' => (int)$request->input('laneAnalysis')
+                        'report' => $request->report,
+                        'aggingReport'=>$request->aggingReport,
+                        'Report1099'=>$request->Report1099,
+                        'Expense_report'=>$request->Expense_report,
+                        'Revenue_report'=>$request->Revenue_report,
+                        // 'creditStateReport' => (int)$request->input('creditStateReport'),
+                        // 'bankStateReport' => (int)$request->input('bankStateReport'),
+                        // 'driverReport' => (int)$request->input('driverReport'),
+                        // 'fuelReport' => (int)$request->input('fuelReport'),
+                        // 'aggingReport' => (int)$request->input('aggingReport'),
+                        // 'tollReport' => (int)$request->input('tollReport'),
+                        // 'receivableReport' => (int)$request->input('receivableReport'),
+                        // 'payableReport' => (int)$request->input('payableReport'),
+                        // 'fuelcardReport' => (int)$request->input('fuelcardReport'),
+                        // 'Report1099'=> (int)$request->input('Report1099'),
+                        // 'emailTrack' => (int)$request->input('emailTrack'),
+                        // 'laneAnalysis' => (int)$request->input('laneAnalysis')
                     ),
+
+                    'settlements' => (object)array(
+                        'driverReport' => (int)$request->input('driverReport'),
+                        // 'CustomerSettlement'=>$request->CustomerSettlement,
+                        // 'CarrierSettlement'=>$request->CarrierSettlement,
+                        // 'Factoringcompany'=>$request->Factoringcompany,
+                    ),
+
                     'user_type' => "user",
                     // 'insertedTime' => Carbon::now(),
                     // 'insertedUserId' => $_SESSION['userName'],
@@ -229,6 +262,7 @@ class UserController extends Controller
             return $error->getMessage();
         }
     }
+
 
     // update Privilege
     public function userEditDetails(Request $request)

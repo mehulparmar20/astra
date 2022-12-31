@@ -26,6 +26,7 @@ use App\Http\Controllers\Admin\EquipmentTypeController;
 use App\Http\Controllers\Admin\RecurrenceCategoryController;
 use App\Http\Controllers\Admin\TermsConditionsController;
 use App\Http\Controllers\Admin\TruckTrailerMakeController;
+use App\Http\Controllers\Admin\LoadController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -101,6 +102,7 @@ Route::post('admin/addCustomer', [CustomerController::class, 'addCustomerData'])
 Route::get('admin/edit_customer', [CustomerController::class, 'edit_customer']);
 Route::post('admin/update_customer', [CustomerController::class, 'update_customer']);
 Route::post('admin/delete_customer', [CustomerController::class, 'delete_customer']);
+Route::post('admin/restoreCustomer', [CustomerController::class, 'restoreCustomer']);
 
 //addCurrency
 Route::get('admin/customerCurrency', [CustomerController::class, 'getCustomerCurrency']);
@@ -130,6 +132,12 @@ Route::post('admin/updateUserCompany', [CompanyController::class, 'updateUserCom
 Route::get('admin/getTruck', [TruckController::class, 'getTruck']);
 Route::get('admin/truck_getTrucktype', [TruckController::class, 'truck_getTrucktype']);
 Route::post('admin/addTruck', [TruckController::class, 'addTruckData']);
+Route::get('admin/edit_truck', [TruckController::class, 'edit_truck']);
+Route::post('admin/update_truck', [TruckController::class, 'update_truck']);
+Route::post('admin/delete_truck', [TruckController::class, 'delete_truck']);
+Route::post('admin/restore_truck', [TruckController::class, 'restore_truck']);
+Route::post('admin/create_truckType', [TruckController::class, 'create_truckType']);
+
 
 //Shipper
 Route::get('admin/getShipper', [ShipperController::class, 'getShipper']);
@@ -190,3 +198,7 @@ Route::post('admin/addTermsConditions', [TermsConditionsController::class, 'addT
 //Truck & Trailer Make
 Route::get('admin/getTruckTrailerMake', [TruckTrailerMakeController::class, 'getTruckTrailerMake']);
 Route::post('admin/addTruckTrailer', [TruckTrailerMakeController::class, 'addTruckTrailer']);
+
+//Load Type
+Route::get('admin/getLoaType', [LoadController::class, 'getLoaType']);
+Route::post('admin/addLoadType', [LoadController::class, 'addLoadType']);
