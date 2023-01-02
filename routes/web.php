@@ -145,8 +145,13 @@ Route::get('admin/getShipper', [ShipperController::class, 'getShipper']);
 //consignee
 Route::get('admin/getConsignee', [ConsigneeController::class, 'getConsignee']);
 
-//fuel vendor
+//FuelVendorController
 Route::get('admin/getFuelVendor', [FuelVendorController::class, 'getFuelVendor']);
+Route::post('admin/createFuelVendor', [FuelVendorController::class, 'createFuelVendor']);
+Route::get('admin/editFuelVendor', [FuelVendorController::class, 'editFuelVendor']);
+Route::post('admin/updateFuelVendor', [FuelVendorController::class, 'updateFuelVendor']);
+Route::post('admin/deleteFuelVendor', [FuelVendorController::class, 'deleteFuelVendor']);
+Route::post('admin/restoreFuelVendor', [FuelVendorController::class, 'restoreFuelVendor']);
 
 //fuel card
 Route::get('admin/getFuelCard', [FuelCardController::class, 'getFuelCard']);

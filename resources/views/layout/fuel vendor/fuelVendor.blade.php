@@ -12,7 +12,8 @@
                 </div>
 
                 <div style="margin-top: 15px; margin-left: 15px;">
-                    <a href="#addDriverModal" class="button-57" data-toggle="modal"data-target="#addDriverModal"><i class="fa fa-plus" aria-hidden="true"></i><span>Add</span></a>
+                    <a  class="button-57 create_fuel_vendor_model"><i class="fa fa-plus" aria-hidden="true"></i><span>Add</span></a>
+                    <button class="button-57_alt restore_fuel_vendor" ><i class="fa fa-repeat " aria-hidden="true"></i><span>Restore Fuel Vendor</span></button>
 
                 </div>
                 <!-- Modal body -->
@@ -21,11 +22,10 @@
                     <div class="row">
                         <div class="row row-sm">
                             <div class="col-lg-12">
-
                                 <div class="table-responsive export-table">
                                     <table id="editable-file-datatable" class="table editable-table table-nowrap table-bordered table-edit wp-100 customtable">
-                                        <thead>
-                                            <tr>
+                                        <thead class="thead_th">
+                                            <tr class="tr">
                                                 <th>NO</th>
                                                 <th>Name</th>
                                                 <th>Opening Date</th>
@@ -57,5 +57,92 @@
             </div>
         </div>
     </div>
-
 </div>
+
+ <!-- ============ start add fuelVendor ================ -->
+<div class="modal fade" id="AddFuelVendor"  tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" >Create Fuel Vendor Name</h5>
+                <button type="button" class="close closeAddFuelVendor" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="addTrailerTypeForm">
+                    @csrf
+                    <input type="hidden" name="_token" id="_tokenAdd_fuel_vendor" value="{{ csrf_token() }}" />
+                    <div class="form-group col-md-12">
+                        <label>Fuel Card Type<span style="color:#ff0000">*</span></label>
+                        <div>
+                            <input type= "text" class="form-control addFuel_Card_Type" placeholder="Fuel Card Type "  id="addFuel_Card_Type " name="fuelCardType" required >
+                        </div>
+                        <label>Opening Balance Date<span style="color:#ff0000">*</span></label>
+                        <div>
+                            <input type= "date" class="form-control date_formate_change" id="Add_OpeningDate" name="openingDate" required />
+                        </div>
+                        <label>Opening Amount<span style="color:#ff0000">*</span></label>
+                        <div>
+                            <input  class="form-control " type="text" id="add_Opening_Amount" name="openingBalance" required />
+                        </div>
+                        <label>Current Amount<span style="color:#ff0000">*</span></label>
+                        <div>
+                            <input  class="form-control " type="text" id="add_currentBalance" name="currentBalance" required />
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="button-29 closeAddFuelVendor" data-dismiss="modal">Close</button>
+                <button type="button" class="button-29 FuelVendorSavebutton " >Save </button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- ============================================ end add fuelVendor  ===================== -->
+
+ <!-- ============ start update fuelVendor ================ -->
+ <div class="modal fade" id="UpdateFuelVendor"  tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" >Update Fuel Vendor Name</h5>
+                <button type="button" class="close closeFuelVendorUpdatebutton" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form >
+                    @csrf
+                    <input type="hidden" name="_token" id="_tokenUpdate_fuel_vendor" value="{{ csrf_token() }}" />
+                    <input type="hidden" name="fuel_id" class="fuel_id">
+                    <input type="hidden" name="comp_id" class="comp_id">
+                    <div class="form-group col-md-12">
+                        <label>Fuel Card Type<span style="color:#ff0000">*</span></label>
+                        <div>
+                            <input type= "text" class="form-control updateFuel_Card_Type" placeholder="Fuel Card Type " name="fuelCardType" required >
+                        </div>
+                        <label>Opening Balance Date<span style="color:#ff0000">*</span></label>
+                        <div>
+                            <input type= "date" class="form-control date_formate_change" id="update_OpeningDate" name="openingDate" required />
+                        </div>
+                        <label>Opening Amount<span style="color:#ff0000">*</span></label>
+                        <div>
+                            <input  class="form-control " type="text" id="update_Opening_Amount" name="openingBalance" required />
+                        </div>
+                        <label>Current Amount<span style="color:#ff0000">*</span></label>
+                        <div>
+                            <input  class="form-control " type="text" id="update_currentBalance" name="currentBalance" required />
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="button-29 closeFuelVendorUpdatebutton" data-dismiss="modal">Close</button>
+                <button type="button" class="button-29 FuelVendorUpdatebutton " >Update </button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- ============================================ end Update fuelVendor  ===================== -->
