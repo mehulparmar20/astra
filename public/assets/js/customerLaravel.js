@@ -427,6 +427,7 @@ $(document).ready(function() {
 
         $(".PaymentTermsDataSubmit").click(function(){
             var PaymentTermsName=$('#PaymentTermsName').val();
+            var NetDay=$('#NetDay').val();
            //alert(currencyName);
             $.ajax({
                 url: base_path+"/admin/PaymentTerms",
@@ -435,6 +436,7 @@ $(document).ready(function() {
                 data: {
                     _token: $("#_tokenCustomerPaymentTerms").val(),
                     PaymentTermsName: PaymentTermsName,
+                    NetDay: NetDay,
                 },
                 cache: false,
                 success: function(dataCustomerPaymentTermsNameResult){

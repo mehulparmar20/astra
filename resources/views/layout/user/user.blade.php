@@ -29,12 +29,11 @@
                 <div style="margin-top: 15px; margin-left: 15px;">
                     <a href="#addUserModal" class="button-57" data-toggle="modal" data-target="#addUserModal"><i class="fa fa-plus" aria-hidden="true"></i><span>Add User</span></a>
                 </div>
-                <div class="modal-body" style="overflow-y: auto !important;">
+                <div class="modal-body" style="overflow-y: auto !important;margin-left: -16px;">
 
-                    <table id="editable-file-datatable1"
-                        class="table editable-table table-nowrap table-bordered table-edit wp-100 customtable">
-                        <thead>
-                            <tr>
+                    <table id="table_pagination" class="table">
+                        <thead class="thead_th">
+                            <tr class="tr">
                                 <th>ID</th>
                                 <th>Email</th>
                                 <th>Username</th>

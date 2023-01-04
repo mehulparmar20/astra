@@ -105,7 +105,13 @@
 <script src="{{URL::to('/')}}/assets/js/js/fuelVendor.js"></script>
 <script src="{{URL::to('/')}}/assets/js/js/fuelCard.js"></script>
 <script src="{{URL::to('/')}}/assets/js/js/fuelReceipts.js"></script>
-
+<script src="{{URL::to('/')}}/assets/js/js/iftaToll.js"></script>
+<script src="{{URL::to('/')}}/assets/js/js/bank.js"></script>
+<script src="{{URL::to('/')}}/assets/js/js/creditCard.js"></script>
+<script src="{{URL::to('/')}}/assets/js/js/subCreditCard.js"></script>
+<script src="{{URL::to('/')}}/assets/js/js/accountManager.js"></script>
+<script src="{{URL::to('/')}}/assets/js/js/branchOffice.js"></script>
+<script src="{{URL::to('/')}}/assets/js/js/PaymentTerms.js"></script>
 </body>
 
 </html>
