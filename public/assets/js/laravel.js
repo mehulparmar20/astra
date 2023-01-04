@@ -421,10 +421,10 @@ $('.userEditModalCloseButton').click(function(){
         // $('#userModal').modal('show');
     });
     
-    $('#userEditModal').modal({
-        backdrop: 'static',
-        keyboard: false
-    })
+    // $('#userEditModal').modal({
+    //     backdrop: 'static',
+    //     keyboard: false
+    // })
   
 // <!-- ------------------------------------------------------------------------- driver ------------------------------------------------------------------------- -->
 
@@ -1483,7 +1483,7 @@ $(document).ready(function() {
 
         function createviewDriverApplicationRows(viewDriverApplicationResponse) {i
 
-            console.log(viewDriverApplicationResponse);
+            // console.log(viewDriverApplicationResponse);
             var len1 = 0;
             
             $('#viewDriverApplicationTable').empty(); 
