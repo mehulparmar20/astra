@@ -159,7 +159,7 @@ Route::get('admin/getAccountCompletedValue', [AccountManagerController::class, '
 
 //Branch Office
 Route::get('admin/getBranchOffice', [BranchOfficeController::class, 'getBranchOffice']);
-=======
+
 Route::get('admin/updateUserCompany', [CompanyController::class, 'updateUserCompany']);
 
 
