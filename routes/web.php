@@ -139,6 +139,7 @@ Route::get('admin/getFuelCard', [FuelCardController::class, 'getFuelCard']);
 //FuelReceipt
 Route::get('admin/getFuelReceipt', [FuelReceiptController::class, 'getFuelReceipt']);
 
+
 //Ifta Toll
 Route::get('admin/getIftaToll', [IftaTollController::class, 'getIftaToll']);
 
@@ -158,3 +159,7 @@ Route::get('admin/getAccountCompletedValue', [AccountManagerController::class, '
 
 //Branch Office
 Route::get('admin/getBranchOffice', [BranchOfficeController::class, 'getBranchOffice']);
+=======
+Route::get('admin/updateUserCompany', [CompanyController::class, 'updateUserCompany']);
+
+

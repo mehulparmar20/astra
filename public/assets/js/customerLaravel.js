@@ -492,9 +492,10 @@ $('.customerBFactoringCompanySet').focus(function(){
      }
      
  }
+ 
 // <!-- -------------------------------------------------------------------------over get customer  Factoring Company ------------------------------------------------------------------------- -->   
  //<!-- ------------------------------------------------------------------------- add customer factoringCompany ------------------------------------------------------------------------- -->
- $("#plusFactoringCompany").click(function(){
+ $(".plusFactoringCompany").click(function(){
     $("#factoringCompanyModal").modal("show");
 });
 

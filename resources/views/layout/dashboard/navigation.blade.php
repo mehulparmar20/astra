@@ -319,7 +319,6 @@
 
 		
 
-			@include('layout.customer.customer')
             @include('layout.driver.driver') 
             @include('layout.user.user') 
             @include('layout.user.add_user') 
@@ -327,18 +326,18 @@
             @include('layout.driver.driver_pay_info') 
             @include('layout.driver.driver_contract') 
             @include('layout.company.company') 
+
 			@include('layout.currency.currency') 
 			@include('layout.truck.truck')
 			@include('layout.Factoring company.Factoring_company')
 			@include('layout.Trailer.Trailer')
 			@include('layout.Shipper & Consignee.Shipper_and_Consignee')
 			@include('layout.External Carrier.External_Carrier')
-			@include('layout.driver.addRecurrence')
-            @include('layout.driver.subtractRecurrence')
-            @include('layout.driver.add_contract_category')
+		
 			@include('layout.fuel vendor.fuelVendor')
 			@include('layout.fuel card.fuelCard')
 			@include('layout.Fuel Receipts.FuelReceipt')
+
 			@include('layout.Ifta Toll.IftaToll')
 			@include('layout.Bank.bank')
 			@include('layout.credit card.creditCard')
@@ -347,3 +346,7 @@
 			@include('layout.Branch Office.branchOffice')
 			@include('layout.Payment Terms.PaymentTerms')
 			
+
+			@include('layout.customer.customer')
+
+
