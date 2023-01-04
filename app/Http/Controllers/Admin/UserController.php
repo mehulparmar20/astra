@@ -438,7 +438,7 @@ class UserController extends Controller
 
     public function getAllUser(Request $request){
         // $user = User::all();
-        $user = User::where('id', '!=', Auth::user()->id)->where('deleteStatus',0)->get();
+        $user = User::where('id', '!=', Auth::user()->id)->where('deleteStatus',0)->where('companyID',1)->get();
         return response()->json($user);  
     }
 
