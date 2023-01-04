@@ -160,8 +160,14 @@ Route::post('admin/restoreFuelVendor', [FuelVendorController::class, 'restoreFue
 //fuel card
 Route::get('admin/getFuelCard', [FuelCardController::class, 'getFuelCard']);
 
-//Fuel Receipt
+//Fuel Receipt FuelReceiptController
 Route::get('admin/getFuelReceipt', [FuelReceiptController::class, 'getFuelReceipt']);
+Route::get('admin/createFuelReceipt', [FuelReceiptController::class, 'createFuelReceipt']);
+Route::post('admin/saveFuelReceipt', [FuelReceiptController::class, 'saveFuelReceipt']);
+Route::get('admin/editFuelReceipt', [FuelReceiptController::class, 'editFuelReceipt']);
+Route::post('admin/updateFuelReceipt', [FuelReceiptController::class, 'updateFuelReceipt']);
+Route::post('admin/deleteFuelReceipt', [FuelReceiptController::class, 'deleteFuelReceipt']);
+Route::post('admin/restoreFuelReceipt', [FuelReceiptController::class, 'restoreFuelReceipt']);
 
 //Ifta Toll
 Route::get('admin/getIftaToll', [IftaTollController::class, 'getIftaToll']);
