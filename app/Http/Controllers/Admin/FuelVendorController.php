@@ -147,6 +147,7 @@ class FuelVendorController extends Controller
     }
     public function deleteFuelVendor(Request $request)
     {
+        
         $id=$request->id;
         $companyID=(int)$request->compID;
         $FuelVendor = FuelVendor::where('companyID',$companyID)->first();
@@ -175,31 +176,56 @@ class FuelVendorController extends Controller
     }
     public function restoreFuelVendor(Request $request)
     {
-        $id=$request->id;
-        $companyID=(int)$request->compID;
-        $FuelVendor = FuelVendor::where('companyID',$companyID)->first();
-        $FuelVendorArray=$FuelVendor->fuelCard;
-        $fuelLength=count($FuelVendorArray);
-        $i=0;
-        $v=0;
-        for($i=0; $i<$fuelLength; $i++)
+        $fuel_ids=$request->all_ids;
+        // dd($fuel_ids);
+        $custID=(array)$request->custID;
+        foreach($custID as $company_id)
         {
-            $ids=$FuelVendor->fuelCard[$i];
-            foreach($ids as $value)
-            {
-                if($value==$id)
-                {
-                    $v=$i;
+            $company_id=str_replace( array( '\'', '"',
+            ',' , ' " " ', '[', ']' ), ' ', $company_id);
+            $company_id=(int)$company_id;
+            $FuelVendor = FuelVendor::where('companyID',$company_id )->first();
+            $FuelVendorArray=$FuelVendor->fuelCard;
+            $arrayLength=count($FuelVendorArray);         
+            $i=0;
+            $v=0;
+            $data=array();
+            for ($i=0; $i<$arrayLength; $i++){
+                $ids=$FuelVendor->fuelCard[$i]['_id'];
+                $ids=(array)$ids;
+                foreach ($ids as $value){
+                    // dd( $fuel_ids);
+                    $fuel_ids= str_replace( array('[', ']'), ' ', $fuel_ids);
+                    // dd($fuel_ids);
+                    if(is_string($fuel_ids))
+                    {
+                        $fuel_ids=explode(",",$fuel_ids);
+                    }
+                    foreach($fuel_ids as $fue_v_id)
+                    {
+                        $fue_v_id= str_replace( array('"', ']' ), ' ', $fue_v_id);
+                        if($value==$fue_v_id)
+                        {                        
+                            $data[]=$i; 
+                        }
+                    }
                 }
             }
-        }  
-        $FuelVendorArray[$v]['deleteStatus']="NO";
-        $FuelVendor->fuelCard=$FuelVendorArray;
-        if($FuelVendor->save())
-        {
-         $arr = array('status' => 'success', 'message' => 'Fuel Vendor Restored successfully.','statusCode' => 200); 
-         return json_encode($arr);
-        } 
+            //
+            // dd($data);
+            foreach($data as $row)
+            {
+                $FuelVendorArray[$row]['deleteStatus'] = "NO";
+                $FuelVendor->fuelCard= $FuelVendorArray;
+                $save=$FuelVendor->save();
+            }
+            if (isset($save)) {
+                $arr = array('status' => 'success', 'message' => 'Fuel Vendor Restored successfully.','statusCode' => 200); 
+            return json_encode($arr);
+            }
+        }
+      
+      
     }
     
 }

@@ -70,7 +70,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form id="addTrailerTypeForm">
+                <form>
                     @csrf
                     <input type="hidden" name="_token" id="_tokenAdd_fuel_vendor" value="{{ csrf_token() }}" />
                     <div class="form-group col-md-12">
@@ -146,3 +146,57 @@
     </div>
 </div>
 <!-- ============================================ end Update fuelVendor  ===================== -->
+
+<!-- restore fuel vendor  -->
+<div class="container">
+    <!-- The Modal -->
+    <div class="modal fade" data-backdrop="static" id="restore_fuel_vendor_list">
+        <div class="modal-dialog modal-dialog-scrollable custom_modal">
+            <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title">Restore Fuel Vendor</h4>
+                    <button type="button" class="button-24 restorefuelVendorClose" >&times;</button>
+                </div>
+                <div style="margin-top: 15px; margin-left: 15px;">
+                        <input type="hidden" name="checked_id" id="checked_fuelVendor_ids" value="">
+                        <input type="hidden" name="company_id" id="checked_fuel_vendor_company_ids" value="">
+                        <button id="restore_fuelVendor_data"  class="button-57_alt restore_fuelVendor_data" disabled><i class="fa fa-repeat" aria-hidden="true"></i><span>Restore fuel vendor</span></button>
+                </div>  
+                <div class="modal-body" style="overflow-y: auto !important;">
+                    <!-- Row -->
+                    <div class="row">
+                        <div class="row row-sm">
+                            <div class="col-lg-12">
+                                <div class="table-responsive export-table">
+                                    <table id="editable-file-datatable" class="table editable-table table-nowrap table-bordered table-edit wp-100 customtable">
+                                        <thead class="thead_th">
+                                            <tr class="tr">
+                                                <th><input type="checkbox" name="all_ids[]" class="fuel_all_ids"></th>
+                                                <th>Name</th>
+                                                <th>Opening Date</th>
+                                                <th>Opening Amount</th>
+                                                <th>Current Amount</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="restoreFuelVendorTable">
+                                         
+                                        </tbody>
+                                    </table>
+                                </div>
+                               
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End Row -->
+                </div>
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button type="button" class="button-29 restorefuelVendorClose">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

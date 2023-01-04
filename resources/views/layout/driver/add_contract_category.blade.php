@@ -24,7 +24,7 @@
                                             <form>
                                                 @csrf
                                                 <div class="form-row">
-                                                <input type="hidden" name="_token" id="drivercsrf"
+                                                <input type="hidden" name="_token" id="driver_csrf"
                                                     value="{{Session::token()}}">
                                                     <div class="form-group col-md-6">
                                                         <label for="contractCategory">Contract Category<span

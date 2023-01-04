@@ -58,7 +58,7 @@ Route::get('/table', function () {
 
 Auth::routes();
 
-// User
+// UserController
 Route::get('admin/dashboard', [AuthController::class, 'dashboard']);
 Route::get('admin/user', [UserController::class, 'getAllUser']);
 Route::get('admin/user-privilege', [UserController::class, 'user']);
@@ -68,6 +68,10 @@ Route::post('admin/delete-user', [UserController::class, 'deleteUser'])->name('u
 Route::get('admin/profile', [UserController::class, 'getUser']);
 Route::post('admin/profile-edit', [UserController::class, 'editUserDetails'])->name('profile.edit');
 Route::post('admin/download-pdf', [UserController::class, 'downloadPDF'])->name('download-pdf');
+Route::post('admin/add_office_address', [UserController::class, 'add_office_address']);
+Route::get('admin/get_office_address', [UserController::class, 'get_office_address']);
+Route::post('admin/add_company_details', [UserController::class, 'add_company_details']);
+Route::get('admin/get_company_details', [UserController::class, 'get_company_details']);
 
 // Login
 Route::get('login', [AuthController::class, 'login'])->name('login')->middleware('guest');

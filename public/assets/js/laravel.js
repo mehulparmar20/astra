@@ -362,6 +362,144 @@ $(document).ready(function() {
                   },
             });
     });
+    // ===================== end user create =============================
+    //===================== start office create ==========================
+    $(".add_office_model_form_btn").click(function(){
+        $("#add_office_modal_form").modal("show");
+    });
+    $(".close_office_modal_form").click(function(){
+        $("#add_office_modal_form").modal("hide");
+    });
+    $(".save_office_modal_data").click(function(){
+        var add_officeName = $('.add_officeName').val();        
+        var add_officeLocation = $('#add_officeLocation').val();
+        if(add_officeName=='')
+        {
+            swal.fire( "'Enter Office Name");
+            $('#add_officeName').focus();
+            return false;            
+        }
+        if(add_officeLocation=='')
+        {
+            swal.fire( "'Enter Office Address");
+            $('#add_officeLocation').focus();
+            return false;            
+        }
+        var formData = new FormData();
+        formData.append('_token',$("#_tokenAdd_office_modal").val());        
+        formData.append('officeName',add_officeName);
+        formData.append('officeLocation', add_officeLocation);
+        $.ajax({
+            type: "POST",
+            url: base_path+"/admin/add_office_address",
+            async: false,
+            cache: false,
+            contentType: false,
+            processData: false,
+            data:formData,
+            success:function(response){
+                swal.fire("Done!", "Office added successfully", "success");
+                $('#add_office_modal_form').modal('hide');
+                $.ajax({
+                    type: "GET",
+                    url: base_path+"/admin/get_office_address",
+                    async: false,
+                    success: function(data) {                 
+                        createOfficeAddressList(data);
+                        officeAddressData = data;
+                    }
+                });
+            }
+        })
+    });
+    $.ajax({
+        type: "GET",
+        url: base_path+"/admin/get_office_address",
+        async: false,
+        //dataType:JSON,
+        success: function(data) {                   
+            createOfficeAddressList(data);
+            officeAddressData = data;
+        }
+    });
+
+    function createOfficeAddressList(officeAddressData)
+    {
+        var officeTypelength = 0; 
+        if (officeAddressData != null) 
+        {
+            officeTypelength = officeAddressData.office.length;
+        }
+        if (officeTypelength > 0) 
+        {
+            // var no=1;
+            //$(".customerCurrencySet").html('');
+            $(".office_name_set").html('');
+            for (var i = 0; i <= officeTypelength; i++) 
+            {  
+                var officeName =officeAddressData.office[i].officeName;
+                var officeId =officeAddressData.office[i]._id;
+                if(officeAddressData.office[i].deleteStatus == "NO")
+                {
+                    var TrailerTypeList = "<option  value='"+ officeId +"'>"+ officeName +" </option>"   
+                }             
+                $(".office_name_set").append(TrailerTypeList);
+                //<option value="Edge">
+                    //no++;
+            }            
+        }     
+    }
+    //===================== end office create ==============================
+
+    // =========== start create add_Company_Name_modal_form ====================
+    $(".add_Company_Name_modal_form_btn").click(function(){
+        $("#addCompanyModal").modal("show");
+    });
+    $(".close_Company_Name_modal_form").click(function(){
+        $("#addCompanyModal").modal("hide");
+    });
+    // $(".save_Company_Name_modal_data").click(function(){
+    //     alert("dgfgf");
+    // });
+
+    $.ajax({
+        type: "GET",
+        url: base_path+"/admin/get_company_details",
+        async: false,
+        //dataType:JSON,
+        success: function(data) {                   
+            createCompanyListData(data);
+            companyDetails = data;
+        }
+    });
+
+    function createCompanyListData(companyDetails)
+    {
+        var companyDetailLength = 0; 
+        if (companyDetails != null) 
+        {
+            companyDetailLength = companyDetails.company.length;
+        }
+        if (companyDetailLength > 0) 
+        {
+            // var no=1;
+            //$(".customerCurrencySet").html('');
+            $(".set_company_name").html('');
+            for (var i = 0; i <= companyDetailLength; i++) 
+            {  
+                var companyName =companyDetails.company[i].companyName;
+                var companyId =companyDetails.company[i]._id;
+                if(companyDetails.company[i].deleteStatus == "NO")
+                {
+                    var companyDetailsList = "<option  value='"+ companyId +"'>"+ companyName +" </option>"   
+                }             
+                $(".set_company_name").append(companyDetailsList);
+                //<option value="Edge">
+                    //no++;
+            }            
+        }     
+    }
+    //================= end create add_Company_Name_modal_form=================
 });
 
 $(document).ready(function(){
@@ -849,7 +987,7 @@ $('body').on('click',function() {
               url: base_path+"/admin/editDriverOwner",
               type: "POST",
               datatype:"JSON",
-              data: {'_token': $("#drivercsrf").val(),'id': id},
+              data: {'_token': $("#driver_csrf").val(),'id': id},
               success: function(dataResult) {
                   $('.up_optionBox').empty(); 
                   $('.optionBox').empty(); 
@@ -1303,7 +1441,7 @@ $('.driverDataUpdate').click(function(){
         url:base_path+"/admin/updateDriver" ,
         type:'post',
         data:{
-            _token:$("#drivercsrf").val(),
+            _token:$("#driver_csrf").val(),
             updateComId:updateComId,
             updateEmailDriver:updateEmailDriver,
             updateDriverName: updateDriverName,
@@ -1380,7 +1518,7 @@ function drivermodal()
                 url: base_path+"/admin/editDriver",
                 type: "POST",
                 datatype:"JSON",
-                data: {_token: $("#drivercsrf").val(),com_id: com_id,email: email},
+                data: {_token: $("#driver_csrf").val(),com_id: com_id,email: email},
                 cache: false,
                 success: function(dataResult){
                     $('#up_comId').val(com_id);

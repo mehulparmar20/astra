@@ -306,7 +306,140 @@ $(document).ready(function() {
     //====================== start restore fuel vendor ======================
     
     $(".restore_fuel_vendor").click(function(){
+        $.ajax({
+            type: "GET",
+            url: base_path+"/admin/getFuelVendor",
+            async: false,
+            success: function(text) {
+                console.log(text);
+                RestoreFuelVendorRows(text);
+                restoreFuelVendorResult = text;
+             }
+        });
+        $("#restore_fuel_vendor_list").modal("show");
+    });
+    $(".restorefuelVendorClose").click(function(){
+        $("#restore_fuel_vendor_list").modal("hide");
+    });
+    function RestoreFuelVendorRows(restoreFuelVendorResult) {
+        var fuelVendorlen = 0;
+        //alert(restoreFuelVendorResult);
+            if (restoreFuelVendorResult != null) {
+                
+                fuelVendorlen = restoreFuelVendorResult.fuelCard.length;
 
+                $("#restoreFuelVendorTable").html('');
+
+                if (fuelVendorlen > 0) {
+                   
+                    var no=1;
+                    for (var i = fuelVendorlen-1; i >= 0; i--) {  
+                        var CompID =restoreFuelVendorResult.companyID;
+                        var fuelVendorId =restoreFuelVendorResult.fuelCard[i]._id;
+                        var fuelCardType =restoreFuelVendorResult.fuelCard[i].fuelCardType;
+                        var openingDate =restoreFuelVendorResult.fuelCard[i].openingDate;
+                        var openingBalance =restoreFuelVendorResult.fuelCard[i].openingBalance;
+                        var currentBalance =restoreFuelVendorResult.fuelCard[i].currentBalance;
+                        var deleteStatus =restoreFuelVendorResult.fuelCard[i].deleteStatus;
+              //alert(fuelVendorId);
+                        if(deleteStatus == "YES"){
+                            //alert("ff");
+                            var fuelVendorStr = "<tr data-id=" + (i + 1) + ">" +
+                            "<td data-field='no'><input type='checkbox' class='check_fuelCard_one' name='all_fuelCard_id[]' data-fuelCard=" + fuelVendorId+ " date-compID="+CompID+"  value="+fuelVendorId+"></td>" +
+                            "<td data-field='fuelCardType' >" + fuelCardType + "</td>" +
+                            "<td data-field='openingDate' >" +openingDate  + "</td>" +
+                            "<td data-field='openingBalance' >" + openingBalance + "</td>" +
+                            "<td data-field='currentBalance' >" + currentBalance + "</td>" +
+                            "<td style='text-align:center'>"+
+                                "<a class='mt-2 button-29 fs-14 text-white edit_modal_fuel_vendor'  title='Edit1' data-fuelCard='"+fuelVendorId+"' data-compID='"+CompID+"' ><i class='fe fe-edit'></i></a>&nbsp"+
+                                "<a class='mt-2 button-29 fs-14 text-white delete_modal_fuel_vendor'  title='delete' data-fuelCard='"+fuelVendorId+"' data-compID='"+CompID+"' ><i class='fe fe-trash'></i></a>&nbsp"+
+                            "</td></tr>";
+
+                        $("#restoreFuelVendorTable").append(fuelVendorStr);
+                        no++;
+                        }
+                    }
+                } else {
+                    var fuelVendorStr = "<tr data-id=" + i + ">" +
+                        "<td align='center' colspan='4'>No record found.</td>" +
+                        "</tr>";
+        
+                    $("#restoreFuelVendorTable").append(fuelVendorStr);
+                }
+            }else {
+            var fuelVendorStr = "<tr data-id=" + i + ">" +
+                "<td align='center' colspan='4'>No record found.</td>" +
+                "</tr>";
+
+            $("#restoreFuelVendorTable").append(fuelVendorStr);
+        }
+    }
+    $(document).on("change", ".fuel_all_ids", function() 
+    {
+        if(this.checked) {
+            $('.check_fuelCard_one:checkbox').each(function() 
+            {
+                this.checked = true;
+                fuelVendorCheckboxRestore();
+            });
+        } 
+        else 
+        {
+            $('.check_fuelCard_one:checkbox').each(function() {
+                this.checked = false;
+            });
+        }
+    });
+    $('body').on('click','.check_fuelCard_one',function(){
+        fuelVendorCheckboxRestore();
+    });
+    function fuelVendorCheckboxRestore()
+    {
+        var fuleVendorIds = [];
+        var companyIds=[]
+			$.each($("input[name='all_fuelCard_id[]']:checked"), function(){
+				fuleVendorIds.push($(this).val());
+                companyIds.push($(this).attr("date-compID"));
+			});
+			console.log(fuleVendorIds);
+			var TruckCheckedIds =JSON.stringify(fuleVendorIds);
+			$('#checked_fuelVendor_ids').val(TruckCheckedIds);
+           
+			var companyCheckedIds =JSON.stringify(companyIds);
+			$('#checked_fuel_vendor_company_ids').val(companyCheckedIds);
+
+
+			if(fuleVendorIds.length > 0)
+			{
+				$('#restore_fuelVendor_data').removeAttr('disabled');
+			}
+			else
+			{
+				$('#restore_fuelVendor_data').attr('disabled',true);
+			}
+    }
+    $('body').on('click','.restore_fuelVendor_data',function(){
+        var all_ids=$('#checked_fuelVendor_ids').val();
+        var custID=$("#checked_fuel_vendor_company_ids").val();
+        $.ajax({
+            type:"post",
+            data:{_token:$("#_tokenEditTruck").val(),all_ids:all_ids,custID:custID},
+            url: base_path+"/admin/restoreFuelVendor",
+            success: function(response) {               
+                swal.fire("Done!", "Fuel Vendor Restored successfully", "success");
+                $("#restore_fuel_vendor_list").modal("hide");
+                $.ajax({
+                    type: "GET",
+                    url: base_path+"/admin/getFuelVendor",
+                    async: false,
+                    success: function(text) {
+                        console.log(text);
+                        createFuelVendorRows(text);
+                        FuelVendorResult = text;
+                     }
+                });
+            }
+        });
     });
     //======================= end restore fuel vendor ======================
 });

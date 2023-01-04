@@ -35,7 +35,8 @@
                                 <div class="card">
                                     <div class="card-body">
                                         <div class="table-responsive export-table">
-                                            <form method="post"> @csrf <input type="hidden" name="_token" id="csrf"
+                                            <form method="post"> 
+                                                @csrf <input type="hidden" name="_token" id="csrf"
                                                     value="{{Session::token()}}">
                                                 <div class="form-row">
                                                    
@@ -94,7 +95,7 @@
                                                 <div class="form-row">
                                                     <div class="form-group col-md-2">
                                                         <label>Company Name &nbsp; 
-                                                        <span class="glyphicon glyphicon-plus-sign add_company_name "  data-toggle="modal"  style="cursor:pointer;"></span>
+                                                        <span class="glyphicon glyphicon-plus-sign add_Company_Name_modal_form_btn "  data-toggle="modal"  style="cursor:pointer;"></span>
                                                         </label>
                                                             <div class="dropdown show">
                                                             <select  class="form-control set_company_name" name="company_name" >
@@ -103,8 +104,8 @@
                                                             </div>
                                                     </div>
                                                     <div class="form-group col-md-2">
-                                                        <label for="trailertype">Office<span style="color:#ff0000">*</span>&nbsp; 
-                                                        <span class="glyphicon glyphicon-plus-sign add_office_name "  data-toggle="modal"  style="cursor:pointer;"></span>
+                                                        <label for="">Office<span style="color:#ff0000">*</span>&nbsp; 
+                                                        <span class="glyphicon glyphicon-plus-sign add_office_model_form_btn "  data-toggle="modal"  style="cursor:pointer;"></span>
                                                         </label>
                                                             <div class="dropdown show">
                                                                 <select  class="form-control  office_name_set" name="officeName" >
@@ -664,3 +665,73 @@
         </div>
     </div>
 </div>
+
+<!--======================== add office modal ==================================== -->
+<div class="modal fade" id="add_office_modal_form"  tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" >Create Office</h5>
+                <button type="button" class="close close_office_modal_form" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    @csrf
+                    <input type="hidden" name="_token" id="_tokenAdd_office_modal" value="{{ csrf_token() }}" />
+                    <div class="form-group col-md-12">
+                        <label>Name<span style="color:#ff0000">*</span></label>
+                        <div>
+                            <input type= "text" class="form-control add_officeName" placeholder="Office Name "  id="add_officeName " name="officeName" required >
+                        </div>
+                        <label>Location<span style="color:#ff0000">*</span></label>
+                        <div>
+                            <input type= "text" class="form-control " id="add_officeLocation" name="officeLocation" required />
+                        </div>                        
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="button-29 close_office_modal_form" data-dismiss="modal">Close</button>
+                <button type="button" class="button-29 save_office_modal_data " >Save </button>
+            </div>
+        </div>
+    </div>
+</div>
+ <!--=============================== end add office modal========================= -->
+
+ <!--======================== add company  modal ==================================== -->
+<!-- <div class="modal fade" id="add_Company_Name_modal_form"  tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" >Create Office</h5>
+                <button type="button" class="close close_Company_Name_modal_form" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    @csrf
+                    <input type="hidden" name="_token" id="_tokenAdd_Company_Name_modal" value="{{ csrf_token() }}" />
+                    <div class="form-group col-md-12">
+                        <label>Name<span style="color:#ff0000">*</span></label>
+                        <div>
+                            <input type= "text" class="form-control add_officeName" placeholder="Office Name "  id="add_officeName " name="officeName" required >
+                        </div>
+                        <label>Location<span style="color:#ff0000">*</span></label>
+                        <div>
+                            <input type= "text" class="form-control " id="add_officeLocation" name="officeLocation" required />
+                        </div>                        
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="button-29 close_Company_Name_modal_form" data-dismiss="modal">Close</button>
+                <button type="button" class="button-29 save_Company_Name_modal_data " >Save </button>
+            </div>
+        </div>
+    </div>
+</div> -->
+ <!--=============================== end add Company Name modal========================= -->

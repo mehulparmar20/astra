@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Office;
+use App\Models\Company;
 use Mail; 
 use Hash;
 use Illuminate\Support\Str;
@@ -547,6 +549,53 @@ class UserController extends Controller
         
 
         return $pdf->download('Users.pdf');   
+    }
+    public function get_office_address(Request $request)
+    {
+        $companyId=(int)1;   
+        $office = Office::where('companyID',$companyId)->first();    
+        return response()->json($office, 200, [], JSON_PARTIAL_OUTPUT_ON_ERROR);
+    }
+    public function add_office_address(Request $request)
+    {
+        $companyID=(int)1;
+        $getOffice = Office::where('companyID',$companyID)->first();
+        if($getOffice){
+            $totalOfficeArray=count($getOffice->office);
+        }else{
+            $totalOfficeArray=0; 
+        }
+        $officeData[]=array(    
+            '_id' => $totalOfficeArray,
+            'counter'=>0,
+            'officeName' => $request->officeName,
+            'officeLocation'=>$request->officeLocation,
+            'edit_by'=>Auth::user()->userName,
+            'deleteStatus' => "NO",
+            'deleteUser'=>"",                
+        );
+        $officeArray=$getOffice->office;
+        if(Office::where(['companyID' =>$companyID ])->update([
+            'companyID' => $companyID,
+            'counter' => $totalOfficeArray+1,
+            'office' =>array_merge($officeArray,$officeData) , 
+        ])) {
+            $data = [
+                'success' => true,
+                'message'=> 'Office added successfully'
+                ] ;
+                return response()->json($data);
+        }
+    }
+    public function add_company_details(Request $request)
+    {
+
+    }
+    public function get_company_details(Request $request)
+    {
+        $companyId=(int)1;   
+        $office = Company::where('companyID',$companyId)->first();    
+        return response()->json($office, 200, [], JSON_PARTIAL_OUTPUT_ON_ERROR);
     }
 
 

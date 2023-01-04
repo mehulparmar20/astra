@@ -200,7 +200,7 @@
                                             <option value="">Select Currency</option>
                                             </select> -->
                                         
-                                                <input class="form-control customerCurrencySet" list="customerCurrencySet" name="currency" id="currency">
+                                                <input class="form-control customerCurrencySet" list="customerCurrencySet" name="currency" id="currency_customer">
                                                 <datalist id="customerCurrencySet" class="customerCurrencySet"><option>Select Here</option></datalist>    
                                         </div>
                                     </div>
@@ -228,9 +228,6 @@
                                     <div class="form-group col-md-3">
                                         <label for="customerBFactoringCompany">Factoring Company</label><span class="button-29" id="plusFactoringCompany" style="margin-left: 5px;"><i class="fa fa-plus"></i></span>
                                         <div class="dropdown show">
-                                            <!-- <select name="customerBFactoringCompany" id="customerBFactoringCompany" class="customerBFactoringCompanySet btn-dropdown">
-                                            <option value="">Select Factoring Company</option>
-                                            </select> -->
                                             <input class="form-control customerBFactoringCompanySet" list="customerBFactoringCompanySet" name="customerBFactoringCompany" id="customerBFactoringCompany">
                                             <datalist id="customerBFactoringCompanySet" class="customerBFactoringCompanySet">
                                                 <option>Select Here</option>
@@ -510,7 +507,7 @@
                             <div class="col-lg-12">
                                 <div class="card">
                                     <div class="card-body">
-                                        <form id="editTrailerForm" >
+                                        <form id="" >
                                             @csrf
                                             <div class="update_customer_first_tap">
                                                 <input type="hidden" name="_token" id="_tokenUpdateCustomer" value="{{ csrf_token() }}" />
@@ -672,7 +669,7 @@
                                                         <!-- <span class="glyphicon glyphicon-plus-sign addFactoringCompanyCutomer " id="addFactoringCompanyCutomer" data-toggle="modal"  style="cursor:pointer;"></span> -->
                                                         </label>
                                                         <div class="dropdown show">
-                                                            <select class="form-control customerBFactoringCompanySet update_factroring_name" name="customerBFactoringCompany" id="customerBFactoringCompany">
+                                                            <select class="form-control customerBFactoringCompanySet update_factroring_name" name="customerBFactoringCompany" id="customer_BFactoringCompany">
                                                                 <option>Select Here</option>
                                                             </select>
                                                         </div>

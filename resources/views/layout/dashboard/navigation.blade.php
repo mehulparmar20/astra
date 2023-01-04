@@ -592,7 +592,6 @@
 			@include('layout.accounting manager.accountingManager')
 			@include('layout.Branch Office.branchOffice')
 			@include('layout.Payment Terms.PaymentTerms')
-			@include('layout.Trailer.Trailer')
 			@include('layout.Equipment Type.EquipmentType')
 			@include('layout.status.status')
 			@include('layout.Recurrence Category.RecurrenceCategory')
