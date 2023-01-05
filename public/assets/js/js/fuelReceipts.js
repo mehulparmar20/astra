@@ -127,76 +127,46 @@ $(document).ready(function() {
     });
     //========================================  create fuel receipts ===========================
     $(".create_fuel_receipt_modal_form_btn").click(function(){
-        //   $.ajax({
-        //         type:"get",
-        //         url:base_path+"/admin/createFuelReceipt",
-        //         async: false,
-        //         success:function(res)
-        //         {
-        //             $(".addFuelReceiptDriver_name").html('');
-        //             $(".addFuelReceiptLocationName").html('');
-        //             $(".addFuelReceiptLocationCity").html('');
-        //             $(".addFuelReceiptLocationState").html('');
-        //             $(".addFuelReceiptinvoiceNo").html('');
-        //             res.forEach(function(data){
-        //                 var resLengt=data.fuel_receipt.length;
-        //                 for(var i=0; i<resLengt;i++)
-        //                 {
-        //                     var driverName=data.fuel_receipt[i].driverName;
-        //                     var locationName=data.fuel_receipt[i].locationName;
-        //                     var locationState=data.fuel_receipt[i].locationState;
-        //                     var locationCity=data.fuel_receipt[i].locationCity;
-        //                     var invoiceNo=data.fuel_receipt[i].invoiceNo;
-        //                     var html="<option class='duplicate_entry' value='"+driverName+"'>"+driverName+"</opyion>";
-        //                     var html_2="<option class='duplicate_entry_l' value='"+locationName+"'>"+locationName+"</opyion>";
-        //                     var html_3="<option class='duplicate_entry_c' value='"+locationState+"'>"+locationState+"</opyion>";
-        //                     var html_4="<option class='duplicate_entry_s' value='"+locationCity+"'>"+locationCity+"</opyion>";
-        //                     var html_5="<option class='duplicate_entry_in' value='"+invoiceNo+"'>"+invoiceNo+"</opyion>";
-        //                     $(".addFuelReceiptDriver_name").append(html);
-        //                     $(".addFuelReceiptLocationName").append(html_2);
-        //                     $(".addFuelReceiptLocationCity").append(html_3);
-        //                     $(".addFuelReceiptLocationState").append(html_4);
-        //                     $(".addFuelReceiptinvoiceNo").append(html_5);
-        //                     var seen = {};
-        //                     $('.duplicate_entry').each(function() {
-        //                         var txt = $(this).text();
-        //                         if (seen[txt])
-        //                             $(this).remove();
-        //                         else
-        //                             seen[txt] = true;
-        //                     });
-
-        //                 }
-        //             });
-        //         }
-        //   });
         $("#Create_FuelReceiptsModal").modal("show");
     });
     $(".addFuelReceiptDriver_name").on('change',function(){
-        alert("SGDFHJKL");
-        $.ajax({
-            type:"get",
-            url:base_path+"/admin/createFuelReceipt",
-            async: false,
-            success:function(res)
-            {
-                res.forEach(function(data){
-                    var resLengt=data.fuel_receipt.length;
-                    for(var i=0; i<resLengt;i++)
-                    {
-                        $(".add_fuelReceiptDriverNumber").val(data.fuel_receipt[i].driverNumber);
-                        $(".addFuelReceiptCardNumber").val(data.fuel_receipt[i].cardNo);
-                        $(".addFuelReceiptFuelVendor").val(data.fuel_receipt[i].category);
-                    }
-                });
+        var val = $(this).val();
+        $(".add_fuelReceiptDriverNumber").val(val);
+        $(".update_fuelReceiptDriverNumber").val(val);
+
+
+    });
+    $.ajax({
+        type: "GET",
+        url: base_path + "/admin/getInvoicedNumber",
+        async: false,
+        success: function (text) {
+            $(".fuel_recepit_invoice_no_list").html();
+            // text.forEach(function(data){
+            //     var resLengt=data.load.length;
+            //     for(var i=0; i<resLengt;i++)
+            //     {
+            //         var idInvo=data.fuel_receipt[i]._id;
+            //         alert(idInvo);
+            //        var html="<option value='"+idInvo+"'>"+idInvo+"</option>";
+            //        $(".fuel_recepit_invoice_no_list").append(html);
+            //     }
+            // });
+            var len2 = text.load.length;
+            $('.fuel_recepit_invoice_no_list').html();
+            var html = "";
+            for (var j = 0; j < len2; j++) {
+                var driverId = text.load[j]._id;
+                var html = "<option value='" + driverId + "'>" + driverId + " </option>";
+                $(".fuel_recepit_invoice_no_list").append(html);
             }
-      });
-    })
+        }
+    });
     $(".closeFuelReceiptsModal").click(function(){
         $("#Create_FuelReceiptsModal").modal("hide");
     });
     $(".saveFuelReceiptsModal").click(function(){
-        var driverName = $('.addFuelReceiptDriver_name').val();
+        var driverName = $(this).attr('data-name');
         var driverNo = $('.add_fuelReceiptDriverNumber').val();
         var cardNumber = $('.addFuelReceiptCardNumber').val();
         var fuelVendor = $('.addFuelReceiptFuelVendor').val();
@@ -205,7 +175,8 @@ $(document).ready(function() {
         var date = $('.addFuelReceiptDate').val();
         var transactionTime = $('.addFuelReceiptTransactionTime').val();
         var locationName = $('.addFuelReceiptLocationName').val();
-        var locationCity = $('.addFuelReceiptLocationState').val();
+        var locationCity = $('.addFuelReceiptLocationCity').val();
+        var locationState = $('.addFuelReceiptLocationState').val();
         var quantity = $('.addFuelReceiptQuantity').val();
         var amount = $('.addFuelReceiptAmount').val();
         var totalAmount = $('.addFuelReceipttotalAmount').val();
@@ -230,6 +201,7 @@ $(document).ready(function() {
         formData.append('date',date);       
         formData.append('transactionTime',transactionTime);       
         formData.append('locationName',locationName);       
+        formData.append('locationState',locationState);       
         formData.append('locationCity',locationCity);       
         formData.append('quantity',quantity);       
         formData.append('amount',amount);       
@@ -266,13 +238,113 @@ $(document).ready(function() {
 
     //============================ update fuel receipts data ===================
     $('body').on('click','.edit_fuel_receipts_form', function(){
+        var id=$(this).attr('data-fuelReId');
+        var companyID=$(this).attr('data-com_Id');
+        $.ajax({
+            type: "GET",
+            url: base_path+"/admin/editFuelReceipt",
+            data:{id:id,companyID:companyID},
+            async: false,
+            success: function(res) {
+                    $('.comp_id_furl_re_edit').val(res.companyID);
+                    $('.fuel_recepit_id_edit').val(res.fuel_receipt._id);
+                    $('.updateFuelReceipt_Driver_name').val(res.fuel_receipt.driverName);
+                    $('.update_fuelReceiptDriverNumber').val(res.fuel_receipt.driverNumber);
+                    $('.updateFuelReceiptCardNumber').val(res.fuel_receipt.cardNo);
+                    $('.updateFuelReceiptFuelVendor').val(res.fuel_receipt.category);
+                    $('.updateFuelReFuelType').val(res.fuel_receipt.fuelType);
+                    $('.updateFuelReceiptTruckNumber').val(res.fuel_receipt.truckNumber);
+                    $('.updateFuelReceiptDate').val(res.fuel_receipt.transactionDate);
+                    $('.updateFuelReceiptTransactionTime').val(res.fuel_receipt.transactionTime);
+                    $('.updateFuelReceiptLocationName').val(res.fuel_receipt.locationName);
+                    $('.updateFuelReceiptLocationCity').val(res.fuel_receipt.locationCity);
+                    $('.updateFuelReceiptLocationState').val(res.fuel_receipt.locationState);
+                    $('.updateFuelReceiptQuantity').val(res.fuel_receipt.quantity);
+                    $('.updateFuelReceiptAmount').val(res.fuel_receipt.amount);
+                    $('.updateFuelReceipttotalAmount').val(res.fuel_receipt.totalAmount);
+                    $('.updateFuelReceipttransactionDiscount').val(res.fuel_receipt.transactionDiscount);
+                    $('.updateFuelReceipttransactionFee').val(res.fuel_receipt.transactionFee);
+                    $('.updateFuelReceipttransactionGross').val(res.fuel_receipt.transactionGross);
+                    $('.UpdateFuelReceiptinvoiceNo').val(res.fuel_receipt.invoiceNo);
+             }
+        });
         $("#update_FuelReceiptsModal").modal("show");
     });
     $('.closeUpdateFuelReceiptsModal').click(function(){
         $("#update_FuelReceiptsModal").modal("hide");
     });
     $('.UpdateFuelReceiptsModal').click(function(){
-        alert("dgfdhgfhgfhgh");
+        var id=$(".fuel_recepit_id_edit").val();
+        var comId=$(".comp_id_furl_re_edit").val();
+        var driverName = $(this).attr('data-name');
+        var driverNo = $('.update_fuelReceiptDriverNumber').val();
+        var cardNumber = $('.updateFuelReceiptCardNumber').val();
+        var fuelVendor = $('.updateFuelReceiptFuelVendor').val();
+        var fuelType = $('.updateFuelReFuelType').val();
+        var truckNumber = $('.updateFuelReceiptTruckNumber').val();
+        var date = $('.updateFuelReceiptDate').val();
+        var transactionTime = $('.updateFuelReceiptTransactionTime').val();
+        var locationName = $('.updateFuelReceiptLocationName').val();
+        var locationCity = $('.updateFuelReceiptLocationCity').val();
+        var locationState = $('.updateFuelReceiptLocationState').val();
+        var quantity = $('.updateFuelReceiptQuantity').val();
+        var amount = $('.updateFuelReceiptAmount').val();
+        var totalAmount = $('.updateFuelReceipttotalAmount').val();
+        var transactionDiscount = $('.updateFuelReceipttransactionDiscount').val();
+        var transactionFee = $('.updateFuelReceipttransactionFee').val();
+        var transactionGross = $('.updateFuelReceipttransactionGross').val();
+        var invoiceNo = $('.updateFuelReceiptinvoiceNo').val();
+        if(driverName=='')
+        {
+            swal.fire( "'select one");
+            $('.updateFuelReceiptDriver_name').focus();
+            return false;            
+        }
+        var formData = new FormData();
+        formData.append('_token',$("#_token_updateFuelReceipts").val());         
+        formData.append('id',id);          
+        formData.append('comId',comId);         
+        formData.append('driverName',driverName);       
+        formData.append('driverNo',driverNo);       
+        formData.append('cardNumber',cardNumber);       
+        formData.append('fuelVendor',fuelVendor);       
+        formData.append('fuelType',fuelType);       
+        formData.append('truckNumber',truckNumber);       
+        formData.append('date',date);       
+        formData.append('transactionTime',transactionTime);       
+        formData.append('locationName',locationName);       
+        formData.append('locationState',locationState);       
+        formData.append('locationCity',locationCity);       
+        formData.append('quantity',quantity);       
+        formData.append('amount',amount);       
+        formData.append('totalAmount',totalAmount);       
+        formData.append('transactionDiscount',transactionDiscount);       
+        formData.append('transactionFee',transactionFee);       
+        formData.append('transactionGross',transactionGross);       
+        formData.append('invoiceNo',invoiceNo); 
+        $.ajax({
+            type: "POST",
+            url: base_path+"/admin/updateFuelReceipt",
+            async: false,
+            cache: false,
+            contentType: false,
+            processData: false,
+            data:formData,
+            success:function(response){
+                swal.fire("Done!", "Fuel recepit updated successfully", "success");
+                $('#update_FuelReceiptsModal').modal('hide');
+                $.ajax({
+                    type: "GET",
+                    url: base_path+"/admin/getFuelReceipt",
+                    async: false,
+                    success: function(text) {
+                        console.log(text);
+                        createFuelReceiptRows(text);
+                        FuelReceiptResult = text;
+                     }
+                });
+            }
+        })
     });
     //==================== end update fuel receipts data ======================
 

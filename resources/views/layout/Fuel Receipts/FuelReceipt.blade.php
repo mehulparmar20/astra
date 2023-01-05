@@ -140,7 +140,7 @@
                                                         <!-- <span style="color:#ff0000">*</span> -->
                                                     </label>
                                                     <div>
-                                                       <select class="form-control addFuelReceiptDriver_name" name="driverName"> 
+                                                       <select class="form-control addFuelReceiptDriver_name cardHolderName" name="driverName"> 
                                                          <option>select one </option>
                                                        </select>
                                                     </div>
@@ -175,9 +175,7 @@
                                                 <div class="form-group col-md-2">
                                                     <label>Truck Number<span style="color:#ff0000">*</span>
                                                         </label>
-                                                    <select class="form-control addFuelReceiptTruckNumber"  name="truckNumber" required>
-                                                        <option>select one</option>
-                                                    </select>
+                                                    <input type="text" class="form-control addFuelReceiptTruckNumber"  name="truckNumber" required>
                                                 </div>
                                             </div>
                                             <!-- row 3 -->
@@ -192,10 +190,7 @@
                                                 </div>
                                                 <div class="form-group col-md-2">
                                                     <label >Location Name <span style="color:#ff0000">*</span></label>
-                                                    <!-- <input class="form-control addFuelReceiptLocationName" name="locationName" type="text"> -->
-                                                    <select class="form-control addFuelReceiptLocationName" name="locationName" required > 
-                                                        <option> select one</option>
-                                                    </select>
+                                                    <input type="text" class="form-control addFuelReceiptLocationName" name="locationName" required >
                                                 </div>
                                                 <div class="form-group col-md-2">
                                                     <label >Location City</label>
@@ -203,9 +198,7 @@
                                                 </div>
                                                 <div class="form-group col-md-2 ">
                                                     <label >Location State <span style="color:#ff0000">*</span></label>
-                                                    <select class="form-control addFuelReceiptLocationState" name="locationState" required > 
-                                                        <option> select one</option>
-                                                    </select>
+                                                    <input class="form-control addFuelReceiptLocationState registered_state" name="locationState" list="registered_state"  required autocomplete="off"   > 
                                                 </div>
                                                
                                                 <div class="form-group col-md-2">
@@ -234,7 +227,7 @@
                                                 </div>
                                                 <div class="form-group col-md-4">
                                                     <label >Invoice No</label>
-                                                    <select class="form-control addFuelReceiptinvoiceNo " name="invoiceNo "> 
+                                                    <select class="form-control addFuelReceiptinvoiceNo fuel_recepit_invoice_no_list" name="invoiceNo "> 
                                                         <option>select one </option>
                                                     </select>
                                                 </div>
@@ -264,7 +257,7 @@
         <div class="modal-dialog custom_modal" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title">Add Fuel Receipts </h4>
+                    <h4 class="modal-title">Update Fuel Receipts </h4>
                     <button type="button" class="closeUpdateFuelReceiptsModal" >&times;</button>
                 </div>
                 <div class="modal-body">
@@ -276,13 +269,15 @@
                                         <form id="" >
                                             @csrf
                                             <input type="hidden" name="_token" id="_token_updateFuelReceipts" value="{{ csrf_token() }}" />
+                                            <input type="hidden" name="fuel_recepit_id" class="fuel_recepit_id_edit" >
+                                            <input type="hidden" name="comp_id_furl_re" class="comp_id_furl_re_edit" >
                                             <div class="form-row">
                                                 <div class="form-group col-md-2">
                                                     <label>Driver Name
                                                         <!-- <span style="color:#ff0000">*</span> -->
                                                     </label>
                                                     <div>
-                                                       <select class="form-control updateFuelReceiptDriver_name" name="driverName"> 
+                                                       <select class="form-control updateFuelReceipt_Driver_name cardHolderName" name="driverName"> 
                                                          <option>select one </option>
                                                        </select>
                                                     </div>
@@ -317,9 +312,7 @@
                                                 <div class="form-group col-md-2">
                                                     <label>Truck Number<span style="color:#ff0000">*</span>
                                                         </label>
-                                                    <select class="form-control updateFuelReceiptTruckNumber"  name="truckNumber" required>
-                                                        <option>select one</option>
-                                                    </select>
+                                                    <input type="text" class="form-control updateFuelReceiptTruckNumber"  name="truckNumber" required>
                                                 </div>
                                             </div>
                                             <!-- row 3 -->
@@ -334,10 +327,7 @@
                                                 </div>
                                                 <div class="form-group col-md-2">
                                                     <label >Location Name <span style="color:#ff0000">*</span></label>
-                                                    <!-- <input class="form-control addFuelReceiptLocationName" name="locationName" type="text"> -->
-                                                    <select class="form-control updateFuelReceiptLocationName" name="locationName" required > 
-                                                        <option> select one</option>
-                                                    </select>
+                                                    <input type="text" class="form-control updateFuelReceiptLocationName" name="locationName" required > 
                                                 </div>
                                                 <div class="form-group col-md-2">
                                                     <label >Location City</label>
@@ -345,7 +335,7 @@
                                                 </div>
                                                 <div class="form-group col-md-2 ">
                                                     <label >Location State <span style="color:#ff0000">*</span></label>
-                                                    <select class="form-control updateFuelReceiptLocationState" name="locationState" required > 
+                                                    <select class="form-control updateFuelReceiptLocationStateregistered_state" name="locationState" list="registered_state"  required autocomplete="off" > 
                                                         <option> select one</option>
                                                     </select>
                                                 </div>
@@ -376,7 +366,7 @@
                                                 </div>
                                                 <div class="form-group col-md-4">
                                                     <label >Invoice No</label>
-                                                    <select class="form-control UpdateFuelReceiptinvoiceNo " name="invoiceNo "> 
+                                                    <select class="form-control UpdateFuelReceiptinvoiceNo fuel_recepit_invoice_no_list" name="invoiceNo "> 
                                                         <option>select one </option>
                                                     </select>
                                                 </div>

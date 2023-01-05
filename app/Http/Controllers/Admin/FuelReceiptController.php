@@ -5,6 +5,7 @@ use Illuminate\Support\Str;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\FuelReceipt;
+use App\Models\Invoiced;
 use File;
 use Image;
 use MongoDB\BSON\ObjectId;
@@ -51,11 +52,13 @@ class FuelReceiptController extends Controller
                         '_id' => $totalFuelReceiptArray ,
                         // 'counter' => 0,
                         'driverName' => $request->driverName,
-                        'driverNumber' => $request->driverNumber,
-                        'cardNo' => $request->cardNo,
-                        'category' => $request->category,
+                        'driverNumber' => $request->driverNo,
+                        'cardNo' => $request->cardNumber,
+                        // 'fuelVendor'=>$request->fuelVendor,
+                        'category' => $request->fuelVendor,
                         'fuelType' => $request->fuelType,
                         'truckNumber' => $request->truckNumber,
+                        'transactionDate'=>$request->date,
                         'transactionTime' => $request->transactionTime,
                         'locationName' => $request->locationName,
                         'locationCity' => $request->locationCity,
@@ -91,11 +94,79 @@ class FuelReceiptController extends Controller
     }
     public function editFuelReceipt(Request $request)
     {
-        
+        $id=$request->id;
+        $companyID=(int)$request->companyID;
+        // dd($companyID);
+        $FuelReceipt=FuelReceipt::where("companyID",$companyID)->first();
+        $FuelReceiptArray=$FuelReceipt->fuel_receipt;
+        $FuelReceiptLenght=count($FuelReceiptArray);
+        $i=0;
+        $v=0;
+        for($i=0; $i<$FuelReceiptLenght; $i++)
+        {
+            $ids=$FuelReceipt->fuel_receipt[$i]['_id'];
+            $ids=(array)$ids;
+            foreach($ids as $value)
+            {
+                if($value == $id)
+                {
+                    $v= $i;
+                }
+            }
+        }
+        $FuelReceipt->fuel_receipt= $FuelReceiptArray[$v];
+        return response()->json($FuelReceipt);  
     }
     public function updateFuelReceipt(Request $request)
     {
-        
+        $id=$request->id;
+        $companyID=(int)$request->comId;
+        // DD($companyID);
+        $fuelReceipt=FuelReceipt::where('companyID',$companyID)->first();
+        $fuelReceiptArray=$fuelReceipt->fuel_receipt;
+        $arrayLength=count($fuelReceiptArray);
+        $i=0;
+        $v=0;
+       for ($i=0; $i<$arrayLength; $i++){
+            $ids=$fuelReceipt->fuel_receipt[$i];
+            foreach ($ids as $value){
+                if($value==$id)
+                {
+                    $v=$i;
+                }
+            }
+        }
+        $fuelReceiptArray[$v]['driverName' ]= $request->driverName;
+        $fuelReceiptArray[$v]['driverNumber' ]= $request->driverNo;
+        $fuelReceiptArray[$v]['cardNo' ]= $request->cardNumber;
+        $fuelReceiptArray[$v]['category' ]= $request->fuelVendor;
+        $fuelReceiptArray[$v]['fuelType' ]= $request->fuelType;
+        $fuelReceiptArray[$v]['truckNumber' ]= $request->truckNumber;
+        $fuelReceiptArray[$v]['transactionDate']=$request->date;
+        $fuelReceiptArray[$v]['transactionTime' ]= $request->transactionTime;
+        $fuelReceiptArray[$v]['locationName' ]= $request->locationName;
+        $fuelReceiptArray[$v]['locationCity' ]= $request->locationCity;
+        $fuelReceiptArray[$v]['locationState' ]= $request->locationState;
+        $fuelReceiptArray[$v]['quantity' ]= $request->quantity;
+        $fuelReceiptArray[$v]['amount' ]= $request->amount;
+        $fuelReceiptArray[$v]['totalAmount' ]= $request->totalAmount;
+        $fuelReceiptArray[$v]['transactionDiscount' ]= $request->transactionDiscount;
+        $fuelReceiptArray[$v]['transactionFee' ]= $request->transactionFee;
+        $fuelReceiptArray[$v]['transactionGross' ]= $request->transactionGross;
+        $fuelReceiptArray[$v]['invoiceNo' ]= $request->invoiceNo;
+        $fuelReceiptArray[$v]['insertedTime' ]= '' ;
+        $fuelReceiptArray[$v]['insertedUserId' ]= '' ;
+        $fuelReceiptArray[$v]['deleteStatus' ]= 'NO' ;
+        $fuelReceiptArray[$v]['deleteUser' ]= '' ;
+        $fuelReceiptArray[$v]['deleteTime' ]= '' ;
+        $fuelReceiptArray[$v]['averagedays' ]='' ;
+        $fuelReceiptArray[$v]['totalloads' ]= '' ;
+        $fuelReceipt->fuel_receipt= $fuelReceiptArray;
+        if($fuelReceipt->save())
+        {
+         $arr = array('status' => 'success', 'message' => 'fuel receipt updated successfully.','statusCode' => 200); 
+         return json_encode($arr);
+        }
     }
     public function deleteFuelReceipt(Request $request)
     {
@@ -169,7 +240,12 @@ class FuelReceiptController extends Controller
             }
         }
     }
-   
+   public function getInvoicedNumber(Request $request)
+   {
+        $companyId=1;
+        $Invoiced = Invoiced::where('companyID',$companyId)->first();
+        return response()->json($Invoiced, 200, [], JSON_PARTIAL_OUTPUT_ON_ERROR);
+   }
 
     
 }

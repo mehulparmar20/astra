@@ -94,6 +94,8 @@ $(document).ready(function() {
     });
     $(".create_fuel_vendor_model").click(function(){
         $("#AddFuelVendor").modal("show");
+        $("#AddFuelCard").modal("hide");
+        $('#FuelCardModal').modal('hide');
     });
     $(".FuelVendorSavebutton").click(function(){
         // alert("DGfdgfg");

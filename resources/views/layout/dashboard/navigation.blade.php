@@ -141,9 +141,6 @@
 												</li>
 											@endif 
 										@endif
-
-										@if(isset($iftaArray['ifta']))
-											@if($iftaArray['ifta']==1)
 												<li class="slide">
 													<a class="side-menu__item" data-bs-toggle="slide" href="#">
 														<svg xmlns="http://www.w3.org/2000/svg" class="side-menu__icon" enable-background="new 0 0 24 24" viewBox="0 0 24 24"><path d="M21.5,21h-19C2.223877,21,2,21.223877,2,21.5S2.223877,22,2.5,22h19c0.276123,0,0.5-0.223877,0.5-0.5S21.776123,21,21.5,21z M4.5,18.0888672h5c0.1326294,0,0.2597656-0.0527344,0.3534546-0.1465454l10-10c0.000061,0,0.0001221-0.000061,0.0001831-0.0001221c0.1951294-0.1952515,0.1950684-0.5117188-0.0001831-0.7068481l-5-5c0-0.000061-0.000061-0.0001221-0.0001221-0.0001221c-0.1951904-0.1951904-0.5117188-0.1951294-0.7068481,0.0001221l-10,10C4.0526733,12.3291016,4,12.4562378,4,12.5888672v5c0,0.0001831,0,0.0003662,0,0.0005493C4.0001831,17.8654175,4.223999,18.0890503,4.5,18.0888672z M14.5,3.2958984l4.2930298,4.2929688l-2.121582,2.121582l-4.2926025-4.293396L14.5,3.2958984z M5,12.7958984l6.671814-6.671814l4.2926025,4.293396l-6.6713867,6.6713867H5V12.7958984z"/></svg>
@@ -151,56 +148,21 @@
 													</a>
 													<ul class="slide-menu">
 														<li class="side-menu-label1"><a href="javascript:void(0)">IFTA</a></li>
-														@if(isset($masterArray['fuelCardType']))
-															@if($masterArray['fuelCardType']==1)
 																<li><a href="#" id="fuelVendor_navbar" class="slide-item">Fuel Vendor</a></li>
-															@endif 
-														@elseif(isset($iftaArray['fuel_vendor']))
-															@if($iftaArray['fuel_vendor']==1)
-																<li><a href="#" id="fuelVendor_navbar" class="slide-item">Fuel Vendor</a></li>
-															@endif 
-														@endif
+																
 
-														@if(isset($iftaArray['iftaCard']))
-															@if($iftaArray['iftaCard']==1)
 																<li><a href="#" id="fuelCard_navbar" class="slide-item">Fuel Card</a></li>
-															@endif 
-														@endif
 
-														@if(isset($iftaArray['fuelReceipt']))
-															@if($iftaArray['fuelReceipt']==1)
 																<li><a href="#" id="fuelReceipt_navbar" class="slide-item">Fuel Reciepts & Cash Advance</a></li>
-															@endif 
-														@elseif(isset($iftaArray['Fuel_reciepts_cash_advance']))
-															@if($iftaArray['Fuel_reciepts_cash_advance']==1)
-																<li><a href="#" id="fuelReceipt_navbar" class="slide-item">Fuel Reciepts & Cash Advance</a></li>
-															@endif 
-														@endif
-
-														@if(isset($iftaArray['addToll']))
-															@if($iftaArray['addToll']==1)
+													
+																
+														
 																<li><a href="#" id="iftaToll_navbar" class="slide-item">Tolls</a></li>
-															@endif 
-														@elseif(isset($iftaArray['tolls']))
-															@if($iftaArray['tolls']==1)
-																<li><a href="#" id="iftaToll_navbar" class="slide-item">Tolls</a></li>
-															@endif 
-														@endif
-															
-														@if(isset($iftaArray['verifyTrip']))
-															@if($iftaArray['verifyTrip']==1)
+													
 																<li><a href="" class="slide-item" id="ifta_navbar">IFTA Trips</a></li>
-															@endif 
-														@elseif(isset($iftaArray['IFTA_trips']))
-															@if($iftaArray['IFTA_trips']==1)
-																<li><a href="" class="slide-item" id="ifta_navbar">IFTA Trips</a></li>
-															@endif 
-														@endif	
 															
 													</ul>
 												</li>
-											@endif 
-										@endif
 
 										@if(isset($accountArray['account']))
 											@if($accountArray['account']==1)

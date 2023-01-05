@@ -38,4 +38,5 @@ class FuelCard extends Model
     // {
     //     return $this->userPassword;
     // }
+   
 }

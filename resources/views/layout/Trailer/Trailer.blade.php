@@ -238,7 +238,7 @@
 </div>
 <!-- ========== end addTrailerModal ========== -->
  <!--============================== over add modal =========== -->
-<datalist id="registered_state">
+<datalist id="registered_state" class="registered_state">
     <option value="AL">
     <option value="AK">
     <option value="AR">
