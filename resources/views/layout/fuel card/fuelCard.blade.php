@@ -24,8 +24,8 @@
 
                                 <div class="table-responsive export-table">
                                     <table id="editable-file-datatable" class="table editable-table table-nowrap table-bordered table-edit wp-100 customtable">
-                                        <thead>
-                                            <tr>
+                                        <thead class="thead_th">
+                                            <tr class="tr">
                                                 <th scope="col" col width="40">No</th>
                                                 <th scope="col" col width="100">Card Holder Name</th>
                                                 <th scope="col" col width="100">IFTA Card No</th>

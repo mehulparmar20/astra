@@ -21,7 +21,12 @@ use App\Http\Controllers\Admin\SubCreditCardController;
 use App\Http\Controllers\Admin\AccountManagerController;
 use App\Http\Controllers\Admin\BranchOfficeController;
 use App\Http\Controllers\Admin\PaymentTermsController;
-
+use App\Http\Controllers\Admin\TrailerAdminAddController;
+use App\Http\Controllers\Admin\EquipmentTypeController;
+use App\Http\Controllers\Admin\RecurrenceCategoryController;
+use App\Http\Controllers\Admin\TermsConditionsController;
+use App\Http\Controllers\Admin\TruckTrailerMakeController;
+use App\Http\Controllers\Admin\LoadController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -94,6 +99,10 @@ Route::post('admin/deleteViewDriverApp', [DriverController::class, 'deleteViewDr
 //customer
 Route::get('admin/customer', [CustomerController::class, 'getCustomerData']);
 Route::post('admin/addCustomer', [CustomerController::class, 'addCustomerData']);
+Route::get('admin/edit_customer', [CustomerController::class, 'edit_customer']);
+Route::post('admin/update_customer', [CustomerController::class, 'update_customer']);
+Route::post('admin/delete_customer', [CustomerController::class, 'delete_customer']);
+Route::post('admin/restoreCustomer', [CustomerController::class, 'restoreCustomer']);
 
 //addCurrency
 Route::get('admin/customerCurrency', [CustomerController::class, 'getCustomerCurrency']);
@@ -123,6 +132,12 @@ Route::post('admin/updateUserCompany', [CompanyController::class, 'updateUserCom
 Route::get('admin/getTruck', [TruckController::class, 'getTruck']);
 Route::get('admin/truck_getTrucktype', [TruckController::class, 'truck_getTrucktype']);
 Route::post('admin/addTruck', [TruckController::class, 'addTruckData']);
+Route::get('admin/edit_truck', [TruckController::class, 'edit_truck']);
+Route::post('admin/update_truck', [TruckController::class, 'update_truck']);
+Route::post('admin/delete_truck', [TruckController::class, 'delete_truck']);
+Route::post('admin/restore_truck', [TruckController::class, 'restore_truck']);
+Route::post('admin/create_truckType', [TruckController::class, 'create_truckType']);
+
 
 //Shipper
 Route::get('admin/getShipper', [ShipperController::class, 'getShipper']);
@@ -136,9 +151,8 @@ Route::get('admin/getFuelVendor', [FuelVendorController::class, 'getFuelVendor']
 //fuel card
 Route::get('admin/getFuelCard', [FuelCardController::class, 'getFuelCard']);
 
-//FuelReceipt
+//Fuel Receipt
 Route::get('admin/getFuelReceipt', [FuelReceiptController::class, 'getFuelReceipt']);
-
 
 //Ifta Toll
 Route::get('admin/getIftaToll', [IftaTollController::class, 'getIftaToll']);
@@ -146,10 +160,10 @@ Route::get('admin/getIftaToll', [IftaTollController::class, 'getIftaToll']);
 //Bank
 Route::get('admin/getBankData', [BankController::class, 'getBankData']);
 
-//creditCard
+//credit Card
 Route::get('admin/getcreditCard', [CreditCardController::class, 'getcreditCard']);
 
-//sucCreditCard
+//sub Credit Card
 Route::get('admin/getsubCreditCard', [SubCreditCardController::class, 'getsubCreditCard']);
 
 //Accounting Manager
@@ -160,6 +174,31 @@ Route::get('admin/getAccountCompletedValue', [AccountManagerController::class, '
 //Branch Office
 Route::get('admin/getBranchOffice', [BranchOfficeController::class, 'getBranchOffice']);
 
-Route::get('admin/updateUserCompany', [CompanyController::class, 'updateUserCompany']);
+//Trailer
+Route::get('admin/getTrailer', [TrailerAdminAddController::class, 'getTrailer']);
+Route::post('admin/addTrailer', [TrailerAdminAddController::class, 'addTrailerData']);
+Route::get('admin/trailer_getTrailertype', [TrailerAdminAddController::class, 'trailer_getTrailertype']);
+Route::post('admin/trailer_addTrailertype', [TrailerAdminAddController::class, 'trailer_addTrailertype']);
+Route::get('admin/edit_trailer', [TrailerAdminAddController::class, 'edit_trailer']);
+Route::post('admin/updateTrailer', [TrailerAdminAddController::class, 'updateTrailer']);
+Route::post('admin/deleteTrailer', [TrailerAdminAddController::class, 'deleteTrailer']);
 
+//Equipment Type
+Route::get('admin/getEquipmentType', [EquipmentTypeController::class, 'getEquipmentType']);
+Route::post('admin/addEquipmentType', [EquipmentTypeController::class, 'addEquipmentType']);
 
+//Recurrence Category
+Route::get('admin/getRecurrenceCategory', [RecurrenceCategoryController::class, 'getRecurrenceCategory']);
+Route::post('admin/addRecurrenceCategory', [RecurrenceCategoryController::class, 'addRecurrenceCategory']);
+
+//Terms Conditions
+Route::get('admin/getTermsConditions', [TermsConditionsController::class, 'getTermsConditions']);
+Route::post('admin/addTermsConditions', [TermsConditionsController::class, 'addTermsConditions']);
+
+//Truck & Trailer Make
+Route::get('admin/getTruckTrailerMake', [TruckTrailerMakeController::class, 'getTruckTrailerMake']);
+Route::post('admin/addTruckTrailer', [TruckTrailerMakeController::class, 'addTruckTrailer']);
+
+//Load Type
+Route::get('admin/getLoaType', [LoadController::class, 'getLoaType']);
+Route::post('admin/addLoadType', [LoadController::class, 'addLoadType']);

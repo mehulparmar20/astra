@@ -55,7 +55,7 @@ function createRows(response) {
                 "<td data-field='ext'>" + ext + "</td>" +
                 "<td data-field='tollfree'>" + tollfree + "</td>" +
                 "<td data-field='fax'>" + fax + "</td>" +
-                "<td style='width: 100px'><a class='text-white edit-icn edit1' id='editmodel' title='Edit'><i class='fe fe-edit'></i></a><a class='delete1 text-white delete-icn' data-id="+ email +" title='Delete'><i class='fe fe-delete'></i></a></td></tr>";
+                "<td style='width: 100px'><a class='button-23 edit1' id='editmodel' title='Edit'><i class='fe fe-edit'></i></a><a class='delete1 button-23' data-id="+ email +" title='Delete'><i class='fe fe-delete'></i></a></td></tr>";
             $("#table1").append(tr_str);
         }
     } else {
@@ -67,10 +67,6 @@ function createRows(response) {
     }
     usermodal();
 }
-
-$(".plusCompany").click(function(){
-    $("#factoringCompanyModal").modal("show");
-});
 
 (function() {
     window.onpageshow = function(event) {
@@ -95,248 +91,277 @@ $('#select-all').click(function(event) {
 $(document).ready(function() {
    
     $('#usersave').on('click', function() {
-      var firstname = $('#inputFirstName4').val();
-      var lastname = $('#inputLastName4').val();
-      var username = $('#inputUsername4').val();
-      var email = $('#inputEmail4').val();
-      var password = $('#inputPassword4').val();
-      var address = $('#inputAddress').val();
-      var location = $('#inputLocation').val();
-      var zip = $('#inputZip').val();
-      var companyname = $('#inputCompanyName').val();
-      var office = $('#inputOffice').val();
-      var telephone = $('#inputTelephone').val();
-      var ext = $('#inputExt').val();
-      var tollfree = $('#inputTollFree').val();
-      var fax = $('#inputFax').val();
-      var checkbox1 = $('#checkbox-1').is(":checked");
-      var value1 = checkbox1 ? 1 : 0;
-      var checkbox2 = $('#checkbox-2').is(":checked");
-      var value2 = checkbox2 ? 1 : 0;
-      var checkbox3 = $('#checkbox-3').is(":checked");
-      var value3 = checkbox3 ? 1 : 0;
-      var checkbox4 = $('#checkbox-4').is(":checked");
-      var value4 = checkbox4 ? 1 : 0;
-      var checkbox5 = $('#checkbox-5').is(":checked");
-      var value5 = checkbox5 ? 1 : 0;
-      var checkbox6 = $('#checkbox-6').is(":checked");
-      var value6 = checkbox6 ? 1 : 0;
-      var checkbox7 = $('#checkbox-7').is(":checked");
-      var value7 = checkbox7 ? 1 : 0;
-      var checkbox8 = $('#checkbox-8').is(":checked");
-      var value8 = checkbox8 ? 1 : 0;
-      var checkbox9 = $('#checkbox-9').is(":checked");
-      var value9 = checkbox9 ? 1 : 0;
-      var checkbox2_1 = $('#checkboxl2_1').is(":checked");
-      var value10 = checkbox2_1 ? 1 : 0;
-      var checkbox2_2 = $('#checkboxl2_2').is(":checked");
-      var value11 = checkbox2_2 ? 1 : 0;
-      var checkbox2_3 = $('#checkboxl2_3').is(":checked");
-      var value12 = checkbox2_3 ? 1 : 0;
-      var checkbox2_4 = $('#checkboxl2_4').is(":checked");
-      var value13 = checkbox2_4 ? 1 : 0;
-      var checkbox2_5 = $('#checkboxl2_5').is(":checked");
-      var value14 = checkbox2_5 ? 1 : 0;
-      var checkbox2_6 = $('#checkboxl2_6').is(":checked");
-      var value15 = checkbox2_6 ? 1 : 0;
-      var checkbox2_7 = $('#checkboxl2_7').is(":checked");
-      var value16 = checkbox2_7 ? 1 : 0;
-      var checkbox2_8 = $('#checkboxl2_8').is(":checked");
-      var value17 = checkbox2_8 ? 1 : 0;
-      var checkbox2_9 = $('#checkboxl2_9').is(":checked");
-      var value18 = checkbox2_9 ? 1 : 0;
-      var checkbox2_10 = $('#checkboxl2_10').is(":checked");
-      var value19 = checkbox2_10 ? 1 : 0;
-      var checkbox2_11 = $('#checkboxl2_11').is(":checked");
-      var value20 = checkbox2_11 ? 1 : 0;
-      var checkbox2_12 = $('#checkboxl2_12').is(":checked");
-      var value21 = checkbox2_12 ? 1 : 0;
-      var checkbox2_13 = $('#checkboxl2_13').is(":checked");
-      var value22 = checkbox2_13 ? 1 : 0;
-      var checkbox2_14 = $('#checkboxl2_14').is(":checked");
-      var value23 = checkbox2_14 ? 1 : 0;
-      var checkbox2_15 = $('#checkboxl2_15').is(":checked");
-      var value24 = checkbox2_15 ? 1 : 0;
-      var checkbox3_1 = $('#checkboxl3_1').is(":checked");
-      var value25 = checkbox3_1 ? 1 : 0;
-      var checkbox3_2 = $('#checkboxl3_2').is(":checked");
-      var value26 = checkbox3_2 ? 1 : 0;
-      var checkbox3_3 = $('#checkboxl3_3').is(":checked");
-      var value27 = checkbox3_3 ? 1 : 0;
-      var checkbox3_4 = $('#checkboxl3_4').is(":checked");
-      var value28 = checkbox3_4 ? 1 : 0;
-      var checkbox3_5 = $('#checkboxl3_5').is(":checked");
-      var value29 = checkbox3_5 ? 1 : 0;
-      var checkbox3_6 = $('#checkboxl3_6').is(":checked");
-      var value30 = checkbox3_6 ? 1 : 0;
-      var checkbox3_7 = $('#checkboxl3_7').is(":checked");
-      var value31 = checkbox3_7 ? 1 : 0;
-      var checkbox3_8 = $('#checkboxl3_8').is(":checked");
-      var value32 = checkbox3_8 ? 1 : 0;
-      var checkbox3_9 = $('#checkboxl3_9').is(":checked");
-      var value33 = checkbox3_9 ? 1 : 0;
-      var checkbox3_10 = $('#checkboxl3_10').is(":checked");
-      var value34 = checkbox3_10 ? 1 : 0;
-      var checkbox3_11 = $('#checkboxl3_11').is(":checked");
-      var value35 = checkbox3_11 ? 1 : 0;
-      var checkbox3_12 = $('#checkboxl3_12').is(":checked");
-      var value36 = checkbox3_12 ? 1 : 0;
-      var checkbox3_13 = $('#checkboxl3_13').is(":checked");
-      var value37 = checkbox3_13 ? 1 : 0;
-      var checkbox4_1 = $('#checkboxl4_1').is(":checked");
-      var value38 = checkbox4_1 ? 1 : 0;
-      var checkbox4_2 = $('#checkboxl4_2').is(":checked");
-      var value39 = checkbox4_2 ? 1 : 0;
-      var checkbox4_3 = $('#checkboxl4_3').is(":checked");
-      var value40 = checkbox4_3 ? 1 : 0;
-      var checkbox5_1 = $('#checkboxl5_1').is(":checked");
-      var value41 = checkbox5_1 ? 1 : 0;
-      var checkbox5_2 = $('#checkboxl5_2').is(":checked");
-      var value42 = checkbox5_2 ? 1 : 0;
-      var checkbox5_3 = $('#checkboxl5_3').is(":checked");
-      var value43 = checkbox5_3 ? 1 : 0;
-      var checkbox5_4 = $('#checkboxl5_4').is(":checked");
-      var value44 = checkbox5_4 ? 1 : 0;
-      var checkbox6_1 = $('#checkboxl6_1').is(":checked");
-      var value45 = checkbox6_1 ? 1 : 0;
-      var checkbox6_2 = $('#checkboxl6_2').is(":checked");
-      var value46 = checkbox6_2 ? 1 : 0;
-      var checkbox6_3 = $('#checkboxl6_3').is(":checked");
-      var value47 = checkbox6_3 ? 1 : 0;
-      var checkbox6_4 = $('#checkboxl6_4').is(":checked");
-      var value48 = checkbox6_4 ? 1 : 0;
-      var checkbox6_5 = $('#checkboxl6_5').is(":checked");
-      var value49 = checkbox6_5 ? 1 : 0;
-      var checkbox6_6 = $('#checkboxl6_6').is(":checked");
-      var value50 = checkbox6_6 ? 1 : 0;
-      var checkbox6_7 = $('#checkboxl6_7').is(":checked");
-      var value51 = checkbox6_7 ? 1 : 0;
-      var checkbox6_8 = $('#checkboxl6_8').is(":checked");
-      var value52 = checkbox6_8 ? 1 : 0;
-      var checkbox6_9 = $('#checkboxl6_9').is(":checked");
-      var value53 = checkbox6_9 ? 1 : 0;
-      var checkbox6_10 = $('#checkboxl6_10').is(":checked");
-      var value54 = checkbox6_10 ? 1 : 0;
-      var checkbox6_11 = $('#checkboxl6_11').is(":checked");
-      var value55 = checkbox6_11 ? 1 : 0;
-      var checkbox6_12 = $('#checkboxl6_12').is(":checked");
-      var value56 = checkbox6_12 ? 1 : 0;
-      var tr_length = $("#userModal").find("tr").length;
-      var tr_str2 = "<tr data-id=" + tr_length + ">" +
-      "<td data-field='id'>" + tr_length + "</td>" +
-      "<td data-field='email' id="+email+">" + email + "</td>" +
-      "<td data-field='username'>" + username + "</td>" +
-      "<td data-field='fistname'>" + firstname + "</td>" +
-      "<td data-field='lastname'>" + lastname + "</td>" +
-      "<td data-field='address'>" + address + "</td>" +
-      "<td data-field='location'>" + location + "</td>" +
-      "<td data-field='zip'>" + zip + "</td>" +
-      "<td data-field='telephone'>" + telephone + "</td>" +
-      "<td data-field='ext'>" + ext + "</td>" +
-      "<td data-field='tollfree'>" + tollfree + "</td>" +
-      "<td data-field='fax'>" + fax + "</td>" +
-      "<td style='width: 100px'><a class='btn btn-primary fs-14 text-white edit-icn edit1' id='editmodel' title='Edit'><i class='fe fe-edit'></i></a><a class='delete1 mt-2 btn btn-danger fs-14 text-white delete-icn' data-id="+ email +" title='Delete'><i class='fe fe-delete'></i></a></td></tr>";
-          $.ajax({
-              url: base_path+"/admin/add-user",
-              type: "POST",
-              data: {
-                _token: $("#csrf").val(),
-                userName: username,
-                userPass: password,
-                userFirstName: firstname,
-                userLastName: lastname,
-                userEmail: email,
-                userAddress: address,
-                userLocation: location,
-                userZip: zip,
-                userTelephone: telephone,
-                companyName: companyname,
-                office: office,
-                userExt: ext,
-                TollFree: tollfree,
-                userFax: fax,
-                new_active_load: value1,
-                profit_loss: value2,
-                dispatcher: value3,
-                driver: value4,
-                company: value5,
-                truck: value6,
-                carrier: value7,
-                equipment: value8,
-                sales_representative: value9,
-                addCompany: value10,
-                office: value11,
-                truckType: value12,
-                trailerType: value13,
-                equipmentType: value14,
-                statusType: value15,
-                loadType: value16,
-                fuelCardType: value17,
-                fixPayCategory: value18,
-                currencySetting: value19,
-                addNote: value20,
-                paymentTerms: value21,
-                dispactherIncentive: value22,
-                salesIncentive: value23,
-                documentType: value24,
-                addCustomer: value25,
-                addShipper: value26,
-                addConsignee: value27,
-                addDriver: value28,
-                users: value29,
-                addTruck: value30,
-                addTrailer: value31,
-                customsBroker: value32,
-                factoringCompany: value33,
-                addBank: value34,
-                creditCard: value35,
-                subCreditCard: value36,
-                iftaCard: value37,
-                fuelReceipt: value38,
-                addToll: value39,
-                verifyTrip: value40,
-                accountManager: value41,
-                paymentRegistration: value42,
-                advancePayment: value43,
-                manageReceipt: value44,
-                driverReport: value45,
-                bankStateReport: value46,
-                creditStateReport: value47,
-                fuelcardReport: value48,
-                fuelReport: value49,
-                tollReport: value50,
-                aggingReport: value51,
-                payableReport: value52,
-                receivableReport: value53,
-                Report1099: value54,
-                emailTrack: value55,
-                laneAnalysis: value56,
-              },
-              cache: false,
-              success: function(resp){
-                if(resp.success === true){
-                    swal.fire("Done!", resp.message, "success");
-                    $.ajax({
-                        type: "GET",
-                        url: base_path+"/admin/user",
-                        async: false,
-                        success: function(text) {
-                            createRows(text);
-                            response = text;
-                        }
-                    });
-                    $("#addUserModal form").trigger("reset");
-                } else {
-                    swal.fire("Error!", resp.error, "error");
-                }
-              },
-              error: function(data){
-                $.each( data.responseJSON.errors, function( key, value ) {
-                    swal.fire("Error!", value[0], "error");
-                });
+        var firstname = $('#inputFirstName4').val();
+        var lastname = $('#inputLastName4').val();
+        var username = $('#inputUsername4').val();
+        var email = $('#inputEmail4').val();
+        var password = $('#inputPassword4').val();
+        var address = $('#inputAddress').val();
+        var location = $('#inputLocation').val();
+        var zip = $('#inputZip').val();
+        var companyname = $('#inputCompanyName').val();
+        var office = $('#inputOffice').val();
+        var telephone = $('#inputTelephone').val();
+        var ext = $('#inputExt').val();
+        var tollfree = $('#inputTollFree').val();
+        var fax = $('#inputFax').val();
+        var insertUser = $('.insertUser').is(":checked");
+        var inser_user = insertUser ? 1 : 0;
+        var updateUser = $('.updateUser').is(":checked");
+        var update_user = updateUser ? 1 : 0;
+        var deleteUser = $('.deleteUser').is(":checked");
+        var delete_user = deleteUser ? 1 : 0;
+        var importUser = $('.importUser').is(":checked");
+        var import_user = importUser ? 1 : 0;
+        var exportUsers = $('.exportUsers').is(":checked");
+        var export_user = exportUsers ? 1 : 0;
+        var checkbox1 = $('#checkbox-1').is(":checked");
+        var value1 = checkbox1 ? 1 : 0;
+        var checkbox2 = $('#checkbox-2').is(":checked");
+        var value2 = checkbox2 ? 1 : 0;
+        var checkbox3 = $('#checkbox-3').is(":checked");
+        var value3 = checkbox3 ? 1 : 0;
+        var checkbox4 = $('#checkbox-4').is(":checked");
+        var value4 = checkbox4 ? 1 : 0;
+        var checkbox5 = $('#checkbox-5').is(":checked");
+        var value5 = checkbox5 ? 1 : 0;
+        var checkbox6 = $('#checkbox-6').is(":checked");
+        var value6 = checkbox6 ? 1 : 0;
+        var checkbox7 = $('#checkbox-7').is(":checked");
+        var value7 = checkbox7 ? 1 : 0;
+        var checkbox8 = $('#checkbox-8').is(":checked");
+        var value8 = checkbox8 ? 1 : 0;
+        var checkbox9 = $('#checkbox-9').is(":checked");
+        var value9 = checkbox9 ? 1 : 0;
+        var checkbox2_1 = $('#checkboxl2_1').is(":checked");
+        var value10 = checkbox2_1 ? 1 : 0;
+        var checkbox2_2 = $('#checkboxl2_2').is(":checked");
+        var value11 = checkbox2_2 ? 1 : 0;
+        var checkbox2_3 = $('#checkboxl2_3').is(":checked");
+        var value12 = checkbox2_3 ? 1 : 0;
+        var checkbox2_4 = $('#checkboxl2_4').is(":checked");
+        var value13 = checkbox2_4 ? 1 : 0;
+        var checkbox2_5 = $('#checkboxl2_5').is(":checked");
+        var value14 = checkbox2_5 ? 1 : 0;
+        var checkbox2_6 = $('#checkboxl2_6').is(":checked");
+        var value15 = checkbox2_6 ? 1 : 0;
+        var checkbox2_7 = $('#checkboxl2_7').is(":checked");
+        var value16 = checkbox2_7 ? 1 : 0;
+        var checkbox2_8 = $('#checkboxl2_8').is(":checked");
+        var value17 = checkbox2_8 ? 1 : 0;
+        var checkbox2_9 = $('#checkboxl2_9').is(":checked");
+        var value18 = checkbox2_9 ? 1 : 0;
+        var checkbox2_10 = $('#checkboxl2_10').is(":checked");
+        var value19 = checkbox2_10 ? 1 : 0;
+        var checkbox2_11 = $('#checkboxl2_11').is(":checked");
+        var value20 = checkbox2_11 ? 1 : 0;
+        var checkbox2_12 = $('#checkboxl2_12').is(":checked");
+        var value21 = checkbox2_12 ? 1 : 0;
+        var checkbox2_13 = $('#checkboxl2_13').is(":checked");
+        var value22 = checkbox2_13 ? 1 : 0;
+        var checkbox2_14 = $('#checkboxl2_14').is(":checked");
+        var value23 = checkbox2_14 ? 1 : 0;
+        var checkbox2_15 = $('#checkboxl2_15').is(":checked");
+        var value24 = checkbox2_15 ? 1 : 0;
+        var checkbox3_1 = $('#checkboxl3_1').is(":checked");
+        var customer = checkbox3_1 ? 1 : 0;
+        var checkbox3_2 = $('#checkboxl3_2').is(":checked");
+        var value26 = checkbox3_2 ? 1 : 0;
+        var checkbox3_3 = $('#checkboxl3_3').is(":checked");
+        var value27 = checkbox3_3 ? 1 : 0;
+        var checkbox3_4 = $('#checkboxl3_4').is(":checked");
+        var value28 = checkbox3_4 ? 1 : 0;
+        var checkbox3_5 = $('#checkboxl3_5').is(":checked");
+        var value29 = checkbox3_5 ? 1 : 0;
+        var checkbox3_6 = $('#checkboxl3_6').is(":checked");
+        var value30 = checkbox3_6 ? 1 : 0;
+        var checkbox3_7 = $('#checkboxl3_7').is(":checked");
+        var value31 = checkbox3_7 ? 1 : 0;
+        var admin = $('#checkboxl3_8').is(":checked");
+        var admin_val = admin ? 1 : 0;
+        var checkbox3_9 = $('#checkboxl3_9').is(":checked");
+        var value33 = checkbox3_9 ? 1 : 0;
+        var checkbox3_10 = $('#checkboxl3_10').is(":checked");
+        var value34 = checkbox3_10 ? 1 : 0;
+        var checkbox3_11 = $('#checkboxl3_11').is(":checked");
+        var value35 = checkbox3_11 ? 1 : 0;
+        var checkbox3_12 = $('#checkboxl3_12').is(":checked");
+        var value36 = checkbox3_12 ? 1 : 0;
+        var checkbox3_13 = $('#checkboxl3_13').is(":checked");
+        var value37 = checkbox3_13 ? 1 : 0;
+        var checkbox4_1 = $('#checkboxl4_1').is(":checked");
+        var value38 = checkbox4_1 ? 1 : 0;
+        var checkbox4_2 = $('#checkboxl4_2').is(":checked");
+        var value39 = checkbox4_2 ? 1 : 0;
+        var checkbox4_3 = $('#checkboxl4_3').is(":checked");
+        var value40 = checkbox4_3 ? 1 : 0;
+        var checkbox4_4 = $('#checkboxl4_4').is(":checked");
+        var toll = checkbox4_4 ? 1 : 0;
+        var checkboxl4_5 = $('#checkboxl4_5').is(":checked");
+        var IFTA_trip = checkboxl4_5 ? 1 : 0;
+        
+        var checkbox5_1 = $('#checkboxl5_1').is(":checked");
+        var value41 = checkbox5_1 ? 1 : 0;
+        var checkbox5_2 = $('#checkboxl5_2').is(":checked");
+        var value42 = checkbox5_2 ? 1 : 0;
+        var checkbox5_3 = $('#checkboxl5_3').is(":checked");
+        var value43 = checkbox5_3 ? 1 : 0;
+        var checkbox5_4 = $('#checkboxl5_4').is(":checked");
+        var value44 = checkbox5_4 ? 1 : 0;
+        var checkbox5_5 = $('#checkboxl5_5').is(":checked");
+        var bank = checkbox5_5 ? 1 : 0;
+        var checkbox5_6 = $('#checkboxl5_6').is(":checked");
+        var account = checkbox5_6 ? 1 : 0;
+  
+        var checkbox6_1 = $('#checkboxl6_1').is(":checked");
+        var value45 = checkbox6_1 ? 1 : 0;
+        var checkbox6_2 = $('#checkboxl6_2').is(":checked");
+        var value46 = checkbox6_2 ? 1 : 0;
+        var checkbox6_3 = $('#checkboxl6_3').is(":checked");
+        var value47 = checkbox6_3 ? 1 : 0;
+        var checkbox6_4 = $('#checkboxl6_4').is(":checked");
+        var value48 = checkbox6_4 ? 1 : 0;
+        var checkbox6_5 = $('#checkboxl6_5').is(":checked");
+        var value49 = checkbox6_5 ? 1 : 0;
+        var checkbox6_6 = $('#checkboxl6_6').is(":checked");
+        var value50 = checkbox6_6 ? 1 : 0;
+        var checkbox6_7 = $('#checkboxl6_7').is(":checked");
+        var value51 = checkbox6_7 ? 1 : 0;
+        var checkbox6_8 = $('#checkboxl6_8').is(":checked");
+        var value52 = checkbox6_8 ? 1 : 0;
+        var checkbox6_9 = $('#checkboxl6_9').is(":checked");
+        var value53 = checkbox6_9 ? 1 : 0;
+        var checkbox6_10 = $('#checkboxl6_10').is(":checked");
+        var value54 = checkbox6_10 ? 1 : 0;
+        var checkbox6_11 = $('#checkboxl6_11').is(":checked");
+        var value55 = checkbox6_11 ? 1 : 0;
+        var checkbox6_12 = $('#checkboxl6_12').is(":checked");
+        var value56 = checkbox6_12 ? 1 : 0;
+        var tr_length = $("#userModal").find("tr").length;
+        var tr_str2 = "<tr data-id=" + tr_length + ">" +
+        "<td data-field='id'>" + tr_length + "</td>" +
+        "<td data-field='email' id="+email+">" + email + "</td>" +
+        "<td data-field='username'>" + username + "</td>" +
+        "<td data-field='fistname'>" + firstname + "</td>" +
+        "<td data-field='lastname'>" + lastname + "</td>" +
+        "<td data-field='address'>" + address + "</td>" +
+        "<td data-field='location'>" + location + "</td>" +
+        "<td data-field='zip'>" + zip + "</td>" +
+        "<td data-field='telephone'>" + telephone + "</td>" +
+        "<td data-field='ext'>" + ext + "</td>" +
+        "<td data-field='tollfree'>" + tollfree + "</td>" +
+        "<td data-field='fax'>" + fax + "</td>" +
+        "<td style='width: 100px'><a class='button-23 edit1' id='editmodal' title='Edit'><i class='fe fe-edit'></i></a><a class='delete1 button-23' data-id="+ email +" title='Delete'><i class='fe fe-delete'></i></a></td></tr>";
+            $.ajax({
+                url: base_path+"/admin/add-user",
+                type: "POST",
+                data: {
+                  _token: $("#csrf").val(),
+                  userName: username,
+                  userPass: password,
+                  userFirstName: firstname,
+                  userLastName: lastname,
+                  userEmail: email,
+                  userAddress: address,
+                  userLocation: location,
+                  userZip: zip,
+                  userTelephone: telephone,
+                  companyName: companyname,
+                  office: office,
+                  userExt: ext,
+                  TollFree: tollfree,
+                  userFax: fax,
+                  new_active_load: value1,
+                  profit_loss: value2,
+                  dispatcher: value3,
+                  driver: value4,
+                  company: value5,
+                  truck: value6,
+                  carrier: value7,
+                  equipment: value8,
+                  sales_representative: value9,
+                  addCompany: value10,
+                  office: value11,
+                  truckType: value12,
+                  trailerType: value13,
+                  equipmentType: value14,
+                  statusType: value15,
+                  loadType: value16,
+                  fuelCardType: value17,
+                  fixPayCategory: value18,
+                  currencySetting: value19,
+                  addNote: value20,
+                  paymentTerms: value21,
+                  dispactherIncentive: value22,
+                  salesIncentive: value23,
+                  documentType: value24,
+                  customer: customer,
+                  addShipper: value26,
+                  addConsignee: value27,
+                  external_carrier: value28,
+                  driver_owner_operator: value29,
+                  user: value30,
+                  truck: value31,
+                  admin: admin_val,
+                  factoringCompany: value33,
+                  trailer: value34,
+                  creditCard: value35,
+                  subCreditCard: value36,
+                  iftaCard: value37,
+                  fuel_vendor: value38,
+                  ifta: value39,
+                  Fuel_reciepts_cash_advance: value40,
+                  tolls:toll,
+                  IFTA_trips:IFTA_trip,
+                  accountManager: value41,
+                  paymentRegistration: value42,
+                  advancePayment: value43,
+                  manageReceipt: value44,
+                  bank:bank,
+                  Finance:account,
+                  driverReport: value45,
+                  bankStateReport: value46,
+                  creditStateReport: value47,
+                  fuelcardReport: value48,
+                  fuelReport: value49,
+                  report: value50,
+                  aggingReport: value51,
+                  payableReport: value52,
+                  receivableReport: value53,
+                  Report1099: value54,
+                  Expense_report: value55,
+                  Revenue_report: value56,
+                  inser_user:inser_user,
+                  update_user:update_user,
+                  delete_user:delete_user,
+                  import_user:import_user,
+                  export_user:export_user,
                 },
-          });
-  });
+                cache: false,
+                success: function(resp){
+                  if(resp.success === true){
+                      swal.fire("Done!", resp.message, "success");
+                      $.ajax({
+                          type: "GET",
+                          url: base_path+"/admin/user",
+                          async: false,
+                          success: function(text) {
+                              createRows(text);
+                              response = text;
+                          }
+                      });
+                      $("#addUserModal form").trigger("reset");
+                  } else {
+                      swal.fire("Error!", resp.error, "error");
+                  }
+                },
+                error: function(data){
+                  $.each( data.responseJSON.errors, function( key, value ) {
+                      swal.fire("Error!", value[0], "error");
+                  });
+                  },
+            });
+    });
 });
 
 $(document).ready(function(){
@@ -361,10 +386,6 @@ $(document).ready(function(){
 
   function usermodal()
 {
-    $("#plusCompany").click(function(){
-        $("#addCompanyModal").modal("show");
-    });
-
     $(document).ready(function(){
         $('.edit1').click(function(){
             $('#userEditModal').modal('show'); 
@@ -423,16 +444,6 @@ $(document).ready(function(){
 	})
 	});
 }
-
-$('.userEditModalCloseButton').click(function(){
-        $('#userEditModal').modal('hide');
-        // $('#userModal').modal('show');
-    });
-    
-    // $('#userEditModal').modal({
-    //     backdrop: 'static',
-    //     keyboard: false
-    // })
   
 // <!-- ------------------------------------------------------------------------- driver ------------------------------------------------------------------------- -->
 
@@ -513,7 +524,6 @@ $.ajax({
                             "<td data-field='license_exp_date'>" + license_exp_date + "</td>" +
                             "<td data-field='driver_balance'>" + driver_balance + "</td>" +
                             "<td  style='display:flex'>"+actionBtnOwnerOperator +"</td></tr>";
-
                         $("#driverTable").append(tr_str1);
                         no++;
                         }
@@ -530,20 +540,49 @@ $.ajax({
         drivermodal();
     }
 
-$('.editModalCloseButton').click(function(){
-    $('#editDriverModal').modal('hide');
-    $('#driverModal').modal('show');  
-});
-$('.addDriverOwner').click(function(){
-    var name =$(this).data('name');
-    $('#owner-driver-name').val(atob(name));
-
-    var driver_id =$(this).data('id');
-    $('#driverid').val(driver_id);
-
-    // console.log(atob(name));
-    $('#addDriverOwnerModal').modal('show');  
-});
+    $('.editModalCloseButton').click(function(){
+        $('#editDriverModal').modal('hide');
+        // $('#driverModal').modal('show');  
+    });
+    
+    $('#editDriverModal').modal({
+        backdrop: 'static',
+        keyboard: false
+    })
+    
+    $('.addDriverOwnerModalCloseButton').click(function(){
+        $('#addDriverOwnerModal').modal('hide');
+        // $('#driverModal').modal('show');
+    });
+    
+    $('#addDriverOwnerModal').modal({
+        backdrop: 'static',
+        keyboard: false
+    })
+    
+    $('.editDriverOwnerModalCloseButton').click(function(){
+        $('#editDriverOwnerModal').modal('hide');
+        // $('#driverModal').modal('show');
+    });
+    
+    $('#addDriverOwnerModal').modal({
+        backdrop: 'static',
+        keyboard: false
+    })
+    
+    $('.addDriverOwner').click(function(){
+        var name =$(this).data('name');
+        $('#owner-driver-name').val(atob(name));
+    
+        var driver_id =$(this).data('id');
+        $('#driverid').val(driver_id);
+    
+        // console.log(atob(name));
+        $('#addDriverOwnerModal').modal('show');  
+    });
+// $('.addDriverOwner').click(function(){
+//     var name =$(this).data('name');
+//     $('#owner-driver-name').val(atob(name));
 
 //     var driver_id =$(this).data('id');
 //     $('.driver-id').val(driver_id);
@@ -1491,7 +1530,7 @@ $(document).ready(function() {
 
         function createviewDriverApplicationRows(viewDriverApplicationResponse) {i
 
-            // console.log(viewDriverApplicationResponse);
+            console.log(viewDriverApplicationResponse);
             var len1 = 0;
             
             $('#viewDriverApplicationTable').empty(); 
@@ -1538,7 +1577,6 @@ $(document).ready(function() {
         $('#editDriverModal').modal('hide');
         $('#driverModal').modal('show');  
     });
-});
 
     // ------------------------------------------------------------------delete driver-------------------------------------------------------------------------    
     $(".deleteViewDriverApp").on("click", function(){
@@ -1583,7 +1621,7 @@ $(document).ready(function() {
 // ------------------------------------------------------------------over delete driver-------------------------------------------------------------------------    
 
 
-//});
+});
 
 // <!-- ------------------------------------------------------------------------- end view driver application data  ------------------------------------------------------------------------- -->
 
@@ -1640,8 +1678,7 @@ $(document).ready(function() {
                         
                         if(delete_status=="NO"){
                         var tr_str1 = "<tr data-id=" + (i + 1) + ">" +
-                            "<td ><input value='"+mailingAddress+"' class='selectCompany' id='type_radio_2' name='type_radio' type='radio' /></td>" +
-
+                            "<td ><input value='"+companyId+"' id='type_radio_2' name='type_radio' type='radio' /></td>" +
                             "<td data-field="+no+">" + no + "</td>" +
                             "<td data-field='companyName' >" + companyName + "</td>" +
                             "<td data-field='shippingAddress'>" + shippingAddress + "</td>" +
@@ -1649,7 +1686,7 @@ $(document).ready(function() {
                             "<td data-field='faxNo'>" + faxNo + "</td>" +
                             "<td data-field='mcNo'>" + mcNo + "</td>" +
                             "<td data-field='usDotNo'>" + usDotNo + "</td>" +
-                            "<td data-field='mailingAddress' class='mailingAddress'>" + mailingAddress + "</td>" +
+                            "<td data-field='mailingAddress'>" + mailingAddress + "</td>" +
                             "<td data-field='factoringCompany'>" + factoringCompany + "</td>" +
                             "<td data-field='bankCompany'>" + bankCompany + "</td>" +
                             "<td data-field='filepath'><a href='"+ filepath +"' target='_blank'>"+ file_name +"</a></td>" +
@@ -1776,9 +1813,6 @@ function companymodal()
                 data: {_token: $("#companycsrf").val(),com_id: com_id,email: email},
                 cache: false,
                 success: function(dataResult){
-
-                    // console.log(dataResult.file[0].Originalname);
-
                     $('#up_comId1').val(com_id);
                     // $('#up_comSubId').val(companySubId);
                     $('#up_companyName').val(dataResult.companyName);
@@ -1790,9 +1824,6 @@ function companymodal()
                     $('#up_mailingAddress').val(dataResult.mailingAddress);
                     $('#customerBFactoringCompany2').val(dataResult.factoringCompany);
                     $('#up_website').val(dataResult.website);                   
-
-                    $('#filenew').val(dataResult.file.Originalname);                   
-
                     $('#editCompanyModal').modal('show'); 
                 }
             });
@@ -1847,55 +1878,6 @@ function companymodal()
     return false;
 })
     });
-
-
-    $(".selectCompany").on("click", function(){
-        var rowToSelectmail = $(this).closest('td').siblings('.mailingAddress').text();
-        swal.fire({
-            title: "Change Company?",
-            text: "Please ensure and then confirm!",
-            type: "warning",
-            showCancelButton: !0,
-            confirmButtonText: "Yes, change it!",
-            cancelButtonText: "No, cancel!",
-            reverseButtons: !0
-        }).then(function (e) {
-
-        if (e.value === true) {
-        $.ajax({ 
-          url: base_path+"/admin/updateUserCompany",
-        //   headers: {'X-CSRF-TOKEN': $('meta[name="csrf_token"]').attr('content')},
-          data: {email: rowToSelectmail},
-          type: 'get',
-          success: function(resp){
-            if (resp.success === true) {
-				swal.fire("Done!", resp.message, "success");
-                $.ajax({
-                    type: "GET",
-                    url: base_path+"/admin/company",
-                    success: function(text) {
-                        createCompanyRows(text);
-                        response = text;
-                    }
-                });
-			} else {
-				swal.fire("Error!", resp.message, "error");
-			}
-		},
-		error: function (resp) {
-			swal.fire("Error!", 'Something went wrong.', "error");
-		}
-        });
-    } else {
-        e.dismiss;
-    }
-
-}, function (dismiss) {
-    return false;
-})
-    });
-
-
 }
 
 // <!-- -------------------------------------------------------------------------get driver truck  ------------------------------------------------------------------------- -->  
@@ -2041,9 +2023,159 @@ function createDriverUpTruckList(truckResponse) {
 //         e.dismiss;
 //     }
 
-
 // }, function (dismiss) {
 //     return false;
 // })
 //     });
 // }
+
+
+
+
+// <!-- ------------------------------------------------------------------------- Add Recurrence ------------------------------------------------------------------------- -->
+
+
+
+$(function() {
+    $("#btnAdd2").bind("click", function() {
+        var div = $("<tr />");
+        div.html(GetDynamicRecurrence(""));
+        $("#TextBoxContainer2").append(div);
+    });
+    $("body").on("click", ".remove", function() {
+        $(this).closest("tr").remove();
+    });
+
+});
+
+function removeRowRecurrence(index) {
+    if (index == 0) {
+        return;
+    }
+
+    document.getElementById("recurrence_add" + index).remove();
+    installmentCategory.splice(index, 1);
+    installmentType.splice(index, 1);
+    amount.splice(index, 1);
+    installment.splice(index, 1);
+    startNo.splice(index, 1);
+    startDate.splice(index, 1);
+    internalNote.splice(index, 1);
+}
+
+function GetDynamicRecurrence(value) {
+    return '<td width="150">' +
+        '<input class="form-control" value = "' + value +
+        '" name="installmentCategory" onkeyup="searchFixpay(this.value,' + "'fixpaycat'" +
+        ')" list="fixpaycat" autocomplete="off"/></td>' +
+        '<td width="150">' +
+        '<input class="form-control" value = "' + value +
+        '" name="installmentType" list="instatype1" autocomplete="off"/></td>' +
+        '<td width="100">' +
+        '<input name="amount" type="text" value = "' + value + '" class="form-control" /></td>' +
+        '<td width="100">' +
+        '<input name="installment" type="text" value = "' + value + '" class="form-control" /></td>' +
+        '<td width="100"><input name="startNo" type="text" value = "' + value + '" class="form-control" /></td>' +
+        '<td width="10"><input name="startDate" type="date" value = "' + value + '" class="form-control" /></td>' +
+        '<td width="250"><textarea rows="1" cols="30" value = "' + value +
+        '" class="form-control" type="textarea" name="internalNote"></textarea></td>' +
+        '<td><button type="button" class="btn btn-danger remove"><span aria-hidden="true">&times;</span></button></td>';
+}
+
+// <!-- ------------------------------------------------------------------------- End of Add Recurrence ------------------------------------------------------------------------- -->
+
+
+
+// <!-- ------------------------------------------------------------------------- Minus Recurrence ------------------------------------------------------------------------- -->
+
+
+$(function() {
+    $("#btnAdd3").bind("click", function() {
+        var div = $("<tr />");
+        div.html(GetDynamicRecurrencesubstract(""));
+        $("#TextBoxContainer3").append(div);
+    });
+    $("body").on("click", ".remove", function() {
+        $(this).closest("tr").remove();
+    });
+
+});
+
+function recurrence_substract(index) {
+    if (index == 0) {
+        return;
+    }
+    document.getElementById("recurrencesubstract_add" + index).remove();
+    installment_Category.splice(index, 1);
+    installment_Type.splice(index, 1);
+    amount_recurrence.splice(index, 1);
+    installment_sub.splice(index, 1);
+    start_No.splice(index, 1);
+    start_Date.splice(index, 1);
+    internal_Note.splice(index, 1);
+}
+
+function GetDynamicRecurrencesubstract(value) {
+    return '<td width="150">' +
+        '<input class="form-control" value = "' + value +
+        '" name="installment_Category" onkeyup="searchFixpay(this.value,' + "'fixpay_cat'" +
+        ')" list="fixpay_cat" autocomplete="off"/></td>' +
+        '<td width="150">' +
+        '<input class="form-control" value = "' + value + '" name="installment_Type" list="instatype"/></td>' +
+        '<td width="100">' +
+        '<input name="amount_recurrence" type="text" value = "' + value + '" class="form-control" /></td>' +
+        '<td width="100">' +
+        '<input name="installment_sub" type="text" value = "' + value + '" class="form-control" /></td>' +
+        '<td width="100"><input name="start_No" type="text" value = "' + value + '" class="form-control" /></td>' +
+        '<td width="10"><input name="start_Date" type="date" value = "' + value + '" class="form-control" /></td>' +
+        '<td width="250"><textarea rows="1" cols="30" value = "' + value +
+        '" class="form-control" type="textarea" name="internal_Note"></textarea></td>' +
+        '<td><button type="button" class="btn btn-danger remove"><span aria-hidden="true">&times;</span></button></td>'
+}
+
+// <!-- ------------------------------------------------------------------------- End of Minus Recurrence ------------------------------------------------------------------------- -->
+
+
+$('.editCompanyModalCloseButton').click(function(){
+    $('#editCompanyModal').modal('hide');
+    // $('#driverModal').modal('show');  
+});
+
+/* Initialization of datatable */
+$(document).ready(function() {
+    $('#editCompanyModal').modal({
+        backdrop: 'static',
+        keyboard: false
+    })
+});
+
+
+
+
+
+
+
+
+
+    $('.editDriverOwnerClose').click(function(){
+       // alert();
+        $('#editDriverOwnerModal').modal('hide');
+        //return
+    });
+
+    function inc_percentage() {
+    document.getElementById("ownerPercentage").stepUp(1);
+    }
+
+    function dec_percentage() {
+      document.getElementById("ownerPercentage").stepUp(-1);
+    }
+
+    function up_inc_percentage() {
+    document.getElementById("up_ownerPercentage").stepUp(1);
+    }
+
+    function up_dec_percentage() {
+        document.getElementById("up_ownerPercentage").stepUp(-1);
+    }
+    

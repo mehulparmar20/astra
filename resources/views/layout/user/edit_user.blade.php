@@ -13,7 +13,7 @@
                 <!-- Modal Header -->
                 <div class="modal-header">
                     <h4 class="modal-title">Edit User</h4>
-                    <button type="button" class="button-24 userEditModalCloseButton" id="closemodel">&times;</button>
+                    <button type="button" class="button-24 userEditModalCloseButton" >&times;</button>
                 </div>
                 <!-- Modal body -->
                 <div class="modal-body" style="overflow-y: auto !important;">

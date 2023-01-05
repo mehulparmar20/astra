@@ -10,7 +10,7 @@ use Jenssegers\Mongodb\Eloquent\Model;
 use Jenssegers\Mongodb\Eloquent\SoftDeletes;
 
 
-class FuelReceipt extends Model 
+class FuelCard extends Model 
 {
     use Notifiable, Authenticatable;
     use HasFactory;

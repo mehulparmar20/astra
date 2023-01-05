@@ -91,7 +91,7 @@
 
 
 
-<!-- CUSTOM JS ---->
+<!-- CUSTOM JS -->
 <script src="{{URL::to('/')}}/assets/js/custom.js"></script>
 <script src="{{URL::to('/')}}/assets/js/openmodel.js"></script>
 <script src="{{URL::to('/')}}/assets/js/userprev.js"></script>
@@ -112,6 +112,14 @@
 <script src="{{URL::to('/')}}/assets/js/js/accountManager.js"></script>
 <script src="{{URL::to('/')}}/assets/js/js/branchOffice.js"></script>
 <script src="{{URL::to('/')}}/assets/js/js/PaymentTerms.js"></script>
+<script src="{{URL::to('/')}}/assets/js/js/trailerLaravel.js"></script>
+<script src="{{URL::to('/')}}/assets/js/js/EquipmentType.js"></script>
+<script src="{{URL::to('/')}}/assets/js/js/status.js"></script>
+<script src="{{URL::to('/')}}/assets/js/js/recurrenceCategory.js"></script>
+<script src="{{URL::to('/')}}/assets/js/js/Terms&Conditions.js"></script>
+<script src="{{URL::to('/')}}/assets/js/js/TruckTrailerMake.js"></script>
+<script src="{{URL::to('/')}}/assets/js/js/load.js"></script>
+
 </body>
 
 </html>

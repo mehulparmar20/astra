@@ -70,7 +70,7 @@
                             <div class="tab-content">
                                 <div class="tab-pane active " id="tab_Delivered">
                                     <caption>Delivered Table</caption>
-                                    <table id="editable-file-datatable1" class="table">
+                                    <table id="delivered_table_pagination" class="table">
                                         
                                         <thead class="thead_th">
                                             <tr class="tr">

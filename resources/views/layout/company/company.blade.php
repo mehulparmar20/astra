@@ -118,10 +118,8 @@
                                                     </div>
                                                     <div class="form-group col-md-3">
                                                         <label for="customerBFactoringCompany">Factoring Company <span
-
-                                                                class="glyphicon glyphicon-plus-sign plusFactoringCompany"
-                                                                id="plusFactoringCompany1"></span></label>
-
+                                                                class="glyphicon glyphicon-plus-sign"
+                                                                id="plusFactoringCompany"></span></label>
                                                         <div class="dropdown show">
                                                             <input class="form-control customerBFactoringCompanySet"
                                                                 list="customerBFactoringCompanySet"
@@ -241,10 +239,8 @@
                                                     </div>
                                                     <div class="form-group col-md-3">
                                                         <label for="customerBFactoringCompany">Factoring Company <span
-
-                                                                class="glyphicon glyphicon-plus-sign plusFactoringCompany"
-                                                                id="plusFactoringCompany2"></span></label>
-
+                                                                class="glyphicon glyphicon-plus-sign"
+                                                                id="plusFactoringCompany"></span></label>
                                                         <div class="dropdown show">
                                                             <input class="form-control customerBFactoringCompanySet"
                                                                 list="customerBFactoringCompanySet"

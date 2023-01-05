@@ -6,7 +6,7 @@
 
                 <!-- Modal Header -->
                 <div class="modal-header">
-                    <h4 class="modal-title">Recurrence +</h4>
+                    <h4 class="modal-title">Add Recurrence</h4>
                     <button type="button" class="button-24" data-dismiss="modal">&times;</button>
                 </div>
 
@@ -78,13 +78,9 @@
 
                 <!-- Modal footer -->
                 <div class="modal-footer">
-                    
-                    <!-- <button type="button" class="btn btn-secondary editModalCloseButton"
-                        data-dismiss="modal">Close</button> -->
-                        <label class="text-danger" style="padding-right: 65%"><b>Note :</b>&nbsp; * Fields are mandatory</label>
-                <button type="button" class="button-29 waves-effect" data-dismiss="modal">
-                    <i class='mdi mdi-close'></i> Close  </button>
-                <button type="button" class="button-29 waves-effect waves-light"><i class="mdi mdi-shield-lock-outline"></i> Save </button>
+                    <label class="text-danger" style="padding-right: 65%"><b>Note :</b>&nbsp; * Fields are mandatory</label>
+                    <button type="button" class="button-29"><i class="mdi mdi-shield-lock-outline"></i> Save </button>
+                    <button type="button" class="button-29" data-dismiss="modal">Close</button>
                 </div>
 
                 <datalist id="fixpaycat">

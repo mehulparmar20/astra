@@ -560,4 +560,80 @@ $('.off-canvas').on('click', function () {
     $('body').addClass('pe-0');
 });
 
+/* Initialization of datatable */
+$(document).ready(function() {
+    $('#table_pagination').DataTable({
+
+        "columnDefs": [
+            {
+                "targets": [ 12 ],
+                "searchable": false,
+                "sortable":false
+            },
+        ]
+
+    });
+});
+
+$(document).ready(function() {
+    $('#driver_table_pagination').DataTable({
+
+        "columnDefs": [
+            {
+                "targets": [ 11 ],
+                "searchable": false,
+                "sortable":false
+            },
+        ]
+
+    });
+});
+
+$(document).ready(function() {
+    $('#customer_table_pagination').DataTable({
+
+        "columnDefs": [
+            {
+                "targets": [ 7 ],
+                "searchable": false,
+                "sortable":false
+            },
+        ]
+
+    });
+});
+
+
+$(document).ready(function() {
+    $('#truck_table_pagination').DataTable({
+
+        "columnDefs": [
+            {
+                "targets": [ 22 ],
+                "searchable": false,
+                "sortable":false
+            },
+        ]
+
+    });
+});
+
+$(document).ready(function() {
+    $('#delivered_table_pagination').DataTable({
+
+        "columnDefs": [
+            {
+                "targets": [ 8 ],
+                "searchable": false,
+                "sortable":false
+            },
+            {
+                "targets": [9],
+                "searchable":false,
+                "sortable":false
+            }
+        ]
+
+    });
+});
 

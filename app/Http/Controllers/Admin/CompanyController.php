@@ -28,18 +28,15 @@ class CompanyController extends Controller
         if(!File::exists($path)) {
             File::makeDirectory($path, $mode = 0777, true, true);
         }
-        request()->validate([
-            'inputCompanyName4' => 'required',
-            'inputTelephoneNo4' => 'required',
-            'inputEmailAddress4' => 'required|unique:company,company.mailingAddress',
-            // 'companyID' => 'required|unique:company,companyID',
-            'file' => 'image|mimes:jpg,jpeg,png,gif,svg|max:2048',
-        ]);
+        // request()->validate([
+        //     // 'companyName' => 'required',
+        //     // 'telephoneNo' => 'required',
+        //     // 'mailingAddress' => 'required|unique:company,company.mailingAddress',
+        //     // 'companyID' => 'required|unique:company,companyID',
+        //     // 'file' => 'image|mimes:jpg,jpeg,png,gif,svg|max:2048',
+        // ]);
         try{
-            $photo_name='';
-            $original_name='';
-            $size='';
-            $photo_path='';
+
         $company=Company::all();
         // $companyID=(int)$request->companyID;
         if ($files = $request->file('file')) {
@@ -149,8 +146,7 @@ class CompanyController extends Controller
             'up_companyName' => 'required',
             'up_telephoneNo' => 'required',
             'up_mailingAddress' => 'required|unique:company,company.mailingAddress'.$request->up_mailingAddress,
-            'filenew' => 'image|mimes:jpg,jpeg,png,gif,svg|max:2048',
-
+            'file' => 'image|mimes:jpg,jpeg,png,gif,svg|max:2048',
         ]);
 
         // $companyIDUp=(int)$request->companyID;
@@ -261,28 +257,8 @@ class CompanyController extends Controller
     }
 
     public function updateUserCompany(Request $request){
-
-        $email=$request->email;
-        $result = Company::where('companyID',1 )->first();
-        $companyArray=$result->company;
-        $arrayLength=count($companyArray);
-        $i=0;
-        $v=0;
-        for ($i=0; $i<$arrayLength; $i++){
-                $id=$result->company[$i];
-            
-                    foreach ($id as $value){
-                        if($value==$email){
-                            $v=$i;
-                        }
-                    }
-        }
-        $compidupdate = $companyArray[$v]['_id'];
-
         $user = Auth::user();
-        $user->companyName = $compidupdate;
-        $user->companyID = 1;
-
+        $user->companyID = $request->companyId;
         $user->save();
         $data = [
             'success' => true,

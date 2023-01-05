@@ -78,14 +78,15 @@ $(document).ready(function(){
 });
 
 $(document).ready(function(){
-    $("#closemodel").on("click",function(){
+    $(".userEditModalCloseButton").on("click",function(){
         $('#userEditModal').modal("hide");
     });
+    $('#userEditModal').modal({
+        backdrop: 'static',
+        keyboard: false
+    })
 });
-$(document).ready(function(){
-    $("#closemodelfooter").on("click",function(){
-        $('#userEditModal').modal("hide");
-    });
-});
+
+
 
 

@@ -259,7 +259,7 @@ class DriverController extends Controller
             return response()->json($data);
 
 
-    }
+}
 
     public function editDriverOwnerData(Request $request){        
         $companyID=(int)1;
