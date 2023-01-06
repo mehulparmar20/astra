@@ -159,7 +159,7 @@
 														
 																<li><a href="#" id="iftaToll_navbar" class="slide-item">Tolls</a></li>
 													
-																<li><a href="" class="slide-item" id="ifta_navbar">IFTA Trips</a></li>
+																<li><a href="#" class="slide-item" id="iftaTrip_navbar">IFTA Trips</a></li>
 															
 													</ul>
 												</li>
@@ -560,3 +560,4 @@
 			@include('layout.Terms & Conditions.Terms&Conditions')
 			@include('layout.Truck & Trailer make.TruckTrailerMake')
 			@include('layout.Load.Load')
+			@include('layout.IFTAtrip.ifta_trip')

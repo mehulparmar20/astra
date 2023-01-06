@@ -113,6 +113,7 @@
 <script src="{{URL::to('/')}}/assets/js/js/branchOffice.js"></script>
 <script src="{{URL::to('/')}}/assets/js/js/PaymentTerms.js"></script>
 <script src="{{URL::to('/')}}/assets/js/js/trailerLaravel.js"></script>
+<script src="{{URL::to('/')}}/assets/js/js/iftaTrips.js"></script>
 <script src="{{URL::to('/')}}/assets/js/js/EquipmentType.js"></script>
 <script src="{{URL::to('/')}}/assets/js/js/status.js"></script>
 <script src="{{URL::to('/')}}/assets/js/js/recurrenceCategory.js"></script>

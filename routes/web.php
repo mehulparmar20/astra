@@ -27,6 +27,7 @@ use App\Http\Controllers\Admin\RecurrenceCategoryController;
 use App\Http\Controllers\Admin\TermsConditionsController;
 use App\Http\Controllers\Admin\TruckTrailerMakeController;
 use App\Http\Controllers\Admin\LoadController;
+use App\Http\Controllers\Admin\IftaTripController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -177,6 +178,14 @@ Route::get('admin/getInvoicedNumber', [FuelReceiptController::class, 'getInvoice
 
 //Ifta Toll
 Route::get('admin/getIftaToll', [IftaTollController::class, 'getIftaToll']);
+Route::post('admin/createIftaToll', [IftaTollController::class, 'createIftaToll']);
+Route::get('admin/editIftaToll', [IftaTollController::class, 'editIftaToll']);
+Route::post('admin/updateIftaToll', [IftaTollController::class, 'updateIftaToll']);
+Route::post('admin/deleteIftaToll', [IftaTollController::class, 'deleteIftaToll']);
+Route::post('admin/restoreIftaToll', [IftaTollController::class, 'restoreIftaToll']);
+
+//IftaTripController
+Route::get('admin/getIftaTrip', [IftaTripController::class, 'getIftaTrip']);
 
 //Bank
 Route::get('admin/getBankData', [BankController::class, 'getBankData']);
