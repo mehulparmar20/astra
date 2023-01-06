@@ -27,6 +27,22 @@ $(document).ready(function() {
 
     function createcustomerRows(customerResponse) {
 
+    var edit=$('#updateUser').val();
+    var delet =$('#deleteUser').val();
+    // alert(edit);
+    // alert(delet);
+
+    if(edit == 1){
+       var editPrivilege=''; 
+    }else{
+        var editPrivilege='privilege';
+    }
+    if(delet == 1){
+        var delPrivilege=''; 
+     }else{
+         var delPrivilege='privilege';
+     }
+
         // console.log(customerResponse);
         var custlen1 = 0;
         
@@ -67,8 +83,17 @@ $(document).ready(function() {
 
                                 // "<td style='width: 100px'><a class='btn btn-primary fs-14 text-white edit-icn' title='Edit' id='edit'><i class='fe fe-edit' ></i></a></td></tr>"
                                 // "<td style='width: 100px'><i class='btn btn-primary fe fe-edit customerEdit' data-id=" + custComid+ "&"+custEmail + "> </i><a class=' btn btn-danger fs-14 text-white customerDelete-icn' data-id=" + custComid+ "&"+custEmail + " title='Delete'><i class='fe fe-delete'></i></a></td></tr>";
-                                "<td style='width: 100px'><i class='button-29 fe fe-edit customerEdit' data-id=" + customerId+ " date-cusId="+companyID+" data-email="+custEmail +"> </i>&nbsp; &nbsp; <a class=' button-29 fs-14 text-white customerDelete' data-id=" + customerId+ " date-cusId="+companyID+"  data-email="+custEmail +" title='Delete'><i class='fe fe-delete'></i></a></td></tr>";
-                            $("#customerTable").append(customerStr);
+                                // "<td style='width: 100px'><i class='button-29 fe fe-edit customerEdit' data-id=" + customerId+ " date-cusId="+companyID+" data-email="+custEmail +"> </i>&nbsp; &nbsp; <a class=' button-29 fs-14 text-white customerDelete' data-id=" + customerId+ " date-cusId="+companyID+"  data-email="+custEmail +" title='Delete'><i class='fe fe-delete'></i></a></td></tr>";
+                               // "<td style='width: 100px'><i class='button-29 fe fe-edit customerEdit "+editPrivilege+"' data-id=" + customerId+ " date-cusId="+companyID+" data-email="+custEmail +"> </i>&nbsp; &nbsp; <a class='"+delPrivilege+" button-29 fs-14 text-white customerDelete' data-id=" + customerId+ " date-cusId="+companyID+"  data-email="+custEmail +" title='Delete'><i class='fe fe-delete'></i></a></td></tr>";
+                                
+                                "<td style='width: 100px'>"+
+                                " <a class='button-23 customerEdit "+editPrivilege+"' data-id=" + customerId+ " date-cusId="+companyID+" data-email="+custEmail +" title='Edit' ><i class='fe fe-edit'></i>"+
+                                "</a> <a class='customerDelete button-23 "+delPrivilege+"' date-cusId="+companyID+"  data-email="+custEmail +" title='Delete'><i class='fe fe-delete'></i></a>"+
+                                "</td></tr>";
+
+                                
+                               
+                                $("#customerTable").append(customerStr);
                             no++;
                         }
                     //} 

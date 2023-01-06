@@ -63,7 +63,8 @@ $(document).ready(function() {
                                         "<td data-field='fixPayType'>" + truckType + "</td>" +
                                         "<td data-field='Truck'>Truck</td>" +
                                         "<td style='text-align:center'>"+
-                                            "<a class='mt-2 btn btn-primary fs-14 text-white editCurrency'  title='Edit1' data-Id='"+id+"' data-truckType='' ><i class='fe fe-edit'></i></a>&nbsp"+
+                                            "<a class='button-23  "+editPrivilege+"'  title='Edit1' data-Id='"+id+"' data-truckType='' ><i class='fe fe-edit'></i></a>&nbsp"+
+                                            "</a> <a class='delete1 button-23 "+delPrivilege+"' data-id="+ email +" title='Delete'><i class='fe fe-delete'></i></a>"+
                                         "</td></tr>";
             
                                     $("#TruckTrailerMakeTable").append(Str);

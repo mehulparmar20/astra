@@ -1,3 +1,11 @@
+<?php 
+	$userdata=Auth::user();
+	$insertUser=$userdata->privilege['insertUser'];
+    // $updateUser=$userdata->privilege['updateUser'];
+    $deleteUser=$userdata->privilege['deleteUser'];
+    $importUser=$userdata->privilege['importUser'];
+    $exportUser=$userdata->privilege['exportUser'];
+ ?> 
 <!------------------------------------------------------------------- Trailer modal ------------------------------------------------------------------->
 <div class="container">
     <!-- The Modal -->
@@ -12,8 +20,13 @@
                 </div>
 
                 <div style="margin-top: 15px; margin-left: 15px;">
-                    <a href="#addDriverModal" class="button-57" data-toggle="modal"data-target="#addDriverModal"><i class="fa fa-plus" aria-hidden="true"></i><span>Add</span></a>
-
+                    @if($insertUser== 1)
+                        <a href="#" class="button-57_alt " ><i class="fa fa-plus" aria-hidden="true"></i><span>Add Fuel Card </span></a>
+                    @endif 
+                    
+                    @if($deleteUser== 1)    
+                        <a href="#" class="button-57_alt" ><i class="fa fa-repeat" aria-hidden="true"></i></span><span>Restore </span></a>
+                    @endif
                 </div>
                 <!-- Modal body -->
                 <div class="modal-body" style="overflow-y: auto !important;">
@@ -37,15 +50,15 @@
                                         <tbody id="FuelCardTable">
 
                                         </tbody>
-                                        <tfoot>
-                                            <tr>
+                                        <!-- <tfoot>
+                                            <tr class="tr">
                                                 <th>No</th>
                                                 <th>Card Holder Name</th>
                                                 <th>IFTA Card No</th>
                                                 <th>Card Type</th>
                                                 <th>Action</th>
                                             </tr>
-                                        </tfoot>
+                                        </tfoot> -->
                                     </table>
                                 </div>
                                
@@ -57,6 +70,12 @@
 
                 <!-- Modal footer -->
                 <div class="modal-footer">
+                    <form action="{{route('download-pdf')}}" method="post" target="__blank">
+                        @csrf
+                        @if($exportUser == 1)
+                            <button class="button-29" style="vertical-align:middle"><span>Export</span></button>
+                        @endif
+                    </form>
                     <button type="button" class="button-29 fuelCardClose">Close</button>
                 </div>
             </div>

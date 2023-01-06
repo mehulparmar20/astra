@@ -91,7 +91,8 @@ $(document).ready(function() {
                                        
                                        
                                         "<td style='text-align:center'>"+
-                                            "<a class='mt-2 btn btn-primary fs-14 text-white editCurrency'  title='Edit1' data-Id='"+sub_credit_Id+"' data-truckType='' ><i class='fe fe-edit'></i></a>&nbsp"+
+                                            "<a class='button-23  "+editPrivilege+"'  title='Edit1' data-Id='"+sub_credit_Id+"' data-truckType='' ><i class='fe fe-edit'></i></a>&nbsp"+
+                                            "</a> <a class='delete1 button-23 "+delPrivilege+"' data-id='' title='Delete'><i class='fe fe-delete'></i></a>"+
                                         "</td></tr>";
             
                                     $("#subCreditCardTable").append(subCreditCardStr);

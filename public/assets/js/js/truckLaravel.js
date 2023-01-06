@@ -205,6 +205,22 @@ $(document).ready(function() {
     
 // get truck
     function createGetTruckRows(truckResult) {
+
+    //Privilege
+	var edit=$('#updateUser').val();
+    var delet =$('#deleteUser').val();
+
+    if(edit == 1){
+       var editPrivilege=''; 
+    }else{
+        var editPrivilege='privilege';
+    }
+    if(delet == 1){
+        var delPrivilege=''; 
+     }else{
+         var delPrivilege='privilege';
+     }
+
         var trucklen1 = 0;
             if (truckResult != null) {
                 trucklen1 = truckResult.truck.truck.length;
@@ -282,10 +298,16 @@ $(document).ready(function() {
                                 "<td data-field='dotexpiryDate' >" +dotexpiryDate  + "</td>" +
                                 "<td data-field='transponder' >" + transponder + "</td>" +
                                 "<td data-field='internalNotes' >" + internalNotes + "</td>" +
-                                "<td style='text-align:center'>"+
-                                "<a class='mt-2 button-29 fs-14 text-white edit_truck_data'  title='Edit1' data-truckId='"+truckId+"' data-com_Id='"+custID+"' data-truckType='' ><i class='fe fe-edit'></i></a>&nbsp"+
-                                "<a class='mt-2 button-29 fs-14 text-white delete_truck_data'  title='Edit1' data-truckId='"+truckId+"' data-com_Id='"+custID+"' data-truckType='' ><i class='fe fe-trash'></i></a>&nbsp"+
-                            "</td></tr>";
+
+                                "<td style='width: 200px'>"+
+                                    " <a class='button-23 edit1 edit_truck_data "+editPrivilege+"'   title='Edit1' data-truckId='"+truckId+"' data-com_Id='"+custID+"' ><i class='fe fe-edit'></i>"+
+                                    "</a> <a class='delete1 button-23 delete_truck_data "+delPrivilege+"' data-truckId='"+truckId+"' data-com_Id='"+custID+"' title='Delete'><i class='fe fe-delete'></i></a>"+
+                                "</td></tr>";
+
+                            //     "<td style='text-align:center'>"+
+                            //     "<a class='mt-2 button-29 fs-14 text-white edit_truck_data "+editPrivilege+"'  title='Edit1' data-truckId='"+truckId+"' data-com_Id='"+custID+"' data-truckType='' ><i class='fe fe-edit'></i></a>&nbsp"+
+                            //     "<a class='mt-2 button-29 fs-14 text-white delete_truck_data "+delPrivilege+"'  title='Edit1' data-truckId='"+truckId+"' data-com_Id='"+custID+"' data-truckType='' ><i class='fe fe-trash'></i></a>&nbsp"+
+                            // "</td></tr>";
 
                             $("#truckTable").append(truckStr);
                             no++;

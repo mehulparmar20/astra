@@ -1,3 +1,11 @@
+<?php 
+	$userdata=Auth::user();
+	$insertUser=$userdata->privilege['insertUser'];
+    // $updateUser=$userdata->privilege['updateUser'];
+    $deleteUser=$userdata->privilege['deleteUser'];
+    $importUser=$userdata->privilege['importUser'];
+    $exportUser=$userdata->privilege['exportUser'];
+ ?> 
 <!------------------------------------------------------------------- Facoring Company modal ------------------------------------------------------------------->
 <div class="container">
     <!-- The Modal -->
@@ -12,70 +20,57 @@
                 </div>
 
                 <div style="margin-top: 15px; margin-left: 15px;">
+                @if($insertUser== 1)
                     <a href="#" class="button-57_alt" id="AddFactoringCompany"><i class="fa fa-plus" aria-hidden="true"></i><span>Add Factoring Company</span></a>
+                @endif
+                @if($deleteUser== 1)    
+                    <a href="#" class="button-57_alt" ><i class="fa fa-repeat" aria-hidden="true"></i></span><span>Restore </span></a>
+                @endif 
                     <a class="button-57" data-toggle="modal"><i class="fa fa-file-excel-o" aria-hidden="true"></i></span><span>Export CSV</span></a>
                     <a class="button-57" data-toggle="modal"><i class="fa fa-upload" aria-hidden="true"></i></span><span>Upload File</span></a>
-                    <!-- <a href="#contractCategoryModal" class="button-57_alt" data-toggle="modal" data-target="#contractCategoryModal"><i class="fa fa-id-card" aria-hidden="true"></i></span><span>Button 3</span></a> -->
-                    <!-- <div class="searchbar" style="float: right; margin-right: 15px;">
-                        <input type="text" placeholder="search" />
-                        <div class="symbol">
-                            
-                            <svg class="lens">
-                            <use xlink:href="#lens" />
-                            </svg>
-                        </div>
-                    </div> -->
-
+    
+	
                 </div>
                 <!-- Modal body -->
-                <div class="modal-body" style="overflow-y: auto !important;">
-                    <!-- Row -->
-                    <div class="row">
-                        <div class="row row-sm">
-                            <div class="col-lg-12">
+                <div class="modal-body" style="overflow-y: auto !important;margin-left: -16px;">
 
-                                        <div class="table-responsive export-table">
-                                            <table id="factoring_table_pagination" class="customtable">
-                                                <thead class="thead_th">
-                                                    <tr class="tr">
-                                                        <th>NO</th>
-                                                        <th>Factoring Company Name</th>
-                                                        <th>Address</th>
-                                                        <th>Location</th>
-                                                        <th>Postal/Zip</th>
-                                                        <th>Primary Contact</th>
-                                                        <th>Telephone</th>
-                                                        <th>Ext</th>
-                                                        <th>Fax</th>
-                                                        <th>Toll Free</th>
-                                                        <th>Contact Email</th>
-                                                        <th>Secondary Contact</th>
-                                                        <th>Telephone</th>
-                                                        <th>Ext</th>
-                                                        <th>Currency Setting</th>
-                                                        <th>Payment Terms</th>
-                                                        <th>Tax ID</th>
-                                                        <th>Internal Notes</th>
-                                                        <th>Action</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody id="factCompTable">
+                    <table id="factoring_table_pagination" class="table">
+                        <thead class="thead_th">
+                            <tr class="tr">
+                                <th>NO</th>
+                                <th>Factoring Company Name</th>
+                                <th>Address</th>
+                                <th>Location</th>
+                                <th>Postal/Zip</th>
+                                <th>Primary Contact</th>
+                                <th>Telephone</th>
+                                <th>Ext</th>
+                                <th>Fax</th>
+                                <th>Toll Free</th>
+                                <th>Contact Email</th>
+                                <th>Secondary Contact</th>
+                                <th>Telephone</th>
+                                <th>Ext</th>
+                                <th>Currency Setting</th>
+                                <th>Payment Terms</th>
+                                <th>Tax ID</th>
+                                <th>Internal Notes</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="factCompTable">
 
-                                                </tbody>
-                                            </table>
-                                        </div>
-                               
-                            </div>
-                        </div>
-                    </div>
-                    <!-- End Row -->
+                        </tbody>
+                    </table>
                 </div>
 
                 <!-- Modal footer -->
                 <div class="modal-footer">
-                <form action="{{route('driver-pdf')}}" method="post" target="__blank">
+                    <form action="{{route('download-pdf')}}" method="post" target="__blank">
                         @csrf
-                        <button class="button-29" style="vertical-align:middle"><span>Export</span></button>
+                        @if($exportUser == 1)
+                            <button class="button-29" style="vertical-align:middle"><span>Export</span></button>
+                        @endif
                     </form>
                     <button type="button" class="button-29 FactoringCompanyModalClose" >Close</button>
                 </div>

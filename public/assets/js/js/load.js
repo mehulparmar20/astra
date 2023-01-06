@@ -59,8 +59,9 @@ $(document).ready(function() {
                                         "<td data-field='no'>" + no + "</td>" +
                                         "<td data-field='loadName'>" + loadName + "</td>" +
                                         "<td data-field='loadType'>" + loadType + "</td>" +
-                                        "<td style='text-align:center'>"+
-                                            "<a class='mt-2 btn btn-primary fs-14 text-white '  title='Edit1' data-Id='"+id+"' data-truckType='' ><i class='fe fe-edit'></i></a>&nbsp"+
+                                        "<td style='width: 100px'>"+
+                                            " <a class='button-23  "+editPrivilege+"' id='editmodel' title='Edit' ><i class='fe fe-edit'></i>"+
+                                            "</a> <a class='delete1 button-23 "+delPrivilege+"' data-id="+ email +" title='Delete'><i class='fe fe-delete'></i></a>"+
                                         "</td></tr>";
             
                                     $("#Load_typeTable").append(Str);

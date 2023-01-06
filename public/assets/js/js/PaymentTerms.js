@@ -60,8 +60,9 @@ $(document).ready(function() {
                                         "<td data-field='paymentTerm'>" + paymentTerm + "</td>" +
                                         "<td data-field='paymentDays'>" + paymentDays + "</td>" +
                                         "<td style='text-align:center'>"+
-                                            "<a class='mt-2 btn btn-primary fs-14 text-white editCurrency'  title='Edit1' data-Id='"+payment_id+"' data-truckType='' ><i class='fe fe-edit'></i></a>&nbsp"+
-                                        "</td></tr>";
+                                            "<a class='button-23  "+editPrivilege+"'  title='Edit1' data-Id='"+payment_id+"' data-truckType='' ><i class='fe fe-edit'></i></a>&nbsp"+
+                                            "</a> <a class='delete1 button-23 "+delPrivilege+"' data-id="+ email +" title='Delete'><i class='fe fe-delete'></i></a>"+
+                                            "</td></tr>";
             
                                     $("#PaymentTermsTable").append(PaymentTermsStr);
                                     no++;

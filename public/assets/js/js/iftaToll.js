@@ -61,7 +61,7 @@ $(document).ready(function() {
 
                         if(deleteStatus == "NO"){
                             //alert("ff");
-                            var IftaTollStr = "<tr data-id=" + (i + 1) + ">" +
+                            var IftaTollStr = "<tr class='tr' data-id=" + (i + 1) + ">" +
                             "<td data-field=''><input type='checkbox' id='check_sigle_toll' class='check'></td>" +
                             "<td data-field='no'>" + no + "</td>" +
                             "<td data-field='transectionDate' >" + transectionDate + "</td>" +
@@ -74,8 +74,10 @@ $(document).ready(function() {
                             "<td data-field='invoiceNo' >" + invoiceNo + "</td>" +
                        
                             "<td style='text-align:center'>"+
-                                "<a class='mt-2 btn btn-primary fs-14 text-white editCurrency'  title='Edit1' data-Id='"+IftaTollId+"' data-truckType='' ><i class='fe fe-edit'></i></a>&nbsp"+
-                            "</td></tr>";
+                                "<td style='width: 100px'>"+
+                                " <a class='button-23  "+editPrivilege+"' id='editmodel' title='Edit' ><i class='fe fe-edit'></i>"+
+                                "</a> <a class='delete1 button-23 "+delPrivilege+"'  title='Delete'><i class='fe fe-delete'></i></a>"+
+                        "</td></tr>";                            
 
                         $("#iftaTollTable").append(IftaTollStr);
                         no++;
