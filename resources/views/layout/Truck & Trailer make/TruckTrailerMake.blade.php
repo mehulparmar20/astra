@@ -1,3 +1,8 @@
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> a9578ab2c12b05e4d51c8af156edfc7e4ed29341
 <?php 
 	$userdata=Auth::user();
 	$insertUser=$userdata->privilege['insertUser'];
@@ -6,6 +11,10 @@
     $importUser=$userdata->privilege['importUser'];
     $exportUser=$userdata->privilege['exportUser'];
  ?> 
+<<<<<<< HEAD
+>>>>>>> a9578ab2c12b05e4d51c8af156edfc7e4ed29341
+=======
+>>>>>>> a9578ab2c12b05e4d51c8af156edfc7e4ed29341
 <!------------------------------------------------------------------- view Recurrence Category modal ------------------------------------------------------------------->
 <div class="container">
     <!-- The Modal -->
@@ -19,6 +28,12 @@
                     </button>
                 </div>
                 <div style="margin-top: 15px; margin-left: 15px;">
+<<<<<<< HEAD
+<<<<<<< HEAD
+                    <a  class="button-57" id="addTruckTrailerMake"><i class="fa fa-plus" aria-hidden="true"></i><span>Add</span></a>
+=======
+=======
+>>>>>>> a9578ab2c12b05e4d51c8af156edfc7e4ed29341
                 @if($insertUser== 1)
                     <a  class="button-57_alt" id="addTruckTrailerMake"><i class="fa fa-plus" aria-hidden="true"></i><span>Add</span></a>
                 @endif 
@@ -28,6 +43,10 @@
 
                 @endif
                     
+<<<<<<< HEAD
+>>>>>>> a9578ab2c12b05e4d51c8af156edfc7e4ed29341
+=======
+>>>>>>> a9578ab2c12b05e4d51c8af156edfc7e4ed29341
                 </div>
                 <div class="modal-body" style="overflow-y: auto !important;margin-left: -16px;">
 
@@ -64,9 +83,19 @@
                 <div class="modal-footer">
                     <form action="{{route('download-pdf')}}" method="post" target="__blank">
                         @csrf
+<<<<<<< HEAD
+<<<<<<< HEAD
+                        <button class="button-29" style="vertical-align:middle"><span>Export</span></button>
+=======
                         @if($exportUser == 1)
                             <button class="button-29" style="vertical-align:middle"><span>Export</span></button>
                         @endif
+>>>>>>> a9578ab2c12b05e4d51c8af156edfc7e4ed29341
+=======
+                        @if($exportUser == 1)
+                            <button class="button-29" style="vertical-align:middle"><span>Export</span></button>
+                        @endif
+>>>>>>> a9578ab2c12b05e4d51c8af156edfc7e4ed29341
                     </form>
                     <button type="button" class="button-29 EquipmentTypeClose" >Close</button>
                 </div>

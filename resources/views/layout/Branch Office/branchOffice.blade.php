@@ -1,3 +1,9 @@
+<<<<<<< HEAD
+<<<<<<< HEAD
+<!------------------------------------------------------------------- driver modal ------------------------------------------------------------------->
+=======
+=======
+>>>>>>> a9578ab2c12b05e4d51c8af156edfc7e4ed29341
 <?php 
 	$userdata=Auth::user();
 	$insertUser=$userdata->privilege['insertUser'];
@@ -7,6 +13,10 @@
     $exportUser=$userdata->privilege['exportUser'];
  ?> 
 <!-------------------------------------------------------------------  modal ------------------------------------------------------------------->
+<<<<<<< HEAD
+>>>>>>> a9578ab2c12b05e4d51c8af156edfc7e4ed29341
+=======
+>>>>>>> a9578ab2c12b05e4d51c8af156edfc7e4ed29341
 <div class="container">
     <!-- The Modal -->
     <div class="modal fade" data-backdrop="static" id="branchOfficeModal">
@@ -20,6 +30,12 @@
                 </div>
 
                 <div style="margin-top: 15px; margin-left: 15px;">
+<<<<<<< HEAD
+<<<<<<< HEAD
+                <a href="#addDriverModal" class="button-57" data-toggle="modal" ata-target="#addDriverModal"><i class="fa fa-plus" aria-hidden="true"></i><span>Add Office</span></a>
+=======
+=======
+>>>>>>> a9578ab2c12b05e4d51c8af156edfc7e4ed29341
                 @if($insertUser== 1)
                     <a href="#" class="button-57_alt" id="addBranchOffice"><i class="fa fa-plus" aria-hidden="true"></i><span>Add Office</span></a>                
                 @endif 
@@ -29,6 +45,10 @@
 
                 @endif
                 
+<<<<<<< HEAD
+>>>>>>> a9578ab2c12b05e4d51c8af156edfc7e4ed29341
+=======
+>>>>>>> a9578ab2c12b05e4d51c8af156edfc7e4ed29341
 
                 </div>
                 <!-- Modal body -->
@@ -76,6 +96,13 @@
 
 </div>
 
+<<<<<<< HEAD
+<<<<<<< HEAD
+<!-------------------------------------------------------------------over driver modal------------------------------------------------------------------->
+
+=======
+=======
+>>>>>>> a9578ab2c12b05e4d51c8af156edfc7e4ed29341
 <!-------------------------------------------------------------------over  modal------------------------------------------------------------------->
 <!------------------------------------------------------------------- Add modal ------------------------------------------------------------------->
 <div class="container">
@@ -191,3 +218,7 @@
 </div>
 
 <!-------------------------------------------------------------------End edit  modal------------------------------------------------------------------->
+<<<<<<< HEAD
+>>>>>>> a9578ab2c12b05e4d51c8af156edfc7e4ed29341
+=======
+>>>>>>> a9578ab2c12b05e4d51c8af156edfc7e4ed29341
