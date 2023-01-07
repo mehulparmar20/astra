@@ -443,7 +443,7 @@
 
 
     /* EDITABLE PLUGIN DEFINITION
-     * ======================= */
+     *    == */
 
     $.fn.editable = function (option) {
         //special methods returning non-jquery object
@@ -841,7 +841,7 @@
     };
 
     /*
-    * ========================== FUNCTIONS ========================
+    *    ===== FUNCTIONS    ===
     */
     
     /**

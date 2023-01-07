@@ -389,7 +389,7 @@
 
 
 
-<!--======================================== edit truck modal start ======================== -->
+<!--     ===== edit truck modal start    === -->
 
 
 <div class="modal fade" data-backdrop="static" id="editTruckModal" role="dialog">
@@ -587,10 +587,10 @@
         </div>
     </div>
 </div>
- <!--================================= end update truck =========================== -->
+ <!--    ===== end update truck    ====== -->
 
 
- <!--================================= start restore truck ========================== -->
+ <!--    ===== start restore truck    ===== -->
  <div class="container">
     <!-- The Modal -->
     <div class="modal fade" id="restoretruckModal">
@@ -667,9 +667,9 @@
     </div>
 
 </div>
- <!--================================= end restore truck ========================== -->
+ <!--    ===== end restore truck    ===== -->
 
- <!-- ========== strart addTruck type Modal ========== -->
+ <!--  === strart addTruck type Modal  === -->
 <div class="modal fade" id="addTtruckTypeModal"  tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -699,4 +699,4 @@
   </div>
 </div>
 
-<!-- ==================== end add truck type model ===================== -->
+<!--   ====== end add truck type model     -->

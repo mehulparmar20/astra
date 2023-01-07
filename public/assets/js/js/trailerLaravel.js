@@ -1,6 +1,6 @@
 var base_path = $("#url").val();
 $(document).ready(function() {
-    // ============== strart list data trailer =================
+    //    strart list data trailer   ===
     $("#trailer_nav").on('click',function(){
         $.ajax({
             type: "GET",
@@ -192,7 +192,7 @@ $(document).ready(function() {
         }
         // $("#CurrencyModal").modal("show");
     }
-    // ==================== end list trailer model ===============
+    //   ====== end list trailer model   =
 
 
     
@@ -218,7 +218,7 @@ $(document).ready(function() {
     
 
 
-    // ======================= start save trailer model ======================
+    //    == start save trailer model    =
     $('.saveTrailerType').click(function(){
         var trailer_type_name = $('#addtrailer_type').val();
         if(trailer_type_name=='')
@@ -351,11 +351,11 @@ $(document).ready(function() {
         });
     });
 
-    //======================= end save trailer model ======================
+    //   == end save trailer model    =
 
 
 
-    //===================== start save trailer type model ====================
+    //    start save trailer type model   ======
     // $('.trailerTypeSet').focus(function(){
         $('.trailerTypeSet').val('');
         $.ajax({
@@ -395,9 +395,9 @@ $(document).ready(function() {
             }            
         }     
     }
-    // =================end save trailer type =========================
+    //   ===end save trailer type    ====
 
-    //============== start edit trailer model ==================
+    //   start edit trailer model   ====
     $('body').on('click','.edit_trailerModel',function(){
        var id=$(this).attr("data-trailerId");
     //    alert(id);
@@ -532,11 +532,11 @@ $(document).ready(function() {
             }
         });
      });
-    //=============== end edit trailer model ================  
+    //  = end edit trailer model   ==  
 
 
 
-    // ================== start delete trailer ==============
+    //   ==== start delete trailer   
   
     $('body').on('click','.delete_trailer',function(){
         var id=$(this).attr("data-trailerId");

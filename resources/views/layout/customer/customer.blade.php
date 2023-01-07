@@ -525,7 +525,7 @@
 
 
 
-<!-- ========================= start edit customer model =============================== -->
+<!--    ==== start edit customer model     === -->
 
 
 <div class="container">
@@ -763,9 +763,9 @@
 
 
 
-<!--============================== end update customer =================== -->
+<!--    == end update customer   ===== -->
 
-<!-- ===========================create currency model ==================== -->
+<!--    ======create currency model   ====== -->
 <div class="modal fade" id="addCreateCurrencyCustomer"  tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -794,9 +794,9 @@
     </div>
   </div>
 </div>
-<!--======================= end currency =============== -->
+<!--   == end currency   = -->
 
- <!-- =================crete payment terms =============================== -->
+ <!--   ===crete payment terms     === -->
  <div class="modal fade" id="addPaymentTermsCustom"  tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -839,9 +839,9 @@
     </div>
   </div>
 </div>
- <!--==================== end payment terms model ====================== -->
+ <!--  ====== end payment terms model    = -->
 
- <!--======================== add  Factoring Company ============================s-->
+ <!--   === add  Factoring Company     s-->
  <div class="container">
     <div class="modal fade" data-backdrop="static" id="addFactoringModelCustomer" role="dialog">
         <div class="modal-dialog custom_modal" role="document">
@@ -999,11 +999,11 @@
         </div>
     </div>
 </div>
- <!--======================== end add  Factoring Company ============================s-->
+ <!--   === end add  Factoring Company     s-->
 
 
 
-  <!--========================== resote customer start model ========================== -->
+  <!--   ===== resote customer start model    ===== -->
    <div class="modal fade" data-backdrop="static" id="restoreCustomerData" role="dialog">
         <div class="modal-dialog custom_modal modal-dialog-scrollable" role="document">
             <div class="modal-content">

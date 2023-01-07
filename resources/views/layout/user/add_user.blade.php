@@ -698,7 +698,7 @@
     </div>
 </div>
 
-<!--======================== add office modal ==================================== -->
+<!--   === add office modal      = -->
 <div class="modal fade" id="add_office_modal_form"  tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -731,4 +731,4 @@
         </div>
     </div>
 </div>
- <!--=============================== end add office modal========================= -->
+ <!--    === end add office modal   ==== -->

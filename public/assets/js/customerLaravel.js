@@ -650,5 +650,5 @@ $(document).ready(function() {
         $("#addCustomerTab").addClass("tab-pane fade in active show");
         $("#addAdvanceCustomerTab").removeClass('active show');    
     }
-    //  =============== start update customer show model ====================
+    //    = start update customer show model   ======
 

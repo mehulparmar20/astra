@@ -20,17 +20,17 @@
                     </button>
                 </div>
                 <div style="margin-top: 15px; margin-left: 15px;">
-<<<<<<< HEAD
-<<<<<<< HEAD
+ 
+ 
                     <a href="#addUserModal" class="button-57" data-toggle="modal" data-target="#addUserModal"><i class="fa fa-plus" aria-hidden="true"></i><span>Add User</span></a>
                 </div>
                 <div class="modal-body" style="overflow-y: auto !important;margin-left: -16px;">
 
-=======
+ 
 
-=======
+ 
 
->>>>>>> a9578ab2c12b05e4d51c8af156edfc7e4ed29341
+ 
                         @if($insertUser== 1)
                             <a href="#addUserModal" class="button-57" data-toggle="modal" data-target="#addUserModal"><i class="fa fa-plus" aria-hidden="true"></i><span>Add User</span></a>
                         @endif 
@@ -44,10 +44,8 @@
                 </div>
                 <div class="modal-body" style="overflow-y: auto !important;margin-left: -16px;">
 
-<<<<<<< HEAD
->>>>>>> a9578ab2c12b05e4d51c8af156edfc7e4ed29341
-=======
->>>>>>> a9578ab2c12b05e4d51c8af156edfc7e4ed29341
+ 
+ 
                     <table id="table_pagination" class="table">
                         <thead class="thead_th">
                             <tr class="tr">

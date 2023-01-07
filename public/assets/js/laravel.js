@@ -122,7 +122,7 @@ $('#select-all').click(function(event) {
     }
 });
 
-// =============================== create user=================================================
+//     === create user       
 $(document).ready(function() {
    
     $('#usersave').on('click', function() {
@@ -425,9 +425,9 @@ $(document).ready(function() {
                 }            
             }     
         }
-        //===================== end office create ==============================
+        //    end office create     ==
 
-        // =========== start create add_Company_Name_modal_form ====================
+        //  ==== start create add_Company_Name_modal_form   ======
         $(".add_Company_Name_modal_form_btn").click(function(){
             $("#addCompanyModal").modal("show");
         });
@@ -475,7 +475,7 @@ $(document).ready(function() {
                 }            
             }     
         }
-    // //================= end create add_Company_Name_modal_form=================
+    // //  === end create add_Company_Name_modal_form  ===
     
     
     

@@ -21820,7 +21820,7 @@ object, embed, video {
   clear: both;
 }
 
-/* ================== Desktop Main Menu CSS ================== */
+/*   ==== Desktop Main Menu CSS   ==== */
 .horizontalMenucontainer {
   background-size: cover;
   overflow: hidden;
@@ -22373,8 +22373,8 @@ object, embed, video {
   color: #656565;
 }
 
-/* ================== Desktop Drop Down Menu CSS ================== */
-/* ================== Desktop Mega Menus CSS  ================== */
+/*   ==== Desktop Drop Down Menu CSS   ==== */
+/*   ==== Desktop Mega Menus CSS    ==== */
 @media (min-width: 1024px) {
   .horizontalMenu > .horizontalMenu-list > li > .horizontal-megamenu .link-list:first-child {
     border: 0;
@@ -22383,7 +22383,7 @@ object, embed, video {
 
 /*= Desktop Half Menu CSS =*/
 /*= Desktop HTML Form Menu CSS =*/
-/* ================== Desktop Extra CSS ================== */
+/*   ==== Desktop Extra CSS   ==== */
 .horizontal-header {
   display: none;
 }
@@ -22401,16 +22401,16 @@ object, embed, video {
   display: none;
 }
 
-/*==============================================================================
+/*           =
                               Start Mobile CSS
-===============================================================================*/
-/* ================== Mobile Menu Change Brake Point ================== */
+           ==*/
+/*   ==== Mobile Menu Change Brake Point   ==== */
 @media only screen and (max-width: 991px) {
-  /* ================== Mobile Base CSS ================== */
+  /*   ==== Mobile Base CSS   ==== */
   body.active {
     overflow: hidden;
   }
-  /* ================== Mobile Main Menu CSS ================== */
+  /*   ==== Mobile Main Menu CSS   ==== */
   .desktoplogo {
     display: none;
   }
@@ -22700,9 +22700,9 @@ object, embed, video {
   .horizontalMenu > .horizontalMenu-list > li > .horizontal-megamenu .menu_form textarea {
     min-height: 100px;
   }
-  /* ================== Mobile Slide Down Links CSS ================== */
-  /* ================== Mobile Mega Menus CSS  ================== */
-  /* ================== Mobile Header CSS ================== */
+  /*   ==== Mobile Slide Down Links CSS   ==== */
+  /*   ==== Mobile Mega Menus CSS    ==== */
+  /*   ==== Mobile Header CSS   ==== */
   .horizontal-header {
     width: 100%;
     display: block;
@@ -22827,7 +22827,7 @@ object, embed, video {
     -o-transform: rotate(-45deg);
     -webkit-transform: rotate(-45deg);
   }
-  /* ================== Mobile Overlay/Drawer CSS ================== */
+  /*   ==== Mobile Overlay/Drawer CSS   ==== */
   .horizontal-overlapbg {
     right: 0;
     width: calc(100% - 240px);
@@ -22870,7 +22870,7 @@ object, embed, video {
     transition: all 0.25s ease-in-out;
     margin-left: 0;
   }
-  /* ================== Mobile Sub Menu Expander Arrows  ================== */
+  /*   ==== Mobile Sub Menu Expander Arrows    ==== */
   .horizontalMenu > .horizontalMenu-list > li > .horizontalMenu-click {
     height: 49px;
     position: absolute;

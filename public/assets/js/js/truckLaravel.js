@@ -365,7 +365,7 @@ $(document).ready(function() {
     // <!-- -------------------------------------------------------------------------End------------------------------------------------------------------------- -->  
 
 
-    //================================ start edit truck modal ========================
+    //    ==== start edit truck modal    ===
 
     $(".closeEditTruckModal").click(function(){
         $("#editTruckModal").modal("hide");
@@ -557,9 +557,9 @@ $(document).ready(function() {
         })
     });
 
-    //===================================== end update truck =================================
+    //     == end update truck     =====
 
-    //=============================  start delete truck ===================================
+    //    =  start delete truck      
     $('body').on('click','.delete_truck_data',function(){
         var id=$(this).attr('data-truckid');
         var companyID=$(this).attr('data-com_Id');
@@ -601,9 +601,9 @@ $(document).ready(function() {
             } 
         });
     });
-    //================================= end delete truck===================================
+    //    ===== end delete truck     
 
-    //================================ restore truck start ================================
+    //    ==== restore truck start     ====
     $(".closeRestoreTruck").click(function(){
         $("#restoretruckModal").modal("hide");
     });
@@ -793,9 +793,9 @@ $(document).ready(function() {
             }
         });
     });
-    //================================ restore truck end ==================================
+    //    ==== restore truck end     ======
      
-    //================================ start create truck type =============================
+    //    ==== start create truck type     =
     $(".create_truck_type").click(function(){
         $("#addTtruckTypeModal").modal("show");
     });
@@ -838,5 +838,5 @@ $(document).ready(function() {
             }
         })
     })
-    //================================ end create truck type ===============================
+    //    ==== end create truck type     ===
 });

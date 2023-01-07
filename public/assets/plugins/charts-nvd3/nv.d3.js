@@ -1614,7 +1614,7 @@ nv.utils.pointIsInArc = function(pt, ptData, d3Arc) {
 nv.models.axis = function() {
     "use strict";
 
-    //============================================================
+    //        ====
     // Public Variables with Default Settings
     //------------------------------------------------------------
 
@@ -1643,7 +1643,7 @@ nv.models.axis = function() {
         .tickFormat(function(d) { return d })
     ;
 
-    //============================================================
+    //        ====
     // Private Variables
     //------------------------------------------------------------
 
@@ -1961,7 +1961,7 @@ nv.models.axis = function() {
         return chart;
     }
 
-    //============================================================
+    //        ====
     // Expose Public Variables
     //------------------------------------------------------------
 
@@ -2012,7 +2012,7 @@ nv.models.axis = function() {
 nv.models.boxPlot = function() {
     "use strict";
 
-    //============================================================
+    //        ====
     // Public Variables with Default Settings
     //------------------------------------------------------------
 
@@ -2041,7 +2041,7 @@ nv.models.boxPlot = function() {
         duration = 250,
         maxBoxWidth = null;
 
-    //============================================================
+    //        ====
     // Private Variables
     //------------------------------------------------------------
 
@@ -2274,7 +2274,7 @@ nv.models.boxPlot = function() {
         return chart;
     }
 
-    //============================================================
+    //        ====
     // Expose Public Variables
     //------------------------------------------------------------
 
@@ -2337,7 +2337,7 @@ nv.models.boxPlot = function() {
 nv.models.boxPlotChart = function() {
     "use strict";
 
-    //============================================================
+    //        ====
     // Public Variables with Default Settings
     //------------------------------------------------------------
 
@@ -2371,7 +2371,7 @@ nv.models.boxPlotChart = function() {
 
     tooltip.duration(0);
 
-    //============================================================
+    //        ====
     // Private Variables
     //------------------------------------------------------------
 
@@ -2490,7 +2490,7 @@ nv.models.boxPlotChart = function() {
                 .attr('y2', y(0))
             ;
 
-            //============================================================
+            //        ====
             // Event Handling/Dispatching (in chart's scope)
             //------------------------------------------------------------
         });
@@ -2499,7 +2499,7 @@ nv.models.boxPlotChart = function() {
         return chart;
     }
 
-    //============================================================
+    //        ====
     // Event Handling/Dispatching (out of chart's scope)
     //------------------------------------------------------------
 
@@ -2515,7 +2515,7 @@ nv.models.boxPlotChart = function() {
         tooltip();
     });
 
-    //============================================================
+    //        ====
     // Expose Public Variables
     //------------------------------------------------------------
 
@@ -2574,7 +2574,7 @@ nv.models.boxPlotChart = function() {
 nv.models.bullet = function() {
     "use strict";
 
-    //============================================================
+    //        ====
     // Public Variables with Default Settings
     //------------------------------------------------------------
 
@@ -2839,7 +2839,7 @@ nv.models.bullet = function() {
         return chart;
     }
 
-    //============================================================
+    //        ====
     // Expose Public Variables
     //------------------------------------------------------------
 
@@ -2885,7 +2885,7 @@ nv.models.bullet = function() {
 nv.models.bulletChart = function() {
     "use strict";
 
-    //============================================================
+    //        ====
     // Public Variables with Default Settings
     //------------------------------------------------------------
 
@@ -3032,7 +3032,7 @@ nv.models.bulletChart = function() {
         return chart;
     }
 
-    //============================================================
+    //        ====
     // Event Handling/Dispatching (out of chart's scope)
     //------------------------------------------------------------
 
@@ -3053,7 +3053,7 @@ nv.models.bulletChart = function() {
         tooltip();
     });
 
-    //============================================================
+    //        ====
     // Expose Public Variables
     //------------------------------------------------------------
 
@@ -3098,7 +3098,7 @@ nv.models.bulletChart = function() {
 nv.models.candlestickBar = function() {
     "use strict";
 
-    //============================================================
+    //        ====
     // Public Variables with Default Settings
     //------------------------------------------------------------
 
@@ -3128,7 +3128,7 @@ nv.models.candlestickBar = function() {
         , dispatch = d3.dispatch('stateChange', 'changeState', 'renderEnd', 'chartClick', 'elementClick', 'elementDblClick', 'elementMouseover', 'elementMouseout', 'elementMousemove')
         ;
 
-    //============================================================
+    //        ====
     // Private Variables
     //------------------------------------------------------------
 
@@ -3274,7 +3274,7 @@ nv.models.candlestickBar = function() {
         ;
     };
 
-    //============================================================
+    //        ====
     // Expose Public Variables
     //------------------------------------------------------------
 
@@ -3324,7 +3324,7 @@ nv.models.candlestickBar = function() {
 nv.models.cumulativeLineChart = function() {
     "use strict";
 
-    //============================================================
+    //        ====
     // Public Variables with Default Settings
     //------------------------------------------------------------
 
@@ -3376,7 +3376,7 @@ nv.models.cumulativeLineChart = function() {
 
     controls.updateState(false);
 
-    //============================================================
+    //        ====
     // Private Variables
     //------------------------------------------------------------
 
@@ -3697,7 +3697,7 @@ nv.models.cumulativeLineChart = function() {
                     .call(yAxis);
             }
 
-            //============================================================
+            //        ====
             // Event Handling/Dispatching (in chart's scope)
             //------------------------------------------------------------
 
@@ -3840,7 +3840,7 @@ nv.models.cumulativeLineChart = function() {
         return chart;
     }
 
-    //============================================================
+    //        ====
     // Event Handling/Dispatching (out of chart's scope)
     //------------------------------------------------------------
 
@@ -3858,7 +3858,7 @@ nv.models.cumulativeLineChart = function() {
         tooltip.hidden(true)
     });
 
-    //============================================================
+    //        ====
     // Functions
     //------------------------------------------------------------
 
@@ -3906,7 +3906,7 @@ nv.models.cumulativeLineChart = function() {
         ];
     }
 
-    //============================================================
+    //        ====
     // Expose Public Variables
     //------------------------------------------------------------
 
@@ -3983,7 +3983,7 @@ nv.models.cumulativeLineChart = function() {
 nv.models.discreteBar = function() {
     "use strict";
 
-    //============================================================
+    //        ====
     // Public Variables with Default Settings
     //------------------------------------------------------------
 
@@ -4009,7 +4009,7 @@ nv.models.discreteBar = function() {
         , duration = 250
         ;
 
-    //============================================================
+    //        ====
     // Private Variables
     //------------------------------------------------------------
 
@@ -4188,7 +4188,7 @@ nv.models.discreteBar = function() {
         return chart;
     }
 
-    //============================================================
+    //        ====
     // Expose Public Variables
     //------------------------------------------------------------
 
@@ -4237,7 +4237,7 @@ nv.models.discreteBar = function() {
 nv.models.discreteBarChart = function() {
     "use strict";
 
-    //============================================================
+    //        ====
     // Public Variables with Default Settings
     //------------------------------------------------------------
 
@@ -4287,7 +4287,7 @@ nv.models.discreteBarChart = function() {
             return xAxis.tickFormat()(d, i);
         });
 
-    //============================================================
+    //        ====
     // Private Variables
     //------------------------------------------------------------
 
@@ -4437,7 +4437,7 @@ nv.models.discreteBarChart = function() {
         return chart;
     }
 
-    //============================================================
+    //        ====
     // Event Handling/Dispatching (out of chart's scope)
     //------------------------------------------------------------
 
@@ -4458,7 +4458,7 @@ nv.models.discreteBarChart = function() {
         tooltip();
     });
 
-    //============================================================
+    //        ====
     // Expose Public Variables
     //------------------------------------------------------------
 
@@ -4519,7 +4519,7 @@ nv.models.discreteBarChart = function() {
 
 nv.models.distribution = function() {
     "use strict";
-    //============================================================
+    //        ====
     // Public Variables with Default Settings
     //------------------------------------------------------------
 
@@ -4535,17 +4535,17 @@ nv.models.distribution = function() {
         , dispatch = d3.dispatch('renderEnd')
         ;
 
-    //============================================================
+    //        ====
 
 
-    //============================================================
+    //        ====
     // Private Variables
     //------------------------------------------------------------
 
     var scale0;
     var renderWatch = nv.utils.renderWatch(dispatch, duration);
 
-    //============================================================
+    //        ====
 
 
     function chart(selection) {
@@ -4614,7 +4614,7 @@ nv.models.distribution = function() {
     }
 
 
-    //============================================================
+    //        ====
     // Expose Public Variables
     //------------------------------------------------------------
     chart.options = nv.utils.optionsFunc.bind(chart);
@@ -4671,7 +4671,7 @@ nv.models.distribution = function() {
         renderWatch.reset(duration);
         return chart;
     };
-    //============================================================
+    //        ====
 
 
     return chart;
@@ -4686,7 +4686,7 @@ nv.models.distroPlot = function() {
     // - transition from box to violin not great since box only has a few points, and violin has many - need to generate box with as many points as violin
     // - when providing colorGroup, should color boxes by either parent or child group category (e.g. isolator)
 
-    //============================================================
+    //        ====
     // Public Variables with Default Settings
     //------------------------------------------------------------
 
@@ -4734,7 +4734,7 @@ nv.models.distroPlot = function() {
         duration = 250,
         maxBoxWidth = null;
 
-    //============================================================
+    //        ====
     // Helper Functions
     //------------------------------------------------------------
 
@@ -5108,7 +5108,7 @@ nv.models.distroPlot = function() {
 
 
 
-    //============================================================
+    //        ====
     // Private Variables
     //------------------------------------------------------------
 
@@ -5518,7 +5518,7 @@ nv.models.distroPlot = function() {
         return chart;
     }
 
-    //============================================================
+    //        ====
     // Expose Public Variables
     //------------------------------------------------------------
 
@@ -5579,7 +5579,7 @@ nv.models.distroPlot = function() {
 nv.models.distroPlotChart = function() {
     "use strict";
 
-    //============================================================
+    //        ====
     // Public Variables with Default Settings
     //------------------------------------------------------------
 
@@ -5616,7 +5616,7 @@ nv.models.distroPlotChart = function() {
     tooltip.duration(0);
 
 
-    //============================================================
+    //        ====
     // Private Variables
     //------------------------------------------------------------
 
@@ -5824,7 +5824,7 @@ nv.models.distroPlotChart = function() {
             resolution0 = distroplot.options().resolution();
             clampViolin0 = distroplot.options().clampViolin();
 
-            //============================================================
+            //        ====
             // Event Handling/Dispatching (in chart's scope)
             //------------------------------------------------------------
 
@@ -5834,7 +5834,7 @@ nv.models.distroPlotChart = function() {
         return chart;
     }
 
-    //============================================================
+    //        ====
     // Event Handling/Dispatching (out of chart's scope)
     //------------------------------------------------------------
 
@@ -5850,7 +5850,7 @@ nv.models.distroPlotChart = function() {
         tooltip();
     });
 
-    //============================================================
+    //        ====
     // Expose Public Variables
     //------------------------------------------------------------
 
@@ -5914,7 +5914,7 @@ nv.models.distroPlotChart = function() {
 nv.models.focus = function(content) {
     "use strict";
 
-    //============================================================
+    //        ====
     // Public Variables with Default Settings
     //------------------------------------------------------------
 
@@ -5943,7 +5943,7 @@ nv.models.focus = function(content) {
     content.interactive(false);
     content.pointActive(function(d) { return false; });
 
-    //============================================================
+    //        ====
     // Private Variables
     //------------------------------------------------------------
 
@@ -6078,11 +6078,11 @@ nv.models.focus = function(content) {
             g.select('.nv-x.nv-axis')
                 .attr('transform', 'translate(0,' + y.range()[0] + ')');
 
-            //============================================================
+            //        ====
             // Event Handling/Dispatching (in chart's scope)
             //------------------------------------------------------------
 
-            //============================================================
+            //        ====
             // Functions
             //------------------------------------------------------------
     
@@ -6136,11 +6136,11 @@ nv.models.focus = function(content) {
     }
 
 
-    //============================================================
+    //        ====
     // Event Handling/Dispatching (out of chart's scope)
     //------------------------------------------------------------
 
-    //============================================================
+    //        ====
     // Expose Public Variables
     //------------------------------------------------------------
 
@@ -6208,7 +6208,7 @@ nv.models.focus = function(content) {
 nv.models.forceDirectedGraph = function() {
     "use strict";
 
-    //============================================================
+    //        ====
     // Public Variables with Default Settings
     //------------------------------------------------------------
     var margin = {top: 2, right: 0, bottom: 2, left: 0}
@@ -6236,7 +6236,7 @@ nv.models.forceDirectedGraph = function() {
         ;
 
 
-    //============================================================
+    //        ====
     // Private Variables
     //------------------------------------------------------------
 
@@ -6347,7 +6347,7 @@ nv.models.forceDirectedGraph = function() {
         return chart;
     }
 
-    //============================================================
+    //        ====
     // Expose Public Variables
     //------------------------------------------------------------
 
@@ -6399,7 +6399,7 @@ nv.models.forceDirectedGraph = function() {
 nv.models.furiousLegend = function() {
     "use strict";
 
-    //============================================================
+    //        ====
     // Public Variables with Default Settings
     //------------------------------------------------------------
 
@@ -6707,7 +6707,7 @@ nv.models.furiousLegend = function() {
         return chart;
     }
 
-    //============================================================
+    //        ====
     // Expose Public Variables
     //------------------------------------------------------------
 
@@ -6755,7 +6755,7 @@ Improvements:
 nv.models.heatMap = function() {
     "use strict";
 
-    //============================================================
+    //        ====
     // Public Variables with Default Settings
     //------------------------------------------------------------
 
@@ -6799,7 +6799,7 @@ nv.models.heatMap = function() {
 
 
 
-    //============================================================
+    //        ====
     // Aux helper function for heatmap
     //------------------------------------------------------------
     // choose high contrast text color based on background
@@ -7123,7 +7123,7 @@ nv.models.heatMap = function() {
     }
 
 
-    //============================================================
+    //        ====
     // Private Variables
     //------------------------------------------------------------
 
@@ -7508,7 +7508,7 @@ nv.models.heatMap = function() {
         return chart;
     }
 
-    //============================================================
+    //        ====
     // Expose Public Variables
     //------------------------------------------------------------
 
@@ -7595,7 +7595,7 @@ Options for chart:
 nv.models.heatMapChart = function() {
     "use strict";
 
-    //============================================================
+    //        ====
     // Public Variables with Default Settings
     //------------------------------------------------------------
 
@@ -7648,7 +7648,7 @@ nv.models.heatMapChart = function() {
         })
 
 
-    //============================================================
+    //        ====
     // Private Variables
     //------------------------------------------------------------
 
@@ -7874,7 +7874,7 @@ nv.models.heatMapChart = function() {
         return chart;
     }
 
-    //============================================================
+    //        ====
     // Event Handling/Dispatching (out of chart's scope)
     //------------------------------------------------------------
 
@@ -7890,7 +7890,7 @@ nv.models.heatMapChart = function() {
         tooltip();
     });
 
-    //============================================================
+    //        ====
     // Expose Public Variables
     //------------------------------------------------------------
 
@@ -7950,7 +7950,7 @@ nv.models.heatMapChart = function() {
 nv.models.historicalBar = function() {
     "use strict";
 
-    //============================================================
+    //        ====
     // Public Variables with Default Settings
     //------------------------------------------------------------
 
@@ -8138,7 +8138,7 @@ nv.models.historicalBar = function() {
         ;
     };
 
-    //============================================================
+    //        ====
     // Expose Public Variables
     //------------------------------------------------------------
 
@@ -8184,7 +8184,7 @@ nv.models.historicalBar = function() {
 nv.models.historicalBarChart = function(bar_model) {
     "use strict";
 
-    //============================================================
+    //        ====
     // Public Variables with Default Settings
     //------------------------------------------------------------
 
@@ -8229,7 +8229,7 @@ nv.models.historicalBarChart = function(bar_model) {
         });
 
 
-    //============================================================
+    //        ====
     // Private Variables
     //------------------------------------------------------------
 
@@ -8359,7 +8359,7 @@ nv.models.historicalBarChart = function(bar_model) {
                     .call(yAxis);
             }
 
-            //============================================================
+            //        ====
             // Event Handling/Dispatching (in chart's scope)
             //------------------------------------------------------------
 
@@ -8453,7 +8453,7 @@ nv.models.historicalBarChart = function(bar_model) {
         return chart;
     }
 
-    //============================================================
+    //        ====
     // Event Handling/Dispatching (out of chart's scope)
     //------------------------------------------------------------
 
@@ -8474,7 +8474,7 @@ nv.models.historicalBarChart = function(bar_model) {
         tooltip();
     });
 
-    //============================================================
+    //        ====
     // Expose Public Variables
     //------------------------------------------------------------
 
@@ -8587,7 +8587,7 @@ nv.models.candlestickBarChart = function() {
 nv.models.legend = function() {
     "use strict";
 
-    //============================================================
+    //        ====
     // Public Variables with Default Settings
     //------------------------------------------------------------
 
@@ -8935,7 +8935,7 @@ nv.models.legend = function() {
         return chart;
     }
 
-    //============================================================
+    //        ====
     // Expose Public Variables
     //------------------------------------------------------------
 
@@ -8977,7 +8977,7 @@ nv.models.legend = function() {
 
 nv.models.line = function() {
     "use strict";
-    //============================================================
+    //        ====
     // Public Variables with Default Settings
     //------------------------------------------------------------
 
@@ -9007,10 +9007,10 @@ nv.models.line = function() {
         .pointDomain([16,256]) //set to speed up calculation, needs to be unset if there is a custom size accessor
     ;
 
-    //============================================================
+    //        ====
 
 
-    //============================================================
+    //        ====
     // Private Variables
     //------------------------------------------------------------
 
@@ -9018,7 +9018,7 @@ nv.models.line = function() {
         , renderWatch = nv.utils.renderWatch(dispatch, duration)
         ;
 
-    //============================================================
+    //        ====
 
 
     function chart(selection) {
@@ -9148,7 +9148,7 @@ nv.models.line = function() {
     }
 
 
-    //============================================================
+    //        ====
     // Expose Public Variables
     //------------------------------------------------------------
 
@@ -9206,7 +9206,7 @@ nv.models.line = function() {
 nv.models.lineChart = function() {
     "use strict";
 
-    //============================================================
+    //        ====
     // Public Variables with Default Settings
     //------------------------------------------------------------
 
@@ -9259,7 +9259,7 @@ nv.models.lineChart = function() {
     });
 
 
-    //============================================================
+    //        ====
     // Private Variables
     //------------------------------------------------------------
 
@@ -9428,9 +9428,9 @@ nv.models.lineChart = function() {
                     .tickSize( -availableWidth, 0);
             }
 
-            //============================================================
+            //        ====
             // Update Axes
-            //============================================================
+            //        ====
             function updateXAxis() {
               if(showXAxis) {
                 g.select('.nv-focus .nv-x.nv-axis')
@@ -9454,9 +9454,9 @@ nv.models.lineChart = function() {
             g.select('.nv-focus .nv-x.nv-axis')
                 .attr('transform', 'translate(0,' + availableHeight + ')');
 
-            //============================================================
+            //        ====
             // Update Focus
-            //============================================================
+            //        ====
             if (!focusEnable && focus.brush.extent() === null) {
                 linesWrap.transition().call(lines);
                 updateXAxis();
@@ -9472,7 +9472,7 @@ nv.models.lineChart = function() {
                     onBrush(extent);
                 }
             }
-            //============================================================
+            //        ====
             // Event Handling/Dispatching (in chart's scope)
             //------------------------------------------------------------
 
@@ -9587,7 +9587,7 @@ nv.models.lineChart = function() {
                 chart.update();
             });
 
-            //============================================================
+            //        ====
             // Functions
             //------------------------------------------------------------
 
@@ -9637,7 +9637,7 @@ nv.models.lineChart = function() {
     }
 
 
-    //============================================================
+    //        ====
     // Event Handling/Dispatching (out of chart's scope)
     //------------------------------------------------------------
 
@@ -9651,7 +9651,7 @@ nv.models.lineChart = function() {
         tooltip.hidden(true);
     });
 
-    //============================================================
+    //        ====
     // Expose Public Variables
     //------------------------------------------------------------
 
@@ -9764,7 +9764,7 @@ nv.models.lineWithFocusChart = function() {
 nv.models.linePlusBarChart = function() {
     "use strict";
 
-    //============================================================
+    //        ====
     // Public Variables with Default Settings
     //------------------------------------------------------------
 
@@ -9829,7 +9829,7 @@ nv.models.linePlusBarChart = function() {
         return xAxis.tickFormat()(d, i);
     });
 
-    //============================================================
+    //        ====
     // Private Variables
     //------------------------------------------------------------
 
@@ -9972,7 +9972,7 @@ nv.models.linePlusBarChart = function() {
             contextEnter.append('g').attr('class', 'nv-brushBackground');
             contextEnter.append('g').attr('class', 'nv-x nv-brush');
 
-            //============================================================
+            //        ====
             // Legend
             //------------------------------------------------------------
 
@@ -10008,7 +10008,7 @@ nv.models.linePlusBarChart = function() {
 
             wrap.attr('transform', 'translate(' + margin.left + ',' + margin.top + ')');
 
-            //============================================================
+            //        ====
             // Context chart (focus chart) components
             //------------------------------------------------------------
 
@@ -10113,7 +10113,7 @@ nv.models.linePlusBarChart = function() {
                 .attr('height', availableHeight2);
             gBrush.selectAll('.resize').append('path').attr('d', resizePath);
 
-            //============================================================
+            //        ====
             // Event Handling/Dispatching (in chart's scope)
             //------------------------------------------------------------
 
@@ -10135,7 +10135,7 @@ nv.models.linePlusBarChart = function() {
                 chart.update();
             });
 
-            //============================================================
+            //        ====
             // Functions
             //------------------------------------------------------------
 
@@ -10289,7 +10289,7 @@ nv.models.linePlusBarChart = function() {
         return chart;
     }
 
-    //============================================================
+    //        ====
     // Event Handling/Dispatching (out of chart's scope)
     //------------------------------------------------------------
 
@@ -10330,10 +10330,10 @@ nv.models.linePlusBarChart = function() {
         tooltip();
     });
 
-    //============================================================
+    //        ====
 
 
-    //============================================================
+    //        ====
     // Expose Public Variables
     //------------------------------------------------------------
 
@@ -10434,7 +10434,7 @@ nv.models.linePlusBarChart = function() {
 nv.models.multiBar = function() {
     "use strict";
 
-    //============================================================
+    //        ====
     // Public Variables with Default Settings
     //------------------------------------------------------------
 
@@ -10465,7 +10465,7 @@ nv.models.multiBar = function() {
         , dispatch = d3.dispatch('chartClick', 'elementClick', 'elementDblClick', 'elementMouseover', 'elementMouseout', 'elementMousemove', 'renderEnd')
         ;
 
-    //============================================================
+    //        ====
     // Private Variables
     //------------------------------------------------------------
 
@@ -10812,7 +10812,7 @@ nv.models.multiBar = function() {
         return chart;
     }
 
-    //============================================================
+    //        ====
     // Expose Public Variables
     //------------------------------------------------------------
 
@@ -10868,7 +10868,7 @@ nv.models.multiBar = function() {
 nv.models.multiBarChart = function() {
     "use strict";
 
-    //============================================================
+    //        ====
     // Public Variables with Default Settings
     //------------------------------------------------------------
 
@@ -10958,7 +10958,7 @@ nv.models.multiBarChart = function() {
 
     controls.updateState(false);
 
-    //============================================================
+    //        ====
     // Private Variables
     //------------------------------------------------------------
 
@@ -11202,7 +11202,7 @@ nv.models.multiBarChart = function() {
                 wrap.select(".nv-interactive").call(interactiveLayer);
             }
 
-            //============================================================
+            //        ====
             // Event Handling/Dispatching (in chart's scope)
             //------------------------------------------------------------
 
@@ -11319,7 +11319,7 @@ nv.models.multiBarChart = function() {
         return chart;
     }
 
-    //============================================================
+    //        ====
     // Expose Public Variables
     //------------------------------------------------------------
 
@@ -11396,7 +11396,7 @@ nv.models.multiBarChart = function() {
 nv.models.multiBarHorizontal = function() {
     "use strict";
 
-    //============================================================
+    //        ====
     // Public Variables with Default Settings
     //------------------------------------------------------------
 
@@ -11430,7 +11430,7 @@ nv.models.multiBarHorizontal = function() {
         , dispatch = d3.dispatch('chartClick', 'elementClick', 'elementDblClick', 'elementMouseover', 'elementMouseout', 'elementMousemove', 'renderEnd')
         ;
 
-    //============================================================
+    //        ====
     // Private Variables
     //------------------------------------------------------------
 
@@ -11698,7 +11698,7 @@ nv.models.multiBarHorizontal = function() {
         return chart;
     }
 
-    //============================================================
+    //        ====
     // Expose Public Variables
     //------------------------------------------------------------
 
@@ -11758,7 +11758,7 @@ nv.models.multiBarHorizontal = function() {
 nv.models.multiBarHorizontalChart = function() {
     "use strict";
 
-    //============================================================
+    //        ====
     // Public Variables with Default Settings
     //------------------------------------------------------------
 
@@ -11819,7 +11819,7 @@ nv.models.multiBarHorizontalChart = function() {
 
     controls.updateState(false);
 
-    //============================================================
+    //        ====
     // Private Variables
     //------------------------------------------------------------
 
@@ -12010,7 +12010,7 @@ nv.models.multiBarHorizontalChart = function() {
                 .attr("y2", -availableHeight)
             ;
 
-            //============================================================
+            //        ====
             // Event Handling/Dispatching (in chart's scope)
             //------------------------------------------------------------
 
@@ -12071,7 +12071,7 @@ nv.models.multiBarHorizontalChart = function() {
         return chart;
     }
 
-    //============================================================
+    //        ====
     // Event Handling/Dispatching (out of chart's scope)
     //------------------------------------------------------------
 
@@ -12093,7 +12093,7 @@ nv.models.multiBarHorizontalChart = function() {
         tooltip();
     });
 
-    //============================================================
+    //        ====
     // Expose Public Variables
     //------------------------------------------------------------
 
@@ -12158,7 +12158,7 @@ nv.models.multiBarHorizontalChart = function() {
 nv.models.multiChart = function() {
     "use strict";
 
-    //============================================================
+    //        ====
     // Public Variables with Default Settings
     //------------------------------------------------------------
 
@@ -12181,7 +12181,7 @@ nv.models.multiChart = function() {
         duration = 250
         ;
 
-    //============================================================
+    //        ====
     // Private Variables
     //------------------------------------------------------------
 
@@ -12463,7 +12463,7 @@ nv.models.multiChart = function() {
                 wrap.select(".nv-interactive").call(interactiveLayer);
             }
 
-            //============================================================
+            //        ====
             // Event Handling/Dispatching
             //------------------------------------------------------------
 
@@ -12668,7 +12668,7 @@ nv.models.multiChart = function() {
         return chart;
     }
 
-    //============================================================
+    //        ====
     // Global getters and setters
     //------------------------------------------------------------
 
@@ -12777,7 +12777,7 @@ nv.models.multiChart = function() {
 nv.models.ohlcBar = function() {
     "use strict";
 
-    //============================================================
+    //        ====
     // Public Variables with Default Settings
     //------------------------------------------------------------
 
@@ -12807,7 +12807,7 @@ nv.models.ohlcBar = function() {
         , dispatch = d3.dispatch('stateChange', 'changeState', 'renderEnd', 'chartClick', 'elementClick', 'elementDblClick', 'elementMouseover', 'elementMouseout', 'elementMousemove')
         ;
 
-    //============================================================
+    //        ====
     // Private Variables
     //------------------------------------------------------------
 
@@ -12958,7 +12958,7 @@ nv.models.ohlcBar = function() {
         ;
     };
 
-    //============================================================
+    //        ====
     // Expose Public Variables
     //------------------------------------------------------------
 
@@ -13009,7 +13009,7 @@ nv.models.ohlcBar = function() {
 nv.models.parallelCoordinates = function() {
     "use strict";
 
-    //============================================================
+    //        ====
     // Public Variables with Default Settings
     //------------------------------------------------------------
 
@@ -13039,7 +13039,7 @@ nv.models.parallelCoordinates = function() {
         , dispatch = d3.dispatch('brushstart', 'brush', 'brushEnd', 'dimensionsOrder', "stateChange", 'elementClick', 'elementMouseover', 'elementMouseout', 'elementMousemove', 'renderEnd', 'activeChanged')
         ;
 
-    //============================================================
+    //        ====
     // Private Variables
     //------------------------------------------------------------
 
@@ -13432,7 +13432,7 @@ nv.models.parallelCoordinates = function() {
         return chart;
     }
 
-    //============================================================
+    //        ====
     // Expose Public Variables
     //------------------------------------------------------------
 
@@ -13497,7 +13497,7 @@ nv.models.parallelCoordinates = function() {
 };
 nv.models.parallelCoordinatesChart = function () {
         "use strict";
-        //============================================================
+        //        ====
         // Public Variables with Default Settings
         //------------------------------------------------------------
 
@@ -13522,9 +13522,9 @@ nv.models.parallelCoordinatesChart = function () {
         , controlWidth = function () { return showControls ? 180 : 0 }
         ;
 
-	    //============================================================
+	    //        ====
 
-		//============================================================
+		//        ====
         // Private Variables
         //------------------------------------------------------------
 
@@ -13562,7 +13562,7 @@ nv.models.parallelCoordinatesChart = function () {
             return str;
         });
 
-        //============================================================
+        //        ====
         // Chart function
         //------------------------------------------------------------
 
@@ -13662,7 +13662,7 @@ nv.models.parallelCoordinatesChart = function () {
 
 		        parallelCoordinatesWrap.transition().call(parallelCoordinates);
 
-				//============================================================
+				//        ====
                 // Event Handling/Dispatching (in chart's scope)
                 //------------------------------------------------------------
                 //Display reset brush button
@@ -13713,7 +13713,7 @@ nv.models.parallelCoordinatesChart = function () {
             return chart;
         }
 
-		//============================================================
+		//        ====
         // Event Handling/Dispatching (out of chart's scope)
         //------------------------------------------------------------
 
@@ -13748,7 +13748,7 @@ nv.models.parallelCoordinatesChart = function () {
         parallelCoordinates.dispatch.on('elementMousemove.tooltip', function () {
             tooltip();
         });
-		 //============================================================
+		 //        ====
         // Expose Public Variables
         //------------------------------------------------------------
 
@@ -13798,7 +13798,7 @@ nv.models.parallelCoordinatesChart = function () {
 nv.models.pie = function() {
     "use strict";
 
-    //============================================================
+    //        ====
     // Public Variables with Default Settings
     //------------------------------------------------------------
 
@@ -13834,7 +13834,7 @@ nv.models.pie = function() {
     var arcs = [];
     var arcsOver = [];
 
-    //============================================================
+    //        ====
     // chart function
     //------------------------------------------------------------
 
@@ -14200,7 +14200,7 @@ nv.models.pie = function() {
         return chart;
     }
 
-    //============================================================
+    //        ====
     // Expose Public Variables
     //------------------------------------------------------------
 
@@ -14274,7 +14274,7 @@ nv.models.pie = function() {
 nv.models.pieChart = function() {
     "use strict";
 
-    //============================================================
+    //        ====
     // Public Variables with Default Settings
     //------------------------------------------------------------
 
@@ -14304,7 +14304,7 @@ nv.models.pieChart = function() {
             return pie.valueFormat()(d, i);
         });
 
-    //============================================================
+    //        ====
     // Private Variables
     //------------------------------------------------------------
 
@@ -14328,7 +14328,7 @@ nv.models.pieChart = function() {
         }
     };
 
-    //============================================================
+    //        ====
     // Chart function
     //------------------------------------------------------------
 
@@ -14431,7 +14431,7 @@ nv.models.pieChart = function() {
             var pieWrap = g.select('.nv-pieWrap').datum([data]);
             d3.transition(pieWrap).call(pie);
 
-            //============================================================
+            //        ====
             // Event Handling/Dispatching (in chart's scope)
             //------------------------------------------------------------
 
@@ -14459,7 +14459,7 @@ nv.models.pieChart = function() {
         return chart;
     }
 
-    //============================================================
+    //        ====
     // Event Handling/Dispatching (out of chart's scope)
     //------------------------------------------------------------
 
@@ -14485,7 +14485,7 @@ nv.models.pieChart = function() {
         tooltip();
     });
 
-    //============================================================
+    //        ====
     // Expose Public Variables
     //------------------------------------------------------------
 
@@ -14539,7 +14539,7 @@ nv.models.sankey = function() {
     // - https://bost.ocks.org/mike/sankey/
     // - https://github.com/soxofaan/d3-plugin-captain-sankey
 
-    //============================================================
+    //        ====
     // Public Variables with Default Settings
     //------------------------------------------------------------
 
@@ -14596,7 +14596,7 @@ nv.models.sankey = function() {
         return node.y + node.dy / 2;
     };
 
-    //============================================================
+    //        ====
     // Private Variables
     //------------------------------------------------------------
 
@@ -14866,7 +14866,7 @@ nv.models.sankeyChart = function() {
     // - https://bost.ocks.org/mike/sankey/
     // - https://github.com/soxofaan/d3-plugin-captain-sankey
 
-    //============================================================
+    //        ====
     // Public Variables with Default Settings
     //------------------------------------------------------------
 
@@ -14880,7 +14880,7 @@ nv.models.sankeyChart = function() {
         , center = undefined
         ;
 
-    //============================================================
+    //        ====
     // Private Variables
     //------------------------------------------------------------
 
@@ -15058,7 +15058,7 @@ nv.models.sankeyChart = function() {
         return chart;
     }
 
-    //============================================================
+    //        ====
     // Expose Public Variables
     //------------------------------------------------------------
 
@@ -15098,7 +15098,7 @@ nv.models.sankeyChart = function() {
 nv.models.scatter = function() {
     "use strict";
 
-    //============================================================
+    //        ====
     // Public Variables with Default Settings
     //------------------------------------------------------------
 
@@ -15142,7 +15142,7 @@ nv.models.scatter = function() {
         ;
 
 
-    //============================================================
+    //        ====
     // Private Variables
     //------------------------------------------------------------
 
@@ -15157,7 +15157,7 @@ nv.models.scatter = function() {
         , _cache = {}
         ;
 
-    //============================================================
+    //        ====
     // Diff and Cache Utilities
     //------------------------------------------------------------
     // getDiffs is used to filter unchanged points from the update
@@ -15610,7 +15610,7 @@ nv.models.scatter = function() {
                 })
                 .remove();
 
-            //============================================================
+            //        ====
             // Point Update Optimisation Notes
             //------------------------------------------------------------
             // The following update selections are filtered with getDiffs
@@ -15725,7 +15725,7 @@ nv.models.scatter = function() {
         return chart;
     }
 
-    //============================================================
+    //        ====
     // Expose Public Variables
     //------------------------------------------------------------
 
@@ -15823,7 +15823,7 @@ nv.models.scatter = function() {
 nv.models.scatterChart = function() {
     "use strict";
 
-    //============================================================
+    //        ====
     // Public Variables with Default Settings
     //------------------------------------------------------------
 
@@ -15874,7 +15874,7 @@ nv.models.scatterChart = function() {
             return yAxis.tickFormat()(d, i);
         });
 
-    //============================================================
+    //        ====
     // Private Variables
     //------------------------------------------------------------
 
@@ -16110,7 +16110,7 @@ nv.models.scatterChart = function() {
                 .watchTransition(renderWatch, 'scatterPlusLineChart')
                 .style('opacity', function() { return showDistY ? '1' : '1e-6'; })
 
-            //============================================================
+            //        ====
             // Event Handling/Dispatching (in chart's scope)
             //------------------------------------------------------------
 
@@ -16159,7 +16159,7 @@ nv.models.scatterChart = function() {
         return chart;
     }
 
-    //============================================================
+    //        ====
     // Expose Public Variables
     //------------------------------------------------------------
 
@@ -16219,7 +16219,7 @@ nv.models.scatterChart = function() {
 nv.models.sparkline = function() {
     "use strict";
 
-    //============================================================
+    //        ====
     // Public Variables with Default Settings
     //------------------------------------------------------------
 
@@ -16242,7 +16242,7 @@ nv.models.sparkline = function() {
         , dispatch = d3.dispatch('renderEnd')
         ;
 
-    //============================================================
+    //        ====
     // Private Variables
     //------------------------------------------------------------
 
@@ -16317,7 +16317,7 @@ nv.models.sparkline = function() {
         return chart;
     }
 
-    //============================================================
+    //        ====
     // Expose Public Variables
     //------------------------------------------------------------
 
@@ -16361,7 +16361,7 @@ nv.models.sparkline = function() {
 nv.models.sparklinePlus = function() {
     "use strict";
 
-    //============================================================
+    //        ====
     // Public Variables with Default Settings
     //------------------------------------------------------------
 
@@ -16383,7 +16383,7 @@ nv.models.sparklinePlus = function() {
         , dispatch = d3.dispatch('renderEnd')
         ;
         
-    //============================================================
+    //        ====
     // Private Variables
     //------------------------------------------------------------
 
@@ -16539,7 +16539,7 @@ nv.models.sparklinePlus = function() {
         return chart;
     }
 
-    //============================================================
+    //        ====
     // Expose Public Variables
     //------------------------------------------------------------
 
@@ -16578,7 +16578,7 @@ nv.models.sparklinePlus = function() {
 nv.models.stackedArea = function() {
     "use strict";
 
-    //============================================================
+    //        ====
     // Public Variables with Default Settings
     //------------------------------------------------------------
 
@@ -16772,7 +16772,7 @@ nv.models.stackedArea = function() {
                     return area(d.values,i)
                 });
 
-            //============================================================
+            //        ====
             // Event Handling/Dispatching (in chart's scope)
             //------------------------------------------------------------
 
@@ -16815,7 +16815,7 @@ nv.models.stackedArea = function() {
         return chart;
     }
 
-    //============================================================
+    //        ====
     // Global getters and setters
     //------------------------------------------------------------
 
@@ -16909,7 +16909,7 @@ nv.models.stackedArea = function() {
 nv.models.stackedAreaChart = function() {
     "use strict";
 
-    //============================================================
+    //        ====
     // Public Variables with Default Settings
     //------------------------------------------------------------
 
@@ -16975,7 +16975,7 @@ nv.models.stackedAreaChart = function() {
 
     controls.updateState(false);
 
-    //============================================================
+    //        ====
     // Private Variables
     //------------------------------------------------------------
 
@@ -17210,9 +17210,9 @@ nv.models.stackedAreaChart = function() {
                     .tickSize(-availableWidth, 0);
             }
 
-            //============================================================
+            //        ====
             // Update Axes
-            //============================================================
+            //        ====
             function updateXAxis() {
                 if(showXAxis) {
                     g.select('.nv-focus .nv-x.nv-axis')
@@ -17248,9 +17248,9 @@ nv.models.stackedAreaChart = function() {
                 }
             }
 
-            //============================================================
+            //        ====
             // Update Focus
-            //============================================================
+            //        ====
             if(!focusEnable) {
                 stackedWrap.transition().call(stacked);
                 updateXAxis();
@@ -17267,7 +17267,7 @@ nv.models.stackedAreaChart = function() {
                 }
             }
 
-            //============================================================
+            //        ====
             // Event Handling/Dispatching (in chart's scope)
             //------------------------------------------------------------
 
@@ -17443,7 +17443,7 @@ nv.models.stackedAreaChart = function() {
                 chart.update();
             });
 
-            //============================================================
+            //        ====
             // Functions
             //------------------------------------------------------------
 
@@ -17477,7 +17477,7 @@ nv.models.stackedAreaChart = function() {
         return chart;
     }
 
-    //============================================================
+    //        ====
     // Event Handling/Dispatching (out of chart's scope)
     //------------------------------------------------------------
 
@@ -17490,7 +17490,7 @@ nv.models.stackedAreaChart = function() {
     stacked.dispatch.on('elementMouseout.tooltip', function(evt) {
         tooltip.hidden(true)
     });
-    //============================================================
+    //        ====
     // Expose Public Variables
     //------------------------------------------------------------
 
@@ -17593,7 +17593,7 @@ nv.models.stackedAreaWithFocusChart = function() {
 nv.models.sunburst = function() {
     "use strict";
 
-    //============================================================
+    //        ====
     // Public Variables with Default Settings
     //------------------------------------------------------------
 
@@ -17620,7 +17620,7 @@ nv.models.sunburst = function() {
         , duration = 500
         , dispatch = d3.dispatch('chartClick', 'elementClick', 'elementDblClick', 'elementMousemove', 'elementMouseover', 'elementMouseout', 'renderEnd');
 
-    //============================================================
+    //        ====
     // aux functions and setup
     //------------------------------------------------------------
 
@@ -17789,7 +17789,7 @@ nv.models.sunburst = function() {
             })
     }
 
-    //============================================================
+    //        ====
     // chart function
     //------------------------------------------------------------
     var renderWatch = nv.utils.renderWatch(dispatch);
@@ -17945,7 +17945,7 @@ nv.models.sunburst = function() {
         return chart;
     }
 
-    //============================================================
+    //        ====
     // Expose Public Variables
     //------------------------------------------------------------
 
@@ -17983,7 +17983,7 @@ nv.models.sunburst = function() {
 nv.models.sunburstChart = function() {
     "use strict";
 
-    //============================================================
+    //        ====
     // Public Variables with Default Settings
     //------------------------------------------------------------
 
@@ -18002,7 +18002,7 @@ nv.models.sunburstChart = function() {
         , dispatch = d3.dispatch('stateChange', 'changeState','renderEnd');
 
 
-    //============================================================
+    //        ====
     // Private Variables
     //------------------------------------------------------------
 
@@ -18013,7 +18013,7 @@ nv.models.sunburstChart = function() {
         .headerEnabled(false)
         .valueFormatter(function(d){return d;});
 
-    //============================================================
+    //        ====
     // Chart function
     //------------------------------------------------------------
 
@@ -18054,7 +18054,7 @@ nv.models.sunburstChart = function() {
         return chart;
     }
 
-    //============================================================
+    //        ====
     // Event Handling/Dispatching (out of chart's scope)
     //------------------------------------------------------------
 
@@ -18080,7 +18080,7 @@ nv.models.sunburstChart = function() {
         tooltip();
     });
 
-    //============================================================
+    //        ====
     // Expose Public Variables
     //------------------------------------------------------------
 

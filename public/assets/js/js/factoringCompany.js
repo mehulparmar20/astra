@@ -214,7 +214,7 @@ function createFactoringCompanyRows(factoringCompanyResult) {
 // <!-- -------------------------------------------------------------------------End------------------------------------------------------------------------- -->  
 
 
-// ================================ start add factoring ===================================
+//     ==== start add factoring      
     $(".addFactoringModel").click(function(){
         $("#addFactoringModel").modal("show");
     });
@@ -236,7 +236,7 @@ function createFactoringCompanyRows(factoringCompanyResult) {
     $("#saveFactoringModel").click(function(){
        alert("Factoring Model");
     });
-    //=====================  end save factoring ================================
+    //     end save factoring     ====
 
 
     $(".saveaddCreateCurrency").click(function(){
@@ -247,7 +247,7 @@ function createFactoringCompanyRows(factoringCompanyResult) {
     });
      
 
-    //===================== start save currencyType model ====================
+    //    start save currencyType model   ======
     $('.currencySetting_option').focus(function(){
         $('.currencySetting_option').val('');
         $.ajax({
@@ -287,5 +287,5 @@ function createFactoringCompanyRows(factoringCompanyResult) {
         }     
     }
     
-    // =================end save currencyType =========================
+    //   ===end save currencyType    ====
 });

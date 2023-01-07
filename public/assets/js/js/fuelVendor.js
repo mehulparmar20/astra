@@ -88,7 +88,7 @@ $(document).ready(function() {
 
 // <!-- -------------------------------------------------------------------------End------------------------------------------------------------------------- -->  
 
-//====================================== start add fuel vendor ==================================
+//     === start add fuel vendor     ======
     $(".closeAddFuelVendor").click(function(){
         $("#AddFuelVendor").modal("hide");
     });
@@ -161,9 +161,9 @@ $(document).ready(function() {
             }
         });
     });
-//======================================  end add fuel vendor ==================================
+//     ===  end add fuel vendor     ======
     
-    //======================  start edit fuel vendor ==========================
+    //   =  start edit fuel vendor    =====
      $(".closeFuelVendorUpdatebutton").click(function(){
         $("#UpdateFuelVendor").modal("hide");
      });
@@ -255,9 +255,9 @@ $(document).ready(function() {
             }
         });
      });
-    // -========================== end update  fuel vendor============================
+    // -   ===== end update  fuel vendor    
 
-     // ============================ start delete fuel vendor =======================
+     //      start delete fuel vendor    ==
     $('body').on('click','.delete_modal_fuel_vendor',function(){
         var id=$(this).attr("data-fuelCard");
         var compID=$(this).attr("data-compID");
@@ -301,9 +301,9 @@ $(document).ready(function() {
             } 
         });
     });
-    //==========================  end delete fuel vendor ======================
+    //   =====  end delete fuel vendor    =
 
-    //====================== start restore fuel vendor ======================
+    //   = start restore fuel vendor    =
     
     $(".restore_fuel_vendor").click(function(){
         $.ajax({
@@ -441,5 +441,5 @@ $(document).ready(function() {
             }
         });
     });
-    //======================= end restore fuel vendor ======================
+    //   == end restore fuel vendor    =
 });

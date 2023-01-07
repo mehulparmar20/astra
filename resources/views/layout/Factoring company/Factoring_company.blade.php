@@ -310,7 +310,7 @@
 	C4.622,10.623,2.833,8.831,2.845,6.631L2.845,6.631z" />
   </symbol>
 </svg>  
- <!-- ============ start addFactoringModel================ -->
+ <!--  ===== start addFactoringModel  == -->
  <div class="container">
     <div class="modal fade" data-backdrop="static" id="addFactoringModel" role="dialog">
         <div class="modal-dialog custom_modal" role="document">
@@ -468,9 +468,9 @@
         </div>
     </div>
 </div>
-<!-- ========== end addFactoringModel ========== -->
+<!--  === end addFactoringModel  === -->
 
-<!-- ========== strart Create Currency Modal ========== -->
+<!--  === strart Create Currency Modal  === -->
 <div class="modal fade" id="addCreateCurrency"  tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -500,10 +500,10 @@
   </div>
 </div>
 
-<!-- ==================== end Create Currency model ===================== -->
+<!--   ====== end Create Currency model     -->
 
 
-<!-- =====================  strart Payment Terms Modal  ======================== -->
+<!--      strart Payment Terms Modal     === -->
 <div class="modal fade" id="addPaymentTerms"  tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -547,4 +547,4 @@
   </div>
 </div>
 
-<!-- ==================== end add payment Terms Model l ===================== -->
+<!--   ====== end add payment Terms Model l     -->
