@@ -7,6 +7,7 @@
     $exportUser=$userdata->privilege['exportUser'];
  ?> 
 <!------------------------------------------------------------------- Trailer modal ------------------------------------------------------------------->
+
 <div class="container">
     <!-- The Modal -->
     <div class="modal fade" data-backdrop="static" id="iftaTollModal">
