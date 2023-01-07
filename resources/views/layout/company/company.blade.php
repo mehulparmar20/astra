@@ -1,3 +1,11 @@
+<?php 
+	$userdata=Auth::user();
+	$insertUser=$userdata->privilege['insertUser'];
+    // $updateUser=$userdata->privilege['updateUser'];
+    $deleteUser=$userdata->privilege['deleteUser'];
+    $importUser=$userdata->privilege['importUser'];
+    $exportUser=$userdata->privilege['exportUser'];
+ ?> 
 <div class="container">
     <div class="modal fade" data-backdrop="static" id="companyModal" role="dialog">
         <div class="modal-dialog custom_modal modal-dialog-scrollable" role="document">

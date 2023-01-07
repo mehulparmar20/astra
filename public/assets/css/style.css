@@ -112311,6 +112311,8 @@ textarea.form-control {
     margin: auto;
     padding-bottom: 5px;
 }
-
+.privilege{
+    display:none;
+}
 
 /* ----------------------------------------------------------------------------- */

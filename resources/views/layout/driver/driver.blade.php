@@ -1,3 +1,11 @@
+<?php 
+	$userdata=Auth::user();
+	$insertUser=$userdata->privilege['insertUser'];
+    // $updateUser=$userdata->privilege['updateUser'];
+    $deleteUser=$userdata->privilege['deleteUser'];
+    $importUser=$userdata->privilege['importUser'];
+    $exportUser=$userdata->privilege['exportUser'];
+ ?>
 <!------------------------------------------------------------------- driver modal ------------------------------------------------------------------->
 <div class="container">
     <!-- The Modal -->
@@ -11,13 +19,19 @@
                     <button type="button" class="button-24" data-dismiss="modal">&times;</button>
                 </div>
 
+                
                 <div style="margin-top: 15px; margin-left: 15px;">
-                <a href="#addDriverModal" class="button-57" data-toggle="modal"
-                                                data-target="#addDriverModal"><i class="fa fa-plus" aria-hidden="true"></i><span>Add Driver</span></a>
-                                            <a href="#setupDriverModal" class="button-57" data-toggle="modal"
-                                                data-target="#setupDriverModal"><i class="fa fa-sliders" aria-hidden="true"></i></span><span>Setup<br>Driver</span></a>
-                                            <a href="#contractCategoryModal" class="button-57_alt" data-toggle="modal"
-                                                data-target="#contractCategoryModal"><i class="fa fa-id-card" aria-hidden="true"></i></span><span>View Driver Contract</span></a>
+
+
+                    @if($insertUser== 1)
+                        <a href="#addDriverModal" class="button-57" data-toggle="modal" data-target="#addDriverModal"><i class="fa fa-plus" aria-hidden="true"></i><span>Add Driver</span></a>
+                    @endif 
+                    
+                    @if($deleteUser== 1)  
+                        <a href="#" class="button-57_alt" ><i class="fa fa-repeat" aria-hidden="true"></i></span><span>Restore Customer</span></a>
+                    @endif
+                    <a href="#setupDriverModal" class="button-57" data-toggle="modal" data-target="#setupDriverModal"><i class="fa fa-sliders" aria-hidden="true"></i></span><span>Setup<br>Driver</span></a>
+                    <a href="#contractCategoryModal" class="button-57_alt" data-toggle="modal" data-target="#contractCategoryModal"><i class="fa fa-id-card" aria-hidden="true"></i></span><span>View Driver Contract</span></a>
 
                 </div>
                 <!-- Modal body -->
@@ -67,9 +81,12 @@
 
                 <!-- Modal footer -->
                 <div class="modal-footer">
+                
                 <form action="{{route('driver-pdf')}}" method="post" target="__blank">
                         @csrf
-                        <button class="button-29" style="vertical-align:middle"><span>Export</span></button>
+                        @if($exportUser == 1)
+                            <button class="button-29" style="vertical-align:middle"><span>Export</span></button>
+                        @endif
                     </form>
                     <button type="button" class="button-29" data-dismiss="modal">Close</button>
                 </div>

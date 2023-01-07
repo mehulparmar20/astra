@@ -1,3 +1,11 @@
+<?php 
+	$userdata=Auth::user();
+	$insertUser=$userdata->privilege['insertUser'];
+    // $updateUser=$userdata->privilege['updateUser'];
+    $deleteUser=$userdata->privilege['deleteUser'];
+    $importUser=$userdata->privilege['importUser'];
+    $exportUser=$userdata->privilege['exportUser'];
+ ?> 
 <!------------------------------------------------------------------- view Recurrence Category modal ------------------------------------------------------------------->
 <div class="container">
     <!-- The Modal -->
@@ -11,7 +19,15 @@
                     </button>
                 </div>
                 <div style="margin-top: 15px; margin-left: 15px;">
+                @if($insertUser== 1)
                     <a  class="button-57" id="addRecurrenceCategory"><i class="fa fa-plus" aria-hidden="true"></i><span>Add</span></a>
+                @endif 
+                
+                @if($deleteUser== 1)    
+                    <a href="#" class="button-57_alt" ><i class="fa fa-repeat" aria-hidden="true"></i></span><span>Restore </span></a>
+
+                @endif
+                    
                 </div>
                 <div class="modal-body" style="overflow-y: auto !important;margin-left: -16px;">
 
@@ -45,10 +61,12 @@
                     
                 </div>
                 <div class="modal-footer">
-                    <form action="{{route('download-pdf')}}" method="post" target="__blank">
-                        @csrf
+                <form action="{{route('download-pdf')}}" method="post" target="__blank">
+                    @csrf
+                    @if($exportUser == 1)
                         <button class="button-29" style="vertical-align:middle"><span>Export</span></button>
-                    </form>
+                    @endif
+                </form>
                     <button type="button" class="button-29 EquipmentTypeClose" >Close</button>
                 </div>
             </div>

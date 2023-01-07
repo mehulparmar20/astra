@@ -1,3 +1,12 @@
+<?php 
+	$userdata=Auth::user();
+	$insertUser=$userdata->privilege['insertUser'];
+    // $updateUser=$userdata->privilege['updateUser'];
+    $deleteUser=$userdata->privilege['deleteUser'];
+    $importUser=$userdata->privilege['importUser'];
+    $exportUser=$userdata->privilege['exportUser'];
+ ?> 
+	
 <!------------------------------------------------------------------- get truck  modal ------------------------------------------------------------------->
 <div class="container">
     <!-- The Modal -->
@@ -12,7 +21,7 @@
                 </div>
 
                 <!-- Modal body -->
-                <div class="modal-body">
+                <div class="modal-body" style="overflow-y: auto !important;margin-left: -16px;">
                     <!-- Row -->
                     <div class="row">
                         <div class="row row-sm">
@@ -21,12 +30,18 @@
                                     <div class="card-body">
 
                                         <div class="table-responsive export-table">
+                                        @if($insertUser== 1)
+                                            <button href="#"  class="button-57_alt addtruckModal" ><i class="fa fa-plus" aria-hidden="true"></i><span>Add </span></button>
+                                        @endif 
+                                        
+                                        @if($deleteUser== 1)    
+                                            <a href="#" class="button-57_alt restore_truckData" ><i class="fa fa-repeat" aria-hidden="true"></i></span><span>Restore Truck</span></a>
 
-                                            <!-- <a href="#addTruckModal" class="btn btn-primary" data-toggle="modal" data-target="#addTruckModal">Add</a> -->
-                                            <button type="button" class="button-57 addtruckModal" >ADD</button>
-                                            <button class="button-57_alt restore_truckData" ><i class="fa fa-repeat " aria-hidden="true"></i><span>Restore Truck</span></button>
+                                        @endif
 
-                                            <table id="editable-file-datatable" class="table editable-table table-nowrap table-bordered table-edit wp-100"  style="width:100%;height:500px">
+                                            
+
+                                            <table id="" class="table" >
 
                                                 <thead class="thead_th">
                                                     <tr class="tr">
@@ -72,10 +87,12 @@
 
                 <!-- Modal footer -->
                 <div class="modal-footer">
-                    <!-- <form action="{{route('driver-pdf')}}" method="post" target="__blank">
-                        @csrf
-                        <button class="btn btn-primary" style="vertical-align:middle"><span>Export</span></button>
-                    </form> -->
+                <!-- <form action="{{route('download-pdf')}}" method="post" target="__blank">
+                    @csrf
+                    @if($exportUser == 1)
+                        <button class="button-29" style="vertical-align:middle"><span>Export</span></button>
+                    @endif
+                </form> -->
                     <button type="button" class="btn btn-secondary closeTruckModal" >Close</button>
                     
                 </div>

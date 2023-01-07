@@ -68,6 +68,10 @@ Route::post('admin/delete-user', [UserController::class, 'deleteUser'])->name('u
 Route::get('admin/profile', [UserController::class, 'getUser']);
 Route::post('admin/profile-edit', [UserController::class, 'editUserDetails'])->name('profile.edit');
 Route::post('admin/download-pdf', [UserController::class, 'downloadPDF'])->name('download-pdf');
+Route::post('admin/add_office_address', [UserController::class, 'add_office_address']);
+Route::get('admin/get_office_address', [UserController::class, 'get_office_address']);
+Route::post('admin/add_company_details', [UserController::class, 'add_company_details']);
+Route::get('admin/get_company_details', [UserController::class, 'get_company_details']);
 
 // Login
 Route::get('login', [AuthController::class, 'login'])->name('login')->middleware('guest');
@@ -147,6 +151,12 @@ Route::get('admin/getConsignee', [ConsigneeController::class, 'getConsignee']);
 
 //fuel vendor
 Route::get('admin/getFuelVendor', [FuelVendorController::class, 'getFuelVendor']);
+Route::post('admin/createFuelVendor', [FuelVendorController::class, 'createFuelVendor']);
+Route::get('admin/editFuelVendor', [FuelVendorController::class, 'editFuelVendor']);
+Route::post('admin/updateFuelVendor', [FuelVendorController::class, 'updateFuelVendor']);
+Route::post('admin/deleteFuelVendor', [FuelVendorController::class, 'deleteFuelVendor']);
+Route::post('admin/restoreFuelVendor', [FuelVendorController::class, 'restoreFuelVendor']);
+
 
 //fuel card
 Route::get('admin/getFuelCard', [FuelCardController::class, 'getFuelCard']);
@@ -173,6 +183,9 @@ Route::get('admin/getAccountCompletedValue', [AccountManagerController::class, '
 
 //Branch Office
 Route::get('admin/getBranchOffice', [BranchOfficeController::class, 'getBranchOffice']);
+Route::post('admin/addBranchOffice', [BranchOfficeController::class, 'addBranchOffice']);
+Route::get('admin/editBranchOffice', [BranchOfficeController::class, 'editBranchOffice']);
+Route::post('admin/updateBranchOffice', [BranchOfficeController::class, 'updateBranchOffice']);
 
 //Trailer
 Route::get('admin/getTrailer', [TrailerAdminAddController::class, 'getTrailer']);

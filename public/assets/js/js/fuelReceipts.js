@@ -70,7 +70,7 @@ $(document).ready(function() {
 
                         if(deleteStatus == "NO"){
                             //alert("ff");
-                            var fuelReceStr = "<tr data-id=" + (i + 1) + ">" +
+                            var fuelReceStr = "<tr  data-id=" + (i + 1) + ">" +
                             "<td data-field=''><input type='checkbox' id='checkall' class='checkall'></td>" +
                             "<td data-field='no'>" + no + "</td>" +
                             "<td data-field='driverName' >" + driverName + "</td>" +
@@ -93,7 +93,8 @@ $(document).ready(function() {
                             "<td data-field='invoiceNo' >" + invoiceNo + "</td>" +
                        
                             "<td style='text-align:center'>"+
-                                "<a class='mt-2 btn btn-primary fs-14 text-white editCurrency'  title='Edit1' data-Id='"+fuelReceiptId+"' data-truckType='' ><i class='fe fe-edit'></i></a>&nbsp"+
+                                "<a class='button-23  "+editPrivilege+"'  title='Edit1' data-Id='"+fuelReceiptId+"' data-truckType='' ><i class='fe fe-edit'></i></a>&nbsp"+
+                                "</a> <a class='delete1 button-23 "+delPrivilege+"' data-id='"+fuelReceiptId+"' title='Delete'><i class='fe fe-delete'></i></a>"+
                             "</td></tr>";
 
                         $("#FuelReceTable").append(fuelReceStr);
