@@ -18,19 +18,19 @@ $(document).ready(function() {
     {
 
     //Privilege
-	var edit=$('#updateUser').val();
-    var delet =$('#deleteUser').val();
+	// var edit=$('#updateUser').val();
+    // var delet =$('#deleteUser').val();
 
-    if(edit == 1){
-       var editPrivilege=''; 
-    }else{
-        var editPrivilege='privilege';
-    }
-    if(delet == 1){
-        var delPrivilege=''; 
-     }else{
-         var delPrivilege='privilege';
-     }
+    // if(edit == 1){
+    //    var editPrivilege=''; 
+    // }else{
+    //     var editPrivilege='privilege';
+    // }
+    // if(delet == 1){
+    //     var delPrivilege=''; 
+    //  }else{
+    //      var delPrivilege='privilege';
+    //  }
 
      /////
         var Trailer1 = 0;

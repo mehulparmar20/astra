@@ -27,21 +27,21 @@ $(document).ready(function() {
 
     function createcustomerRows(customerResponse) {
 
-    var edit=$('#updateUser').val();
-    var delet =$('#deleteUser').val();
-    // alert(edit);
-    // alert(delet);
+    // var edit=$('#updateUser').val();
+    // var delet =$('#deleteUser').val();
+    // // alert(edit);
+    // // alert(delet);
 
-    if(edit == 1){
-       var editPrivilege=''; 
-    }else{
-        var editPrivilege='privilege';
-    }
-    if(delet == 1){
-        var delPrivilege=''; 
-     }else{
-         var delPrivilege='privilege';
-     }
+    // if(edit == 1){
+    //    var editPrivilege=''; 
+    // }else{
+    //     var editPrivilege='privilege';
+    // }
+    // if(delet == 1){
+    //     var delPrivilege=''; 
+    //  }else{
+    //      var delPrivilege='privilege';
+    //  }
 
         // console.log(customerResponse);
         var custlen1 = 0;
