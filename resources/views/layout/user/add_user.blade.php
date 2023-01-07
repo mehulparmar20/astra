@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 <?php 
 	$userdata=Auth::user();
 	// dd($userdata);
@@ -11,6 +12,9 @@
 	$reportsArray=$userdata->reports;
 	// dd($dashboardArray['profit_loss']);
  ?>
+=======
+
+>>>>>>> a9578ab2c12b05e4d51c8af156edfc7e4ed29341
 =======
 
 >>>>>>> a9578ab2c12b05e4d51c8af156edfc7e4ed29341
@@ -97,6 +101,7 @@
                                                 </div>
                                                 <div class="form-row">
 <<<<<<< HEAD
+<<<<<<< HEAD
                                                     <div class="form-group col-md-2">
                                                         <label>Company Name &nbsp; 
                                                         <span class="glyphicon glyphicon-plus-sign add_company_name "  data-toggle="modal"  style="cursor:pointer;"></span>
@@ -104,12 +109,17 @@
                                                             <div class="dropdown show">
                                                             <select  class="form-control set_company_name" name="company_name" >
 =======
+=======
+>>>>>>> a9578ab2c12b05e4d51c8af156edfc7e4ed29341
                                                 <div class="form-group col-md-2">
                                                         <label>Company Name &nbsp; 
                                                         <span class="glyphicon glyphicon-plus-sign add_Company_Name_modal_form_btn "  data-toggle="modal"  style="cursor:pointer;" ></span>
                                                         </label>
                                                             <div class="dropdown show">
                                                             <select  class="form-control set_company_name" name="company_name" id="inputCompanyName">
+<<<<<<< HEAD
+>>>>>>> a9578ab2c12b05e4d51c8af156edfc7e4ed29341
+=======
 >>>>>>> a9578ab2c12b05e4d51c8af156edfc7e4ed29341
                                                                     <option>Select Here</option>
                                                                 </select>
@@ -117,17 +127,23 @@
                                                     </div>
                                                     <div class="form-group col-md-2">
 <<<<<<< HEAD
+<<<<<<< HEAD
                                                         <label for="trailertype">Office<span style="color:#ff0000">*</span>&nbsp; 
                                                         <span class="glyphicon glyphicon-plus-sign add_office_name "  data-toggle="modal"  style="cursor:pointer;"></span>
                                                         </label>
                                                             <div class="dropdown show">
                                                                 <select  class="form-control  office_name_set" name="officeName" >
 =======
+=======
+>>>>>>> a9578ab2c12b05e4d51c8af156edfc7e4ed29341
                                                         <label for="">Office<span style="color:#ff0000">*</span>&nbsp; 
                                                         <span class="glyphicon glyphicon-plus-sign add_office_model_form_btn"  data-toggle="modal"  style="cursor:pointer;"></span>
                                                         </label>
                                                             <div class="dropdown show">
                                                                 <select  class="form-control  office_name_set" name="officeName" id="inputOffice">
+<<<<<<< HEAD
+>>>>>>> a9578ab2c12b05e4d51c8af156edfc7e4ed29341
+=======
 >>>>>>> a9578ab2c12b05e4d51c8af156edfc7e4ed29341
                                                                     <option>Select Here</option>
                                                                 </select>
@@ -196,11 +212,16 @@
                                                                     <i class="icon-graph"  style="vertical-align:middle;"></i> IFTA
                                                                 </div>
 <<<<<<< HEAD
+<<<<<<< HEAD
                                                                 <div class="tab" id="account_priviladge_main"
                                                                     name="tab-5"
                                                                     onclick="changeTab('tab-5'); managePriviladgeSelect(this)">
                                                                     <i class="icon-paper-pen"
                                                                         style="vertical-align:middle;"></i> Finance
+=======
+                                                                <div class="tab" id="account_priviladge_main" name="tab-5" onclick="changeTab('tab-5'); managePriviladgeSelect(this)">
+                                                                    <i class="icon-paper-pen" style="vertical-align:middle;"></i> Finance
+>>>>>>> a9578ab2c12b05e4d51c8af156edfc7e4ed29341
 =======
                                                                 <div class="tab" id="account_priviladge_main" name="tab-5" onclick="changeTab('tab-5'); managePriviladgeSelect(this)">
                                                                     <i class="icon-paper-pen" style="vertical-align:middle;"></i> Finance
@@ -407,6 +428,7 @@
                                                                             <li>
                                                                                 <input class="checkbox3" type="checkbox" id="select-all_l3" value="Select All_l3">
                                                                                 <label for="select-all_l3">Select  All</label>
+<<<<<<< HEAD
                                                                             </li>
                                                                             <li>
 <<<<<<< HEAD
@@ -418,11 +440,18 @@
                                                                                 <input class="checkbox3" type="checkbox"
                                                                                     name="customer" id="checkboxl3_1" />
 =======
+=======
+                                                                            </li>
+                                                                            <li>
+>>>>>>> a9578ab2c12b05e4d51c8af156edfc7e4ed29341
                                                                                 <input class="checkbox3" type="checkbox" name="admin" id="checkboxl3_8" />
                                                                                 <label for="checkboxl3_8">Admin</label>
                                                                             </li>
                                                                             <li>
                                                                                 <input class="checkbox3" type="checkbox"  name="customer" id="checkboxl3_1" />
+<<<<<<< HEAD
+>>>>>>> a9578ab2c12b05e4d51c8af156edfc7e4ed29341
+=======
 >>>>>>> a9578ab2c12b05e4d51c8af156edfc7e4ed29341
                                                                                 <label
                                                                                     for="checkboxl3_1">Customer</label>
@@ -439,6 +468,7 @@
                                                                                     for="checkboxl3_3">Consignee</label>
                                                                             </li> -->
                                                                             <li>
+<<<<<<< HEAD
 <<<<<<< HEAD
                                                                                 <input class="checkbox3" type="checkbox"
                                                                                     name="checkbox" id="checkboxl3_4" />
@@ -468,11 +498,18 @@
 =======
                                                                                 <input class="checkbox3" type="checkbox" name="checkbox" id="checkboxl3_4" />
                                                                                 <label
+=======
+                                                                                <input class="checkbox3" type="checkbox" name="checkbox" id="checkboxl3_4" />
+                                                                                <label
+>>>>>>> a9578ab2c12b05e4d51c8af156edfc7e4ed29341
                                                                                     for="checkboxl3_4">External Carrier</label>
                                                                             </li>
                                                                             <li>
                                                                                 <input class="checkbox3" type="checkbox" name="checkbox" id="checkboxl3_5" />
                                                                                 <label for="checkboxl3_5">Driver & Owner Operator</label>
+<<<<<<< HEAD
+>>>>>>> a9578ab2c12b05e4d51c8af156edfc7e4ed29341
+=======
 >>>>>>> a9578ab2c12b05e4d51c8af156edfc7e4ed29341
                                                                             </li>
                                                                             <li>
@@ -500,6 +537,7 @@
                                                                                 <label for="checkboxl3_10">Bank</label>
                                                                             </li> -->
 <<<<<<< HEAD
+<<<<<<< HEAD
                                                                             <!-- <li>
                                                                                 <input class="checkbox3" type="checkbox"
                                                                                     name="checkbox"
@@ -514,6 +552,10 @@
                                                                                 <label for="checkboxl3_12">Sub Credit
                                                                                     Card</label>
                                                                             </li> -->
+=======
+                                                                           
+                                                                            
+>>>>>>> a9578ab2c12b05e4d51c8af156edfc7e4ed29341
 =======
                                                                            
                                                                             
@@ -534,6 +576,7 @@
                                                                             <li>
                                                                                 <input class="checkbox4" type="checkbox" id="select-all_l4" value="Select All_l4">
                                                                                 <label for="select-all_l4">Select All</label>
+<<<<<<< HEAD
                                                                             </li>
                                                                             <li>
 <<<<<<< HEAD
@@ -573,6 +616,18 @@
                                                                                 <label for="checkboxl4_1">Fuel Vendor</label>
                                                                             </li>
                                                                             <li>
+=======
+                                                                            </li>
+                                                                            <li>
+                                                                                <input class="checkbox4" type="checkbox" name="checkbox" id="checkboxl4_2" />
+                                                                                <label for="checkboxl4_2">Ifta</label>
+                                                                            </li>
+                                                                            <li>
+                                                                                <input class="checkbox4" type="checkbox" name="checkbox" id="checkboxl4_1" />
+                                                                                <label for="checkboxl4_1">Fuel Vendor</label>
+                                                                            </li>
+                                                                            <li>
+>>>>>>> a9578ab2c12b05e4d51c8af156edfc7e4ed29341
                                                                                 <input class="checkbox4" type="checkbox" name="checkbox" id="checkboxl3_13" />
                                                                                 <label for="checkboxl3_13">Fuel Card</label>
                                                                             </li>
@@ -586,6 +641,9 @@
                                                                             </li>
                                                                             <li>
                                                                                 <input class="checkbox4" type="checkbox" name="checkbox" id="checkboxl4_5" />
+<<<<<<< HEAD
+>>>>>>> a9578ab2c12b05e4d51c8af156edfc7e4ed29341
+=======
 >>>>>>> a9578ab2c12b05e4d51c8af156edfc7e4ed29341
                                                                                 <label for="checkboxl4_5">IFTA Trips</label>
                                                                             </li>
@@ -602,6 +660,7 @@
                                                                             <li>
                                                                             <li>
 <<<<<<< HEAD
+<<<<<<< HEAD
                                                                                 <input class="checkbox5" type="checkbox"
                                                                                     name="checkbox" id="checkboxl5_6" />
                                                                                 <label for="checkboxl5_6">Account</label>
@@ -614,12 +673,17 @@
                                                                                 <input class="checkbox5" type="checkbox" name="checkbox" id="checkboxl5_6" />
                                                                                 <label for="checkboxl5_6">Account</label>
 >>>>>>> a9578ab2c12b05e4d51c8af156edfc7e4ed29341
+=======
+                                                                                <input class="checkbox5" type="checkbox" name="checkbox" id="checkboxl5_6" />
+                                                                                <label for="checkboxl5_6">Account</label>
+>>>>>>> a9578ab2c12b05e4d51c8af156edfc7e4ed29341
                                                                             </li>
                                                                             <li>
                                                                                 <input class="checkbox5" type="checkbox" name="checkbox" id="checkboxl5_5" />
                                                                                 <label for="checkboxl5_5">Bank</label>
                                                                             </li>
                                                                             <li>
+<<<<<<< HEAD
 <<<<<<< HEAD
                                                                                 <input class="checkbox5" type="checkbox"
                                                                                     name="checkbox" id="checkboxl5_3" />
@@ -667,6 +731,39 @@
                                                                                 <label for="checkboxl5_2">Payment & Receipt Registration</label>
 >>>>>>> a9578ab2c12b05e4d51c8af156edfc7e4ed29341
                                                                             </li>
+=======
+                                                                                <input class="checkbox5" type="checkbox" name="checkbox" id="checkboxl5_4" />
+                                                                                <label for="checkboxl5_4">Credit card</label>
+                                                                            </li>
+
+                                                                             <!-- <li>
+                                                                                <input class="checkbox3" type="checkbox"
+                                                                                    name="checkbox"
+                                                                                    id="checkboxl3_11" />
+                                                                                <label for="checkboxl3_11">Credit
+                                                                                    Card</label>
+                                                                            </li> -->
+                                                                            <li>
+                                                                                <input class="checkbox5" type="checkbox" name="checkbox" id="checkboxl5_3" />
+                                                                                <label for="checkboxl5_3">Sub Credit card</label>
+                                                                            </li>
+
+                                                                            <!-- <li>
+                                                                                <input class="checkbox3" type="checkbox"
+                                                                                    name="checkbox"
+                                                                                    id="checkboxl3_12" />
+                                                                                <label for="checkboxl3_12">Sub Credit
+                                                                                    Card</label>
+                                                                            </li> -->
+                                                                            <li>
+                                                                                <input class="checkbox5" type="checkbox" name="checkbox" id="checkboxl5_1" />
+                                                                                <label for="checkboxl5_1">Accounting Manager</label>
+                                                                            </li>
+                                                                            <li>
+                                                                                <input class="checkbox5" type="checkbox" name="checkbox" id="checkboxl5_2" />
+                                                                                <label for="checkboxl5_2">Payment & Receipt Registration</label>
+                                                                            </li>
+>>>>>>> a9578ab2c12b05e4d51c8af156edfc7e4ed29341
                                                                             
                                                                             
                                                                             
@@ -684,6 +781,7 @@
                                                                             <li>
                                                                                 <input class="checkbox6" type="checkbox" name="checkbox" id="checkboxl6_6" />
                                                                                 <label for="checkboxl6_6">Reports</label>
+<<<<<<< HEAD
                                                                             </li>
 <<<<<<< HEAD
 =======
@@ -692,6 +790,14 @@
                                                                                 <label for="checkboxl6_7">Aging Report</label>
                                                                             </li>
                                                                             <li>
+=======
+                                                                            </li>
+                                                                            <li>
+                                                                                <input class="checkbox6" type="checkbox" name="checkbox" id="checkboxl6_7" />
+                                                                                <label for="checkboxl6_7">Aging Report</label>
+                                                                            </li>
+                                                                            <li>
+>>>>>>> a9578ab2c12b05e4d51c8af156edfc7e4ed29341
                                                                                 <input class="checkbox6" type="checkbox" name="checkbox" id="checkboxl6_12" />
                                                                                 <label for="checkboxl6_12">Revenue Report</label>
                                                                             </li>
@@ -703,6 +809,9 @@
                                                                                 <input class="checkbox6" type="checkbox" name="checkbox" id="checkboxl6_10" />
                                                                                 <label for="checkboxl6_10">1099 Report</label>
                                                                             </li>
+<<<<<<< HEAD
+>>>>>>> a9578ab2c12b05e4d51c8af156edfc7e4ed29341
+=======
 >>>>>>> a9578ab2c12b05e4d51c8af156edfc7e4ed29341
                                                                             <!-- <li>
                                                                                 <input class="checkbox6" type="checkbox"
@@ -735,6 +844,7 @@
                                                                                     Report</label>
                                                                             </li> -->
 <<<<<<< HEAD
+<<<<<<< HEAD
                                                                             <li>
                                                                                 <input class="checkbox6" type="checkbox"
                                                                                     name="checkbox" id="checkboxl6_6" />
@@ -746,6 +856,9 @@
                                                                                 <label for="checkboxl6_7">Aging
                                                                                     Report</label>
                                                                             </li>
+=======
+                                                                          
+>>>>>>> a9578ab2c12b05e4d51c8af156edfc7e4ed29341
 =======
                                                                           
 >>>>>>> a9578ab2c12b05e4d51c8af156edfc7e4ed29341
@@ -762,7 +875,10 @@
                                                                                     Report</label>
                                                                             </li> -->
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> a9578ab2c12b05e4d51c8af156edfc7e4ed29341
                                                                             
                                                                             
                                                                            
@@ -772,6 +888,7 @@
                                                                 <div id="tab-7" class="tab-settlements">
                                                                     <h6>
                                                                         <ul class="ks-cboxtags">
+<<<<<<< HEAD
                                                                             <li>
                                                                                 <input class="checkbox7" type="checkbox" id="select-all_l7" value="Select All_l7">
                                                                                 <label for="select-all_l7">Select All</label>
@@ -783,6 +900,18 @@
                                                                             </li>
 >>>>>>> a9578ab2c12b05e4d51c8af156edfc7e4ed29341
                                                                             <li>
+=======
+                                                                            <li>
+                                                                                <input class="checkbox7" type="checkbox" id="select-all_l7" value="Select All_l7">
+                                                                                <label for="select-all_l7">Select All</label>
+                                                                            </li>
+                                                                          
+                                                                            <li>
+                                                                                <input class="checkbox7" type="checkbox" name="checkbox" id="checkboxl7_1" />
+                                                                                <label for="checkboxl7_1"> Settlements</label>
+                                                                            </li>
+                                                                            <li>
+>>>>>>> a9578ab2c12b05e4d51c8af156edfc7e4ed29341
                                                                                 <input class="checkbox7" type="checkbox" name="checkbox" id="checkboxl7_2" />
                                                                                 <label for="checkboxl7_2">Driver Pay Settlements</label>
                                                                             </li>
@@ -827,6 +956,7 @@
                                                                             <!-- <li>
                                                                                 <input class="checkbox6" type="checkbox"
 <<<<<<< HEAD
+<<<<<<< HEAD
                                                                                     name="checkbox"
                                                                                     id="checkboxl6_11" />
                                                                                 <label for="checkboxl6_11">Expense Report</label>
@@ -845,6 +975,15 @@
 
                                                                             <!-- <li>
                                                                                 <input class="checkbox6" type="checkbox"
+=======
+                                                                                    name="checkbox" id="checkboxl6_5" />
+                                                                                <label for="checkboxl6_5">Fuel
+                                                                                    Report</label>
+                                                                            </li> -->
+
+                                                                            <!-- <li>
+                                                                                <input class="checkbox6" type="checkbox"
+>>>>>>> a9578ab2c12b05e4d51c8af156edfc7e4ed29341
                                                                                     name="checkbox" id="checkboxl6_8" />
                                                                                 <label for="checkboxl6_8">Payable
                                                                                     Report</label>
@@ -855,6 +994,9 @@
                                                                                 <label for="checkboxl6_9">Receivable
                                                                                     Report</label>
                                                                             </li> -->
+<<<<<<< HEAD
+>>>>>>> a9578ab2c12b05e4d51c8af156edfc7e4ed29341
+=======
 >>>>>>> a9578ab2c12b05e4d51c8af156edfc7e4ed29341
                                                                         </ul>
                                                                     </h6>

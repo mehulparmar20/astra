@@ -21,9 +21,12 @@
                 <div style="margin-top: 15px; margin-left: 15px;">
                     
 <<<<<<< HEAD
+<<<<<<< HEAD
                     <button href="#addCustomerModal" data-toggle="modal" data-target="#addCustomerModal" class="button-57_alt addCustomerButton" ><i class="fa fa-plus" aria-hidden="true"></i><span>Add Customer</span></button>
                     <button class="button-57_alt restoreCustomerData" ><i class="fa fa-repeat " aria-hidden="true"></i><span>Restore Customer</span></button>
 =======
+=======
+>>>>>>> a9578ab2c12b05e4d51c8af156edfc7e4ed29341
                     <!-- <button href="#addCustomerModal" data-toggle="modal" data-target="#addCustomerModal" class="button-57_alt addCustomerButton" ><i class="fa fa-plus" aria-hidden="true"></i><span>Add Customer</span></button>
                     <button class="button-57_alt restoreCustomerData" ><i class="fa fa-repeat " aria-hidden="true"></i><span>Restore Customer</span></button> -->
                     @if($insertUser== 1)
@@ -35,6 +38,9 @@
                     @endif
 	
                
+<<<<<<< HEAD
+>>>>>>> a9578ab2c12b05e4d51c8af156edfc7e4ed29341
+=======
 >>>>>>> a9578ab2c12b05e4d51c8af156edfc7e4ed29341
                 </div>
                 

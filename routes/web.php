@@ -181,7 +181,7 @@ Route::get('admin/getAccountDeliverdValue', [AccountManagerController::class, 'g
 Route::get('admin/getAccountInvoiceValue', [AccountManagerController::class, 'getAccountInvoiceValue']);
 Route::get('admin/getAccountCompletedValue', [AccountManagerController::class, 'getAccountCompletedValue']);
 
-//Branch Officer
+//Branch Office
 Route::get('admin/getBranchOffice', [BranchOfficeController::class, 'getBranchOffice']);
 Route::post('admin/addBranchOffice', [BranchOfficeController::class, 'addBranchOffice']);
 Route::get('admin/editBranchOffice', [BranchOfficeController::class, 'editBranchOffice']);
