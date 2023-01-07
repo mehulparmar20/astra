@@ -154,7 +154,27 @@ $(document).ready(function(){
             }
         });
       });
-  
+      $(document).ready(function(){
+        $('#select-all_l7').on('click',function(){
+            if(this.checked){
+                $('.checkbox7').each(function(){
+                    this.checked = true;
+                });
+            }else{
+                 $('.checkbox7').each(function(){
+                    this.checked = false;
+                });
+            }
+        });
+        
+        $('.checkbox6').on('click',function(){
+            if($('.checkbox6:checked').length == $('.checkbox6').length){
+                $('#select-all_l6').prop('checked',true);
+            }else{
+                $('#select-all_l6').prop('checked',false);
+            }
+        });
+      });
 
     
     function w3RemoveClass(element, name) {

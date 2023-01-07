@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Office;
+use App\Models\Company;
 use Mail; 
 use Hash;
 use Illuminate\Support\Str;
@@ -16,7 +18,7 @@ class UserController extends Controller
 {
     public function addUsers(Request $request)
     {
-        // dd($request->inser_user);
+        //dd($request);
 		// $data = $db->companyAdmin->findOne(["_id"=> (int)$_SESSION['companyId']]);
         // $flag = false;
         // $flagfield = '';
@@ -95,35 +97,39 @@ class UserController extends Controller
                         'exportUser' => $request->export_user,
                     ),
                     'dashboard' => (object)array(
-                        'profit_loss' => (int)$request->input('profit_loss'),
-                        'dispatcher' => (int)$request->input('dispatcher'),
-                        'driver' => (int)$request->input('driver'),
-                        'company' => (int)$request->input('company'),
-                        'truck' => (int)$request->input('truck'),
-                        'carrier' => (int)$request->input('carrier'),
-                        'equipment' => (int)$request->input('equipment'),
-                        'sales_representative' => (int)$request->input('sales_representative'),
-                        'new_active_load' => (int)$request->input('new_active_load'),
+                        'profit_loss' => $request->input('profit_loss'),
+                        'dispatcher' => $request->input('dispatcher'),
+                        'driver' => $request->input('driver'),
+                        'company' => $request->input('company'),
+                        'truck' => $request->input('truck'),
+                        'carrier' =>$request->input('carrier'),
+                        'equipment' => $request->input('equipment'),
+                        'sales_representative' => $request->input('sales_representative'),
+                        'new_active_load' => $request->input('new_active_load'),
                     ),
                     'master' => (object)array(
                         
                         // 'master' => $request->input('master'),
-                        'addCompany' => (int)$request->input('addCompany'),
-                        'paymentTerms' => (int)$request->input('paymentTerms'),
-                        'office' => (int)$request->input('office'),
-                        'equipmentType' => (int)$request->input('equipmentType'),
-                        'truckType' => (int)$request->input('truckType'),
-                        'trailerType' => (int)$request->input('trailerType'),
-                        'statusType' => (int)$request->input('statusType'),
-                        'loadType' => (int)$request->input('loadType'),
-                        // 'bankCategory' => $request->input('bankCategory'),
-                        'addNote' => (int)$request->input('addNote'),
-                        'currencySetting' => (int)$request->input('currencySetting'),
-                        'fixPayCategory' => (int)$request->input('fixPayCategory'),
-                        'fuelCardType' => (int)$request->input('fuelCardType'),
-                        'dispactherIncentive' =>  (int)$request->input('dispactherIncentive'),
-                        'salesIncentive' =>  (int)$request->input('salesIncentive'),
-                        'documentType' => (int)$request->input('documentType')
+                        'addCompany' => $request->input('addCompany'),
+                        'office' => $request->input('office'),
+                        'currencySetting' => $request->input('currencySetting'),
+                        'paymentTerms' => $request->input('paymentTerms'),
+                        'termCondition' => $request->input('termCondition'),
+                        'statusType' => $request->input('statusType'),
+                        'loadType' => $request->input('loadType'),
+                        'equipmentType' => $request->input('equipmentType'),
+                        'reccuranceCategory' => $request->input('reccuranceCategory'),
+                        'trucktrailerType' => $request->input('truckType'),
+                        'userPrivillege' => $request->input('userPrivillege'),
+                        'setting' => $request->input('setting'),
+
+                        // 'addNote' => (int)$request->input('addNote'),
+                        
+                        // 'fixPayCategory' => (int)$request->input('fixPayCategory'),
+                        // 'fuelCardType' => (int)$request->input('fuelCardType'),
+                        // 'dispactherIncentive' =>  (int)$request->input('dispactherIncentive'),
+                        // 'salesIncentive' =>  (int)$request->input('salesIncentive'),
+                        // 'documentType' => (int)$request->input('documentType')
                     ),
                     'admin' => (object)array(
                         'admin' => $request->admin,
@@ -167,10 +173,12 @@ class UserController extends Controller
                     'account' => (object)array(
                         'account'=>$request->Finance,
                         'bank'=>$request->bank,
+                        'credit_card'=>$request->creditCard,
+                        'sub_credit_card'=>$request->subCreditCard,
                         'accountManager'=>$request->accountManager,
                         'paymentRegistration'=>$request->paymentRegistration,
-                        'sub_credit_card'=>$request->advancePayment,
-                        'credit_card'=>$request->manageReceipt,
+                        
+                        
                         // // 'account' => $request->input('account'),
                         // 'accountManager' => (int)$request->input('accountManager'),
                         // 'paymentRegistration' => (int)$request->input('paymentRegistration'),
@@ -180,9 +188,11 @@ class UserController extends Controller
                     'reports' => (object)array(
                         'report' => $request->report,
                         'aggingReport'=>$request->aggingReport,
-                        'Report1099'=>$request->Report1099,
-                        'Expense_report'=>$request->Expense_report,
                         'Revenue_report'=>$request->Revenue_report,
+                        'Expense_report'=>$request->Expense_report,
+                        'Report1099'=>$request->Report1099,
+                        
+                        
                         // 'creditStateReport' => (int)$request->input('creditStateReport'),
                         // 'bankStateReport' => (int)$request->input('bankStateReport'),
                         // 'driverReport' => (int)$request->input('driverReport'),
@@ -198,9 +208,11 @@ class UserController extends Controller
                     ),
 
                     'settlements' => (object)array(
-                        'driverReport' => (int)$request->input('driverReport'),
-                        // 'CustomerSettlement'=>$request->CustomerSettlement,
-                        // 'CarrierSettlement'=>$request->CarrierSettlement,
+                        'settlements' => $request->input('settlements'),
+                        // 'driverReport' => (int)$request->input('driverReport'),
+                        'driverPaySettlements'=>$request->input('driverPaySettlements'),
+                        'customerSettlement'=>$request->input('customerSettlement'),
+                        'CarrierSettlement'=>$request->input('carrierSettlement'),
                         // 'Factoringcompany'=>$request->Factoringcompany,
                     ),
 
@@ -547,6 +559,54 @@ class UserController extends Controller
         
 
         return $pdf->download('Users.pdf');   
+    }
+
+    public function get_office_address(Request $request)
+    {
+        $companyId=(int)1;   
+        $office = Office::where('companyID',$companyId)->first();    
+        return response()->json($office, 200, [], JSON_PARTIAL_OUTPUT_ON_ERROR);
+    }
+    public function add_office_address(Request $request)
+    {
+        $companyID=(int)1;
+        $getOffice = Office::where('companyID',$companyID)->first();
+        if($getOffice){
+            $totalOfficeArray=count($getOffice->office);
+        }else{
+            $totalOfficeArray=0; 
+        }
+        $officeData[]=array(    
+            '_id' => $totalOfficeArray,
+            'counter'=>0,
+            'officeName' => $request->officeName,
+            'officeLocation'=>$request->officeLocation,
+            'edit_by'=>Auth::user()->userName,
+            'deleteStatus' => "NO",
+            'deleteUser'=>"",                
+        );
+        $officeArray=$getOffice->office;
+        if(Office::where(['companyID' =>$companyID ])->update([
+            'companyID' => $companyID,
+            'counter' => $totalOfficeArray+1,
+            'office' =>array_merge($officeArray,$officeData) , 
+        ])) {
+            $data = [
+                'success' => true,
+                'message'=> 'Office added successfully'
+                ] ;
+                return response()->json($data);
+        }
+    }
+    public function add_company_details(Request $request)
+    {
+
+    }
+    public function get_company_details(Request $request)
+    {
+        $companyId=(int)1;   
+        $office = Company::where('companyID',$companyId)->first();    
+        return response()->json($office, 200, [], JSON_PARTIAL_OUTPUT_ON_ERROR);
     }
 
 

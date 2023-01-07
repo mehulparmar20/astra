@@ -1,3 +1,14 @@
+<<<<<<< HEAD
+=======
+<?php 
+	$userdata=Auth::user();
+	$insertUser=$userdata->privilege['insertUser'];
+    // $updateUser=$userdata->privilege['updateUser'];
+    $deleteUser=$userdata->privilege['deleteUser'];
+    $importUser=$userdata->privilege['importUser'];
+    $exportUser=$userdata->privilege['exportUser'];
+ ?> 
+>>>>>>> a9578ab2c12b05e4d51c8af156edfc7e4ed29341
 <!------------------------------------------------------------------- Trailer modal ------------------------------------------------------------------->
 <div class="container">
     <!-- The Modal -->
@@ -7,11 +18,16 @@
 
                 <!-- Modal Header -->
                 <div class="modal-header">
+<<<<<<< HEAD
                     <h4 class="modal-title">Fuel Receipts</h4>
+=======
+                    <h4 class="modal-title">Fuel Toll</h4>
+>>>>>>> a9578ab2c12b05e4d51c8af156edfc7e4ed29341
                     <button type="button" class="button-24 iftaTollClose" >&times;</button>
                 </div>
 
                 <div style="margin-top: 15px; margin-left: 15px;">
+<<<<<<< HEAD
                     <a href="#addDriverModal" class="button-57" data-toggle="modal"data-target="#addDriverModal"><i class="fa fa-plus" aria-hidden="true"></i><span>Add</span></a>
                     <a class="button-57" data-toggle="modal"><i class="fa fa-file-excel-o" aria-hidden="true"></i></span><span>Export CSV</span></a>
                     <a class="button-57" data-toggle="modal"><i class="fa fa-upload" aria-hidden="true"></i></span><span>Upload File</span></a>
@@ -24,6 +40,21 @@
                             <use xlink:href="#lens" />
                             </svg>
                         </div> -->
+=======
+                @if($insertUser== 1)
+                    <a href="#" class="button-57_alt" ><i class="fa fa-plus" aria-hidden="true"></i><span>Add Fuel Toll</span></a>
+                @endif 
+                
+                @if($deleteUser== 1)    
+                    <a href="#" class="button-57_alt" ><i class="fa fa-repeat" aria-hidden="true"></i></span><span>Restore </span></a>
+
+                @endif
+                    <!-- <a class="button-57" data-toggle="modal"><i class="fa fa-file-excel-o" aria-hidden="true"></i></span><span>Export CSV</span></a>
+                    <a class="button-57" data-toggle="modal"><i class="fa fa-upload" aria-hidden="true"></i></span><span>Upload File</span></a>
+                    <a href="#contractCategoryModal" class="button-57_alt" data-toggle="modal" data-target="#contractCategoryModal"><i class="fa fa-id-card" aria-hidden="true"></i></span><span>Button 3</span></a> -->
+                    <div class="searchbar" style="float: right; margin-right: 15px;">
+                        <input type="text" placeholder="search" />
+>>>>>>> a9578ab2c12b05e4d51c8af156edfc7e4ed29341
                     </div>
 
                 </div>
@@ -36,8 +67,13 @@
 
                                 <div class="table-responsive export-table">
                                     <table id="editable-file-datatable" class="table editable-table table-nowrap table-bordered table-edit wp-100 customtable">
+<<<<<<< HEAD
                                         <thead>
                                         <tr>
+=======
+                                        <thead class="thead_th">
+                                        <tr class="tr">
+>>>>>>> a9578ab2c12b05e4d51c8af156edfc7e4ed29341
                                            
                                             <th scope="col" col width="50"> <input type="checkbox" id="checkall" class="checkall" onclick="checkall()"></th>
                                             <!-- <th scope="col" col width="50"> <input type="checkbox" disabled></th>     -->
@@ -84,6 +120,15 @@
 
                 <!-- Modal footer -->
                 <div class="modal-footer">
+<<<<<<< HEAD
+=======
+                <form action="{{route('download-pdf')}}" method="post" target="__blank">
+                    @csrf
+                    @if($exportUser == 1)
+                        <button class="button-29" style="vertical-align:middle"><span>Export</span></button>
+                    @endif
+                </form>
+>>>>>>> a9578ab2c12b05e4d51c8af156edfc7e4ed29341
                     <button type="button" class="button-29 iftaTollClose">Close</button>
                 </div>
             </div>

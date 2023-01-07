@@ -1,3 +1,14 @@
+<<<<<<< HEAD
+=======
+<?php 
+	$userdata=Auth::user();
+	$insertUser=$userdata->privilege['insertUser'];
+    // $updateUser=$userdata->privilege['updateUser'];
+    $deleteUser=$userdata->privilege['deleteUser'];
+    $importUser=$userdata->privilege['importUser'];
+    $exportUser=$userdata->privilege['exportUser'];
+ ?> 
+>>>>>>> a9578ab2c12b05e4d51c8af156edfc7e4ed29341
 <!------------------------------------------------------------------- Equipment Type modal ------------------------------------------------------------------->
 <div class="container">
     <!-- The Modal -->
@@ -11,7 +22,19 @@
                     </button>
                 </div>
                 <div style="margin-top: 15px; margin-left: 15px;">
+<<<<<<< HEAD
                     <a  class="button-57" id="addEquipmentType"><i class="fa fa-plus" aria-hidden="true"></i><span>Add</span></a>
+=======
+                @if($insertUser== 1)
+                    <a  class="button-57_alt" id="addEquipmentType"><i class="fa fa-plus" aria-hidden="true"></i><span>Add Equipment Type</span></a>
+                @endif 
+                
+                @if($deleteUser== 1)    
+                    <a href="#" class="button-57_alt" ><i class="fa fa-repeat" aria-hidden="true"></i></span><span>Restore </span></a>
+
+                @endif
+                    
+>>>>>>> a9578ab2c12b05e4d51c8af156edfc7e4ed29341
                 </div>
                 <div class="modal-body" style="overflow-y: auto !important;margin-left: -16px;">
 
@@ -47,7 +70,13 @@
                 <div class="modal-footer">
                     <form action="{{route('download-pdf')}}" method="post" target="__blank">
                         @csrf
+<<<<<<< HEAD
                         <button class="button-29" style="vertical-align:middle"><span>Export</span></button>
+=======
+                        @if($exportUser == 1)
+                            <button class="button-29" style="vertical-align:middle"><span>Export</span></button>
+                        @endif
+>>>>>>> a9578ab2c12b05e4d51c8af156edfc7e4ed29341
                     </form>
                     <button type="button" class="button-29 EquipmentTypeClose" >Close</button>
                 </div>

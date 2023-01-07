@@ -1,3 +1,11 @@
+<?php 
+	$userdata=Auth::user();
+	$insertUser=$userdata->privilege['insertUser'];
+    // $updateUser=$userdata->privilege['updateUser'];
+    $deleteUser=$userdata->privilege['deleteUser'];
+    $importUser=$userdata->privilege['importUser'];
+    $exportUser=$userdata->privilege['exportUser'];
+ ?> 
 <!------------------------------------------------------------------- Facoring Company modal ------------------------------------------------------------------->
 <div class="container">
     <!-- The Modal -->
@@ -12,6 +20,7 @@
                 </div>
 
                 <div style="margin-top: 15px; margin-left: 15px;">
+<<<<<<< HEAD
                     <a href="#" class="button-57_alt" id="AddFactoringCompany"><i class="fa fa-plus" aria-hidden="true"></i><span>Add Factoring Company</span></a>
                     <a class="button-57" data-toggle="modal"><i class="fa fa-file-excel-o" aria-hidden="true"></i></span><span>Export CSV</span></a>
                     <a class="button-57" data-toggle="modal"><i class="fa fa-upload" aria-hidden="true"></i></span><span>Upload File</span></a>
@@ -60,22 +69,59 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody id="factCompTable">
+=======
+                @if($insertUser== 1)
+                    <a href="#" class="button-57_alt" id="AddFactoringCompany"><i class="fa fa-plus" aria-hidden="true"></i><span>Add Factoring Company</span></a>
+                @endif
+                @if($deleteUser== 1)    
+                    <a href="#" class="button-57_alt" ><i class="fa fa-repeat" aria-hidden="true"></i></span><span>Restore </span></a>
+                @endif 
+                    <a class="button-57" data-toggle="modal"><i class="fa fa-file-excel-o" aria-hidden="true"></i></span><span>Export CSV</span></a>
+                    <a class="button-57" data-toggle="modal"><i class="fa fa-upload" aria-hidden="true"></i></span><span>Upload File</span></a>
+    
+	
+                </div>
+                <!-- Modal body -->
+                <div class="modal-body" style="overflow-y: auto !important;margin-left: -16px;">
 
-                                                </tbody>
-                                            </table>
-                                        </div>
-                               
-                            </div>
-                        </div>
-                    </div>
-                    <!-- End Row -->
+                    <table id="factoring_table_pagination" class="table">
+                        <thead class="thead_th">
+                            <tr class="tr">
+                                <th>NO</th>
+                                <th>Factoring Company Name</th>
+                                <th>Address</th>
+                                <th>Location</th>
+                                <th>Postal/Zip</th>
+                                <th>Primary Contact</th>
+                                <th>Telephone</th>
+                                <th>Ext</th>
+                                <th>Fax</th>
+                                <th>Toll Free</th>
+                                <th>Contact Email</th>
+                                <th>Secondary Contact</th>
+                                <th>Telephone</th>
+                                <th>Ext</th>
+                                <th>Currency Setting</th>
+                                <th>Payment Terms</th>
+                                <th>Tax ID</th>
+                                <th>Internal Notes</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="factCompTable">
+>>>>>>> a9578ab2c12b05e4d51c8af156edfc7e4ed29341
+
+                        </tbody>
+                    </table>
                 </div>
 
                 <!-- Modal footer -->
                 <div class="modal-footer">
-                <form action="{{route('driver-pdf')}}" method="post" target="__blank">
+                    <form action="{{route('download-pdf')}}" method="post" target="__blank">
                         @csrf
-                        <button class="button-29" style="vertical-align:middle"><span>Export</span></button>
+                        @if($exportUser == 1)
+                            <button class="button-29" style="vertical-align:middle"><span>Export</span></button>
+                        @endif
                     </form>
                     <button type="button" class="button-29 FactoringCompanyModalClose" >Close</button>
                 </div>

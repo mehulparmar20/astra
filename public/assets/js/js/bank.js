@@ -38,7 +38,7 @@ $(document).ready(function() {
             if (bankResult != null) {
                 $("#bankTable").html('');
                 banklen = bankResult.length;
-alert(banklen);
+// alert(banklen);
                 if (banklen > 0) {
                     for (var i = banklen-1; i >= 0; i--) { 
                         
@@ -48,9 +48,6 @@ alert(banklen);
                         //alert(bankAdminlen);
                         if (bankAdminlen > 0) {
                             for (var j = bankAdminlen-1; j >= 0; j--) {
-                                
-                                
-
                                 var admin_bank_Id =bankResult[i].admin_bank[j]._id;
                                 var bankName =bankResult[i].admin_bank[j].bankName;
                                 var bankAddresss =bankResult[i].admin_bank[j].bankAddresss;
@@ -59,14 +56,14 @@ alert(banklen);
                                 var routingNo =bankResult[i].admin_bank[j].routingNo;
                                 var openingBalDate =bankResult[i].admin_bank[j].openingBalDate;
                                 var openingBalance =bankResult[i].admin_bank[j].openingBalance;
-                               var openingBalance=parseFloat(openingBalance).toFixed(2);
+                                var openingBalance=parseFloat(openingBalance).toFixed(2);
                                 var currentBalance =bankResult[i].admin_bank[j].currentBalance;
                                 var currentBalance=parseFloat(currentBalance).toFixed(2);
                                 var deleteStatus =bankResult[i].admin_bank[j].deleteStatus;
 
                                 if(deleteStatus == "NO"){
                                         //alert("ff");
-                                        var bankStr = "<tr data-id=" + (i + 1) + ">" +
+                                        var bankStr = "<tr class='tr' data-id=" + (i + 1) + ">" +
                                         "<td data-field='no'>" + no + "</td>" +
                                         "<td data-field='bankName' >" + bankName + "</td>" +
                                         "<td data-field='bankAddresss' >" + bankAddresss + "</td>" +
@@ -78,8 +75,9 @@ alert(banklen);
                                         
                                         "<td data-field='currentBalance' >$ " + currentBalance + "</td>" +
                                        
-                                        "<td style='text-align:center'>"+
-                                            "<a class='mt-2 btn btn-primary fs-14 text-white editCurrency'  title='Edit1' data-Id='"+Id+"' data-truckType='' ><i class='fe fe-edit'></i></a>&nbsp"+
+                                        "<td style='width: 100px'>"+
+                                            " <a class='button-23  "+editPrivilege+"' data-id="+ admin_bank_Id +" title='Edit' ><i class='fe fe-edit'></i>"+
+                                            "</a> <a class='delete1 button-23 "+delPrivilege+"' data-id="+ admin_bank_Id +" title='Delete'><i class='fe fe-delete'></i></a>"+
                                         "</td></tr>";
             
                                     $("#bankTable").append(bankStr);
@@ -89,56 +87,7 @@ alert(banklen);
                         }
                     }
                 }
-            //     $("#iftaTollTable").html('');
-
-            //     if (IftaTolllen > 0) {
-                   
-            //         var no=1;
-            //         for (var i = IftaTolllen-1; i >= 0; i--) {  
-                  
-            //             var IftaTollId =IftaTollResult.tolls[i]._id;
-            //             var transectionDate =IftaTollResult.tolls[i].tollDate;
-            //             var transType =IftaTollResult.tolls[i].transType;
-            //             var location =IftaTollResult.tolls[i].location;
-            //             var transponder =IftaTollResult.tolls[i].transponder;
-            //             var licensePlate =IftaTollResult.tolls[i].licensePlate;
-            //             var amount =IftaTollResult.tolls[i].amount;
-            //             var truckNo =IftaTollResult.tolls[i].truckNo;
-            //             var invoiceNo =IftaTollResult.tolls[i].invoiceNumber;
-                       
-            //             var deleteStatus =IftaTollResult.tolls[i].deleteStatus;
-            //   //alert(fuelCardId);
-             
-
-            //             if(deleteStatus == "NO"){
-            //                 //alert("ff");
-            //                 var IftaTollStr = "<tr data-id=" + (i + 1) + ">" +
-            //                 "<td data-field=''><input type='checkbox' id='check_sigle_toll' class='check'></td>" +
-            //                 "<td data-field='no'>" + no + "</td>" +
-            //                 "<td data-field='transectionDate' >" + transectionDate + "</td>" +
-            //                 "<td data-field='transType' >" + transType + "</td>" +
-            //                 "<td data-field='location' >" + location + "</td>" +
-            //                 "<td data-field='transponder' >" + transponder + "</td>" +
-            //                 "<td data-field='licensePlate' >" + licensePlate + "</td>" +
-            //                 "<td data-field='amount' ><i class='fa fa-usd'> " + amount + "</i></td>" +
-            //                 "<td data-field='truckNo' >" + truckNo + "</td>" +
-            //                 "<td data-field='invoiceNo' >" + invoiceNo + "</td>" +
-                       
-            //                 "<td style='text-align:center'>"+
-            //                     "<a class='mt-2 btn btn-primary fs-14 text-white editCurrency'  title='Edit1' data-Id='"+IftaTollId+"' data-truckType='' ><i class='fe fe-edit'></i></a>&nbsp"+
-            //                 "</td></tr>";
-
-            //             $("#iftaTollTable").append(IftaTollStr);
-            //             no++;
-            //             }
-            //         }
-            //     } else {
-            //         var IftaTollStr = "<tr data-id=" + i + ">" +
-            //             "<td align='center' colspan='4'>No record found.</td>" +
-            //             "</tr>";
-        
-            //         $("#iftaTollTable").append(IftaTollStr);
-            //     }
+            
             }else {
             var IftaTollStr = "<tr data-id=" + i + ">" +
                 "<td align='center' colspan='4'>No record found.</td>" +

@@ -1,3 +1,11 @@
+<?php 
+	$userdata=Auth::user();
+	$insertUser=$userdata->privilege['insertUser'];
+    // $updateUser=$userdata->privilege['updateUser'];
+    $deleteUser=$userdata->privilege['deleteUser'];
+    $importUser=$userdata->privilege['importUser'];
+    $exportUser=$userdata->privilege['exportUser'];
+ ?>  
   <!-- Latest compiled and minified bootstrap-select CSS --> 
 <!------------------------------------------------------------------- customer modal ------------------------------------------------------------------->
 <div class="container">
@@ -12,8 +20,22 @@
 
                 <div style="margin-top: 15px; margin-left: 15px;">
                     
+<<<<<<< HEAD
                     <button href="#addCustomerModal" data-toggle="modal" data-target="#addCustomerModal" class="button-57_alt addCustomerButton" ><i class="fa fa-plus" aria-hidden="true"></i><span>Add Customer</span></button>
                     <button class="button-57_alt restoreCustomerData" ><i class="fa fa-repeat " aria-hidden="true"></i><span>Restore Customer</span></button>
+=======
+                    <!-- <button href="#addCustomerModal" data-toggle="modal" data-target="#addCustomerModal" class="button-57_alt addCustomerButton" ><i class="fa fa-plus" aria-hidden="true"></i><span>Add Customer</span></button>
+                    <button class="button-57_alt restoreCustomerData" ><i class="fa fa-repeat " aria-hidden="true"></i><span>Restore Customer</span></button> -->
+                    @if($insertUser== 1)
+                        <button href="#addCustomerModal" data-toggle="modal" data-target="#addCustomerModal" class="button-57_alt addCustomerButton" ><i class="fa fa-plus" aria-hidden="true"></i><span>Add Customer</span></button>
+                    @endif 
+                    
+                    @if($deleteUser== 1)    
+                     <button class="button-57_alt restoreCustomerData" ><i class="fa fa-repeat " aria-hidden="true"></i><span>Restore Customer</span></button>
+                    @endif
+	
+               
+>>>>>>> a9578ab2c12b05e4d51c8af156edfc7e4ed29341
                 </div>
                 
                 <div class="modal-body" style="overflow-y: auto !important;">
@@ -37,6 +59,12 @@
                     </table>
                 </div>
                 <div class="modal-footer">
+                <form action="{{route('download-pdf')}}" method="post" target="__blank">
+                    @csrf
+                    @if($exportUser == 1)
+                        <button class="button-29" style="vertical-align:middle"><span>Export</span></button>
+                    @endif
+                </form>
                     <button type="button" class="button-29" data-dismiss="modal">Close</button>
                 </div>
             </div>

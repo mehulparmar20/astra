@@ -1,3 +1,14 @@
+
+// <?php 
+// 	$userdata=Auth::user();
+// 	$dashboardArray=$userdata->dashboard;
+	
+//  ?>
+
+// var userdata = Auth.user();
+// var dashboardArray = userdata.user_type;
+    
+
 var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
 
 var base_path = $("#url").val();
@@ -8,6 +19,8 @@ $('.closeAddOwnerModal').click(function(){
 
 
 $(document).ready(function() {
+ 
+    
     var response = '';
     $.ajax({
         type: "GET",
@@ -19,9 +32,27 @@ $(document).ready(function() {
         }
     });
 
+    
 });
 
+
+
 function createRows(response) {
+
+    var edit=$('#updateUser').val();
+    var delet =$('#deleteUser').val();
+
+    if(edit == 1){
+       var editPrivilege=''; 
+    }else{
+        var editPrivilege='privilege';
+    }
+    if(delet == 1){
+        var delPrivilege=''; 
+     }else{
+         var delPrivilege='privilege';
+     }
+
     var len = 0;
     $('#table1').empty(); 
     if (response != null) {
@@ -55,7 +86,10 @@ function createRows(response) {
                 "<td data-field='ext'>" + ext + "</td>" +
                 "<td data-field='tollfree'>" + tollfree + "</td>" +
                 "<td data-field='fax'>" + fax + "</td>" +
-                "<td style='width: 100px'><a class='button-23 edit1' id='editmodel' title='Edit'><i class='fe fe-edit'></i></a><a class='delete1 button-23' data-id="+ email +" title='Delete'><i class='fe fe-delete'></i></a></td></tr>";
+                "<td style='width: 100px'>"+
+                    " <a class='button-23 edit1 "+editPrivilege+"' id='editmodel' title='Edit' ><i class='fe fe-edit'></i>"+
+                    "</a> <a class='delete1 button-23 "+delPrivilege+"' data-id="+ email +" title='Delete'><i class='fe fe-delete'></i></a>"+
+                "</td></tr>";
             $("#table1").append(tr_str);
         }
     } else {
@@ -99,8 +133,10 @@ $(document).ready(function() {
         var address = $('#inputAddress').val();
         var location = $('#inputLocation').val();
         var zip = $('#inputZip').val();
+
         var companyname = $('#inputCompanyName').val();
         var office = $('#inputOffice').val();
+
         var telephone = $('#inputTelephone').val();
         var ext = $('#inputExt').val();
         var tollfree = $('#inputTollFree').val();
@@ -237,6 +273,18 @@ $(document).ready(function() {
         var value55 = checkbox6_11 ? 1 : 0;
         var checkbox6_12 = $('#checkboxl6_12').is(":checked");
         var value56 = checkbox6_12 ? 1 : 0;
+
+        var checkbox7_1 = $('#checkboxl7_1').is(":checked");
+        var value57 = checkbox7_1 ? 1 : 0;
+        var checkbox7_2 = $('#checkboxl7_2').is(":checked");
+        var value58 = checkbox7_2 ? 1 : 0;
+        var checkbox7_3 = $('#checkboxl7_3').is(":checked");
+        var value59 = checkbox7_3 ? 1 : 0;
+        var checkbox7_4 = $('#checkboxl7_4').is(":checked");
+        var value60 = checkbox7_4 ? 1 : 0;
+       
+
+
         var tr_length = $("#userModal").find("tr").length;
         var tr_str2 = "<tr data-id=" + tr_length + ">" +
         "<td data-field='id'>" + tr_length + "</td>" +
@@ -283,16 +331,17 @@ $(document).ready(function() {
                   addCompany: value10,
                   office: value11,
                   truckType: value12,
-                  trailerType: value13,
+                  termCondition: value13,
                   equipmentType: value14,
                   statusType: value15,
                   loadType: value16,
-                  fuelCardType: value17,
-                  fixPayCategory: value18,
+                  userPrivillege: value17,
+                //   fuelCardType: value17,
+                  setting: value18,
                   currencySetting: value19,
                   addNote: value20,
                   paymentTerms: value21,
-                  dispactherIncentive: value22,
+                  reccuranceCategory: value22,
                   salesIncentive: value23,
                   documentType: value24,
                   customer: customer,
@@ -305,8 +354,8 @@ $(document).ready(function() {
                   admin: admin_val,
                   factoringCompany: value33,
                   trailer: value34,
-                  creditCard: value35,
-                  subCreditCard: value36,
+                //   creditCard: value35,
+                //   subCreditCard: value36,
                   iftaCard: value37,
                   fuel_vendor: value38,
                   ifta: value39,
@@ -315,8 +364,8 @@ $(document).ready(function() {
                   IFTA_trips:IFTA_trip,
                   accountManager: value41,
                   paymentRegistration: value42,
-                  advancePayment: value43,
-                  manageReceipt: value44,
+                  subCreditCard: value43,
+                  creditCard: value44,
                   bank:bank,
                   Finance:account,
                   driverReport: value45,
@@ -331,6 +380,10 @@ $(document).ready(function() {
                   Report1099: value54,
                   Expense_report: value55,
                   Revenue_report: value56,
+                  settlements:value57,
+                  driverPaySettlements:value58,
+                  customerSettlement:value59,
+                  carrierSettlement:value60,
                   inser_user:inser_user,
                   update_user:update_user,
                   delete_user:delete_user,
@@ -362,6 +415,149 @@ $(document).ready(function() {
                   },
             });
     });
+
+
+    // ===================== end user create =============================
+    //===================== start office create ==========================
+        $(".add_office_model_form_btn").click(function(){
+            $("#add_office_modal_form").modal("show");
+        });
+        $(".close_office_modal_form").click(function(){
+            $("#add_office_modal_form").modal("hide");
+        });
+        $(".save_office_modal_data").click(function(){
+            var add_officeName = $('.add_officeName').val();        
+            var add_officeLocation = $('#add_officeLocation').val();
+            if(add_officeName=='')
+            {
+                swal.fire( "'Enter Office Name");
+                $('#add_officeName').focus();
+                return false;            
+            }
+            if(add_officeLocation=='')
+            {
+                swal.fire( "'Enter Office Address");
+                $('#add_officeLocation').focus();
+                return false;            
+            }
+            var formData = new FormData();
+            formData.append('_token',$("#_tokenAdd_office_modal").val());        
+            formData.append('officeName',add_officeName);
+            formData.append('officeLocation', add_officeLocation);
+            $.ajax({
+                type: "POST",
+                url: base_path+"/admin/add_office_address",
+                async: false,
+                cache: false,
+                contentType: false,
+                processData: false,
+                data:formData,
+                success:function(response){
+                    swal.fire("Done!", "Office added successfully", "success");
+                    $('#add_office_modal_form').modal('hide');
+                    $.ajax({
+                        type: "GET",
+                        url: base_path+"/admin/get_office_address",
+                        async: false,
+                        success: function(data) {                 
+                            createOfficeAddressList(data);
+                            officeAddressData = data;
+                        }
+                    });
+                }
+            })
+        });
+        $.ajax({
+            type: "GET",
+            url: base_path+"/admin/get_office_address",
+            async: false,
+            //dataType:JSON,
+            success: function(data) {                   
+                createOfficeAddressList(data);
+                officeAddressData = data;
+            }
+        });
+
+        function createOfficeAddressList(officeAddressData)
+        {
+            var officeTypelength = 0; 
+            if (officeAddressData != null) 
+            {
+                officeTypelength = officeAddressData.office.length;
+            }
+            if (officeTypelength > 0) 
+            {
+                // var no=1;
+                //$(".customerCurrencySet").html('');
+                $(".office_name_set").html('');
+                for (var i = 0; i <= officeTypelength; i++) 
+                {  
+                    var officeName =officeAddressData.office[i].officeName;
+                    var officeId =officeAddressData.office[i]._id;
+                    if(officeAddressData.office[i].deleteStatus == "NO")
+                    {
+                        var TrailerTypeList = "<option  value='"+ officeId +"'>"+ officeName +" </option>"   
+                    }             
+                    $(".office_name_set").append(TrailerTypeList);
+                    //<option value="Edge">
+                        //no++;
+                }            
+            }     
+        }
+        //===================== end office create ==============================
+
+        // =========== start create add_Company_Name_modal_form ====================
+        $(".add_Company_Name_modal_form_btn").click(function(){
+            $("#addCompanyModal").modal("show");
+        });
+        $(".close_Company_Name_modal_form").click(function(){
+            $("#addCompanyModal").modal("hide");
+        });
+        // $(".save_Company_Name_modal_data").click(function(){
+        //     alert("dgfgf");
+        // });
+
+        $.ajax({
+            type: "GET",
+            url: base_path+"/admin/get_company_details",
+            async: false,
+            //dataType:JSON,
+            success: function(data) {                   
+                createCompanyListData(data);
+                companyDetails = data;
+            }
+        });
+
+        function createCompanyListData(companyDetails)
+        {
+            var companyDetailLength = 0; 
+            if (companyDetails != null) 
+            {
+                companyDetailLength = companyDetails.company.length;
+            }
+            if (companyDetailLength > 0) 
+            {
+                // var no=1;
+                //$(".customerCurrencySet").html('');
+                $(".set_company_name").html('');
+                for (var i = 0; i <= companyDetailLength; i++) 
+                {  
+                    var companyName =companyDetails.company[i].companyName;
+                    var companyId =companyDetails.company[i]._id;
+                    if(companyDetails.company[i].deleteStatus == "NO")
+                    {
+                        var companyDetailsList = "<option  value='"+ companyId +"'>"+ companyName +" </option>"   
+                    }             
+                    $(".set_company_name").append(companyDetailsList);
+                    //<option value="Edge">
+                        //no++;
+                }            
+            }     
+        }
+    // //================= end create add_Company_Name_modal_form=================
+    
+    
+    
 });
 
 $(document).ready(function(){
@@ -462,6 +658,21 @@ $.ajax({
 });
 
     function createDriverRows(driverResponse) {
+//Privilege 
+    var edit=$('#updateUser').val();
+    var delet =$('#deleteUser').val();
+
+    if(edit == 1){
+       var editPrivilege=''; 
+    }else{
+        var editPrivilege='privilege';
+    }
+    if(delet == 1){
+        var delPrivilege=''; 
+     }else{
+         var delPrivilege='privilege';
+     }
+
         var len1 = 0;
         
         $('#driverTable').empty(); 
@@ -494,20 +705,20 @@ $.ajax({
                         if(delete_status=="NO"){
                             
                             if(ownerOperatorStatus == 'YES'){
-                                var actionBtnOwnerOperator= "<a class='editDriver button-23 edit'  title='Edit' data-id=" + comid+ "&"+email + "><i class='fe fe-edit'></i></a>&nbsp"+
-                                    "<a class='deleteDriver button-23' data-id=" + comid+ "&"+email + " title='Delete'><i class='fe fe-delete'></i></a>&nbsp"+
+                                var actionBtnOwnerOperator= "<a class='editDriver button-23 edit "+editPrivilege+"'  title='Edit' data-id=" + comid+ "&"+email + "><i class='fe fe-edit'></i></a>&nbsp"+
+                                    "<a class=' deleteDriver button-23 "+delPrivilege+"' data-id=" + comid+ "&"+email + " title='Delete'><i class='fe fe-delete'></i></a>&nbsp"+
                                     "<a class='removeDriverOwner button-23 '  title='Remove Owner Operator' data-id="+ driverId+" data-name="+ btoa(name)+" ><i class='fe fe-user-x'></i></a>"+
                                     "<a class='editDriverOwner button-23 '  title='Edit Owner Operator' data-id="+ driverId+" data-name="+ btoa(name)+" ><i class='fe fe-edit'></i></a>&nbsp";
                                 // $('.addDriverOwner').addClass('btn-danger');
                             }
                             else if(ownerOperatorStatus == 'NO' && ownerOperatorDeleteStatus == 'NO'){
-                                var actionBtnOwnerOperator="<a class='editDriver button-23 edit'  title='Edit' data-id=" + comid+ "&"+email + "><i class='fe fe-edit'></i></a>&nbsp"+
-                                    "<a class='deleteDriver button-23' data-id=" + comid+ "&"+email + " title='Delete'><i class='fe fe-delete'></i></a>&nbsp"+
+                                var actionBtnOwnerOperator="<a class='editDriver button-23 edit "+editPrivilege+"'  title='Edit' data-id=" + comid+ "&"+email + "><i class='fe fe-edit'></i></a>&nbsp"+
+                                    "<a class=' deleteDriver button-23 "+delPrivilege+"' data-id=" + comid+ "&"+email + " title='Delete'><i class='fe fe-delete'></i></a>&nbsp"+
                                     "<a class='addDriverOwner button-23'  title='Add As Owner Operator' data-id="+ driverId+" data-name="+ btoa(name)+" ><i class='fe fe-user-plus'></i></a>&nbsp";
                                 // $('.addDriverOwner').addClass('btn-success');
                             }else if(ownerOperatorDeleteStatus == 'YES'){
-                                var actionBtnOwnerOperator="<a class='editDriver button-23 edit'  title='Edit' data-id=" + comid+ "&"+email + "><i class='fe fe-edit'></i></a>&nbsp"+
-                                    "<a class='deleteDriver button-23' data-id=" + comid+ "&"+email + " title='Delete'><i class='fe fe-delete'></i></a>&nbsp"+
+                                var actionBtnOwnerOperator="<a class='editDriver button-23 edit "+editPrivilege+"'  title='Edit' data-id=" + comid+ "&"+email + "><i class='fe fe-edit'></i></a>&nbsp"+
+                                    "<a class='deleteDriver button-23 "+delPrivilege+"' data-id=" + comid+ "&"+email + " title='Delete'><i class='fe fe-delete'></i></a>&nbsp"+
                                     "<a class='restoreDriverOwner button-23'  title='Restore As Owner Operator' data-id="+ driverId+" data-name="+ btoa(name)+" ><i class='fe  fe-user-plus'></i></a>&nbsp";
 
                             }

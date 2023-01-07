@@ -1,3 +1,14 @@
+<<<<<<< HEAD
+=======
+<?php 
+	$userdata=Auth::user();
+	$insertUser=$userdata->privilege['insertUser'];
+    // $updateUser=$userdata->privilege['updateUser'];
+    $deleteUser=$userdata->privilege['deleteUser'];
+    $importUser=$userdata->privilege['importUser'];
+    $exportUser=$userdata->privilege['exportUser'];
+ ?> 
+>>>>>>> a9578ab2c12b05e4d51c8af156edfc7e4ed29341
 <!------------------------------------------------------------------- driver modal ------------------------------------------------------------------->
 <div class="container">
     <!-- The Modal -->
@@ -12,7 +23,19 @@
                 </div>
 
                 <div style="margin-top: 15px; margin-left: 15px;">
+<<<<<<< HEAD
                 <a href="#" class="button-57" id="AddPaymentTerms"><i class="fa fa-plus" aria-hidden="true"></i><span>Add PaymentTerms</span></a>
+=======
+                @if($insertUser== 1)
+                    <a href="#" class="button-57_alt" id="AddPaymentTerms"><i class="fa fa-plus" aria-hidden="true"></i><span>Add PaymentTerms</span></a>
+                @endif 
+                
+                @if($deleteUser== 1)    
+                    <a href="#" class="button-57_alt" ><i class="fa fa-repeat" aria-hidden="true"></i></span><span>Restore </span></a>
+
+                @endif
+                
+>>>>>>> a9578ab2c12b05e4d51c8af156edfc7e4ed29341
 
                 </div>
                 <!-- Modal body -->
@@ -48,10 +71,19 @@
 
                 <!-- Modal footer -->
                 <div class="modal-footer">
+<<<<<<< HEAD
                 <form action="{{route('driver-pdf')}}" method="post" target="__blank">
                         @csrf
                         <button class="button-29" style="vertical-align:middle"><span>Export</span></button>
                     </form>
+=======
+                <form action="{{route('download-pdf')}}" method="post" target="__blank">
+                    @csrf
+                    @if($exportUser == 1)
+                        <button class="button-29" style="vertical-align:middle"><span>Export</span></button>
+                    @endif
+                </form>
+>>>>>>> a9578ab2c12b05e4d51c8af156edfc7e4ed29341
                     <button type="button" class="button-29 branchOfficeClose" data-dismiss="modal">Close</button>
                 </div>
             </div>

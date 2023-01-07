@@ -79,13 +79,14 @@ $(document).ready(function() {
               //alert(fuelCardId);
                         if(deleteStatus == "NO"){
                             //alert("ff");
-                            var fuelCardStr = "<tr data-id=" + (i + 1) + ">" +
+                            var fuelCardStr = "<tr class='tr' data-id=" + (i + 1) + ">" +
                             "<td data-field='no'>" + no + "</td>" +
                             "<td data-field='cardHolderName' >" + cardHolderName + "</td>" +
                             "<td data-field='iftaCardNo' >" +iftaCardNo  + "</td>" +
                             "<td data-field='cardType' >" + cardType + "</td>" +
                             "<td style='text-align:center'>"+
-                                "<a class='mt-2 btn btn-primary fs-14 text-white editCurrency'  title='Edit1' data-Id='"+fuelCardId+"' data-truckType='' ><i class='fe fe-edit'></i></a>&nbsp"+
+                                "<a class='"+editPrivilege+" button-23 editCurrency'  title='Edit1' data-Id='"+fuelCardId+"' data-truckType='' ><i class='fe fe-edit'></i></a>&nbsp"+
+                                "</a> <a class=' button-23 "+delPrivilege+"' data-id="+ email +" title='Delete'><i class='fe fe-delete'></i></a>"+
                             "</td></tr>";
 
                         $("#FuelCardTable").append(fuelCardStr);
