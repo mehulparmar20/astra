@@ -112221,3 +112221,98 @@ textarea.form-control {
 }
 
 /*# sourceMappingURL=style.css.map */
+
+/* status type color  */
+
+.Open {
+    height: 15px;
+    width: 100px;
+    background-color: #27AE60;
+    margin: auto;
+    padding-bottom: 5px;
+}
+
+.Dispatched {
+    height: 15px;
+    width: 100px;
+    background-color: #9B59B6;
+    margin: auto;
+    padding-bottom: 5px;
+}
+
+.Arrived_Shipper {
+    height: 15px;
+    width: 100px;
+    background-color: #D4AC0D;
+    margin: auto;
+    padding-bottom: 5px;
+}
+
+.Loaded {
+    height: 15px;
+    width: 100px;
+    background-color: #6E2C00;
+    margin: auto;
+    padding-bottom: 5px;
+}
+
+.On_Route {
+    height: 15px;
+    width: 100px;
+    background-color: #3498DB;
+    margin: auto;
+    padding-bottom: 5px;
+}
+
+.Arrived_Consignee {
+    height: 15px;
+    width: 100px;
+    background-color: #145A32;
+    margin: auto;
+    padding-bottom: 5px;
+}
+
+.Break_Down {
+    height: 15px;
+    width: 100px;
+    background-color: #E74C3C;
+    margin: auto;
+    padding-bottom: 5px;
+}
+
+.Paid {
+    height: 15px;
+    width: 100px;
+    background-color: #000000;
+    margin: auto;
+    padding-bottom: 5px;
+}
+
+.Delivered {
+    height: 15px;
+    width: 100px;
+    background-color: #FFC0CB;
+    margin: auto;
+    padding-bottom: 5px;
+}
+
+.Completed {
+    height: 15px;
+    width: 100px;
+    background-color: #072EC0;
+    margin: auto;
+    padding-bottom: 5px;
+}
+
+.Invoiced {
+    height: 15px;
+    width: 100px;
+    background-color: #F57153;
+    margin: auto;
+    padding-bottom: 5px;
+}
+.privilege{
+    display:none;
+}
+
+/* ----------------------------------------------------------------------------- */

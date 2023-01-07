@@ -1,3 +1,11 @@
+<?php 
+	$userdata=Auth::user();
+	$insertUser=$userdata->privilege['insertUser'];
+    // $updateUser=$userdata->privilege['updateUser'];
+    $deleteUser=$userdata->privilege['deleteUser'];
+    $importUser=$userdata->privilege['importUser'];
+    $exportUser=$userdata->privilege['exportUser'];
+ ?> 
 <!------------------------------------------------------------------- Facoring Company modal ------------------------------------------------------------------->
 <div class="container">
     <!-- The Modal -->
@@ -7,86 +15,188 @@
 
                 <!-- Modal Header -->
                 <div class="modal-header">
-                    <h4 class="modal-title">Facoring Company</h4>
-                    <button type="button" class="button-24" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Factoring Company</h4>
+                    <button type="button" class="button-24 FactoringCompanyModalClose" >&times;</button>
                 </div>
 
                 <div style="margin-top: 15px; margin-left: 15px;">
-                    <a href="#AddFacoringCompanymodal" class="button-57" data-toggle="modal" data-target="#AddFacoringCompanymodal"><i class="fa fa-plus" aria-hidden="true"></i><span>Add Facoring Company</span></a>
+                @if($insertUser== 1)
+                    <a href="#" class="button-57_alt" id="AddFactoringCompany"><i class="fa fa-plus" aria-hidden="true"></i><span>Add Factoring Company</span></a>
+                @endif
+                @if($deleteUser== 1)    
+                    <a href="#" class="button-57_alt" ><i class="fa fa-repeat" aria-hidden="true"></i></span><span>Restore </span></a>
+                @endif 
                     <a class="button-57" data-toggle="modal"><i class="fa fa-file-excel-o" aria-hidden="true"></i></span><span>Export CSV</span></a>
                     <a class="button-57" data-toggle="modal"><i class="fa fa-upload" aria-hidden="true"></i></span><span>Upload File</span></a>
-                    <a href="#contractCategoryModal" class="button-57_alt" data-toggle="modal" data-target="#contractCategoryModal"><i class="fa fa-id-card" aria-hidden="true"></i></span><span>Button 3</span></a>
-                    <div class="searchbar" style="float: right; margin-right: 15px;">
-                        <input type="text" placeholder="search" />
-                        <div class="symbol">
-                            
-                            <svg class="lens">
-                            <use xlink:href="#lens" />
-                            </svg>
-                        </div>
-                    </div>
-
+    
+	
                 </div>
                 <!-- Modal body -->
-                <div class="modal-body" style="overflow-y: auto !important;">
-                    <!-- Row -->
-                    <div class="row">
-                        <div class="row row-sm">
-                            <div class="col-lg-12">
-                                
+                <div class="modal-body" style="overflow-y: auto !important;margin-left: -16px;">
 
-                                        <div class="table-responsive export-table">
-                                            <table id="editable-file-datatable" class="table editable-table table-nowrap table-bordered table-edit wp-100 customtable">
-                                                <thead>
-                                                    <tr>
-                                                        <th>NO</th>
-                                                        <th > Factoring Company Name</th>
-                                                        <th>Address</th>
-                                                        <th>Location</th>
-                                                        <th>Postal/Zip</th>
-                                                        <th>Primary Contact</th>
-                                                        <th>Telephone</th>
-                                                        <th>Ext</th>
-                                                        <th>Fax</th>
-                                                        <th>Toll Free</th>
-                                                        <th>Contact Email</th>
-                                                        <th>Secondary Contact</th>
-                                                        <th>Telephone</th>
-                                                        <th>Ext</th>
-                                                        <th>Currency Setting</th>
-                                                        <th>Payment Terms</th>
-                                                        <th>Tax ID</th>
-                                                        <th>Internal Notes</th>
-                                                       
-                                                        <th>Action</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody id="factCompTable">
+                    <table id="factoring_table_pagination" class="table">
+                        <thead class="thead_th">
+                            <tr class="tr">
+                                <th>NO</th>
+                                <th>Factoring Company Name</th>
+                                <th>Address</th>
+                                <th>Location</th>
+                                <th>Postal/Zip</th>
+                                <th>Primary Contact</th>
+                                <th>Telephone</th>
+                                <th>Ext</th>
+                                <th>Fax</th>
+                                <th>Toll Free</th>
+                                <th>Contact Email</th>
+                                <th>Secondary Contact</th>
+                                <th>Telephone</th>
+                                <th>Ext</th>
+                                <th>Currency Setting</th>
+                                <th>Payment Terms</th>
+                                <th>Tax ID</th>
+                                <th>Internal Notes</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="factCompTable">
 
-                                                </tbody>
-                                            </table>
-                                        </div>
-                               
-                            </div>
-                        </div>
-                    </div>
-                    <!-- End Row -->
+                        </tbody>
+                    </table>
                 </div>
 
                 <!-- Modal footer -->
                 <div class="modal-footer">
-                <form action="{{route('driver-pdf')}}" method="post" target="__blank">
+                    <form action="{{route('download-pdf')}}" method="post" target="__blank">
                         @csrf
-                        <button class="button-29" style="vertical-align:middle"><span>Export</span></button>
+                        @if($exportUser == 1)
+                            <button class="button-29" style="vertical-align:middle"><span>Export</span></button>
+                        @endif
                     </form>
-                    <button type="button" class="button-29" data-dismiss="modal">Close</button>
+                    <button type="button" class="button-29 FactoringCompanyModalClose" >Close</button>
                 </div>
             </div>
         </div>
     </div>
 
 </div>
+<!-------------------------------------------------------------------end Facoring Company modal ------------------------------------------------------------------->
+<!------------------------------------------------------------------  add Factoring Company  modal ------------------------------------------------------------------>
 
+<div class="container resizeModal">
+
+    <div class="modal fade"  id="addFactoringCompanyModal"style="z-index:1000000000;">
+        <div class="modal-dialog custom_modal_small2 modal-dialog-scrollable" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Add Factoring Company</h5>
+                    <button type="button" class="button-24 addFactoringCompanyModalCloseButton">&times;</button>
+                </div>
+
+                <div class="modal-body">
+                    <from>
+                        <input type="hidden" name="_token" id="_tokenaddFactoringCompany" value="{{ csrf_token() }}" />
+                        <div class="form-row">
+                            <div class="form-group col-md-3">
+                                <label for="addfactoringCompanyName">Factoring Company Name <span style="color:#ff0000">*</span></label>
+                                <input type="text" class="form-control" id="addfactoringCompanyName" placeholder=" Enter Factoring Company Name" >
+                            </div>
+                            <div class="form-group col-md-3">
+                                <label for="addfactoringCompanyAddress">Address <span style="color:#ff0000">*</span></label>
+                                <input type="text" class="form-control" id="addfactoringCompanyAddress" placeholder=" Enter Address " >
+                            </div>
+                            <div class="form-group col-md-3">
+                                <label for="addfactoringCompanyLocation ">Location <span style="color:#ff0000">*</span></label>
+                                <input type="text" class="form-control" id="addfactoringCompanyLocation" placeholder=" Enter Location " >
+                            </div>
+                            <div class="form-group col-md-3">
+                                <label for="addfactoringCompanyZip">Postal / Zip   <span style="color:#ff0000">*</span></label>
+                                <input type="text" class="form-control" id="addfactoringCompanyZip" placeholder=" Enter Zip " >
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-3">
+                                <label for="addfactoringCompanyPrimaryContact">Primary Contact</label>
+                                <input type="text" class="form-control" id="addfactoringCompanyPrimaryContact" placeholder=" Enter Primary Contact" >
+                            </div>
+                            <div class="form-group col-md-3">
+                                <label for="addfactoringCompanyPrimaryContactTelephone">Telephone</span></label>
+                                <input type="text" class="form-control" id="addfactoringCompanyPrimaryContactTelephone" placeholder=" Enter Telephone " >
+                            </div>
+                            <div class="form-group col-md-3">
+                                <label for="addfactoringCompanyPrimaryContactExt ">Ext </label>
+                                <input type="text" class="form-control" id="addfactoringCompanyPrimaryContactExt" placeholder=" Enter Ext " >
+                            </div>
+                            <div class="form-group col-md-3">
+                                <label for="addfactoringCompanyFax">Fax</label>
+                                <input type="text" class="form-control" id="addfactoringCompanyFax" placeholder=" Enter Fax " >
+                            </div>
+                            
+                        </div>
+                        <div class="form-row">
+                        <div class="form-group col-md-3">
+                                <label for="addfactoringCompanySecondaryContact">Secondary  Contact</label>
+                                <input type="text" class="form-control" id="addfactoringCompanySecondaryContact" placeholder=" Enter Secondary  Contact" >
+                            </div>
+                            <div class="form-group col-md-3">
+                                <label for="addfactoringCompanySecondaryContactTelephone">Telephone </label>
+                                <input type="text" class="form-control" id="addfactoringCompanySecondaryContactTelephone" placeholder=" Enter Telephone " >
+                            </div>
+                            <div class="form-group col-md-3">
+                                <label for="addfactoringCompanySecondaryContactExt ">Ext </label>
+                                <input type="text" class="form-control" id="addfactoringCompanySecondaryContactExt" placeholder=" Enter Ext " >
+                            </div>
+                            <div class="form-group col-md-3">
+                                <label for="addfactoringTollFree">Toll Free   </label>
+                                <input type="text" class="form-control" id="addfactoringTollFree" placeholder=" Enter Toll Free " >
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-3">
+                                <label for="addfactoringCompanyContactEmail">Contact Email</label>
+                                <input type="text" class="form-control" id="addfactoringCompanyContactEmail" placeholder=" Enter Contact Email" >
+                            </div>
+                            <div class="form-group col-md-3">
+                                <label for="addcustomerCurrencySetting">Currency Setting <span class="glyphicon glyphicon-plus-sign" id="factoringCurrency" ></span> </label>
+                                <div class="dropdown show">
+                                    <input class="form-control customerCurrencySet " list="customerCurrencySet" name="currency" id="addcurrency1">
+                                    <datalist id="customerCurrencySet" class="customerCurrencySet"></datalist>    
+                                </div>
+                            </div>
+                            <div class="form-group col-md-3">
+                                    <label for="addcustomerPaymentTerms">Payment Terms <span class="glyphicon glyphicon-plus-sign" id="factoringPaymentTerms" ></span> </label>
+                                    <div class="dropdown show">
+                                      
+                                        <input class="form-control customerPaymentTermSet" list="customerPaymentTermSet" name="PaymentTerms" id="addPaymentTerms1">
+                                    <datalist id="customerPaymentTermSet" class="customerPaymentTermSet"></datalist>    
+                                    </div>
+                                </div>
+                            <div class="form-group col-md-2">
+                                <label for="addfactoringCompanyTaxID">Tax ID  <span style="color:#ff0000">*</span></label>
+                                <input type="text" class="form-control" id="addfactoringCompanyTaxID1" placeholder=" Enter Tax ID " >
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            
+                            <div class="form-group col-md-12">
+                                <label for="addfactoringCompanyInternalNotes">Internal Notes</label>
+                                <textarea  rows="2" cols="50" class="form-control" id="addfactoringCompanyInternalNotes"></textarea>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            
+                <!-- Modal footer -->
+                <div class="modal-footer" >
+                    <button type="submit" class="button-29 addFactoringCompanyDataSubmit">Save</button>
+                    <button type="button" class="button-29 factoringCompanyModalCloseButton">Close</button>
+                   
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+ 
+<!------------------------------------------------------------------ over add Factoring Company  modal ------------------------------------------------------------------>
 
 <!-- SVG -->
 <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">

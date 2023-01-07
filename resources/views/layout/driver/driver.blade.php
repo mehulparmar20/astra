@@ -1,3 +1,11 @@
+<?php 
+	$userdata=Auth::user();
+	$insertUser=$userdata->privilege['insertUser'];
+    // $updateUser=$userdata->privilege['updateUser'];
+    $deleteUser=$userdata->privilege['deleteUser'];
+    $importUser=$userdata->privilege['importUser'];
+    $exportUser=$userdata->privilege['exportUser'];
+ ?>
 <!------------------------------------------------------------------- driver modal ------------------------------------------------------------------->
 <div class="container">
     <!-- The Modal -->
@@ -11,13 +19,19 @@
                     <button type="button" class="button-24" data-dismiss="modal">&times;</button>
                 </div>
 
+                
                 <div style="margin-top: 15px; margin-left: 15px;">
-                <a href="#addDriverModal" class="button-57" data-toggle="modal"
-                                                data-target="#addDriverModal"><i class="fa fa-plus" aria-hidden="true"></i><span>Add Driver</span></a>
-                                            <a href="#setupDriverModal" class="button-57" data-toggle="modal"
-                                                data-target="#setupDriverModal"><i class="fa fa-sliders" aria-hidden="true"></i></span><span>Setup<br>Driver</span></a>
-                                            <a href="#contractCategoryModal" class="button-57_alt" data-toggle="modal"
-                                                data-target="#contractCategoryModal"><i class="fa fa-id-card" aria-hidden="true"></i></span><span>View Driver Contract</span></a>
+
+
+                    @if($insertUser== 1)
+                        <a href="#addDriverModal" class="button-57" data-toggle="modal" data-target="#addDriverModal"><i class="fa fa-plus" aria-hidden="true"></i><span>Add Driver</span></a>
+                    @endif 
+                    
+                    @if($deleteUser== 1)  
+                        <a href="#" class="button-57_alt" ><i class="fa fa-repeat" aria-hidden="true"></i></span><span>Restore Customer</span></a>
+                    @endif
+                    <a href="#setupDriverModal" class="button-57" data-toggle="modal" data-target="#setupDriverModal"><i class="fa fa-sliders" aria-hidden="true"></i></span><span>Setup<br>Driver</span></a>
+                    <a href="#contractCategoryModal" class="button-57_alt" data-toggle="modal" data-target="#contractCategoryModal"><i class="fa fa-id-card" aria-hidden="true"></i></span><span>View Driver Contract</span></a>
 
                 </div>
                 <!-- Modal body -->
@@ -29,15 +43,15 @@
                                 
 
                                         <div class="table-responsive export-table">
-                                            <table id="editable-file-datatable" class="table editable-table table-nowrap table-bordered table-edit wp-100 customtable">
+                                            <table id="driver_table_pagination" class="table editable-table table-nowrap table-bordered table-edit wp-100 customtable">
 
                                                 <!-- <button href="#addDriverModal" data-toggle="modal" data-target="#addDriverrModal"  class="add1button" style="vertical-align:middle"><span>Add </span></button>
                                                         
                                                         <table id="editable-file-datatable" style="margin-bottom : -360rem" class="table editable-table table-nowrap table-bordered table-edit wp-100"> -->
 
                                                 <!-- <table id="" class="table editable-table table-nowrap table-bordered table-edit wp-100"> -->
-                                                <thead>
-                                                    <tr>
+                                                <thead class="thead_th">
+                                                    <tr class="tr">
                                                         <!-- <th>counter</th> -->
                                                         <th>NO</th>
                                                         <th style="">Name</th>
@@ -67,9 +81,12 @@
 
                 <!-- Modal footer -->
                 <div class="modal-footer">
+                
                 <form action="{{route('driver-pdf')}}" method="post" target="__blank">
                         @csrf
-                        <button class="button-29" style="vertical-align:middle"><span>Export</span></button>
+                        @if($exportUser == 1)
+                            <button class="button-29" style="vertical-align:middle"><span>Export</span></button>
+                        @endif
                     </form>
                     <button type="button" class="button-29" data-dismiss="modal">Close</button>
                 </div>
@@ -908,35 +925,35 @@
                 <button type="button" class="button-24 addDriverOwnerModalCloseButton" data-dismiss="modal">&times;</button>
             </div>
 
-                        <div class="modal-body">
-                            <form id='addOwnerForm'>                            
-                                <div class="form-group">
-                                    <div class="row row-sm">
-                                        <div class="col-sm-4">
-                                            <label class="form-label" for="owner-driver-name">Driver</label>
-                                            <input type="text" class="form-control" list="drivernamelist" autocomplete="off" id="owner-driver-name" disabled/>
-                                            <input type="hidden" id="driverid" value=""  />
-                                        </div>
-                                        <div class="col-sm-4">
-                                            <label class="form-label" for="ssnMask-cvv">Pay Percentage<span class="mandatory">* </span>( % )</label></label>
-                                            <div class="input-group">
-                                                <div class="input-group-text bg-primary-transparent text-primary">
-                                                    <i class="fe fe-minus text-20" onclick="dec_percentage()" ></i>
-                                                </div>
-                                                    <input type="number" class="form-control" id="ownerPercentage" name="percentage" placeholder="Percentage" >
-                                                <div class="input-group-text bg-primary-transparent text-primary">
-                                                    <i class="fe fe-plus text-20" onclick="inc_percentage()" ></i>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-4">
-                                            <label class="form-label" for="ssnMask-cvv">Select Truck</label>
-                                            <input list="fuel_truck_report" class="form-control" placeholder="search here..." id="ownerTruckNo" name="truckNo" autocomplete="off">
-                                                <datalist id="fuel_truck_report">
-                                                </datalist>
-                                        </div>
+            <div class="modal-body">
+                <form id='addOwnerForm'>                            
+                    <div class="form-group">
+                        <div class="row row-sm">
+                            <div class="col-sm-4">
+                                <label class="form-label" for="owner-driver-name">Driver</label>
+                                <input type="text" class="form-control" list="drivernamelist" autocomplete="off" id="owner-driver-name" disabled/>
+                                <input type="hidden" id="driverid" value=""  />
+                            </div>
+                            <div class="col-sm-4">
+                                <label class="form-label" for="ssnMask-cvv">Pay Percentage<span class="mandatory">* </span>( % )</label></label>
+                                <div class="input-group">
+                                    <div class="input-group-text bg-primary-transparent text-primary">
+                                        <i class="fe fe-minus text-20" onclick="dec_percentage()" ></i>
                                     </div>
-                                    <br>
+                                        <input type="number" class="form-control" id="ownerPercentage" name="percentage" placeholder="Percentage" >
+                                    <div class="input-group-text bg-primary-transparent text-primary">
+                                        <i class="fe fe-plus text-20" onclick="inc_percentage()" ></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <label class="form-label" for="ssnMask-cvv">Select Truck</label>
+                                <input list="fuel_truck_report" class="form-control" placeholder="search here..." id="ownerTruckNo" name="truckNo" autocomplete="off">
+                                    <datalist id="fuel_truck_report">
+                                    </datalist>
+                            </div>
+                        </div>
+                        <br>
 
                         <br>
                         <div class="">
@@ -1014,7 +1031,7 @@
                         </div>
 
                         <div class="modal-body">
-                            <form id='addOwnerForm'>                            
+                            <form id='up_addOwnerForm'>                            
                                 <div class="form-group">
                                     <div class="row row-sm">
                                         <div class="col-sm-4">

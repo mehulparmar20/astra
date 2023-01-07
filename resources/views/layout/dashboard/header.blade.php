@@ -51,8 +51,20 @@
 <!-- sweetalert -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js" ></script>
 
+ 
+    <!-- Datatable plugin CSS file -->
+	<link rel="stylesheet" href=
+"https://cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css" />
 
-        
+	<!-- jQuery library file -->
+	<script type="text/javascript"
+	src="https://code.jquery.com/jquery-3.5.1.js">
+	</script>
+
+	<!-- Datatable plugin JS library file -->
+	<script type="text/javascript" src=
+"https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
+	</script>
       
 
 <style type="text/css">
@@ -64,14 +76,8 @@
    /* padding-bottom: 5px;*/
 }
 
-/* .course{
-    background-color:#8fbd56;
-    padding:5px; 
-    border: 2px solid #8fbd56;
-    border-radius: 12px;
-    color:white;
-    box-shadow: 5px 10px rgb(187, 185, 185);
-} */
+
+
 </style>
 </head>
 
