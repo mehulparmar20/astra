@@ -131,8 +131,35 @@ $(document).ready(function() {
     });
     $(".addFuelReceiptDriver_name").on('change',function(){
         var val = $(this).val();
+        var name=$('option:selected', this).attr('data_driver_name_for_recepits');
+        alert(name);
+        $(".driver_name_fuelReceipt").val(name);
         $(".add_fuelReceiptDriverNumber").val(val);
         $(".update_fuelReceiptDriverNumber").val(val);
+
+        $.ajax({
+            type: "GET",
+            url: base_path + "/admin/getFuelCard",
+            async: false,
+            success: function (text) {
+                // driverId=$('.cardHolderName').val();
+                var ifta_card=text.FuelCard.ifta_card.length;
+                var ifta_card_nu=text.FuelCard.ifta_card;
+                $(".total_cards_fuel_re").html();
+                for(var i=0;i<ifta_card;i++)
+                {
+                    if(val==ifta_Card_no==ifta_card_nu[i].cardHolderName)
+                    {
+                        var ifta_Card_no=ifta_card_nu[i].iftaCardNo;
+                        var vendor_type=ifta_card_nu[i].cardType;
+                        // alert(vendor_type);
+                        var html="<option data_att_vendor_id='"+vendor_type+"' value='"+ifta_Card_no+"'> "+ifta_Card_no+"</option>"
+                        
+                        $(".total_cards_fuel_re").append(html);
+                    }
+                }
+            }
+        });
 
 
     });
@@ -142,16 +169,6 @@ $(document).ready(function() {
         async: false,
         success: function (text) {
             $(".fuel_recepit_invoice_no_list").html();
-            // text.forEach(function(data){
-            //     var resLengt=data.load.length;
-            //     for(var i=0; i<resLengt;i++)
-            //     {
-            //         var idInvo=data.fuel_receipt[i]._id;
-            //         alert(idInvo);
-            //        var html="<option value='"+idInvo+"'>"+idInvo+"</option>";
-            //        $(".fuel_recepit_invoice_no_list").append(html);
-            //     }
-            // });
             var len2 = text.load.length;
             $('.fuel_recepit_invoice_no_list').html();
             var html = "";
@@ -162,16 +179,64 @@ $(document).ready(function() {
             }
         }
     });
+
+    $(".total_cards_fuel_re").on("change",function(){
+        var data = $('option:selected', this).attr('data_att_vendor_id');   
+        // alert(data);
+        $.ajax({
+            type: "GET",
+            url: base_path + "/admin/getFuelCard",
+            async: false,
+            success: function (text) {
+                var cardNumLeng=text.FuelVendor.fuelCard.length;
+                var cardType=text.FuelVendor.fuelCard;
+                // alert(cardNumLeng);
+                // alert(cardType);
+                for(var i=0;i<cardNumLeng;i++)
+                {
+                    var ifta_Card_no=cardType[i]._id;
+                    // alert(ifta_Card_no +" "+ data)
+                    if(data==ifta_Card_no)
+                    {
+                        var card_t=cardType[i].fuelCardType;
+                        // alert(card_t);
+                        $(".seleted_fuel_vend_type").val(card_t);
+                    }
+                    
+                }
+            }
+        });
+    })
+    // ============== payment type logic==============================================
+    $(".paymentType").on("change",function(){
+        var paymentType=$(this).val();
+        if(paymentType=="Receipt")
+        {
+            $(".driver_nu_cashAd").show();
+        }
+        else
+        {
+            $(".driver_nu_cashAd").hide();
+        }
+    });
+
+
+
     $(".closeFuelReceiptsModal").click(function(){
         $("#Create_FuelReceiptsModal").modal("hide");
     });
     $(".saveFuelReceiptsModal").click(function(){
-        var driverName = $(this).attr('data-name');
+        var driverName=$('.driver_name_fuelReceipt').val();
+
+        // var driverName = $('.addFuelReceiptDriver_name').attr('data_driver_name_for_recepits');
+        // alert(data);
+        // alert(driverName); 
         var driverNo = $('.add_fuelReceiptDriverNumber').val();
         var cardNumber = $('.addFuelReceiptCardNumber').val();
         var fuelVendor = $('.addFuelReceiptFuelVendor').val();
         var fuelType = $('.addFuelReFuelType').val();
         var truckNumber = $('.addFuelReceiptTruckNumber').val();
+        var paymentType = $('.addFuelReceiptCardNumber').val();
         var date = $('.addFuelReceiptDate').val();
         var transactionTime = $('.addFuelReceiptTransactionTime').val();
         var locationName = $('.addFuelReceiptLocationName').val();
@@ -190,9 +255,52 @@ $(document).ready(function() {
             $('.addFuelReceiptDriver_name').focus();
             return false;            
         }
+        if(truckNumber=='')
+        {
+            swal.fire( "'Enter Truck Number");
+            $('.addFuelReceiptTruckNumber').focus();
+            return false;            
+        }
+        if(date=='')
+        {
+            swal.fire( "'Enter Date");
+            $('.addFuelReceiptDate').focus();
+            return false;            
+        }
+        if(transactionTime=='')
+        {
+            swal.fire( "'Enter Transaction Time");
+            $('.addFuelReceiptTransactionTime').focus();
+            return false;            
+        }
+        if(locationName=='')
+        {
+            swal.fire( "'Enter Location Name");
+            $('.addFuelReceiptLocationName').focus();
+            return false;            
+        }
+        if(locationState=='')
+        {
+            swal.fire( "'Enter Location State");
+            $('.addFuelReceiptLocationState').focus();
+            return false;            
+        }
+        if(quantity=='')
+        {
+            swal.fire( "'Enter Quantity");
+            $('.addFuelReceiptQuantity').focus();
+            return false;            
+        }
+        if(amount=='')
+        {
+            swal.fire( "'Enter Amount");
+            $('.addFuelReceiptAmount').focus();
+            return false;            
+        }
         var formData = new FormData();
         formData.append('_token',$("#_token_addFuelReceipts").val());        
-        formData.append('driverName',driverName);       
+        formData.append('driverName',driverName);  
+        formData.append('paymentType',paymentType);     
         formData.append('driverNo',driverNo);       
         formData.append('cardNumber',cardNumber);       
         formData.append('fuelVendor',fuelVendor);       
@@ -277,6 +385,7 @@ $(document).ready(function() {
         var id=$(".fuel_recepit_id_edit").val();
         var comId=$(".comp_id_furl_re_edit").val();
         var driverName = $(this).attr('data-name');
+        var paymentType=$('.updateFuelReceiptCardNumber').val();
         var driverNo = $('.update_fuelReceiptDriverNumber').val();
         var cardNumber = $('.updateFuelReceiptCardNumber').val();
         var fuelVendor = $('.updateFuelReceiptFuelVendor').val();
@@ -300,11 +409,54 @@ $(document).ready(function() {
             $('.updateFuelReceiptDriver_name').focus();
             return false;            
         }
+        if(truckNumber=='')
+        {
+            swal.fire( "'Enter Truck Number");
+            $('.updateFuelReceiptTruckNumber').focus();
+            return false;            
+        }
+        if(date=='')
+        {
+            swal.fire( "'Enter Date");
+            $('.updateFuelReceiptDate').focus();
+            return false;            
+        }
+        if(transactionTime=='')
+        {
+            swal.fire( "'Enter Transaction Time");
+            $('.updateFuelReceiptTransactionTime').focus();
+            return false;            
+        }
+        if(locationName=='')
+        {
+            swal.fire( "'Enter Location Name");
+            $('.updateFuelReceiptLocationName').focus();
+            return false;            
+        }
+        if(locationState=='')
+        {
+            swal.fire( "'Enter Location State");
+            $('.updateFuelReceiptLocationState').focus();
+            return false;            
+        }
+        if(quantity=='')
+        {
+            swal.fire( "'Enter Quantity");
+            $('.updateFuelReceiptQuantity').focus();
+            return false;            
+        }
+        if(amount=='')
+        {
+            swal.fire( "'Enter Amount");
+            $('.updateFuelReceiptAmount').focus();
+            return false;            
+        }
         var formData = new FormData();
         formData.append('_token',$("#_token_updateFuelReceipts").val());         
         formData.append('id',id);          
         formData.append('comId',comId);         
-        formData.append('driverName',driverName);       
+        formData.append('driverName',driverName); 
+        formData.append('paymentType',paymentType);       
         formData.append('driverNo',driverNo);       
         formData.append('cardNumber',cardNumber);       
         formData.append('fuelVendor',fuelVendor);       

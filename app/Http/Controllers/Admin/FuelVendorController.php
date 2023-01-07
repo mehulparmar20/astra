@@ -95,7 +95,8 @@ class FuelVendorController extends Controller
         $v=0;
         for($i=0; $i<$fuelLength; $i++)
         {
-            $ids=$FuelVendor->fuelCard[$i];
+            $ids=$FuelVendor->fuelCard[$i]['_id'];
+            $ids=(array)$ids;
             foreach($ids as $value)
             {
                 if($value==$id)

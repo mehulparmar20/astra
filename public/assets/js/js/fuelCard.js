@@ -156,7 +156,8 @@ $(document).ready(function () {
                 for (var j = 0; j < len2; j++) {
                     var driverId = text.driver[j]._id;
                     var name = text.driver[j].driverName;
-                    var html = "<option value='" + driverId + "'  data-name='"+name+"'>" + name + " </option>";
+                    var html = "<option value='" + driverId + "'  data_driver_name_for_recepits='"+name+"'>" + name + " </option>";
+                    
                     $(".cardHolderName").append(html);
                 }
             }

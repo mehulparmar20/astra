@@ -33,6 +33,7 @@ class FuelReceiptController extends Controller
     }
     public function saveFuelReceipt(Request $request)
     {
+        dd($request->driverName);
         
         request()->validate([
        
@@ -47,6 +48,12 @@ class FuelReceiptController extends Controller
         if($getFuelReceipt){
             $FuelReceiptArray=$getFuelReceipt->fuel_receipt;
             $totalFuelReceiptArray=count($FuelReceiptArray)+ 1;
+            // $ids=array();
+            // foreach( $FuelReceiptArray as $ids)
+            // {
+            //     dd($ids);
+            // }
+            // max($ids);
         }
         $FuelReceiptData[]=array(    
                         '_id' => $totalFuelReceiptArray ,
@@ -54,7 +61,7 @@ class FuelReceiptController extends Controller
                         'driverName' => $request->driverName,
                         'driverNumber' => $request->driverNo,
                         'cardNo' => $request->cardNumber,
-                        // 'fuelVendor'=>$request->fuelVendor,
+                        'paymentType'=>$request->paymentType,
                         'category' => $request->fuelVendor,
                         'fuelType' => $request->fuelType,
                         'truckNumber' => $request->truckNumber,
@@ -137,6 +144,7 @@ class FuelReceiptController extends Controller
             }
         }
         $fuelReceiptArray[$v]['driverName' ]= $request->driverName;
+        $fuelReceiptArray[$v]['paymentType']=$request->paymentType;
         $fuelReceiptArray[$v]['driverNumber' ]= $request->driverNo;
         $fuelReceiptArray[$v]['cardNo' ]= $request->cardNumber;
         $fuelReceiptArray[$v]['category' ]= $request->fuelVendor;
