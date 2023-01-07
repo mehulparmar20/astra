@@ -358,7 +358,6 @@ class CustomerController extends Controller
         // $customer1 = Customer::all();
         // return response()->json($customer1, 200, [], JSON_PARTIAL_OUTPUT_ON_ERROR);
     }
-
     public function edit_customer(Request $request)
     {
         $id=$request->id;
@@ -467,10 +466,11 @@ class CustomerController extends Controller
         $i=0;
         $v=0;
         for ($i=0; $i<$arrayLength; $i++){
-            $ids=$customerData->customer[$i];
+            $ids=$customerData->customer[$i]['_id'];
+            $ids=(array)$ids;
             foreach ($ids as $value){
                 if($value==$id){
-                    $v=$id;
+                    $v=$i;
                     }
             }
        }

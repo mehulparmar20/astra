@@ -1,7 +1,7 @@
 var base_path = $("#url").val();
 $(document).ready(function() {
 
-// <!-- -------------------------------------------------------------------------start ------------------------------------------------------------------------- -->  
+    // <!-- -------------------------------------------------------------------------start ------------------------------------------------------------------------- -->  
     $('.closeTruckModal').click(function(){
          $('#truckModal').modal('hide');
     //     $('#addTruckModal').modal('hide');
@@ -27,14 +27,14 @@ $(document).ready(function() {
     })
 
 
-//driver as owner operator modal
+    //driver as owner operator modal
     $('#driverAddTruck').click(function(){
         $('#addTruckModal').modal('show');
     });
     $('#up_driverAddTruck').click(function(){
         $('#addTruckModal').modal('show');
     });
-// <!-- -------------------------------------------------------------------------Get truck  ------------------------------------------------------------------------- -->  
+    // <!-- -------------------------------------------------------------------------Get truck  ------------------------------------------------------------------------- -->  
    
     $('#truck_navbar').click(function(){
         $.ajax({
@@ -53,8 +53,8 @@ $(document).ready(function() {
     });
 
 
-// <!-- -------------------------------------------------------------------------over Get truck  ------------------------------------------------------------------------- --> 
-// <!-- -------------------------------------------------------------------------get truck type ------------------------------------------------------------------------- -->  
+    // <!-- -------------------------------------------------------------------------over Get truck  ------------------------------------------------------------------------- --> 
+    // <!-- -------------------------------------------------------------------------get truck type ------------------------------------------------------------------------- -->  
    // $('.list select').selectpicker();   
 //    $('.truckTypeSet').focus(function(){
     $('.truckTypeSet').val('');
@@ -74,8 +74,8 @@ $(document).ready(function() {
 
 
  
-// <!-- -------------------------------------------------------------------------over get truck type ------------------------------------------------------------------------- -->
-// <!-- -------------------------------------------------------------------------Add truck  ------------------------------------------------------------------------- --> 
+    // <!-- -------------------------------------------------------------------------over get truck type ------------------------------------------------------------------------- -->
+    // <!-- -------------------------------------------------------------------------Add truck  ------------------------------------------------------------------------- --> 
     $('#truckSavebutton').click(function(){
     //asign veriable
         var trucktype='';
@@ -145,7 +145,7 @@ $(document).ready(function() {
         $.each($("#files")[0].files, function(i, file) {            
             formData.append('file[]', file);
         });
-
+        // alert(file);
         formData.append('_token',$("#_tokenTruck").val());
         formData.append('truck_number',truck_number.trim());
         formData.append('trucktypeId',trucktypeId);
@@ -200,10 +200,10 @@ $(document).ready(function() {
 
 
     });
-// <!-- -------------------------------------------------------------------------over add truck  ------------------------------------------------------------------------- --> 
-// <!-- -------------------------------------------------------------------------function  ------------------------------------------------------------------------- --> 
-    
-// get truck
+    // <!-- -------------------------------------------------------------------------over add truck  ------------------------------------------------------------------------- --> 
+    // <!-- -------------------------------------------------------------------------function  ------------------------------------------------------------------------- --> 
+        
+    // get truck
     function createGetTruckRows(truckResult) {
 
     //Privilege
@@ -237,12 +237,13 @@ $(document).ready(function() {
                         var truckTypeLen = truckResult.truck_type.truck.length;
                         for (var j = 0; j < truckTypeLen; j++) { 
                             var truck_Type_id = truckResult.truck_type.truck[j]._id;
+                            // console.log(truckTypeid);
                             if(truckTypeid == truck_Type_id){
                                 truckType=truckResult.truck_type.truck[j].truckType;
                                 break;
                             }
                         }
-
+                        var custID=truckResult.truck.companyID;
                         var licensePlate =truckResult.truck.truck[i].licensePlate;
                         var plateExpiry =truckResult.truck.truck[i].plateExpiry;
                         var inspectionExpiry =truckResult.truck.truck[i].inspectionExpiry;
@@ -272,46 +273,41 @@ $(document).ready(function() {
                         var transponder =truckResult.truck.truck[i].transponder;
                         var internalNotes =truckResult.truck.truck[i].internalNotes;
                         
-                        if(truckResult.truck.truck[i].deleteStatus == "NO" || truckResult.truck.truck[i].deleteStatus == "No")
+                        if(truckResult.truck.truck[i].deleteStatus == "NO")
                         {
-                            var truckStr = "<tr class='tr' data-id=" + (i + 1) + ">" +
+                            var truckStr = "<tr data-id=" + (i + 1) + ">" +
                             //  "<td id='id1'>" + id+ "&"+driverId + "</td>" +
-                                "<td data-field='no'>" + no + "</td>" +
-                                "<td data-field='truckNumber' >" + truckNumber + "</td>" +
-                                "<td data-field='truckType' >" + truckType + "</td>" +
-                                "<td data-field='licensePlate' >" + licensePlate + "</td>" +
-                                "<td data-field='plateExpiry' >" + plateExpiry + "</td>" +
-                                "<td data-field='inspectionExpiry' >" + inspectionExpiry + "</td>" +
-                                "<td data-field='status' >" + status + "</td>" +
-                                "<td data-field='ownership' >" + ownership + "</td>" +
-                                "<td data-field='mileage' >" + mileage + "</td>" +
-                                "<td data-field='axies' >" + axies + "</td>" +
-                                "<td data-field='year' >" + year + "</td>" +
-                                "<td data-field='fuelType' >" + fuelType + "</td>" +
-                                "<td data-field='startDate' >" + startDate + "</td>" +
-                                "<td data-field='deactivationDate' >" + deactivationDate + "</td>" +
-                                "<td data-field='ifta' >" +ifta  + "</td>" +
-                                "<td data-field='registeredState' >" + registeredState + "</td>" +
-                                "<td data-field='insurancePolicy' >" + insurancePolicy + "</td>" +
-                                "<td data-field='grossWeight' >" + grossWeight + "</td>" +
-                                "<td data-field='vin' >" + vin + "</td>" +
-                                "<td data-field='dotexpiryDate' >" +dotexpiryDate  + "</td>" +
-                                "<td data-field='transponder' >" + transponder + "</td>" +
-                                "<td data-field='internalNotes' >" + internalNotes + "</td>" +
-
-                                "<td style='width: 200px'>"+
-                                    " <a class='button-23 edit1 edit_truck_data "+editPrivilege+"'   title='Edit1' data-truckId='"+truckId+"' data-com_Id='"+custID+"' ><i class='fe fe-edit'></i>"+
-                                    "</a> <a class='delete1 button-23 delete_truck_data "+delPrivilege+"' data-truckId='"+truckId+"' data-com_Id='"+custID+"' title='Delete'><i class='fe fe-delete'></i></a>"+
-                                "</td></tr>";
-
-                            //     "<td style='text-align:center'>"+
-                            //     "<a class='mt-2 button-29 fs-14 text-white edit_truck_data "+editPrivilege+"'  title='Edit1' data-truckId='"+truckId+"' data-com_Id='"+custID+"' data-truckType='' ><i class='fe fe-edit'></i></a>&nbsp"+
-                            //     "<a class='mt-2 button-29 fs-14 text-white delete_truck_data "+delPrivilege+"'  title='Edit1' data-truckId='"+truckId+"' data-com_Id='"+custID+"' data-truckType='' ><i class='fe fe-trash'></i></a>&nbsp"+
-                            // "</td></tr>";
+                            "<td data-field='no'>" + no + "</td>" +
+                            "<td data-field='truckNumber' >" + truckNumber + "</td>" +
+                            "<td data-field='truckType' >" + truckType + "</td>" +
+                            "<td data-field='licensePlate' >" + licensePlate + "</td>" +
+                            "<td data-field='plateExpiry' >" + plateExpiry + "</td>" +
+                            "<td data-field='inspectionExpiry' >" + inspectionExpiry + "</td>" +
+                            "<td data-field='status' >" + status + "</td>" +
+                            "<td data-field='ownership' >" + ownership + "</td>" +
+                            "<td data-field='mileage' >" + mileage + "</td>" +
+                            "<td data-field='axies' >" + axies + "</td>" +
+                            "<td data-field='year' >" + year + "</td>" +
+                            "<td data-field='fuelType' >" + fuelType + "</td>" +
+                            "<td data-field='startDate' >" + startDate + "</td>" +
+                            "<td data-field='deactivationDate' >" + deactivationDate + "</td>" +
+                            "<td data-field='ifta' >" +ifta  + "</td>" +
+                            "<td data-field='registeredState' >" + registeredState + "</td>" +
+                            "<td data-field='insurancePolicy' >" + insurancePolicy + "</td>" +
+                            "<td data-field='grossWeight' >" + grossWeight + "</td>" +
+                            "<td data-field='vin' >" + vin + "</td>" +
+                            "<td data-field='dotexpiryDate' >" +dotexpiryDate  + "</td>" +
+                            "<td data-field='transponder' >" + transponder + "</td>" +
+                            "<td data-field='internalNotes' >" + internalNotes + "</td>" +
+                            "<td style='text-align:center'>"+
+                                "<a class='mt-2 button-29 fs-14 text-white edit_truck_data'  title='Edit1' data-truckId='"+truckId+"' data-com_Id='"+custID+"' data-truckType='' ><i class='fe fe-edit'></i></a>&nbsp"+
+                                "<a class='mt-2 button-29 fs-14 text-white delete_truck_data'  title='Edit1' data-truckId='"+truckId+"' data-com_Id='"+custID+"' data-truckType='' ><i class='fe fe-trash'></i></a>&nbsp"+
+                            "</td></tr>";
 
                             $("#truckTable").append(truckStr);
                             no++;
-                        } 
+                        }
+                        
                     }
                 } else {
                     var truckStr = "<tr data-id=" + i + ">" +
@@ -330,37 +326,35 @@ $(document).ready(function() {
         // $("#CurrencyModal").modal("show");
     }
 
-//get truck type
-        function createTruckTypeList(truckTypeResponse) {           
-            var TruckTypeLength = 0;    
-                // alert(truckTypeResponse.truck.length);
-            if (truckTypeResponse != null) {
-               TruckTypeLength = truckTypeResponse.truck.length;
-            }
-       
-            if (TruckTypeLength > 0) {
-               // var no=1;
-                //$(".customerCurrencySet").html('');
-                $(".truckTypeSet").html('');
-                for (var i = 0; i < TruckTypeLength; i++) {  
-                    var truckType =truckTypeResponse.truck[i].truckType;
-                    var truckTypeId =truckTypeResponse.truck[i]._id;
-                    //var customerCurrency = "<option id='customerCurrency' value='"+ currency +"'>"+ currency +"</option>"
-                    //"<a class='dropdown-item custCurrency' value='"+ currency +"'>"+ no +" )"+ currency +"</a>";                  
-       
-                  // var TruckTypeList = "<option class='truckType' t_type_id="+truckTypeId +" data-value='"+ truckTypeId +"'>"+ truckType +"<option "
-                //   if(truckTypeResponse.truck[i].deleteStatus == "NO")
-                //     {
-                    // var Truck_Type_List = "<option class='truckType' value='"+truckTypeId+">"+truckType+" </option>" ;    
-                    // }
-                    var dataop="<option class='truckType' value='"+truckTypeId+"'> "+truckType+" </option>"  
-                    // alert(TruckTypeList);           
-                   $(".truck_Type_Set").append(dataop);
-                   //<option value="Edge">
-                    //no++;
-       
-                }
-                
+    //get truck type
+    function createTruckTypeList(truckTypeResponse) {           
+        var TruckTypeLength = 0;    
+            // alert(truckTypeResponse.truck.length);
+        if (truckTypeResponse != null) {
+           TruckTypeLength = truckTypeResponse.truck.length;
+        }
+   
+        if (TruckTypeLength > 0) {
+           // var no=1;
+            //$(".customerCurrencySet").html('');
+            $(".truckTypeSet").html('');
+            for (var i = 0; i < TruckTypeLength; i++) {  
+                var truckType =truckTypeResponse.truck[i].truckType;
+                var truckTypeId =truckTypeResponse.truck[i]._id;
+                //var customerCurrency = "<option id='customerCurrency' value='"+ currency +"'>"+ currency +"</option>"
+                //"<a class='dropdown-item custCurrency' value='"+ currency +"'>"+ no +" )"+ currency +"</a>";                  
+   
+              // var TruckTypeList = "<option class='truckType' t_type_id="+truckTypeId +" data-value='"+ truckTypeId +"'>"+ truckType +"<option "
+            //   if(truckTypeResponse.truck[i].deleteStatus == "NO")
+            //     {
+                // var Truck_Type_List = "<option class='truckType' value='"+truckTypeId+">"+truckType+" </option>" ;    
+                // }
+                var dataop="<option class='truckType' value='"+truckTypeId+"'> "+truckType+" </option>"  
+                // alert(TruckTypeList);           
+               $(".truck_Type_Set").append(dataop);
+               //<option value="Edge">
+                //no++;
+   
             }
             
         }
@@ -368,11 +362,12 @@ $(document).ready(function() {
   
 
 
-// <!-- -------------------------------------------------------------------------End------------------------------------------------------------------------- -->  
+    // <!-- -------------------------------------------------------------------------End------------------------------------------------------------------------- -->  
 
-      //================================ start edit truck modal ========================
 
-      $(".closeEditTruckModal").click(function(){
+    //================================ start edit truck modal ========================
+
+    $(".closeEditTruckModal").click(function(){
         $("#editTruckModal").modal("hide");
     });
     $('body').on('click','.edit_truck_data',function(){
@@ -588,19 +583,16 @@ $(document).ready(function() {
                     data: { _token: $("#_tokenEditTruck").val(), id: id,companyID:companyID},
                     success: function(resp){
                         swal.fire("Done!", "Truck Deleted successfully", "success");
-                       
-
                         $.ajax({
                             type: "GET",
                             url: base_path+"/admin/getTruck",
                             async: false,
                             success: function(text) {
+                                console.log(text);
                                 createGetTruckRows(text);
                                 truckResult = text;
                              }
                         });
-                        $('#truckModal').modal('show');
-
                     },
                     error: function (resp) {
                         swal.fire("Error!", 'Something went wrong.', "error");

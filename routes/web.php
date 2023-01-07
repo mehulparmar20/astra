@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\CustomerController;
 use App\Http\Controllers\Admin\CompanyController;
 use App\Http\Controllers\Admin\CurrencyController;
 use App\Http\Controllers\Admin\TruckController;
+use App\Http\Controllers\Admin\TrailerAdminAddController;
 use App\Http\Controllers\Admin\ShipperController;
 use App\Http\Controllers\Admin\ConsigneeController;
 use App\Http\Controllers\Admin\factCompanyController;
@@ -127,6 +128,7 @@ Route::get('admin/getPaymentTerms', [PaymentTermsController::class, 'getPaymentT
 Route::get('admin/getCustomerBFactoringCompany', [CustomerController::class, 'getCustomerBFactoringCompany']);
 Route::post('admin/factoringCompany', [CustomerController::class, 'addCustomerfactoringCompany']);
 Route::get('admin/getFactCompany', [factCompanyController::class, 'getFactCompany']);
+Route::get('admin/get_currency_Type', [factCompanyController::class, 'get_currency_Type']);
 
 //company
 Route::get('admin/company', [CompanyController::class, 'getCompanyData']);
@@ -146,52 +148,13 @@ Route::post('admin/delete_truck', [TruckController::class, 'delete_truck']);
 Route::post('admin/restore_truck', [TruckController::class, 'restore_truck']);
 Route::post('admin/create_truckType', [TruckController::class, 'create_truckType']);
 
-
 //Shipper
 Route::get('admin/getShipper', [ShipperController::class, 'getShipper']);
 
 //consignee
 Route::get('admin/getConsignee', [ConsigneeController::class, 'getConsignee']);
 
-//fuel vendor
-Route::get('admin/getFuelVendor', [FuelVendorController::class, 'getFuelVendor']);
-Route::post('admin/createFuelVendor', [FuelVendorController::class, 'createFuelVendor']);
-Route::get('admin/editFuelVendor', [FuelVendorController::class, 'editFuelVendor']);
-Route::post('admin/updateFuelVendor', [FuelVendorController::class, 'updateFuelVendor']);
-Route::post('admin/deleteFuelVendor', [FuelVendorController::class, 'deleteFuelVendor']);
-Route::post('admin/restoreFuelVendor', [FuelVendorController::class, 'restoreFuelVendor']);
-
-
-//fuel card
-Route::get('admin/getFuelCard', [FuelCardController::class, 'getFuelCard']);
-
-//Fuel Receipt
-Route::get('admin/getFuelReceipt', [FuelReceiptController::class, 'getFuelReceipt']);
-
-//Ifta Toll
-Route::get('admin/getIftaToll', [IftaTollController::class, 'getIftaToll']);
-
-//Bank
-Route::get('admin/getBankData', [BankController::class, 'getBankData']);
-
-//credit Card
-Route::get('admin/getcreditCard', [CreditCardController::class, 'getcreditCard']);
-
-//sub Credit Card
-Route::get('admin/getsubCreditCard', [SubCreditCardController::class, 'getsubCreditCard']);
-
-//Accounting Manager
-Route::get('admin/getAccountDeliverdValue', [AccountManagerController::class, 'getAccountDeliverdValue']);
-Route::get('admin/getAccountInvoiceValue', [AccountManagerController::class, 'getAccountInvoiceValue']);
-Route::get('admin/getAccountCompletedValue', [AccountManagerController::class, 'getAccountCompletedValue']);
-
-//Branch Office
-Route::get('admin/getBranchOffice', [BranchOfficeController::class, 'getBranchOffice']);
-Route::post('admin/addBranchOffice', [BranchOfficeController::class, 'addBranchOffice']);
-Route::get('admin/editBranchOffice', [BranchOfficeController::class, 'editBranchOffice']);
-Route::post('admin/updateBranchOffice', [BranchOfficeController::class, 'updateBranchOffice']);
-
-//Trailer
+//TrailerAdminAddController
 Route::get('admin/getTrailer', [TrailerAdminAddController::class, 'getTrailer']);
 Route::post('admin/addTrailer', [TrailerAdminAddController::class, 'addTrailerData']);
 Route::get('admin/trailer_getTrailertype', [TrailerAdminAddController::class, 'trailer_getTrailertype']);
@@ -199,23 +162,3 @@ Route::post('admin/trailer_addTrailertype', [TrailerAdminAddController::class, '
 Route::get('admin/edit_trailer', [TrailerAdminAddController::class, 'edit_trailer']);
 Route::post('admin/updateTrailer', [TrailerAdminAddController::class, 'updateTrailer']);
 Route::post('admin/deleteTrailer', [TrailerAdminAddController::class, 'deleteTrailer']);
-
-//Equipment Type
-Route::get('admin/getEquipmentType', [EquipmentTypeController::class, 'getEquipmentType']);
-Route::post('admin/addEquipmentType', [EquipmentTypeController::class, 'addEquipmentType']);
-
-//Recurrence Category
-Route::get('admin/getRecurrenceCategory', [RecurrenceCategoryController::class, 'getRecurrenceCategory']);
-Route::post('admin/addRecurrenceCategory', [RecurrenceCategoryController::class, 'addRecurrenceCategory']);
-
-//Terms Conditions
-Route::get('admin/getTermsConditions', [TermsConditionsController::class, 'getTermsConditions']);
-Route::post('admin/addTermsConditions', [TermsConditionsController::class, 'addTermsConditions']);
-
-//Truck & Trailer Make
-Route::get('admin/getTruckTrailerMake', [TruckTrailerMakeController::class, 'getTruckTrailerMake']);
-Route::post('admin/addTruckTrailer', [TruckTrailerMakeController::class, 'addTruckTrailer']);
-
-//Load Type
-Route::get('admin/getLoaType', [LoadController::class, 'getLoaType']);
-Route::post('admin/addLoadType', [LoadController::class, 'addLoadType']);

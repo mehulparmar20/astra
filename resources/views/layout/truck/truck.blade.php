@@ -37,7 +37,11 @@
                                         @if($deleteUser== 1)    
                                             <a href="#" class="button-57_alt restore_truckData" ><i class="fa fa-repeat" aria-hidden="true"></i></span><span>Restore Truck</span></a>
 
-                                        @endif
+                                            <!-- <a href="#addTruckModal" class="btn btn-primary" data-toggle="modal" data-target="#addTruckModal">Add</a> -->
+                                            <button type="button" class="btn btn-primary btn-lg addtruckModal" >ADD</button>
+                                            <button class="button-57_alt restore_truckData" ><i class="fa fa-repeat " aria-hidden="true"></i><span>Restore Truck</span></button>
+
+                                            <table id="editable-file-datatable" class="table editable-table table-nowrap table-bordered table-edit wp-100"  style="width:100%;height:500px">
 
                                             
 

@@ -209,8 +209,7 @@ class TrailerAdminAddController extends Controller
         $j=0;
         $h=0;
        for ($i=0; $i<$arrayLength; $i++){
-            $ids=$traileradd->trailer[$i]['_id'];
-            $ids=(array)$ids;
+            $ids=$traileradd->trailer[$i];
             // dd($id);
                 foreach ($ids as $value){
                     // dd($value);
@@ -298,12 +297,11 @@ class TrailerAdminAddController extends Controller
                 }else{
                     $trailerDoc=array();
                 }
-        // dd($trailerDoc);
+        // dd($arrayLength);
         $i=0;
         $v=0;
        for ($i=0; $i<$arrayLength; $i++){
-            $ids=$traileradd->trailer[$i]['_id'];
-            $ids=(array)$ids;
+            $ids=$traileradd->trailer[$i];
                 foreach ($ids as $value){
                     if($value==$id){
                         $v=$i;
@@ -326,7 +324,7 @@ class TrailerAdminAddController extends Controller
        $trailerArray[$v]['dot'] = $request->dot;
        $trailerArray[$v]['activationDate'] = $request->activation;
        $trailerArray[$v]['internalNotes'] = $request->internal_note;
-       $trailerArray[$v]['trailerDoc'] = $trailerDoc;                   
+    //    $trailerArray[$v]['trailerDoc'] = $trailerDoc;                   
        $trailerArray[$v]['insertedTime'] = time();
        $trailerArray[$v]['insertedUserId'] =Auth::user()->_id;
        $trailerArray[$v]['deleteStatus'] = "NO";

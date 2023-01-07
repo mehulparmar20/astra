@@ -18,7 +18,7 @@ class UserController extends Controller
 {
     public function addUsers(Request $request)
     {
-        //dd($request);
+        // dd($request->inser_user);
 		// $data = $db->companyAdmin->findOne(["_id"=> (int)$_SESSION['companyId']]);
         // $flag = false;
         // $flagfield = '';
@@ -134,8 +134,8 @@ class UserController extends Controller
                     'admin' => (object)array(
                         'admin' => $request->admin,
                         'customer'=>$request->customer,
-                        'shipper_Consignee'=>$request->addShipper,
-                        // 'consignee' =>$request->addConsignee,
+                        'shipper'=>$request->addShipper,
+                        'consignee' =>$request->addConsignee,
                         'external_carrier'=>$request->external_carrier,
                         'driver_owner_operator'=>$request->driver_owner_operator,
                         'user'=>$request->user,
@@ -171,14 +171,12 @@ class UserController extends Controller
                         // 'iftaReport' => $request->input('iftaReport'),
                     ),
                     'account' => (object)array(
-                        'account'=>$request->Finance,
+                        'Finance'=>$request->Finance,
                         'bank'=>$request->bank,
-                        'credit_card'=>$request->creditCard,
-                        'sub_credit_card'=>$request->subCreditCard,
                         'accountManager'=>$request->accountManager,
                         'paymentRegistration'=>$request->paymentRegistration,
-                        
-                        
+                        'sub_credit_card'=>$request->advancePayment,
+                        'credit_card'=>$request->manageReceipt,
                         // // 'account' => $request->input('account'),
                         // 'accountManager' => (int)$request->input('accountManager'),
                         // 'paymentRegistration' => (int)$request->input('paymentRegistration'),
@@ -188,11 +186,9 @@ class UserController extends Controller
                     'reports' => (object)array(
                         'report' => $request->report,
                         'aggingReport'=>$request->aggingReport,
-                        'Revenue_report'=>$request->Revenue_report,
-                        'Expense_report'=>$request->Expense_report,
                         'Report1099'=>$request->Report1099,
-                        
-                        
+                        'Expense_report'=>$request->Expense_report,
+                        'Revenue_report'=>$request->Revenue_report,
                         // 'creditStateReport' => (int)$request->input('creditStateReport'),
                         // 'bankStateReport' => (int)$request->input('bankStateReport'),
                         // 'driverReport' => (int)$request->input('driverReport'),

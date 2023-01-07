@@ -212,19 +212,80 @@ function createFactoringCompanyRows(factoringCompanyResult) {
     });
 // // <!-- -------------------------------------------------------------------------over add customer factoringCompany ------------------------------------------------------------------------- -->   
 // <!-- -------------------------------------------------------------------------End------------------------------------------------------------------------- -->  
-$('#factoring_table_pagination').DataTable({
 
-    "columnDefs": [
+
+// ================================ start add factoring ===================================
+    $(".addFactoringModel").click(function(){
+        $("#addFactoringModel").modal("show");
+    });
+    $(".closeaddFactoringModel").click(function(){
+        $("#addFactoringModel").modal("hide");
+    });
+    $(".addcurrencySetting").click(function(){
+       $("#addCreateCurrency").modal("show");
+    });
+    $(".closeaddCreateCurrency").click(function(){
+       $("#addCreateCurrency").modal("hide");
+    });
+    $(".closeadPaymentTerms").click(function(){
+        $("#addPaymentTerms").modal("hide");
+    });
+    $(".addpaymentTerms").click(function(){
+        $("#addPaymentTerms").modal("show");
+    });
+    $("#saveFactoringModel").click(function(){
+       alert("Factoring Model");
+    });
+    //=====================  end save factoring ================================
+
+
+    $(".saveaddCreateCurrency").click(function(){
+      alert("Create Currency");
+    });
+    $(".savePaymentTerms").click(function(){
+        alert("savePaymentTerms");
+    });
+     
+
+    //===================== start save currencyType model ====================
+    $('.currencySetting_option').focus(function(){
+        $('.currencySetting_option').val('');
+        $.ajax({
+            type: "GET",
+            url: base_path+"/admin/get_currency_Type",
+            async: false,
+            //dataType:JSON,
+            success: function(data) {                   
+                createCurrencyTypeList(data);
+                CurrencyTypeResponse = data;
+            }
+        });
+    });
+    function createCurrencyTypeList(CurrencyTypeResponse) 
+    {       
+        // alert("createCurrencyTypeList"); 
+        // console.log(CurrencyTypelength);   
+        var CurrencyTypelength = 0; 
+        if (CurrencyTypeResponse != null) 
         {
-            "targets": [ 12 ],
-            "searchable": false,
-            "sortable":false
-        },
-    ]
-
+            CurrencyTypelength = CurrencyTypeResponse.currency.length;
+        }
+        if (CurrencyTypelength > 0) 
+        {
+            // var no=1;
+            //$(".customerCurrencySet").html('');
+            $(".trailerTypeSet").html('');
+            for (var i = 0; i < CurrencyTypelength; i++) 
+            {  
+                var currencyType =CurrencyTypeResponse.currency[i].currencyType;
+                var currencyTypeId =CurrencyTypeResponse.currency[i]._id;
+                var currencyTypeList = "<option class='trailerType' value='"+ currencyType +"'>"                
+                $(".currencySetting_option").append(currencyTypeList);
+                //<option value="Edge">
+                    //no++;
+            }            
+        }     
+    }
+    
+    // =================end save currencyType =========================
 });
-});
-
-// $(document).ready(function() {
-
-// });

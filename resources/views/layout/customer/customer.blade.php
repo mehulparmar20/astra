@@ -15,18 +15,15 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title">Customer</h5>
-                    <button type="button" class="button-24" data-dismiss="modal">×</button>
+                    <button type="button" class="button-24 closeListCustomer" data-dismiss="modal">×</button>
                 </div>
 
                 <div style="margin-top: 15px; margin-left: 15px;">
                     
-<<<<<<< HEAD
-<<<<<<< HEAD
+
                     <button href="#addCustomerModal" data-toggle="modal" data-target="#addCustomerModal" class="button-57_alt addCustomerButton" ><i class="fa fa-plus" aria-hidden="true"></i><span>Add Customer</span></button>
                     <button class="button-57_alt restoreCustomerData" ><i class="fa fa-repeat " aria-hidden="true"></i><span>Restore Customer</span></button>
-=======
-=======
->>>>>>> a9578ab2c12b05e4d51c8af156edfc7e4ed29341
+
                     <!-- <button href="#addCustomerModal" data-toggle="modal" data-target="#addCustomerModal" class="button-57_alt addCustomerButton" ><i class="fa fa-plus" aria-hidden="true"></i><span>Add Customer</span></button>
                     <button class="button-57_alt restoreCustomerData" ><i class="fa fa-repeat " aria-hidden="true"></i><span>Restore Customer</span></button> -->
                     @if($insertUser== 1)
@@ -38,10 +35,7 @@
                     @endif
 	
                
-<<<<<<< HEAD
->>>>>>> a9578ab2c12b05e4d51c8af156edfc7e4ed29341
-=======
->>>>>>> a9578ab2c12b05e4d51c8af156edfc7e4ed29341
+
                 </div>
                 
                 <div class="modal-body" style="overflow-y: auto !important;">
@@ -65,13 +59,7 @@
                     </table>
                 </div>
                 <div class="modal-footer">
-                <form action="{{route('download-pdf')}}" method="post" target="__blank">
-                    @csrf
-                    @if($exportUser == 1)
-                        <button class="button-29" style="vertical-align:middle"><span>Export</span></button>
-                    @endif
-                </form>
-                    <button type="button" class="button-29" data-dismiss="modal">Close</button>
+                    <button type="button" class="button-29 closeListCustomer" data-dismiss="modal">Close</button>
                 </div>
             </div>
         </div>
@@ -234,15 +222,17 @@
                                             <option value="">Select Currency</option>
                                             </select> -->
                                         
-                                                <input class="form-control customerCurrencySet" list="customerCurrencySet" name="currency" id="currency">
+                                                <input class="form-control customerCurrencySet" list="customerCurrencySet" name="currency" id="currency_setting">
                                                 <datalist id="customerCurrencySet" class="customerCurrencySet"><option>Select Here</option></datalist>    
                                         </div>
                                     </div>
                                     <div class="form-group col-md-3">
                                         <label for="customerPaymentTerms">Payment Terms</label><span class="button-29" id="plusPaymentTerms" style="margin-left: 5px;"><i class="fa fa-plus"></i></span> 
                                         <div class="dropdown show">
-                                            
-                                                <input class="form-control customerPaymentTermSet" list="customerPaymentTermSet" name="PaymentTerms" id="PaymentTerms">
+                                            <!-- <select name="PaymentTerms" id="PaymentTerms" class="customerPaymentTermSet btn-dropdown">
+                                            <option value="">Select Payment Terms</option>
+                                            </select> -->
+                                                <input class="form-control customerPaymentTermSet" list="customerPaymentTermSet" name="PaymentTerms" id="update_PaymentTerms">
                                                 <datalist id="customerPaymentTermSet" class="customerPaymentTermSet">
                                                     <option>Select Here</option>
                                                 </datalist>
@@ -262,10 +252,7 @@
                                     <div class="form-group col-md-3">
                                         <label for="customerBFactoringCompany">Factoring Company</label><span class="button-29" id="plusFactoringCompany" style="margin-left: 5px;"><i class="fa fa-plus"></i></span>
                                         <div class="dropdown show">
-                                            <!-- <select name="customerBFactoringCompany" id="customerBFactoringCompany" class="customerBFactoringCompanySet btn-dropdown">
-                                            <option value="">Select Factoring Company</option>
-                                            </select> -->
-                                            <input class="form-control customerBFactoringCompanySet" list="customerBFactoringCompanySet" name="customerBFactoringCompany" id="customerBFactoringCompany">
+                                            <input class="form-control customerBFactoringCompanySet" list="customerBFactoringCompanySet" name="customerBFactoringCompany" id="updatecustomerBFactoringCompany">
                                             <datalist id="customerBFactoringCompanySet" class="customerBFactoringCompanySet">
                                                 <option>Select Here</option>
                                             </datalist>
@@ -525,6 +512,19 @@
 </div>
  
 <!------------------------------------------------------------------ over add Factoring Company  modal ------------------------------------------------------------------>
+
+
+
+
+
+
+
+
+
+
+
+
+
 <!-- ========================= start edit customer model =============================== -->
 
 
@@ -706,9 +706,13 @@
                                                         <!-- <span class="glyphicon glyphicon-plus-sign addFactoringCompanyCutomer " id="addFactoringCompanyCutomer" data-toggle="modal"  style="cursor:pointer;"></span> -->
                                                         </label>
                                                         <div class="dropdown show">
-                                                            <select class="form-control customerBFactoringCompanySet update_factroring_name" name="customerBFactoringCompany" id="customerBFactoringCompany">
+                                                            <!-- <select class="form-control customerBFactoringCompanySet update_factroring_name" name="customerBFactoringCompany" id="customerBFactoringCompany">
                                                                 <option>Select Here</option>
-                                                            </select>
+                                                            </select> -->
+                                                            <input class="form-control customerBFactoringCompanySet update_factroring_name" list="customerBFactoringCompanySet" name="customerBFactoringCompany" id="customerBFactoringCompany">
+                                                            <datalist class="customerBFactoringCompanySet">
+                                                                <option>Select Here</option>
+                                                            </datalist>
                                                         </div>
                                                     </div>
                                                     <div class="form-group col-md-3">
@@ -755,11 +759,252 @@
         </div>
     </div>
 </div>
-<!-- ========================= end edit customer model =============================== -->
 
 
-<!--========================== resote customer start model ========================== -->
-<div class="modal fade" data-backdrop="static" id="restoreCustomerData" role="dialog">
+
+
+<!--============================== end update customer =================== -->
+
+<!-- ===========================create currency model ==================== -->
+<div class="modal fade" id="addCreateCurrencyCustomer"  tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" >Create Currency</h5>
+        <button type="button" class="close closeaddCreateCurrencyCustomer" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form id="addTrailerTypeForm">
+            @csrf
+            <input type="hidden" name="_token" id="_tokenTrailerType" value="{{ csrf_token() }}" />
+            <div class="form-group col-md-12">
+                <label>Name<span style="color:#ff0000">*</span></label>
+                <div>
+                    <input class="form-control" placeholder="Currency type" type="text" id="save_Currency_Type" name="currencyType" required />
+                </div>
+            </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="button-29 closeaddCreateCurrencyCustomer" data-dismiss="modal">Close</button>
+        <button type="button" class="button-29 saveaddCreateCurrencycustomer " >Save </button>
+      </div>
+    </div>
+  </div>
+</div>
+<!--======================= end currency =============== -->
+
+ <!-- =================crete payment terms =============================== -->
+ <div class="modal fade" id="addPaymentTermsCustom"  tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" >Create Payment Terms</h5>
+        <button type="button" class="close closeadPaymentTermsCustomer" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form id="addTrailerTypeForm">
+            @csrf
+            <input type="hidden" name="_token" id="_token_Payment_Terms" value="{{ csrf_token() }}" />
+            <div class="form-group col-md-12">
+                <label>Name<span style="color:#ff0000">*</span></label>
+                <div>
+                    <input class="form-control" placeholder="Enter Name" type="text" id="trailer_type_name" name="trailer_type_name" required />
+                </div>
+            </div>
+            <div class="form-group col-md-12">
+                <label>Net Days<span style="color:#ff0000">*</span></label>
+                <div>
+                    <select name="" class="form-control">
+                        <option>select one</option>
+                        <?php 
+                        $j=180;
+                        for($i=1; $j>=$i; $i++){
+                        ?>
+                        <option value="{{$i}}">{{$i}}</option>
+                        <?php }?>
+                    </select>
+                </div>
+            </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="button-29 closeadPaymentTermsCustomer" data-dismiss="modal">Close</button>
+        <button type="button" class="button-29 savePaymentTermsCustomer " >Save </button>
+      </div>
+    </div>
+  </div>
+</div>
+ <!--==================== end payment terms model ====================== -->
+
+ <!--======================== add  Factoring Company ============================s-->
+ <div class="container">
+    <div class="modal fade" data-backdrop="static" id="addFactoringModelCustomer" role="dialog">
+        <div class="modal-dialog custom_modal" role="document">
+            <div class="modal-content">
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title">Add Factoring Company</h4>
+                    <button type="button" class="closeaddFactoringModelCustomer" >&times;</button>
+                </div>
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <!-- Row -->
+                    <div class="row">
+                        <div class="row row-sm">
+                            <div class="col-lg-12">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <form >
+                                            @csrf
+                                            <input type="hidden" name="_token" id="_token_Add_Factoring" value="{{ csrf_token() }}" />
+                                            <div class="form-row">
+                                                <div class="form-group col-md-2">
+                                                    <label>Factoring Company Name<span style="color:#ff0000">*</span></label>
+                                                    <div>
+                                                        <input class="form-control v" placeholder="Factoring Company Name" type="text" id="" name="factoringCompanyname" required />
+                                                    </div>
+                                                </div>
+                                                
+                                                <div class="form-group col-md-2">
+                                                    <label>Address <span style="color:#ff0000">*</span></label>
+                                                    <div>
+                                                        <input class="form-control addFacAddress" placeholder="Address" type="text"  name="address" required />
+                                                    </div>
+                                                </div>
+                                                <div class="form-group col-md-2 ">
+                                                    <label>Loction <span style="color:#ff0000">*</span></label>
+                                                    <div>
+                                                        <input class="form-control addFaclocation" placeholder="Enter Location" type="text" id="" name="location" required />
+                                                    </div>
+                                                </div>
+                                                <div class="form-group col-md-2 ">
+                                                    <label>Postal / Zip<span style="color:#ff0000">*</span> </label>
+                                                    <div>
+                                                        <input class="form-control addFacZip" placeholder="Postal / Zip" type="text" id="" name="zip" required>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group col-md-2 ">
+                                                    <label>Primary Contact </label>
+                                                    <div>
+                                                        <input class="form-control addFacPrimaryContact" placeholder="Primary Contact" type="text" id="" name="primaryContact">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group col-md-2 ">
+                                                    <label>Telephone </label>
+                                                    <div>
+                                                        <input class="form-control addFacTelephone" placeholder="(___) ___ - ____" type="text" id="" name="telephone">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group col-md-2 ">
+                                                    <label>Ext Factoring </label>
+                                                    <div>
+                                                        <input class="form-control addFacExtFactoring" placeholder="Ext" type="text" id="" name="extFactoring">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group col-md-2 ">
+                                                    <label>Fax </label>
+                                                    <div>
+                                                        <input class="form-control addFacFax" placeholder="(___) ___ - ____" type="text" id="" name="fax">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group col-md-2 ">
+                                                    <label>Toll Free </label>
+                                                    <div>
+                                                        <input class="form-control addFacTollFree" placeholder="(___) ___ - ____" type="text" id="" name="tollFree">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group col-md-2 ">
+                                                    <label>Contact Email </label>
+                                                    <div>
+                                                        <input class="form-control addFacEmail" placeholder="Contact Email" type="email" id="" name="email">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group col-md-2 ">
+                                                    <label>Secondary Contact </label>
+                                                    <div>
+                                                        <input class="form-control addFacSecondaryContact" placeholder="Secondary Contact " type="text" id="" name="secondaryContact">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group col-md-2 ">
+                                                    <label>Factoring Telephone </label>
+                                                    <div>
+                                                        <input class="form-control addFacFactoringtelephone" placeholder="(___) ___ - ____" type="text" id="" name="factoringtelephone">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group col-md-2 ">
+                                                    <label>Ext </label>
+                                                    <div>
+                                                        <input class="form-control addFacExt" placeholder="Ext" type="text" id="" name="ext">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group col-md-2">
+                                                    <label >Currency Setting <span style="color:#ff0000">*</span>&nbsp; 
+                                                    <span class="glyphicon glyphicon-plus-sign addcurrencySetting "  data-toggle="modal"  style="cursor:pointer;"></span>
+                                                    </label>
+                                                        <div class="dropdown show">
+                                                            <input class="form-control customerCurrencySet" list="currencySetting_option" name="currencyType" id="customerCurrencySet">
+                                                            <datalist id="currencySetting_option" class="currencySetting_option">
+                                                                <option>Select Here</option>
+                                                              
+                                                            </datalist>
+                                                        </div>
+                                                </div>
+                                                <div class="form-group col-md-2">
+                                                    <label>Payment Terms <span style="color:#ff0000">*</span>&nbsp; 
+                                                    <span class="glyphicon glyphicon-plus-sign addpaymentTerms " id="addpaymentTerms" data-toggle="modal"  style="cursor:pointer;"></span>
+                                                    </label>
+                                                        <div class="dropdown show">
+                                                            <input class="form-control addPaymentTermsCustom" list="addPaymentTermsCustom" name="paymentTerms" id="payment_Terms">
+                                                            <datalist id="addPaymentTermsCustom" class="addPaymentTermsCustom">
+                                                                <option>Select Here</option>
+                                                              
+                                                            </datalist>
+                                                        </div>
+                                                </div>
+                                            <div class="form-row">
+                                                
+                                            <div class="form-group col-md-4 ">
+                                                    <label>taxID </label>
+                                                    <div>
+                                                        <input class="form-control addFactaxID" placeholder="__-_______" type="text" id="" name="taxID">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group col-md-12">
+                                                    <label>Internal Notes</label>
+                                                    <div>
+                                                        <textarea rows="2" cols="30" class="form-control addFacInternalNote" type="textarea" id="" placeholder="Internal Note" name="internalNote"></textarea>
+                                                    </div>
+                                                </div>
+                                                
+                                            </div> 
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- End Row -->                
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button type="button" style="vertical-align:middle" class="button-29 saveFactoringModelCustomer" >Save</button>
+                    <button type="button"style="vertical-align:middle" class=" closeaddFactoringModelCustomer button-29" >Close</button>
+                </div>          
+            </div>
+        </div>
+    </div>
+</div>
+ <!--======================== end add  Factoring Company ============================s-->
+
+
+
+  <!--========================== resote customer start model ========================== -->
+   <div class="modal fade" data-backdrop="static" id="restoreCustomerData" role="dialog">
         <div class="modal-dialog custom_modal modal-dialog-scrollable" role="document">
             <div class="modal-content">
                 <div class="modal-header">

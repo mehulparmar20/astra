@@ -827,6 +827,7 @@ class DriverController extends Controller
  //add by Reena edit driver
     public function editDriverData(Request $request){
         $companyID=(int)$request->com_id;
+        // dd($companyID);
 
         $driverEmail=$request->email;
         $result = Driver::where('companyID',$companyID )->first();
@@ -839,6 +840,7 @@ class DriverController extends Controller
        for ($i=0; $i<$arrayLength; $i++){
             $id=$result->driver[$i];
                 foreach ($id as $value){
+                    
                     if($value==$driverEmail){
                         $v=$i;
                      }
@@ -846,6 +848,7 @@ class DriverController extends Controller
        }
        
        $driverEditData=$result->driver[$v];
+    //    dd($driverEditData);
        return response()->json($driverEditData);  
     }  
 //add by Reena
@@ -996,7 +999,7 @@ class DriverController extends Controller
 
        //$destroy = destroy($driverAppArray[$v]);
     //    $result->driver = $driverArray;
-dd($destroy);
+// dd($destroy);
        if ($result->save()) {
             $success = true;
             $message = "Driver deleted successfully";

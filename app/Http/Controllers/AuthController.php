@@ -7,6 +7,7 @@ use Auth;
 use Session;
 use App\Models\User;
 use App\Models\PasswordReset;
+use App\Models\TrailerAdminAdd;
 use Mail; 
 use Hash;
 use Illuminate\Support\Str;
@@ -42,8 +43,9 @@ class AuthController extends Controller
         if(Auth::check()){
 
             //  --  
-
+            // $TrailerAdminAdd=TrailerAdminAdd::all();
             $driverData=\App\Models\Driver::all();
+            // dd($TrailerAdminAdd);
 
             return view('dashboard',['driverData' => $driverData]);
         }
