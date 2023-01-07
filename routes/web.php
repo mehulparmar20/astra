@@ -27,6 +27,8 @@ use App\Http\Controllers\Admin\RecurrenceCategoryController;
 use App\Http\Controllers\Admin\TermsConditionsController;
 use App\Http\Controllers\Admin\TruckTrailerMakeController;
 use App\Http\Controllers\Admin\LoadController;
+use App\Http\Controllers\Admin\UserPrivillegeController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -99,6 +101,8 @@ Route::get('admin/driver_getTruck', [DriverController::class, 'driver_getTruck']
 Route::post('admin/deleteDriverOwnerOperator', [DriverController::class, 'deleteDriverOwnerOperator']);
 Route::post('admin/restoreDriverOwnerOperator', [DriverController::class, 'restoreDriverOwnerOperator']);
 Route::post('admin/deleteViewDriverApp', [DriverController::class, 'deleteViewDriverApp']);
+
+Route::get('admin/editPrivilege', [UserPrivillegeController::class, 'getPrivilegeTable']);
 
 //customer
 Route::get('admin/customer', [CustomerController::class, 'getCustomerData']);
