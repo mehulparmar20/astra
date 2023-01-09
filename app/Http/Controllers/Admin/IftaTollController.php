@@ -31,13 +31,13 @@ class IftaTollController extends Controller
         {
             if($iftaToll_data)
             {
-                // $id=array();
+                $id=array();
                 $iftaTollArray=$iftaToll_data->tolls;
                foreach($iftaTollArray as $r)
                {
-                $id=$r['_id'];
+                $id[]=$r['_id'];
                }
-              
+              $id=max($id);
                 $totaliftaTollArray=$id+1;
             }
             else

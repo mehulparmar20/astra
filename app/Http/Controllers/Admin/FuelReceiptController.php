@@ -33,7 +33,7 @@ class FuelReceiptController extends Controller
     }
     public function saveFuelReceipt(Request $request)
     {
-        dd($request->driverName);
+        // dd($request->driverName);
         
         request()->validate([
        
@@ -48,15 +48,18 @@ class FuelReceiptController extends Controller
         if($getFuelReceipt){
             $FuelReceiptArray=$getFuelReceipt->fuel_receipt;
             $totalFuelReceiptArray=count($FuelReceiptArray)+ 1;
-            // $ids=array();
-            // foreach( $FuelReceiptArray as $ids)
-            // {
-            //     dd($ids);
-            // }
-            // max($ids);
+            $ids_trip=array();
+            foreach( $FuelReceiptArray as $ids)
+            {
+                // dd($ids);
+                $ids_trip[]=$ids['_id'];
+            }
+            // dd($ids_trip);
+            $ids_trip=max($ids_trip);
+            // dd($ids_trip);
         }
         $FuelReceiptData[]=array(    
-                        '_id' => $totalFuelReceiptArray ,
+                        '_id' => $ids_trip+1 ,
                         // 'counter' => 0,
                         'driverName' => $request->driverName,
                         'driverNumber' => $request->driverNo,
@@ -90,7 +93,7 @@ class FuelReceiptController extends Controller
             if($getFuelReceipt){
                 FuelReceipt::where(['companyID' =>$companyId])->update([
                     'counter'=> $totalFuelReceiptArray,
-                    'fuel_receipt' =>array_merge($FuelReceiptData,$FuelReceiptArray) ,
+                    'fuel_receipt' =>array_merge($FuelReceiptArray,$FuelReceiptData) ,
                     
                 ]);
 
@@ -128,7 +131,7 @@ class FuelReceiptController extends Controller
     {
         $id=$request->id;
         $companyID=(int)$request->comId;
-        // DD($companyID);
+        // DD($request->invoiceNo);
         $fuelReceipt=FuelReceipt::where('companyID',$companyID)->first();
         $fuelReceiptArray=$fuelReceipt->fuel_receipt;
         $arrayLength=count($fuelReceiptArray);

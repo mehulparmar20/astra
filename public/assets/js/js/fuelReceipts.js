@@ -45,9 +45,18 @@ $(document).ready(function() {
                     var no=1;
                     for (var i = fuelReceiptlen-1; i >= 0; i--) {  
                         var custID=FuelReceiptResult.companyID;
+                        if(typeof(FuelReceiptResult.fuel_receipt[i].paymentType) != "undefined" && FuelReceiptResult.fuel_receipt[i].paymentType !== null)
+                        {
+                            var paymentType=FuelReceiptResult.fuel_receipt[i].paymentType;
+                        } 
+                        else
+                        {
+                            paymentType="----";
+                        }     
+                        // var paymentType=FuelReceiptResult.fuel_receipt[i].driverName;
                         var fuelReceiptId =FuelReceiptResult.fuel_receipt[i]._id;
                         var driverName =FuelReceiptResult.fuel_receipt[i].driverName;
-                        var transactionDate =FuelReceiptResult.fuel_receipt[i].transactionDate;
+                        var transactionDate =new Date(FuelReceiptResult.fuel_receipt[i].transactionDate);
                         var cardNo =FuelReceiptResult.fuel_receipt[i].cardNo;
                         var truckNumber =FuelReceiptResult.fuel_receipt[i].truckNumber;
                         var driverNumber =FuelReceiptResult.fuel_receipt[i].driverNumber;
@@ -65,8 +74,15 @@ $(document).ready(function() {
                         var transactionGross =FuelReceiptResult.fuel_receipt[i].transactionGross;
                         var invoiceNo =FuelReceiptResult.fuel_receipt[i].invoiceNo;
                         var deleteStatus =FuelReceiptResult.fuel_receipt[i].deleteStatus;
-              //alert(fuelCardId);
-             
+                        //alert(fuelCardId);
+                        if(FuelReceiptResult.fuel_receipt[i].transactionDate != null)
+                        {
+                            transactionDate= ((transactionDate.getMonth() > 8) ? (transactionDate.getMonth() + 1) : ('0' + (transactionDate.getMonth() + 1))) + '/' + ((transactionDate.getDate() > 9) ? transactionDate.getDate() : ('0' + transactionDate.getDate())) + '/' + transactionDate.getFullYear();
+                        }
+                        else
+                        {
+                            transactionDate="----";
+                        }
 
                         if(deleteStatus == "NO"){
                             //alert("ff");
@@ -75,6 +91,7 @@ $(document).ready(function() {
                             "<td data-field='no'>" + no + "</td>" +
                             "<td data-field='driverName' >" + driverName + "</td>" +
                             "<td data-field='transactionDate' >" + transactionDate + "</td>" +
+                            "<td data-field='cardNo' >" + paymentType + "</td>" +
                             "<td data-field='cardNo' >" + cardNo + "</td>" +
                             "<td data-field='truckNumber' >" + truckNumber + "</td>" +
                             "<td data-field='driverNumber' >" + driverNumber + "</td>" +
@@ -129,11 +146,12 @@ $(document).ready(function() {
     $(".create_fuel_receipt_modal_form_btn").click(function(){
         $("#Create_FuelReceiptsModal").modal("show");
     });
-    $(".addFuelReceiptDriver_name").on('change',function(){
+    $(".cardHolderName").on('change',function(){
         var val = $(this).val();
         var name=$('option:selected', this).attr('data_driver_name_for_recepits');
-        alert(name);
+        // alert(name);
         $(".driver_name_fuelReceipt").val(name);
+        $(".driver_name_fuelReceipt_edit").val(name);
         $(".add_fuelReceiptDriverNumber").val(val);
         $(".update_fuelReceiptDriverNumber").val(val);
 
@@ -236,7 +254,7 @@ $(document).ready(function() {
         var fuelVendor = $('.addFuelReceiptFuelVendor').val();
         var fuelType = $('.addFuelReFuelType').val();
         var truckNumber = $('.addFuelReceiptTruckNumber').val();
-        var paymentType = $('.addFuelReceiptCardNumber').val();
+        var paymentType = $('.apayment_type_fuel_re').val();
         var date = $('.addFuelReceiptDate').val();
         var transactionTime = $('.addFuelReceiptTransactionTime').val();
         var locationName = $('.addFuelReceiptLocationName').val();
@@ -249,6 +267,12 @@ $(document).ready(function() {
         var transactionFee = $('.addFuelReceipttransactionFee').val();
         var transactionGross = $('.addFuelReceipttransactionGross').val();
         var invoiceNo = $('.addFuelReceiptinvoiceNo').val();
+        if(paymentType=="")
+        {
+            swal.fire( "'select PaymentType");
+            $('.apayment_type_fuel_re').focus();
+            return false;    
+        }
         if(driverName=='')
         {
             swal.fire( "'select one");
@@ -356,7 +380,12 @@ $(document).ready(function() {
             success: function(res) {
                     $('.comp_id_furl_re_edit').val(res.companyID);
                     $('.fuel_recepit_id_edit').val(res.fuel_receipt._id);
-                    $('.updateFuelReceipt_Driver_name').val(res.fuel_receipt.driverName);
+                    $('.driver_name_fuelReceipt_edit').val(res.fuel_receipt.driverName);
+                    $('.updateFuelReceipt_Driver_name').val(res.fuel_receipt.driverNumber);
+                    if(typeof(res.fuel_receipt.paymentType) != "undefined" && res.fuel_receipt.paymentType !== null)
+                    {
+                         $('.updateapayment_type_fuel_re').val(res.fuel_receipt.paymentType);
+                    }                   
                     $('.update_fuelReceiptDriverNumber').val(res.fuel_receipt.driverNumber);
                     $('.updateFuelReceiptCardNumber').val(res.fuel_receipt.cardNo);
                     $('.updateFuelReceiptFuelVendor').val(res.fuel_receipt.category);
@@ -384,8 +413,8 @@ $(document).ready(function() {
     $('.UpdateFuelReceiptsModal').click(function(){
         var id=$(".fuel_recepit_id_edit").val();
         var comId=$(".comp_id_furl_re_edit").val();
-        var driverName = $(this).attr('data-name');
-        var paymentType=$('.updateFuelReceiptCardNumber').val();
+        var driverName = $(".driver_name_fuelReceipt_edit").val();
+        var paymentType=$('.updateapayment_type_fuel_re').val();
         var driverNo = $('.update_fuelReceiptDriverNumber').val();
         var cardNumber = $('.updateFuelReceiptCardNumber').val();
         var fuelVendor = $('.updateFuelReceiptFuelVendor').val();
@@ -402,7 +431,15 @@ $(document).ready(function() {
         var transactionDiscount = $('.updateFuelReceipttransactionDiscount').val();
         var transactionFee = $('.updateFuelReceipttransactionFee').val();
         var transactionGross = $('.updateFuelReceipttransactionGross').val();
-        var invoiceNo = $('.updateFuelReceiptinvoiceNo').val();
+        var invoiceNo = $('#UpdateFuelReceiptinvoiceNo').val();
+        // alert(invoiceNo);
+        // alert(r);
+        if(paymentType=="")
+        {
+            swal.fire( "'select PaymentType");
+            $('.updateapayment_type_fuel_re').focus();
+            return false;    
+        }
         if(driverName=='')
         {
             swal.fire( "'select one");

@@ -32,8 +32,13 @@ class FuelVendorController extends Controller
             if($FuelVendor_data)
             {
                 $FuelVendorArray=$FuelVendor_data->fuelCard;
-                // dd($FuelVendorArray);
-                $totalFuelVendorArray=count($FuelVendor_data->fuelCard);
+                $ids=array();
+                foreach( $FuelVendorArray as $key=> $getFuelCard_data)
+                {
+                    $ids[]=$getFuelCard_data['_id'];
+                }
+                $ids=max($ids);
+                $totalFuelVendorArray=$ids+1;
             }
             else
             {

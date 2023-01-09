@@ -46,7 +46,7 @@ $(document).ready(function() {
                         // var comId=1;
                         var comId =IftaTollResult.companyID;
                         var IftaTollId =IftaTollResult.tolls[i]._id;
-                        var transectionDate =IftaTollResult.tolls[i].tollDate;
+                        var transectionDate =new Date(IftaTollResult.tolls[i].tollDate);
                         var transType =IftaTollResult.tolls[i].transType;
                         var location =IftaTollResult.tolls[i].location;
                         var transponder =IftaTollResult.tolls[i].transponder;
@@ -57,7 +57,14 @@ $(document).ready(function() {
                        
                         var deleteStatus =IftaTollResult.tolls[i].deleteStatus;
               //alert(fuelCardId);
-             
+                           if(IftaTollResult.tolls[i].tollDate != null)
+                            {
+                                transectionDate= ((transectionDate.getMonth() > 8) ? (transectionDate.getMonth() + 1) : ('0' + (transectionDate.getMonth() + 1))) + '/' + ((transectionDate.getDate() > 9) ? transectionDate.getDate() : ('0' + transectionDate.getDate())) + '/' + transectionDate.getFullYear();
+                            }
+                            else
+                            {
+                                transectionDate="----";
+                            }
 
                         if(deleteStatus == "NO"){
                             //alert("ff");
@@ -207,10 +214,9 @@ $(document).ready(function() {
                 $(".updateiftaTollId").val(res.tolls._id);
                 $('.updateIftaTollNo').val(res.tolls.invoiceNumber);
                 $('.updateIftaTollDate').val(res.tolls.tollDate);
-                // if(isSet(res.tolls.transactionTime))
-                // {
-                //     $('.updateIftaTollTime').val(res.tolls.transactionTime);
-                // }                
+                if(typeof(res.tolls.transactionTime) != "undefined" && res.tolls.transactionTime !== null){
+                    $('.updateIftaTollTime').val(res.tolls.transactionTime);
+                }                
                 $(".updateIftaTollTransactionType").val(res.tolls.transType);
                 $(".updateIftaTollLocationName").val(res.tolls.location);
                 $(".updateIftaTollTruckNumber").val(res.tolls.truckNo);

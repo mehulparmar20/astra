@@ -40,8 +40,8 @@
 
                                 <div class="table-responsive export-table">
                                     <table id="editable-file-datatable" class="table editable-table table-nowrap table-bordered table-edit wp-100 customtable">
-                                        <thead>
-                                        <tr>
+                                        <thead class="thead_th">
+                                        <tr class="tr">
                                            
                                             <th scope="col" col width="50"> <input type="checkbox" id="checkall" class="checkall" onclick="checkall()"></th>
                                             <!-- <th scope="col" col width="50"> <input type="checkbox" disabled></th>     -->
@@ -49,6 +49,7 @@
                                             <th >No</th>
                                             <th >Driver Name</th>
                                             <th >Transaction Date </th>
+                                            <th >Payment Type</th>
                                             <th >Card Number </th>
                                             <th >Truck Number </th>
                                             <th >Driver Number</th>
@@ -72,29 +73,30 @@
                                         <tbody id="FuelReceTable">
 
                                         </tbody>
-                                        <tfoot>
-                                            <tr>
-                                            <th ></th>
-                                            <th >No</th>
-                                            <th >Driver Name</th>
-                                            <th >Transaction Date </th>
-                                            <th >Card Number </th>
-                                            <th >Number </th>
-                                            <th >Driver Number</th>
-                                            <th >Transaction Time</th>
-                                            <th >Location Name </th>
-                                            <th >Location City</th>
-                                            <th > Location State </th>
-                                            <th >Fuel Vendor</th>
-                                            <th >Fuel Type</th>
-                                            <th >Amount</th>
-                                            <th >Quantity</th>
-                                            <th >Total Amount </th>
-                                            <th >Transaction Discount</th>
-                                            <th >Transaction Fee</th>
-                                            <th >Transaction Gross </th>
-                                            <th >Invoice No </th>
-                                            <th >Action</th>
+                                        <tfoot class="thead_th">
+                                            <tr class="tr">
+                                                <th ></th>
+                                                <th >No</th>
+                                                <th >Driver Name</th>
+                                                <th >Transaction Date </th>
+                                                <th >Payment Type</th>
+                                                <th >Card Number </th>
+                                                <th >Number </th>
+                                                <th >Driver Number</th>
+                                                <th >Transaction Time</th>
+                                                <th >Location Name </th>
+                                                <th >Location City</th>
+                                                <th > Location State </th>
+                                                <th >Fuel Vendor</th>
+                                                <th >Fuel Type</th>
+                                                <th >Amount</th>
+                                                <th >Quantity</th>
+                                                <th >Total Amount </th>
+                                                <th >Transaction Discount</th>
+                                                <th >Transaction Fee</th>
+                                                <th >Transaction Gross </th>
+                                                <th >Invoice No </th>
+                                                <th >Action</th>
                                             </tr>
                                         </tfoot>
                                     </table>
@@ -136,7 +138,7 @@
                                             <input type="hidden" name="_token" id="_token_addFuelReceipts" value="{{ csrf_token() }}" />
                                             <div class="form-row">
                                                 <div class="form-group col-md-2">
-                                                    <label>Driver Name
+                                                    <label>Driver Name<span style="color:#ff0000">*</span>
                                                     </label>
                                                     <div>
                                                     <input type="hidden" class="form-control driver_name_fuelReceipt" name="driverName"> 
@@ -146,7 +148,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="form-group col-md-2">
-                                                    <label>Payment Type
+                                                    <label>Payment Type<span style="color:#ff0000">*</span>
                                                     </label>
                                                     <div>
                                                        <select class="form-control paymentType apayment_type_fuel_re" name="payment_type"> 
@@ -287,17 +289,18 @@
                                             <input type="hidden" name="comp_id_furl_re" class="comp_id_furl_re_edit" >
                                             <div class="form-row">
                                                 <div class="form-group col-md-2">
-                                                    <label>Driver Name
+                                                    <label>Driver Name<span style="color:#ff0000">*</span>
                                                         <!-- <span style="color:#ff0000">*</span> -->
                                                     </label>
                                                     <div>
+                                                    <input type="hidden" class="form-control driver_name_fuelReceipt_edit" name="driverName"> 
                                                        <select class="form-control updateFuelReceipt_Driver_name cardHolderName" name="driverName"> 
                                                          <option>select one </option>
                                                        </select>
                                                     </div>
                                                 </div>
                                                 <div class="form-group col-md-2">
-                                                    <label>Payment Type
+                                                    <label>Payment Type<span style="color:#ff0000">*</span>
                                                     </label>
                                                     <div>
                                                        <select class="form-control paymentType updateapayment_type_fuel_re" name="payment_type"> 
@@ -311,11 +314,11 @@
                                                     <label>Driver No
                                                     </label>
                                                         <div class="dropdown show">
-                                                            <input class="form-control update_fuelReceiptDriverNumber" type="text" 
+                                                            <input class="form-control update_fuelReceiptDriverNumber " type="text" 
                                                             name="driverNo" readonly />
                                                         </div>
                                                 </div>
-                                                <div class="form-group col-md-2">
+                                                <div class="form-group col-md-2 driver_nu_cashAd">
                                                     <label>Card Number</label>
                                                     <div>
                                                         <!-- <input class="form-control updateFuelReceiptCardNumber"  type="text"
@@ -324,7 +327,7 @@
                                                        </select>
                                                     </div>
                                                 </div>
-                                                <div class="form-group col-md-2 ">
+                                                <div class="form-group col-md-2 driver_nu_cashAd ">
                                                     <label>Fuel Vendor </label>
                                                     <div>
                                                         <input class="form-control seleted_fuel_vend_type updateFuelReceiptFuelVendor" type="text" name="fuelVendor" readonly />
@@ -362,9 +365,9 @@
                                                 </div>
                                                 <div class="form-group col-md-2 ">
                                                     <label >Location State <span style="color:#ff0000">*</span></label>
-                                                    <select class="form-control updateFuelReceiptLocationState registered_state" name="locationState" list="registered_state"  required autocomplete="off" > 
-                                                        <option> select one</option>
-                                                    </select>
+                                                    <input class="form-control updateFuelReceiptLocationState registered_state" name="locationState" list="registered_state"  required autocomplete="off" > 
+                                                        <!-- <option> select one</option>
+                                                    </select> -->
                                                 </div>
                                                
                                                 <div class="form-group col-md-2">
@@ -393,7 +396,7 @@
                                                 </div>
                                                 <div class="form-group col-md-4">
                                                     <label >Invoice No</label>
-                                                    <select class="form-control UpdateFuelReceiptinvoiceNo fuel_recepit_invoice_no_list" name="invoiceNo "> 
+                                                    <select class="form-control UpdateFuelReceiptinvoiceNo fuel_recepit_invoice_no_list" name="invoiceNo " id="UpdateFuelReceiptinvoiceNo"> 
                                                         <option>select one </option>
                                                     </select>
                                                 </div>

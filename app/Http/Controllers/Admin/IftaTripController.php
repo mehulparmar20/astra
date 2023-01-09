@@ -25,6 +25,16 @@ class IftaTripController extends Controller
        
        return response()->json($Shipper, 200, [], JSON_PARTIAL_OUTPUT_ON_ERROR);
     }
+    public function editIftaTrip(Request $request)
+    {
+        $tripId=$request->iftaTripId;
+        $companyId=(int)$request->comId;
+        $Invoiced = Invoiced::where('companyID',$companyId)
+                            ->select('Invoiced.load.rate')
+                            ->first();
+                            dd($Invoiced);
+        // echo $tripId . " " .$companyId; 
+    }
   
    
 

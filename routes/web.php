@@ -186,6 +186,7 @@ Route::post('admin/restoreIftaToll', [IftaTollController::class, 'restoreIftaTol
 
 //IftaTripController
 Route::get('admin/getIftaTrip', [IftaTripController::class, 'getIftaTrip']);
+Route::get('admin/editIftaTrip', [IftaTripController::class, 'editIftaTrip']);
 
 //Bank
 Route::get('admin/getBankData', [BankController::class, 'getBankData']);
