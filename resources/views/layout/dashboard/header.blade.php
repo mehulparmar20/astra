@@ -53,8 +53,8 @@
 
  
     <!-- Datatable plugin CSS file -->
-	<link rel="stylesheet" href=
-"https://cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css" />
+	<!-- <link rel="stylesheet" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css" /> -->
+    <link rel="stylesheet" href="//cdn.datatables.net/1.13.1/css/jquery.dataTables.min.css">
 
 	<!-- jQuery library file -->
 	<script type="text/javascript"
@@ -62,9 +62,9 @@
 	</script>
 
 	<!-- Datatable plugin JS library file -->
-	<script type="text/javascript" src=
+	<!-- <script type="text/javascript" src=
 "https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
-	</script>
+	</script> -->
       
 
 <style type="text/css">

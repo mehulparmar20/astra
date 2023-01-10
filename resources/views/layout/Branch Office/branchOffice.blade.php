@@ -12,7 +12,7 @@
                 </div>
 
                 <div style="margin-top: 15px; margin-left: 15px;">
-                <a href="#addDriverModal" class="button-57" data-toggle="modal" ata-target="#addDriverModal"><i class="fa fa-plus" aria-hidden="true"></i><span>Add Office</span></a>
+                <a href="#" class="button-57" data-toggle="modal" ata-target="#"><i class="fa fa-plus" aria-hidden="true"></i><span>Add Office</span></a>
 
                 </div>
                 <!-- Modal body -->

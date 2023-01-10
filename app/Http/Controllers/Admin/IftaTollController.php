@@ -238,6 +238,55 @@ class IftaTollController extends Controller
             }
         }
     }
+    public function deleteMultiIftaToll(Request $request)
+    {
+        $fuel_ids=$request->all_ids;
+        // dd($fuel_ids);
+        $custID=(array)$request->custID;
+        foreach($custID as $company_id)
+        {
+            $company_id=str_replace( array( '\'', '"',
+            ',' , ' " " ', '[', ']' ), ' ', $company_id);
+            $company_id=(int)$company_id;
+            $iftaToll = iftaToll::where('companyID',$company_id )->first();
+            $iftaTollArray=$iftaToll->tolls;
+            $arrayLength=count($iftaTollArray);         
+            $i=0;
+            $v=0;
+            $data=array();
+            for ($i=0; $i<$arrayLength; $i++){
+                $ids=$iftaToll->tolls[$i]['_id'];
+                $ids=(array)$ids;
+                foreach ($ids as $value){
+                    $fuel_ids= str_replace( array('[', ']'), ' ', $fuel_ids);
+                    if(is_string($fuel_ids))
+                    {
+                        $fuel_ids=explode(",",$fuel_ids);
+                    }
+                    foreach($fuel_ids as $fue_v_id)
+                    {
+                        $fue_v_id= str_replace( array('"', ']' ), ' ', $fue_v_id);
+                        if($value==$fue_v_id)
+                        {                        
+                            $data[]=$i; 
+                        }
+                    }
+                }
+            }
+            //
+            // dd($data);
+            foreach($data as $row)
+            {
+                $iftaTollArray[$row]['deleteStatus'] = "YES";
+                $iftaToll->tolls= $iftaTollArray;
+                $save=$iftaToll->save();
+            }
+            if (isset($save)) {
+                $arr = array('status' => 'success', 'message' => 'Ifta Toll Deleted successfully.','statusCode' => 200); 
+            return json_encode($arr);
+            }
+        }
+    }
    
 
     

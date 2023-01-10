@@ -69,7 +69,7 @@ $(document).ready(function() {
                         if(deleteStatus == "NO"){
                             //alert("ff");
                             var IftaTollStr = "<tr data-id=" + (i + 1) + ">" +
-                            "<td data-field=''><input type='checkbox' id='check_sigle_toll' class='check'></td>" +
+                            "<td data-field=''><input type='checkbox' class='delete_check_iftaToll_one' name='delete_checkediftaToll_ids[]' data-id=" + IftaTollId + " date-cusId=" + comId + "  value=" + IftaTollId + "></td>" +
                             "<td data-field='no'>" + no + "</td>" +
                             "<td data-field='transectionDate' >" + transectionDate + "</td>" +
                             "<td data-field='transType' >" + transType + "</td>" +
@@ -493,4 +493,79 @@ $(document).ready(function() {
         });
     });
     //============================ end ifta toll restore ============================
+
+    //================================ start multi delete toll ==============================
+    $(document).on("change", ".delete_all_checked_ids", function () {
+        if (this.checked) {
+            $('.delete_check_iftaToll_one:checkbox').each(function () {
+                this.checked = true;
+                IftaTollCheckboxDelete();
+            });
+        }
+        else {
+            $('.delete_check_iftaToll_one:checkbox').each(function () {
+                this.checked = false;
+            });
+        }
+    });
+    $('body').on('click', '.delete_check_iftaToll_one', function () {
+        IftaTollCheckboxDelete();
+    });
+    function IftaTollCheckboxDelete() {
+        var IftaTollsdIds = [];
+        var companyIds = []
+        $.each($("input[name='delete_checkediftaToll_ids[]']:checked"), function () {
+            IftaTollsdIds.push($(this).val());
+            companyIds.push($(this).attr("date-cusId"));
+        });
+        console.log(IftaTollsdIds);
+        var IftaTollsCheckedIds = JSON.stringify(IftaTollsdIds);
+        $('#delete_checked_ifta_toll_ids').val(IftaTollsCheckedIds);
+
+        var companyCheckedIds = JSON.stringify(companyIds);
+        $('#delete_checked_iftaToll_company_ids').val(companyCheckedIds);
+
+
+        if (IftaTollsdIds.length > 0) {
+            $('#delete_IftaTollData_btn').removeAttr('disabled');
+        }
+        else {
+            $('#delete_IftaTollData_btn').attr('disabled', true);
+        }
+    }
+    $('body').on('click', '.delete_IftaTollData_btn', function () {
+        var all_ids = $('#delete_checked_ifta_toll_ids').val();
+        var custID = $("#delete_checked_iftaToll_company_ids").val();
+        swal.fire({
+            title: "Delete?",
+            text: "Please ensure and then confirm!",
+            type: "warning",
+            showCancelButton: !0,
+            confirmButtonText: "Yes, delete it!",
+            cancelButtonText: "No, cancel!",
+            reverseButtons: !0
+        }).then(function (e) {
+            if (e.value === true) {
+                $.ajax({
+                    type: "post",
+                    data: { _token: $("#_token_updateIftaToll").val(), all_ids: all_ids, custID: custID },
+                    url: base_path + "/admin/deleteMultiIftaToll",
+                    success: function (response) {
+                        swal.fire("Done!", "Ifta Tolls Deleted successfully", "success");
+                        $.ajax({
+                            type: "GET",
+                            url: base_path+"/admin/getIftaToll",
+                            async: false,
+                            success: function(text) {
+                                console.log(text);
+                                createIftaTollRows(text);
+                                IftaTollResult = text;
+                            }
+                        });
+                    }
+                });
+            }
+        });
+    });
+    //================================= end multi delete toll ====================
 });

@@ -13,7 +13,7 @@
                 </div>
 
                 <div style="margin-top: 15px; margin-left: 15px;">
-                    <a href="#addDriverModal" class="button-57 addTrailerModal">
+                    <a href="#" class="button-57 addTrailerModal">
                         <i class="fa fa-plus " aria-hidden="true"></i>
                         <span>Add trailer</span>
                     </a>
@@ -119,7 +119,7 @@
                                                 <div class="form-group col-md-2">
                                                     <label for="trailertype">Trailer Type <span style="color:#ff0000">*</span>&nbsp; 
 
-                                                    <!-- <a href="#addDriverModal" class="button-57 addTrailerType">
+                                                    <!-- <a href="#" class="button-57 addTrailerType">
                                                         <i class="fa fa-plus " aria-hidden="true"></i>
                                                     </a> -->
                                                     <span class="glyphicon glyphicon-plus-sign addTrailerType " id="addTrailerType" data-toggle="modal"  style="cursor:pointer;"></span>

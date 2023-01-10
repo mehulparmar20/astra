@@ -87,7 +87,7 @@ $(document).ready(function() {
                         if(deleteStatus == "NO"){
                             //alert("ff");
                             var fuelReceStr = "<tr data-id=" + (i + 1) + ">" +
-                            "<td data-field=''><input type='checkbox' id='checkall' class='checkall'></td>" +
+                            "<td data-field=''><input type='checkbox' class='check_fuelRecept_one_delete' name='all_fuel_recepit_ids_delete[]' data-id=" + fuelReceiptId+ " date-cusId="+custID+"  value="+fuelReceiptId+"></td>" +
                             "<td data-field='no'>" + no + "</td>" +
                             "<td data-field='driverName' >" + driverName + "</td>" +
                             "<td data-field='transactionDate' >" + transactionDate + "</td>" +
@@ -745,4 +745,89 @@ $(document).ready(function() {
         });
     });
     // ===========================end restore fuel recepit data ====================
+
+    //=============================== start multipal delete ========================
+    $(document).on("change", ".fuel_recepit_ids_delete", function() 
+    {
+        if(this.checked) {
+            $('.check_fuelRecept_one_delete:checkbox').each(function() 
+            {
+                this.checked = true;
+                fuelRecepitCheckboxDelete();
+            });
+        } 
+        else 
+        {
+            $('.check_fuelRecept_one_delete:checkbox').each(function() {
+                this.checked = false;
+            });
+        }
+    });
+    $('body').on('click','.check_fuelRecept_one_delete',function(){
+        fuelRecepitCheckboxDelete();
+    });
+    function fuelRecepitCheckboxDelete()
+    {
+        var fuelRecepitIds = [];
+        var companyIds=[]
+			$.each($("input[name='all_fuel_recepit_ids_delete[]']:checked"), function(){
+				fuelRecepitIds.push($(this).val());
+                companyIds.push($(this).attr("date-cusId"));
+			});
+			// console.log(fuelRecepitIds);
+			var fuelRecepitCheckedIds =JSON.stringify(fuelRecepitIds);
+			$('#checked_fuelRecepit_delete').val(fuelRecepitCheckedIds);
+           
+			var companyCheckedIds =JSON.stringify(companyIds);
+			$('#checked_fuelRecepit_company_ids_delete').val(companyCheckedIds);
+
+
+			if(fuelRecepitIds.length > 0)
+			{
+				$('#delete_Fuel_ReceiptData').removeAttr('disabled');
+			}
+			else
+			{
+				$('#delete_Fuel_ReceiptData').attr('disabled',true);
+			}
+    }
+    $('body').on('click','.delete_Fuel_ReceiptData',function(){
+        var all_ids=$('#checked_fuelRecepit_delete').val();
+        var custID=$("#checked_fuelRecepit_company_ids_delete").val();
+        swal.fire({
+            title: "Delete?",
+            text: "Please ensure and then confirm!",
+            type: "warning",
+            showCancelButton: !0,
+            confirmButtonText: "Yes, delete it!",
+            cancelButtonText: "No, cancel!",
+            reverseButtons: !0
+        }).then(function (e) {
+            if (e.value === true) 
+            {
+                $.ajax({
+                    type:"post",
+                    data:{_token:$("#_token_updateFuelReceipts").val(),all_ids:all_ids,custID:custID},
+                    url: base_path+"/admin/deleteMulFuelReceipt",
+                    success: function(response) {               
+                        swal.fire("Done!", "Fuel Recepit Deleted successfully", "success");
+                        $("#restore_fuelReceiptModal").modal("hide");
+                        $.ajax({
+                            type: "GET",
+                            url: base_path+"/admin/getFuelReceipt",
+                            async: false,
+                            //dataType:JSON,
+                            success: function(text) {
+                                //alert();
+                                console.log(text);
+                                createFuelReceiptRows(text);
+                                FuelReceiptResult = text;
+                            }
+                        });
+                    }
+                });           
+            }
+        });
+    });
+    //================================= end multipal delete ========================
 });

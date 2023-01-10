@@ -89,7 +89,7 @@
                         <div class="row row-sm">
                             <div class="col-lg-12">
                                 <div class="table-responsive export-table">
-                                    <table id="editable-file-datatable" class="table editable-table table-nowrap table-bordered table-edit wp-100">
+                                    <table id="editable-file-datatable" class="table editable-table table-nowrap table-bordered table-edit wp-100 editable-file-datatable">
                                         <thead class="thead_th">
                                             <tr  class="tr">
                                                 <th >#</th>

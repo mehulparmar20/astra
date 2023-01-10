@@ -1,4 +1,7 @@
 var base_path = $("#url").val();
+$(document).ready( function () {
+    $('.editable-file-datatable').DataTable();
+} );
 $(document).ready(function() {
     $('.closeIftaTrip').click(function(){
         $('#IftaTripModalList').modal('hide');
@@ -34,8 +37,15 @@ $(document).ready(function() {
                 var no=1;
                 for (var i = IftaTriplen-1; i >= 0; i--) 
                 {  
-                    // var leng=IftaTriplen[i].length;
-                    // alert(leng);
+
+                    var shipDate=IftaTripResult.load[i].receivedate;
+                    var months_arr = ['1','2','3','4','5','6','7','8','9','10','11','12'];
+                    var date = new Date(shipDate*1000);
+                    var year = date.getFullYear();
+                    var month = months_arr[date.getMonth()];
+                    var day = date.getDate();
+                    var convdataTime = month+'/'+day+'/'+year;
+
                     var comId =IftaTripResult.companyID;
                     var IftaTripId =IftaTripResult.load[i]._id;  
                     var varifyCondi=IftaTripResult.load[i].isIftaVerified;
@@ -45,7 +55,7 @@ $(document).ready(function() {
                     var end_location=IftaTripResult.load[i].end_location;
                     var consignee_location=IftaTripResult.load[i].consignee;
                     var empty_miles=IftaTripResult.load[i].empty_miles_value;
-                    var total_miles=IftaTripResult.load[i].loaded_miles_value;
+                    var total_miles=parseInt(IftaTripResult.load[i].loaded_miles_value)+parseInt(IftaTripResult.load[i].empty_miles_value);
                     var shipper_location=IftaTripResult.load[i].shipper;
                     var consigLeng=IftaTripResult.load[i].consignee.length;
                     for(var j=0; j<consigLeng;j++)
@@ -68,7 +78,7 @@ $(document).ready(function() {
                             "<td>"+shipperLocation+" </td>"+
                             "<td>"+consigneeLocation+" </td>"+
                             "<td>"+end_location+" </td>"+
-                            "<td>"+shipDate+" </td>"+
+                            "<td>"+convdataTime+" </td>"+
                             "<td>"+empty_miles+" </td>"+
                             "<td >" + total_miles + "</td>" +
                        
@@ -113,6 +123,7 @@ $(document).ready(function() {
             $("#NotVerifyIftaTripModalList").modal("show");
             $('#IftaTripModalList').modal('hide');           
         });
+        // $("#editable-file-datatable").DataTable();
         function notVerifyTrip(IftaTripResult)
         {
             if (IftaTripResult != null) 
@@ -125,18 +136,23 @@ $(document).ready(function() {
                     var no=1;
                     for (var i = IftaTriplen-1; i >= 0; i--) 
                     {  
-                        // var leng=IftaTriplen[i].length;
-                        // alert(leng);
+                        var shipDate=IftaTripResult.load[i].receivedate;
+                        var months_arr = ['1','2','3','4','5','6','7','8','9','10','11','12'];
+                        var date = new Date(shipDate*1000);
+                        var year = date.getFullYear();
+                        var month = months_arr[date.getMonth()];
+                        var day = date.getDate();
+                        var convdataTime = month+'/'+day+'/'+year;
                         var comId =IftaTripResult.companyID;
                         var IftaTripId =IftaTripResult.load[i]._id;  
                         var varifyCondi=IftaTripResult.load[i].isIftaVerified;
                         var truck=IftaTripResult.load[i].loaddata['loadertruck'];
-                        var shipDate=IftaTripResult.load[i].receivedate;
+                        // var shipDate=IftaTripResult.load[i].receivedate;
                         var startLocation=IftaTripResult.load[i].start_location;
                         var end_location=IftaTripResult.load[i].end_location;
                         var consignee_location=IftaTripResult.load[i].consignee;
                         var empty_miles=IftaTripResult.load[i].empty_miles_value;
-                        var total_miles=IftaTripResult.load[i].loaded_miles_value;
+                        var total_miles=parseInt(IftaTripResult.load[i].loaded_miles_value)+parseInt(IftaTripResult.load[i].empty_miles_value);
                         var shipper_location=IftaTripResult.load[i].shipper;
                         var consigLeng=IftaTripResult.load[i].consignee.length;
                         for(var j=0; j<consigLeng;j++)
@@ -159,7 +175,7 @@ $(document).ready(function() {
                                 "<td>"+shipperLocation+" </td>"+
                                 "<td>"+consigneeLocation+" </td>"+
                                 "<td>"+end_location+" </td>"+
-                                "<td>"+shipDate+" </td>"+
+                                "<td>"+convdataTime+" </td>"+
                                 "<td>"+empty_miles+" </td>"+
                                 "<td >" + total_miles + "</td>" +
                            

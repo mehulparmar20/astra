@@ -15,19 +15,10 @@
                     <button class="button-57_alt createIftaTollModalBtn" ><i class="fa fa-plus" aria-hidden="true"></i><span>Add </span></button>
 
                     <button class="button-57_alt restoreIftaTollData" ><i class="fa fa-repeat " aria-hidden="true"></i><span>Restore </span></button>
-                    <!-- <a href="#addDriverModal" class="button-57" data-toggle="modal"data-target="#addDriverModal"><i class="fa fa-plus" aria-hidden="true"></i><span>Add</span></a>
-                    <a class="button-57" data-toggle="modal"><i class="fa fa-file-excel-o" aria-hidden="true"></i></span><span>Export CSV</span></a>
-                    <a class="button-57" data-toggle="modal"><i class="fa fa-upload" aria-hidden="true"></i></span><span>Upload File</span></a>
-                    <a href="#contractCategoryModal" class="button-57_alt" data-toggle="modal" data-target="#contractCategoryModal"><i class="fa fa-id-card" aria-hidden="true"></i></span><span>Button 3</span></a>
-                    <div class="searchbar" style="float: right; margin-right: 15px;">
-                        <input type="text" placeholder="search" /> -->
-                        <!-- <div class="symbol">
-                            
-                            <svg class="lens">
-                            <use xlink:href="#lens" />
-                            </svg>
-                        </div> -->
-                    <!-- </div> -->
+
+                    <input type="hidden" name="checked_id" id="delete_checked_ifta_toll_ids" value="">
+                    <input type="hidden" name="company_id" id="delete_checked_iftaToll_company_ids" value="">
+                    <button id="delete_IftaTollData_btn"  class="button-57_alt delete_IftaTollData_btn" disabled><i class="fa fa-trash" aria-hidden="true"></i><span>Delete fuel vendor</span></button>
 
                 </div>
                 <!-- Modal body -->
@@ -42,7 +33,7 @@
                                         <thead class="thead_th">
                                         <tr  class="tr">
                                            
-                                            <th scope="col" col width="50"> <input type="checkbox" id="checkall" class="checkall" onclick="checkall()"></th>
+                                            <th scope="col" col width="50"> <input type="checkbox" name="all_ids[]" class="delete_all_checked_ids"></th>
                                             <!-- <th scope="col" col width="50"> <input type="checkbox" disabled></th>     -->
 
                                             <th >No</th>

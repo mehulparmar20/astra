@@ -257,6 +257,52 @@ class FuelReceiptController extends Controller
         $Invoiced = Invoiced::where('companyID',$companyId)->first();
         return response()->json($Invoiced, 200, [], JSON_PARTIAL_OUTPUT_ON_ERROR);
    }
+   public function deleteMulFuelReceipt(Request $request)
+   {
+    $fuelReceIds=$request->all_ids;
+    $custID=(array)$request->custID;
+    foreach($custID as $fuel_re_id)
+    {
+        $fuel_re_id=str_replace( array( '\'', '"',
+        ',' , ' " " ', '[', ']' ), ' ', $fuel_re_id);
+        $fuel_re_id=(int)$fuel_re_id;
+        $FuelReceipt = FuelReceipt::where('companyID',$fuel_re_id )->first();
+        $fuelReceiptArray=$FuelReceipt->fuel_receipt;
+        $arrayLength=count($fuelReceiptArray);            
+        $i=0;
+        $v=0;
+        $data=array();
+        for ($i=0; $i<$arrayLength; $i++){
+            $ids=$FuelReceipt->fuel_receipt[$i]['_id'];
+            $ids=(array)$ids;
+            foreach ($ids as $value){
+                $fuelReceIds= str_replace( array('[', ']'), ' ', $fuelReceIds);
+                if(is_string($fuelReceIds))
+                {
+                    $fuelReceIds=explode(",",$fuelReceIds);
+                }
+                foreach($fuelReceIds as $fuelReId)
+                {
+                    $fuelReId= str_replace( array('"', ']' ), ' ', $fuelReId);
+                    if($value==$fuelReId)
+                    {                        
+                        $data[]=$i; 
+                    }
+                }
+            }
+        }
+        foreach($data as $row)
+        {
+            $fuelReceiptArray[$row]['deleteStatus'] = "YES";
+            $FuelReceipt->fuel_receipt= $fuelReceiptArray;
+            $save=$FuelReceipt->save();
+        }
+        if ($save) {
+            $arr = array('status' => 'success', 'message' => 'Fuel Receipt Deleted successfully.','statusCode' => 200); 
+            return json_encode($arr);
+        }
+    }
+   }
 
     
 }

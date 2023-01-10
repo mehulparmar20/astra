@@ -39,7 +39,7 @@
 														<div class="tab-pane active " id="tab25">
                                                             <div class="table-responsive export-table">
 
-                                                                <a href="#addDriverModal" class="btn btn-primary" data-toggle="modal" data-target="#addDriverModal">Add</a>
+                                                                <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#">Add</a>
                                                                 <input type="file" class="form-control float-right" id="Shipperfiles" name="Shipperfiles[]" multiple="" accept=".png, .jpg, .jpeg, .pdf" style="width: auto;">
                                                                 <a href="#setupDriverModal" class="btn btn-primary float-right" data-toggle="modal" data-target="#viewDriverApplicationModal"> XLSX format</a> &nbsp;&nbsp;&nbsp;
 
@@ -78,7 +78,7 @@
 														<div class="tab-pane " id="tab26">
                                                             <div class="table-responsive export-table">
 
-                                                                <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#addDriverModal">Add</a>
+                                                                <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#">Add</a>
                                                                 <input type="file" class="form-control float-right" id="Shipperfiles" name="Shipperfiles[]" multiple="" accept=".png, .jpg, .jpeg, .pdf" style="width: auto;">
                                                                 <a href="#" class="btn btn-primary float-right" data-toggle="modal" data-target="#"> XLSX format</a> &nbsp;&nbsp;&nbsp;
 

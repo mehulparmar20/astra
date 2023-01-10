@@ -24,16 +24,16 @@ $(function (e) {
 			sSearch: '',
 		}
 	});
-	table.buttons().container()
-		.appendTo('#editable-file-datatable_wrapper .col-md-6:eq(0)');
+	// table.buttons().container()
+	// 	.appendTo('#editable-file-datatable_wrapper .col-md-6:eq(0)');
 
-	// Delete Data Table
-	var table = $('#delete-datatable').DataTable({
-		language: {
-			searchPlaceholder: 'Search...',
-			sSearch: '',
-		}
-	});
+	// // Delete Data Table
+	// var table = $('#delete-datatable').DataTable({
+	// 	language: {
+	// 		searchPlaceholder: 'Search...',
+	// 		sSearch: '',
+	// 	}
+	// });
 	$('#delete-datatable tbody').on('click', 'tr', function () {
 		if ($(this).hasClass('selected')) {
 			$(this).removeClass('selected');

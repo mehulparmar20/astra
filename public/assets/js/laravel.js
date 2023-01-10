@@ -435,7 +435,7 @@ $(document).ready(function() {
             // var no=1;
             //$(".customerCurrencySet").html('');
             $(".office_name_set").html('');
-            for (var i = 0; i <= officeTypelength; i++) 
+            for (var i=0; i<officeTypelength; i++) 
             {  
                 var officeName =officeAddressData.office[i].officeName;
                 var officeId =officeAddressData.office[i]._id;
@@ -485,7 +485,7 @@ $(document).ready(function() {
             // var no=1;
             //$(".customerCurrencySet").html('');
             $(".set_company_name").html('');
-            for (var i = 0; i <= companyDetailLength; i++) 
+            for (var i=0; i<companyDetailLength; i++) 
             {  
                 var companyName =companyDetails.company[i].companyName;
                 var companyId =companyDetails.company[i]._id;
@@ -1668,7 +1668,7 @@ $(document).ready(function() {
 
         function createviewDriverApplicationRows(viewDriverApplicationResponse) {i
 
-            console.log(viewDriverApplicationResponse);
+            // console.log(viewDriverApplicationResponse);
             var len1 = 0;
             
             $('#viewDriverApplicationTable').empty(); 
@@ -2317,3 +2317,76 @@ $(document).ready(function() {
         document.getElementById("up_ownerPercentage").stepUp(-1);
     }
     
+
+
+
+    //============= start  show all logged user in navbar ==============================
+    // $(document).ready(function(){
+    //     function showOnline() {
+    //         var userscolor = ["#3E2723", "#01579B", "#4A148C", "#1B5E20", "#BF360C"];
+    //         var userid = $("#user_type").val();
+    //         database.ref(roomtest).once("value", function(snapshot) {
+    //             var span = ``;
+    //             var add = ``;
+    //             var div = ``;
+    //             var i = 0;
+    //             var data = '';
+    //             var data1 = '';
+    //             snapshot.forEach(function(data) {
+        
+        
+    //                 var str1 = data.val();
+    //                 var res = str1.data.split('^');
+    //                 var str = res[0].charAt(0).toLocaleUpperCase();
+    //                 var current_tab = res[1];
+    //                 if (userid == 'admin') {
+    //                     data = " | Currently on : " + current_tab;
+    //                     data1 = " | On : " + current_tab;
+    //                 } else {
+    //                     data = '';
+    //                     data1 = '';
+    //                 }
+    //                 if (i < 4) {
+    //                     span += `<span class="stack" title="${res[0] + data}" >
+    //                                     <div class="numberCircle" style="background-color:${userscolor[i+1]}">${str}</div>
+    //                             </span>`;
+    //                 } else {
+    //                     div += `<li class="checkbox-row" style="direction: rtl;">
+    //                                     <div class="online-text">${res[0]+ data1}</div>
+    //                                     <div class="online-dropdown" style="background-color:${getRandomColor()};"><span  style="line-height:33px">${str}</span></div>
+    //                                 </li>  `;
+    //                 }
+    //                 i++;
+    //             });
+    //             if (i >= 5) {
+    //                 if (userid == 'admin') {
+    //                     add = `<span class="stack" title="click here to view all" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false"> 
+    //                                             <div class="numberCircle" style="background-color:#4D5656">${i - 4}+</div>
+    //                                 </span>
+    //                                 <div class="dropdown-menu dropdown-menu-right dropdown-menu">
+    //                                         <h6 class="online-users">
+    //                                         Online Users
+    //                                         </h6>
+    //                                         ${div}
+                                            
+    //                                     </div>
+    //                                 `;
+    //                 } else {
+    //                     add = `<span class="stack" title="click here to view all" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false"> 
+    //                                             <div data-name="dash_showuser_online" class="numberCircle" style="background-color:#4D5656">${i - 4}+</div>
+    //                                 </span>
+    //                                 <div class="dropdown-menu dropdown-menu-right dropdown-menu">
+    //                                         <h6 class="online-users">
+    //                                         Online Users
+    //                                         </h6>
+    //                                         ${div}
+    //                                     </div>
+    //                                 `;
+    //                 }
+    //             }
+    //             span += add;
+    //             $(".stacks").html(span);
+    //         });
+    //     }
+    // })
+    //================== end show all logged user in navbar ============================

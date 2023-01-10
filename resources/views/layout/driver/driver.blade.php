@@ -12,7 +12,7 @@
                 </div>
 
                 <div style="margin-top: 15px; margin-left: 15px;">
-                <a href="#addDriverModal" class="button-57" data-toggle="modal"
+                <a href="#" class="button-57" data-toggle="modal"
                                                 data-target="#addDriverModal"><i class="fa fa-plus" aria-hidden="true"></i><span>Add Driver</span></a>
                                             <a href="#setupDriverModal" class="button-57" data-toggle="modal"
                                                 data-target="#setupDriverModal"><i class="fa fa-sliders" aria-hidden="true"></i></span><span>Setup<br>Driver</span></a>
@@ -31,7 +31,7 @@
                                         <div class="table-responsive export-table">
                                             <table id="driver_table_pagination" class="table editable-table table-nowrap table-bordered table-edit wp-100 customtable">
 
-                                                <!-- <button href="#addDriverModal" data-toggle="modal" data-target="#addDriverrModal"  class="add1button" style="vertical-align:middle"><span>Add </span></button>
+                                                <!-- <button href="#" data-toggle="modal" data-target="#addDriverrModal"  class="add1button" style="vertical-align:middle"><span>Add </span></button>
                                                         
                                                         <table id="editable-file-datatable" style="margin-bottom : -360rem" class="table editable-table table-nowrap table-bordered table-edit wp-100"> -->
 

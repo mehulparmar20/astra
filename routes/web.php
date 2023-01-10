@@ -174,6 +174,7 @@ Route::get('admin/editFuelReceipt', [FuelReceiptController::class, 'editFuelRece
 Route::post('admin/updateFuelReceipt', [FuelReceiptController::class, 'updateFuelReceipt']);
 Route::post('admin/deleteFuelReceipt', [FuelReceiptController::class, 'deleteFuelReceipt']);
 Route::post('admin/restoreFuelReceipt', [FuelReceiptController::class, 'restoreFuelReceipt']);
+Route::post('admin/deleteMulFuelReceipt', [FuelReceiptController::class, 'deleteMulFuelReceipt']);
 Route::get('admin/getInvoicedNumber', [FuelReceiptController::class, 'getInvoicedNumber']);
 
 //Ifta Toll
@@ -183,6 +184,7 @@ Route::get('admin/editIftaToll', [IftaTollController::class, 'editIftaToll']);
 Route::post('admin/updateIftaToll', [IftaTollController::class, 'updateIftaToll']);
 Route::post('admin/deleteIftaToll', [IftaTollController::class, 'deleteIftaToll']);
 Route::post('admin/restoreIftaToll', [IftaTollController::class, 'restoreIftaToll']);
+Route::post('admin/deleteMultiIftaToll', [IftaTollController::class, 'deleteMultiIftaToll']);
 
 //IftaTripController
 Route::get('admin/getIftaTrip', [IftaTripController::class, 'getIftaTrip']);

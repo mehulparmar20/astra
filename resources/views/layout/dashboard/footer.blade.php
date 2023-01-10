@@ -120,6 +120,7 @@
 <script src="{{URL::to('/')}}/assets/js/js/Terms&Conditions.js"></script>
 <script src="{{URL::to('/')}}/assets/js/js/TruckTrailerMake.js"></script>
 <script src="{{URL::to('/')}}/assets/js/js/load.js"></script>
+<script sr="//cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
 
 </body>
 
