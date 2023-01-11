@@ -28,6 +28,7 @@ use App\Http\Controllers\Admin\TermsConditionsController;
 use App\Http\Controllers\Admin\TruckTrailerMakeController;
 use App\Http\Controllers\Admin\LoadController;
 use App\Http\Controllers\Admin\IftaTripController;
+use App\Http\Controllers\Admin\PaymentReceiptController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -235,3 +236,6 @@ Route::post('admin/addTruckTrailer', [TruckTrailerMakeController::class, 'addTru
 //Load Type
 Route::get('admin/getLoaType', [LoadController::class, 'getLoaType']);
 Route::post('admin/addLoadType', [LoadController::class, 'addLoadType']);
+
+//PaymentReceiptController
+Route::get('admin/getPaymentReceipt', [PaymentReceiptController::class, 'getPaymentReceipt']);

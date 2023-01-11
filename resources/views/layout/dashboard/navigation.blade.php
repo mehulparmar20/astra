@@ -10,6 +10,9 @@
 	$accountArray=$userdata->account;
 	$reportsArray=$userdata->reports;
 	//dd($adminArray['addCustomer']);
+	$user=App\Models\LoggedUsers::get();
+	// dd($user);
+	$loggedUser=count($user);
  ?>
 <div class="app-header header sticky" style="padding: 0; background-color:#FBFBFB">
                 <div class="container-fluid main-container">
@@ -47,8 +50,7 @@
 												<span class="side-menu__label">LoadBoard</span>
 											</a>
 										</li>
-										@if(isset($adminArray['admin']))
-											@if($adminArray['admin']==1)
+									
 												<li class="slide">
 													<a class="side-menu__item" data-bs-toggle="slide" href="#">
 														<svg xmlns="http://www.w3.org/2000/svg" class="side-menu__icon" enable-background="new 0 0 24 24" viewBox="0 0 24 24"><path d="M21.5,21h-19C2.223877,21,2,21.223877,2,21.5S2.223877,22,2.5,22h19c0.276123,0,0.5-0.223877,0.5-0.5S21.776123,21,21.5,21z M4.5,18.0888672h5c0.1326294,0,0.2597656-0.0527344,0.3534546-0.1465454l10-10c0.000061,0,0.0001221-0.000061,0.0001831-0.0001221c0.1951294-0.1952515,0.1950684-0.5117188-0.0001831-0.7068481l-5-5c0-0.000061-0.000061-0.0001221-0.0001221-0.0001221c-0.1951904-0.1951904-0.5117188-0.1951294-0.7068481,0.0001221l-10,10C4.0526733,12.3291016,4,12.4562378,4,12.5888672v5c0,0.0001831,0,0.0003662,0,0.0005493C4.0001831,17.8654175,4.223999,18.0890503,4.5,18.0888672z M14.5,3.2958984l4.2930298,4.2929688l-2.121582,2.121582l-4.2926025-4.293396L14.5,3.2958984z M5,12.7958984l6.671814-6.671814l4.2926025,4.293396l-6.6713867,6.6713867H5V12.7958984z"/></svg>
@@ -56,91 +58,35 @@
 													</a>
 													<ul class="slide-menu">
 														<li class="side-menu-label1"><a href="javascript:void(0)">Admin</a></li>
-														@if(isset($adminArray['addCustomer']))
-															@if($adminArray['addCustomer']==1)
+													
 															<li><a href="#customerModal" class="slide-item" data-toggle="modal" data-target="#customerModal">Customer</a></li>
-															@endif 
-														@elseif(isset($adminArray['customer']))
-															@if($adminArray['customer']==1)
-															<li><a href="#customerModal" class="slide-item" data-toggle="modal" data-target="#customerModal">Customer</a></li>
-															@endif 
-														@endif
-
-														@if(isset($adminArray['addShipper']) && isset($adminArray['addConsignee']))
-															@if($adminArray['addShipper']==1 && $adminArray['addConsignee']==1)
+														
+													
+																 
 																<li><a href="#" id="shipperConsignee_navbar" class="slide-item">Shipper & Consignee</a></li>
-															@endif 
-														@elseif(isset($adminArray['customer']))
-															@if($adminArray['customer']==1)
-																<li><a href="#" id="shipperConsignee_navbar" class="slide-item">Shipper & Consignee</a></li>
-															@endif 
-														@endif	
-
-														@if(isset($adminArray['addExternalCarrier']))
-															@if($adminArray['addExternalCarrier']==1)
+														
 															<li><a href="#ExternalCarrierModal" class="slide-item" data-toggle="modal" data-target="#ExternalCarrierModal">External Carrier</a></li>
-															@endif 
-														@elseif(isset($adminArray['external_carrier']))
-															@if($adminArray['external_carrier']==1)
-															<li><a href="#ExternalCarrierModal" class="slide-item" data-toggle="modal" data-target="#ExternalCarrierModal">External Carrier</a></li>
-															@endif 
-														@endif
-
-														@if(isset($adminArray['addDriver']))
-															@if($adminArray['addDriver']==1)
+															
+															
 															<li><a href="#driverModal" class="slide-item" data-toggle="modal" data-target="#driverModal">Driver & Owner Operator</a></li>
-															@endif 
-														@elseif(isset($adminArray['driver_owner_operator']))
-															@if($adminArray['driver_owner_operator']==1)
-															<li><a href="#driverModal" class="slide-item" data-toggle="modal" data-target="#driverModal">Driver & Owner Operator</a></li>
-															@endif 
-														@endif
 														
-														@if(isset($adminArray['addDriver']))
-															@if($adminArray['addDriver']==1)
+															
 															<li><a href="#userModal" class="slide-item" data-toggle="modal" data-target="#userModal">User</a></li>
-															@endif 
-														@elseif(isset($adminArray['driver_owner_operator']))
-															@if($adminArray['driver_owner_operator']==1)
-															<li><a href="#userModal" class="slide-item" data-toggle="modal" data-target="#userModal">User</a></li>
-															@endif 
-														@endif
-														
-														
-														@if(isset($adminArray['addTruck']))
-															@if($adminArray['addTruck']==1)
+															
+															
 															<li><a href="#" id="truck_navbar" class="slide-item">Truck</a></li>
-															@endif 
-														@elseif(isset($adminArray['truck']))
-															@if($adminArray['truck']==1)
-															<li><a href="#" id="truck_navbar" class="slide-item">Truck</a></li>
-															@endif 
-														@endif
-
-														@if(isset($adminArray['addTrailer']))
-															@if($adminArray['addTrailer']==1)
+															
+															
+															
 															<li><a href="#" class="slide-item" id="trailer_nav">Trailer</a></li>
-															@endif 
-														@elseif(isset($adminArray['trailer']))
-															@if($adminArray['trailer']==1)
-															<li><a href="#" class="slide-item" id="trailer_nav">Trailer</a></li>
-															@endif 
-														@endif
-
-														@if(isset($adminArray['factoringCompany']))
-															@if($adminArray['factoringCompany']==1)
+														
 															<li><a href="#" id="facCompany_navbar" class="slide-item">Factoring Company</a></li>
-															@endif 
-														@elseif(isset($adminArray['factoring_Company']))
-															@if($adminArray['factoring_Company']==1)
-															<li><a href="#" id="facCompany_navbar" class="slide-item">Factoring Company</a></li>
-															@endif 
-														@endif
+															
+															
 														<!-- <li><a href="#FacoringCompanyModal" class="slide-item" data-toggle="modal" data-target="#FacoringCompanyModal">Factoring Company</a></li> -->
 													</ul>
 												</li>
-											@endif 
-										@endif
+											
 												<li class="slide">
 													<a class="side-menu__item" data-bs-toggle="slide" href="#">
 														<svg xmlns="http://www.w3.org/2000/svg" class="side-menu__icon" enable-background="new 0 0 24 24" viewBox="0 0 24 24"><path d="M21.5,21h-19C2.223877,21,2,21.223877,2,21.5S2.223877,22,2.5,22h19c0.276123,0,0.5-0.223877,0.5-0.5S21.776123,21,21.5,21z M4.5,18.0888672h5c0.1326294,0,0.2597656-0.0527344,0.3534546-0.1465454l10-10c0.000061,0,0.0001221-0.000061,0.0001831-0.0001221c0.1951294-0.1952515,0.1950684-0.5117188-0.0001831-0.7068481l-5-5c0-0.000061-0.000061-0.0001221-0.0001221-0.0001221c-0.1951904-0.1951904-0.5117188-0.1951294-0.7068481,0.0001221l-10,10C4.0526733,12.3291016,4,12.4562378,4,12.5888672v5c0,0.0001831,0,0.0003662,0,0.0005493C4.0001831,17.8654175,4.223999,18.0890503,4.5,18.0888672z M14.5,3.2958984l4.2930298,4.2929688l-2.121582,2.121582l-4.2926025-4.293396L14.5,3.2958984z M5,12.7958984l6.671814-6.671814l4.2926025,4.293396l-6.6713867,6.6713867H5V12.7958984z"/></svg>
@@ -164,68 +110,29 @@
 													</ul>
 												</li>
 
-										@if(isset($accountArray['account']))
-											@if($accountArray['account']==1)
+									
 												<li class="slide">
 													<a class="side-menu__item" data-bs-toggle="slide" href="#">
 														<svg xmlns="http://www.w3.org/2000/svg" class="side-menu__icon" enable-background="new 0 0 24 24" viewBox="0 0 24 24"><path d="M21.5,21h-19C2.223877,21,2,21.223877,2,21.5S2.223877,22,2.5,22h19c0.276123,0,0.5-0.223877,0.5-0.5S21.776123,21,21.5,21z M4.5,18.0888672h5c0.1326294,0,0.2597656-0.0527344,0.3534546-0.1465454l10-10c0.000061,0,0.0001221-0.000061,0.0001831-0.0001221c0.1951294-0.1952515,0.1950684-0.5117188-0.0001831-0.7068481l-5-5c0-0.000061-0.000061-0.0001221-0.0001221-0.0001221c-0.1951904-0.1951904-0.5117188-0.1951294-0.7068481,0.0001221l-10,10C4.0526733,12.3291016,4,12.4562378,4,12.5888672v5c0,0.0001831,0,0.0003662,0,0.0005493C4.0001831,17.8654175,4.223999,18.0890503,4.5,18.0888672z M14.5,3.2958984l4.2930298,4.2929688l-2.121582,2.121582l-4.2926025-4.293396L14.5,3.2958984z M5,12.7958984l6.671814-6.671814l4.2926025,4.293396l-6.6713867,6.6713867H5V12.7958984z"/></svg>
-														<span class="side-menu__label">Finance</span><i class="angle fa fa-angle-right"></i>
+														<span class="side-menu__label">Account</span><i class="angle fa fa-angle-right"></i>
 													</a>
 													<ul class="slide-menu">
-														<li class="side-menu-label1"><a href="javascript:void(0)">Finance</a></li>
+														<li class="side-menu-label1"><a href="javascript:void(0)">Account</a></li>
 
-														@if(isset($adminArray['addBank']))
-															@if($adminArray['addBank']==1)
 																<li><a href="#" id="bank_navbar" class="slide-item">Bank</a></li>
-															@endif 
-														@elseif(isset($accountArray['bank']))
-															@if($accountArray['bank']==1)
-																<li><a href="#" id="bank_navbar" class="slide-item">Bank</a></li>
-															@endif 
-														@endif
-
-														@if(isset($adminArray['creditCard']))
-															@if($adminArray['creditCard']==1)
-																<li><a href="#" id="creditCard_navbar" class="slide-item">Credit card</a></li>
-															@endif 
-														@elseif(isset($accountArray['credit_card']))
-															@if($accountArray['credit_card']==1)
-																<li><a href="#" id="creditCard_navbar" class="slide-item">Credit card</a></li>
-															@endif 
-														@endif
-
-														@if(isset($adminArray['subCreditCard']))
-															@if($adminArray['subCreditCard']==1)
-																<li><a href="#" id="subCreditCard_navbar" class="slide-item">Sub Credit card</a></li>
-															@endif 
-														@elseif(isset($accountArray['sub_credit_card']))
-															@if($accountArray['sub_credit_card']==1)
-																<li><a href="#" id="subCreditCard_navbar" class="slide-item">Sub Credit card</a></li>
-															@endif 
-														@endif
-
-														@if(isset($accountArray['accountManager']))
-															@if($accountArray['accountManager']==1)
-																<li><a href="#" id="accMana_navbar" class="slide-item">Accounting Manager</a></li>
-															@endif 
-														@endif
 														
-														@if(isset($accountArray['paymentRegistration']))
-															@if($accountArray['paymentRegistration']==1)
-															<li><a href="https://laravel8.spruko.com/noa/form-advanced" class="slide-item">Payment & Receipt Registration</a></li>
-															@endif 
-														@elseif(isset($accountArray['paymentRegistration']))
-															@if($accountArray['paymentRegistration']==1)
-															<li><a href="https://laravel8.spruko.com/noa/form-advanced" class="slide-item">Payment & Receipt Registration</a></li>
-															@endif 
-														@endif
+																
+															
+																<li><a href="#" id="creditCard_navbar" class="slide-item">Credit card</
+																<li><a href="#" id="subCreditCard_navbar" class="slide-item">Sub Credit card</a></li>
+															
+																<li><a href="#" id="accMana_navbar" class="slide-item">Accounting Manager</a></li>
+															
+															<li><a href="#" class="slide-item" id="paymentReceiptRegistration">Payment & Receipt Registration</a></li>
+															
 													</ul>
 												</li>
-											@endif 
-										@endif
 										
-										@if(isset($reportsArray['report']))
-											@if($reportsArray['report']==1)
 												<li class="slide">
 												<a class="side-menu__item" data-bs-toggle="slide" href="#">
 													<svg xmlns="http://www.w3.org/2000/svg" class="side-menu__icon" enable-background="new 0 0 24 24" viewBox="0 0 24 24"><path d="M21.5,21h-19C2.223877,21,2,21.223877,2,21.5S2.223877,22,2.5,22h19c0.276123,0,0.5-0.223877,0.5-0.5S21.776123,21,21.5,21z M4.5,18.0888672h5c0.1326294,0,0.2597656-0.0527344,0.3534546-0.1465454l10-10c0.000061,0,0.0001221-0.000061,0.0001831-0.0001221c0.1951294-0.1952515,0.1950684-0.5117188-0.0001831-0.7068481l-5-5c0-0.000061-0.000061-0.0001221-0.0001221-0.0001221c-0.1951904-0.1951904-0.5117188-0.1951294-0.7068481,0.0001221l-10,10C4.0526733,12.3291016,4,12.4562378,4,12.5888672v5c0,0.0001831,0,0.0003662,0,0.0005493C4.0001831,17.8654175,4.223999,18.0890503,4.5,18.0888672z M14.5,3.2958984l4.2930298,4.2929688l-2.121582,2.121582l-4.2926025-4.293396L14.5,3.2958984z M5,12.7958984l6.671814-6.671814l4.2926025,4.293396l-6.6713867,6.6713867H5V12.7958984z"/></svg>
@@ -234,41 +141,17 @@
 													<ul class="slide-menu">
 														<li class="side-menu-label1"><a href="javascript:void(0)">Reports</a></li>
 
-														@if(isset($reportsArray['aggingReport']))
-															@if($reportsArray['aggingReport']==1)
+														
 																<li><a href="https://laravel8.spruko.com/noa/form-elements" class="slide-item">Aging Report</a></li> 
-															@endif 
-														@endif
-
-														@if(isset($reportsArray['receivableReport']))
-															@if($reportsArray['receivableReport']==1)
+														
 																<li><a href="https://laravel8.spruko.com/noa/form-layouts" class="slide-item">Revenue Report</a></li>
-															@endif 
-														@elseif(isset($reportsArray['Revenue_report']))
-															@if($reportsArray['Revenue_report']==1)
-																<li><a href="https://laravel8.spruko.com/noa/form-layouts" class="slide-item">Revenue Report</a></li> 
-															@endif
-														@endif
-
-														@if(isset($reportsArray['payableReport']))
-															@if($reportsArray['payableReport']==1)
 																<li><a href="https://laravel8.spruko.com/noa/form-layouts" class="slide-item">Expense Report</a></li>
-															@endif	
-														@elseif(isset($reportsArray['Expense_report']))
-															@if($reportsArray['Expense_report']==1)
-																<li><a href="https://laravel8.spruko.com/noa/form-layouts" class="slide-item">Expense Report</a></li>
-															@endif 
-														@endif
-
-														@if(isset($reportsArray['Report1099']))
-															@if($reportsArray['Report1099']==1)
+															
 																<li><a href="https://laravel8.spruko.com/noa/form-validation" class="slide-item">1099 Report</a></li>
-															@endif 
-														@endif
+														
 													</ul>
 												</li>
-											@endif
-										@endif
+										
 			
 										<li class="slide">
 											<a class="side-menu__item" data-bs-toggle="slide" href="#">
@@ -278,15 +161,9 @@
 											<ul class="slide-menu">
 												<li class="side-menu-label1"><a href="javascript:void(0)">Settlements</a></li>
 
-												 @if(isset($reportsArray['driverReport']))
-													@if($reportsArray['driverReport']==1)
+												
 													<li><a href="https://laravel8.spruko.com/noa/form-elements" class="slide-item">Driver Pay Settlements</a></li>
-													@endif	
-												@elseif(isset($settlements['driverReport']))
-													@if($settlements['driverReport']==1)
-													<li><a href="https://laravel8.spruko.com/noa/form-elements" class="slide-item">Driver Pay Settlements</a></li>
-													@endif 
-												@endif
+												
 
 												<!--@if(isset($settlements['CustomerSettlement']))
 													@if($settlements['CustomerSettlement']==1)
@@ -428,11 +305,29 @@
 											</div>
 										</div>
 										<!-- NOTIFICATIONS -->
+										
 										<div class="dropdown d-md-flex profile-1">
 												<a href="#" data-bs-toggle="dropdown" class="nav-link pe-2 leading-none d-flex animate">
 													<span>
-														<img src="https://eu.ui-avatars.com/api/?background=random&name={{auth()->user()->userFirstName}}+{{auth()->user()->userLastName}}" alt="profile-user"
+														@if($loggedUser < 5)
+															@foreach($user as $data)
+																<img src="https://eu.ui-avatars.com/api/?background=random&name={{$data->userFirstName}}+{{$data->userLastName}}" alt="profile-user"
+																class="avatar  profile-user brround cover-image user_Name_OnHover" data-name="{{$data->userFirstName}}+{{$data->userLastName}}">
+																<div class="user_name_on_hover">
+																{{$data->userFirstName}} {{$data->userLastName}}
+																</div>
+															@endforeach
+														@else
+															<img src="https://eu.ui-avatars.com/api/?background=random&name={{auth()->user()->userFirstName}}+{{auth()->user()->userLastName}}" alt="profile-user"
 															class="avatar  profile-user brround cover-image">
+															<div class>
+															{{auth()->user()->userFirstName}}{{auth()->user()->userLastName}}
+															</div>
+															+{{--$loggedUser}}
+															
+														@endif
+															<!-- <img src="https://eu.ui-avatars.com/api/?background=random&name={{auth()->user()->userFirstName}}+{{auth()->user()->userLastName}}" alt="profile-user"
+															class="avatar  profile-user brround cover-image"> -->
 													</span>
 													<div class="text-center p-1 d-flex d-lg-none-max">
 														<h6 class="mb-0" id="profile-heading">{{Auth::user()->userFirstName}}<i class="user-angle ms-1 fa fa-angle-down "></i></h6>
@@ -561,3 +456,4 @@
 			@include('layout.Truck & Trailer make.TruckTrailerMake')
 			@include('layout.Load.Load')
 			@include('layout.IFTAtrip.ifta_trip')
+			@include('layout.PaymentReceiptRegi.paymentReceiptRegi')

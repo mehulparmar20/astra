@@ -7,6 +7,7 @@ use Auth;
 use Session;
 use App\Models\User;
 use App\Models\PasswordReset;
+use App\Models\LoggedUsers;
 use Mail; 
 use Hash;
 use Illuminate\Support\Str;
@@ -29,8 +30,23 @@ class AuthController extends Controller
         $email = $request->userEmail;
         $password = $request->userPass;
         $user = User::where(['userEmail'=>$email, 'userPass'=>sha1($password)])->first();
+        // dd( $user);
         if($user){
+            $id=(int)1;
+            // dd($user->_id);
+            LoggedUsers::create([
+                'id' =>1,
+                'userId'=>$user->_id,
+                'userEmail' => $user->userEmail,
+                'userFirstName'=> $user->userFirstName,
+                'userLastName'=>$user->userLastName,
+                'counter' => 1,
+                'created_time' => date('d-m-y h:i:s'),
+                'edit_time' =>time(),
+                'deleteStatus' =>"NO",
+            ]);
             Auth::login($user);
+
             return redirect('admin/dashboard')->withSuccess('You have Successfully loggedin');
         }
   
@@ -53,6 +69,10 @@ class AuthController extends Controller
     }
 
     public function logout() {
+        $email=Auth::user()->userEmail;
+        // dd($email);
+        $user=LoggedUsers::where('userEmail',$email)->first();
+        $user->delete();
         Session::flush();
         Auth::logout();
   
